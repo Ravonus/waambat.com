@@ -16,32 +16,48 @@ interface ArtworkCardProps {
 
 const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const pauseTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Create an intersection observer that plays the video when at least 50% is visible
+    // Create an intersection observer that plays the video if more than 10% is visible
+    // and pauses it after a delay if less than 10% is visible.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          // If at least 10% of the video is visible, clear any pending pause and play.
+          if (entry.intersectionRatio > 0.1) {
+            if (pauseTimeoutRef.current) {
+              clearTimeout(pauseTimeoutRef.current);
+              pauseTimeoutRef.current = null;
+            }
             video.play().catch((error) => {
               console.error("Error playing video:", error);
             });
           } else {
-            video.pause();
+            // If less than 10% is visible, wait a moment before pausing.
+            if (!pauseTimeoutRef.current) {
+              pauseTimeoutRef.current = window.setTimeout(() => {
+                video.pause();
+                pauseTimeoutRef.current = null;
+              }, 1000); // 1 second delay
+            }
           }
         });
       },
-      { threshold: 0.2 }, // Adjust threshold as needed
+      { threshold: [0, 0.1] }, // Trigger callback when visibility passes 10%
     );
 
     observer.observe(video);
 
-    // Clean up the observer on unmount
+    // Clean up the observer and timeout on unmount
     return () => {
       observer.disconnect();
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
     };
   }, []);
 
