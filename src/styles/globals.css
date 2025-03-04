@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global site styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* black background */
+  color: #fff; /* white text */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
