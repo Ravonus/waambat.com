@@ -34,7 +34,7 @@ const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork }) => {
           }
         });
       },
-      { threshold: 0.5 }, // Adjust threshold as needed
+      { threshold: 0.2 }, // Adjust threshold as needed
     );
 
     observer.observe(video);
@@ -46,9 +46,9 @@ const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork }) => {
   }, []);
 
   return (
-    <div className="transform bg-white shadow transition duration-300 hover:scale-105 hover:shadow-lg">
+    <div className="bg-white transform shadow transition duration-300 hover:scale-105 hover:shadow-lg">
       {/* Using aspect-square to ensure the video container is square */}
-      <div className="relative aspect-square bg-black">
+      <div className="bg-black relative aspect-square">
         <video
           ref={videoRef}
           muted
@@ -62,13 +62,13 @@ const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork }) => {
       </div>
       <div className="p-4">
         <h3 className="text-xl font-bold">{artwork.title}</h3>
-        <p className="text-sm text-gray-500">{artwork.year}</p>
+        <p className="text-gray-500 text-sm">{artwork.year}</p>
         <p className="mt-2 text-sm">{artwork.description}</p>
         <a
           href={artwork.tokenLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-block text-sm text-blue-600 hover:underline"
+          className="text-blue-600 mt-4 inline-block text-sm hover:underline"
         >
           View Token
         </a>
