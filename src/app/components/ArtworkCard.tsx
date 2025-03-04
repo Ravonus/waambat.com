@@ -8,7 +8,7 @@ export interface Artwork {
   description: string;
   tokenLink: string;
   videoSrc: string;
-  poster: string; // Optional poster image URL
+  poster: string;
 }
 
 interface ArtworkCardProps {
@@ -26,6 +26,20 @@ const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork }) => {
     // Force the video to load so that the first frame or poster is available.
     video.load();
 
+    // Immediately check if the video is visible in the viewport and play it if so.
+    const checkVisibility = () => {
+      const rect = video.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        video.play().catch((error) => {
+          console.error("Error playing video:", error);
+        });
+      }
+    };
+
+    checkVisibility();
+
+    // Create an intersection observer that plays the video if at least 10% is visible,
+    // and pauses it after a 1-second delay if less than 10% is visible.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
