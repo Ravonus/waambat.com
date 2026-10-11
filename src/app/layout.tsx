@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 import OriginalFonts from "./components/OriginalFonts";
 import RouteEffects from "./components/RouteEffects";
 import type { Metadata } from "next";
+import { adobeProjectURL } from "~/lib/adobe-project";
 export const metadata: Metadata = {
   title: { default: "waambat", template: "%s — waambat" },
   description: "Video paintings and Ordinals by WAAMBAT · Lindsay Scoggins",
@@ -12,8 +13,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const adobeProject = adobeProjectURL(process.env.WAAMBAT_ADOBE_PROJECT_URL);
   return (
     <html lang="en">
+      <head>
+        {adobeProject && <link rel="stylesheet" href={adobeProject} />}
+      </head>
       <body>
         <a
           href="#main-content"
@@ -22,7 +27,7 @@ export default function RootLayout({
           Skip to artwork
         </a>
         <OriginalFonts
-          enabled={process.env.WAAMBAT_ORIGINAL_FONTS === "1"}
+          enabled={!adobeProject && process.env.WAAMBAT_ORIGINAL_FONTS === "1"}
           approvedHosts={(process.env.WAAMBAT_FONT_HOSTS ?? "")
             .split(",")
             .map((host) => host.trim())

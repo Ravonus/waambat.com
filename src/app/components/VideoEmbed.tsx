@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { videoSource } from "~/lib/video-source";
 import SourceImage from "./SourceImage";
+import { MediaIcon } from "./MediaControls";
 export default function VideoEmbed({
   src,
   title,
@@ -84,8 +85,8 @@ export default function VideoEmbed({
                 className="absolute inset-0 h-full w-full object-contain"
               />
             ) : null}
-            <span className="relative bg-black/80 px-4 py-2">
-              {target.player ? `▶ ${title}` : title}
+            <span className="media-control relative" aria-hidden="true">
+              <MediaIcon kind="play" />
             </span>
           </button>
         )}

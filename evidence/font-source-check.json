@@ -1,0 +1,16 @@
+{
+  "requestedFamily": "amboy-inline",
+  "requestedStyle": "normal",
+  "requestedWeight": 400,
+  "originalComputedLogoWidth": 181.3046875,
+  "repositoryFontAssets": [],
+  "repositoryFontLicenseFiles": [],
+  "originalHtmlFetch": "CONNECT 403",
+  "originalStylesheetFetch": "CONNECT 403",
+  "originalRecoveredLoaderFetch": "CONNECT 403; web reader also inaccessible",
+  "actualFontBinaryUrl": null,
+  "selfHostingAuthorization": "Unverified for actual source asset; no copied binary shipped",
+  "nextEvidence": "Original browser resource trace or injected @font-face source URL, downloaded binary and applicable site-owned license",
+  "adobeServiceRestrictionSource": "https://helpx.adobe.com/fonts/web/introduction/add-fonts-website.html",
+  "adobeModernDomainAllowListRequired": false
+}

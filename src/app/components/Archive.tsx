@@ -4,6 +4,8 @@ import type { SitePage } from "~/lib/content";
 import { archiveRows } from "~/lib/archive-layout";
 import SourceImage from "./SourceImage";
 import VideoEmbed from "./VideoEmbed";
+import InlineVideo from "./InlineVideo";
+import { MediaIcon } from "./MediaControls";
 export default function Archive({ items }: { items: SitePage["archive"] }) {
   const visible = items.filter((i) => !i.archived);
   const container = useRef<HTMLDivElement>(null);
@@ -53,22 +55,41 @@ export default function Archive({ items }: { items: SitePage["archive"] }) {
             style={{ height: row.height, gap }}
           >
             {row.items.map((art) => (
-              <button
+              <div
                 key={art.id}
-                type="button"
-                onClick={() => select(visible.indexOf(art))}
-                aria-label={`View ${art.title || "untitled artwork"}`}
                 className="archive-tile"
                 style={{ flexGrow: art.ratio }}
+                data-archive-artwork={art.id}
               >
-                <SourceImage
-                  src={art.image}
-                  alt=""
-                  sizes="(max-width: 767px) calc(100vw - 40px), 1100px"
-                  className="h-full w-full object-contain"
-                />
-                {art.title && <span>{art.title}</span>}
-              </button>
+                {art.embed ? (
+                  <InlineVideo
+                    key={art.embed}
+                    src={art.embed}
+                    poster={art.image}
+                    title={art.title || "Untitled artwork"}
+                    suspended={selected !== null}
+                  />
+                ) : (
+                  <SourceImage
+                    src={art.image}
+                    alt=""
+                    sizes="(max-width: 767px) calc(100vw - 40px), 1100px"
+                    className="h-full w-full object-contain"
+                  />
+                )}
+                <button
+                  type="button"
+                  className="media-control archive-expand"
+                  onClick={() => select(visible.indexOf(art))}
+                  aria-label={`View ${art.title || "untitled artwork"}`}
+                  title="Open fullscreen viewer"
+                >
+                  <MediaIcon kind="expand" />
+                </button>
+                {art.title && (
+                  <div className="archive-caption">{art.title}</div>
+                )}
+              </div>
             ))}
           </div>
         ))}

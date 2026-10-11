@@ -38,6 +38,12 @@ export default function RouteEffects() {
           event.target instanceof HTMLElement
             ? event.target
             : (event.target as Element)?.parentElement;
+        const disabled = target?.closest(
+          ":disabled,[aria-disabled=true],[inert]",
+        );
+        const clickable = target?.closest(
+          "a[href],button,[role=button],summary,[role=link]",
+        );
         const functional =
           target &&
           !["auto", "default", "pointer"].includes(
@@ -52,11 +58,12 @@ export default function RouteEffects() {
           event.pointerType === "touch" ||
           event.buttons ||
           location.pathname.startsWith("/admin") ||
-          functional ||
-          text ||
-          target?.closest(
-            "input,textarea,select,[contenteditable],pre,code,[draggable=true]",
-          )
+          (functional && !disabled) ||
+          (text && !disabled) ||
+          (!disabled &&
+            target?.closest(
+              "input,textarea,select,iframe,[contenteditable],pre,code,[draggable=true]",
+            ))
         ) {
           hide();
           return;
@@ -66,6 +73,11 @@ export default function RouteEffects() {
           savedCursor = target.style.getPropertyValue("cursor");
           savedPriority = target.style.getPropertyPriority("cursor");
           target.style.setProperty("cursor", "none", "important");
+          cursor.current.dataset.cursorState = disabled
+            ? "not-allowed"
+            : clickable
+              ? "pointer"
+              : "default";
           cursor.current.style.transform = `translate3d(${event.clientX}px,${event.clientY}px,0)`;
           cursor.current.style.opacity = "1";
         }

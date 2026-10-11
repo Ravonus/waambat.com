@@ -1,0 +1,42 @@
+{
+  "scope": "Real Chromium media decoding; controlled provider transport, not upstream acceptance",
+  "archive": {
+    "vimeo": {
+      "timeAdvanced": true,
+      "offscreenPaused": true,
+      "resumedWithoutReload": true,
+      "explicitPauseSticky": true,
+      "fullscreenPaused": true
+    },
+    "youtube": {
+      "timeAdvanced": true,
+      "offscreenPaused": true,
+      "hiddenPaused": true,
+      "reentryResumed": true
+    },
+    "providerTimeSamples": {
+      "vimeo": 1.286685,
+      "youtube": 1.572236
+    },
+    "requests": 13
+  },
+  "cursor": {
+    "arrow": true,
+    "pointer": true,
+    "disabledNested": true,
+    "nativeText": true,
+    "gradientChanges": true,
+    "renderedGradientPixelsChange": true
+  },
+  "mobile": {
+    "width": 390,
+    "noAutomaticFramesWithReducedMotion": true,
+    "noOverflow": true
+  },
+  "mobilePlayback": {
+    "width": 390,
+    "inlineTimeAdvanced": true,
+    "noOverflow": true
+  },
+  "providerFailure": "SDK privacy error retains poster and original destination; unmount produces no page error"
+}

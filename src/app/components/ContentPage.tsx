@@ -64,7 +64,11 @@ function linkedText(block: PageBlock): ReactNode {
       emphasized(remaining.slice(0, match.index)),
       <a
         key={offset + match.index}
-        className="source-inline-link"
+        className={
+          block.type === "heading"
+            ? "source-heading-link"
+            : "source-inline-link"
+        }
         href={match.link.href}
       >
         {emphasized(match.link.text)}

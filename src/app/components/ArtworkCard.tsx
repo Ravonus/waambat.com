@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import type { Artwork } from "~/lib/content";
 import InstagramCard from "./InstagramCard";
 import VideoEmbed from "./VideoEmbed";
+import { useViewportPlayback } from "./useViewportPlayback";
+import { PlaybackButton, MediaIcon } from "./MediaControls";
 export type { Artwork } from "~/lib/content";
 function Poster({ artwork }: { artwork: Artwork }) {
   if (!artwork.poster) return null;
@@ -42,83 +44,48 @@ export default function ArtworkCard({
 }) {
   const container = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
-  const [requested, setRequested] = useState(false);
-  const [mobile, setMobile] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const lifecycle = useViewportPlayback(
+    container,
+    artwork.kind !== "video",
+    (wanted) => {
+      if (!wanted) video.current?.pause();
+      else if (video.current?.readyState)
+        void video.current.play().catch(() => setPlaying(false));
+    },
+  );
+  const { requested, wanted } = lifecycle;
+  const [mobile, setMobile] = useState(false);
   const [error, setError] = useState(false);
   const [muted, setMuted] = useState(true);
-  const visible = useRef(false);
-  const manual = useRef(false);
-  const blocked = useRef(false);
   useEffect(() => {
-    const element = container.current;
-    if (!element || artwork.kind !== "video") return;
-    const motion = matchMedia("(prefers-reduced-motion: reduce)");
-    const connection = (
-      navigator as Navigator & { connection?: { saveData?: boolean } }
-    ).connection;
-    blocked.current = motion.matches || !!connection?.saveData;
-    setMobile(
-      matchMedia("(max-width: 767px)").matches || !!connection?.saveData,
-    );
-    const sync = () => {
-      const shouldPlay =
-        visible.current &&
-        !document.hidden &&
-        (!blocked.current || manual.current);
-      if (shouldPlay) {
-        setRequested(true);
-        if (video.current?.readyState)
-          void video.current.play().catch(() => setPlaying(false));
-      } else {
-        video.current?.pause();
-        setPlaying(false);
-      }
-    };
-    const onMotion = () => {
-      blocked.current = motion.matches || !!connection?.saveData;
-      manual.current = false;
-      sync();
-    };
-    const observer = new IntersectionObserver(
-      (entries) => {
-        visible.current = !!entries[0]?.isIntersecting;
-        sync();
-      },
-      { threshold: 0.1 },
-    );
-    observer.observe(element);
-    document.addEventListener("visibilitychange", sync);
-    motion.addEventListener("change", onMotion);
-    const currentVideo = video.current;
+    const query = matchMedia("(max-width: 767px)");
+    const update = () =>
+      setMobile(
+        query.matches ||
+          !!(navigator as Navigator & { connection?: { saveData?: boolean } })
+            .connection?.saveData,
+      );
+    const initial = requestAnimationFrame(update);
+    query.addEventListener("change", update);
     return () => {
-      observer.disconnect();
-      document.removeEventListener("visibilitychange", sync);
-      motion.removeEventListener("change", onMotion);
-      currentVideo?.pause();
+      cancelAnimationFrame(initial);
+      query.removeEventListener("change", update);
     };
-  }, [artwork.id, artwork.kind]);
+  }, []);
   useEffect(() => {
-    if (
-      requested &&
-      !error &&
-      visible.current &&
-      !document.hidden &&
-      (!blocked.current || manual.current)
-    )
-      void video.current?.play().catch(() => setPlaying(false));
-  }, [requested, error]);
+    const element = video.current;
+    if (wanted && !error) void element?.play().catch(() => setPlaying(false));
+    else element?.pause();
+    return () => {
+      element?.pause();
+    };
+  }, [wanted, requested, error]);
   const toggle = () => {
-    if (playing) {
-      manual.current = false;
-      blocked.current = true;
-      video.current?.pause();
-      setPlaying(false);
-    } else {
-      manual.current = true;
+    if (playing) lifecycle.pause();
+    else {
       setError(false);
-      setRequested(true);
-      void video.current?.play().catch(() => setPlaying(false));
+      lifecycle.play();
     }
   };
   if (artwork.kind === "embed")
@@ -177,14 +144,13 @@ export default function ArtworkCard({
                 playsInline
                 preload="none"
                 onLoadedData={() => {
-                  if (
-                    visible.current &&
-                    !document.hidden &&
-                    (!blocked.current || manual.current)
-                  )
+                  if (lifecycle.desired.current)
                     void video.current?.play().catch(() => setPlaying(false));
                 }}
-                onPlay={() => setPlaying(true)}
+                onPlay={() => {
+                  if (!lifecycle.desired.current) video.current?.pause();
+                  setPlaying(lifecycle.desired.current);
+                }}
                 onPause={() => setPlaying(false)}
                 onError={() => {
                   setError(true);
@@ -195,32 +161,33 @@ export default function ArtworkCard({
             )}
           </a>
           {artwork.kind === "video" && !trailer && (
-            <button
-              type="button"
-              onClick={toggle}
-              className="absolute right-3 bottom-3 rounded bg-black/80 px-3 py-1 text-xs text-white"
-              aria-label={`${playing ? "Pause" : "Play"} ${artwork.title}`}
-            >
-              {error ? "Retry playback" : playing ? "Pause" : "Play"}
-            </button>
+            <div className="painting-controls">
+              <PlaybackButton
+                playing={playing}
+                title={artwork.title}
+                onClick={toggle}
+                error={error}
+              />
+            </div>
           )}
           {artwork.kind === "video" && trailer && (
             <div className="absolute top-3 right-3 flex gap-2">
-              <button
-                type="button"
+              <PlaybackButton
+                playing={playing}
+                title={artwork.title}
                 onClick={toggle}
-                className="rounded bg-black/80 px-3 py-1 text-xs text-white"
-                aria-label={`${playing ? "Pause" : "Play"} ${artwork.title}`}
-              >
-                {error ? "Retry playback" : playing ? "Pause" : "Play"}
-              </button>
+                error={error}
+              />
               <button
                 type="button"
                 onClick={() => setMuted(!muted)}
                 aria-pressed={!muted}
-                className="rounded bg-black/80 px-3 py-1 text-xs text-white"
+                className="media-control"
+                aria-label={
+                  muted ? "Enable trailer audio" : "Mute trailer audio"
+                }
               >
-                {muted ? "Enable trailer audio" : "Mute trailer audio"}
+                <MediaIcon kind={muted ? "muted" : "volume"} />
               </button>
             </div>
           )}
