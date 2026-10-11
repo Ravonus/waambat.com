@@ -29,24 +29,28 @@ build.command from netlify.toml
 ────────────────────────────────────────────────────────────────
 ​
 $ pnpm build
-✓ Lockfile passes supply-chain policies (verified 23m ago)
+? Verifying lockfile against supply-chain policies (574 entries)...
 Lockfile is up to date, resolution step is skipped
 Already up to date
+✓ Lockfile passes supply-chain policies (574 entries in 5.2s)
 
-Done in 892ms using pnpm v11.19.0
+Done in 5.8s using pnpm v11.19.0
 $ pnpm content:check && next build
 $ tsx scripts/check-content.ts
 Repository content schema is valid
 ▲ Next.js 16.4.0 (Turbopack)
-✓ Running next.config.js took 22ms
+✓ Running next.config.js took 19ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 753ms
+✓ Compiled successfully in 1358ms
   Running TypeScript ...
-  Finished TypeScript in 1746ms ...
+  Finished TypeScript in 3.3s ...
   Collecting page data using 4 workers ...
-  Generating static pages using 4 workers (0/3) ...
-✓ Generating static pages using 4 workers (3/3) in 119ms
+  Generating static pages using 4 workers (0/4) ...
+  Generating static pages using 4 workers (1/4) 
+  Generating static pages using 4 workers (2/4) 
+  Generating static pages using 4 workers (3/4) 
+✓ Generating static pages using 4 workers (4/4) in 152ms
   Finalizing page optimization ...
 
 Route (app)
@@ -56,6 +60,7 @@ Route (app)
 ├ ƒ /admin
 ├ ƒ /admin/preview
 ├ ƒ /api/admin/content
+├ ƒ /api/admin/email-preview
 ├ ƒ /api/admin/upload
 ├ ƒ /api/auth/[...nextauth]
 ├ ƒ /api/media/[id]
@@ -66,7 +71,7 @@ Route (app)
 ƒ  (Dynamic)  server-rendered on demand
 
 ​
-(build.command completed in 6s)
+(build.command completed in 13.3s)
 ​
 Functions bundling                                            
 ────────────────────────────────────────────────────────────────
@@ -75,9 +80,9 @@ Packaging Functions from .netlify/functions-internal directory:
  - ___netlify-server-handler/___netlify-server-handler.mjs
 ​
 ​
-(Functions bundling completed in 1.6s)
+(Functions bundling completed in 1.4s)
 ​
 Netlify Build Complete                                        
 ────────────────────────────────────────────────────────────────
 ​
-(Netlify Build completed in 9.7s)
+(Netlify Build completed in 16.6s)

@@ -53,6 +53,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
                 </Heading>
               );
             }
+            case "link":
             case "paragraph":
               return (
                 <p key={block.id} className="my-5 whitespace-pre-line">

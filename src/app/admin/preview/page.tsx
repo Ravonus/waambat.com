@@ -24,7 +24,13 @@ export default async function Preview({
   const page = (await searchParams).page ?? "nfts";
   const article = state.draft.pages.find((p) => p.slug === page);
   return (
-    <Layout preview>
+    <Layout
+      preview
+      navigation={state.draft.navigation.filter(
+        (n) =>
+          !state.draft.pages.find((p) => `/${p.slug}` === n.href)?.archived,
+      )}
+    >
       <div className="border-waambat-pink mb-8 border p-4 text-center">
         <strong>Private draft · commit {state.revision.slice(0, 12)}</strong>
         <p>
@@ -36,7 +42,10 @@ export default async function Preview({
         <Link href="/admin/preview?page=ordinals">Ordinals</Link>
       </div>
       {article ? (
-        <ContentPage page={article} />
+        <>
+          <ContentPage page={article} />
+          <Gallery content={state.draft} page={page} />
+        </>
       ) : (
         <Gallery
           content={state.draft}

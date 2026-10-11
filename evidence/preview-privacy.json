@@ -1,5 +1,5 @@
 {
-  "publicPortfolio": "All seven portfolio routes return 200 without authentication",
+  "publicPortfolio": "All eight portfolio routes return 200 without authentication",
   "anonymousDraftPreview": "307 to /admin",
   "unconfiguredAdmin": "503, fail closed",
   "anonymousMedia": "404",

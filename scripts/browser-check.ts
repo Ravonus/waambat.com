@@ -111,12 +111,23 @@ try {
   await rp.getByRole("button", { name: "Menu", exact: true }).click();
   await rp.getByRole("link", { name: "ORDINALS", exact: true }).click();
   await rp.getByRole("heading", { name: "LUX", exact: true }).waitFor();
-  assert.equal(
-    await rp
-      .locator('a[href="https://www.satflow.com/ordinals/kismettwist"]')
-      .count(),
-    2,
-  );
+  for (const [id, target] of [
+    ["lux-ok-algo", "https://www.satflow.com/ordinals/lux_ok_algo"],
+    ["kismet-twist-collection", "https://www.satflow.com/ordinals/kismettwist"],
+    [
+      "gamma-user-artwork",
+      "https://gamma.io/ordinals/inscriptions/2d284790a8ecddb0f4aa21e7763e0e499fdb068e79f398ad268dda7fcb3eabfei0",
+    ],
+  ]) {
+    const card = rp.locator(`[data-artwork="${id}"]`);
+    await card.scrollIntoViewIfNeeded();
+    assert.equal(await card.isVisible(), true);
+    assert.ok((await card.locator(`a[href="${target}"]`).count()) > 0);
+  }
+  assert.equal(await rp.locator('[data-artwork^="ordinal-"]').count(), 3);
+  assert.equal(await rp.locator("iframe").count(), 0);
+  evidence.ordinals =
+    "Visible LUX and Kismet collection cards precede preserved Ordinal A/B/C; exact Satflow targets, verified consent-only Kismet #100 on-chain preview and exact supplied Gamma destination checked. Gamma title/preview metadata unavailable; no price/supply/availability invented.";
   await rp.screenshot({ path: "evidence/ordinals-mobile.png", fullPage: true });
   evidence.reducedMotion = "No video source loaded before explicit playback";
   const page = await anon.newPage();
@@ -247,6 +258,88 @@ try {
   );
   evidence.pages =
     "All five local page routes, mobile navigation/overflow, contact links, deferred embeds, archive prev/next/info/number selection and missing-route 404 passed. Live media transport and original visual matching remain separately blocked.";
+  const navigation = await anon.newPage();
+  await navigation.goto(`${origin}/mechanics`);
+  await navigation
+    .locator("[data-cursor-ready]")
+    .waitFor({ state: "attached" });
+  assert.equal(
+    await navigation.evaluate(
+      () => matchMedia("(hover: hover) and (pointer: fine)").matches,
+    ),
+    true,
+  );
+  await navigation.mouse.move(180, 180, { steps: 3 });
+  await navigation.waitForFunction(
+    () =>
+      document.querySelector<HTMLElement>("[data-pink-cursor]")?.style
+        .opacity === "1",
+  );
+  assert.equal(
+    await navigation
+      .locator("[data-pink-cursor]")
+      .evaluate((el) => getComputedStyle(el).pointerEvents),
+    "none",
+  );
+  await navigation.getByRole("link", { name: "bio", exact: true }).focus();
+  await navigation.keyboard.press("Enter");
+  await navigation.waitForURL(`${origin}/bio-waambat`);
+  await navigation
+    .getByRole("heading", { name: "WAAMBAT", exact: true })
+    .waitFor();
+  await navigation.goBack();
+  await navigation.waitForURL(`${origin}/mechanics`);
+  await navigation.goForward();
+  await navigation.waitForURL(`${origin}/bio-waambat`);
+  const beforeModified = navigation.url();
+  const popupEvent = anon.waitForEvent("page");
+  await navigation
+    .getByRole("link", { name: "quantum mechanics", exact: true })
+    .click({ modifiers: ["Control"] });
+  const popup = await popupEvent;
+  await popup.waitForLoadState();
+  assert.equal(navigation.url(), beforeModified);
+  await popup.close();
+  await rp.getByRole("button", { name: "Menu", exact: true }).click();
+  await rp.getByRole("link", { name: "bio", exact: true }).click();
+  await rp.waitForURL(`${origin}/bio-waambat`);
+  assert.equal(
+    await rp
+      .locator("[data-route-pulse]")
+      .evaluate((el) => getComputedStyle(el).display),
+    "none",
+  );
+  assert.equal(
+    await rp
+      .locator("[data-pink-cursor] span")
+      .evaluate((el) => getComputedStyle(el).animationName),
+    "none",
+  );
+  const touch = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true,
+    reducedMotion: "reduce",
+  });
+  const touchPage = await touch.newPage();
+  await touchPage.goto(`${origin}/mechanics`);
+  assert.equal(
+    await touchPage
+      .locator("[data-pink-cursor]")
+      .evaluate((el) => getComputedStyle(el).display),
+    "none",
+  );
+  await touchPage.getByRole("button", { name: "Menu", exact: true }).tap();
+  await touchPage.getByRole("link", { name: "bio", exact: true }).tap();
+  await touchPage.waitForURL(`${origin}/bio-waambat`);
+  assert.ok(
+    await touchPage.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  );
+  await touch.close();
+  evidence.navigation =
+    "Keyboard Enter, native Back/Forward, Ctrl-click new tab, touch navigation, non-intercepting fine-pointer gradient cursor and reduced-motion transition/cursor checks passed; no mocked route success.";
   const owner = await browser.newContext({
     viewport: { width: 1280, height: 900 },
   });
@@ -333,7 +426,7 @@ try {
   assert.equal(badUpload.status(), 415);
   await admin.getByText("Feels 404", { exact: true }).click();
   const originalDetail = admin
-    .locator("section")
+    .locator("section:has(details)")
     .first()
     .locator("details")
     .first();
@@ -500,7 +593,11 @@ try {
     .first()
     .click();
   await admin.getByText("New artwork", { exact: true }).click();
-  const added = admin.locator("section").first().locator("details").last();
+  const added = admin
+    .locator("section:has(details)")
+    .first()
+    .locator("details")
+    .last();
   await added
     .getByLabel("Artwork title", { exact: true })
     .fill("New test artwork");
@@ -515,7 +612,7 @@ try {
   });
   const firstTitle = admin.getByLabel("Artwork title", { exact: true }).first();
   const firstDetails = admin
-    .locator("section")
+    .locator("section:has(details)")
     .first()
     .locator("details")
     .first();
@@ -596,8 +693,39 @@ try {
   const latest = await (
     await owner.request.get(`${origin}/api/admin/content`)
   ).json();
+  const restoration = structuredClone(initial.draft);
+  for (const section of latest.draft.sections) {
+    const original = restoration.sections.find(
+      (s: { id: string }) => s.id === section.id,
+    );
+    if (!original) {
+      restoration.sections.push({ ...section, archived: true });
+      continue;
+    }
+    for (const item of section.items)
+      if (!original.items.some((a: { id: string }) => a.id === item.id))
+        original.items.push({ ...item, archived: true });
+  }
+  for (const page of latest.draft.pages) {
+    const original = restoration.pages.find(
+      (p: { slug: string }) => p.slug === page.slug,
+    );
+    if (!original) {
+      restoration.pages.push({ ...page, archived: true });
+      continue;
+    }
+    for (const block of page.blocks)
+      if (!original.blocks.some((b: { id: string }) => b.id === block.id))
+        original.blocks.push({ ...block, archived: true });
+    for (const item of page.archive)
+      if (!original.archive.some((b: { id: string }) => b.id === item.id))
+        original.archive.push({ ...item, archived: true });
+  }
+  for (const entry of latest.draft.navigation)
+    if (!restoration.navigation.some((n: { id: string }) => n.id === entry.id))
+      restoration.navigation.push({ ...entry, archived: true });
   const restored = await owner.request.post(`${origin}/api/admin/content`, {
-    data: { revision: latest.revision, action: "save", content: initial.draft },
+    data: { revision: latest.revision, action: "save", content: restoration },
     headers: { Origin: origin },
   });
   assert.equal(restored.status(), 200);

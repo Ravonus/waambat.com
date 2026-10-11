@@ -374,12 +374,121 @@
           "id": "kismet-twist-collection",
           "title": "Kismet Twist",
           "year": "",
-          "description": "Explore Kismet Twist by WAAMBAT + Ravonus on Satflow",
+          "description": "Explore the Kismet Twist collection on Satflow. The optional on-chain preview is Kismet Twist #100, attributed to WAAMBAT with Ravonus as technomancer in its inscription metadata.",
           "tokenLink": "https://www.satflow.com/ordinals/kismettwist",
+          "videoSrc": "https://ordinals.com/preview/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "embed",
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "instagram-survivors",
+      "title": "Instagram",
+      "intro": "",
+      "page": "instagram",
+      "archived": false,
+      "items": [
+        {
+          "id": "instagram-1",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/Cn0H_WePrhj/",
           "videoSrc": "",
           "poster": "",
           "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-2",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/CRj8p6irdfd/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-3",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/CP4Es5sHYQ8/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-4",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/CPBVcEhH-j0/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-5",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/COa9eKuHUio/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-6",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/B1mVhK7nmeM/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "gamma-artwork",
+      "title": "Artwork on Gamma",
+      "intro": "",
+      "page": "ordinals",
+      "archived": false,
+      "items": [
+        {
+          "id": "gamma-user-artwork",
+          "title": "View artwork on Gamma",
+          "year": "",
+          "description": "Open the supplied individual artwork destination. Title and preview metadata have not been verified.",
+          "tokenLink": "https://gamma.io/ordinals/inscriptions/2d284790a8ecddb0f4aa21e7763e0e499fdb068e79f398ad268dda7fcb3eabfei0",
+          "videoSrc": "",
+          "mobileVideoSrc": "",
+          "poster": "",
           "kind": "link",
+          "featured": false,
           "archived": false
         }
       ]
@@ -701,7 +810,8 @@
           "type": "heading",
           "text": "Podcast - A Conversation with thr33som3s on WAAMBAT’s History & Practice",
           "level": 1,
-          "links": []
+          "links": [],
+          "href": "https://t.co/RkaRyxRAGx"
         },
         {
           "id": "blog-press-image-12",
@@ -714,7 +824,8 @@
           "type": "heading",
           "text": "The Tokenized Building Process of Quantums and Fusions",
           "level": 1,
-          "links": []
+          "links": [],
+          "href": "https://twitter.com/waambat/status/1546528704339197952?s=20&t=xNCXFt-YTCMdCdv3wp_m8g"
         },
         {
           "id": "blog-press-text-50",
@@ -795,7 +906,8 @@
           "type": "heading",
           "text": "Abacus RAM becomes #34 in the Ascent Collection",
           "level": 1,
-          "links": []
+          "links": [],
+          "href": "https://jpg.space/Ascent/exhibition/The%20Ascent%20Collection"
         },
         {
           "id": "blog-press-text-78",
@@ -869,7 +981,8 @@
           "type": "heading",
           "text": "Lindsay Scoggins Rocks the Shots That Ricocheted Around Art Wynwood",
           "level": 1,
-          "links": []
+          "links": [],
+          "href": "https://www.huffpost.com/entry/lindsay-scoggins_b_1299781"
         }
       ]
     },
@@ -1411,6 +1524,548 @@
           "text": "discord waambat#7494 (legacy handle)"
         }
       ]
+    },
+    {
+      "slug": "instagram",
+      "title": "instagram",
+      "layout": "article",
+      "blocks": [
+        {
+          "id": "instagram-intro-1",
+          "type": "heading",
+          "text": "WAAMBAT’s practice involves an ongoing battle with the Instagram content scanning algorithm.",
+          "href": "",
+          "src": "",
+          "level": 1,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-2",
+          "type": "heading",
+          "text": "What remains in her feed are artworks which have survived the algo via her subversive animation techniques.",
+          "href": "",
+          "src": "",
+          "level": 1,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-3",
+          "type": "paragraph",
+          "text": "From her interview in Right Click Save:",
+          "href": "https://www.rightclicksave.com/article/artists-against-algorithms",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-quote-start",
+          "type": "paragraph",
+          "text": "The challenge is being able to navigate the conflict while preserving my ideas — still letting the work say exactly what I want it to say.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-4",
+          "type": "paragraph",
+          "text": "To get past the content scanner, sometimes I have to make my pieces increasingly cryptic. I'll twist the animation to a sweet spot where it works. I'll complicate the aesthetics, piling up the layers and amplifying the motion. I'll weave multiple works together with an array of masks and blending modes. I like to paint imagery with other imagery. Complexity and nuance are my weaponry for fucking with the algo.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-5",
+          "type": "paragraph",
+          "text": "Meanwhile my ideas are still there, cloaked in multiple stained glass windows of even more ideas.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-6",
+          "type": "paragraph",
+          "text": "I had this so perfected by summer 2022 that one of my reels received a quarter million views before being taken down. Later, another shot to a million before meeting its demise. However, the algorithm progressively upgrades itself. Its detection system evolves, forcing me to chase a new sweet spot again. Certain techniques work, until one day they don't. Big upgrades break my tricks, at which point I assess the damage and get to work on my next strategy.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-7",
+          "type": "paragraph",
+          "text": "In a recent turn of events, even my \"clean\" content has been getting flagged. The algo seems to associate my overall aesthetic with dangerous territory. The absurdity of it all becomes fucking hilarious. This scenario perfectly summarizes the current state of these AIs — they're rather smart, yet simultaneously idiotic.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-8",
+          "type": "paragraph",
+          "text": "My work has not only been slashed due to nudity. Instagram has sent me notices that their technology classified some of my artworks as \"acts of sexual solicitation\". I've gotten used to the idea that many of my pieces there are ephemeral. Part of the excitement now lies in my awareness that many of them won’t survive. At this point my account status states that I'm near total deletion, which would mean I'll lose access to over a decade of posts and archive material.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-9",
+          "type": "paragraph",
+          "text": "I've created a backup account in anticipation.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-10",
+          "type": "paragraph",
+          "text": "Instagram @waambat",
+          "href": "https://www.instagram.com/waambat/",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-11",
+          "type": "paragraph",
+          "text": "Backup @waam.bat",
+          "href": "https://www.instagram.com/waam.bat/",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-1",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 1",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1677636252667-RIKA1CZY701CJJ29L9O7/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-2",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 2",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676509558830-5TL1Z8SO76JEQ5V1F5VQ/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-3",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 3",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156267362-1WZABABMDLIOVCSX1A8F/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-4",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 4",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156268238-UOXSNIH2PJYJ7Y95KQYD/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-5",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 5",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156269607-BJ40QG5SJ38BUJK6N1EW/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-6",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 6",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156270467-HGXB8RB5KK61OW9DXIAU/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-7",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 7",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156271156-2STMQDU5NBFHDIU1FKNK/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-8",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 8",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156271918-KKAK8GF9ZAY03FS6767W/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-9",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 9",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156272644-T4XQ2MREINBO0F1BCNER/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-10",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 10",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156273478-PQSRUC2H0N3PDFQP6MIY/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-11",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 11",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156274275-O6PRMI0F40TPPTYDRUOO/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-12",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 12",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156275111-75RK5B7CZ0PW0X1GR6Z3/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-13",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 13",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156275982-IOD0M60V54JLCWT6SE5L/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-14",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 14",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156277052-WFNXVJOEF5BCWX2XXMPD/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-15",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 15",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156277715-8635031Y3NRDI52LQBGL/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-16",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 16",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156278477-1JZ6LEBPFO8B4HGT25VD/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-17",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 17",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156279207-CWCHIRLMPMLX68ZQYFQS/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-18",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 18",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156279855-I00DCCLWNJT4D8NKSCEH/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-19",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 19",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156280655-1F7VQFS8491M48D2D8WP/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-20",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 20",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1624570885544-RQ2O64RRYZCE25C097L1/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-21",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 21",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1622661329321-F8XS4S92XLZVIE4UBY89/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-22",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 22",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621819497502-3HJU7W5H3953K37YPCXV/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-23",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 23",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621727826185-IWJAYINA6909HNOFW3NQ/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-24",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 24",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205473005-QNYFY6VCK9V7USGI1DVN/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-25",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 25",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205473394-IBSZH9EE9496SBS7AEZK/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-26",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 26",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205473771-1DIG04DKWY12K23JZBRZ/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-27",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 27",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205474092-7DZ3ZUQJ85SQCEBKD156/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-28",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 28",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205474704-8UZ195UGQYIYBS4RL1M1/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-29",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 29",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205475265-9L1SA5TPETOMVBWOPDC2/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-30",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 30",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1622582858759-DWJEHXDXTEVTZNDXI03A/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-31",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 31",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205475887-AB1Y18FCAQCXZ5Z1CYQN/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-32",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 32",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205476186-E5XNAN88Y55DQWJ9L328/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        }
+      ],
+      "archive": []
+    }
+  ],
+  "navigation": [
+    {
+      "id": "nfts",
+      "label": "NFTs",
+      "href": "/",
+      "archived": false
+    },
+    {
+      "id": "ordinals",
+      "label": "ORDINALS",
+      "href": "/ordinals",
+      "archived": false
+    },
+    {
+      "id": "mechanics",
+      "label": "quantum mechanics",
+      "href": "/mechanics",
+      "archived": false
+    },
+    {
+      "id": "archive",
+      "label": "art archive",
+      "href": "/art-by-waambat",
+      "archived": false
+    },
+    {
+      "id": "instagram",
+      "label": "instagram",
+      "href": "/instagram",
+      "archived": false
+    },
+    {
+      "id": "press",
+      "label": "blog + press",
+      "href": "/blog-press",
+      "archived": false
+    },
+    {
+      "id": "bio",
+      "label": "bio",
+      "href": "/bio-waambat",
+      "archived": false
+    },
+    {
+      "id": "contact",
+      "label": "collect + contact",
+      "href": "/contact-waambat",
+      "archived": false
     }
   ]
 }

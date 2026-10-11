@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+import { pageSchema, pageSlug } from "~/lib/content";
 import type { SitePage, PageBlock } from "~/lib/content";
 const input = "mt-1 w-full rounded border border-white/30 bg-black px-3 py-2";
 function Field({
@@ -37,10 +39,17 @@ function Field({
 export default function PageEditor({
   pages,
   onChange,
+  onCreate,
 }: {
   pages: SitePage[];
   onChange: (pages: SitePage[]) => void;
+  onCreate: (page: SitePage, addNavigation: boolean) => void;
 }) {
+  const [title, setTitle] = useState("");
+  const [slug, setSlug] = useState("");
+  const [layout, setLayout] = useState<SitePage["layout"]>("article");
+  const [addNavigation, setAddNavigation] = useState(true);
+  const [error, setError] = useState("");
   function edit(index: number, change: (page: SitePage) => void) {
     const next = structuredClone(pages);
     change(next[index]!);
@@ -49,6 +58,78 @@ export default function PageEditor({
   return (
     <section className="mt-10 space-y-5" aria-label="Site pages">
       <h2 className="text-waambat-pink text-2xl">Site pages</h2>
+      <div className="space-y-4 rounded border border-white/25 p-5">
+        <h3>Create a page</h3>
+        <Field label="New page title" value={title} onChange={setTitle} />
+        <Field label="New page slug" value={slug} onChange={setSlug} />
+        <label>
+          Page template
+          <select
+            aria-label="Page template"
+            className={input}
+            value={layout}
+            onChange={(e) => setLayout(e.target.value as SitePage["layout"])}
+          >
+            {["article", "gallery", "archive"].map((v) => (
+              <option key={v}>{v}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={addNavigation}
+            onChange={(e) => setAddNavigation(e.target.checked)}
+          />{" "}
+          Add to navigation
+        </label>
+        <p>
+          Slugs remain fixed after creation to preserve incoming links. Archive
+          pages to hide them without deleting content.
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            const valid = pageSlug.safeParse(slug);
+            if (
+              !valid.success ||
+              pages.some((p) => p.slug === slug) ||
+              !title.trim()
+            ) {
+              setError(
+                "Enter a title and a unique lowercase slug outside reserved routes.",
+              );
+              return;
+            }
+            onCreate(
+              pageSchema.parse({
+                slug,
+                title,
+                layout,
+                blocks:
+                  layout === "archive"
+                    ? []
+                    : [
+                        {
+                          id: `block-${crypto.randomUUID()}`,
+                          type: "heading",
+                          text: title,
+                          level: 1,
+                        },
+                      ],
+                archive: [],
+              }),
+              addNavigation,
+            );
+            setTitle("");
+            setSlug("");
+            setError("");
+          }}
+        >
+          Create draft page
+        </button>
+        {error && <p role="alert">{error}</p>}
+      </div>
       {pages.map((page, pi) => (
         <details
           key={page.slug}
@@ -59,6 +140,43 @@ export default function PageEditor({
             {page.title} · /{page.slug}
           </summary>
           <div className="mt-5 space-y-5">
+            <div className="flex flex-wrap gap-4">
+              <label>
+                <input
+                  type="checkbox"
+                  aria-label="Archive page"
+                  checked={page.archived}
+                  onChange={(e) =>
+                    edit(pi, (p) => {
+                      p.archived = e.target.checked;
+                    })
+                  }
+                />{" "}
+                Archive page (recoverable; hides navigation)
+              </label>
+              <button
+                type="button"
+                disabled={pi === 0}
+                onClick={() => {
+                  const next = [...pages];
+                  [next[pi - 1], next[pi]] = [next[pi]!, next[pi - 1]!];
+                  onChange(next);
+                }}
+              >
+                Move page up
+              </button>
+              <button
+                type="button"
+                disabled={pi === pages.length - 1}
+                onClick={() => {
+                  const next = [...pages];
+                  [next[pi + 1], next[pi]] = [next[pi]!, next[pi + 1]!];
+                  onChange(next);
+                }}
+              >
+                Move page down
+              </button>
+            </div>
             <Field
               label="Page title"
               value={page.title}
@@ -90,6 +208,7 @@ export default function PageEditor({
                   <label>
                     Block type
                     <select
+                      aria-label="Block type"
                       className={input}
                       value={block.type}
                       onChange={(e) =>
@@ -104,6 +223,7 @@ export default function PageEditor({
                         "paragraph",
                         "image",
                         "embed",
+                        "link",
                         "separator",
                         "list",
                       ].map((t) => (
@@ -157,7 +277,7 @@ export default function PageEditor({
                       label={
                         block.type === "image"
                           ? "Page image URL"
-                          : "Verified YouTube privacy embed / Vimeo player URL"
+                          : "Video source (YouTube, Vimeo, Imgur, Instagram or MP4/WebM)"
                       }
                       value={block.src}
                       onChange={(v) =>

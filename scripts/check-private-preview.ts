@@ -47,6 +47,7 @@ try {
     "/blog-press",
     "/bio-waambat",
     "/contact-waambat",
+    "/instagram",
   ]) {
     const response = await fetch(`${origin}${path}`, { redirect: "manual" });
     assert.equal(response.status, 200, `${path} public portfolio`);
@@ -63,8 +64,15 @@ try {
     (await fetch(`${origin}/api/media/${"a".repeat(64)}`)).status,
     404,
   );
-  browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH ?? "/usr/bin/chromium", headless: true, args: ["--no-sandbox"] });
-  const context = await browser.newContext({ reducedMotion: "reduce", viewport: { width: 1440, height: 1000 } });
+  browser = await chromium.launch({
+    executablePath: process.env.CHROMIUM_PATH ?? "/usr/bin/chromium",
+    headless: true,
+    args: ["--no-sandbox"],
+  });
+  const context = await browser.newContext({
+    reducedMotion: "reduce",
+    viewport: { width: 1440, height: 1000 },
+  });
   const page = await context.newPage();
   await page.goto(origin);
   assert.equal(await page.locator("[data-artwork]").count(), 23);
@@ -72,14 +80,19 @@ try {
   await page.screenshot({ path: "evidence/compiled-public-desktop.png" });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({ path: "evidence/compiled-public-mobile.png" });
-  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  assert.ok(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  );
   const result = {
     publicPortfolio:
-      "All seven portfolio routes return 200 without authentication",
+      "All eight portfolio routes return 200 without authentication",
     anonymousDraftPreview: "307 to /admin",
     unconfiguredAdmin: "503, fail closed",
     anonymousMedia: "404",
-    browser: "Compiled production gallery: 23 original paintings, no login/database, desktop/mobile rendered without overflow; reduced motion attached no video source",
+    browser:
+      "Compiled production gallery: 23 original paintings, no login/database, desktop/mobile rendered without overflow; reduced motion attached no video source",
     deployment:
       "Local compiled production server; no external deployment or credentials",
   };

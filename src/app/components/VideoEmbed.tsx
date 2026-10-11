@@ -1,45 +1,98 @@
 "use client";
 import { useState } from "react";
+import { videoSource } from "~/lib/video-source";
 export default function VideoEmbed({
   src,
   title,
+  poster = "",
 }: {
   src: string;
   title: string;
+  poster?: string;
 }) {
   const [loaded, setLoaded] = useState(false);
+  const target = videoSource(src);
+  if (!target)
+    return <p>Unsupported source. Review this entry in the studio.</p>;
   return (
-    <div className="my-8 aspect-video w-full bg-black">
-      {loaded ? (
-        <iframe
-          src={src}
-          title={title}
-          loading="lazy"
-          allow="fullscreen; picture-in-picture"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-          sandbox="allow-scripts allow-same-origin allow-presentation"
-          className="h-full w-full border-0"
-        />
-      ) : (
-        <button
-          onClick={() => setLoaded(true)}
-          className="text-waambat-pink relative flex h-full w-full items-center justify-center border border-white/20"
-          aria-label={`Play ${title}`}
-        >
-          {src.startsWith("https://www.youtube-nocookie.com/embed/") && (
-            // eslint-disable-next-line @next/next/no-img-element -- Same source thumbnail as the original YouTube embed.
-            <img
-              src={`https://i.ytimg.com/vi/${src.split("/").at(-1)}/hqdefault.jpg`}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 h-full w-full object-contain"
+    <figure className="my-8 w-full">
+      <div
+        className={`relative bg-black ${target.provider === "ordinals" ? "aspect-square" : "aspect-video"}`}
+      >
+        {loaded && target.player ? (
+          target.direct ? (
+            <video
+              src={target.player}
+              poster={poster || undefined}
+              controls
+              playsInline
+              preload="metadata"
+              className="h-full w-full object-contain"
+              onError={() => setLoaded(false)}
             />
-          )}
-          <span className="relative bg-black/80 px-4 py-2">▶ {title}</span>
-        </button>
-      )}
-    </div>
+          ) : (
+            <iframe
+              src={target.player}
+              title={title}
+              loading="lazy"
+              allow="fullscreen; picture-in-picture"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+              className="h-full w-full border-0"
+              onError={() => setLoaded(false)}
+            />
+          )
+        ) : (
+          <button
+            type="button"
+            disabled={!target.player}
+            onClick={() => setLoaded(true)}
+            className="text-waambat-pink relative flex h-full w-full items-center justify-center border border-white/20"
+            aria-label={`Play ${title}`}
+          >
+            {(poster || target.provider === "youtube") && (
+              // eslint-disable-next-line @next/next/no-img-element -- Preserve approved remote covers without server-side fetching.
+              <img
+                src={
+                  poster ||
+                  `https://i.ytimg.com/vi/${target.player.split("/").at(-1)}/hqdefault.jpg`
+                }
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-contain"
+              />
+            )}
+            <span className="relative bg-black/80 px-4 py-2">
+              {target.player ? `▶ ${title}` : title}
+            </span>
+          </button>
+        )}
+      </div>
+      <figcaption className="mt-3 text-sm">
+        {loaded && (
+          <button
+            type="button"
+            onClick={() => setLoaded(false)}
+            className="mr-4 underline"
+          >
+            Close player
+          </button>
+        )}
+        <a
+          href={target.original}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-waambat-link"
+        >
+          Open original source ↗
+        </a>
+        <p className="text-xs text-white/60">
+          Loading a player contacts {target.provider}. If access is restricted
+          or unavailable, use the original link.
+        </p>
+      </figcaption>
+    </figure>
   );
 }

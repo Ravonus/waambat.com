@@ -1,5 +1,6 @@
 import { contentSchema, type Content } from "~/lib/content";
 import stored from "~/content/site.json";
+import { removedContent } from "~/lib/content-change";
 import {
   getGitStore,
   draftBranch,
@@ -55,7 +56,14 @@ export async function updateContent(
       "A newer version exists. Reload before saving; your edits remain on screen.",
     );
   if (action === "save") {
-    serializeContent(contentSchema.parse(content));
+    const candidate = contentSchema.parse(content);
+    const removed = removedContent(state.draft, candidate);
+    if (removed.length)
+      throw new AdminError(
+        400,
+        `Archive content instead of removing or renaming it: ${removed.slice(0, 5).join(", ")}`,
+      );
+    serializeContent(candidate);
     await store.createBranch(draftBranch(), state.publishedRevision);
     await store.commit(
       draftBranch(),

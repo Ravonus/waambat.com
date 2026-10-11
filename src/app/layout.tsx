@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import RouteEffects from "./components/RouteEffects";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: { default: "waambat", template: "%s — waambat" },
@@ -19,6 +20,7 @@ export default function RootLayout({
         >
           Skip to artwork
         </a>
+        <RouteEffects />
         {children}
       </body>
     </html>

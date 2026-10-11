@@ -1,28 +1,27 @@
-# waambat.com
+# WAAMBAT portfolio
 
-WAAMBAT's art gallery and private content studio, prepared for Netlify. The existing domain has not been moved. See [modernization notes](docs/MODERNIZATION.md) for preservation research, validation evidence and rollout blockers.
+Next.js, React and Tailwind portfolio with a protected Git-backed content studio. Published content lives in `src/content/site.json`; original media sources remain in place. See [modernization review](docs/MODERNIZATION.md) and [Netlify/runtime setup](docs/NETLIFY-SETUP.md) for evidence and remaining source/auth integration work.
 
-Use Node 24 and the pinned pnpm version in `package.json`.
+Use Node 24 and the pinned pnpm version:
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm dev
-pnpm lint
-pnpm typecheck
-pnpm test
-pnpm build
-pnpm test:browser
 ```
 
-The public galleries read validated `src/content/site.json`. The studio stays disabled until approved GitHub OAuth and a repository-scoped GitHub App are configured. It does not require Postgres. The original unused Drizzle example remains available separately; do not run its database commands for the CMS.
-
-`/admin` → save a draft Git commit → private preview → explicit publish commit → Netlify build. Original media and Git history are retained, and archiving is reversible. Git credentials stay on the server. A failed build keeps Netlify's previous deployed version live.
-
-Browser checks require Chromium and ffmpeg. They create their own temporary Git repository, media filesystem and signed test session; they never edit production or add a production authentication bypass. See `evidence/browser-results.json` for the tested boundary.
+The public portfolio runs without a database or login. `/admin` fails closed until an approved identity/database connection and GitHub App runtime configuration are supplied. Copy `.env.example` to a private local environment file only when configuring an approved target; never commit secrets. No default administrator password exists.
 
 ```sh
-# Approved local source media only; never overwrites the original
-pnpm media:prepare ./original.mp4 ./new-derivatives
+pnpm check          # lint and types
+pnpm test           # schemas, providers, Git persistence and request failures
+pnpm build          # validates content, then production build
+pnpm test:preview   # compiled public portfolio and protected admin/drafts/media
+pnpm test:browser   # Chromium video, navigation and isolated Git/media studio
+pnpm test:auth      # Docker Postgres + actual credentials form, backup/restore and composition
 ```
 
-The existing Netlify integration created https://deploy-preview-1--waambat.netlify.app. Its compiled privacy gate requires approved sign-in; the studio fails closed while unconfigured. Reuse project `waambat` and follow [setup instructions](docs/NETLIFY-SETUP.md) before enabling access, publishing or uploads. All seven internal navigation destinations have local routes and admin draft editing. Original marketplace destinations, the licensed font loader, 23 archive player URLs and legacy-route details still need source verification before replacing the existing domain. This is an incomplete draft, not a finished replacement.
+Browser checks need Chromium (default `/usr/bin/chromium`) and FFmpeg. Auth integration tests need Docker and use temporary loopback-only Postgres, random credentials and an isolated Git repository; resources are removed afterward. Original provider playback and cloud OAuth/GitHub App/Netlify integrations require separate approved access and remote QA.
+
+Public SSR serves the deployed content file. Private drafts use Git commit history. Optional Netlify Database stores administrator identity through its branch-aware SDK; it does not duplicate the published content store. Candidate SQL migrations are kept outside Netlify's automatic migration path until the existing project's database and target are approved.
+
+This work stays on a feature branch and draft PR. Preview delivery does not merge main, change waambat.com DNS or replace public production.

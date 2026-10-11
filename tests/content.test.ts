@@ -54,7 +54,7 @@ test("archived content is excluded from public media access", () => {
   assert.equal(mediaReferences(doc).has("/api/media/abc"), false);
 });
 test("migrated pages retain archive entries and reject unsafe embeds and duplicate routes", () => {
-  assert.equal(seedContent.pages.length, 5);
+  assert.equal(seedContent.pages.length, 6);
   assert.equal(
     seedContent.pages.find((p) => p.slug === "art-by-waambat")!.archive.length,
     25,
@@ -74,7 +74,9 @@ test("migrated pages retain archive entries and reject unsafe embeds and duplica
   const duplicate = structuredClone(seedContent);
   duplicate.pages[1]!.slug = duplicate.pages[0]!.slug;
   assert.equal(contentSchema.safeParse(duplicate).success, false);
-  const old = { sections: seedContent.sections };
+  const old = {
+    sections: seedContent.sections.filter((s) => s.page !== "instagram"),
+  };
   assert.deepEqual(contentSchema.parse(old).pages, []);
 });
 test("page media authorization follows deployed and non-archived references", () => {

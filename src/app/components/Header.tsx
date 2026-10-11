@@ -1,17 +1,27 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-const menuItems = [
-  { name: "NFTs", href: "/" },
-  { name: "ORDINALS", href: "/ordinals" },
-  { name: "quantum mechanics", href: "/mechanics" },
-  { name: "art archive", href: "/art-by-waambat" },
-  { name: "instagram", href: "https://www.instagram.com/waambat/" },
-  { name: "blog + press", href: "/blog-press" },
-  { name: "bio", href: "/bio-waambat" },
-  { name: "collect + contact", href: "/contact-waambat" },
-];
-export default function Header({ preview = false }: { preview?: boolean }) {
+import Link, { useLinkStatus } from "next/link";
+function NavigationHint() {
+  const { pending } = useLinkStatus();
+  return (
+    <span role="status" aria-live="polite" className="ml-1 inline-block w-3">
+      {pending ? (
+        <>
+          <span aria-hidden="true">…</span>
+          <span className="sr-only">Loading page</span>
+        </>
+      ) : null}
+    </span>
+  );
+}
+import { defaultNavigation, type Content } from "~/lib/content";
+export default function Header({
+  preview = false,
+  navigation = defaultNavigation,
+}: {
+  preview?: boolean;
+  navigation?: Content["navigation"];
+}) {
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -48,20 +58,27 @@ export default function Header({ preview = false }: { preview?: boolean }) {
         aria-label="Main navigation"
         className={`${open ? "flex" : "hidden"} mt-7 flex-col items-center gap-x-6 gap-y-2 md:flex md:flex-row md:flex-wrap md:justify-center`}
       >
-        {menuItems.map((item) => (
-          <Link
-            key={item.name}
-            href={
-              preview && item.href.startsWith("/")
-                ? `/admin/preview?page=${item.href === "/" ? "nfts" : item.href.slice(1)}`
-                : item.href
-            }
-            onClick={() => setOpen(false)}
-            className="hover:text-waambat-hover py-1 text-[14px] text-[#ebebeb]"
-          >
-            {item.name}
-          </Link>
-        ))}
+        {navigation
+          .filter((item) => !item.archived)
+          .map((item) => (
+            <Link
+              key={item.id}
+              href={
+                preview && item.href.startsWith("/")
+                  ? `/admin/preview?page=${item.href === "/" ? "nfts" : item.href.slice(1)}`
+                  : item.href
+              }
+              onClick={() => setOpen(false)}
+              onNavigate={() => {
+                if (!preview)
+                  window.dispatchEvent(new Event("waambat:navigate"));
+              }}
+              className="hover:text-waambat-hover py-1 text-[14px] text-[#ebebeb]"
+            >
+              {item.label}
+              <NavigationHint />
+            </Link>
+          ))}
       </nav>
     </header>
   );

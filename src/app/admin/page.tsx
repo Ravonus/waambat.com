@@ -1,4 +1,13 @@
-import { authConfigured, requireAdmin, signIn, signOut } from "~/server/auth";
+import {
+  authConfigured,
+  githubConfigured,
+  googleConfigured,
+  requireAdmin,
+  signIn,
+  signOut,
+} from "~/server/auth";
+import { passwordConfigured } from "~/server/admin-database";
+import LoginForm from "./LoginForm";
 import { getContentState } from "~/server/content";
 import Editor from "./Editor";
 import Link from "next/link";
@@ -25,17 +34,36 @@ export default async function Admin() {
           you publish.
         </p>
         {authConfigured() ? (
-          <form
-            action={async () => {
-              "use server";
-              await signIn("github", { redirectTo: "/admin" });
-            }}
-          >
-            <button className="border-waambat-pink rounded border px-5 py-2">
-              Sign in with GitHub
-            </button>
-            <p className="mt-3">Only approved WAAMBAT accounts can enter.</p>
-          </form>
+          <>
+            {googleConfigured() && (
+              <form
+                action={async () => {
+                  "use server";
+                  await signIn("google", { redirectTo: "/admin" });
+                }}
+              >
+                <button className="border-waambat-pink rounded border px-5 py-2">
+                  Sign in with Google
+                </button>
+              </form>
+            )}
+            {githubConfigured() && (
+              <form
+                action={async () => {
+                  "use server";
+                  await signIn("github", { redirectTo: "/admin" });
+                }}
+              >
+                <button className="border-waambat-pink rounded border px-5 py-2">
+                  Sign in with GitHub
+                </button>
+                <p className="mt-3">
+                  Only approved WAAMBAT accounts can enter.
+                </p>
+              </form>
+            )}
+            {passwordConfigured() && <LoginForm />}
+          </>
         ) : (
           <p role="status">
             Admin is disabled until authorized sign-in and storage are

@@ -21,15 +21,18 @@
     "test": "tsx --test tests/*.test.ts",
     "test:browser": "tsx scripts/browser-check.ts",
     "test:preview": "tsx scripts/check-private-preview.ts",
+    "test:auth": "tsx scripts/check-backup-auth.ts",
     "media:prepare": "tsx scripts/prepare-media.ts",
     "content:check": "tsx scripts/check-content.ts"
   },
   "dependencies": {
     "@netlify/blobs": "^11.1.4",
+    "@netlify/database": "^2.0.1",
     "@t3-oss/env-nextjs": "^0.10.1",
     "drizzle-orm": "^0.45.4",
     "next": "^16.4.0",
     "next-auth": "5.0.0-beta.32",
+    "nodemailer": "^10.0.16",
     "postgres": "^3.4.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -38,6 +41,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^24.0.0",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "drizzle-kit": "^0.31.0",

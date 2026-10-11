@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import type { Artwork } from "~/lib/content";
+import InstagramCard from "./InstagramCard";
+import VideoEmbed from "./VideoEmbed";
 export type { Artwork } from "~/lib/content";
 function Poster({ artwork }: { artwork: Artwork }) {
   const local = /^\/posters\/\d+-960.webp$/.test(artwork.poster);
@@ -103,6 +105,20 @@ export default function ArtworkCard({ artwork }: { artwork: Artwork }) {
       void video.current?.play().catch(() => setPlaying(false));
     }
   };
+  if (artwork.kind === "embed")
+    return (
+      <article data-artwork={artwork.id} className="mb-10 text-center">
+        <h2 className="text-waambat-pink text-[22px]">{artwork.title}</h2>
+        <VideoEmbed
+          src={artwork.videoSrc}
+          title={artwork.title}
+          poster={artwork.poster}
+        />
+        <p>{artwork.description}</p>
+        <a href={artwork.tokenLink}>View collection ↗</a>
+      </article>
+    );
+  if (artwork.kind === "instagram") return <InstagramCard artwork={artwork} />;
   return (
     <article data-artwork={artwork.id} className="mb-10 text-center">
       {artwork.kind !== "link" && (

@@ -4,6 +4,7 @@ import type { ContentState } from "~/server/content";
 import { contentSchema, type Artwork, type Content } from "~/lib/content";
 import { MAX_UPLOAD } from "~/lib/uploads";
 import PageEditor from "./PageEditor";
+import NavigationEditor from "./NavigationEditor";
 import { AdminRequestError, requestContentState } from "~/lib/admin-request";
 type PendingWrite = {
   action: "save" | "publish";
@@ -54,6 +55,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [mailPreview, setMailPreview] = useState("");
   const [uncertain, setUncertain] = useState<PendingWrite | null>(null);
   const upload = useRef<AbortController | null>(null);
   const dirty = JSON.stringify(content) !== JSON.stringify(state.draft);
@@ -65,7 +67,42 @@ export default function Editor({ initial }: { initial: ContentState }) {
       }
     };
     window.addEventListener("beforeunload", before);
-    return () => window.removeEventListener("beforeunload", before);
+    const navigate = (e: MouseEvent) => {
+      if (
+        (!dirty && !uploading && !uncertain) ||
+        e.ctrlKey ||
+        e.metaKey ||
+        e.shiftKey ||
+        e.altKey ||
+        e.button !== 0
+      )
+        return;
+      const anchor = (e.target as Element | null)?.closest("a[href]");
+      if (
+        !(anchor instanceof HTMLAnchorElement) ||
+        anchor.target === "_blank" ||
+        anchor.hasAttribute("download")
+      )
+        return;
+      if (
+        anchor.href === window.location.href ||
+        anchor.getAttribute("href")?.startsWith("#")
+      )
+        return;
+      if (
+        !confirm(
+          "Leave the studio? Unsaved edits and unfinished requests remain only in this tab.",
+        )
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+    document.addEventListener("click", navigate, true);
+    return () => {
+      window.removeEventListener("beforeunload", before);
+      document.removeEventListener("click", navigate, true);
+    };
   }, [dirty, uploading, uncertain]);
   useEffect(() => () => upload.current?.abort(), []);
   function edit(mutator: (draft: Content) => void) {
@@ -225,6 +262,11 @@ export default function Editor({ initial }: { initial: ContentState }) {
       return;
     }
     const controller = new AbortController();
+    let timedOut = false;
+    const deadline = setTimeout(() => {
+      timedOut = true;
+      controller.abort();
+    }, 30000);
     upload.current = controller;
     setUploading(true);
     setStatus("Uploading…");
@@ -253,9 +295,14 @@ export default function Editor({ initial }: { initial: ContentState }) {
       );
     } catch (e) {
       if (controller.signal.aborted)
-        setStatus("Upload cancelled. No artwork was changed.");
+        setStatus(
+          timedOut
+            ? "Upload timed out. No artwork was changed. You may retry; identical media is deduplicated."
+            : "Upload cancelled. No artwork was changed.",
+        );
       else setStatus(e instanceof Error ? e.message : "Upload failed");
     } finally {
+      clearTimeout(deadline);
       if (upload.current === controller) {
         upload.current = null;
         setUploading(false);
@@ -320,6 +367,97 @@ export default function Editor({ initial }: { initial: ContentState }) {
         {status}
       </p>
       <fieldset disabled={busy || uploading} className="space-y-8">
+        <section className="rounded border border-white/25 p-5">
+          <h2 className="text-waambat-pink mb-4 text-xl">Outgoing email</h2>
+          <p className="mb-4 text-sm">
+            Save settings with the draft, then publish. Gmail uses a separately
+            approved sending connection; custom providers use verified SMTP.
+            Credentials stay in server configuration. Delivery stays disabled
+            until a verified sender and transport are ready.
+          </p>
+          <label className="block">
+            Provider
+            <select
+              className={inputClass}
+              value={content.email.provider}
+              onChange={(e) =>
+                edit((d) => {
+                  d.email.provider = e.target.value as "gmail" | "custom";
+                })
+              }
+            >
+              <option value="gmail">Gmail</option>
+              <option value="custom">Custom SMTP provider</option>
+            </select>
+          </label>
+          <Field
+            label="Sender email"
+            value={content.email.from}
+            onChange={(v) =>
+              edit((d) => {
+                d.email.from = v;
+              })
+            }
+          />
+          <Field
+            label="Reply-to email (optional)"
+            value={content.email.replyTo}
+            onChange={(v) =>
+              edit((d) => {
+                d.email.replyTo = v;
+              })
+            }
+          />
+          <label className="my-4 block">
+            <input
+              type="checkbox"
+              checked={content.email.enabled}
+              onChange={(e) =>
+                edit((d) => {
+                  d.email.enabled = e.target.checked;
+                })
+              }
+            />{" "}
+            Enable approved outgoing email
+          </label>
+          <button
+            type="button"
+            onClick={async () => {
+              setMailPreview("Preparing saved-draft capture…");
+              try {
+                const response = await fetch("/api/admin/email-preview", {
+                  method: "POST",
+                  signal: AbortSignal.timeout(10000),
+                });
+                const result = (await response.json()) as {
+                  mime?: string;
+                  error?: string;
+                  readiness?: { ready: boolean };
+                };
+                if (!response.ok || !result.mime)
+                  throw new Error(result.error || "Capture failed");
+                setMailPreview(
+                  `No email sent. Delivery configuration ${result.readiness?.ready ? "ready" : "incomplete"}.\n${result.mime}`,
+                );
+              } catch (error) {
+                setMailPreview(
+                  error instanceof Error ? error.message : "Capture failed",
+                );
+              }
+            }}
+            className="text-waambat-link"
+          >
+            Preview email without sending
+          </button>
+          {mailPreview && (
+            <pre
+              role="status"
+              className="mt-4 max-h-60 overflow-auto text-xs break-all whitespace-pre-wrap"
+            >
+              {mailPreview}
+            </pre>
+          )}
+        </section>
         {content.sections.map((section, si) => (
           <section
             key={section.id}
@@ -383,14 +521,18 @@ export default function Editor({ initial }: { initial: ContentState }) {
                   value={section.page}
                   onChange={(e) =>
                     edit((d) => {
-                      d.sections[si]!.page = e.target.value as
-                        | "nfts"
-                        | "ordinals";
+                      d.sections[si]!.page = e.target.value;
                     })
                   }
                 >
                   <option value="nfts">NFTs</option>
                   <option value="ordinals">Ordinals</option>
+                  {content.pages.map((p) => (
+                    <option key={p.slug} value={p.slug}>
+                      {p.title}
+                      {p.archived ? " (archived)" : ""}
+                    </option>
+                  ))}
                 </select>
               </label>
             </div>
@@ -413,7 +555,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
                   className="rounded border border-white/15 p-4"
                 >
                   <summary className="cursor-pointer text-lg">
-                    {item.title}
+                    {item.title || "Instagram entry"}
                     {item.archived ? " · archived" : ""}
                   </summary>
                   <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -434,7 +576,11 @@ export default function Editor({ initial }: { initial: ContentState }) {
                       onChange={(v) => changeItem(item.id, "description", v)}
                     />
                     <Field
-                      label="Original token / inscription / collection URL"
+                      label={
+                        item.kind === "instagram"
+                          ? "Instagram post / reel / highlight URL"
+                          : "Original token / inscription / collection URL"
+                      }
                       value={item.tokenLink}
                       onChange={(v) => changeItem(item.id, "tokenLink", v)}
                     />
@@ -448,48 +594,65 @@ export default function Editor({ initial }: { initial: ContentState }) {
                         className={inputClass}
                       >
                         <option value="video">Video painting</option>
+                        <option value="embed">
+                          Provider player (YouTube / Vimeo / Imgur)
+                        </option>
                         <option value="image">Image / GIF</option>
                         <option value="link">Link</option>
+                        <option value="instagram">
+                          Instagram post / reel / highlight
+                        </option>
                       </select>
                     </label>
-                    {(["poster", "videoSrc", "mobileVideoSrc"] as const).map(
-                      (field) => (
-                        <div key={field}>
-                          <Field
-                            label={
+                    {(item.kind === "instagram"
+                      ? (["poster"] as const)
+                      : (["poster", "videoSrc", "mobileVideoSrc"] as const)
+                    ).map((field) => (
+                      <div key={field}>
+                        <Field
+                          label={
+                            field === "poster"
+                              ? "Poster / image URL"
+                              : field === "videoSrc"
+                                ? "Original video URL"
+                                : "Mobile video URL (optional)"
+                          }
+                          value={item[field]}
+                          onChange={(v) => changeItem(item.id, field, v)}
+                        />
+                        <label className="mt-2 block text-sm">
+                          Or upload {field === "poster" ? "image" : "video"} (4
+                          MB max)
+                          <input
+                            type="file"
+                            className="mt-2 block w-full text-xs"
+                            accept={
                               field === "poster"
-                                ? "Poster / image URL"
-                                : field === "videoSrc"
-                                  ? "Original video URL"
-                                  : "Mobile video URL (optional)"
+                                ? "image/png,image/jpeg,image/webp,image/gif"
+                                : "video/mp4,video/webm"
                             }
-                            value={item[field]}
-                            onChange={(v) => changeItem(item.id, field, v)}
+                            onChange={(e) => {
+                              void uploadFile(
+                                e.target.files?.[0],
+                                item.id,
+                                field,
+                              );
+                              e.target.value = "";
+                            }}
                           />
-                          <label className="mt-2 block text-sm">
-                            Or upload {field === "poster" ? "image" : "video"}{" "}
-                            (4 MB max)
-                            <input
-                              type="file"
-                              className="mt-2 block w-full text-xs"
-                              accept={
-                                field === "poster"
-                                  ? "image/png,image/jpeg,image/webp,image/gif"
-                                  : "video/mp4,video/webm"
-                              }
-                              onChange={(e) => {
-                                void uploadFile(
-                                  e.target.files?.[0],
-                                  item.id,
-                                  field,
-                                );
-                                e.target.value = "";
-                              }}
-                            />
-                          </label>
-                        </div>
-                      ),
-                    )}
+                        </label>
+                      </div>
+                    ))}
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={item.featured}
+                        onChange={(e) =>
+                          changeItem(item.id, "featured", e.target.checked)
+                        }
+                      />{" "}
+                      Featured (shown first, preserving other entry order)
+                    </label>
                     <label>
                       <input
                         type="checkbox"
@@ -549,6 +712,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
                     mobileVideoSrc: "",
                     poster: "",
                     archived: false,
+                    featured: false,
                   });
                 })
               }
@@ -574,8 +738,38 @@ export default function Editor({ initial }: { initial: ContentState }) {
         >
           + Add section
         </button>
+        <NavigationEditor
+          navigation={content.navigation}
+          pages={content.pages}
+          onChange={(navigation) =>
+            edit((d) => {
+              d.navigation = navigation;
+            })
+          }
+        />
         <PageEditor
           pages={content.pages}
+          onCreate={(page, nav) =>
+            edit((d) => {
+              d.pages.push(page);
+              if (nav)
+                d.navigation.push({
+                  id: `nav-${crypto.randomUUID()}`,
+                  label: page.title,
+                  href: `/${page.slug}`,
+                  archived: false,
+                });
+              if (page.layout === "gallery")
+                d.sections.push({
+                  id: `section-${crypto.randomUUID()}`,
+                  title: page.title,
+                  intro: "",
+                  page: page.slug,
+                  items: [],
+                  archived: false,
+                });
+            })
+          }
           onChange={(pages) =>
             edit((d) => {
               d.pages = pages;
