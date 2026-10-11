@@ -4,6 +4,17 @@ import { promisify } from "node:util";
 import { contentSchema, type Content } from "~/lib/content";
 import { AdminError } from "./auth";
 export const CONTENT_PATH = "src/content/site.json";
+export const MAX_CONTENT_BYTES = 500000;
+export function serializeContent(content: Content) {
+  const serialized =
+    JSON.stringify(contentSchema.parse(content), null, 2) + "\n";
+  if (Buffer.byteLength(serialized, "utf8") > MAX_CONTENT_BYTES)
+    throw new AdminError(
+      413,
+      "Draft exceeds 500 KB after formatting. Shorten descriptions or other text before saving. Your previous draft is unchanged.",
+    );
+  return serialized;
+}
 export const DRAFT_BRANCH = "cms/waambat-drafts";
 export const draftBranch = () =>
   process.env.GITHUB_DRAFT_BRANCH ?? DRAFT_BRANCH;
@@ -130,7 +141,7 @@ export class GitHubStore implements GitStore {
         "The content file is missing from the selected branch",
       );
     const bytes = Buffer.from(file.content, "base64");
-    if (bytes.length > 500000)
+    if (bytes.length > MAX_CONTENT_BYTES)
       throw new AdminError(503, "Stored content is too large");
     return {
       sha: ref.object.sha,
@@ -159,6 +170,7 @@ export class GitHubStore implements GitStore {
     content: Content,
     message: string,
   ) {
+    const serialized = serializeContent(content);
     const current = await this.read(branch);
     if (!current || current.sha !== expected)
       throw new AdminError(
@@ -166,7 +178,7 @@ export class GitHubStore implements GitStore {
         "A newer version exists. Reload before saving; your edits remain on screen.",
       );
     const blob = await this.call<{ sha: string }>("git/blobs", "POST", {
-      content: JSON.stringify(contentSchema.parse(content), null, 2) + "\n",
+      content: serialized,
       encoding: "utf-8",
     });
     const tree = await this.call<{ sha: string }>("git/trees", "POST", {
@@ -233,6 +245,8 @@ export class LocalGitStore implements GitStore {
       this.git(["rev-parse", `${sha}^{tree}`]),
       this.git(["show", `${sha}:${CONTENT_PATH}`]),
     ]);
+    if (Buffer.byteLength(file, "utf8") > MAX_CONTENT_BYTES)
+      throw new AdminError(503, "Stored content is too large");
     return { sha, tree, content: contentSchema.parse(JSON.parse(file)) };
   }
   async createBranch(branch: string, sha: string) {
@@ -254,16 +268,14 @@ export class LocalGitStore implements GitStore {
     content: Content,
     message: string,
   ) {
+    const serialized = serializeContent(content);
     const current = await this.read(branch);
     if (!current || current.sha !== expected)
       throw new AdminError(
         409,
         "A newer version exists. Reload before saving; your edits remain on screen.",
       );
-    const blob = await this.git(
-      ["hash-object", "-w", "--stdin"],
-      JSON.stringify(contentSchema.parse(content), null, 2) + "\n",
-    );
+    const blob = await this.git(["hash-object", "-w", "--stdin"], serialized);
     // Use a temporary index so browser tests never edit the source checkout.
     const { mkdtemp, rm } = await import("node:fs/promises");
     const { tmpdir } = await import("node:os");

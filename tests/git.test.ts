@@ -9,8 +9,114 @@ import {
   GitHubStore,
   CONTENT_PATH,
   DRAFT_BRANCH,
+  MAX_CONTENT_BYTES,
+  serializeContent,
 } from "../src/server/git-store";
 import { seedContent } from "../src/content/seed";
+test("formatted UTF-8 content boundary roundtrips and oversized commits leave Git unchanged", async () => {
+  const document = structuredClone(seedContent);
+  document.sections = Array.from({ length: 3 }, (_, si) => ({
+    ...document.sections[0]!,
+    id: `size-section-${si}`,
+    items: Array.from({ length: 80 }, (_, ii) => ({
+      ...document.sections[0]!.items[0]!,
+      id: `size-item-${si}-${ii}`,
+      description: "",
+    })),
+  }));
+  let remaining =
+    MAX_CONTENT_BYTES - Buffer.byteLength(serializeContent(document));
+  for (const section of document.sections)
+    for (const item of section.items) {
+      const count = Math.min(remaining, 2000);
+      item.description = "x".repeat(count);
+      remaining -= count;
+    }
+  assert.equal(remaining, 0);
+  assert.equal(
+    Buffer.byteLength(serializeContent(document)),
+    MAX_CONTENT_BYTES,
+  );
+  assert.ok(
+    Buffer.byteLength(
+      JSON.stringify({
+        revision: "a".repeat(40),
+        action: "save",
+        content: document,
+      }),
+    ) < MAX_CONTENT_BYTES,
+  );
+  const directory = await mkdtemp(join(tmpdir(), "waambat-size-unit-"));
+  const git = (...args: string[]) =>
+    execFileSync("git", ["-C", directory, ...args], {
+      encoding: "utf8",
+    }).trim();
+  try {
+    await mkdir(join(directory, "src/content"), { recursive: true });
+    await writeFile(join(directory, CONTENT_PATH), JSON.stringify(seedContent));
+    git("init", "-b", "main");
+    git("add", CONTENT_PATH);
+    git(
+      "-c",
+      "user.name=Test",
+      "-c",
+      "user.email=test@example.invalid",
+      "commit",
+      "-m",
+      "Initial content",
+    );
+    const store = new LocalGitStore(directory);
+    const initial = (await store.read("main"))!;
+    const accepted = await store.commit(
+      "main",
+      initial.sha,
+      document,
+      "Maximum valid content",
+    );
+    assert.deepEqual((await store.read("main"))!.content, document);
+    const item = document.sections
+      .flatMap((s) => s.items)
+      .find((i) => i.description.length < 1998)!;
+    item.description += "🖼";
+    assert.ok(
+      Buffer.byteLength(
+        JSON.stringify({
+          revision: accepted,
+          action: "save",
+          content: document,
+        }),
+      ) < MAX_CONTENT_BYTES,
+    );
+    await assert.rejects(
+      () => store.commit("main", accepted, document, "Too large"),
+      { status: 413 },
+    );
+    assert.equal((await store.read("main"))!.sha, accepted);
+    assert.equal(git("rev-list", "--count", "main"), "2");
+    let calls = 0;
+    const transport: typeof fetch = async () => {
+      calls++;
+      return Response.json({});
+    };
+    await assert.rejects(
+      () =>
+        new GitHubStore(transport, async () => "test").commit(
+          "main",
+          accepted,
+          document,
+          "Too large",
+        ),
+      { status: 413 },
+    );
+    assert.equal(
+      calls,
+      0,
+      "No GitHub reads or mutations before formatted size validation",
+    );
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
 test("real Git draft/publish commits preserve originals and reject competing writes", async () => {
   const directory = await mkdtemp(join(tmpdir(), "waambat-git-unit-"));
   const git = (...args: string[]) =>

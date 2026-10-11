@@ -5,6 +5,7 @@ import {
   draftBranch,
   baseBranch,
   localTestConfigured,
+  serializeContent,
 } from "./git-store";
 import { AdminError } from "./auth";
 export interface ContentState {
@@ -54,6 +55,7 @@ export async function updateContent(
       "A newer version exists. Reload before saving; your edits remain on screen.",
     );
   if (action === "save") {
+    serializeContent(contentSchema.parse(content));
     await store.createBranch(draftBranch(), state.publishedRevision);
     await store.commit(
       draftBranch(),
