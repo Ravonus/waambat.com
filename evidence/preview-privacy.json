@@ -1,7 +1,8 @@
 {
-  "compiledPreviewGate": "Enabled even with runtime WAAMBAT_PRIVATE_SITE=0",
-  "anonymousGalleries": "307 to /admin",
+  "publicPortfolio": "All seven portfolio routes return 200 without authentication",
+  "anonymousDraftPreview": "307 to /admin",
   "unconfiguredAdmin": "503, fail closed",
   "anonymousMedia": "404",
+  "browser": "Compiled production gallery: 23 original paintings, no login/database, desktop/mobile rendered without overflow; reduced motion attached no video source",
   "deployment": "Local compiled production server; no external deployment or credentials"
 }

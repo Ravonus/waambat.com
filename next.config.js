@@ -5,11 +5,7 @@ const config = {
   poweredByHeader: false,
   devIndicators: false,
   env: {
-    WAAMBAT_REVIEW_BUILD:
-      process.env.WAAMBAT_PRIVATE_SITE === "1" ||
-      ["deploy-preview", "branch-deploy"].includes(process.env.CONTEXT ?? "")
-        ? "1"
-        : "0",
+    WAAMBAT_REVIEW_BUILD: process.env.WAAMBAT_PRIVATE_SITE === "1" ? "1" : "0",
   },
   async headers() {
     return [

@@ -7,10 +7,10 @@
   NETLIFY_NEXT_SKEW_PROTECTION = "true"
 
 [context.deploy-preview.environment]
-  WAAMBAT_PRIVATE_SITE = "1"
+  WAAMBAT_PRIVATE_SITE = "0"
 
 [context.branch-deploy.environment]
-  WAAMBAT_PRIVATE_SITE = "1"
+  WAAMBAT_PRIVATE_SITE = "0"
 
 # Netlify automatically applies its maintained OpenNext adapter.
 # No pinned legacy plugin, build hook token, Identity, or Git Gateway is required.
