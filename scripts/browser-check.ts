@@ -183,6 +183,70 @@ try {
     .getByRole("heading", { name: "Feels 404", exact: true })
     .waitFor();
   await visual.screenshot({ path: "evidence/desktop.png" });
+  const articles = await reduced.newPage();
+  for (const [label, path, heading] of [
+    [
+      "quantum mechanics",
+      "mechanics",
+      "Utility Mechanics of the Quantum Series",
+    ],
+    ["blog + press", "blog-press", "Artists Against Algorithms"],
+    ["bio", "bio-waambat", "WAAMBAT"],
+    ["collect + contact", "contact-waambat", "How to collect WAAMBAT:"],
+  ]) {
+    await articles.goto(origin);
+    await articles.getByRole("button", { name: "Menu", exact: true }).click();
+    await articles.getByRole("link", { name: label!, exact: true }).click();
+    await articles.waitForURL(`${origin}/${path}`);
+    await articles
+      .getByRole("heading", { name: heading!, exact: true })
+      .waitFor();
+    assert.ok(
+      await articles.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    );
+    assert.equal(
+      await articles.locator("iframe").count(),
+      0,
+      "External players stay unloaded until requested",
+    );
+  }
+  assert.equal(
+    await articles.locator('a[href="https://discord.gg/7UhEguFr"]').count(),
+    1,
+  );
+  await articles.goto(`${origin}/art-by-waambat`);
+  await articles
+    .getByRole("button", { name: "Next artwork", exact: true })
+    .click();
+  await articles.getByRole("button", { name: "info", exact: true }).click();
+  assert.equal(
+    await articles.locator("#archive-info").innerText(),
+    "Sus Singularity (2021)",
+  );
+  await articles
+    .getByRole("button", { name: "Previous artwork", exact: true })
+    .click();
+  assert.equal(
+    await articles.locator("#archive-info").innerText(),
+    "Axiom GL0w Up (2021)",
+  );
+  await articles
+    .getByRole("button", {
+      name: "Artwork 25: Poison Progression (2010)",
+      exact: true,
+    })
+    .click();
+  assert.ok(
+    (await articles.locator("#archive-info").innerText()).includes("Top award"),
+  );
+  assert.equal(
+    (await articles.request.get(`${origin}/missing-page`)).status(),
+    404,
+  );
+  evidence.pages =
+    "All five local page routes, mobile navigation/overflow, contact links, deferred embeds, archive prev/next/info/number selection and missing-route 404 passed. Live media transport and original visual matching remain separately blocked.";
   const owner = await browser.newContext({
     viewport: { width: 1280, height: 900 },
   });
@@ -318,6 +382,13 @@ try {
     .getByLabel("Artwork title", { exact: true })
     .first()
     .fill("Draft test title");
+  const contactEditor = admin.locator('details[data-page="contact-waambat"]');
+  await contactEditor.locator("summary").first().click();
+  const pageBlock = contactEditor.locator("details").first();
+  await pageBlock.locator("summary").click();
+  await pageBlock
+    .getByLabel("Page block text / image description", { exact: true })
+    .fill("Private contact draft");
   await admin.getByRole("button", { name: "Save draft", exact: true }).click();
   await admin.getByRole("status").filter({ hasText: "Draft saved." }).waitFor();
   const saved = await (
@@ -329,6 +400,16 @@ try {
     initial.published.sections[0].items[0].title,
   );
   const preview = await owner.newPage();
+  await preview.goto(`${origin}/admin/preview?page=contact-waambat`);
+  await preview
+    .getByRole("heading", { name: "Private contact draft", exact: true })
+    .waitFor();
+  assert.equal(
+    await (await owner.request.get(`${origin}/contact-waambat`))
+      .text()
+      .then((t) => t.includes("Private contact draft")),
+    false,
+  );
   await preview.goto(`${origin}/admin/preview`);
   await preview
     .getByRole("heading", { name: "Draft test title", exact: true })
@@ -432,6 +513,85 @@ try {
     path: "evidence/admin-desktop.png",
     fullPage: true,
   });
+  const firstTitle = admin.getByLabel("Artwork title", { exact: true }).first();
+  const firstDetails = admin
+    .locator("section")
+    .first()
+    .locator("details")
+    .first();
+  if (
+    !(await firstDetails.evaluate(
+      (element) => (element as HTMLDetailsElement).open,
+    ))
+  )
+    await firstDetails.locator("summary").first().click();
+  await firstTitle.fill("Commit confirmed after response loss");
+  let writeAttempts = 0;
+  await admin.route("**/api/admin/content", async (route) => {
+    if (route.request().method() === "POST") {
+      writeAttempts++;
+      await route.fetch();
+      await route.abort("connectionreset");
+    } else await route.continue();
+  });
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "Saved commit confirmed." })
+    .waitFor();
+  assert.equal(
+    writeAttempts,
+    1,
+    "The editor reconciles without replaying the write",
+  );
+  assert.equal(
+    await firstTitle.inputValue(),
+    "Commit confirmed after response loss",
+  );
+  await admin.unroute("**/api/admin/content");
+  await firstTitle.fill("Retain edits while commit status unknown");
+  await admin.route("**/api/admin/content", async (route) => {
+    if (route.request().method() === "POST") writeAttempts++;
+    await route.abort("connectionreset");
+  });
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "Commit status is still unknown." })
+    .waitFor();
+  assert.equal(
+    await admin
+      .getByRole("button", { name: "Save draft", exact: true })
+      .isDisabled(),
+    true,
+  );
+  assert.equal(
+    await admin
+      .getByRole("button", { name: "Publish saved draft", exact: true })
+      .isDisabled(),
+    true,
+  );
+  assert.equal(
+    await firstTitle.inputValue(),
+    "Retain edits while commit status unknown",
+  );
+  await admin.unroute("**/api/admin/content");
+  await admin
+    .getByRole("button", { name: "Check remote commit", exact: true })
+    .click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "No new commit observed." })
+    .waitFor();
+  assert.equal(
+    writeAttempts,
+    2,
+    "No automatic retry while the remote state is unknown",
+  );
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin.getByRole("status").filter({ hasText: "Draft saved." }).waitFor();
+  evidence.adminRequests =
+    "Unconfirmed response after a real Git commit is reconciled without a repeated write; disconnected writes/readback retain edits and block further mutations until explicit remote-state reconciliation. Deadline abort is also covered by unit tests.";
   // Restore the isolated Git draft/production branches, retaining commit history.
   const latest = await (
     await owner.request.get(`${origin}/api/admin/content`)

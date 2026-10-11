@@ -25,4 +25,4 @@ Browser checks require Chromium and ffmpeg. They create their own temporary Git 
 pnpm media:prepare ./original.mp4 ./new-derivatives
 ```
 
-Configure a private Netlify review site using `.env.example` and the setup instructions before enabling sign-in, publishing or uploads. Original marketplace destinations, licensed fonts and the remaining Squarespace sections need a source handoff before replacing the existing domain.
+Configure a private Netlify review site using `.env.example` and the setup instructions before enabling sign-in, publishing or uploads. All seven internal navigation destinations now have local routes and admin draft editing. Original marketplace destinations, the licensed font loader, 23 archive player URLs and legacy-route details still need source verification before replacing the existing domain. This is an incremental draft, not a finished/deployed replacement.

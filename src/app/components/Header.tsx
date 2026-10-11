@@ -4,14 +4,14 @@ import Link from "next/link";
 const menuItems = [
   { name: "NFTs", href: "/" },
   { name: "ORDINALS", href: "/ordinals" },
-  { name: "quantum mechanics", href: "https://waambat.com/mechanics" },
-  { name: "art archive", href: "https://waambat.com/art-by-waambat" },
-  { name: "instagram", href: "https://instagram.com/waambat" },
-  { name: "blog + press", href: "https://waambat.com/blog-press" },
-  { name: "bio", href: "https://waambat.com/bio-waambat" },
-  { name: "collect + contact", href: "https://waambat.com/contact-waambat" },
+  { name: "quantum mechanics", href: "/mechanics" },
+  { name: "art archive", href: "/art-by-waambat" },
+  { name: "instagram", href: "https://www.instagram.com/waambat/" },
+  { name: "blog + press", href: "/blog-press" },
+  { name: "bio", href: "/bio-waambat" },
+  { name: "collect + contact", href: "/contact-waambat" },
 ];
-export default function Header() {
+export default function Header({ preview = false }: { preview?: boolean }) {
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -51,7 +51,11 @@ export default function Header() {
         {menuItems.map((item) => (
           <Link
             key={item.name}
-            href={item.href}
+            href={
+              preview && item.href.startsWith("/")
+                ? `/admin/preview?page=${item.href === "/" ? "nfts" : item.href.slice(1)}`
+                : item.href
+            }
             onClick={() => setOpen(false)}
             className="hover:text-waambat-hover py-1 text-[14px] text-[#ebebeb]"
           >

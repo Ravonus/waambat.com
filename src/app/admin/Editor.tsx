@@ -3,6 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import type { ContentState } from "~/server/content";
 import { contentSchema, type Artwork, type Content } from "~/lib/content";
 import { MAX_UPLOAD } from "~/lib/uploads";
+import PageEditor from "./PageEditor";
+import { AdminRequestError, requestContentState } from "~/lib/admin-request";
+type PendingWrite = {
+  action: "save" | "publish";
+  revision: string;
+  publishedRevision: string;
+  content: Content;
+};
 const inputClass =
   "mt-1 w-full rounded border border-white/30 bg-black px-3 py-2 text-white";
 function Field({
@@ -21,6 +29,7 @@ function Field({
       {label}
       {multiline ? (
         <textarea
+          aria-label={label}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className={inputClass}
@@ -28,6 +37,7 @@ function Field({
         />
       ) : (
         <input
+          aria-label={label}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className={inputClass}
@@ -44,18 +54,19 @@ export default function Editor({ initial }: { initial: ContentState }) {
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [uncertain, setUncertain] = useState<PendingWrite | null>(null);
   const upload = useRef<AbortController | null>(null);
   const dirty = JSON.stringify(content) !== JSON.stringify(state.draft);
   useEffect(() => {
     const before = (e: BeforeUnloadEvent) => {
-      if (dirty || uploading) {
+      if (dirty || uploading || uncertain) {
         e.preventDefault();
         e.returnValue = "";
       }
     };
     window.addEventListener("beforeunload", before);
     return () => window.removeEventListener("beforeunload", before);
-  }, [dirty, uploading]);
+  }, [dirty, uploading, uncertain]);
   useEffect(() => () => upload.current?.abort(), []);
   function edit(mutator: (draft: Content) => void) {
     setContent((current) => {
@@ -73,7 +84,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
     });
   }
   async function request(action: "save" | "publish") {
-    if (busy || uploading) return;
+    if (busy || uploading || uncertain) return;
     if (action === "save") {
       const validation = contentSchema.safeParse(content);
       if (!validation.success) {
@@ -95,8 +106,14 @@ export default function Editor({ initial }: { initial: ContentState }) {
       return;
     setBusy(true);
     setStatus("");
+    const pending: PendingWrite = {
+      action,
+      revision: state.revision,
+      publishedRevision: state.publishedRevision,
+      content: contentSchema.parse(action === "save" ? content : state.draft),
+    };
     try {
-      const response = await fetch("/api/admin/content", {
+      const next = await requestContentState({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -106,10 +123,6 @@ export default function Editor({ initial }: { initial: ContentState }) {
           ...(action === "save" ? { content } : {}),
         }),
       });
-      const body: unknown = await response.json();
-      if (!response.ok)
-        throw new Error((body as { error?: string }).error ?? "Request failed");
-      const next = body as ContentState;
       setState(next);
       setContent(structuredClone(next.draft));
       setStatus(
@@ -118,6 +131,14 @@ export default function Editor({ initial }: { initial: ContentState }) {
           : "Published content committed. Netlify updates the site after the build succeeds.",
       );
     } catch (e) {
+      if (e instanceof AdminRequestError && e.uncertain) {
+        setUncertain(pending);
+        setStatus(
+          `${e.message} Your edits remain here. Checking the remote commit before another write.`,
+        );
+        await reconcile(pending);
+        return;
+      }
       setStatus(
         e instanceof Error
           ? e.message
@@ -127,20 +148,63 @@ export default function Editor({ initial }: { initial: ContentState }) {
       setBusy(false);
     }
   }
+  async function reconcile(pending: PendingWrite | null = uncertain) {
+    if (!pending) return;
+    setBusy(true);
+    try {
+      const remote = await requestContentState({}, 10000);
+      const observed =
+        pending.action === "save" ? remote.draft : remote.published;
+      const changed =
+        pending.action === "save"
+          ? remote.revision !== pending.revision
+          : remote.publishedRevision !== pending.publishedRevision;
+      if (
+        changed &&
+        JSON.stringify(observed) === JSON.stringify(pending.content)
+      ) {
+        setState(remote);
+        setContent((current) => {
+          const parsed = contentSchema.safeParse(current);
+          return parsed.success &&
+            JSON.stringify(parsed.data) === JSON.stringify(pending.content)
+            ? structuredClone(remote.draft)
+            : current;
+        });
+        setStatus(
+          pending.action === "save"
+            ? "Saved commit confirmed. Your edits are retained; preview before publishing."
+            : "Published commit confirmed. Netlify updates the site after a successful build.",
+        );
+      } else {
+        setStatus(
+          changed
+            ? "Remote content changed. Your edits remain here. Reload and review the latest draft before retrying."
+            : "No new commit observed. Your edits remain here. You may retry; the expected revision protects against late or concurrent commits.",
+        );
+      }
+      setUncertain(null);
+    } catch {
+      setStatus(
+        "Commit status is still unknown. Your edits remain here. Check the remote commit before saving or publishing again.",
+      );
+    } finally {
+      setBusy(false);
+    }
+  }
   async function reload() {
     if (
-      (dirty || uploading) &&
+      (dirty || uploading || uncertain) &&
       !confirm("Discard unsaved edits and load the latest saved draft?")
     )
       return;
     upload.current?.abort();
     setBusy(true);
     try {
-      const res = await fetch("/api/admin/content", { cache: "no-store" });
-      const body = (await res.json()) as ContentState & { error?: string };
-      if (!res.ok) throw new Error(body.error ?? "Could not reload");
+      const body = await requestContentState({}, 10000);
       setState(body);
       setContent(structuredClone(body.draft));
+      setUncertain(null);
       setStatus("Latest draft loaded.");
     } catch (e) {
       setStatus(e instanceof Error ? e.message : "Could not reload");
@@ -209,7 +273,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
       </p>
       <div className="sticky top-0 z-20 my-6 flex flex-wrap items-center gap-4 border-y border-white/20 bg-black py-4">
         <button
-          disabled={busy || uploading || !dirty}
+          disabled={busy || uploading || !dirty || !!uncertain}
           onClick={() => request("save")}
           className="bg-waambat-pink rounded px-4 py-2 text-black"
         >
@@ -224,7 +288,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
           Preview saved draft ↗
         </a>
         <button
-          disabled={busy || uploading || dirty}
+          disabled={busy || uploading || dirty || !!uncertain}
           onClick={() => request("publish")}
           className="border-waambat-pink rounded border px-4 py-2"
         >
@@ -234,6 +298,11 @@ export default function Editor({ initial }: { initial: ContentState }) {
           Reload / discard edits
         </button>
         <span>{dirty ? "Unsaved changes" : "Draft saved"}</span>
+        {uncertain && (
+          <button disabled={busy} onClick={() => void reconcile()}>
+            Check remote commit
+          </button>
+        )}
         {uploading && (
           <button
             onClick={() => upload.current?.abort()}
@@ -505,6 +574,14 @@ export default function Editor({ initial }: { initial: ContentState }) {
         >
           + Add section
         </button>
+        <PageEditor
+          pages={content.pages}
+          onChange={(pages) =>
+            edit((d) => {
+              d.pages = pages;
+            })
+          }
+        />
       </fieldset>
     </>
   );

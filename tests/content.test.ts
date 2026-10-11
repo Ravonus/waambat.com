@@ -1,6 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { contentSchema, mediaReferences, safeLink } from "../src/lib/content";
+import {
+  contentSchema,
+  mediaReferences,
+  safeLink,
+  embedLink,
+} from "../src/lib/content";
 import { detectMedia, parseRange } from "../src/lib/uploads";
 import { seedContent } from "../src/content/seed";
 test("seed preserves 23 paintings and original Ordinals alongside LUX and Kismet", () => {
@@ -47,6 +52,39 @@ test("archived content is excluded from public media access", () => {
   assert.ok(mediaReferences(doc).has("/api/media/abc"));
   doc.sections[0]!.items[0]!.archived = true;
   assert.equal(mediaReferences(doc).has("/api/media/abc"), false);
+});
+test("migrated pages retain archive entries and reject unsafe embeds and duplicate routes", () => {
+  assert.equal(seedContent.pages.length, 5);
+  assert.equal(
+    seedContent.pages.find((p) => p.slug === "art-by-waambat")!.archive.length,
+    25,
+  );
+  for (const value of [
+    "https://attacker.test/embed/123",
+    "https://www.youtube-nocookie.com/embed/12345678901?redirect=https://attacker.test",
+    "javascript:alert(1)",
+    "https://player.vimeo.com/@attacker",
+  ])
+    assert.equal(embedLink.safeParse(value).success, false);
+  assert.equal(
+    embedLink.safeParse("https://www.youtube-nocookie.com/embed/T5i24dLZ9Ds")
+      .success,
+    true,
+  );
+  const duplicate = structuredClone(seedContent);
+  duplicate.pages[1]!.slug = duplicate.pages[0]!.slug;
+  assert.equal(contentSchema.safeParse(duplicate).success, false);
+  const old = { sections: seedContent.sections };
+  assert.deepEqual(contentSchema.parse(old).pages, []);
+});
+test("page media authorization follows deployed and non-archived references", () => {
+  const doc = structuredClone(seedContent);
+  const page = doc.pages.find((p) => p.slug === "bio-waambat")!;
+  const image = page.blocks.find((b) => b.type === "image")!;
+  image.src = "/api/media/page-image";
+  assert.ok(mediaReferences(doc).has(image.src));
+  image.archived = true;
+  assert.equal(mediaReferences(doc).has(image.src), false);
 });
 test("validates upload signatures and HTTP byte ranges", () => {
   assert.equal(

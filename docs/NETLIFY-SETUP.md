@@ -1,0 +1,11 @@
+No Netlify account is authenticated in this environment (`netlify status` confirmed). The supported `netlify login --request ... --json` agent flow returned Forbidden and created no ticket or credentials. The owner/provider must establish an approved account connection before deployment can proceed. Existing GitHub repository access can push this branch but cannot supply a Netlify session or a runtime GitHub App installation token.
+
+Minimum for a working private review site:
+
+1. Owner connects the approved Netlify account using its supported agent login flow; select an existing site/team without a paid plan change. Link Ravonus/waambat.com and feat/gallery-admin-modernization, with pnpm build / .next from netlify.toml. Keep waambat.com DNS and production untouched.
+2. Reuse an approved GitHub OAuth application's client credentials; configure the exact review site's AUTH_URL and callback /api/auth/callback/github, AUTH_SECRET and approved stable ADMIN_GITHUB_IDS. No repository OAuth scope is needed for sign-in. This is required for owner access to the private preview, not just editing.
+3. For admin persistence, install/reuse an approved GitHub App on ONLY Ravonus/waambat.com, Contents read/write + Metadata read, no workflow/admin/bypass grants. Set server-only GITHUB_APP_ID, GITHUB_APP_INSTALLATION_ID, GITHUB_APP_PRIVATE_KEY; review branches GITHUB_CONTENT_BRANCH=feat/gallery-admin-modernization and GITHUB_DRAFT_BRANCH=cms/waambat-review-drafts. Main is untouched. Netlify must watch the selected content branch.
+4. Set WAAMBAT_PRIVATE_SITE=1. Leave NETLIFY_MEDIA_ENABLED=0. Existing hosted media URLs support video management without any new storage commitment. Enabling Blobs uploads requires the owner's approval of the selected site's limits/cost and real integration QA.
+5. Verify real owner/denied-account sign-in, anonymous gallery/media denial, draft commits/preview, reviewed publish commit -> successful Netlify build -> private gallery refresh, and retained drafts/stale-state handling before claiming delivery.
+
+A new GitHub App install/permission grant or new OAuth credential requires explicit owner approval. Deployment is already requested; no second deployment confirmation is needed once access/configuration and readiness are established.
