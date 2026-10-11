@@ -1,83 +1,64 @@
 "use client";
-
-import React, { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { HiOutlineMenu, HiX } from "react-icons/hi";
-
 const menuItems = [
-  { name: "NFTs", href: "https://objkt.com/collection/waambat" },
-  { name: "ORDINALS", href: "https://ordinals.com" },
-  { name: "quantum mechanics", href: "https://waambat.com/quantum-mechanics" },
-  { name: "art archive", href: "https://waambat.com/art-archive" },
+  { name: "NFTs", href: "/" },
+  { name: "ORDINALS", href: "/ordinals" },
+  { name: "quantum mechanics", href: "https://waambat.com/mechanics" },
+  { name: "art archive", href: "https://waambat.com/art-by-waambat" },
   { name: "instagram", href: "https://instagram.com/waambat" },
   { name: "blog + press", href: "https://waambat.com/blog-press" },
-  { name: "bio", href: "https://waambat.com/bio" },
-  { name: "collect + contact", href: "https://waambat.com/collect-contact" },
+  { name: "bio", href: "https://waambat.com/bio-waambat" },
+  { name: "collect + contact", href: "https://waambat.com/contact-waambat" },
 ];
-
-const Header: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
+export default function Header() {
+  const [open, setOpen] = useState(false);
+  const button = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        button.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-800 bg-black">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        <Link
-          href="/"
-          className="text-waambat-pink text-3xl font-bold tracking-widest"
-        >
-          WAAMBAT
-        </Link>
-
-        {/* Hamburger icon (shown on mobile) */}
-        <button
-          className="text-3xl text-white focus:outline-none sm:hidden"
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <HiX /> : <HiOutlineMenu />}
-        </button>
-
-        {/* Desktop Menu */}
-        <nav className="hidden space-x-6 text-sm font-medium uppercase sm:flex">
-          {menuItems.map((item, idx) => (
-            <a
-              key={idx}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-waambat-pink text-white transition-colors"
-            >
-              {item.name}
-            </a>
-          ))}
-        </nav>
-      </div>
-
-      {/* Mobile overlay menu */}
-      {isOpen && (
-        <div className="border-t border-gray-800 bg-black sm:hidden">
-          <nav className="flex flex-col space-y-2 px-4 py-2">
-            {menuItems.map((item, idx) => (
-              <a
-                key={idx}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-waambat-pink text-base text-white transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
-        </div>
-      )}
+    <header className="mx-auto max-w-[1080px] px-5 pt-10 pb-8 text-center md:px-[60px] md:pt-[60px]">
+      <Link
+        href="/"
+        className="text-waambat-logo inline-block text-[37px] leading-tight font-black tracking-[.03em]"
+        aria-label="waambat home"
+      >
+        waambat
+      </Link>
+      <button
+        ref={button}
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls="site-menu"
+        className="absolute top-12 right-5 text-sm md:hidden"
+      >
+        {open ? "× Close" : "Menu"}
+      </button>
+      <nav
+        id="site-menu"
+        aria-label="Main navigation"
+        className={`${open ? "flex" : "hidden"} mt-7 flex-col items-center gap-x-6 gap-y-2 md:flex md:flex-row md:flex-wrap md:justify-center`}
+      >
+        {menuItems.map((item) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            onClick={() => setOpen(false)}
+            className="hover:text-waambat-hover py-1 text-[14px] text-[#ebebeb]"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
-};
-
-export default Header;
+}

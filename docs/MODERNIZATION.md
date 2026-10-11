@@ -1,0 +1,67 @@
+# WAAMBAT modernization: review and setup
+
+Work is isolated to Ravonus/waambat.com on `feat/gallery-admin-modernization`. Existing KEEL checkouts and public production were not modified. The repository had a T3 scaffold (Next 15 / React 18 / Tailwind 3 / unused Drizzle example), no implemented authentication, admin or deployment integration. The live site is Squarespace; it is not the application in this repository.
+
+## Implemented
+
+- Next 16.4, React 19, Tailwind 4, ESLint CLI and flat configuration. Netlify configuration uses its automatically maintained OpenNext adapter, without a pinned legacy plugin. No Identity, Git Gateway, new Postgres service, production deployment or cloud storage was created.
+- Black art-first presentation, researched pink/purple colors, centered header and the existing eight navigation labels. The first two destinations use this application's galleries; other sections retain their verified live-site URLs.
+- All 23 original paintings, original remote MP4 URLs and source PNGs remain. Original Ordinal A/B/C inscription destinations are preserved. LUX/OK Algo and its Pink Paper are added; Kismet Twist is separate because its relationship to LUX was not verified. The LUX image is an official still, not regenerated art. Trailer/poster/mobile video URLs can be managed using the same schema; no unreviewed montage is inserted.
+- Intersection-driven attachment of video URLs, offscreen/background pause, playsInline, lazy responsive posters, manual play/retry, and reduced-motion/save-data opt-in. Sources remain attached after first visibility so scrolling back does not deliberately refetch them. Optional mobile-video sources are selected on mount.
+- `/admin`: approved stable GitHub account IDs only, with authorization on every server read/write/preview/upload. Missing credentials or allowlist fail closed. Auth.js handles OAuth/session signing; mutation APIs also require the configured same origin. No Git credential enters the frontend or session.
+- Plain-text structured fields, strict content/URL validation, optimistic commit checks, explicit publish/discard confirmation, retained Git history and reversible archive. Unsaved-change navigation protection and cancelled-upload guards preserve edits when requests fail or arrive late.
+
+## Git content and Netlify deployment
+
+`src/content/site.json` is the canonical content file. Public galleries serve the JSON bundled in the deployed Git commit, without runtime GitHub requests. Before each build, `pnpm content:check` rejects invalid or oversized content.
+
+The server requests short-lived installation tokens from an approved GitHub App, narrowed to `waambat.com` and Contents write. It saves drafts on the configured draft branch. Publishing commits only the validated content file to the configured deployment branch; all other tree entries are retained. New commits use the expected parent and `force:false`. Divergent concurrent saves and changes to the deployment branch return conflicts rather than overwrite other work. Failed branch rules or permissions are reported without bypass. Publishing does not imply the build is complete: the editor displays separate draft/published/deployed commit identifiers.
+
+Netlify must be connected to that deployment branch for the commit to trigger a build. Configure draft branches to avoid automatic public deployment. Netlify branch/deploy previews built with a non-production context are gated through the approved admin session; a separate review site's production context must also set `WAAMBAT_PRIVATE_SITE=1`. OAuth needs the exact review site's callback URL. No external preview has been deployed from this environment.
+
+Review and production should use distinct deployment/draft branches. `.env.example` targets the feature branch and `cms/waambat-review-drafts`, with the site private. The GitHub App refuses to initialize without an explicit deployment branch, or when deployment and draft branches coincide. After approval of a production rollout, configure `main` and a separate production draft branch; do not point review editing at production. Restoring older content is a new reviewed content commit, not a force push or hard delete.
+
+## Media and performance
+
+Original repository posters total **35,475,401 bytes**. Generated 480px WebP stills total **1,074,172 bytes** (97.0% smaller), and 960px stills **3,460,340 bytes** (90.2% smaller). These are asset totals, not a measured live-page transfer reduction. Original PNGs are preserved.
+
+The original repository attached every MP4 with `preload="auto"`. Parent live-site research reports 23 autoplay/loop MP4s without poster/preload controls. This environment's live-site and Imgur requests are blocked by its proxy (`403` / `ERR_TUNNEL_CONNECTION_FAILED`); another research environment received Imgur `429`. Actual original video byte totals, looping playback/color, and live baseline screenshot comparison remain unverified. No bypass or repeated bulk download was attempted.
+
+Fixture browser tests attached four initially visible video sources rather than all 23, paused offscreen playback, and observed zero refetches on scroll return. The fixture is generated locally and actually decoded by Chromium. `evidence/desktop.png`, `mobile.png` and `ordinals-mobile.png` show the application with preserved source stills/reduced motion, not screenshots of the live baseline. Missing remote Ordinal/LUX assets may be blocked in this environment. Playback fixture screenshots, if present, are explicitly labeled and are not visual fidelity evidence.
+
+`pnpm media:prepare <approved-local-original> <new-output-directory>` creates 480/960 H264 fast-start derivatives and stills without overwriting input or existing outputs. Review color, detail and seamless looping before attaching derivatives. No derivative URL is fabricated. Large originals remain on an approved existing media host; this app does not silently add a bucket/CDN or push video binaries to Git.
+
+Optional uploads use site-wide Netlify Blobs, disabled by default pending approval of the selected site's storage/cost. The 4 MiB cap accommodates Netlify's synchronous binary request limit. Requests are bounded, MIME/signatures checked, and bytes retained under immutable SHA256 IDs with deduplication. Draft/unreferenced media is owner-only; only references in deployed non-archived content permit public reading. Private sites still require authentication. HEAD/ranges are supported; each read buffers at most the capped object size. There is no hard-delete endpoint. Large-video upload/transcoding is deliberately not claimed: use approved host URLs or separately approve a larger transfer workflow.
+
+## Required owner configuration and handoff
+
+1. Select/connect an existing approved Netlify account and private review site. Link this repository and feature branch, keep `WAAMBAT_PRIVATE_SITE=1`, and configure the exact HTTPS review URL. No account access or deployed URL was available here. Review current site limits and billing before enabling uploads.
+2. Reuse an approved GitHub OAuth application with its default identity scopes, not a repository-wide OAuth grant. Set `AUTH_GITHUB_ID`, `AUTH_GITHUB_SECRET`, `AUTH_SECRET` (at least 32 characters), exact `AUTH_URL`, and stable numeric `ADMIN_GITHUB_IDS`. Callback: `<AUTH_URL>/api/auth/callback/github`. Test real login/logout and rejected accounts. Runtime secrets must never be committed or made `NEXT_PUBLIC`.
+3. Reuse or approve a GitHub App installed only on Ravonus/waambat.com, with Contents read/write and Metadata read. No workflows, administration, branch-rule bypass or all-repository grant is needed. Configure server-only `GITHUB_APP_ID`, `GITHUB_APP_INSTALLATION_ID`, `GITHUB_APP_PRIVATE_KEY`, and distinct `GITHUB_CONTENT_BRANCH` / `GITHUB_DRAFT_BRANCH`. No credentials/grants were created. Test real draft/publish commits and Netlify build behavior; repository rules may require a PR-based publish variation instead of direct content commits. Do not weaken protections.
+4. Keep uploads disabled (`NETLIFY_MEDIA_ENABLED=0`) unless the owner approves existing Netlify storage and validates real persistence, private media, byte ranges and deploy survival. There is no automatic migration of remote originals.
+5. Supply original marketplace destinations and Amboy Inline/Europa font URLs or licensed assets. The repository's marketplace links are pre-existing placeholders, not verified original token URLs. Exact wordmark/font fidelity and desktop/mobile live-baseline comparison remain blocked. Do not merge on the assumption that these are verified.
+6. Import/proxy remaining Squarespace mechanics/archive/bio/contact/press sections before replacing `waambat.com` hosting. Private previews still link to those existing live URLs. Switching the domain without them would break navigation. Do not switch DNS or publish production as part of this draft.
+
+## Verification and boundaries
+
+`pnpm lint`, `pnpm typecheck`, `pnpm test` (six tests), `pnpm build`, and `pnpm test:browser` pass. Netlify CLI 27.12.0 `build --offline` also completed, including OpenNext runtime 5.16.2 function bundling. This checks adapter packaging, not a remote deployment; CLI reports skew protection unavailable locally and could not refresh its plugin catalogue. Unit tests exercise real temporary Git commits, retained history, content-only tree changes and a concurrent expected-parent race; mocked GitHub transport checks fixed paths and non-forced updates. Browser tests use the production schemas and legitimate signed Auth.js sessions against a development-only local Git/media adapter. Production ignores the local adapter environment flags.
+
+Browser coverage includes unauthorized API denial, CSRF, unsafe markup/URL rejection, upload signature errors and deduplication, private media/ranges, draft isolation and preview, publish/cancel, create/archive, upload cancellation/late responses, stale-state conflicts, mobile navigation, real fixture playback, reduced motion and repeated requests. `evidence/browser-results.json` records results. This is local persistence evidence; real GitHub App/OAuth, Netlify build/deploy and Blobs integration still require the approved credentials/site. No live-production tests were run.
+
+After the offline Netlify deploy-preview build, `pnpm test:preview` checks the compiled production server with runtime privacy explicitly set to zero: the built preview still redirects anonymous gallery/preview requests to sign-in, disables unconfigured mutation APIs, and denies anonymous media. Results are in `evidence/preview-privacy.json`; adapter output is in `evidence/netlify-build.txt`.
+
+Auth.js v5 remains a beta package and requires real-provider QA before rollout. ESLint 10 passes checks; upstream Next lint plugins still declare ESLint <=9 peer ranges. No checks are disabled to conceal them. Production dependency audit reports no known vulnerabilities after the source-map-js advisory patch in workspace overrides. Development tool compatibility and audits should be reviewed on dependency updates.
+
+## Primary references
+
+- https://waambat.com and https://waambat.com/ordinals — original presentation, order and inscription destinations, from parent research.
+- https://whitepaper.terminus.art/waambat and https://whitepaper.terminus.art/WAAMBAT/componentsOfTheDiamond — LUX/OK Algo and Ravonus collaboration. Historical first/largest claims and prices/supply are omitted.
+- https://whitepaper.terminus.art/images/lux3.webp — official LUX still.
+- https://www.satflow.com/ordinals/lux_ok_algo and https://www.satflow.com/ordinals/kismettwist — requested destinations, without current inventory/price claims.
+- https://ordinals.com/inscription/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98 — Kismet attribution, verified by parent researcher.
+- https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/ — automatic maintained OpenNext integration.
+- https://docs.netlify.com/build/data-and-storage/netlify-blobs/ — site-wide immutable object storage options.
+- https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation — short-lived scoped installation credentials.
+- https://docs.github.com/en/rest/git/refs#update-a-reference — non-forced Git updates.
+- https://nextjs.org/docs/app/guides/authentication and https://authjs.dev/getting-started/authentication/oauth — server authentication guidance.
+- https://tailwindcss.com/docs/installation/using-postcss — Tailwind 4 integration.

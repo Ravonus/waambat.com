@@ -1,0 +1,388 @@
+{
+  "sections": [
+    {
+      "id": "nfts",
+      "title": "NFTs",
+      "intro": ">>>>> click through any artwork to open the original token page <<<<<",
+      "page": "nfts",
+      "archived": false,
+      "items": [
+        {
+          "id": "artwork-1",
+          "title": "Feels 404",
+          "year": "2023",
+          "description": "Video Painting (Quantum, Series G) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/feels404",
+          "videoSrc": "https://i.imgur.com/bNlZWHY.mp4",
+          "poster": "/posters/1-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-2",
+          "title": "Animal Spirits",
+          "year": "2022",
+          "description": "Video Painting (Quantum, Series F) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/animal-spirits",
+          "videoSrc": "https://i.imgur.com/f6s856X.mp4",
+          "poster": "/posters/2-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-3",
+          "title": "Swap Exchange",
+          "year": "2022",
+          "description": "Video Painting (Quantum, Series E) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/swap-exchange",
+          "videoSrc": "https://i.imgur.com/a38BLir.mp4",
+          "poster": "/posters/3-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-4",
+          "title": "Autocorrection",
+          "year": "2022",
+          "description": "Video Painting (Quantum, Series D) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://nft.artsy.net/asset/autocorrection",
+          "videoSrc": "https://i.imgur.com/5oHMMfH.mp4",
+          "poster": "/posters/4-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-5",
+          "title": "Enter Boi AMA",
+          "year": "2022",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/enter-boi-ama",
+          "videoSrc": "https://i.imgur.com/zclilHq.mp4",
+          "poster": "/posters/5-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-6",
+          "title": "Fap Disco",
+          "year": "2022",
+          "description": "Video Painting (Quantum, Series C) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/fap-disco",
+          "videoSrc": "https://i.imgur.com/lpyf8NE.mp4",
+          "poster": "/posters/6-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-7",
+          "title": "Haptic Feedback",
+          "year": "2021",
+          "description": "Video Painting (Quantum, Series B) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/haptic-feedback",
+          "videoSrc": "https://i.imgur.com/kraOC6E.mp4",
+          "poster": "/posters/7-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-8",
+          "title": "Swipe Swag",
+          "year": "2021",
+          "description": "Video Painting (Quantum, Series A) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/swipe-swag",
+          "videoSrc": "https://i.imgur.com/q02r3Ja.mp4",
+          "poster": "/posters/8-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-9",
+          "title": "Profits",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/profits",
+          "videoSrc": "https://i.imgur.com/0oqBS1z.mp4",
+          "poster": "/posters/9-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-10",
+          "title": "Net Melt",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/net-melt",
+          "videoSrc": "https://i.imgur.com/rt1I53R.mp4",
+          "poster": "/posters/10-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-11",
+          "title": "Troll Crash",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/troll-crash",
+          "videoSrc": "https://i.imgur.com/yNizVps.mp4",
+          "poster": "/posters/11-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-12",
+          "title": "GOAT",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/goat",
+          "videoSrc": "https://i.imgur.com/KMyQNc2.mp4",
+          "poster": "/posters/12-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-13",
+          "title": "Cord Cutter",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/cord-cutter",
+          "videoSrc": "https://i.imgur.com/F9gCVez.mp4",
+          "poster": "/posters/13-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-14",
+          "title": "Hard Launch",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hard-launch",
+          "videoSrc": "https://i.imgur.com/HO67SIX.mp4",
+          "poster": "/posters/14-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-15",
+          "title": "Fucking Future",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/asset/fucking-future",
+          "videoSrc": "https://i.imgur.com/UojHuj5.mp4",
+          "poster": "/posters/15-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-16",
+          "title": "Joys of Lore",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/asset/joys-of-lore",
+          "videoSrc": "https://i.imgur.com/gCwY2MQ.mp4",
+          "poster": "/posters/16-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-17",
+          "title": "Meta Matters",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/asset/meta-matters",
+          "videoSrc": "https://i.imgur.com/YPUR7Lt.mp4",
+          "poster": "/posters/17-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-18",
+          "title": "Cheers, Chad",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/asset/cheers-chad",
+          "videoSrc": "https://i.imgur.com/JKc1k3C.mp4",
+          "poster": "/posters/18-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-19",
+          "title": "Catfish Glitch",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/asset/catfish-glitch",
+          "videoSrc": "https://i.imgur.com/OSNGtQs.mp4",
+          "poster": "/posters/19-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-20",
+          "title": "Axiom GL0w Up",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://foundation.app/@waambat/axiom-gl0w-up",
+          "videoSrc": "https://i.imgur.com/7ouIHyN.mp4",
+          "poster": "/posters/20-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-21",
+          "title": "Deep Linking",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://niftygateway.com/asset/deep-linking",
+          "videoSrc": "https://i.imgur.com/QY2Y73n.mp4",
+          "poster": "/posters/21-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-22",
+          "title": "Sus Singularity",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://foundation.app/@waambat/sus-singularity",
+          "videoSrc": "https://i.imgur.com/b8XNIJY.mp4",
+          "poster": "/posters/22-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        },
+        {
+          "id": "artwork-23",
+          "title": "Abacus RAM",
+          "year": "2017",
+          "description": "Infinite Loop Video Painting – Exhibited at LA Art Show 2017 and Installation Gallery, Los Angeles",
+          "tokenLink": "https://waambat.com/abacus-ram",
+          "videoSrc": "https://i.imgur.com/mh4T2To.mp4",
+          "poster": "/posters/23-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "ordinals",
+      "title": "ORDINALS",
+      "intro": ">>>>> click through any artwork to open the original inscription page <<<<<",
+      "page": "ordinals",
+      "archived": false,
+      "items": [
+        {
+          "id": "ordinal-1",
+          "title": "Ordinal A",
+          "year": "2023",
+          "description": "GIF, 200x200",
+          "tokenLink": "https://ordinals.com/inscription/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+          "videoSrc": "",
+          "poster": "https://ordinals.com/content/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+          "mobileVideoSrc": "",
+          "kind": "image",
+          "archived": false
+        },
+        {
+          "id": "ordinal-2",
+          "title": "Ordinal B",
+          "year": "2023",
+          "description": "GIF, 300x300",
+          "tokenLink": "https://ordinals.com/inscription/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0",
+          "videoSrc": "",
+          "poster": "https://ordinals.com/content/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0",
+          "mobileVideoSrc": "",
+          "kind": "image",
+          "archived": false
+        },
+        {
+          "id": "ordinal-3",
+          "title": "Ordinal C",
+          "year": "2023",
+          "description": "GIF, 300x300",
+          "tokenLink": "https://ordinals.com/inscription/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3i0",
+          "videoSrc": "",
+          "poster": "https://ordinals.com/content/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3i0",
+          "mobileVideoSrc": "",
+          "kind": "image",
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "lux",
+      "title": "LUX",
+      "intro": "LUX by WAAMBAT + Ravonus. A video-textured diamond assembled through recursive inscriptions on Bitcoin. Explore OK Algo and the Pink Paper.",
+      "page": "ordinals",
+      "archived": false,
+      "items": [
+        {
+          "id": "lux-ok-algo",
+          "title": "LUX · OK ALGO",
+          "year": "",
+          "description": "The OK Algo facet · Explore LUX on Satflow",
+          "tokenLink": "https://www.satflow.com/ordinals/lux_ok_algo",
+          "videoSrc": "",
+          "poster": "https://whitepaper.terminus.art/images/lux3.webp",
+          "mobileVideoSrc": "",
+          "kind": "image",
+          "archived": false
+        },
+        {
+          "id": "lux-pink-paper",
+          "title": "LUX Pink Paper",
+          "year": "",
+          "description": "Read about the artwork, recursion, and its creation",
+          "tokenLink": "https://whitepaper.terminus.art/waambat",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "link",
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "kismet-twist",
+      "title": "Kismet Twist",
+      "intro": "Kismet Twist by WAAMBAT + Ravonus",
+      "page": "ordinals",
+      "archived": false,
+      "items": [
+        {
+          "id": "kismet-twist-collection",
+          "title": "Kismet Twist",
+          "year": "",
+          "description": "Explore Kismet Twist by WAAMBAT + Ravonus on Satflow",
+          "tokenLink": "https://www.satflow.com/ordinals/kismettwist",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "link",
+          "archived": false
+        }
+      ]
+    }
+  ]
+}

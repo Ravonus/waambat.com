@@ -1,0 +1,77 @@
+​
+Netlify Build                                                 
+────────────────────────────────────────────────────────────────
+​
+❯ Version
+  @netlify/build 37.4.1
+​
+❯ Flags
+  dry: false
+  offline: true
+  packagePath: .
+​
+❯ Current directory
+  /workspace/waambat.com
+​
+❯ Config file
+  /workspace/waambat.com/netlify.toml
+​
+❯ Context
+  deploy-preview
+​
+Warning: could not fetch latest plugins list. Plugins versions might not be the latest.
+fetch failed
+​
+❯ Using Next.js Runtime - v5.16.2
+NETLIFY_NEXT_SKEW_PROTECTION environment variable is set to true, but skew protection is currently unavailable for CLI deploys. Skew protection will not be enabled.
+​
+build.command from netlify.toml                               
+────────────────────────────────────────────────────────────────
+​
+$ pnpm build
+$ pnpm content:check && next build
+$ tsx scripts/check-content.ts
+Repository content schema is valid
+▲ Next.js 16.4.0 (Turbopack)
+✓ Running next.config.js took 27ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 514ms
+  Running TypeScript ...
+  Finished TypeScript in 2.0s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 109ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /admin
+├ ƒ /admin/preview
+├ ƒ /api/admin/content
+├ ƒ /api/admin/upload
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/media/[id]
+└ ƒ /ordinals
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+​
+(build.command completed in 5.4s)
+​
+Functions bundling                                            
+────────────────────────────────────────────────────────────────
+​
+Packaging Functions from .netlify/functions-internal directory:
+ - ___netlify-server-handler/___netlify-server-handler.mjs
+​
+​
+(Functions bundling completed in 1.6s)
+​
+Netlify Build Complete                                        
+────────────────────────────────────────────────────────────────
+​
+(Netlify Build completed in 9.3s)

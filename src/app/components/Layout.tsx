@@ -1,19 +1,16 @@
-import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-black text-white">
+    <div className="flex min-h-screen flex-col bg-black text-[#ebebeb]">
       <Header />
-      <main className="mt-[64px] flex-grow">{children}</main>
+      <main
+        id="main-content"
+        className="mx-auto w-full max-w-[1080px] flex-grow px-5 md:px-[60px]"
+      >
+        {children}
+      </main>
       <Footer />
     </div>
   );
-};
-
-export default Layout;
+}

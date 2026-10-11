@@ -1,0 +1,13 @@
+{
+  "reducedMotion": "No video source loaded before explicit playback",
+  "video": {
+    "initialRequests": 4,
+    "totalRequestsAfterScrolling": 10,
+    "repeatFetchesOnScrollReturn": 0,
+    "initialSources": 4,
+    "responsiveSource": "Mobile preview decoded a real privately uploaded MP4 fixture from the isolated media filesystem",
+    "playback": "Real browser decoding with generated local fixture; original Imgur transport blocked"
+  },
+  "boundary": "Browser tests use the production content schema and real local Git commits under a development-only adapter. Real GitHub OAuth/App grants, remote Netlify deployments and Netlify Blobs have not been exercised. Netlify adapter packaging is checked separately.",
+  "admin": "Real signed Auth.js session, isolated Git repository and media filesystem: unauthorized access, CSRF, validation, upload deduplication, private media, byte ranges, upload error, browser draft/save/preview/publish/cancel/add/archive and upload-error/cancellation, stale revision conflict and restore passed"
+}

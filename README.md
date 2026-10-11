@@ -1,29 +1,28 @@
-# Create T3 App
+# waambat.com
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+WAAMBAT's art gallery and private content studio, prepared for Netlify. The existing domain has not been moved. See [modernization notes](docs/MODERNIZATION.md) for preservation research, validation evidence and rollout blockers.
 
-## What's next? How do I make an app with this?
+Use Node 24 and the pinned pnpm version in `package.json`.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm test:browser
+```
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+The public galleries read validated `src/content/site.json`. The studio stays disabled until approved GitHub OAuth and a repository-scoped GitHub App are configured. It does not require Postgres. The original unused Drizzle example remains available separately; do not run its database commands for the CMS.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+`/admin` → save a draft Git commit → private preview → explicit publish commit → Netlify build. Original media and Git history are retained, and archiving is reversible. Git credentials stay on the server. A failed build keeps Netlify's previous deployed version live.
 
-## Learn More
+Browser checks require Chromium and ffmpeg. They create their own temporary Git repository, media filesystem and signed test session; they never edit production or add a production authentication bypass. See `evidence/browser-results.json` for the tested boundary.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+```sh
+# Approved local source media only; never overwrites the original
+pnpm media:prepare ./original.mp4 ./new-derivatives
+```
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Configure a private Netlify review site using `.env.example` and the setup instructions before enabling sign-in, publishing or uploads. Original marketplace destinations, licensed fonts and the remaining Squarespace sections need a source handoff before replacing the existing domain.

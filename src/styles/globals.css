@@ -1,17 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Global site styles */
-html,
+@import "tailwindcss";
+@theme {
+  --color-waambat-pink: #e1bcc2;
+  --color-waambat-logo: #ff94b2;
+  --color-waambat-link: #9457ff;
+  --color-waambat-hover: #fa75d0;
+  --font-sans: "Europa", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html {
+  background: #000;
+  color: #ebebeb;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.8;
+}
 body {
   margin: 0;
-  padding: 0;
-  background-color: #000; /* black background */
-  color: #fff; /* white text */
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 a {
   text-decoration: none;
+}
+a:hover {
+  color: #fa75d0;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.5;
+}
+:focus-visible {
+  outline: 2px solid #fa75d0;
+  outline-offset: 4px;
+}
+::selection {
+  background: #9457ff;
+  color: white;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }

@@ -1,0 +1,7 @@
+{
+  "compiledPreviewGate": "Enabled even with runtime WAAMBAT_PRIVATE_SITE=0",
+  "anonymousGalleries": "307 to /admin",
+  "unconfiguredAdmin": "503, fail closed",
+  "anonymousMedia": "404",
+  "deployment": "Local compiled production server; no external deployment or credentials"
+}
