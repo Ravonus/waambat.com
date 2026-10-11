@@ -5,6 +5,7 @@ import InstagramCard from "./InstagramCard";
 import VideoEmbed from "./VideoEmbed";
 export type { Artwork } from "~/lib/content";
 function Poster({ artwork }: { artwork: Artwork }) {
+  if (!artwork.poster) return null;
   const local = /^\/posters\/\d+-960.webp$/.test(artwork.poster);
   // Original animated GIFs remain untouched; local paintings have responsive stills.
   return (
@@ -24,7 +25,13 @@ function Poster({ artwork }: { artwork: Artwork }) {
     />
   );
 }
-export default function ArtworkCard({ artwork }: { artwork: Artwork }) {
+export default function ArtworkCard({
+  artwork,
+  showCaption = true,
+}: {
+  artwork: Artwork;
+  showCaption?: boolean;
+}) {
   const container = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [requested, setRequested] = useState(false);
@@ -177,11 +184,15 @@ export default function ArtworkCard({ artwork }: { artwork: Artwork }) {
           )}
         </div>
       )}
-      <h2 className="text-waambat-pink mt-5 text-[27px] leading-snug">
-        <a href={artwork.tokenLink}>{artwork.title}</a>
-      </h2>
-      {artwork.year && <p className="mt-2">{artwork.year}</p>}
-      <p className="mt-1 whitespace-pre-line">{artwork.description}</p>
+      {showCaption && (
+        <>
+          <h2 className="text-waambat-pink mt-5 text-[26px] leading-snug">
+            <a href={artwork.tokenLink}>{artwork.title}</a>
+          </h2>
+          {artwork.year && <p className="mt-2">{artwork.year}</p>}
+          <p className="mt-1 whitespace-pre-line">{artwork.description}</p>
+        </>
+      )}
       {artwork.kind === "link" && (
         <a
           href={artwork.tokenLink}

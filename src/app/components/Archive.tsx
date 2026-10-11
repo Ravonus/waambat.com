@@ -30,7 +30,12 @@ export default function Archive({ items }: { items: SitePage["archive"] }) {
         aria-label="Archive slideshow. Use left and right arrow keys."
       >
         {item.embed ? (
-          <VideoEmbed key={item.id} src={item.embed} title={item.title} />
+          <VideoEmbed
+            key={item.id}
+            src={item.embed}
+            title={item.title}
+            poster={item.image}
+          />
         ) : (
           <SourceImage
             key={item.id}

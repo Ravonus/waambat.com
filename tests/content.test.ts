@@ -54,7 +54,7 @@ test("archived content is excluded from public media access", () => {
   assert.equal(mediaReferences(doc).has("/api/media/abc"), false);
 });
 test("migrated pages retain archive entries and reject unsafe embeds and duplicate routes", () => {
-  assert.equal(seedContent.pages.length, 6);
+  assert.equal(seedContent.pages.length, 9);
   assert.equal(
     seedContent.pages.find((p) => p.slug === "art-by-waambat")!.archive.length,
     25,
@@ -115,4 +115,18 @@ test("validates upload signatures and HTTP byte ranges", () => {
     "bytes=999999999999999999999-",
   ])
     assert.equal(parseRange(v, 10), null);
+});
+
+test("historical public links are narrowly preserved without permitting insecure media or mail injection", () => {
+  for (const href of [
+    "http://www.adelaandea.com/reviews/2012/ArtWynwood.html",
+    "mailto:studiowaambat@gmail.com",
+  ])
+    assert.ok(safeLink.safeParse(href).success);
+  for (const href of [
+    "http://evil.test/",
+    "mailto:studiowaambat@gmail.com?bcc=other@example.test",
+    "mailto:studiowaambat@gmail.com%0d%0aBcc:other@example.test",
+  ])
+    assert.equal(safeLink.safeParse(href).success, false);
 });

@@ -5,8 +5,10 @@ import { instagramTarget } from "~/lib/instagram";
 import SourceImage from "./SourceImage";
 export default function InstagramCard({ artwork }: { artwork: Artwork }) {
   const target = instagramTarget(artwork.tokenLink);
-  const [loaded, setLoaded] = useState(false);
-  const [failed, setFailed] = useState(false);
+  const [loadedSource, setLoadedSource] = useState<string | null>(null);
+  const [failedSource, setFailedSource] = useState<string | null>(null);
+  const loaded = loadedSource === artwork.tokenLink;
+  const failed = failedSource === artwork.tokenLink;
   if (!target) return null;
   const label = artwork.title || `Instagram ${target.type}`;
   return (
@@ -43,8 +45,8 @@ export default function InstagramCard({ artwork }: { artwork: Artwork }) {
             allow="fullscreen"
             className="mx-auto mb-4 block h-[540px] w-full max-w-[500px] border-0 bg-black"
             onError={() => {
-              setFailed(true);
-              setLoaded(false);
+              setFailedSource(artwork.tokenLink);
+              setLoadedSource(null);
             }}
           />
           <button
@@ -52,7 +54,7 @@ export default function InstagramCard({ artwork }: { artwork: Artwork }) {
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
-              setLoaded(false);
+              setLoadedSource(null);
             }}
             className="mx-auto mb-3 block text-xs underline"
           >
@@ -63,7 +65,7 @@ export default function InstagramCard({ artwork }: { artwork: Artwork }) {
         <>
           <button
             type="button"
-            onClick={() => setLoaded(true)}
+            onClick={() => setLoadedSource(artwork.tokenLink)}
             className="border-waambat-pink mb-3 rounded border px-4 py-2"
           >
             Load Instagram {target.type}

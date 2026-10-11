@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Layout from "~/app/components/Layout";
 import ContentPage from "~/app/components/ContentPage";
 import Gallery from "~/app/components/Gallery";
@@ -12,6 +12,7 @@ export async function generateMetadata({
 }) {
   await requirePreviewAccess();
   const { slug } = await params;
+  if (slug === "nfts-copy") permanentRedirect("/");
   const content = await getPublishedContent();
   const page = content.pages.find((p) => p.slug === slug && !p.archived);
   return { title: page?.title ?? "Page not found" };
@@ -23,6 +24,7 @@ export default async function Page({
 }) {
   await requirePreviewAccess();
   const { slug } = await params;
+  if (slug === "nfts-copy") permanentRedirect("/");
   const content = await getPublishedContent();
   const page = content.pages.find((p) => p.slug === slug && !p.archived);
   if (!page) notFound();

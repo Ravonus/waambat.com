@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link, { useLinkStatus } from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 function NavigationHint() {
   const { pending } = useLinkStatus();
   return (
@@ -22,6 +23,13 @@ export default function Header({
   preview?: boolean;
   navigation?: Content["navigation"];
 }) {
+  const pathname = usePathname();
+  const params = useSearchParams();
+  const current = preview
+    ? params.get("page") === "nfts"
+      ? "/"
+      : `/${params.get("page") ?? "nfts"}`
+    : pathname;
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -73,7 +81,8 @@ export default function Header({
                 if (!preview)
                   window.dispatchEvent(new Event("waambat:navigate"));
               }}
-              className="hover:text-waambat-hover py-1 text-[14px] text-[#ebebeb]"
+              aria-current={current === item.href ? "page" : undefined}
+              className={`hover:text-waambat-hover py-1 text-[14px] ${current === item.href ? "text-white" : "text-[#9c9c9c]"}`}
             >
               {item.label}
               <NavigationHint />

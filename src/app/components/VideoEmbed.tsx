@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { videoSource } from "~/lib/video-source";
+import SourceImage from "./SourceImage";
 export default function VideoEmbed({
   src,
   title,
@@ -10,7 +11,8 @@ export default function VideoEmbed({
   title: string;
   poster?: string;
 }) {
-  const [loaded, setLoaded] = useState(false);
+  const [loadedSource, setLoadedSource] = useState<string | null>(null);
+  const loaded = loadedSource === src;
   const target = videoSource(src);
   if (!target)
     return <p>Unsupported source. Review this entry in the studio.</p>;
@@ -25,45 +27,54 @@ export default function VideoEmbed({
               src={target.player}
               poster={poster || undefined}
               controls
+              autoPlay
               playsInline
               preload="metadata"
               className="h-full w-full object-contain"
-              onError={() => setLoaded(false)}
+              onError={() => setLoadedSource(null)}
             />
           ) : (
             <iframe
-              src={target.player}
+              src={
+                target.player +
+                (["youtube", "vimeo"].includes(target.provider)
+                  ? `${target.player.includes("?") ? "&" : "?"}autoplay=1`
+                  : "")
+              }
               title={title}
               loading="lazy"
-              allow="fullscreen; picture-in-picture"
+              allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
               referrerPolicy="strict-origin-when-cross-origin"
               sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
               className="h-full w-full border-0"
-              onError={() => setLoaded(false)}
+              onError={() => setLoadedSource(null)}
             />
           )
         ) : (
           <button
             type="button"
             disabled={!target.player}
-            onClick={() => setLoaded(true)}
+            onClick={() => setLoadedSource(src)}
             className="text-waambat-pink relative flex h-full w-full items-center justify-center border border-white/20"
             aria-label={`Play ${title}`}
           >
-            {(poster || target.provider === "youtube") && (
-              // eslint-disable-next-line @next/next/no-img-element -- Preserve approved remote covers without server-side fetching.
+            {poster ? (
+              <SourceImage
+                src={poster}
+                alt=""
+                className="absolute inset-0 h-full w-full object-contain"
+              />
+            ) : target.provider === "youtube" ? (
+              // eslint-disable-next-line @next/next/no-img-element -- Official thumbnail, requested by the browser only.
               <img
-                src={
-                  poster ||
-                  `https://i.ytimg.com/vi/${target.player.split("/").at(-1)}/hqdefault.jpg`
-                }
+                src={`https://i.ytimg.com/vi/${target.player.split("/").at(-1)}/hqdefault.jpg`}
                 alt=""
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 h-full w-full object-contain"
               />
-            )}
+            ) : null}
             <span className="relative bg-black/80 px-4 py-2">
               {target.player ? `▶ ${title}` : title}
             </span>
@@ -74,7 +85,7 @@ export default function VideoEmbed({
         {loaded && (
           <button
             type="button"
-            onClick={() => setLoaded(false)}
+            onClick={() => setLoadedSource(null)}
             className="mr-4 underline"
           >
             Close player

@@ -70,7 +70,7 @@ export default function PageEditor({
             value={layout}
             onChange={(e) => setLayout(e.target.value as SitePage["layout"])}
           >
-            {["article", "gallery", "archive"].map((v) => (
+            {["article", "gallery", "archive", "image-grid"].map((v) => (
               <option key={v}>{v}</option>
             ))}
           </select>
@@ -286,6 +286,20 @@ export default function PageEditor({
                         })
                       }
                     />
+                  )}
+                  {block.type === "embed" && (
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={!!block.loop}
+                        onChange={(e) =>
+                          edit(pi, (p) => {
+                            p.blocks[bi]!.loop = e.target.checked;
+                          })
+                        }
+                      />
+                      Muted looping playback when visible (direct MP4/WebM)
+                    </label>
                   )}
                   {block.type === "heading" && (
                     <label>

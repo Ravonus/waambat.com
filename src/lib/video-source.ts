@@ -52,7 +52,9 @@ export function videoSource(value: string): VideoSource | null {
     ) {
       if (
         url.pathname.startsWith("/embed/") &&
-        [...url.searchParams.keys()].length
+        [...url.searchParams].some(
+          ([key, value]) => key !== "feature" || value !== "oembed",
+        )
       )
         return null;
       const id =

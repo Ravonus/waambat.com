@@ -611,7 +611,7 @@ try {
       await (await context.request.get(`${origin}/api/admin/content`)).json()
     ).draft.sections.find((s: { page: string }) => s.page === "instagram").items
       .length,
-    7,
+    9,
   );
   let externalRequests = 0;
   await page.route("https://www.instagram.com/**", async (route) => {
@@ -622,7 +622,7 @@ try {
     });
   });
   await page.goto(`${origin}/admin/preview?page=instagram`);
-  assert.equal(await page.locator("[data-instagram]").count(), 7);
+  assert.equal(await page.locator("[data-instagram]").count(), 9);
   assert.equal(await page.locator("iframe").count(), 0);
   assert.equal(externalRequests, 0);
   await page
@@ -642,7 +642,7 @@ try {
   );
   assert.equal(
     await page.getByRole("link", { name: "View on Instagram" }).count(),
-    7,
+    9,
   );
   const closePreview = page.getByRole("button", {
     name: "Close Instagram preview",
@@ -896,7 +896,7 @@ try {
     content:
       "Git draft read/write authorized through real login; isolated Git repository only",
     instagram:
-      "Six original post destinations; optional title/cover, featured highlight, private draft persistence, consent before iframe, unavailable-post fallback link, mobile layout and close passed",
+      "Eight original post destinations; optional title/cover, featured highlight, private draft persistence, consent before iframe, unavailable-post fallback link, mobile layout and close passed",
     email:
       "Authorized MIME sandbox capture, unauthorized/CSRF rejection; no outgoing email sent",
     composition:

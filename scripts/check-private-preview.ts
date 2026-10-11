@@ -48,10 +48,16 @@ try {
     "/bio-waambat",
     "/contact-waambat",
     "/instagram",
+    "/waambat",
+    "/lindsay-scoggins",
+    "/art",
   ]) {
     const response = await fetch(`${origin}${path}`, { redirect: "manual" });
     assert.equal(response.status, 200, `${path} public portfolio`);
   }
+  const alias = await fetch(`${origin}/nfts-copy`, { redirect: "manual" });
+  assert.equal(alias.status, 308);
+  assert.equal(alias.headers.get("location"), "/");
   const draft = await fetch(`${origin}/admin/preview`, { redirect: "manual" });
   assert.equal(draft.status, 307);
   assert.equal(draft.headers.get("location"), "/admin");
@@ -85,14 +91,157 @@ try {
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   );
+  await page.route("https://player.vimeo.com/**", (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: "<p>Controlled Vimeo destination fixture</p>",
+    }),
+  );
+  await page.route("https://www.youtube-nocookie.com/**", (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: "<p>Controlled YouTube destination fixture</p>",
+    }),
+  );
+  for (const viewport of [
+    { width: 1440, height: 1000 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    for (const path of [
+      "/bio-waambat",
+      "/instagram",
+      "/waambat",
+      "/lindsay-scoggins",
+      "/art",
+    ]) {
+      await page.goto(`${origin}${path}`);
+      assert.ok(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+        `${path} no horizontal overflow`,
+      );
+    }
+    assert.equal(await page.locator("[data-artwork]").count(), 4);
+    assert.equal(
+      await page.locator("video[src]").count(),
+      0,
+      "Legacy loops honor reduced motion",
+    );
+    await page.goto(`${origin}/instagram`);
+    assert.equal(await page.locator("article figure").count(), 32);
+    assert.equal(await page.locator("[data-instagram]").count(), 8);
+    assert.equal(await page.locator("iframe").count(), 0);
+    assert.equal(
+      await page
+        .locator("article")
+        .first()
+        .evaluate((e) => getComputedStyle(e).display),
+      "grid",
+    );
+    await page.screenshot({
+      path: `evidence/recovered-instagram-${viewport.width}.png`,
+      fullPage: true,
+    });
+    await page.goto(`${origin}/art-by-waambat`);
+    assert.equal(await page.locator("iframe").count(), 0);
+    await page
+      .getByRole("button", { name: "Play Axiom GL0w Up (2021)", exact: true })
+      .click();
+    assert.equal(
+      await page.locator("iframe").getAttribute("src"),
+      "https://player.vimeo.com/video/538169390?autoplay=1",
+    );
+    assert.equal(
+      await page
+        .getByRole("link", { name: "Open original source ↗" })
+        .getAttribute("href"),
+      "https://player.vimeo.com/video/538169390?app_id=122963&wmode=opaque",
+    );
+    await page
+      .getByRole("button", { name: "Next artwork", exact: true })
+      .click();
+    assert.equal(
+      await page.locator("iframe").count(),
+      0,
+      "Changing artwork closes the old player",
+    );
+    await page
+      .getByRole("button", {
+        name: "Artwork 18: Pimp Comforts (2011 short film)",
+        exact: true,
+      })
+      .click();
+    assert.equal(await page.locator("iframe").count(), 0);
+    assert.equal(
+      await page.getByRole("button", { name: /^Play / }).count(),
+      0,
+      "Image-only archive entry does not invent a player",
+    );
+    await page
+      .getByRole("button", {
+        name: "Artwork 5: waambat visuals for Hans Zimmer (2017)",
+        exact: true,
+      })
+      .click();
+    await page
+      .getByRole("button", {
+        name: "Play waambat visuals for Hans Zimmer (2017)",
+        exact: true,
+      })
+      .click();
+    assert.equal(
+      await page.locator("iframe").getAttribute("src"),
+      "https://www.youtube-nocookie.com/embed/HbP9ujYh_J4?autoplay=1",
+    );
+    await page
+      .getByRole("button", { name: "Close player", exact: true })
+      .click();
+    assert.equal(await page.locator("iframe").count(), 0);
+    await page.screenshot({
+      path: `evidence/recovered-archive-${viewport.width}.png`,
+    });
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto(`${origin}/mechanics`);
+  const active = page.locator(
+    'nav[aria-label="Main navigation"] a[aria-current="page"]',
+  );
+  assert.equal(await active.getAttribute("href"), "/mechanics");
+  assert.equal(
+    await active.evaluate((e) => getComputedStyle(e).color),
+    "rgb(255, 255, 255)",
+  );
+  const bodyStyle = await page
+    .locator("html")
+    .evaluate((e) => ({
+      weight: getComputedStyle(e).fontWeight,
+      size: getComputedStyle(e).fontSize,
+      spacing: getComputedStyle(e).letterSpacing,
+    }));
+  assert.deepEqual(bodyStyle, {
+    weight: "300",
+    size: "14px",
+    spacing: "0.56px",
+  });
+  assert.equal(
+    await page.locator('script[src*="use.typekit.net"]').count(),
+    0,
+    "Original domain license is not extended to the preview",
+  );
   const result = {
     publicPortfolio:
-      "All eight portfolio routes return 200 without authentication",
+      "Eleven portfolio/legacy routes return 200; /nfts-copy returns canonical 308 to /",
     anonymousDraftPreview: "307 to /admin",
     unconfiguredAdmin: "503, fail closed",
     anonymousMedia: "404",
     browser:
       "Compiled production gallery: 23 original paintings, no login/database, desktop/mobile rendered without overflow; reduced motion attached no video source",
+    recoveredContent:
+      "Desktop/mobile: 32-image Instagram grid, eight posts, legacy routes, 4 reduced-motion-aware legacy loops, archive Vimeo/YouTube fixed destination activation/close/next and image-only entries pass. Provider HTML is a controlled fixture; actual remote playback and original geometry are not verified.",
+    typography:
+      "Recovered body 14px/300/.04em and active navigation colors pass; original font loader stays disabled on preview hosts.",
     deployment:
       "Local compiled production server; no external deployment or credentials",
   };

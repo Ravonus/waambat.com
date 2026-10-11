@@ -15,13 +15,22 @@ export const safeLink = z
   .max(2048)
   .refine((value) => {
     if (/^\/(?!\/)[a-zA-Z0-9/_?.=&%-]*$/.test(value)) return true;
+    // Exact recovered historical destinations; do not widen media/provider rules.
+    if (
+      [
+        "http://www.adelaandea.com/reviews/2012/ArtWynwood.html",
+        "http://instagram.com/waambat",
+        "mailto:studiowaambat@gmail.com",
+      ].includes(value)
+    )
+      return true;
     try {
       const u = new URL(value);
       return u.protocol === "https:" && !u.username && !u.password;
     } catch {
       return false;
     }
-  }, "Use an HTTPS URL or a local path");
+  }, "Use an HTTPS URL, local path or a recovered historical destination");
 export const mediaLink = z.union([z.literal(""), safeLink]);
 export const artworkSchema = z
   .object({
@@ -109,6 +118,7 @@ export const pageSlug = z
         "favicon",
         "robots",
         "sitemap",
+        "nfts-copy",
       ].includes(s),
     "Choose a unique page slug outside reserved routes",
   );
@@ -168,6 +178,7 @@ export const pageBlockSchema = z
     href: mediaLink.default(""),
     src: mediaLink.default(""),
     level: z.number().int().min(1).max(3).default(2),
+    loop: z.boolean().optional(),
     items: z
       .array(
         z.object({ text: text(500), href: mediaLink.default("") }).strict(),
@@ -182,6 +193,14 @@ export const pageBlockSchema = z
   })
   .strict()
   .superRefine((block, ctx) => {
+    if (
+      block.loop &&
+      (block.type !== "embed" || !videoSource(block.src)?.direct)
+    )
+      ctx.addIssue({
+        code: "custom",
+        message: "Loop playback requires a direct MP4/WebM source",
+      });
     if (block.type === "link" && (!block.href || !block.text))
       ctx.addIssue({
         code: "custom",
@@ -209,7 +228,9 @@ export const pageSchema = z
   .object({
     slug: pageSlug,
     title: text(160).refine((s) => s.length > 0, "A page title is required"),
-    layout: z.enum(["article", "archive", "gallery"]).default("article"),
+    layout: z
+      .enum(["article", "archive", "gallery", "image-grid"])
+      .default("article"),
     archived: z.boolean().default(false),
     blocks: z.array(pageBlockSchema).max(250),
     archive: z.array(archiveItemSchema).max(100).default([]),

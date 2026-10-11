@@ -4,6 +4,8 @@ Reuse the existing `waambat` project and its GitHub PR integration. Netlify repo
 
 `WAAMBAT_PRIVATE_SITE=0` is the requested portfolio setting. Admin APIs, saved-draft previews and unpublished uploads always require server authorization. Set 1 only for a separately requested whole-site private review. Keep public production, waambat.com DNS and the Squarespace site untouched.
 
+The renewed task authorizes refreshing the existing PR preview through Git; it does not authorize a production/domain change.
+
 The CLI has no authenticated Netlify account. Its supported agent login returned Forbidden without issuing credentials. Existing Git deployment works; inspecting project configuration and installing runtime secrets requires an approved Netlify connection. Do not try alternative credential extraction or create a replacement project.
 
 ## Runtime setup after approved project access
@@ -33,3 +35,5 @@ While unfinished follow-up work is checkpointed, the draft PR title may carry `[
 References: [Netlify Database overview](https://docs.netlify.com/build/data-and-storage/netlify-database/), [SDK API](https://docs.netlify.com/build/data-and-storage/netlify-database/api/), [migrations](https://docs.netlify.com/build/data-and-storage/netlify-database/migrations/), [local development](https://docs.netlify.com/build/data-and-storage/netlify-database/local-development/), [skip deploys](https://docs.netlify.com/deploy/manage-deploys/manage-deploys-overview/#skip-a-deploy), [Google identity](https://authjs.dev/getting-started/providers/google), [Gmail sending](https://developers.google.com/workspace/gmail/api/guides/sending).
 
 See [password admission review](PASSWORD-ADMISSION.md) for shared resource limits, failure recovery and isolated load evidence. Sustained hostile traffic may exhaust new password-login admission, while existing sessions and identity-provider sign-in use separate paths. Keep production password login disabled until approved Netlify integration/capacity QA.
+
+Original font setup: `WAAMBAT_ORIGINAL_FONTS=1` loads the exact recovered Adobe script only on the existing production domain; default is off, and preview hosts keep fallback fonts. Confirm license/domain setup before enabling during a separately approved production cutover. See [FIDELITY-AUDIT.md](FIDELITY-AUDIT.md) for remaining original geometry and browser-access blockers.

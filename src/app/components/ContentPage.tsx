@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Archive from "./Archive";
 import SourceImage from "./SourceImage";
 import VideoEmbed from "./VideoEmbed";
+import ArtworkCard from "./ArtworkCard";
 function linkedText(block: PageBlock): ReactNode {
   if (block.href) return <a href={block.href}>{block.text}</a>;
   const parts: ReactNode[] = [];
@@ -35,7 +36,9 @@ function linkedText(block: PageBlock): ReactNode {
 export default function ContentPage({ page }: { page: SitePage }) {
   if (page.layout === "archive") return <Archive items={page.archive} />;
   return (
-    <article className="[&_a]:text-waambat-link pb-16">
+    <article
+      className={`[&_a]:text-waambat-link [&_a:hover]:text-waambat-link-hover pb-16 ${page.layout === "image-grid" ? "grid grid-cols-6 gap-x-4 [&>h1]:col-span-full [&>h2]:col-span-full [&>h3]:col-span-full [&>hr]:col-span-full [&>ol]:col-span-full [&>p]:col-span-full" : ""}`}
+    >
       {page.blocks
         .filter((b) => !b.archived)
         .map((block) => {
@@ -47,7 +50,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
               return (
                 <Heading
                   key={block.id}
-                  className={`${block.level === 1 ? "text-[27px]" : block.level === 2 ? "text-[22px]" : "text-[18px]"} text-waambat-pink my-7 leading-snug`}
+                  className={`text-waambat-pink my-7 text-[26px] leading-snug font-bold`}
                 >
                   {linked}
                 </Heading>
@@ -62,11 +65,23 @@ export default function ContentPage({ page }: { page: SitePage }) {
               );
             case "image":
               return (
-                <figure key={block.id} className="my-8">
+                <figure
+                  key={block.id}
+                  className={
+                    page.layout === "image-grid"
+                      ? "col-span-3 my-2 sm:col-span-2"
+                      : "my-8"
+                  }
+                >
                   {block.href ? (
                     <a href={block.href}>
                       <SourceImage
                         src={block.src}
+                        sizes={
+                          page.layout === "image-grid"
+                            ? "(max-width: 639px) calc((100vw - 56px) / 2), 310px"
+                            : undefined
+                        }
                         alt={block.text}
                         className="w-full object-contain"
                       />
@@ -74,6 +89,11 @@ export default function ContentPage({ page }: { page: SitePage }) {
                   ) : (
                     <SourceImage
                       src={block.src}
+                      sizes={
+                        page.layout === "image-grid"
+                          ? "(max-width: 639px) calc((100vw - 56px) / 2), 310px"
+                          : undefined
+                      }
                       alt={block.text}
                       className="w-full object-contain"
                     />
@@ -81,6 +101,26 @@ export default function ContentPage({ page }: { page: SitePage }) {
                 </figure>
               );
             case "embed":
+              if (block.loop)
+                return (
+                  <ArtworkCard
+                    key={block.id}
+                    showCaption={false}
+                    artwork={{
+                      id: block.id,
+                      title: block.text || "Archived video",
+                      year: "",
+                      description: "",
+                      tokenLink: block.href || block.src,
+                      videoSrc: block.src,
+                      mobileVideoSrc: "",
+                      poster: "",
+                      kind: "video",
+                      featured: false,
+                      archived: false,
+                    }}
+                  />
+                );
               return (
                 <VideoEmbed
                   key={block.id}

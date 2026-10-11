@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import OriginalFonts from "./components/OriginalFonts";
 import RouteEffects from "./components/RouteEffects";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
         >
           Skip to artwork
         </a>
+        <OriginalFonts enabled={process.env.WAAMBAT_ORIGINAL_FONTS === "1"} />
         <RouteEffects />
         {children}
       </body>

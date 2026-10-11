@@ -137,3 +137,79 @@ test("Ordinals additions retain exact supplied destinations and verified sample 
     null,
   );
 });
+
+test("recovered players keep source URLs, preserve two image-only archive entries and reject injected embed queries", () => {
+  const archive = seedContent.pages.find(
+    (p) => p.slug === "art-by-waambat",
+  )!.archive;
+  assert.equal(archive.filter((a) => a.embed).length, 23);
+  assert.deepEqual(
+    archive.map((a, i) => (!a.embed ? i + 1 : 0)).filter(Boolean),
+    [18, 23],
+  );
+  assert.equal(archive[22]!.title, "");
+  for (const art of archive.filter((a) => a.embed)) {
+    assert.equal(videoSource(art.embed)?.original, art.embed);
+    assert.ok(videoSource(art.embed)?.player);
+  }
+  const source = "https://www.youtube.com/embed/HbP9ujYh_J4?feature=oembed";
+  assert.equal(
+    videoSource(source)?.player,
+    "https://www.youtube-nocookie.com/embed/HbP9ujYh_J4",
+  );
+  assert.equal(videoSource(source + "&redirect=https://evil.test"), null);
+  assert.equal(videoSource(source.replace("oembed", "evil")), null);
+  assert.equal(
+    videoSource(
+      "https://player.vimeo.com/video/538169390?app_id=122963&wmode=opaque",
+    )?.player,
+    "https://player.vimeo.com/video/538169390",
+  );
+});
+
+test("recovered source content preserves 23 media URLs, eight Instagram posts and legacy content without invented artwork titles", () => {
+  const paintings = seedContent.sections.find((s) => s.id === "nfts")!.items;
+  assert.equal(
+    paintings[0]!.tokenLink,
+    "https://objkt.com/asset/hicetnunc/808942",
+  );
+  assert.equal(
+    paintings[4]!.tokenLink,
+    "https://nft.artsy.net/artwork/waambat/enter-boi-ama/47/",
+  );
+  assert.equal(
+    paintings[22]!.tokenLink,
+    "https://foundation.app/@waambat/foundation/37954",
+  );
+  assert.ok(
+    paintings.every((a) =>
+      /^https:\/\/i.imgur.com\/[A-Za-z0-9]+\.mp4$/.test(a.videoSrc),
+    ),
+  );
+  assert.equal(
+    seedContent.sections.find((s) => s.id === "instagram-survivors")!.items
+      .length,
+    8,
+  );
+  const ig = seedContent.pages.find((p) => p.slug === "instagram")!;
+  assert.equal(ig.layout, "image-grid");
+  assert.equal(ig.blocks.filter((b) => b.type === "image").length, 32);
+  const art = seedContent.pages.find((p) => p.slug === "art")!;
+  const loops = art.blocks.filter((b) => b.type === "embed");
+  assert.equal(loops.length, 4);
+  assert.ok(loops.every((b) => b.loop && !b.text));
+  assert.ok(seedContent.pages.some((p) => p.slug === "waambat"));
+  assert.ok(seedContent.pages.some((p) => p.slug === "lindsay-scoggins"));
+  assert.equal(
+    pageSlug.safeParse("nfts-copy").success,
+    false,
+    "Canonical redirect cannot be shadowed by CMS pages",
+  );
+  const invalid = structuredClone(art);
+  invalid.blocks[0]!.src = "https://youtu.be/T5i24dLZ9Ds";
+  assert.equal(
+    pageSchema.safeParse(invalid).success,
+    false,
+    "Looping mode is direct media only",
+  );
+});
