@@ -1,20 +1,36 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Artwork } from "~/lib/content";
 import { instagramTarget } from "~/lib/instagram";
 import SourceImage from "./SourceImage";
 export default function InstagramCard({ artwork }: { artwork: Artwork }) {
   const target = instagramTarget(artwork.tokenLink);
+  const container = useRef<HTMLElement>(null);
+  const dismissed = useRef<string | null>(null);
   const [loadedSource, setLoadedSource] = useState<string | null>(null);
   const [failedSource, setFailedSource] = useState<string | null>(null);
   const loaded = loadedSource === artwork.tokenLink;
   const failed = failedSource === artwork.tokenLink;
+  useEffect(() => {
+    const element = container.current;
+    if (!element || !instagramTarget(artwork.tokenLink)?.embed) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting && dismissed.current !== artwork.tokenLink)
+          setLoadedSource(artwork.tokenLink);
+      },
+      { threshold: 0.01 },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [artwork.tokenLink]);
   if (!target) return null;
   const label = artwork.title || `Instagram ${target.type}`;
   return (
     <article
+      ref={container}
       data-instagram={artwork.id}
-      className="mb-10 border border-white/20 p-4 text-center"
+      className="mb-10 min-h-[540px] text-center"
     >
       {artwork.featured && (
         <p className="text-waambat-pink mb-3 text-xs">Featured</p>
@@ -46,6 +62,7 @@ export default function InstagramCard({ artwork }: { artwork: Artwork }) {
             className="mx-auto mb-4 block h-[540px] w-full max-w-[500px] border-0 bg-black"
             onError={() => {
               setFailedSource(artwork.tokenLink);
+              dismissed.current = artwork.tokenLink;
               setLoadedSource(null);
             }}
           />
@@ -54,6 +71,7 @@ export default function InstagramCard({ artwork }: { artwork: Artwork }) {
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
+              dismissed.current = artwork.tokenLink;
               setLoadedSource(null);
             }}
             className="mx-auto mb-3 block text-xs underline"
@@ -62,19 +80,9 @@ export default function InstagramCard({ artwork }: { artwork: Artwork }) {
           </button>
         </>
       ) : target.embed && !failed ? (
-        <>
-          <button
-            type="button"
-            onClick={() => setLoadedSource(artwork.tokenLink)}
-            className="border-waambat-pink mb-3 rounded border px-4 py-2"
-          >
-            Load Instagram {target.type}
-          </button>
-          <p className="mb-3 text-xs text-white/65">
-            Loading connects to Instagram. A public post may require sign-in or
-            have embedding disabled.
-          </p>
-        </>
+        <p className="text-sm text-white/65">
+          Instagram preview loads when visible.
+        </p>
       ) : (
         <p className="mb-3 text-sm text-white/65">
           {target.type === "highlight"

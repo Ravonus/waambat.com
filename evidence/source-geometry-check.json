@@ -1,0 +1,61 @@
+{
+  "viewport": {
+    "width": 1512,
+    "height": 733
+  },
+  "geometry": {
+    "home": {
+      "media": {
+        "x": 276,
+        "y": 419.6875,
+        "width": 960,
+        "height": 960
+      },
+      "title": {
+        "x": 276,
+        "y": 1421.375,
+        "width": 960,
+        "height": 31.1875
+      }
+    },
+    "biography": {
+      "text": {
+        "x": 358.828125,
+        "y": 226.6875,
+        "width": 463,
+        "height": 31.1875
+      },
+      "side": {
+        "x": 855.828125,
+        "y": 226.6875,
+        "width": 297.328125,
+        "height": 371.65625
+      }
+    },
+    "mechanics": {
+      "x": 441.671875,
+      "y": 226.6875,
+      "width": 628.65625,
+      "height": 2739.25
+    },
+    "contact": {
+      "x": 524.5,
+      "y": 226.6875,
+      "width": 463,
+      "height": 916.546875
+    },
+    "art": {
+      "x": 276,
+      "y": 226.6875,
+      "width": 463,
+      "height": 463
+    },
+    "archive": {
+      "x": 60,
+      "y": 181.6875,
+      "width": 1392,
+      "height": 7717.53125
+    }
+  },
+  "boundary": "Measured widths, columns, home first artwork/title and archive start match supplied source coordinates. Fallback font glyphs, unmeasured spacers and blocked remote media are not claimed identical."
+}

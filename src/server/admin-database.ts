@@ -8,6 +8,7 @@ import {
   timingSafeEqual,
 } from "node:crypto";
 import { z } from "zod";
+import { testSiteConfigured } from "~/lib/test-site";
 const scrypt = (password: string, salt: string) =>
   new Promise<Buffer>((resolve, reject) => {
     derive(
@@ -105,6 +106,9 @@ export async function initializeAdminDatabase() {
     );
     await adminDatabase().unsafe(migration);
   }
+  await adminDatabase().unsafe(
+    "ALTER TABLE waambat_admin_accounts ADD COLUMN IF NOT EXISTS test_only boolean NOT NULL DEFAULT false",
+  );
 }
 export async function provisionBackupAdmin(username: string, password: string) {
   if (!/^[a-z0-9-]{3,40}$/.test(username)) throw new Error("Invalid username");
@@ -170,7 +174,8 @@ export async function verifyBackupCredentials(input: unknown) {
           lostLease = true;
         });
     }, 15000);
-    const rows = await sql`SELECT id,password_hash,auth_version,role,disabled,
+    const rows =
+      await sql`SELECT id,password_hash,auth_version,role,disabled,test_only,
       (locked_until IS NOT NULL AND locked_until>now()) AS locked
       FROM waambat_admin_accounts WHERE username=${credentials.data.username}`;
     const row = rows[0];
@@ -182,6 +187,7 @@ export async function verifyBackupCredentials(input: unknown) {
         !row.disabled &&
         row.role === "admin" &&
         !row.locked &&
+        (!row.test_only || testSiteConfigured()) &&
         wellFormedHash(row.password_hash),
     );
     // No transaction, row lock or DB connection is held during the memory-hard KDF.
@@ -240,10 +246,11 @@ export async function backupSessionAuthorized(
   if (!passwordConfigured() || !/^password:[a-f0-9-]{36}$/.test(id))
     return false;
   const rows =
-    await adminDatabase()`SELECT auth_version,disabled,role FROM waambat_admin_accounts WHERE id=${id.slice(9)}`;
+    await adminDatabase()`SELECT auth_version,disabled,role,test_only FROM waambat_admin_accounts WHERE id=${id.slice(9)}`;
   return Boolean(
     rows[0] &&
       !rows[0].disabled &&
+      (!rows[0].test_only || testSiteConfigured()) &&
       rows[0].role === "admin" &&
       rows[0].auth_version === version,
   );

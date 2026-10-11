@@ -8,6 +8,7 @@ import {
 } from "~/server/auth";
 import { passwordConfigured } from "~/server/admin-database";
 import LoginForm from "./LoginForm";
+import { testSiteConfigured } from "~/lib/test-site";
 import { getContentState } from "~/server/content";
 import Editor from "./Editor";
 import Link from "next/link";
@@ -89,6 +90,12 @@ export default async function Admin() {
             <button>Sign out</button>
           </form>
         </div>
+        {testSiteConfigured() && (
+          <p className="border-waambat-pink mb-5 border p-3">
+            Netlify test site · Changes publish to this Netlify site. The
+            original waambat.com is separate.
+          </p>
+        )}
         <Editor initial={state} />
       </main>
     );
@@ -97,7 +104,8 @@ export default async function Admin() {
     <main id="main-content" className="p-10">
       <h1>Storage is unavailable</h1>
       <p>
-        Configure the approved GitHub App and content branches before editing.
+        The site content store is unavailable. Check this Netlify deployment’s
+        storage configuration before editing.
       </p>
     </main>
   );

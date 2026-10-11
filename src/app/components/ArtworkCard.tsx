@@ -17,7 +17,7 @@ function Poster({ artwork }: { artwork: Artwork }) {
           ? `${artwork.poster.replace("-960", "-480")} 480w, ${artwork.poster} 960w`
           : undefined
       }
-      sizes="(max-width: 767px) calc(100vw - 40px), 460px"
+      sizes="(max-width: 767px) calc(100vw - 40px), 960px"
       alt={artwork.title}
       loading="lazy"
       decoding="async"
@@ -28,9 +28,17 @@ function Poster({ artwork }: { artwork: Artwork }) {
 export default function ArtworkCard({
   artwork,
   showCaption = true,
+  aspect = "square",
+  ratio,
+  originalFlow = false,
+  trailer = false,
 }: {
   artwork: Artwork;
   showCaption?: boolean;
+  aspect?: "square" | "portrait";
+  ratio?: number;
+  originalFlow?: boolean;
+  trailer?: boolean;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -38,6 +46,7 @@ export default function ArtworkCard({
   const [mobile, setMobile] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [error, setError] = useState(false);
+  const [muted, setMuted] = useState(true);
   const visible = useRef(false);
   const manual = useRef(false);
   const blocked = useRef(false);
@@ -127,11 +136,23 @@ export default function ArtworkCard({
     );
   if (artwork.kind === "instagram") return <InstagramCard artwork={artwork} />;
   return (
-    <article data-artwork={artwork.id} className="mb-10 text-center">
+    <article
+      data-artwork={artwork.id}
+      className={
+        originalFlow ? "original-artwork text-center" : "mb-10 text-center"
+      }
+      style={
+        originalFlow ? { paddingTop: artwork.precedingGap ?? 200 } : undefined
+      }
+    >
       {artwork.kind !== "link" && (
-        <div ref={container} className="relative aspect-square w-full bg-black">
+        <div
+          ref={container}
+          style={ratio ? { aspectRatio: ratio } : undefined}
+          className={`artwork-media relative w-full bg-black ${aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"}`}
+        >
           <a
-            href={artwork.tokenLink}
+            href={trailer ? undefined : artwork.tokenLink}
             aria-label={`Open ${artwork.title} original ${artwork.kind === "image" ? "inscription" : "token"} page`}
             className="block h-full w-full"
           >
@@ -150,8 +171,9 @@ export default function ArtworkCard({
                     ? artwork.poster.replace("-960", "-480")
                     : artwork.poster
                 }
-                muted
-                loop
+                muted={muted}
+                loop={!trailer}
+                controls={trailer}
                 playsInline
                 preload="none"
                 onLoadedData={() => {
@@ -172,7 +194,7 @@ export default function ArtworkCard({
               />
             )}
           </a>
-          {artwork.kind === "video" && (
+          {artwork.kind === "video" && !trailer && (
             <button
               type="button"
               onClick={toggle}
@@ -182,16 +204,44 @@ export default function ArtworkCard({
               {error ? "Retry playback" : playing ? "Pause" : "Play"}
             </button>
           )}
+          {artwork.kind === "video" && trailer && (
+            <div className="absolute top-3 right-3 flex gap-2">
+              <button
+                type="button"
+                onClick={toggle}
+                className="rounded bg-black/80 px-3 py-1 text-xs text-white"
+                aria-label={`${playing ? "Pause" : "Play"} ${artwork.title}`}
+              >
+                {error ? "Retry playback" : playing ? "Pause" : "Play"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setMuted(!muted)}
+                aria-pressed={!muted}
+                className="rounded bg-black/80 px-3 py-1 text-xs text-white"
+              >
+                {muted ? "Enable trailer audio" : "Mute trailer audio"}
+              </button>
+            </div>
+          )}
         </div>
       )}
       {showCaption && (
-        <>
+        <div className="artwork-caption">
           <h2 className="text-waambat-pink mt-5 text-[26px] leading-snug">
-            <a href={artwork.tokenLink}>{artwork.title}</a>
+            <a href={trailer ? undefined : artwork.tokenLink}>
+              {artwork.title}
+            </a>
           </h2>
           {artwork.year && <p className="mt-2">{artwork.year}</p>}
-          <p className="mt-1 whitespace-pre-line">{artwork.description}</p>
-        </>
+          {(artwork.captionLines ?? [artwork.description]).map(
+            (line, index) => (
+              <p key={index} className="mt-1 whitespace-pre-line">
+                {line}
+              </p>
+            ),
+          )}
+        </div>
       )}
       {artwork.kind === "link" && (
         <a

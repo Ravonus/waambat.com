@@ -6,20 +6,29 @@ export default function VideoEmbed({
   src,
   title,
   poster = "",
+  activated = false,
+  ratio,
+  compact = false,
 }: {
   src: string;
   title: string;
   poster?: string;
+  activated?: boolean;
+  ratio?: number;
+  compact?: boolean;
 }) {
-  const [loadedSource, setLoadedSource] = useState<string | null>(null);
+  const [loadedSource, setLoadedSource] = useState<string | null>(
+    activated ? src : null,
+  );
   const loaded = loadedSource === src;
   const target = videoSource(src);
   if (!target)
     return <p>Unsupported source. Review this entry in the studio.</p>;
   return (
-    <figure className="my-8 w-full">
+    <figure className={compact ? "h-full w-full" : "my-8 w-full"}>
       <div
         className={`relative bg-black ${target.provider === "ordinals" ? "aspect-square" : "aspect-video"}`}
+        style={ratio ? { aspectRatio: ratio } : undefined}
       >
         {loaded && target.player ? (
           target.direct ? (
@@ -81,29 +90,31 @@ export default function VideoEmbed({
           </button>
         )}
       </div>
-      <figcaption className="mt-3 text-sm">
-        {loaded && (
-          <button
-            type="button"
-            onClick={() => setLoadedSource(null)}
-            className="mr-4 underline"
+      {!compact && (
+        <figcaption className="mt-3 text-sm">
+          {loaded && (
+            <button
+              type="button"
+              onClick={() => setLoadedSource(null)}
+              className="mr-4 underline"
+            >
+              Close player
+            </button>
+          )}
+          <a
+            href={target.original}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-waambat-link"
           >
-            Close player
-          </button>
-        )}
-        <a
-          href={target.original}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-waambat-link"
-        >
-          Open original source ↗
-        </a>
-        <p className="text-xs text-white/60">
-          Loading a player contacts {target.provider}. If access is restricted
-          or unavailable, use the original link.
-        </p>
-      </figcaption>
+            Open original source ↗
+          </a>
+          <p className="text-xs text-white/60">
+            Loading a player contacts {target.provider}. If access is restricted
+            or unavailable, use the original link.
+          </p>
+        </figcaption>
+      )}
     </figure>
   );
 }

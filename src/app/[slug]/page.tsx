@@ -2,6 +2,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import Layout from "~/app/components/Layout";
 import ContentPage from "~/app/components/ContentPage";
 import Gallery from "~/app/components/Gallery";
+import LegacySplash from "~/app/components/LegacySplash";
 import { getPublishedContent } from "~/server/content";
 import { requirePreviewAccess } from "~/server/preview-access";
 export const dynamic = "force-dynamic";
@@ -28,8 +29,10 @@ export default async function Page({
   const content = await getPublishedContent();
   const page = content.pages.find((p) => p.slug === slug && !p.archived);
   if (!page) notFound();
+  if (["splash", "split-splash"].includes(page.layout))
+    return <LegacySplash page={page} theme={content.theme} />;
   return (
-    <Layout>
+    <Layout wide={page.layout === "archive"}>
       <ContentPage page={page} />
       <Gallery content={content} page={slug} />
     </Layout>

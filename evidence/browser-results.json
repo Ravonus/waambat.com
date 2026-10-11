@@ -2,16 +2,17 @@
   "ordinals": "Visible LUX and Kismet collection cards precede preserved Ordinal A/B/C; exact Satflow targets, verified consent-only Kismet #100 on-chain preview and exact supplied Gamma destination checked. Gamma title/preview metadata unavailable; no price/supply/availability invented.",
   "reducedMotion": "No video source loaded before explicit playback",
   "video": {
-    "initialRequests": 4,
-    "totalRequestsAfterScrolling": 10,
+    "initialRequests": 1,
+    "totalRequestsAfterScrolling": 2,
     "repeatFetchesOnScrollReturn": 0,
-    "initialSources": 4,
+    "initialSources": 1,
     "responsiveSource": "Mobile preview decoded a real privately uploaded MP4 fixture from the isolated media filesystem",
     "playback": "Real browser decoding with generated local fixture; original Imgur transport blocked"
   },
-  "pages": "All five local page routes, mobile navigation/overflow, contact links, deferred embeds, archive prev/next/info/number selection and missing-route 404 passed. Live media transport and original visual matching remain separately blocked.",
+  "pages": "All five local page routes, mobile navigation/overflow, contact links, deferred embeds, archive montage, fullscreen prev/next/info/Escape and missing-route 404 passed. Live media transport and original visual matching remain separately blocked.",
   "navigation": "Keyboard Enter, native Back/Forward, Ctrl-click new tab, touch navigation, non-intercepting fine-pointer gradient cursor and reduced-motion transition/cursor checks passed; no mocked route success.",
   "adminRequests": "Unconfirmed response after a real Git commit is reconciled without a repeated write; disconnected writes/readback retain edits and block further mutations until explicit remote-state reconciliation. Deadline abort is also covered by unit tests.",
   "boundary": "Browser tests use the production content schema and real local Git commits under a development-only adapter. Real GitHub OAuth/App grants, remote Netlify deployments and Netlify Blobs have not been exercised. Netlify adapter packaging is checked separately.",
-  "admin": "Real signed Auth.js session, isolated Git repository and media filesystem: unauthorized access, CSRF, validation, upload deduplication, private media, byte ranges, upload error, browser draft/save/preview/publish/cancel/add/archive and upload-error/cancellation, stale revision conflict and restore passed"
+  "trailer": "Same media schema and real isolated save/publish; top-of-home placement, muted inline native controls, audio toggle, offscreen pause and reduced-motion deferral passed with generated 2-second fixture. Final 60-second artifact is still awaited; no old cut substituted.",
+  "admin": "Real signed Auth.js session, isolated Git repository and media filesystem: unauthorized access, CSRF, validation, upload deduplication, private media, byte ranges, upload error, browser theme save/private preview, authenticated backup export, draft/save/preview/publish/cancel/add/archive and upload-error/cancellation, stale revision conflict and restore passed"
 }

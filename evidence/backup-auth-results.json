@@ -1,4 +1,5 @@
 {
+  "requestedNetlifyTestAccount": "Native migration stored salted test-only hash; admin/password accepted with approved Netlify host flags, denied when disabled and on original waambat.com. Disposable Postgres only; remote login still requires deployment acceptance.",
   "passwordAdmission": [
     {
       "mode": "parallel-random",
@@ -9,7 +10,7 @@
       "deniedBeforeKdf": 255,
       "localDenialsBeforeDatabase": 252,
       "sessionRequests": 8,
-      "maxSessionLatencyMs": 504,
+      "maxSessionLatencyMs": 454,
       "passwordTransactionsHeldDuringKdf": 0
     },
     {
@@ -21,7 +22,7 @@
       "deniedBeforeKdf": 255,
       "localDenialsBeforeDatabase": 252,
       "sessionRequests": 8,
-      "maxSessionLatencyMs": 446,
+      "maxSessionLatencyMs": 503,
       "passwordTransactionsHeldDuringKdf": 0
     },
     {
@@ -33,7 +34,7 @@
       "deniedBeforeKdf": 255,
       "localDenialsBeforeDatabase": 252,
       "sessionRequests": 8,
-      "maxSessionLatencyMs": 433,
+      "maxSessionLatencyMs": 352,
       "passwordTransactionsHeldDuringKdf": 0
     },
     {
@@ -61,7 +62,7 @@
       "requests": 64,
       "admittedKdfs": 1,
       "existingSessionChecks": 8,
-      "maxSessionLatencyMs": 1,
+      "maxSessionLatencyMs": 5,
       "sameProcessSessionPoolRemainsAvailable": true
     }
   ],
@@ -72,52 +73,52 @@
     "verificationKdfs": 12,
     "kdfEvents": [
       {
-        "start": 1791722525290,
-        "finish": 1791722525685
+        "start": 1791726153909,
+        "finish": 1791726154284
       },
       {
-        "start": 1791722525689,
-        "finish": 1791722526067
+        "start": 1791726154289,
+        "finish": 1791726154656
       },
       {
-        "start": 1791722526072,
-        "finish": 1791722526439
+        "start": 1791726154662,
+        "finish": 1791726155032
       },
       {
-        "start": 1791722526443,
-        "finish": 1791722526847
+        "start": 1791726155037,
+        "finish": 1791726155406
       },
       {
-        "start": 1791722526852,
-        "finish": 1791722527216
+        "start": 1791726155410,
+        "finish": 1791726155781
       },
       {
-        "start": 1791722527220,
-        "finish": 1791722527593
+        "start": 1791726155786,
+        "finish": 1791726156171
       },
       {
-        "start": 1791722527598,
-        "finish": 1791722527961
+        "start": 1791726156176,
+        "finish": 1791726156565
       },
       {
-        "start": 1791722527967,
-        "finish": 1791722528329
+        "start": 1791726156572,
+        "finish": 1791726156943
       },
       {
-        "start": 1791722538487,
-        "finish": 1791722538866
+        "start": 1791726167142,
+        "finish": 1791726167511
       },
       {
-        "start": 1791722539012,
-        "finish": 1791722539373
+        "start": 1791726167652,
+        "finish": 1791726168012
       },
       {
-        "start": 1791722539377,
-        "finish": 1791722539734
+        "start": 1791726168017,
+        "finish": 1791726168370
       },
       {
-        "start": 1791722539740,
-        "finish": 1791722540093
+        "start": 1791726168376,
+        "finish": 1791726168779
       }
     ]
   },
@@ -125,7 +126,7 @@
   "account": "Username admin, random password stored in private temporary file and salted scrypt hash; no default credential or authentication bypass",
   "authentication": "Real credentials form, Auth.js session, wrong-password rejection, database rate lock, duplicate-account rejection, session-version revocation and disabled-account denial passed",
   "content": "Git draft read/write authorized through real login; isolated Git repository only",
-  "instagram": "Eight original post destinations; optional title/cover, featured highlight, private draft persistence, consent before iframe, unavailable-post fallback link, mobile layout and close passed",
+  "instagram": "Eight original post destinations; optional title/cover, featured highlight, private draft persistence, offscreen deferral and automatic visible iframe, unavailable-post fallback link, mobile layout and close passed",
   "email": "Authorized MIME sandbox capture, unauthorized/CSRF rejection; no outgoing email sent",
   "composition": "UI-created mixed gallery page with text, image and YouTube URL; Git save/private preview/publish, public isolation, immutable slug/deletion rejection, page archive hides route/navigation, restore retains blocks passed. Fixture player rendering verified; remote playback not claimed.",
   "backup": "Additive SQL migration applied twice; pg_dump restored into a second isolated test database and account/version verified",

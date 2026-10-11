@@ -628,29 +628,36 @@ try {
   await page
     .getByText("Highlights open on Instagram.", { exact: true })
     .waitFor();
-  await page
-    .getByRole("button", { name: "Load Instagram post" })
-    .first()
-    .click();
-  await page.locator("iframe").first().waitFor();
-  await page
+  const firstPost = page
+    .locator("[data-instagram]")
+    .filter({
+      hasNot: page.getByText("Highlights open on Instagram.", { exact: true }),
+    })
+    .first();
+  await firstPost.scrollIntoViewIfNeeded();
+  await firstPost.locator("iframe").waitFor();
+  await firstPost
     .frameLocator("iframe")
     .getByText("This Instagram post is unavailable")
     .waitFor();
-  await page.waitForFunction(() =>
-    Boolean(document.querySelector("iframe")?.contentWindow),
+  assert.ok(
+    externalRequests > 0,
+    "Visible post loads automatically without a load gate",
   );
   assert.equal(
     await page.getByRole("link", { name: "View on Instagram" }).count(),
     9,
   );
-  const closePreview = page.getByRole("button", {
-    name: "Close Instagram preview",
-  });
-  await closePreview.scrollIntoViewIfNeeded();
-  await closePreview.click();
-  await page.locator("iframe").waitFor({ state: "detached" });
-  assert.equal(await page.locator("iframe").count(), 0);
+  await firstPost
+    .getByRole("button", { name: "Close Instagram preview" })
+    .click();
+  await firstPost.locator("iframe").waitFor({ state: "detached" });
+  await page.waitForTimeout(200);
+  assert.equal(
+    await firstPost.locator("iframe").count(),
+    0,
+    "Dismissal does not automatically reopen the same post",
+  );
   await page.setViewportSize({ width: 390, height: 844 });
   assert.ok(
     await page.evaluate(
@@ -884,7 +891,52 @@ try {
     (await context.request.get(`${origin}/api/admin/content`)).status(),
     401,
   );
+  // The requested weak account is tested only in this disposable database.
+  await adminDatabase()`DELETE FROM waambat_admin_accounts`;
+  await adminDatabase().unsafe(
+    await readFile("database/migrations/0003_netlify_test_account.sql", "utf8"),
+  );
+  const beforeTestEnv = {
+    ADMIN_TEST_LOGIN: process.env.ADMIN_TEST_LOGIN,
+    CMS_CONTENT_PROVIDER: process.env.CMS_CONTENT_PROVIDER,
+    AUTH_URL: process.env.AUTH_URL,
+  };
+  const resetTestBudget = async () => {
+    await adminDatabase()`UPDATE waambat_password_admission SET attempts=0,window_started=now()-interval '61 seconds',lease_id=NULL,lease_until=NULL WHERE key='password'`;
+  };
+  const probeTestCredential = () =>
+    execFileSync(
+      process.execPath,
+      [
+        "--import",
+        "tsx",
+        "--input-type=module",
+        "-e",
+        "import {verifyBackupCredentials,closeAdminDatabase} from './src/server/admin-database.ts'; const result=await verifyBackupCredentials({username:'admin',password:'password'}); await closeAdminDatabase(); process.stdout.write(JSON.stringify(Boolean(result)));",
+      ],
+      { env: process.env, encoding: "utf8" },
+    ).trim() === "true";
+  await resetTestBudget();
+  assert.equal(probeTestCredential(), false);
+  process.env.ADMIN_TEST_LOGIN = "1";
+  process.env.CMS_CONTENT_PROVIDER = "netlify-blobs";
+  process.env.AUTH_URL = "https://waambat.netlify.app";
+  await resetTestBudget();
+  const requestedTestAccount = probeTestCredential();
+  assert.ok(
+    requestedTestAccount,
+    "Actual salted test hash accepts requested credentials only with approved Netlify flags",
+  );
+  process.env.AUTH_URL = "https://waambat.com";
+  await resetTestBudget();
+  assert.equal(probeTestCredential(), false);
+  for (const [key, value] of Object.entries(beforeTestEnv)) {
+    if (value === undefined) delete process.env[key];
+    else process.env[key] = value;
+  }
   const evidence = {
+    requestedNetlifyTestAccount:
+      "Native migration stored salted test-only hash; admin/password accepted with approved Netlify host flags, denied when disabled and on original waambat.com. Disposable Postgres only; remote login still requires deployment acceptance.",
     passwordAdmission: attackEvidence,
     passwordProcessDiagnostics: passwordAdmissionStats(),
     database:
@@ -896,7 +948,7 @@ try {
     content:
       "Git draft read/write authorized through real login; isolated Git repository only",
     instagram:
-      "Eight original post destinations; optional title/cover, featured highlight, private draft persistence, consent before iframe, unavailable-post fallback link, mobile layout and close passed",
+      "Eight original post destinations; optional title/cover, featured highlight, private draft persistence, offscreen deferral and automatic visible iframe, unavailable-post fallback link, mobile layout and close passed",
     email:
       "Authorized MIME sandbox capture, unauthorized/CSRF rejection; no outgoing email sent",
     composition:

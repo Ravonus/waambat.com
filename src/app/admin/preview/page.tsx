@@ -5,6 +5,7 @@ import { getContentState } from "~/server/content";
 import Layout from "~/app/components/Layout";
 import Gallery from "~/app/components/Gallery";
 import ContentPage from "~/app/components/ContentPage";
+import LegacySplash from "~/app/components/LegacySplash";
 export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Private draft preview",
@@ -23,16 +24,27 @@ export default async function Preview({
   const state = await getContentState();
   const page = (await searchParams).page ?? "nfts";
   const article = state.draft.pages.find((p) => p.slug === page);
+  if (article && ["splash", "split-splash"].includes(article.layout))
+    return (
+      <>
+        <div className="fixed top-0 left-0 z-50 bg-black p-2">
+          <Link href="/admin">Private draft · Return to studio</Link>
+        </div>
+        <LegacySplash page={article} theme={state.draft.theme} />
+      </>
+    );
   return (
     <Layout
       preview
+      theme={state.draft.theme}
+      wide={article?.layout === "archive"}
       navigation={state.draft.navigation.filter(
         (n) =>
           !state.draft.pages.find((p) => `/${p.slug}` === n.href)?.archived,
       )}
     >
       <div className="border-waambat-pink mb-8 border p-4 text-center">
-        <strong>Private draft · commit {state.revision.slice(0, 12)}</strong>
+        <strong>Private draft · revision {state.revision.slice(0, 12)}</strong>
         <p>
           This is the saved draft. Public visitors still see the published
           version.

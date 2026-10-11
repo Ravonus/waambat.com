@@ -70,7 +70,18 @@ export default function PageEditor({
             value={layout}
             onChange={(e) => setLayout(e.target.value as SitePage["layout"])}
           >
-            {["article", "gallery", "archive", "image-grid"].map((v) => (
+            {[
+              "article",
+              "gallery",
+              "archive",
+              "image-grid",
+              "biography",
+              "centered",
+              "contact",
+              "two-column",
+              "splash",
+              "split-splash",
+            ].map((v) => (
               <option key={v}>{v}</option>
             ))}
           </select>
@@ -238,9 +249,90 @@ export default function PageEditor({
                     onChange={(v) =>
                       edit(pi, (p) => {
                         p.blocks[bi]!.text = v;
+                        p.blocks[bi]!.marks = p.blocks[bi]!.marks.filter((m) =>
+                          v.includes(m.text),
+                        );
                       })
                     }
                   />
+                  {["paragraph", "heading"].includes(block.type) && (
+                    <div className="space-y-2">
+                      <p>
+                        Emphasis applies to the exact words below. Text edits
+                        remove emphasis whose words no longer match.
+                      </p>
+                      {block.marks.map((mark, mi) => (
+                        <div key={mi} className="flex gap-3">
+                          <span>
+                            {mark.kind}: {mark.text}
+                          </span>
+                          <button
+                            type="button"
+                            className="underline"
+                            onClick={() =>
+                              edit(pi, (p) => {
+                                p.blocks[bi]!.marks.splice(mi, 1);
+                              })
+                            }
+                          >
+                            Remove emphasis
+                          </button>
+                        </div>
+                      ))}
+                      <button
+                        type="button"
+                        className="underline"
+                        onClick={() => {
+                          const words = prompt(
+                            "Exact words to make bold (must appear in this block)",
+                          );
+                          if (words && block.text.includes(words))
+                            edit(pi, (p) => {
+                              p.blocks[bi]!.marks.push({
+                                text: words,
+                                kind: "strong",
+                              });
+                            });
+                        }}
+                      >
+                        Add bold words
+                      </button>
+                      {" · "}
+                      <button
+                        type="button"
+                        className="underline"
+                        onClick={() => {
+                          const words = prompt(
+                            "Exact words to italicize (must appear in this block)",
+                          );
+                          if (words && block.text.includes(words))
+                            edit(pi, (p) => {
+                              p.blocks[bi]!.marks.push({
+                                text: words,
+                                kind: "em",
+                              });
+                            });
+                        }}
+                      >
+                        Add italic words
+                      </button>
+                      <label className="block">
+                        Empty lines
+                        <input
+                          className={input}
+                          type="number"
+                          min={0}
+                          max={4}
+                          value={block.blankLines ?? 0}
+                          onChange={(e) =>
+                            edit(pi, (p) => {
+                              p.blocks[bi]!.blankLines = Number(e.target.value);
+                            })
+                          }
+                        />
+                      </label>
+                    </div>
+                  )}
                   <Field
                     label="Page block link (optional HTTPS URL)"
                     value={block.href}
@@ -299,6 +391,66 @@ export default function PageEditor({
                         }
                       />
                       Muted looping playback when visible (direct MP4/WebM)
+                    </label>
+                  )}
+                  {["biography", "two-column"].includes(page.layout) && (
+                    <label>
+                      Biography column
+                      <select
+                        className={input}
+                        value={block.column ?? "main"}
+                        onChange={(e) =>
+                          edit(pi, (p) => {
+                            p.blocks[bi]!.column = e.target.value as
+                              | "main"
+                              | "side";
+                          })
+                        }
+                      >
+                        <option value="main">Interview / main column</option>
+                        <option value="side">
+                          Animation / portrait column
+                        </option>
+                      </select>
+                    </label>
+                  )}
+                  {block.type === "embed" && block.loop && (
+                    <label className="block">
+                      Exact video width / height ratio (optional)
+                      <input
+                        className={input}
+                        type="number"
+                        min={0.25}
+                        max={4}
+                        step={0.001}
+                        value={block.ratio ?? ""}
+                        onChange={(e) =>
+                          edit(pi, (p) => {
+                            p.blocks[bi]!.ratio = e.target.value
+                              ? Number(e.target.value)
+                              : undefined;
+                          })
+                        }
+                      />
+                    </label>
+                  )}
+                  {block.type === "embed" && block.loop && (
+                    <label>
+                      Video proportions
+                      <select
+                        className={input}
+                        value={block.aspect ?? "square"}
+                        onChange={(e) =>
+                          edit(pi, (p) => {
+                            p.blocks[bi]!.aspect = e.target.value as
+                              | "square"
+                              | "portrait";
+                          })
+                        }
+                      >
+                        <option value="square">Square</option>
+                        <option value="portrait">Portrait 4:5</option>
+                      </select>
                     </label>
                   )}
                   {block.type === "heading" && (
@@ -415,6 +567,7 @@ export default function PageEditor({
                       level: 2,
                       items: [],
                       links: [],
+                      marks: [],
                       archived: false,
                     });
                   })
@@ -470,6 +623,52 @@ export default function PageEditor({
                       })
                     }
                   />
+                  <label className="block">
+                    Poster width / height ratio
+                    <input
+                      className={input}
+                      type="number"
+                      min={0.25}
+                      max={4}
+                      step={0.001}
+                      value={item.ratio}
+                      onChange={(e) =>
+                        edit(pi, (p) => {
+                          p.archive[ii]!.ratio = Number(e.target.value);
+                        })
+                      }
+                    />
+                  </label>
+                  <label className="block">
+                    Fullscreen video width / height ratio (optional)
+                    <input
+                      className={input}
+                      type="number"
+                      min={0.25}
+                      max={4}
+                      step={0.001}
+                      value={item.videoRatio ?? ""}
+                      onChange={(e) =>
+                        edit(pi, (p) => {
+                          p.archive[ii]!.videoRatio = e.target.value
+                            ? Number(e.target.value)
+                            : undefined;
+                        })
+                      }
+                    />
+                  </label>
+                  <label className="block">
+                    <input
+                      type="checkbox"
+                      checked={item.rowEnd}
+                      onChange={(e) =>
+                        edit(pi, (p) => {
+                          p.archive[ii]!.rowEnd = e.target.checked;
+                        })
+                      }
+                    />{" "}
+                    End montage row after this entry
+                  </label>
                   <label>
                     <input
                       type="checkbox"
@@ -520,6 +719,8 @@ export default function PageEditor({
                     p.archive.push({
                       id: `archive-${crypto.randomUUID()}`,
                       title: "New artwork",
+                      ratio: 16 / 9,
+                      rowEnd: true,
                       image: "https://waambat.com",
                       description: "",
                       embed: "",

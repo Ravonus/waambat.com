@@ -1,108 +1,170 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { SitePage } from "~/lib/content";
+import { archiveRows } from "~/lib/archive-layout";
 import SourceImage from "./SourceImage";
 import VideoEmbed from "./VideoEmbed";
 export default function Archive({ items }: { items: SitePage["archive"] }) {
   const visible = items.filter((i) => !i.archived);
-  const [selected, setSelected] = useState(0);
+  const container = useRef<HTMLDivElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const [width, setWidth] = useState(1392);
+  const [gap, setGap] = useState(10);
+  const [selected, setSelected] = useState<number | null>(null);
   const [info, setInfo] = useState(false);
-  if (!visible.length) return null;
-  const index = Math.min(selected, visible.length - 1),
-    item = visible[index]!;
-  const select = (i: number) =>
-    setSelected((i + visible.length) % visible.length);
+  useEffect(() => {
+    const el = container.current;
+    if (!el) return;
+    const observer = new ResizeObserver(() => {
+      setWidth(el.clientWidth);
+      setGap(
+        parseFloat(
+          getComputedStyle(el).getPropertyValue("--site-archive-gap"),
+        ) || 10,
+      );
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const el = dialog.current;
+    if (!el || selected === null) return;
+    if (!el.open) el.showModal();
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [selected]);
+  const index =
+    selected === null ? null : Math.min(selected, visible.length - 1);
+  const item = index === null ? undefined : visible[index];
+  const select = (next: number) => {
+    setInfo(false);
+    setSelected((next + visible.length) % visible.length);
+  };
   return (
-    <section aria-label="Art archive" className="pb-16 text-center">
-      <div
-        className="flex min-h-[45vh] items-center justify-center"
+    <section aria-label="Art archive" className="pb-16">
+      <div ref={container} className="archive-montage">
+        {archiveRows(visible, width, gap).map((row) => (
+          <div
+            key={row.items[0]!.id}
+            className="archive-row"
+            style={{ height: row.height, gap }}
+          >
+            {row.items.map((art) => (
+              <button
+                key={art.id}
+                type="button"
+                onClick={() => select(visible.indexOf(art))}
+                aria-label={`View ${art.title || "untitled artwork"}`}
+                className="archive-tile"
+                style={{ flexGrow: art.ratio }}
+              >
+                <SourceImage
+                  src={art.image}
+                  alt=""
+                  sizes="(max-width: 767px) calc(100vw - 40px), 1100px"
+                  className="h-full w-full object-contain"
+                />
+                {art.title && <span>{art.title}</span>}
+              </button>
+            ))}
+          </div>
+        ))}
+      </div>
+      <dialog
+        ref={dialog}
+        className="archive-viewer"
+        aria-label="Archive artwork viewer"
+        onClose={() => {
+          setSelected(null);
+          setInfo(false);
+        }}
         onKeyDown={(e) => {
-          if (e.key === "ArrowLeft") {
+          if (index === null) return;
+          if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
             e.preventDefault();
-            select(index - 1);
-          }
-          if (e.key === "ArrowRight") {
-            e.preventDefault();
-            select(index + 1);
+            select(index + (e.key === "ArrowLeft" ? -1 : 1));
           }
         }}
-        tabIndex={0}
-        aria-label="Archive slideshow. Use left and right arrow keys."
       >
-        {item.embed ? (
-          <VideoEmbed
-            key={item.id}
-            src={item.embed}
-            title={item.title}
-            poster={item.image}
-          />
-        ) : (
-          <SourceImage
-            key={item.id}
-            src={item.image}
-            alt={item.title}
-            eager
-            className="max-h-[70vh] w-full object-contain"
-          />
-        )}
-      </div>
-      <div className="my-6 flex justify-center gap-6">
         <button
-          onClick={() => setInfo(!info)}
-          aria-expanded={info}
-          aria-controls="archive-info"
+          type="button"
+          className="archive-close"
+          aria-label="Close archive viewer"
+          onClick={() => dialog.current?.close()}
         >
-          info
+          ×
         </button>
-        <button onClick={() => select(index - 1)} aria-label="Previous artwork">
-          prev
-        </button>
-        <span>/</span>
-        <button onClick={() => select(index + 1)} aria-label="Next artwork">
-          next
-        </button>
-      </div>
-      <p
-        id="archive-info"
-        hidden={!info}
-        className="my-5 whitespace-pre-line"
-        aria-live="polite"
-      >
-        {item.title}
-        {item.description ? `\n${item.description}` : ""}
-      </p>
-      <div
-        className="flex flex-wrap justify-center gap-x-3 gap-y-1"
-        aria-label="Choose archive artwork"
-      >
-        {visible.map((art, i) => (
-          <button
-            key={art.id}
-            onClick={() => select(i)}
-            aria-label={`Artwork ${i + 1}: ${art.title}`}
-            aria-current={index === i ? "true" : undefined}
-            className={index === i ? "text-waambat-pink" : ""}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
-      <div className="mt-8 grid grid-cols-5 gap-2 md:grid-cols-10">
-        {visible.map((art, i) => (
-          <button
-            key={art.id}
-            onClick={() => select(i)}
-            aria-label={`View ${art.title}`}
-          >
-            <SourceImage
-              src={art.image}
-              alt=""
-              sizes="(max-width: 767px) calc((100vw - 72px) / 5), 88px"
-              className="aspect-square w-full object-cover"
-            />
-          </button>
-        ))}
-      </div>
+        {item && (
+          <div className="archive-viewer-content">
+            <div
+              className="archive-viewer-media"
+              style={{ aspectRatio: item.videoRatio ?? item.ratio }}
+            >
+              {item.embed ? (
+                <VideoEmbed
+                  key={item.id}
+                  src={item.embed}
+                  title={item.title || "Untitled artwork"}
+                  poster={item.image}
+                  activated
+                  ratio={item.videoRatio ?? item.ratio}
+                  compact
+                />
+              ) : (
+                <SourceImage
+                  src={item.image}
+                  alt={item.title}
+                  eager
+                  className="h-full w-full object-contain"
+                />
+              )}
+            </div>
+            <div className="my-5 flex justify-center gap-6">
+              <button
+                type="button"
+                onClick={() => setInfo(!info)}
+                aria-expanded={info}
+                aria-controls="archive-info"
+              >
+                info
+              </button>
+              <button
+                type="button"
+                onClick={() => select(index! - 1)}
+                aria-label="Previous artwork"
+              >
+                prev
+              </button>
+              <span>/</span>
+              <button
+                type="button"
+                onClick={() => select(index! + 1)}
+                aria-label="Next artwork"
+              >
+                next
+              </button>
+            </div>
+            <p
+              id="archive-info"
+              hidden={!info}
+              className="text-center whitespace-pre-line"
+            >
+              {item.title}
+              {item.description ? `\n${item.description}` : ""}
+            </p>
+            {item.embed && info && (
+              <p className="text-center text-sm">
+                <a href={item.embed} target="_blank" rel="noopener noreferrer">
+                  Open original source ↗
+                </a>
+              </p>
+            )}
+          </div>
+        )}
+      </dialog>
     </section>
   );
 }

@@ -6,6 +6,10 @@ const config = {
   devIndicators: false,
   env: {
     WAAMBAT_REVIEW_BUILD: process.env.WAAMBAT_PRIVATE_SITE === "1" ? "1" : "0",
+    WAAMBAT_CONTENT_CONTEXT:
+      process.env.CONTEXT === "deploy-preview"
+        ? `review-${process.env.REVIEW_ID ?? "1"}`
+        : "production",
   },
   async headers() {
     return [

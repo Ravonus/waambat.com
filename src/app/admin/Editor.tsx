@@ -5,6 +5,7 @@ import { contentSchema, type Artwork, type Content } from "~/lib/content";
 import { MAX_UPLOAD } from "~/lib/uploads";
 import PageEditor from "./PageEditor";
 import NavigationEditor from "./NavigationEditor";
+import ThemeEditor from "./ThemeEditor";
 import { AdminRequestError, requestContentState } from "~/lib/admin-request";
 type PendingWrite = {
   action: "save" | "publish";
@@ -112,11 +113,18 @@ export default function Editor({ initial }: { initial: ContentState }) {
       return next;
     });
   }
-  function changeItem(id: string, key: keyof Artwork, value: string | boolean) {
+  function changeItem(
+    id: string,
+    key: keyof Artwork,
+    value: string | boolean | number,
+  ) {
     edit((d) => {
       for (const s of d.sections) {
         const i = s.items.find((i) => i.id === id);
-        if (i) Object.assign(i, { [key]: value });
+        if (i) {
+          Object.assign(i, { [key]: value });
+          if (key === "description") i.captionLines = undefined;
+        }
       }
     });
   }
@@ -137,7 +145,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
       action === "publish" &&
       (dirty ||
         !confirm(
-          "Publish the saved draft? This commits content to the production branch and triggers a Netlify build. Previous versions are retained.",
+          "Publish the saved draft? This updates the published content on the configured site. Previous versions are retained.",
         ))
     )
       return;
@@ -165,13 +173,13 @@ export default function Editor({ initial }: { initial: ContentState }) {
       setStatus(
         action === "save"
           ? "Draft saved. Preview it before publishing."
-          : "Published content committed. Netlify updates the site after the build succeeds.",
+          : "Published content saved. Open the site to review the result.",
       );
     } catch (e) {
       if (e instanceof AdminRequestError && e.uncertain) {
         setUncertain(pending);
         setStatus(
-          `${e.message} Your edits remain here. Checking the remote commit before another write.`,
+          `${e.message} Your edits remain here. Checking the remote revision before another write.`,
         );
         await reconcile(pending);
         return;
@@ -210,20 +218,20 @@ export default function Editor({ initial }: { initial: ContentState }) {
         });
         setStatus(
           pending.action === "save"
-            ? "Saved commit confirmed. Your edits are retained; preview before publishing."
-            : "Published commit confirmed. Netlify updates the site after a successful build.",
+            ? "Saved revision confirmed. Your edits are retained; preview before publishing."
+            : "Published revision confirmed. Open the site to review the result.",
         );
       } else {
         setStatus(
           changed
             ? "Remote content changed. Your edits remain here. Reload and review the latest draft before retrying."
-            : "No new commit observed. Your edits remain here. You may retry; the expected revision protects against late or concurrent commits.",
+            : "No new revision observed. Your edits remain here. You may retry; the expected revision protects against late or concurrent writes.",
         );
       }
       setUncertain(null);
     } catch {
       setStatus(
-        "Commit status is still unknown. Your edits remain here. Check the remote commit before saving or publishing again.",
+        "Save status is still unknown. Your edits remain here. Check the remote revision before saving or publishing again.",
       );
     } finally {
       setBusy(false);
@@ -347,7 +355,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
         <span>{dirty ? "Unsaved changes" : "Draft saved"}</span>
         {uncertain && (
           <button disabled={busy} onClick={() => void reconcile()}>
-            Check remote commit
+            Check remote revision
           </button>
         )}
         {uploading && (
@@ -505,6 +513,23 @@ export default function Editor({ initial }: { initial: ContentState }) {
               </button>
             </div>
             <div className="grid gap-4 md:grid-cols-2">
+              <label>
+                Placement
+                <select
+                  className={inputClass}
+                  value={section.presentation}
+                  onChange={(e) =>
+                    edit((d) => {
+                      d.sections[si]!.presentation = e.target.value as
+                        | "gallery"
+                        | "trailer";
+                    })
+                  }
+                >
+                  <option value="gallery">Original gallery flow</option>
+                  <option value="trailer">Trailer at top of page</option>
+                </select>
+              </label>
               <Field
                 label="Section title"
                 value={section.title}
@@ -569,6 +594,26 @@ export default function Editor({ initial }: { initial: ContentState }) {
                       value={item.year}
                       onChange={(v) => changeItem(item.id, "year", v)}
                     />
+                    {section.presentation === "trailer" && (
+                      <label>
+                        Trailer width / height ratio
+                        <input
+                          className={inputClass}
+                          type="number"
+                          min="0.25"
+                          max="4"
+                          step="0.001"
+                          value={item.aspectRatio ?? 16 / 9}
+                          onChange={(e) =>
+                            changeItem(
+                              item.id,
+                              "aspectRatio",
+                              Number(e.target.value),
+                            )
+                          }
+                        />
+                      </label>
+                    )}
                     <Field
                       label="Description (plain text)"
                       multiline
@@ -738,6 +783,60 @@ export default function Editor({ initial }: { initial: ContentState }) {
         >
           + Add section
         </button>
+        <div className="my-8 space-y-4">
+          <a href="/api/admin/export" download className="underline">
+            Download saved content backup
+          </a>
+          <label className="block">
+            Restore content backup into draft
+            <input
+              aria-label="Restore content backup"
+              type="file"
+              accept="application/json,.json"
+              disabled={busy || uploading || Boolean(uncertain)}
+              onChange={async (event) => {
+                const input = event.currentTarget,
+                  file = input.files?.[0];
+                if (!file) return;
+                try {
+                  if (file.size > 1500000)
+                    throw new Error("Backup is too large");
+                  const value: unknown = JSON.parse(await file.text());
+                  const restored = contentSchema.parse(
+                    value && typeof value === "object" && "draft" in value
+                      ? value.draft
+                      : value,
+                  );
+                  if (
+                    confirm(
+                      "Replace unsaved edits with this backup? Public content changes only after saving and publishing.",
+                    )
+                  ) {
+                    setContent(restored);
+                    setStatus(
+                      "Backup loaded into unsaved draft. Save and preview before publishing.",
+                    );
+                  }
+                } catch {
+                  setStatus(
+                    "Invalid backup. Your current edits remain unchanged.",
+                  );
+                } finally {
+                  input.value = "";
+                }
+              }}
+              className="mt-2 block"
+            />
+          </label>
+        </div>
+        <ThemeEditor
+          theme={content.theme}
+          onChange={(theme) =>
+            edit((d) => {
+              d.theme = theme;
+            })
+          }
+        />
         <NavigationEditor
           navigation={content.navigation}
           pages={content.pages}

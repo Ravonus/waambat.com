@@ -44,10 +44,10 @@ export default function Header({
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
   return (
-    <header className="mx-auto max-w-[1080px] px-5 pt-10 pb-8 text-center md:px-[60px] md:pt-[60px]">
+    <header className="site-header mx-auto w-full max-w-none text-center">
       <Link
         href="/"
-        className="text-waambat-logo font-brand inline-block text-[37px] leading-tight font-normal tracking-[.03em]"
+        className="site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal"
         aria-label="waambat home"
       >
         waambat
@@ -64,7 +64,7 @@ export default function Header({
       <nav
         id="site-menu"
         aria-label="Main navigation"
-        className={`${open ? "flex" : "hidden"} mt-7 flex-col items-center gap-x-6 gap-y-2 md:flex md:flex-row md:flex-wrap md:justify-center`}
+        className={`${open ? "flex" : "hidden"} mt-[20px] flex-col items-center gap-x-6 gap-y-2 md:flex md:flex-row md:flex-wrap md:justify-center`}
       >
         {navigation
           .filter((item) => !item.archived)
@@ -82,7 +82,7 @@ export default function Header({
                   window.dispatchEvent(new Event("waambat:navigate"));
               }}
               aria-current={current === item.href ? "page" : undefined}
-              className={`hover:text-waambat-hover py-1 text-[14px] ${current === item.href ? "text-white" : "text-[#9c9c9c]"}`}
+              className="site-nav-link hover:text-waambat-hover leading-[19.503px] tracking-[.06em]"
             >
               {item.label}
               <NavigationHint />

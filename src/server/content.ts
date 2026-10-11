@@ -9,6 +9,12 @@ import {
   serializeContent,
 } from "./git-store";
 import { AdminError } from "./auth";
+import {
+  blobContentConfigured,
+  readBlobContent,
+  updateBlobContent,
+} from "./blob-content";
+const seed = () => contentSchema.parse(stored);
 export interface ContentState {
   revision: string;
   draft: Content;
@@ -18,6 +24,12 @@ export interface ContentState {
   updatedAt: null;
 }
 export async function getContentState(): Promise<ContentState> {
+  if (blobContentConfigured())
+    return {
+      ...(await readBlobContent(seed())),
+      deployedRevision: process.env.COMMIT_REF ?? "local-working-tree",
+      updatedAt: null,
+    };
   const store = getGitStore();
   const published = await store.read(baseBranch());
   if (!published)
@@ -36,6 +48,7 @@ export async function getContentState(): Promise<ContentState> {
   };
 }
 export async function getPublishedContent(): Promise<Content> {
+  if (blobContentConfigured()) return (await readBlobContent(seed())).published;
   if (localTestConfigured())
     return (await getGitStore().read(baseBranch()))!.content;
   // Netlify builds exactly the JSON in the commit being deployed. No runtime Git token is needed for public artwork.
@@ -48,6 +61,17 @@ export async function updateContent(
   actor: string,
   publishedRevision?: string,
 ) {
+  if (blobContentConfigured()) {
+    await updateBlobContent(
+      seed(),
+      revision,
+      action,
+      content,
+      actor,
+      publishedRevision,
+    );
+    return getContentState();
+  }
   const store = getGitStore();
   const state = await getContentState();
   if (state.revision !== revision)

@@ -21,7 +21,13 @@ export default function RootLayout({
         >
           Skip to artwork
         </a>
-        <OriginalFonts enabled={process.env.WAAMBAT_ORIGINAL_FONTS === "1"} />
+        <OriginalFonts
+          enabled={process.env.WAAMBAT_ORIGINAL_FONTS === "1"}
+          approvedHosts={(process.env.WAAMBAT_FONT_HOSTS ?? "")
+            .split(",")
+            .map((host) => host.trim())
+            .filter((host) => /^[a-z0-9.-]+$/.test(host))}
+        />
         <RouteEffects />
         {children}
       </body>

@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { instagramTarget } from "./instagram";
 import { videoSource } from "./video-source";
+import { themeSchema } from "./theme";
 const text = (max: number) =>
   z
     .string()
@@ -38,6 +39,9 @@ export const artworkSchema = z
     title: text(160),
     year: text(80),
     description: text(2000),
+    precedingGap: z.number().min(0).max(500).optional(),
+    captionLines: z.array(text(2000)).max(10).optional(),
+    aspectRatio: z.number().min(0.25).max(4).optional(),
     tokenLink: safeLink,
     videoSrc: mediaLink,
     poster: mediaLink,
@@ -84,6 +88,7 @@ export const sectionSchema = z
     id: z.string().regex(/^[a-z0-9-]{1,80}$/),
     title: text(120).refine((s) => s.length > 0, "A title is required"),
     intro: text(2000),
+    presentation: z.enum(["gallery", "trailer"]).optional(),
     page: z
       .string()
       .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
@@ -179,6 +184,18 @@ export const pageBlockSchema = z
     src: mediaLink.default(""),
     level: z.number().int().min(1).max(3).default(2),
     loop: z.boolean().optional(),
+    column: z.enum(["main", "side"]).optional(),
+    aspect: z.enum(["square", "portrait"]).optional(),
+    ratio: z.number().min(0.25).max(4).optional(),
+    blankLines: z.number().int().min(0).max(4).optional(),
+    marks: z
+      .array(
+        z
+          .object({ text: text(12000), kind: z.enum(["strong", "em"]) })
+          .strict(),
+      )
+      .max(30)
+      .default([]),
     items: z
       .array(
         z.object({ text: text(500), href: mediaLink.default("") }).strict(),
@@ -193,6 +210,12 @@ export const pageBlockSchema = z
   })
   .strict()
   .superRefine((block, ctx) => {
+    for (const mark of block.marks)
+      if (!mark.text || !block.text.includes(mark.text))
+        ctx.addIssue({
+          code: "custom",
+          message: "Emphasis must match text in this block",
+        });
     if (
       block.loop &&
       (block.type !== "embed" || !videoSource(block.src)?.direct)
@@ -222,6 +245,13 @@ export const archiveItemSchema = z
     description: text(2000).default(""),
     embed: z.union([z.literal(""), embedLink]).default(""),
     archived: z.boolean().default(false),
+    ratio: z
+      .number()
+      .min(0.25)
+      .max(4)
+      .default(16 / 9),
+    rowEnd: z.boolean().default(false),
+    videoRatio: z.number().min(0.25).max(4).optional(),
   })
   .strict();
 export const pageSchema = z
@@ -229,7 +259,18 @@ export const pageSchema = z
     slug: pageSlug,
     title: text(160).refine((s) => s.length > 0, "A page title is required"),
     layout: z
-      .enum(["article", "archive", "gallery", "image-grid"])
+      .enum([
+        "article",
+        "archive",
+        "gallery",
+        "image-grid",
+        "biography",
+        "centered",
+        "contact",
+        "two-column",
+        "splash",
+        "split-splash",
+      ])
       .default("article"),
     archived: z.boolean().default(false),
     blocks: z.array(pageBlockSchema).max(250),
@@ -252,6 +293,7 @@ export const contentSchema = z
     pages: z.array(pageSchema).max(80).default([]),
     navigation: z.array(navigationSchema).max(50).default([]),
     email: emailSettingsSchema.default({}),
+    theme: themeSchema.default({}),
   })
   .strict()
   .superRefine((doc, ctx) => {

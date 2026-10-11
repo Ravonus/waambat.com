@@ -3,10 +3,10 @@ import { useActionState, useState } from "react";
 import { backupSignIn } from "./login-action";
 export default function LoginForm() {
   const [error, action, pending] = useActionState(backupSignIn, "");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("admin");
   return (
     <form action={action} className="mt-8 space-y-4">
-      <h2 className="text-waambat-pink">Backup administrator login</h2>
+      <h2 className="text-waambat-pink">Administrator login</h2>
       <label className="block">
         Username
         <input

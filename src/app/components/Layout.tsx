@@ -2,18 +2,26 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { getPublishedContent } from "~/server/content";
 import type { Content } from "~/lib/content";
+import { themeStyle, type Theme } from "~/lib/theme";
 export default async function Layout({
   children,
   preview = false,
   navigation,
+  wide = false,
+  theme,
 }: {
   children: React.ReactNode;
   preview?: boolean;
   navigation?: Content["navigation"];
+  wide?: boolean;
+  theme?: Theme;
 }) {
   const awaitContent = await getPublishedContent();
   return (
-    <div className="flex min-h-screen flex-col bg-black text-[#ebebeb]">
+    <div
+      className="site-theme flex min-h-screen flex-col"
+      style={themeStyle(theme ?? awaitContent.theme)}
+    >
       <Header
         preview={preview}
         navigation={(navigation ?? awaitContent.navigation).filter(
@@ -26,7 +34,7 @@ export default async function Layout({
       />
       <main
         id="main-content"
-        className="mx-auto w-full max-w-[1080px] flex-grow px-5 md:px-[60px]"
+        className={`site-main mx-auto w-full flex-grow ${wide ? "site-main-wide" : ""}`}
       >
         {children}
       </main>

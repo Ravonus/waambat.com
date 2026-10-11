@@ -1,6 +1,6 @@
 # Fidelity review: recovered content and remaining composition
 
-The renewed task authorizes an updated review preview through the existing Netlify Git integration. Production/domain changes remain out of scope. The user specifically corrected biography composition: a complete text migration does not establish visual fidelity.
+Current status: measured structural corrections are described in the final section below. The earlier table records the previous fedb258 checkpoint and is historical. The user now authorizes deployment to the existing Netlify production hostname; original waambat.com and DNS remain unchanged. The user specifically corrected biography composition: a complete text migration does not establish visual fidelity.
 
 ## October 11 public-source handoff applied
 
@@ -30,3 +30,15 @@ Original footer destinations (Instagram, YouTube, Foundation) restored. Historic
 ## Acceptance boundary
 
 Lint/type checks, content validation, unit/Git tests, production build, desktop/mobile compiled twelve-route checks, fixed player activation/close/next, Instagram counts/grid, navigation/history, reduced motion, real generated MP4 playback, uploads/cancellation/stale revisions and isolated database authentication establish technical behavior. They do not establish original visual matching or real external provider availability. Keep the PR draft and production unchanged until composition and authenticated runtime acceptance pass.
+
+## Measured October 11 corrections
+
+The source operator captured all twelve desktop routes and supplied exact 1512-pixel geometry. The subsequent implementation restores the 960-pixel single-artwork homepage (first source video y419.703, title y1421.406), biography col1/col6/col4/col1 composition and right animation/portrait, source paragraph boundaries and safe strong/emphasis runs, 628.664-pixel mechanics/press columns, 462.992-pixel contact/art interiors, four-column Instagram image grid, original page videos, distinct legacy cover/split-cover layouts, and the archive's 25-tile justified montage with fullscreen close/prev/next. Sus Singularity has separate landscape poster and portrait fullscreen ratios. Heading links inherit source pink; purple is retained for the identified Instagram interview inline link. Instagram post embeds load when visible without an initial load gate. The pointer is now an arrow with an animated pink gradient, with native text/resize/drag states and reduced-motion/touch behavior.
+
+The first three homepage spacers are measured; remaining spacers and Enter Boi AMA's extra image composition need fuller source DOM. Recovered press videos have verified URLs/proportions, but several insertion positions still need source comparison. Legacy splash icons are accessible approximations, and the split cover's complete two-line announcement/font details remain pending. These limits prevent claiming every page is visually identical.
+
+The source operator verified the same provider-unavailable errors for original and previous-preview Vimeo Axiom (538169390), Sus Singularity (543748855) and Video Art (224251774). They are upstream availability failures. Original YouTube Play actually played during Mac QA. Some original direct videos were also unavailable in the source; no missing artwork was substituted.
+
+Mac baseline captures were desktop, not 390-pixel mobile: reported viewport changes did not change actual innerWidth, and native Chrome responsive actions were interrupted by foreground contention. Local real Chromium mobile tests are separate evidence, not an original mobile baseline. The original Squarespace CSS URL was observed but could not be retrieved (cloud403/browserblocked). Adobe fallback font metrics and incomplete source geometry remain visible fidelity limitations. Original source images and media URLs are retained.
+
+Compiled Chromium verification at 1512×733 now confirms home media x276/y419.6875/960×960 and title y1421.375, biography x358.828125/463px with side x855.828125/297.328125px, mechanics628.65625px, contact/art463px, archive1392px/y181.6875 and Sus portrait viewer337.5×600. These match supplied source geometry within browser rounding; see evidence/source-geometry-check.json.

@@ -228,6 +228,11 @@ try {
     1,
   );
   await articles.goto(`${origin}/art-by-waambat`);
+  assert.equal(await articles.locator(".archive-tile").count(), 25);
+  assert.equal(await articles.locator("iframe").count(), 0);
+  await articles
+    .getByRole("button", { name: "View Axiom GL0w Up (2021)", exact: true })
+    .click();
   await articles
     .getByRole("button", { name: "Next artwork", exact: true })
     .click();
@@ -239,25 +244,29 @@ try {
   await articles
     .getByRole("button", { name: "Previous artwork", exact: true })
     .click();
+  await articles.getByRole("button", { name: "info", exact: true }).click();
   assert.equal(
     await articles.locator("#archive-info").innerText(),
     "Axiom GL0w Up (2021)",
   );
+  await articles.getByRole("button", { name: "Close archive viewer" }).click();
   await articles
     .getByRole("button", {
-      name: "Artwork 25: Poison Progression (2010)",
+      name: "View Poison Progression (2010)",
       exact: true,
     })
     .click();
+  await articles.getByRole("button", { name: "info", exact: true }).click();
   assert.ok(
     (await articles.locator("#archive-info").innerText()).includes("Top award"),
   );
+  await articles.keyboard.press("Escape");
   assert.equal(
     (await articles.request.get(`${origin}/missing-page`)).status(),
     404,
   );
   evidence.pages =
-    "All five local page routes, mobile navigation/overflow, contact links, deferred embeds, archive prev/next/info/number selection and missing-route 404 passed. Live media transport and original visual matching remain separately blocked.";
+    "All five local page routes, mobile navigation/overflow, contact links, deferred embeds, archive montage, fullscreen prev/next/info/Escape and missing-route 404 passed. Live media transport and original visual matching remain separately blocked.";
   const navigation = await anon.newPage();
   await navigation.goto(`${origin}/mechanics`);
   await navigation
@@ -482,6 +491,9 @@ try {
   await pageBlock
     .getByLabel("Page block text / image description", { exact: true })
     .fill("Private contact draft");
+  await admin.getByLabel("Theme heading", { exact: true }).fill("#123456");
+  await admin.getByLabel("Theme content width", { exact: true }).fill("1000");
+  await admin.getByLabel("Theme font", { exact: true }).selectOption("system");
   await admin.getByRole("button", { name: "Save draft", exact: true }).click();
   await admin.getByRole("status").filter({ hasText: "Draft saved." }).waitFor();
   const saved = await (
@@ -503,6 +515,18 @@ try {
       .then((t) => t.includes("Private contact draft")),
     false,
   );
+  assert.equal(saved.draft.theme.heading, "#123456");
+  assert.equal(saved.published.theme.heading, initial.published.theme.heading);
+  assert.equal(
+    await preview
+      .getByRole("heading", { name: "Private contact draft", exact: true })
+      .evaluate((el) => getComputedStyle(el).color),
+    "rgb(18, 52, 86)",
+  );
+  const backup = await owner.request.get(`${origin}/api/admin/export`);
+  assert.equal(backup.status(), 200);
+  assert.equal((await backup.json()).draft.theme.heading, "#123456");
+  assert.equal((await api.get(`${origin}/api/admin/export`)).status(), 401);
   await preview.goto(`${origin}/admin/preview`);
   await preview
     .getByRole("heading", { name: "Draft test title", exact: true })
@@ -586,7 +610,7 @@ try {
     .click();
   await admin
     .getByRole("status")
-    .filter({ hasText: "Published content committed" })
+    .filter({ hasText: "Published content saved" })
     .waitFor();
   await admin
     .getByRole("button", { name: "+ Add artwork", exact: true })
@@ -634,7 +658,7 @@ try {
   await admin.getByRole("button", { name: "Save draft", exact: true }).click();
   await admin
     .getByRole("status")
-    .filter({ hasText: "Saved commit confirmed." })
+    .filter({ hasText: "Saved revision confirmed." })
     .waitFor();
   assert.equal(
     writeAttempts,
@@ -654,7 +678,7 @@ try {
   await admin.getByRole("button", { name: "Save draft", exact: true }).click();
   await admin
     .getByRole("status")
-    .filter({ hasText: "Commit status is still unknown." })
+    .filter({ hasText: "Save status is still unknown." })
     .waitFor();
   assert.equal(
     await admin
@@ -674,11 +698,11 @@ try {
   );
   await admin.unroute("**/api/admin/content");
   await admin
-    .getByRole("button", { name: "Check remote commit", exact: true })
+    .getByRole("button", { name: "Check remote revision", exact: true })
     .click();
   await admin
     .getByRole("status")
-    .filter({ hasText: "No new commit observed." })
+    .filter({ hasText: "No new revision observed." })
     .waitFor();
   assert.equal(
     writeAttempts,
@@ -745,8 +769,102 @@ try {
   );
   evidence.boundary =
     "Browser tests use the production content schema and real local Git commits under a development-only adapter. Real GitHub OAuth/App grants, remote Netlify deployments and Netlify Blobs have not been exercised. Netlify adapter packaging is checked separately.";
+  const trailerState = await (
+    await owner.request.get(`${origin}/api/admin/content`)
+  ).json();
+  const trailer = trailerState.draft.sections.find(
+    (s: { id: string }) => s.id === "site-trailer",
+  );
+  trailer.archived = false;
+  trailer.items = [
+    {
+      id: "trailer-browser-fixture",
+      title: "Trailer playback fixture",
+      year: "",
+      description: "",
+      kind: "video",
+      tokenLink: "https://waambat.com",
+      videoSrc: "https://i.imgur.com/trailer-fixture.mp4",
+      mobileVideoSrc: "",
+      poster: "/posters/1-960.webp",
+      aspectRatio: 16 / 9,
+      archived: false,
+      featured: false,
+    },
+  ];
+  const trailerSave = await owner.request.post(`${origin}/api/admin/content`, {
+    data: {
+      revision: trailerState.revision,
+      action: "save",
+      content: trailerState.draft,
+    },
+    headers: { Origin: origin },
+  });
+  assert.equal(trailerSave.status(), 200);
+  const trailerSaved = await trailerSave.json();
+  assert.equal(
+    (
+      await owner.request.post(`${origin}/api/admin/content`, {
+        data: {
+          revision: trailerSaved.revision,
+          publishedRevision: trailerSaved.publishedRevision,
+          action: "publish",
+        },
+        headers: { Origin: origin },
+      })
+    ).status(),
+    200,
+  );
+  await page.goto(origin);
+  const trailerCard = page.locator('[data-artwork="trailer-browser-fixture"]');
+  await trailerCard.locator("video").waitFor();
+  await page.waitForFunction(() => {
+    const v = document.querySelector(
+      '[data-artwork="trailer-browser-fixture"] video',
+    ) as HTMLVideoElement;
+    return v?.readyState >= 2 && !v.paused;
+  });
+  assert.ok(
+    await trailerCard
+      .locator("video")
+      .evaluate(
+        (v: HTMLVideoElement) =>
+          v.muted && v.controls && v.playsInline && !v.loop,
+      ),
+  );
+  assert.equal(
+    await trailerCard.locator("a[href]").count(),
+    0,
+    "Trailer controls do not navigate to token pages",
+  );
+  await trailerCard
+    .getByRole("button", { name: "Enable trailer audio" })
+    .click();
+  assert.equal(
+    await trailerCard
+      .locator("video")
+      .evaluate((v: HTMLVideoElement) => v.muted),
+    false,
+  );
+  await trailerCard.getByRole("button", { name: "Mute trailer audio" }).click();
+  await page.locator('[data-artwork="artwork-10"]').scrollIntoViewIfNeeded();
+  await page.waitForFunction(
+    () =>
+      (
+        document.querySelector(
+          '[data-artwork="trailer-browser-fixture"] video',
+        ) as HTMLVideoElement
+      )?.paused,
+  );
+  await rp.goto(origin);
+  assert.equal(
+    await rp.locator('[data-artwork="trailer-browser-fixture"] video').count(),
+    0,
+  );
+  evidence.trailer =
+    "Same media schema and real isolated save/publish; top-of-home placement, muted inline native controls, audio toggle, offscreen pause and reduced-motion deferral passed with generated 2-second fixture. Final 60-second artifact is still awaited; no old cut substituted.";
   evidence.admin =
-    "Real signed Auth.js session, isolated Git repository and media filesystem: unauthorized access, CSRF, validation, upload deduplication, private media, byte ranges, upload error, browser draft/save/preview/publish/cancel/add/archive and upload-error/cancellation, stale revision conflict and restore passed";
+    "Real signed Auth.js session, isolated Git repository and media filesystem: unauthorized access, CSRF, validation, upload deduplication, private media, byte ranges, upload error, browser theme save/private preview, authenticated backup export, draft/save/preview/publish/cancel/add/archive and upload-error/cancellation, stale revision conflict and restore passed";
   await writeFile(
     "evidence/browser-results.json",
     JSON.stringify(evidence, null, 2) + "\n",

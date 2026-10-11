@@ -146,48 +146,44 @@ try {
     });
     await page.goto(`${origin}/art-by-waambat`);
     assert.equal(await page.locator("iframe").count(), 0);
+    assert.equal(await page.locator(".archive-tile").count(), 25);
+    assert.equal(await page.locator("dialog[open]").count(), 0);
     await page
-      .getByRole("button", { name: "Play Axiom GL0w Up (2021)", exact: true })
+      .getByRole("button", { name: "View Axiom GL0w Up (2021)", exact: true })
       .click();
     assert.equal(
       await page.locator("iframe").getAttribute("src"),
       "https://player.vimeo.com/video/538169390?autoplay=1",
-    );
-    assert.equal(
-      await page
-        .getByRole("link", { name: "Open original source ↗" })
-        .getAttribute("href"),
-      "https://player.vimeo.com/video/538169390?app_id=122963&wmode=opaque",
     );
     await page
       .getByRole("button", { name: "Next artwork", exact: true })
       .click();
     assert.equal(
       await page.locator("iframe").count(),
-      0,
-      "Changing artwork closes the old player",
+      1,
+      "Next replaces the old player after the gallery activation",
     );
+    assert.notEqual(
+      await page.locator("iframe").getAttribute("src"),
+      "https://player.vimeo.com/video/538169390?autoplay=1",
+    );
+    await page.getByRole("button", { name: "Close archive viewer" }).click();
+    await page.waitForFunction(() => !document.querySelector("iframe"));
     await page
       .getByRole("button", {
-        name: "Artwork 18: Pimp Comforts (2011 short film)",
+        name: "View Pimp Comforts (2011 short film)",
         exact: true,
       })
       .click();
-    assert.equal(await page.locator("iframe").count(), 0);
     assert.equal(
-      await page.getByRole("button", { name: /^Play / }).count(),
+      await page.locator("iframe").count(),
       0,
-      "Image-only archive entry does not invent a player",
+      "Image-only entry has no invented player",
     );
+    await page.getByRole("button", { name: "Close archive viewer" }).click();
     await page
       .getByRole("button", {
-        name: "Artwork 5: waambat visuals for Hans Zimmer (2017)",
-        exact: true,
-      })
-      .click();
-    await page
-      .getByRole("button", {
-        name: "Play waambat visuals for Hans Zimmer (2017)",
+        name: "View waambat visuals for Hans Zimmer (2017)",
         exact: true,
       })
       .click();
@@ -195,14 +191,103 @@ try {
       await page.locator("iframe").getAttribute("src"),
       "https://www.youtube-nocookie.com/embed/HbP9ujYh_J4?autoplay=1",
     );
-    await page
-      .getByRole("button", { name: "Close player", exact: true })
-      .click();
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => !document.querySelector("dialog[open]"));
+    await page.waitForFunction(() => !document.querySelector("iframe"));
     assert.equal(await page.locator("iframe").count(), 0);
     await page.screenshot({
       path: `evidence/recovered-archive-${viewport.width}.png`,
     });
   }
+  await page.setViewportSize({ width: 1512, height: 733 });
+  const geometry: Record<string, unknown> = {};
+  const rect = async (selector: string) =>
+    page
+      .locator(selector)
+      .first()
+      .evaluate((e) => {
+        const r = e.getBoundingClientRect();
+        return { x: r.x, y: r.y + scrollY, width: r.width, height: r.height };
+      });
+  await page.goto(origin);
+  geometry.home = {
+    media: await rect('[data-artwork="artwork-1"] .artwork-media'),
+    title: await rect('[data-artwork="artwork-1"] h2'),
+  };
+  const home = geometry.home as {
+    media: { x: number; y: number; width: number };
+    title: { y: number };
+  };
+  assert.ok(
+    Math.abs(home.media.x - 276) < 0.1 &&
+      Math.abs(home.media.width - 960) < 0.1,
+  );
+  assert.ok(Math.abs(home.media.y - 419.703) < 0.2, JSON.stringify(home));
+  assert.ok(Math.abs(home.title.y - 1421.406) < 0.2);
+  await page.goto(`${origin}/bio-waambat`);
+  geometry.biography = {
+    text: await rect(".bio-main h1"),
+    side: await rect(".bio-side .artwork-media"),
+  };
+  const biography = geometry.biography as {
+    text: { x: number; width: number };
+    side: { x: number; width: number };
+  };
+  assert.ok(
+    Math.abs(biography.text.x - 358.828) < 0.1 &&
+      Math.abs(biography.text.width - 462.992) < 0.1,
+  );
+  assert.ok(
+    Math.abs(biography.side.x - 855.828) < 0.1 &&
+      Math.abs(biography.side.width - 297.328) < 0.1,
+  );
+  assert.equal(await page.locator(".bio-main strong").count(), 9);
+  assert.equal(await page.locator(".bio-main em").count(), 3);
+  await page.goto(`${origin}/mechanics`);
+  geometry.mechanics = await rect(".source-centered");
+  assert.ok(
+    Math.abs((geometry.mechanics as { width: number }).width - 628.664) < 0.1,
+  );
+  await page.goto(`${origin}/contact-waambat`);
+  geometry.contact = await rect(".source-contact");
+  assert.ok(
+    Math.abs((geometry.contact as { width: number }).width - 462.992) < 0.1,
+  );
+  await page.goto(`${origin}/art`);
+  geometry.art = await rect(".source-two-columns > div .artwork-media");
+  assert.ok(
+    Math.abs((geometry.art as { width: number }).width - 462.992) < 0.1,
+  );
+  await page.goto(`${origin}/art-by-waambat`);
+  geometry.archive = await rect(".archive-montage");
+  assert.ok(
+    Math.abs((geometry.archive as { width: number; y: number }).width - 1392) <
+      0.1,
+  );
+  assert.ok(
+    Math.abs((geometry.archive as { width: number; y: number }).y - 181.703) <
+      0.1,
+  );
+  await page
+    .getByRole("button", { name: "View Sus Singularity (2021)", exact: true })
+    .click();
+  const portrait = await rect(".archive-viewer-media");
+  assert.equal(portrait.height, 600);
+  assert.equal(portrait.width, 337.5);
+  await page.keyboard.press("Escape");
+  await writeFile(
+    "evidence/source-geometry-check.json",
+    JSON.stringify(
+      {
+        viewport: { width: 1512, height: 733 },
+        geometry,
+        boundary:
+          "Measured widths, columns, home first artwork/title and archive start match supplied source coordinates. Fallback font glyphs, unmeasured spacers and blocked remote media are not claimed identical.",
+      },
+      null,
+      2,
+    ) + "\n",
+  );
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(`${origin}/mechanics`);
   const active = page.locator(
@@ -213,13 +298,11 @@ try {
     await active.evaluate((e) => getComputedStyle(e).color),
     "rgb(255, 255, 255)",
   );
-  const bodyStyle = await page
-    .locator("html")
-    .evaluate((e) => ({
-      weight: getComputedStyle(e).fontWeight,
-      size: getComputedStyle(e).fontSize,
-      spacing: getComputedStyle(e).letterSpacing,
-    }));
+  const bodyStyle = await page.locator("html").evaluate((e) => ({
+    weight: getComputedStyle(e).fontWeight,
+    size: getComputedStyle(e).fontSize,
+    spacing: getComputedStyle(e).letterSpacing,
+  }));
   assert.deepEqual(bodyStyle, {
     weight: "300",
     size: "14px",
@@ -239,7 +322,7 @@ try {
     browser:
       "Compiled production gallery: 23 original paintings, no login/database, desktop/mobile rendered without overflow; reduced motion attached no video source",
     recoveredContent:
-      "Desktop/mobile: 32-image Instagram grid, eight posts, legacy routes, 4 reduced-motion-aware legacy loops, archive Vimeo/YouTube fixed destination activation/close/next and image-only entries pass. Provider HTML is a controlled fixture; actual remote playback and original geometry are not verified.",
+      "Desktop/mobile: 32-image Instagram grid, eight posts, legacy routes, 4 reduced-motion-aware legacy loops, archive justified montage, fullscreen Vimeo/YouTube activation/close/next/Escape and image-only entries pass. Provider HTML is a controlled fixture; actual remote playback and original geometry are not verified.",
     typography:
       "Recovered body 14px/300/.04em and active navigation colors pass; original font loader stays disabled on preview hosts.",
     deployment:
