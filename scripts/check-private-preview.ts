@@ -37,7 +37,16 @@ try {
     }
   }
   assert.ok(ready, "Production server started");
-  for (const path of ["/", "/ordinals", "/admin/preview"]) {
+  for (const path of [
+    "/",
+    "/ordinals",
+    "/mechanics",
+    "/art-by-waambat",
+    "/blog-press",
+    "/bio-waambat",
+    "/contact-waambat",
+    "/admin/preview",
+  ]) {
     const response = await fetch(`${origin}${path}`, { redirect: "manual" });
     assert.equal(response.status, 307);
     assert.equal(response.headers.get("location"), "/admin");

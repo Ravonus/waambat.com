@@ -130,6 +130,28 @@ export default function PageEditor({
                       })
                     }
                   />
+                  {block.links.map((link, li) => (
+                    <div key={li} className="grid gap-3 md:grid-cols-2">
+                      <Field
+                        label="Linked words (as written in this block)"
+                        value={link.text}
+                        onChange={(value) =>
+                          edit(pi, (p) => {
+                            p.blocks[bi]!.links[li]!.text = value;
+                          })
+                        }
+                      />
+                      <Field
+                        label="Linked words destination"
+                        value={link.href}
+                        onChange={(value) =>
+                          edit(pi, (p) => {
+                            p.blocks[bi]!.links[li]!.href = value;
+                          })
+                        }
+                      />
+                    </div>
+                  ))}
                   {["image", "embed"].includes(block.type) && (
                     <Field
                       label={

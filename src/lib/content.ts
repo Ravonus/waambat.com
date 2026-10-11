@@ -60,6 +60,10 @@ export const pageSlugs = [
   "blog-press",
   "bio-waambat",
   "contact-waambat",
+  "waambat",
+  "lindsay-scoggins",
+  "art",
+  "nfts-copy",
 ] as const;
 export const embedLink = z.string().refine((value) => {
   try {
@@ -140,7 +144,7 @@ export type PageBlock = z.infer<typeof pageBlockSchema>;
 export const contentSchema = z
   .object({
     sections: z.array(sectionSchema).min(1).max(30),
-    pages: z.array(pageSchema).max(5).default([]),
+    pages: z.array(pageSchema).max(pageSlugs.length).default([]),
   })
   .strict()
   .superRefine((doc, ctx) => {

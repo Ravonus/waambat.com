@@ -29,7 +29,7 @@ export default function Header({ preview = false }: { preview?: boolean }) {
     <header className="mx-auto max-w-[1080px] px-5 pt-10 pb-8 text-center md:px-[60px] md:pt-[60px]">
       <Link
         href="/"
-        className="text-waambat-logo inline-block text-[37px] leading-tight font-black tracking-[.03em]"
+        className="text-waambat-logo font-brand inline-block text-[37px] leading-tight font-normal tracking-[.03em]"
         aria-label="waambat home"
       >
         waambat

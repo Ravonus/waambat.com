@@ -5,6 +5,8 @@
   --color-waambat-link: #9457ff;
   --color-waambat-hover: #fa75d0;
   --font-sans: "Europa", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-brand:
+    "amboy-inline", "Europa", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 html {
   background: #000;
