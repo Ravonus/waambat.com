@@ -201,6 +201,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
     }
   };
   const visible = page.blocks.filter((b) => !b.archived);
+  const firstImage = visible.findIndex((block) => block.type === "image");
   function biographyColumn(blocks: PageBlock[]) {
     const groups: PageBlock[][] = [];
     for (const block of blocks) {
@@ -250,6 +251,13 @@ export default function ContentPage({ page }: { page: SitePage }) {
             {visible.filter((b) => b.column === "side").map(renderBlock)}
           </div>
         </div>
+      ) : page.layout === "image-grid" && firstImage > 0 ? (
+        <>
+          <div className="instagram-intro col-span-full">
+            {visible.slice(0, firstImage).map(renderBlock)}
+          </div>
+          {visible.slice(firstImage).map(renderBlock)}
+        </>
       ) : (
         visible.map(renderBlock)
       )}

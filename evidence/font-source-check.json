@@ -8,9 +8,34 @@
   "originalHtmlFetch": "CONNECT 403",
   "originalStylesheetFetch": "CONNECT 403",
   "originalRecoveredLoaderFetch": "CONNECT 403; web reader also inaccessible",
-  "actualFontBinaryUrl": null,
-  "selfHostingAuthorization": "Unverified for actual source asset; no copied binary shipped",
-  "nextEvidence": "Original browser resource trace or injected @font-face source URL, downloaded binary and applicable site-owned license",
+  "actualFontBinaryUrl": "https://use.typekit.net/af/f4c430/00000000000000007735b4f5/31/l?subset_id=2&fvd=n4&v=3",
+  "selfHostingAuthorization": "No actual source font bytes or site-owned self-hosting license recovered; generic Adobe service rules do not prove the license of the unavailable asset.",
+  "nextEvidence": "Successful permitted retrieval of exact observed binary; applicable site-owned license or foundry self-hosting terms before copying to public assets.",
   "adobeServiceRestrictionSource": "https://helpx.adobe.com/fonts/web/introduction/add-fonts-website.html",
-  "adobeModernDomainAllowListRequired": false
+  "adobeModernDomainAllowListRequired": false,
+  "observedPublicRequests": [
+    {
+      "url": "https://waambat.com/",
+      "response": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "downloadedBytes": 0
+    },
+    {
+      "url": "https://static1.squarespace.com/static/sitecss/5e17c59b7605d5016da6d51c/70/4fbff70b84aeca67fb3a3c56/60a1878eb0905607d713558f/871/site.css?nocustom=true",
+      "response": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "downloadedBytes": 0
+    },
+    {
+      "url": "https://use.typekit.net/ik/3eJ-tbPxUa4PUXUmyITRpKjc3z_g6GpNarn8QfJQKnXfenbIfFHN4UJLFRbh52jhWDm8wQiRFQ8KFDj3FAbuw2IhZeIhZ29UjU7gMkG0jAFu-WsoShFGZAsude80ZkoRdhXCHKoyjamTiY8Djhy8ZYmC-Ao1Oco8if37OcBDOcu8OfG0de80ZYFypWFRdhi1-AoDO1FUiABkZWF3jAF8OcFzdP37O1FUiABkZWF3jAF8ShFGZAsude80ZkoRdhXCjAFu-WsoShFGZAsude80ZkoRdhXCjAFu-WsoShFGZAsude80Zko0ZWbCjWw0dA9Cde80ZYFypWFRdhi1-AoDO1FUiABkZWF3jAF8OcFzdPUCdhFydeyzSabCSaBujW48SagyjhmDjhy8ZYmC-Ao1OcFzdPUajABljcBXOcFzdPUaiaS0jAFu-WsoShFGZAsude80ZkoRdhXCiaiaOcBRiA8XpWFR-emqiAUTdcS0dcmXOYiaikoySkolZPUaiaS0de80ZYFypWFRdhi1-AoDO1FUiABkZWF3jAF8OcFzdPUaiaS0SaBujW48SagyjhmDjhy8ZYmC-Ao1OcFzdPUaiaS0ihBydA4yifoRdhXK2eBljcNoOA80de80ZPJsj14ydcszdKu1ScNXZWFUiA9KgcmuScN3jPGHfHdZMsMMeMb6MKG4fOUbIMIjMkMfH6qJ3BMbMs64JMJ7fbKTpsMfeMw6MKG4fHToIMJjgfMfH6qJ7YqbMy6YJMJ7f6RRy6IbMy6FJMJ7f6R8y6IbMy6sJMHbMScWTZve.js",
+      "response": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "downloadedBytes": 0
+    }
+  ],
+  "originalBrowserAccess": "net::ERR_TUNNEL_CONNECTION_FAILED",
+  "sourceOriginFinding": "Original public DOM uses Squarespace Typekit /ik/ integration; original inline @font-face now establishes the actual Amboy Inline400 WOFF2 URL. No font binary or applicable self-hosting license has been recovered in cloud.",
+  "foundrySelfHostingLicenseSource": "https://fonts.adobe.com/fonts/amboy",
+  "actualFontBinaryProvenance": "Mac read-only original-page inline CSSRule @font-face: amboy-inline, normal,400. Actual URL observed; no license circumvention or restriction stripping.",
+  "actualFontBinaryFetch": {
+    "response": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "downloadedBytes": 0
+  }
 }

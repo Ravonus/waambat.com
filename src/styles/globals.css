@@ -343,6 +343,19 @@ button:disabled {
 .source-centered > [data-artwork]:first-child {
   margin-top: 0;
 }
+.source-centered > [data-artwork] {
+  margin-bottom: calc(var(--site-block-padding) * 2 + 7.703px);
+}
+.instagram-intro {
+  margin: 0 calc(-1 * var(--site-block-padding));
+  padding: var(--site-block-padding);
+}
+.instagram-intro > :first-child {
+  margin-top: 0;
+}
+.instagram-intro > :last-child {
+  margin-bottom: 0;
+}
 .bio-block {
   padding: var(--site-block-padding);
 }

@@ -18,14 +18,18 @@ export function mediaConfigured() {
 function localFolder() {
   return localTestConfigured() ? process.env.CMS_LOCAL_MEDIA : undefined;
 }
-function store() {
+function store(fetcher?: typeof fetch) {
   if (process.env.NETLIFY_MEDIA_ENABLED !== "1")
     throw new AdminError(
       503,
       "Uploads are disabled. Use approved existing media URLs, or enable the approved Netlify media store.",
     );
   // Site-wide, so uploaded originals survive Git-triggered deploys. Platform credentials remain server-side.
-  return getStore({ name: "waambat-media", consistency: "strong" });
+  return getStore({
+    name: "waambat-media",
+    consistency: "strong",
+    fetch: fetcher,
+  });
 }
 export async function saveMedia(
   id: string,
@@ -61,7 +65,14 @@ export async function readMedia(id: string) {
       return null;
     }
   }
-  const entry = await store().getWithMetadata(id, { type: "arrayBuffer" });
+  // A retained Next GET-response clone can block the SDK's body cancellation
+  // on 404/errors. An explicit signal opts out of that response memoization.
+  const controller = new AbortController();
+  const fetcher: typeof fetch = (input, options) =>
+    fetch(input, { ...options, signal: controller.signal });
+  const entry = await store(fetcher).getWithMetadata(id, {
+    type: "arrayBuffer",
+  });
   return entry
     ? {
         data: Buffer.from(entry.data),

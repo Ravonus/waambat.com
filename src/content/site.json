@@ -1951,7 +1951,7 @@
         {
           "id": "contact-discord-historical",
           "type": "heading",
-          "text": "discord waambat#7494 (legacy handle)",
+          "text": "discord waambat#7494",
           "level": 3
         }
       ]
@@ -1987,17 +1987,22 @@
           "id": "instagram-intro-3",
           "type": "paragraph",
           "text": "From her interview in Right Click Save:",
-          "href": "https://www.rightclicksave.com/article/artists-against-algorithms",
+          "href": "",
           "src": "",
           "level": 2,
           "items": [],
-          "links": [],
+          "links": [
+            {
+              "text": "interview in Right Click Save",
+              "href": "https://www.rightclicksave.com/article/artists-against-algorithms"
+            }
+          ],
           "archived": false
         },
         {
           "id": "instagram-original-quote-start",
           "type": "paragraph",
-          "text": "The challenge is being able to navigate the conflict while preserving my ideas — still letting the work say exactly what I want it to say.",
+          "text": "“The challenge is being able to navigate the conflict while preserving my ideas — still letting the work say exactly what I want it to say.\nTo get past the content scanner, sometimes I have to make my pieces increasingly cryptic. I'll twist the animation to a sweet spot where it works. I'll complicate the aesthetics, piling up the layers and amplifying the motion. I'll weave multiple works together with an array of masks and blending modes. I like to paint imagery with other imagery. Complexity and nuance are my weaponry for fucking with the algo.\nMeanwhile my ideas are still there, cloaked in multiple stained glass windows of even more ideas.\nI had this so perfected by summer 2022 that one of my reels received a quarter million views before being taken down. Later, another shot to a million before meeting its demise. However, the algorithm progressively upgrades itself. Its detection system evolves, forcing me to chase a new sweet spot again. Certain techniques work, until one day they don't. Big upgrades break my tricks, at which point I assess the damage and get to work on my next strategy.\nIn a recent turn of events, even my \"clean\" content has been getting flagged. The algo seems to associate my overall aesthetic with dangerous territory. The absurdity of it all becomes fucking hilarious. This scenario perfectly summarizes the current state of these AIs — they're rather smart, yet simultaneously idiotic.\nMy work has not only been slashed due to nudity. Instagram has sent me notices that their technology classified some of my artworks as \"acts of sexual solicitation\". I've gotten used to the idea that many of my pieces there are ephemeral. Part of the excitement now lies in my awareness that many of them won’t survive. At this point my account status states that I'm near total deletion, which would mean I'll lose access to over a decade of posts and archive material.\nI've created a backup account in anticipation.”",
           "href": "",
           "src": "",
           "level": 2,
@@ -2014,7 +2019,7 @@
           "level": 2,
           "items": [],
           "links": [],
-          "archived": false
+          "archived": true
         },
         {
           "id": "instagram-intro-5",
@@ -2025,7 +2030,7 @@
           "level": 2,
           "items": [],
           "links": [],
-          "archived": false
+          "archived": true
         },
         {
           "id": "instagram-intro-6",
@@ -2036,7 +2041,7 @@
           "level": 2,
           "items": [],
           "links": [],
-          "archived": false
+          "archived": true
         },
         {
           "id": "instagram-intro-7",
@@ -2047,7 +2052,7 @@
           "level": 2,
           "items": [],
           "links": [],
-          "archived": false
+          "archived": true
         },
         {
           "id": "instagram-intro-8",
@@ -2058,7 +2063,7 @@
           "level": 2,
           "items": [],
           "links": [],
-          "archived": false
+          "archived": true
         },
         {
           "id": "instagram-intro-9",
@@ -2069,7 +2074,7 @@
           "level": 2,
           "items": [],
           "links": [],
-          "archived": false
+          "archived": true
         },
         {
           "id": "instagram-intro-10",
@@ -2080,7 +2085,7 @@
           "level": 2,
           "items": [],
           "links": [],
-          "archived": false
+          "archived": true
         },
         {
           "id": "instagram-intro-11",
@@ -2091,7 +2096,7 @@
           "level": 2,
           "items": [],
           "links": [],
-          "archived": false
+          "archived": true
         },
         {
           "id": "instagram-original-image-1",

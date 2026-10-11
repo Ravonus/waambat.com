@@ -10,7 +10,7 @@
       "deniedBeforeKdf": 255,
       "localDenialsBeforeDatabase": 252,
       "sessionRequests": 8,
-      "maxSessionLatencyMs": 454,
+      "maxSessionLatencyMs": 528,
       "passwordTransactionsHeldDuringKdf": 0
     },
     {
@@ -22,7 +22,7 @@
       "deniedBeforeKdf": 255,
       "localDenialsBeforeDatabase": 252,
       "sessionRequests": 8,
-      "maxSessionLatencyMs": 503,
+      "maxSessionLatencyMs": 477,
       "passwordTransactionsHeldDuringKdf": 0
     },
     {
@@ -34,7 +34,7 @@
       "deniedBeforeKdf": 255,
       "localDenialsBeforeDatabase": 252,
       "sessionRequests": 8,
-      "maxSessionLatencyMs": 352,
+      "maxSessionLatencyMs": 446,
       "passwordTransactionsHeldDuringKdf": 0
     },
     {
@@ -62,7 +62,7 @@
       "requests": 64,
       "admittedKdfs": 1,
       "existingSessionChecks": 8,
-      "maxSessionLatencyMs": 5,
+      "maxSessionLatencyMs": 1,
       "sameProcessSessionPoolRemainsAvailable": true
     }
   ],
@@ -73,52 +73,52 @@
     "verificationKdfs": 12,
     "kdfEvents": [
       {
-        "start": 1791726153909,
-        "finish": 1791726154284
+        "start": 1791740908547,
+        "finish": 1791740908951
       },
       {
-        "start": 1791726154289,
-        "finish": 1791726154656
+        "start": 1791740908956,
+        "finish": 1791740909342
       },
       {
-        "start": 1791726154662,
-        "finish": 1791726155032
+        "start": 1791740909348,
+        "finish": 1791740909733
       },
       {
-        "start": 1791726155037,
-        "finish": 1791726155406
+        "start": 1791740909737,
+        "finish": 1791740910123
       },
       {
-        "start": 1791726155410,
-        "finish": 1791726155781
+        "start": 1791740910127,
+        "finish": 1791740910504
       },
       {
-        "start": 1791726155786,
-        "finish": 1791726156171
+        "start": 1791740910522,
+        "finish": 1791740910919
       },
       {
-        "start": 1791726156176,
-        "finish": 1791726156565
+        "start": 1791740910924,
+        "finish": 1791740911330
       },
       {
-        "start": 1791726156572,
-        "finish": 1791726156943
+        "start": 1791740911343,
+        "finish": 1791740911721
       },
       {
-        "start": 1791726167142,
-        "finish": 1791726167511
+        "start": 1791740922086,
+        "finish": 1791740922447
       },
       {
-        "start": 1791726167652,
-        "finish": 1791726168012
+        "start": 1791740922574,
+        "finish": 1791740922933
       },
       {
-        "start": 1791726168017,
-        "finish": 1791726168370
+        "start": 1791740922937,
+        "finish": 1791740923298
       },
       {
-        "start": 1791726168376,
-        "finish": 1791726168779
+        "start": 1791740923305,
+        "finish": 1791740923682
       }
     ]
   },

@@ -1,0 +1,13 @@
+{
+  "boundary": "Compiled Next + real Netlify SDK + local HTTP contract; hosted storage cause remains unverified",
+  "publicReadCountPerSuccessfulRender": 1,
+  "publicReadCountDuringErrorRender": 2,
+  "newRequestReadsFreshPublishedState": true,
+  "privateDraftExcluded": true,
+  "providerFailureStatus": 503,
+  "publicResponseStatus": 500,
+  "outageElapsedMs": 5036,
+  "browserErrorBoundaryVisible": true,
+  "seedFallbackOnFailure": false,
+  "credentialsChanged": false
+}

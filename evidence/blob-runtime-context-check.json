@@ -1,0 +1,59 @@
+{
+  "boundary": "Real installed SDK11.1.4 with synthetic context/fetch; no hosted tokens, endpoints or credential inspection",
+  "runtimeAdapter": "Locally packaged Netlify Next adapter5.16.2 bootstrap maps event blobs.url to edgeURL and blobs.url_uncached to uncachedEdgeURL before handler invocation",
+  "store": "next.config.js selects waambat-content-production for production and waambat-content-review-1 for PR1 preview at build time; preserve both namespaces. getStore is site-scoped, but selected names isolate content.",
+  "contextSource": "globalThis.netlifyBlobsContext string takes precedence over NETLIFY_BLOBS_CONTEXT; automatic context fields are resolved when getStore is called",
+  "interpretation": "Missing context/strong endpoint fails before fetch. Complete context selects uncached endpoint for strong reads. This synthetic fetch does not include Next response cloning: use blobs-next-cancellation-check.json and packaged adapter evidence for the real cancellation mechanism. Hosted exact provider status remains unobserved. No context/token overrides or legacy connectLambda workaround introduced.",
+  "cases": [
+    {
+      "name": "missing context",
+      "requests": 0,
+      "category": "MissingBlobsEnvironmentError",
+      "absent": false,
+      "strongEndpointSelected": false,
+      "elapsedMs": 0
+    },
+    {
+      "name": "edge context missing strong endpoint",
+      "requests": 0,
+      "category": "BlobsConsistencyError",
+      "absent": false,
+      "strongEndpointSelected": false,
+      "elapsedMs": 1
+    },
+    {
+      "name": "provider HTTP401",
+      "requests": 1,
+      "category": "BlobsInternalError",
+      "status": 401,
+      "absent": false,
+      "strongEndpointSelected": true,
+      "elapsedMs": 21
+    },
+    {
+      "name": "provider HTTP403",
+      "requests": 1,
+      "category": "BlobsInternalError",
+      "status": 403,
+      "absent": false,
+      "strongEndpointSelected": true,
+      "elapsedMs": 0
+    },
+    {
+      "name": "provider HTTP404",
+      "requests": 1,
+      "absent": true,
+      "strongEndpointSelected": true,
+      "elapsedMs": 0
+    },
+    {
+      "name": "provider HTTP503",
+      "requests": 6,
+      "category": "BlobsInternalError",
+      "status": 503,
+      "absent": false,
+      "strongEndpointSelected": true,
+      "elapsedMs": 10
+    }
+  ]
+}

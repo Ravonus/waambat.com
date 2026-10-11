@@ -787,7 +787,9 @@ try {
     .click();
   await page
     .getByRole("status")
-    .filter({ hasText: "Published content committed." })
+    .filter({
+      hasText: "Published content saved. Open the site to review the result.",
+    })
     .waitFor();
   assert.equal(
     (await context.request.get(`${origin}/mixed-study`)).status(),
@@ -831,7 +833,9 @@ try {
     .click();
   await page
     .getByRole("status")
-    .filter({ hasText: "Published content committed." })
+    .filter({
+      hasText: "Published content saved. Open the site to review the result.",
+    })
     .waitFor();
   assert.equal(
     (await context.request.get(`${origin}/mixed-study`)).status(),

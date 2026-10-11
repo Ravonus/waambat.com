@@ -1,0 +1,35 @@
+{
+  "baseCommit": "20ddb7c5c64389c201870d65165867b9a57ac0b3",
+  "validatedAtUTC": "2026-10-11T17:53:08.098234+00:00",
+  "checks": {
+    "lint": "pass",
+    "typecheck": "pass",
+    "unit": {
+      "pass": 27,
+      "fail": 0
+    },
+    "format": "pass",
+    "build": "pass",
+    "auth": "pass; disposable PostgreSQL17, real password form, private Git drafts, session/rate/admission/revocation/backup checks",
+    "browser": "pass; local Git/media, desktop/mobile, real generated MP4 decode, stale/uncertain requests/cancel/errors/byte ranges",
+    "compiledPreview": "pass; 12-route/alias and public/admin/draft/media boundaries, actual390px viewport",
+    "netlifyAdapter": {
+      "pass": 28,
+      "backend": "real installed SDK/adapter with loopback ETag/CAS provider; synthetic local Auth.js session"
+    },
+    "storageOutage": "pass; fresh reads, private draft exclusion, 5036ms public error response, no seed fallback on provider failure",
+    "runtimeContext": "pass; synthetic context/fetch only"
+  },
+  "rootCause": "Next GET response cloning can keep SDK body.cancel() pending on404/401/403. Explicit fetch AbortSignal bypasses cloning. Proven locally with installed packages and signal-only baseline adapter; hosted exact provider response remains unobserved.",
+  "remaining": [
+    "No push/deployment under explicit parent hold",
+    "Actual hosted password login and Database/Blobs save/publish/reload/upload acceptance unverified",
+    "Original390px baseline unavailable; local390px checks separate",
+    "Original Amboy/Europa font fidelity/license unresolved; no font bytes shipped",
+    "Instagram/contact source spacing unresolved",
+    "Replacement multi-work datamosh trailer still awaited; rejected v5 never shipped"
+  ],
+  "credentialsAndNamespacesChanged": false,
+  "screenshotBoundary": "Internal screenshots retained locally and excluded from Library backups",
+  "approvalBlock": "Parent reports automatic review rejected deployment repair handoff for ambiguous wording; explicit approval unresolved. No retries/workaround."
+}

@@ -1,5 +1,6 @@
 import { contentSchema, type Content } from "~/lib/content";
 import stored from "~/content/site.json";
+import { cache } from "react";
 import { removedContent } from "~/lib/content-change";
 import {
   getGitStore,
@@ -47,13 +48,15 @@ export async function getContentState(): Promise<ContentState> {
     updatedAt: null,
   };
 }
-export async function getPublishedContent(): Promise<Content> {
+// Metadata, page and layout share one validated published snapshot per render.
+// This does not cache drafts or carry a snapshot across requests/publishes.
+export const getPublishedContent = cache(async (): Promise<Content> => {
   if (blobContentConfigured()) return (await readBlobContent(seed())).published;
   if (localTestConfigured())
     return (await getGitStore().read(baseBranch()))!.content;
   // Netlify builds exactly the JSON in the commit being deployed. No runtime Git token is needed for public artwork.
   return contentSchema.parse(stored);
-}
+});
 export async function updateContent(
   revision: string,
   action: "save" | "publish",

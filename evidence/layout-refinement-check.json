@@ -1,0 +1,31 @@
+{
+  "viewport": {
+    "width": 1512,
+    "height": 733
+  },
+  "originalReference": "Measurements supplied by connected Mac operator; original font binaries unavailable in cloud",
+  "blogFirstHeading": {
+    "sourceY": 705.953125,
+    "beforeY": 699.21875,
+    "afterY": 705.90625,
+    "change": "Replace rem-scaled native-media margin with source block padding and inline-video baseline"
+  },
+  "instagramIntro": {
+    "sourceBlockY": 226.703125,
+    "sourceBlockHeight": 679.265625,
+    "sourceFirstImageY": 905.96875,
+    "beforeFirstImageY": 1021.1875,
+    "afterBlockY": 226.6875,
+    "afterBlockHeight": 652.125,
+    "afterFirstImageY": 878.8125,
+    "change": "Restore 17px intro block padding, quoted line-break flow, partial interview inline link; retain two non-source added account rows as archived content",
+    "boundary": "Remaining roughly one body line of vertical difference requires original Europa glyph/wrapping verification; no fixed-height spacer substituted."
+  },
+  "contact": {
+    "sourceVideoY": 417.890625,
+    "currentVideoY": 427.859375,
+    "sourceNameHeadingY": 990.59375,
+    "currentNameHeadingY": 925.859375,
+    "change": "Remove migration-added legacy-handle label; spacing not changed without original paragraph/list/spacer DOM"
+  }
+}

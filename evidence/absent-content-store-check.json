@@ -1,0 +1,25 @@
+{
+  "boundary": "Real installed SDK11.1.4 and its own BlobsServer; empty local directory; no hosted access or writes",
+  "findings": [
+    {
+      "store": "waambat-content-production",
+      "result": "null / absent",
+      "elapsedMs": 30
+    },
+    {
+      "store": "waambat-content-review-1",
+      "result": "null / absent",
+      "elapsedMs": 3
+    }
+  ],
+  "requests": [
+    {
+      "type": "get",
+      "path": "/isolated-fixture/site:waambat-content-production/state"
+    },
+    {
+      "type": "get",
+      "path": "/isolated-fixture/site:waambat-content-review-1/state"
+    }
+  ]
+}
