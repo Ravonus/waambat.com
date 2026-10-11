@@ -1,4 +1,126 @@
 {
+  "passwordAdmission": [
+    {
+      "mode": "parallel-random",
+      "processes": 4,
+      "requests": 256,
+      "admittedKdfs": 1,
+      "simultaneousKdfs": 1,
+      "deniedBeforeKdf": 255,
+      "localDenialsBeforeDatabase": 252,
+      "sessionRequests": 8,
+      "maxSessionLatencyMs": 451,
+      "passwordTransactionsHeldDuringKdf": 0
+    },
+    {
+      "mode": "parallel-locked",
+      "processes": 4,
+      "requests": 256,
+      "admittedKdfs": 1,
+      "simultaneousKdfs": 1,
+      "deniedBeforeKdf": 255,
+      "localDenialsBeforeDatabase": 252,
+      "sessionRequests": 8,
+      "maxSessionLatencyMs": 431,
+      "passwordTransactionsHeldDuringKdf": 0
+    },
+    {
+      "mode": "parallel-disabled",
+      "processes": 4,
+      "requests": 256,
+      "admittedKdfs": 1,
+      "simultaneousKdfs": 1,
+      "deniedBeforeKdf": 255,
+      "localDenialsBeforeDatabase": 252,
+      "sessionRequests": 8,
+      "maxSessionLatencyMs": 328,
+      "passwordTransactionsHeldDuringKdf": 0
+    },
+    {
+      "mode": "shared-window",
+      "budget": 12,
+      "unknownAtLastSlot": 1,
+      "knownLockedDisabledAndRandomRejectedWithoutKdf": 3,
+      "expiryRestoresLegitimateLogin": true
+    },
+    {
+      "mode": "missing-admission-table",
+      "passwordLoginFailsClosedBeforeKdf": true,
+      "existingSessionWorks": true
+    },
+    {
+      "mode": "lease-recovery",
+      "abandonedLeaseRejectsWithoutKdf": true,
+      "sessionRemainsAvailable": true,
+      "expiryRestoresLogin": true,
+      "lostLeasePreventsAuthorization": true,
+      "staleReleasePreservesNewOwner": true
+    },
+    {
+      "mode": "same-process",
+      "requests": 64,
+      "admittedKdfs": 1,
+      "existingSessionChecks": 8,
+      "maxSessionLatencyMs": 1,
+      "sameProcessSessionPoolRemainsAvailable": true
+    }
+  ],
+  "passwordProcessDiagnostics": {
+    "deniedLocal": 63,
+    "deniedShared": 1,
+    "databaseFailure": 1,
+    "verificationKdfs": 12,
+    "kdfEvents": [
+      {
+        "start": 1791695068687,
+        "finish": 1791695069064
+      },
+      {
+        "start": 1791695069069,
+        "finish": 1791695069449
+      },
+      {
+        "start": 1791695069455,
+        "finish": 1791695069824
+      },
+      {
+        "start": 1791695069828,
+        "finish": 1791695070198
+      },
+      {
+        "start": 1791695070203,
+        "finish": 1791695070581
+      },
+      {
+        "start": 1791695070586,
+        "finish": 1791695070951
+      },
+      {
+        "start": 1791695070956,
+        "finish": 1791695071325
+      },
+      {
+        "start": 1791695071330,
+        "finish": 1791695071730
+      },
+      {
+        "start": 1791695081612,
+        "finish": 1791695081976
+      },
+      {
+        "start": 1791695082111,
+        "finish": 1791695082473
+      },
+      {
+        "start": 1791695082478,
+        "finish": 1791695082834
+      },
+      {
+        "start": 1791695082842,
+        "finish": 1791695083198
+      }
+    ]
+  },
   "database": "Real isolated PostgreSQL 17 container, bound only to loopback; removed after test",
   "account": "Username admin, random password stored in private temporary file and salted scrypt hash; no default credential or authentication bypass",
   "authentication": "Real credentials form, Auth.js session, wrong-password rejection, database rate lock, duplicate-account rejection, session-version revocation and disabled-account denial passed",

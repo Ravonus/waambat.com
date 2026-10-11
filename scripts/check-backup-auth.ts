@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { randomBytes } from "node:crypto";
+import { randomBytes, randomUUID } from "node:crypto";
 import { mkdtemp, mkdir, readFile, writeFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -11,6 +11,8 @@ import {
   verifyBackupCredentials,
   adminDatabase,
   closeAdminDatabase,
+  backupSessionAuthorized,
+  passwordAdmissionStats,
 } from "../src/server/admin-database";
 const directory = await mkdtemp(join(tmpdir(), "waambat-real-auth-"));
 const container = `waambat-auth-test-${randomBytes(6).toString("hex")}`;
@@ -21,6 +23,56 @@ let server: ReturnType<typeof spawn> | undefined;
 let browser: Awaited<ReturnType<typeof chromium.launch>> | undefined;
 let started = false;
 let serverLog = "";
+const attackEvidence: Record<string, unknown>[] = [];
+const attackWorkers: ReturnType<typeof spawn>[] = [];
+type WorkerStats = {
+  verificationKdfs: number;
+  deniedLocal: number;
+  deniedShared: number;
+  databaseFailure: number;
+  kdfEvents: { start: number; finish: number }[];
+};
+function startAttack(mode: string) {
+  const child = spawn(
+    process.execPath,
+    ["--import", "tsx", "scripts/password-load-worker.ts", mode],
+    { env: process.env, stdio: ["pipe", "pipe", "pipe"] },
+  );
+  attackWorkers.push(child);
+  let output = "",
+    errors = "";
+  let markReady!: () => void;
+  const ready = new Promise<void>((resolve) => {
+    markReady = resolve;
+  });
+  child.stdout!.on("data", (data) => {
+    output += String(data);
+    if (output.includes("READY\n")) markReady();
+  });
+  child.stderr!.on("data", (data) => {
+    errors += String(data);
+  });
+  const result = new Promise<WorkerStats>((resolve, reject) => {
+    child.on("error", reject);
+    child.on("close", (code) => {
+      markReady();
+      if (code !== 0) {
+        reject(
+          new Error(
+            `Password load worker failed (${code}); ${errors.slice(0, 200).replaceAll(dbPassword, "[redacted]")}`,
+          ),
+        );
+        return;
+      }
+      try {
+        resolve(JSON.parse(output.trim().split("\n").at(-1)!));
+      } catch {
+        reject(new Error("Missing worker evidence"));
+      }
+    });
+  });
+  return { ready, result, start: () => child.stdin!.end("start\n") };
+}
 try {
   await writeFile(
     join(directory, "database.env"),
@@ -260,6 +312,278 @@ try {
     `${origin}/api/admin/content`,
   );
   assert.equal(stateResponse.status(), 200);
+  // Real logged-in API traffic must remain usable while separate password workers attack.
+  async function verifyLoad(
+    mode: "parallel-random" | "parallel-locked" | "parallel-disabled",
+  ) {
+    await adminDatabase()`UPDATE waambat_password_admission SET attempts=0,window_started=now(),lease_id=NULL,lease_until=NULL WHERE key='password'`;
+    const workers = Array.from({ length: 4 }, () => startAttack(mode));
+    await Promise.all(workers.map((worker) => worker.ready));
+    workers.forEach((worker) => worker.start());
+    let observedLease = false;
+    for (let i = 0; i < 100; i++) {
+      const rows =
+        await adminDatabase()`SELECT lease_id FROM waambat_password_admission WHERE key='password'`;
+      if (rows[0]?.lease_id) {
+        observedLease = true;
+        break;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 5));
+    }
+    assert.ok(observedLease, "A real KDF admission lease was observed");
+    const poolState =
+      await adminDatabase()`SELECT count(*)::int AS count FROM pg_stat_activity WHERE datname=current_database() AND application_name='waambat-password-login' AND state='idle in transaction'`;
+    assert.equal(
+      poolState[0]!.count,
+      0,
+      "No password transaction is held during KDF work",
+    );
+    const latencies: number[] = [];
+    await Promise.all(
+      Array.from({ length: 8 }, async () => {
+        const start = Date.now();
+        assert.equal(await backupSessionAuthorized(`password:${id}`, 1), true);
+        assert.equal(
+          (await context.request.get(`${origin}/api/admin/content`)).status(),
+          200,
+        );
+        latencies.push(Date.now() - start);
+      }),
+    );
+    const stats = await Promise.all(workers.map((worker) => worker.result));
+    const events = stats
+      .flatMap((stat) => stat.kdfEvents)
+      .sort((a, b) => a.start - b.start);
+    assert.ok(events.length >= 1 && events.length <= 4);
+    for (let i = 1; i < events.length; i++)
+      assert.ok(
+        events[i]!.start >= events[i - 1]!.finish,
+        "Shared admission prevents simultaneous KDFs across processes",
+      );
+    assert.ok(stats.every((stat) => stat.databaseFailure === 0));
+    assert.ok(
+      stats.every((stat) => stat.deniedLocal === 63),
+      "Parallel requests are dropped locally before database admission",
+    );
+    assert.ok(
+      stats.reduce(
+        (sum, stat) => sum + stat.deniedLocal + stat.deniedShared,
+        0,
+      ) >= 252,
+    );
+    const admission =
+      await adminDatabase()`SELECT attempts,lease_id FROM waambat_password_admission WHERE key='password'`;
+    assert.equal(admission[0]!.attempts, events.length);
+    assert.equal(admission[0]!.lease_id, null);
+    assert.ok(
+      Math.max(...latencies) < 5000,
+      "Existing authenticated sessions remain responsive",
+    );
+    attackEvidence.push({
+      mode,
+      processes: 4,
+      requests: 256,
+      admittedKdfs: events.length,
+      simultaneousKdfs: 1,
+      deniedBeforeKdf: 256 - events.length,
+      localDenialsBeforeDatabase: stats.reduce(
+        (sum, stat) => sum + stat.deniedLocal,
+        0,
+      ),
+      sessionRequests: 8,
+      maxSessionLatencyMs: Math.max(...latencies),
+      passwordTransactionsHeldDuringKdf: 0,
+    });
+  }
+  await verifyLoad("parallel-random");
+  await adminDatabase()`UPDATE waambat_admin_accounts SET failures=5,locked_until=now()+interval '15 minutes' WHERE id=${id}`;
+  await verifyLoad("parallel-locked");
+  const disabledId = await provisionBackupAdmin(
+    "disabled-test",
+    randomBytes(48).toString("base64url"),
+  );
+  await adminDatabase()`UPDATE waambat_admin_accounts SET disabled=true WHERE id=${disabledId}`;
+  await verifyLoad("parallel-disabled");
+  await adminDatabase()`UPDATE waambat_password_admission SET attempts=11,window_started=now(),lease_id=NULL,lease_until=NULL WHERE key='password'`;
+  const budgetWorker = startAttack("sequential-mixed");
+  await budgetWorker.ready;
+  budgetWorker.start();
+  const budget = await budgetWorker.result;
+  assert.equal(budget.verificationKdfs, 1);
+  assert.equal(budget.deniedShared, 3);
+  assert.equal(budget.databaseFailure, 0);
+  assert.equal(
+    (await context.request.get(`${origin}/api/admin/content`)).status(),
+    200,
+  );
+  const exhausted =
+    await adminDatabase()`SELECT attempts FROM waambat_password_admission WHERE key='password'`;
+  assert.equal(exhausted[0]!.attempts, 12);
+  // Advance only the isolated fixture's clock state to exercise ordinary window expiry.
+  await adminDatabase()`UPDATE waambat_password_admission SET window_started=now()-interval '61 seconds' WHERE key='password'`;
+  await adminDatabase()`UPDATE waambat_admin_accounts SET failures=0,locked_until=NULL WHERE id=${id}`;
+  assert.equal(
+    (
+      await verifyBackupCredentials({
+        username: "admin",
+        password: loginPassword,
+      })
+    )?.id,
+    `password:${id}`,
+  );
+  const refreshed =
+    await adminDatabase()`SELECT attempts FROM waambat_password_admission WHERE key='password'`;
+  assert.equal(refreshed[0]!.attempts, 1);
+  attackEvidence.push({
+    mode: "shared-window",
+    budget: 12,
+    unknownAtLastSlot: 1,
+    knownLockedDisabledAndRandomRejectedWithoutKdf: 3,
+    expiryRestoresLegitimateLogin: true,
+  });
+  const kdfsBeforeMissingTable = passwordAdmissionStats().verificationKdfs;
+  await adminDatabase()`ALTER TABLE waambat_password_admission RENAME TO waambat_password_admission_test_missing`;
+  try {
+    assert.equal(
+      await verifyBackupCredentials({
+        username: "admin",
+        password: loginPassword,
+      }),
+      null,
+    );
+    assert.equal(
+      passwordAdmissionStats().verificationKdfs,
+      kdfsBeforeMissingTable,
+    );
+    assert.equal(
+      (await context.request.get(`${origin}/api/admin/content`)).status(),
+      200,
+    );
+  } finally {
+    await adminDatabase()`ALTER TABLE waambat_password_admission_test_missing RENAME TO waambat_password_admission`;
+  }
+  attackEvidence.push({
+    mode: "missing-admission-table",
+    passwordLoginFailsClosedBeforeKdf: true,
+    existingSessionWorks: true,
+  });
+  const abandonedLease = randomUUID();
+  await adminDatabase()`UPDATE waambat_password_admission SET lease_id=${abandonedLease},lease_until=now()+interval '2 minutes' WHERE key='password'`;
+  const beforeAbandoned = passwordAdmissionStats().verificationKdfs;
+  assert.equal(
+    await verifyBackupCredentials({
+      username: "admin",
+      password: loginPassword,
+    }),
+    null,
+  );
+  assert.equal(passwordAdmissionStats().verificationKdfs, beforeAbandoned);
+  assert.equal(
+    (await context.request.get(`${origin}/api/admin/content`)).status(),
+    200,
+  );
+  await adminDatabase()`UPDATE waambat_password_admission SET lease_until=now()-interval '1 second' WHERE key='password'`;
+  assert.equal(
+    (
+      await verifyBackupCredentials({
+        username: "admin",
+        password: loginPassword,
+      })
+    )?.id,
+    `password:${id}`,
+  );
+  const raced = verifyBackupCredentials({
+    username: "admin",
+    password: loginPassword,
+  });
+  let originalLease: string | undefined;
+  for (let i = 0; i < 100; i++) {
+    const rows =
+      await adminDatabase()`SELECT lease_id FROM waambat_password_admission WHERE key='password'`;
+    if (rows[0]?.lease_id) {
+      originalLease = rows[0].lease_id as string;
+      break;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 5));
+  }
+  assert.ok(originalLease);
+  const replacementLease = randomUUID();
+  await adminDatabase()`UPDATE waambat_password_admission SET lease_id=${replacementLease},lease_until=now()+interval '2 minutes' WHERE key='password'`;
+  assert.equal(
+    await raced,
+    null,
+    "A lost lease cannot authorize even a correct password",
+  );
+  const protectedLease =
+    await adminDatabase()`SELECT lease_id FROM waambat_password_admission WHERE key='password'`;
+  assert.equal(
+    protectedLease[0]!.lease_id,
+    replacementLease,
+    "A stale release cannot clear another owner's lease",
+  );
+  await adminDatabase()`UPDATE waambat_password_admission SET lease_id=NULL,lease_until=NULL WHERE key='password' AND lease_id=${replacementLease}`;
+  attackEvidence.push({
+    mode: "lease-recovery",
+    abandonedLeaseRejectsWithoutKdf: true,
+    sessionRemainsAvailable: true,
+    expiryRestoresLogin: true,
+    lostLeasePreventsAuthorization: true,
+    staleReleasePreservesNewOwner: true,
+  });
+  const sameProcessBefore = passwordAdmissionStats().verificationKdfs;
+  const sameProcessDeniedBefore = passwordAdmissionStats().deniedLocal;
+  const sameProcessBurst = Promise.all(
+    Array.from({ length: 64 }, () =>
+      verifyBackupCredentials({
+        username: `random-${randomBytes(8).toString("hex")}`,
+        password: randomBytes(32).toString("hex"),
+      }),
+    ),
+  );
+  let localLease = false;
+  for (let i = 0; i < 100; i++) {
+    const rows =
+      await adminDatabase()`SELECT lease_id FROM waambat_password_admission WHERE key='password'`;
+    if (rows[0]?.lease_id) {
+      localLease = true;
+      break;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 5));
+  }
+  assert.ok(localLease);
+  const sameProcessSessionTimes: number[] = [];
+  await Promise.all(
+    Array.from({ length: 8 }, async () => {
+      const began = Date.now();
+      assert.equal(await backupSessionAuthorized(`password:${id}`, 1), true);
+      sameProcessSessionTimes.push(Date.now() - began);
+    }),
+  );
+  assert.ok(
+    Math.max(...sameProcessSessionTimes) < 1000,
+    "Same-process session authorization is not queued behind password KDF",
+  );
+  assert.ok((await sameProcessBurst).every((result) => result === null));
+  assert.equal(
+    passwordAdmissionStats().verificationKdfs - sameProcessBefore,
+    1,
+  );
+  assert.equal(
+    passwordAdmissionStats().deniedLocal - sameProcessDeniedBefore,
+    63,
+  );
+  assert.equal(
+    (await context.request.get(`${origin}/api/admin/content`)).status(),
+    200,
+  );
+  attackEvidence.push({
+    mode: "same-process",
+    requests: 64,
+    admittedKdfs: 1,
+    existingSessionChecks: 8,
+    maxSessionLatencyMs: Math.max(...sameProcessSessionTimes),
+    sameProcessSessionPoolRemainsAvailable: true,
+  });
   const state = await stateResponse.json();
   const instagram = state.draft.sections.find(
     (s: { page: string }) => s.page === "instagram",
@@ -561,6 +885,8 @@ try {
     401,
   );
   const evidence = {
+    passwordAdmission: attackEvidence,
+    passwordProcessDiagnostics: passwordAdmissionStats(),
     database:
       "Real isolated PostgreSQL 17 container, bound only to loopback; removed after test",
     account:
@@ -599,6 +925,8 @@ try {
   await writeFile(join(directory, "server.log"), serverLog, { mode: 0o600 });
   throw error;
 } finally {
+  for (const worker of attackWorkers)
+    if (worker.exitCode === null) worker.kill("SIGTERM");
   await browser?.close();
   server?.kill("SIGTERM");
   await closeAdminDatabase();
