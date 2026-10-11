@@ -1,0 +1,263 @@
+{
+  "sourceCommit": "a78310c85d0baee7b41ad582acf379541b2555ed",
+  "source": "src/content/site.json; original public-site DOM and verified Ordinals metadata",
+  "purpose": "Replacement multi-work datamosh montage source inventory. User rejected v5 LUX/Carat cut; it was never embedded or published. New direction: no text, no large diamonds, different Carat motion.",
+  "originalPaintings": [
+    {
+      "order": 1,
+      "id": "artwork-1",
+      "title": "Feels 404",
+      "year": "2023",
+      "videoSrc": "https://i.imgur.com/bNlZWHY.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/808942",
+      "poster": "/posters/1-960.webp"
+    },
+    {
+      "order": 2,
+      "id": "artwork-2",
+      "title": "Animal Spirits",
+      "year": "2022",
+      "videoSrc": "https://i.imgur.com/f6s856X.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/771743",
+      "poster": "/posters/2-960.webp"
+    },
+    {
+      "order": 3,
+      "id": "artwork-3",
+      "title": "Swap Exchange",
+      "year": "2022",
+      "videoSrc": "https://i.imgur.com/a38BLir.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/736667",
+      "poster": "/posters/3-960.webp"
+    },
+    {
+      "order": 4,
+      "id": "artwork-4",
+      "title": "Autocorrection",
+      "year": "2022",
+      "videoSrc": "https://i.imgur.com/5oHMMfH.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/725958",
+      "poster": "/posters/4-960.webp"
+    },
+    {
+      "order": 5,
+      "id": "artwork-5",
+      "title": "Enter Boi AMA",
+      "year": "2022",
+      "videoSrc": "https://i.imgur.com/zclilHq.mp4",
+      "tokenLink": "https://nft.artsy.net/artwork/waambat/enter-boi-ama/47/",
+      "poster": "/posters/5-960.webp"
+    },
+    {
+      "order": 6,
+      "id": "artwork-6",
+      "title": "Fap Disco",
+      "year": "2022",
+      "videoSrc": "https://i.imgur.com/lpyf8NE.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/708808",
+      "poster": "/posters/6-960.webp"
+    },
+    {
+      "order": 7,
+      "id": "artwork-7",
+      "title": "Haptic Feedback",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/kraOC6E.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/687951",
+      "poster": "/posters/7-960.webp"
+    },
+    {
+      "order": 8,
+      "id": "artwork-8",
+      "title": "Swipe Swag",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/q02r3Ja.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/657581",
+      "poster": "/posters/8-960.webp"
+    },
+    {
+      "order": 9,
+      "id": "artwork-9",
+      "title": "Profits",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/0oqBS1z.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/398402",
+      "poster": "/posters/9-960.webp"
+    },
+    {
+      "order": 10,
+      "id": "artwork-10",
+      "title": "Net Melt",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/rt1I53R.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/554487",
+      "poster": "/posters/10-960.webp"
+    },
+    {
+      "order": 11,
+      "id": "artwork-11",
+      "title": "Troll Crash",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/yNizVps.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/365658",
+      "poster": "/posters/11-960.webp"
+    },
+    {
+      "order": 12,
+      "id": "artwork-12",
+      "title": "GOAT",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/KMyQNc2.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/321248",
+      "poster": "/posters/12-960.webp"
+    },
+    {
+      "order": 13,
+      "id": "artwork-13",
+      "title": "Cord Cutter",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/F9gCVez.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/280544",
+      "poster": "/posters/13-960.webp"
+    },
+    {
+      "order": 14,
+      "id": "artwork-14",
+      "title": "Hard Launch",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/HO67SIX.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/258050",
+      "poster": "/posters/14-960.webp"
+    },
+    {
+      "order": 15,
+      "id": "artwork-15",
+      "title": "Fucking Future",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/UojHuj5.mp4",
+      "tokenLink": "https://objkt.com/asset/hicetnunc/238065",
+      "poster": "/posters/15-960.webp"
+    },
+    {
+      "order": 16,
+      "id": "artwork-16",
+      "title": "Joys of Lore",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/gCwY2MQ.mp4",
+      "tokenLink": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/58649600852012708895659537074238112708336320722717125391565243152060037201923",
+      "poster": "/posters/16-960.webp"
+    },
+    {
+      "order": 17,
+      "id": "artwork-17",
+      "title": "Meta Matters",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/YPUR7Lt.mp4",
+      "tokenLink": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/58649600852012708895659537074238112708336320722717125391565243153159548829699",
+      "poster": "/posters/17-960.webp"
+    },
+    {
+      "order": 18,
+      "id": "artwork-18",
+      "title": "Cheers, Chad",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/JKc1k3C.mp4",
+      "tokenLink": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/58649600852012708895659537074238112708336320722717125391565243150960525574147",
+      "poster": "/posters/18-960.webp"
+    },
+    {
+      "order": 19,
+      "id": "artwork-19",
+      "title": "Catfish Glitch",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/OSNGtQs.mp4",
+      "tokenLink": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/58649600852012708895659537074238112708336320722717125391565243154259060457473",
+      "poster": "/posters/19-960.webp"
+    },
+    {
+      "order": 20,
+      "id": "artwork-20",
+      "title": "Axiom GL0w Up",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/7ouIHyN.mp4",
+      "tokenLink": "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/109357140932249174184232105731133177415490681567806678064024980617072056729601",
+      "poster": "/posters/20-960.webp"
+    },
+    {
+      "order": 21,
+      "id": "artwork-21",
+      "title": "Deep Linking",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/QY2Y73n.mp4",
+      "tokenLink": "https://foundation.app/@waambat/foundation/38901",
+      "poster": "/posters/21-960.webp"
+    },
+    {
+      "order": 22,
+      "id": "artwork-22",
+      "title": "Sus Singularity",
+      "year": "2021",
+      "videoSrc": "https://i.imgur.com/b8XNIJY.mp4",
+      "tokenLink": "https://www.niftygateway.com/itemdetail/primary/0x0e1c5f0237f7737251e1aec9ada22086345f5691/1",
+      "poster": "/posters/22-960.webp"
+    },
+    {
+      "order": 23,
+      "id": "artwork-23",
+      "title": "Abacus RAM",
+      "year": "2017",
+      "videoSrc": "https://i.imgur.com/mh4T2To.mp4",
+      "tokenLink": "https://foundation.app/@waambat/foundation/37954",
+      "poster": "/posters/23-960.webp"
+    }
+  ],
+  "kismet": {
+    "title": "Kismet Twist #100",
+    "collection": "https://www.satflow.com/ordinals/kismettwist",
+    "verifiedPreview": "https://ordinals.com/preview/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98",
+    "verifiedInscription": "https://ordinals.com/inscription/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98",
+    "mediaType": "text/html recursive inscription, not an MP4",
+    "attribution": {
+      "artist": "WAAMBAT",
+      "technomancer": "Ravonus"
+    },
+    "captureNote": "Capture the animated on-chain preview through permitted browser access; do not invent an MP4 URL."
+  },
+  "references": {
+    "lux": "https://www.satflow.com/ordinals/lux_ok_algo",
+    "pinkPaper": "https://whitepaper.terminus.art/waambat"
+  },
+  "supplementaryOriginalMedia": {
+    "mechanics": [
+      "https://i.imgur.com/3hhNUKR.mp4",
+      "https://i.imgur.com/8oZCxzC.mp4",
+      "https://i.imgur.com/TBObuJ0.mp4"
+    ],
+    "blogPress": [
+      "https://i.imgur.com/4qW6jPj.mp4",
+      "https://i.imgur.com/UDgMljC.mp4",
+      "https://i.imgur.com/CaEFmAo.mp4",
+      "https://i.imgur.com/mh4T2To.mp4",
+      "https://i.imgur.com/j8tewfm.mp4"
+    ],
+    "contact": ["https://i.imgur.com/JC0hAbH.mp4"],
+    "art": [
+      "https://i.imgur.com/QY2Y73n.mp4",
+      "https://i.imgur.com/SqX1UJD.mp4",
+      "https://i.imgur.com/OPXG8lr.mp4",
+      "https://i.imgur.com/1YBF7tW.mp4"
+    ],
+    "biography": ["https://i.imgur.com/yFj1FwD.mp4"]
+  },
+  "availabilityNotes": [
+    "These are preserved exact original URLs, not proof that all upstream files currently play. Cloud downloads return CONNECT403.",
+    "Original Autocorrection (5oHMMfH), mechanics 3hhNUKR and TBObuJ0 were observed unready; mechanics 8oZCxzC was observed playing.",
+    "Archive Vimeo 538169390, 543748855 and 224251774 show the same unavailable message on the original and migrated sites. YouTube viIqF6OrAuQ was observed playing."
+  ],
+  "trailerPublication": {
+    "section": "site-trailer",
+    "archived": true,
+    "items": [],
+    "rejectedV5Published": false
+  }
+}
