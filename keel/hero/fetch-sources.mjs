@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Downloads the site-video sources named in sources.json into ./src and checks their sha256.
+// One of them (mechanics-3) comes from the Wayback Machine; its original Imgur file no longer exists.
 //   node keel/hero/fetch-sources.mjs [--dest keel/hero/src]
 // The two Ordinals pieces (LUX, Kismet Twist) are not downloadable files; see capture-ordinals.mjs.
 // A hash mismatch is reported, not fatal: Imgur may re-encode, and a different file renders a
@@ -24,7 +25,12 @@ for (const source of sources) {
   let bytes;
   if (existsSync(target)) bytes = readFileSync(target);
   else {
-    const response = await fetch(source.origin);
+    let response = await fetch(source.origin);
+    // The Wayback Machine rate-limits (429); wait and retry rather than fail.
+    for (let attempt = 1; response.status === 429 && attempt <= 4; attempt++) {
+      await new Promise((resolve) => setTimeout(resolve, 20000 * attempt));
+      response = await fetch(source.origin);
+    }
     if (!response.ok) { console.log(`FAILED ${source.file}: HTTP ${response.status} ${source.origin}`); missing++; continue; }
     bytes = Buffer.from(await response.arrayBuffer());
     writeFileSync(target, bytes);

@@ -1,5 +1,5 @@
 {
-  "about": "Provenance of every video the hero montage uses. All are WAAMBAT's own works as published on waambat.netlify.app; the two Ordinals pieces are recorded from the live inscriptions. Hashes are of the files the committed timeline.json was rendered from.",
+  "about": "Provenance of every video the hero montage uses. All are WAAMBAT's own works as published on waambat.netlify.app (one, mechanics-3, from the Wayback Machine because its Imgur file is gone); the two Ordinals pieces are recorded from the live inscriptions. Hashes are of the files the committed timeline.json was rendered from.",
   "sources": [
     {
       "id": "feels404",
@@ -358,6 +358,19 @@
       "kind": "site-video",
       "origin": "https://i.imgur.com/8oZCxzC.mp4",
       "appearsOn": "quantum mechanics (text-free crop)"
+    },
+    {
+      "id": "mech3",
+      "file": "mechanics-3.mp4",
+      "width": 960,
+      "height": 960,
+      "seconds": 30.03,
+      "bytes": 22740269,
+      "sha256": "492e4b69a9455814ab0babd65ba8ca84d07d8b5ee8b7f7b8d5ff20f552697658",
+      "kind": "site-video",
+      "origin": "http://web.archive.org/web/20231026144418id_/https://i.imgur.com/TBObuJ0.mp4",
+      "originalOrigin": "https://i.imgur.com/TBObuJ0.mp4",
+      "appearsOn": "quantum mechanics (third video; the Imgur file is gone, recovered from the 26 Oct 2023 Wayback Machine snapshot)"
     },
     {
       "id": "tweet",
