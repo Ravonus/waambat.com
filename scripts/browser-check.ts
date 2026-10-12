@@ -941,6 +941,8 @@ try {
       tokenLink: "https://waambat.com",
       videoSrc: "https://i.imgur.com/trailer-fixture.mp4",
       mobileVideoSrc: "",
+      loopSrc: "",
+      mobileLoopSrc: "",
       poster: "/posters/1-960.webp",
       aspectRatio: 16 / 9,
       archived: false,

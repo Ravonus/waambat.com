@@ -598,6 +598,8 @@ try {
     poster: "",
     videoSrc: "",
     mobileVideoSrc: "",
+    loopSrc: "",
+    mobileLoopSrc: "",
     featured: true,
     archived: false,
   });

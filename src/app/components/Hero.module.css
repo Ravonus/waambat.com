@@ -43,6 +43,12 @@
 .video[data-shown="true"] {
   opacity: 1;
 }
+/* The ending loop sits above the video that has finished; once it shows, the finished one steps aside
+   without a fade, so the poster never shows through a half-faded pair. */
+.video[data-done="true"] {
+  visibility: hidden;
+  transition: none;
+}
 .hero .wordmark {
   position: absolute;
   z-index: 2;

@@ -25,15 +25,18 @@ let browser;
 const state = (page: Page) =>
   page.locator("[data-hero]").getAttribute("data-playback-state");
 const video = (page: Page) =>
-  page.locator("[data-hero] video").evaluate((v: HTMLVideoElement) => ({
-    paused: v.paused,
-    muted: v.muted,
-    loop: v.loop,
-    time: v.currentTime,
-    src: v.currentSrc,
-    width: v.videoWidth,
-    height: v.videoHeight,
-  }));
+  page
+    .locator("[data-hero] video")
+    .first()
+    .evaluate((v: HTMLVideoElement) => ({
+      paused: v.paused,
+      muted: v.muted,
+      loop: v.loop,
+      time: v.currentTime,
+      src: v.currentSrc,
+      width: v.videoWidth,
+      height: v.videoHeight,
+    }));
 const playing = (page: Page) =>
   page.waitForFunction(
     () =>
@@ -62,7 +65,7 @@ try {
   });
   await mkdir("evidence/hero", { recursive: true });
 
-  // Desktop: the banner plays muted and looping, the wordmark is live text in the brand font.
+  // Desktop: the banner plays its montage once, muted, then loops its ending; the wordmark is live text in the brand font.
   const desktop = await browser.newContext({
     viewport: { width: 1440, height: 900 },
   });
@@ -78,10 +81,65 @@ try {
   await playing(page);
   const first = await video(page);
   assert.ok(first.src.endsWith("/hero/waambat-hero-desktop.mp4"), first.src);
-  assert.ok(first.muted && first.loop);
+  assert.ok(first.muted && !first.loop, "the montage plays once, muted");
   assert.equal([first.width, first.height].join("x"), "1280x720");
   await page.waitForTimeout(900);
   assert.ok((await video(page)).time > first.time + 0.4, "video advances");
+  // It ends on the dark self-portrait and carries on as the looping ending: the montage never replays.
+  const handover = await page.evaluate(async () => {
+    const [intro, loop] = Array.from(
+      document.querySelectorAll<HTMLVideoElement>("[data-hero] video"),
+    );
+    if (!intro || !loop) return null;
+    const ended = new Promise<void>((resolve) =>
+      intro.addEventListener("ended", () => resolve(), { once: true }),
+    );
+    intro.currentTime = Math.max(0, intro.duration - 0.6);
+    await ended;
+    await new Promise((resolve) => setTimeout(resolve, 1600));
+    const at = loop.currentTime;
+    // Jump the loop to just before its end: it must wrap by itself, and the montage must stay finished.
+    loop.currentTime = Math.max(0, loop.duration - 0.35);
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    return {
+      introEnded: intro.ended,
+      introLoop: intro.loop,
+      introTime: intro.currentTime,
+      introDuration: intro.duration,
+      introVisibility: getComputedStyle(intro).visibility,
+      loopPaused: loop.paused,
+      loopLoop: loop.loop,
+      loopSrc: loop.currentSrc,
+      loopStarted: at,
+      loopAfterWrap: loop.currentTime,
+      loopDuration: loop.duration,
+      state: document
+        .querySelector("[data-hero]")!
+        .getAttribute("data-playback-state"),
+    };
+  });
+  assert.ok(handover, "the banner has an ending loop");
+  assert.ok(
+    handover.introEnded && !handover.introLoop,
+    "the montage stays ended",
+  );
+  assert.ok(
+    handover.introTime >= handover.introDuration - 0.1,
+    `the montage did not replay (${handover.introTime}/${handover.introDuration})`,
+  );
+  assert.equal(handover.introVisibility, "hidden", "the loop has taken over");
+  assert.ok(handover.loopSrc.endsWith("/hero/waambat-hero-desktop-loop.mp4"));
+  assert.ok(!handover.loopPaused && handover.loopLoop, "the ending loops");
+  assert.ok(handover.loopStarted > 0.5, "the loop began right away");
+  assert.ok(
+    handover.loopAfterWrap < handover.loopDuration - 0.35,
+    `the loop wrapped by itself (${handover.loopAfterWrap}/${handover.loopDuration})`,
+  );
+  assert.equal(handover.state, "playing");
+  evidence.ending = {
+    montage: `${handover.introDuration.toFixed(1)} s, plays once`,
+    loop: `${handover.loopDuration.toFixed(1)} s, repeats`,
+  };
   assert.equal(
     requested.filter((u) => u.endsWith("waambat-hero-mobile.mp4")).length,
     0,

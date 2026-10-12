@@ -10,9 +10,11 @@ import styles from "./Hero.module.css";
 // the width of a small tablet but the shape of the landscape banner.
 const PORTRAIT_PHONE = "(max-width: 767px) and (orientation: portrait)";
 
-// The home banner: a silent, looping montage of her own works with the live
-// wordmark in its quiet column. Content (media, poster, titles, logo) comes
-// from an ordinary section/artwork so the studio edits it like everything else.
+// The home banner: a silent montage of her own works with the live wordmark in its quiet column.
+// When the banner has an ending loop it plays once, ends on its last shot, and that shot carries on
+// as a second, seamlessly looping video: the montage never replays. Without one the whole video
+// repeats. Content (media, poster, titles, logo) comes from an ordinary section/artwork so the
+// studio edits it like everything else.
 export default function Hero({
   section,
   item,
@@ -24,14 +26,26 @@ export default function Hero({
 }) {
   const frame = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
+  const endless = useRef<HTMLVideoElement>(null);
   const [mobile, setMobile] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [shown, setShown] = useState(false);
   const [error, setError] = useState(false);
+  // "intro" is the video that plays once; "loop" is the ending that repeats.
+  const [phase, setPhase] = useState<"intro" | "loop">("intro");
+  const [loopWanted, setLoopWanted] = useState(false);
+  const [loopShown, setLoopShown] = useState(false);
+  const activeVideo = () =>
+    phaseRef.current === "loop" ? endless.current : video.current;
+  const phaseRef = useRef(phase);
+  useEffect(() => {
+    phaseRef.current = phase;
+  }, [phase]);
   const lifecycle = useViewportPlayback(frame, false, (wanted) => {
-    if (!wanted) video.current?.pause();
-    else if (video.current?.readyState)
-      void video.current.play().catch(() => setPlaying(false));
+    const element = activeVideo();
+    if (!wanted) element?.pause();
+    else if (element?.readyState)
+      void element.play().catch(() => setPlaying(false));
   });
   const { requested, wanted } = lifecycle;
   useEffect(() => {
@@ -45,13 +59,15 @@ export default function Hero({
     };
   }, []);
   useEffect(() => {
-    const element = video.current;
+    const element = phase === "loop" ? endless.current : video.current;
     if (wanted && !error) void element?.play().catch(() => setPlaying(false));
     else element?.pause();
     return () => element?.pause();
-  }, [wanted, requested, error]);
-  const source =
-    mobile && item.mobileVideoSrc ? item.mobileVideoSrc : item.videoSrc;
+  }, [wanted, requested, error, phase]);
+  const portrait = mobile && !!item.mobileVideoSrc;
+  const source = portrait ? item.mobileVideoSrc : item.videoSrc;
+  // The ending loop follows the video it was rendered with (portrait with portrait).
+  const loopSource = portrait ? item.mobileLoopSrc : item.loopSrc;
   // A poster-only banner is a legitimate choice; it just has nothing to play.
   const playable = !!source;
   const ratio = item.aspectRatio ?? 16 / 9;
@@ -106,26 +122,79 @@ export default function Hero({
               mobile && item.mobilePoster ? item.mobilePoster : item.poster
             }
             muted
-            loop
+            loop={!loopSource}
             playsInline
             preload="auto"
             aria-label={item.title}
             data-shown={shown}
+            data-done={loopShown}
             className={styles.video}
             onLoadedData={() => {
-              if (lifecycle.desired.current)
+              if (lifecycle.desired.current && phaseRef.current === "intro")
                 void video.current?.play().catch(() => setPlaying(false));
             }}
             onPlaying={() => setShown(true)}
             onPlay={() => {
               if (!lifecycle.desired.current) video.current?.pause();
-              setPlaying(lifecycle.desired.current);
+              else if (phaseRef.current === "intro")
+                setPlaying(lifecycle.desired.current);
             }}
-            onPause={() => setPlaying(false)}
+            onPause={(event) => {
+              // Reaching the end pauses the video; that is not the visitor pausing the banner.
+              if (!event.currentTarget.ended) setPlaying(false);
+            }}
+            onTimeUpdate={(event) => {
+              // Start fetching the ending loop well before it is needed, so the hand-over has nothing to wait for.
+              const element = event.currentTarget;
+              if (
+                loopSource &&
+                !loopWanted &&
+                element.duration - element.currentTime < 8
+              )
+                setLoopWanted(true);
+            }}
+            onEnded={() => {
+              if (!loopSource) return;
+              setLoopWanted(true);
+              setPhase("loop");
+            }}
             onError={() => {
               setError(true);
               setPlaying(false);
               setShown(false);
+            }}
+          />
+        )}
+        {playable && requested && !error && loopSource && (
+          <video
+            ref={endless}
+            src={loopWanted ? loopSource : undefined}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            tabIndex={-1}
+            data-shown={loopShown}
+            className={styles.video}
+            onCanPlay={() => {
+              if (phaseRef.current === "loop" && lifecycle.desired.current)
+                void endless.current?.play().catch(() => setPlaying(false));
+            }}
+            onPlaying={() => {
+              // The loop's first frame is the frame after the video's last, so the swap is not visible.
+              setLoopShown(true);
+              setPlaying(true);
+            }}
+            onPlay={() => {
+              if (!lifecycle.desired.current) endless.current?.pause();
+            }}
+            onPause={() => {
+              if (phaseRef.current === "loop") setPlaying(false);
+            }}
+            onError={() => {
+              // The ending stays on the last frame of the video, which is the artwork's final shot.
+              setPlaying(false);
             }}
           />
         )}
