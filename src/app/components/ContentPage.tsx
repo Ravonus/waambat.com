@@ -165,6 +165,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
                 tokenLink: block.href || block.src,
                 videoSrc: block.src,
                 mobileVideoSrc: "",
+                previewSrc: "",
                 mobilePoster: "",
                 logoSrc: "",
                 poster: "",

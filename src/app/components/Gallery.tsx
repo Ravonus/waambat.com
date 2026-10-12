@@ -1,6 +1,6 @@
 import type { Content } from "~/lib/content";
 import ArtworkCard from "./ArtworkCard";
-import SourceImage from "./SourceImage";
+import { isOrdinalPiece } from "~/lib/ordinal-page";
 import OrdinalCollection from "./OrdinalCollection";
 export default function Gallery({
   content,
@@ -16,10 +16,11 @@ export default function Gallery({
         Number(b.presentation === "trailer") -
         Number(a.presentation === "trailer"),
     );
-  const featured =
-    page === "ordinals"
-      ? sections.filter((s) => ["lux", "kismet-twist"].includes(s.id))
-      : [];
+  // The Ordinals page is its own layout: the live pieces, then the early GIF inscriptions.
+  const pieces = page === "ordinals" ? sections.filter(isOrdinalPiece) : [];
+  const early =
+    page === "ordinals" ? sections.find((s) => s.id === "ordinals") : undefined;
+  const claimed = new Set([...pieces, ...(early ? [early] : [])]);
   function render(section: Content["sections"][number], compact = false) {
     return (
       <section
@@ -51,62 +52,34 @@ export default function Gallery({
           {section.items
             .filter((a) => !a.archived)
             .sort((a, b) => Number(b.featured) - Number(a.featured))
-            .map((a) =>
-              section.id === "ordinals" ? (
-                <article
-                  key={a.id}
-                  data-artwork={a.id}
-                  className="original-ordinal-row"
-                >
-                  <div>
-                    <a
-                      href={a.tokenLink}
-                      aria-label={`Open ${a.title} original inscription page`}
-                    >
-                      <SourceImage
-                        src={a.poster}
-                        alt={a.title}
-                        sizes="300px"
-                        className="mx-auto max-w-full"
-                      />
-                    </a>
-                  </div>
-                  <div>
-                    <h2>
-                      <a href={a.tokenLink}>{a.title}</a>
-                    </h2>
-                    <p>{a.description}</p>
-                  </div>
-                </article>
-              ) : (
-                <ArtworkCard
-                  key={a.id}
-                  artwork={a}
-                  originalFlow={
-                    page === "nfts" && section.presentation !== "trailer"
-                  }
-                  trailer={section.presentation === "trailer"}
-                  ratio={
-                    a.aspectRatio ??
-                    (section.presentation === "trailer" ? 16 / 9 : undefined)
-                  }
-                />
-              ),
-            )}
+            .map((a) => (
+              <ArtworkCard
+                key={a.id}
+                artwork={a}
+                originalFlow={
+                  page === "nfts" && section.presentation !== "trailer"
+                }
+                trailer={section.presentation === "trailer"}
+                ratio={
+                  a.aspectRatio ??
+                  (section.presentation === "trailer" ? 16 / 9 : undefined)
+                }
+              />
+            ))}
         </div>
       </section>
     );
   }
   return (
     <>
-      {featured.length > 0 && (
-        <div aria-label="Featured Ordinals collections">
-          {featured.map((section) => (
-            <OrdinalCollection key={section.id} section={section} />
-          ))}
-        </div>
+      {page === "ordinals" && (
+        <OrdinalCollection
+          title={early?.title ?? "ORDINALS"}
+          pieces={pieces}
+          early={early}
+        />
       )}
-      {sections.filter((s) => !featured.includes(s)).map((s) => render(s))}
+      {sections.filter((s) => !claimed.has(s)).map((s) => render(s))}
     </>
   );
 }

@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export default async function Ordinals() {
   await requirePreviewAccess();
   return (
-    <Layout>
+    <Layout wide>
       <Gallery content={await getPublishedContent()} page="ordinals" />
     </Layout>
   );

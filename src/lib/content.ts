@@ -46,6 +46,9 @@ export const artworkSchema = z
     videoSrc: mediaLink,
     poster: mediaLink,
     mobileVideoSrc: mediaLink.default(""),
+    // A cached same-origin loop (MP4/WebM) of a live provider piece: it appears at once while the
+    // live player stays an explicit step. Optional; the poster is its first frame.
+    previewSrc: mediaLink.default(""),
     // Hero banner only: portrait poster/ratio for phones and an optional image wordmark.
     mobilePoster: mediaLink.default(""),
     mobileAspectRatio: z.number().min(0.25).max(4).optional(),
@@ -83,6 +86,11 @@ export const artworkSchema = z
       ctx.addIssue({
         code: "custom",
         message: "Use a direct HTTPS MP4/WebM or uploaded media URL",
+      });
+    if (item.previewSrc && !videoSource(item.previewSrc)?.direct)
+      ctx.addIssue({
+        code: "custom",
+        message: "Use an uploaded or site-hosted MP4/WebM for the preview loop",
       });
     if (item.kind === "image" && !item.poster)
       ctx.addIssue({ code: "custom", message: "Images need an image URL" });
@@ -293,7 +301,7 @@ export const emailSettingsSchema = z
   .strict();
 export const contentSchema = z
   .object({
-    ordinalSourceVersion: z.number().int().min(0).max(1).default(0),
+    ordinalSourceVersion: z.number().int().min(0).max(2).default(0),
     // 0 = stored before the hero banner existed; the default banner is added on read.
     heroVersion: z.number().int().min(0).max(1).default(0),
     sections: z.array(sectionSchema).min(1).max(30),
@@ -403,6 +411,7 @@ export function mediaReferences(content: Content) {
           .flatMap((i) => [
             i.videoSrc,
             i.mobileVideoSrc,
+            i.previewSrc,
             i.poster,
             i.mobilePoster,
             i.logoSrc,

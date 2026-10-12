@@ -41,7 +41,7 @@ export default async function Preview({
       preview
       hero={hero && <Hero section={hero.section} item={hero.item} preview />}
       theme={state.draft.theme}
-      wide={article?.layout === "archive"}
+      wide={article?.layout === "archive" || (!article && page === "ordinals")}
       navigation={state.draft.navigation.filter(
         (n) =>
           !state.draft.pages.find((p) => `/${p.slug}` === n.href)?.archived,

@@ -24,6 +24,8 @@ const legacyLux = legacySeed.sections.find(
 Object.assign(legacyLux, {
   kind: "image",
   videoSrc: "",
+  previewSrc: "",
+  poster: "https://whitepaper.terminus.art/images/lux3.webp",
   description: "The OK Algo facet · Explore LUX on Satflow",
 });
 const legacyKismet = legacySeed.sections.find(
@@ -32,9 +34,26 @@ const legacyKismet = legacySeed.sections.find(
 Object.assign(legacyKismet, {
   videoSrc:
     "https://ordinals.com/preview/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98",
+  previewSrc: "",
+  poster: "",
   description:
     "Explore the Kismet Twist collection on Satflow. The optional on-chain preview is Kismet Twist #100, attributed to WAAMBAT with Ravonus as technomancer in its inscription metadata.",
 });
+// Gamma as it was first supplied: a bare link with no preview.
+Object.assign(
+  legacySeed.sections.find(
+    (section: { id: string }) => section.id === "gamma-artwork",
+  ).items[0],
+  {
+    kind: "link",
+    title: "View artwork on Gamma",
+    description:
+      "Open the supplied individual artwork destination. Title and preview metadata have not been verified.",
+    videoSrc: "",
+    previewSrc: "",
+    poster: "",
+  },
+);
 await writeFile(
   join(repository, "src/content/site.json"),
   JSON.stringify(legacySeed, null, 2) + "\n",
@@ -134,7 +153,7 @@ try {
   assert.equal(await rp.locator("video[src]").count(), 0);
   await rp.getByRole("button", { name: "Menu", exact: true }).click();
   await rp.getByRole("link", { name: "ORDINALS", exact: true }).click();
-  await rp.getByRole("heading", { name: "LUX", exact: true }).waitFor();
+  await rp.getByRole("heading", { name: "ORDINALS", exact: true }).waitFor();
   for (const [id, target] of [
     ["lux-ok-algo", "https://www.satflow.com/ordinals/lux_ok_algo"],
     ["kismet-twist-collection", "https://www.satflow.com/ordinals/kismettwist"],
@@ -442,6 +461,25 @@ try {
       (section: { id: string }) => section.id === "lux",
     ).items[0].videoSrc,
     "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
+  );
+  // The cached loops and the Gamma piece are presented on read, from exact legacy defaults only.
+  for (const [id, loop] of [
+    ["lux", "/previews/lux-9b87c251ff.mp4"],
+    ["kismet-twist", "/previews/kismet-3c8c06ebe1.mp4"],
+    ["gamma-artwork", "/previews/gamma-02b3d18c54.mp4"],
+  ])
+    assert.equal(
+      initial.draft.sections.find(
+        (section: { id: string }) => section.id === id,
+      ).items[0].previewSrc,
+      loop,
+      id,
+    );
+  assert.equal(
+    initial.draft.sections.find(
+      (section: { id: string }) => section.id === "gamma-artwork",
+    ).items[0].kind,
+    "embed",
   );
   assert.equal(
     (

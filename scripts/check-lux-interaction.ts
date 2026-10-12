@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { chromium } from "playwright";
-import { LUX_PLAYER } from "../src/lib/ordinal-sources";
+import { LUX_PLAYER, PREVIEWS } from "../src/lib/ordinal-sources";
 declare global {
   interface Window {
     artState: {
@@ -62,8 +62,31 @@ try {
     const page = await context.newPage();
     await page.goto(origin + "/ordinals");
     const lux = page.locator('[data-ordinal-player="lux-ok-algo"]');
+    // The controls sit beneath the artwork, in the card around it.
+    const card = page.locator('[data-artwork="lux-ok-algo"]');
     await lux.scrollIntoViewIfNeeded();
+    // The cached loop is what loads first; the live inscription is only requested on "Interact live".
+    assert.equal(await lux.locator("iframe").count(), 0);
+    assert.equal(loads, 0, "LUX is not fetched until it is asked for");
+    assert.equal(
+      await lux.locator("video").getAttribute("src"),
+      PREVIEWS.lux.loop,
+    );
+    const open = card.getByRole("button", {
+      name: "Interact live with LUX · OK ALGO",
+    });
+    if (mobile) await open.tap();
+    else await open.click();
     await lux.locator("iframe").waitFor();
+    // The loop stays up until the piece has drawn something; then the live piece is shown.
+    await page.waitForSelector(
+      '[data-ordinal-player="lux-ok-algo"][data-live="shown"]',
+      { timeout: 20000 },
+    );
+    // Opening starts interaction; step back to the passive state the rest of this check starts from.
+    await card
+      .getByRole("button", { name: "Exit interaction", exact: true })
+      .click();
     const painted = () =>
       page.evaluate(
         () =>
@@ -165,7 +188,7 @@ try {
       await stable();
       await lux.scrollIntoViewIfNeeded();
       await inactive();
-      const activate = lux.getByRole("button", {
+      const activate = card.getByRole("button", {
         name: "Interact",
         exact: true,
       });
@@ -194,7 +217,7 @@ try {
       await page.mouse.wheel(0, 80);
       await page.waitForTimeout(100);
       assert.equal(await page.evaluate(() => scrollY), activeScroll);
-      await lux
+      await card
         .getByRole("button", { name: "Exit interaction", exact: true })
         .click();
       await inactive();
@@ -228,7 +251,10 @@ try {
       );
     assert.ok(finalState.drags >= 3);
     assert.ok(finalState.zooms >= 3);
-    const activate = lux.getByRole("button", { name: "Interact", exact: true });
+    const activate = card.getByRole("button", {
+      name: "Interact",
+      exact: true,
+    });
     await activate.focus();
     await page.keyboard.press("Enter");
     assert.equal(await lux.getAttribute("data-interacting"), "true");
@@ -246,6 +272,7 @@ try {
       mobile,
       loads,
       identity,
+      cachedLoopFirst: true,
       viewportCycles: 3,
       interactionCycles: 3,
       passiveWheelOrTouchScroll: true,

@@ -4,8 +4,10 @@ import test from "node:test";
 import { contentSchema } from "../src/lib/content";
 import {
   correctLegacyOrdinalSources,
+  GAMMA_PLAYER,
   LUX_PLAYER,
   KISMET_PLAYER,
+  PREVIEWS,
 } from "../src/lib/ordinal-sources";
 import { videoSource } from "../src/lib/video-source";
 
@@ -19,6 +21,8 @@ async function oldContent() {
   Object.assign(lux, {
     kind: "image",
     videoSrc: "",
+    previewSrc: "",
+    poster: "https://whitepaper.terminus.art/images/lux3.webp",
     description: "The OK Algo facet · Explore LUX on Satflow",
   });
   const kismet = content.sections.find(
@@ -27,11 +31,29 @@ async function oldContent() {
   Object.assign(kismet, {
     videoSrc:
       "https://ordinals.com/preview/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98",
+    previewSrc: "",
+    poster: "",
     description:
       "Explore the Kismet Twist collection on Satflow. The optional on-chain preview is Kismet Twist #100, attributed to WAAMBAT with Ravonus as technomancer in its inscription metadata.",
   });
+  Object.assign(
+    content.sections.find((section) => section.id === "gamma-artwork")!
+      .items[0]!,
+    {
+      kind: "link",
+      title: "View artwork on Gamma",
+      description:
+        "Open the supplied individual artwork destination. Title and preview metadata have not been verified.",
+      videoSrc: "",
+      previewSrc: "",
+      poster: "",
+      aspectRatio: undefined,
+    },
+  );
   return content;
 }
+const piece = (content: Awaited<ReturnType<typeof oldContent>>, id: string) =>
+  content.sections.find((section) => section.id === id)!.items[0]!;
 test("verified live players upgrade only legacy defaults without mutating persisted input", async () => {
   const old = await oldContent();
   const before = structuredClone(old);
@@ -56,12 +78,15 @@ test("verified live players upgrade only legacy defaults without mutating persis
   assert.deepEqual(result.content.pages, before.pages);
   assert.deepEqual(
     result.content.sections.filter(
-      (section) => !["lux", "kismet-twist"].includes(section.id),
+      (section) =>
+        !["lux", "kismet-twist", "gamma-artwork"].includes(section.id),
     ),
     before.sections.filter(
-      (section) => !["lux", "kismet-twist"].includes(section.id),
+      (section) =>
+        !["lux", "kismet-twist", "gamma-artwork"].includes(section.id),
     ),
   );
+  assert.equal(result.content.ordinalSourceVersion, 2);
   assert.equal(correctLegacyOrdinalSources(result.content).changed, false);
 });
 test("artist-selected media and captions are never replaced by source compatibility", async () => {
@@ -71,10 +96,11 @@ test("artist-selected media and captions are never replaced by source compatibil
   old.sections.find(
     (section) => section.id === "kismet-twist",
   )!.items[0]!.description = "My selected #100 edition";
+  piece(old, "gamma-artwork").description = "My own caption for this piece";
   const result = correctLegacyOrdinalSources(old);
   assert.equal(result.changed, false);
   assert.deepEqual(result.content.sections, old.sections);
-  assert.equal(result.content.ordinalSourceVersion, 1);
+  assert.equal(result.content.ordinalSourceVersion, 2);
 });
 test("after migration the artist can deliberately restore a static or alternate sample", async () => {
   const result = correctLegacyOrdinalSources(await oldContent()).content;
@@ -102,4 +128,78 @@ test("exact confirmed HTML content routes are players; injected queries and look
       null,
     );
   }
+});
+
+test("a legacy store gains the cached loops and the Gamma piece, matching the shipped seed exactly", async () => {
+  const seeded = contentSchema.parse(
+    JSON.parse(await readFile("src/content/site.json", "utf8")),
+  );
+  const result = correctLegacyOrdinalSources(await oldContent());
+  assert.equal(result.changed, true);
+  for (const id of ["lux", "kismet-twist", "gamma-artwork"])
+    assert.deepEqual(
+      result.content.sections.find((section) => section.id === id),
+      seeded.sections.find((section) => section.id === id),
+      id,
+    );
+  assert.equal(correctLegacyOrdinalSources(seeded).changed, false);
+  assert.equal(seeded.ordinalSourceVersion, 2);
+});
+test("Gamma becomes a live piece only from its exact legacy link", async () => {
+  const gamma = piece(
+    correctLegacyOrdinalSources(await oldContent()).content,
+    "gamma-artwork",
+  );
+  assert.equal(gamma.kind, "embed");
+  assert.equal(gamma.title, "Edge Corporeal");
+  assert.equal(gamma.videoSrc, GAMMA_PLAYER);
+  assert.equal(gamma.previewSrc, PREVIEWS.gamma.loop);
+  assert.equal(gamma.poster, PREVIEWS.gamma.poster);
+  assert.equal(videoSource(gamma.videoSrc)?.provider, "ordinals");
+  // The artist's own link stays a link.
+  const mine = await oldContent();
+  piece(mine, "gamma-artwork").title = "My Gamma artwork";
+  assert.equal(
+    piece(correctLegacyOrdinalSources(mine).content, "gamma-artwork").kind,
+    "link",
+  );
+});
+test("a store already corrected to version 1 gets the loops without losing artist choices", async () => {
+  const v1 = correctLegacyOrdinalSources(await oldContent()).content;
+  const lux = piece(v1, "lux");
+  const kismet = piece(v1, "kismet-twist");
+  // As version 1 left them: live players, no loop yet.
+  Object.assign(lux, {
+    previewSrc: "",
+    poster: "https://whitepaper.terminus.art/images/lux3.webp",
+    description:
+      "Live full LUX · Infinity #3. Explore the collection on Satflow.",
+  });
+  Object.assign(kismet, {
+    previewSrc: "",
+    poster: "https://artist.example/own-still.webp",
+    description: "Live Kismet Twist #1. Explore the collection on Satflow.",
+  });
+  v1.ordinalSourceVersion = 1;
+  const before = structuredClone(v1);
+  const result = correctLegacyOrdinalSources(v1);
+  assert.deepEqual(v1, before, "input is not mutated");
+  assert.equal(result.changed, true);
+  const luxAfter = piece(result.content, "lux");
+  assert.equal(luxAfter.previewSrc, PREVIEWS.lux.loop);
+  assert.equal(luxAfter.poster, PREVIEWS.lux.poster);
+  const kismetAfter = piece(result.content, "kismet-twist");
+  assert.equal(kismetAfter.previewSrc, PREVIEWS.kismet.loop);
+  assert.equal(
+    kismetAfter.poster,
+    "https://artist.example/own-still.webp",
+    "an artist-chosen poster is kept",
+  );
+  // An artist's own loop is never replaced.
+  const own = structuredClone(before);
+  piece(own, "lux").previewSrc = "/api/media/" + "b".repeat(64);
+  assert.equal(
+    piece(correctLegacyOrdinalSources(own).content, "lux").previewSrc,
+    "/api/media/" + "b".repeat(64),
+  );
 });
