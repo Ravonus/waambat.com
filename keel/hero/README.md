@@ -68,9 +68,9 @@ chromatic displacement transitions; a seamless loop seam; and silent H.264 deliv
 They are generic-profile additions (the reference _crucible-v3_ behaviour is unchanged) with their own tests
 and a README section ("Art montages").
 
-They live on branch `waambat-hero-materials` of the keel-trailer checkout (base `63a55a7`, two commits). Until
-that branch is published, `keel-trailer-art-montage.patch` is the same change without the regenerated JSON
-schemas:
+They live on branch `waambat-hero-materials` of `keel-web3/keel-trailer` (base `63a55a7`, two commits, head
+`00d3d09`; no pull request is open yet). `keel-trailer-art-montage.patch` is the same change without the
+regenerated JSON schemas, for a checkout that does not have the branch:
 
 ```bash
 git -C /path/to/keel-trailer checkout -b waambat-hero-materials 63a55a7

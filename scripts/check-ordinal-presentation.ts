@@ -143,13 +143,20 @@ try {
         .getByRole("button", { name: "Menu", exact: true })
         .evaluate((button) => (button as HTMLButtonElement).click());
       await page.getByRole("dialog", { name: "Main navigation" }).waitFor();
-      assert.equal(
-        await player.locator("iframe").count(),
-        0,
-        "Fullscreen navigation releases hidden artwork renderer",
-      );
+      await player.locator("iframe").evaluate((node) => {
+        (node as HTMLIFrameElement & { kept?: boolean }).kept = true;
+      });
       await page.getByRole("button", { name: "Close menu" }).click();
       await player.locator("iframe").waitFor();
+      assert.equal(
+        await player
+          .locator("iframe")
+          .evaluate(
+            (node) => (node as HTMLIFrameElement & { kept?: boolean }).kept,
+          ),
+        true,
+        "Fullscreen navigation keeps the activated inscription document",
+      );
     }
     const video = page
       .frameLocator('iframe[title="Kismet Twist"]')
@@ -171,27 +178,28 @@ try {
     await page.screenshot({
       path: `evidence/ordinal-presentation-${viewport.width}.png`,
     });
-    await player
-      .getByRole("button", { name: "Pause Kismet Twist", exact: true })
-      .click();
-    assert.equal(await player.locator("iframe").count(), 0);
-    await page.evaluate(() => scrollTo(0, 0));
-    await player.scrollIntoViewIfNeeded();
+    // The opaque inscriptions have no pause protocol, so there is no Pause
+    // control; leaving and re-entering the viewport keeps the same document.
     assert.equal(
-      await player.locator("iframe").count(),
+      await player.getByRole("button", { name: /^Pause/ }).count(),
       0,
-      "Manual pause survives reentry",
+      "No pause control is offered for an inscription without a pause protocol",
     );
-    await player
-      .getByRole("button", { name: "Play Kismet Twist", exact: true })
-      .click();
-    await player.locator("iframe").waitFor();
+    await player.locator("iframe").evaluate((node) => {
+      (node as HTMLIFrameElement & { kept?: boolean }).kept = true;
+    });
     await page.evaluate(() => scrollTo(0, 0));
-    await page.waitForFunction(
-      () =>
-        !document.querySelector(
-          '[data-ordinal-player="kismet-twist-collection"] iframe',
+    await page.waitForTimeout(300);
+    await player.scrollIntoViewIfNeeded();
+    assert.equal(await player.locator("iframe").count(), 1);
+    assert.equal(
+      await player
+        .locator("iframe")
+        .evaluate(
+          (node) => (node as HTMLIFrameElement & { kept?: boolean }).kept,
         ),
+      true,
+      "Scrolling away and back does not reload the activated inscription",
     );
     assert.ok(
       (await page
@@ -266,7 +274,7 @@ try {
         collectionPresentation:
           "Generous640px desktop / full-width350px mobile frame, uncropped, direct Satflow/Pink Paper links; original legacy Ordinals preserved",
         lifecycle:
-          "Automatic in-view inscription frame, reliable pause via frame removal on offscreen/manual pause; manual pause persists, reduced motion needs explicitPlay. Cross-origin inscriptions have no verified pause protocol, so reentry reinitializes the frame.",
+          "Automatic in-view inscription frame, kept attached (never reloaded) when it leaves the viewport or the menu opens; no pause control because the inscriptions have no pause protocol; reduced motion needs explicit Play",
         font: "Original Squarespace/Typekit embed requested; blocked cloud response is not proof of actual Amboy font loading",
         trailer:
           "Existing editable archived empty slot remains; no rejectedcut or Kismetloop substituted",
