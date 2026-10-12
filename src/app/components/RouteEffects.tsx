@@ -1,8 +1,28 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 export default function RouteEffects() {
   const cursor = useRef<HTMLDivElement>(null);
+  const [cursorHost, setCursorHost] = useState<HTMLElement | null>(null);
   const [pulse, setPulse] = useState(0);
+  useEffect(() => {
+    // Native dialogs occupy the browser's top layer, above every body z-index.
+    // Keep the visual cursor in that same layer while a dialog is open.
+    const syncHost = () => {
+      const dialogs =
+        document.querySelectorAll<HTMLDialogElement>("dialog[open]");
+      setCursorHost(dialogs.item(dialogs.length - 1) ?? document.body);
+    };
+    const observer = new MutationObserver(syncHost);
+    observer.observe(document.body, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ["open"],
+    });
+    syncHost();
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     const route = () => setPulse((v) => v + 1);
     window.addEventListener("waambat:navigate", route);
@@ -104,14 +124,21 @@ export default function RouteEffects() {
   }, []);
   return (
     <>
-      <div
-        ref={cursor}
-        data-pink-cursor
-        aria-hidden="true"
-        className="waambat-cursor"
-      >
-        <span />
-      </div>
+      {cursorHost &&
+        createPortal(
+          <div
+            ref={(element) => {
+              cursor.current = element;
+              if (element) element.dataset.cursorReady = "true";
+            }}
+            data-pink-cursor
+            aria-hidden="true"
+            className="waambat-cursor"
+          >
+            <span />
+          </div>,
+          cursorHost,
+        )}
       {pulse > 0 && (
         <div
           key={pulse}

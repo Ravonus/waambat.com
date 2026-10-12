@@ -53,8 +53,26 @@ try {
   const dialog = page.getByRole("dialog", { name: "Main navigation" });
   const close = page.getByRole("button", { name: "Close menu" });
   const lock = () => page.evaluate(() => document.body.style.position);
+  assert.equal(await menu.locator('svg[aria-hidden="true"]').count(), 1);
+  assert.equal(
+    await menu.evaluate((el) => getComputedStyle(el).color),
+    "rgb(255, 148, 178)",
+  );
   await menu.click();
   await dialog.waitFor();
+  await page.waitForFunction(() =>
+    Boolean(document.querySelector("#mobile-site-menu [data-pink-cursor]")),
+  );
+  await dialog.getByRole("link", { name: "bio", exact: true }).hover();
+  await page.waitForFunction(() => {
+    const pointer = document.querySelector<HTMLElement>(
+      "#mobile-site-menu [data-pink-cursor]",
+    );
+    return (
+      pointer?.style.opacity === "1" &&
+      pointer.dataset.cursorState === "pointer"
+    );
+  });
   assert.equal(await lock(), "fixed");
   assert.equal(
     await close.evaluate((el) => el === document.activeElement),
@@ -78,6 +96,9 @@ try {
   );
   await page.keyboard.press("Escape");
   assert.equal(await dialog.count(), 0);
+  await page.waitForFunction(() =>
+    Boolean(document.querySelector("body > [data-pink-cursor]")),
+  );
   assert.equal(await lock(), "");
   assert.equal(
     await menu.evaluate((el) => el === document.activeElement),
@@ -196,6 +217,7 @@ try {
     .click();
   await page.waitForTimeout(350);
   assert.equal(await dialog.isVisible(), true);
+  assert.equal((await dialog.innerText()).includes("…"), false);
   assert.equal(await lock(), "fixed");
   await close.click();
   assert.equal(await lock(), "");
@@ -205,6 +227,8 @@ try {
   assert.equal(await lock(), "");
   evidence.interrupted =
     "Delayed navigation keeps menu usable and locked; explicit dismissal during pending request restores scroll; later successful route stays unlocked";
+  evidence.navigationAppearance =
+    "Pink hamburger retains accessible Menu name; pink pointer renders inside the native dialog top layer and returns to body on dismissal; delayed navigation shows no ellipsis";
   await context.unroute(delayed);
 
   await menu.click();

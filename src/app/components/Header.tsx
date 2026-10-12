@@ -8,13 +8,8 @@ import styles from "./Header.module.css";
 function NavigationHint() {
   const { pending } = useLinkStatus();
   return (
-    <span role="status" aria-live="polite" className="ml-1 inline-block w-3">
-      {pending ? (
-        <>
-          <span aria-hidden="true">…</span>
-          <span className="sr-only">Loading page</span>
-        </>
-      ) : null}
+    <span role="status" aria-live="polite" className="sr-only">
+      {pending ? "Loading page" : null}
     </span>
   );
 }
@@ -159,9 +154,21 @@ export default function Header({
         aria-expanded={open}
         aria-haspopup="dialog"
         aria-controls="mobile-site-menu"
+        aria-label="Menu"
         className={styles.menuButton}
       >
-        Menu
+        <svg
+          aria-hidden="true"
+          width="26"
+          height="22"
+          viewBox="0 0 26 22"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        >
+          <path d="M2 3h22M2 11h22M2 19h22" />
+        </svg>
       </button>
       <nav
         aria-label="Main navigation"

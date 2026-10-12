@@ -39,8 +39,9 @@
   top: 36px;
   right: var(--site-mobile-padding, 20px);
   min-height: 44px;
-  padding: 10px 4px;
-  color: var(--site-navigation, #9c9c9c);
+  min-width: 44px;
+  padding: 11px 9px;
+  color: var(--color-waambat-logo, #ff94b2);
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.06em;
