@@ -34,15 +34,18 @@ Nine shots of 3 s (6 beats at 120 bpm), the last 1.5 s, over a black ground. Tra
 | lore   | Joys of Lore                          | chromatic displacement                               |
 | tail   | Swap Exchange                         | datamosh, then the loop seam (datamosh) back to goat |
 
-Satellite layers in each shot (screen/lighten/add blends, small, drifting) bring in the other works. All 34
+Satellite layers in each shot (screen/lighten/add blends, small, drifting) bring in the other works. All 35
 sources are used: the 22 NFT paintings that still load, LUX, Kismet Twist, the art-archive videos, the bio
 animation, and the contact, mechanics and press videos (the three with embedded text only through
 text-free crops). `sources.json` lists each one with its origin, the page it appears on, and the sha256 of
 the file the committed timeline was rendered from.
 
-Not included, and why: _Autocorrection_ and the first and third mechanics videos (their Imgur files no
-longer exist; the site itself shows them as unavailable), and the provider-hosted archive videos (not
-downloadable).
+The third mechanics video (`mechanics-3`) no longer exists on Imgur; it is the 26 Oct 2023 snapshot from the
+Wayback Machine of the original file, 960x960, 30 s, and appears as a satellite in the _animal_ shot.
+
+Not included, and why: _Autocorrection_ and the first mechanics video (their Imgur files no longer exist, and
+the Wayback Machine holds no copy; the site itself shows them as unavailable), and the provider-hosted archive
+videos (not downloadable).
 
 ## Files
 
@@ -51,7 +54,7 @@ downloadable).
 | `build-timeline.mjs`             | The composition. Generates `timeline.json` (deterministic). `--scale`/`--fps` make quick previews. |
 | `timeline.json`                  | The committed timeline-v1 file the shipped videos were rendered from.                              |
 | `sources.json`                   | Provenance, dimensions, sha256 of every source video.                                              |
-| `fetch-sources.mjs`              | Downloads the 32 site videos into `src/` and checks the hashes.                                    |
+| `fetch-sources.mjs`              | Downloads the 33 site videos into `src/` and checks the hashes.                                    |
 | `capture-ordinals.mjs`           | Real-time GPU capture of LUX (see below).                                                          |
 | `captures/kismet.json`           | Keel web-capture request for Kismet Twist.                                                         |
 | `encode-captures.sh`             | Turns both captures into `src/lux.mp4` and `src/kismet.mp4`.                                       |
@@ -69,7 +72,7 @@ They are generic-profile additions (the reference _crucible-v3_ behaviour is unc
 and a README section ("Art montages").
 
 They live on branch `waambat-hero-materials` of `keel-web3/keel-trailer` (base `63a55a7`, two commits, head
-`00d3d09`; no pull request is open yet). `keel-trailer-art-montage.patch` is the same change without the
+`00d3d09`; open for review as [keel-web3/keel-trailer#2](https://github.com/keel-web3/keel-trailer/pull/2)). `keel-trailer-art-montage.patch` is the same change without the
 regenerated JSON schemas, for a checkout that does not have the branch:
 
 ```bash
@@ -83,7 +86,7 @@ The render does not read the generated schemas; they only matter for MCP clients
 ## Re-rendering
 
 ```bash
-node keel/hero/fetch-sources.mjs                    # 32 site videos into keel/hero/src
+node keel/hero/fetch-sources.mjs                    # 33 site videos into keel/hero/src
 node keel/hero/capture-ordinals.mjs \
   "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2" \
   keel/hero/captures/lux 960 960 18000 28000        # LUX, real time on a GPU

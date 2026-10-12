@@ -27,6 +27,7 @@ const S={
   axiom:{file:'artwork-20-axiom-glow-up',d:60,w:960,h:1706},deep:{file:'artwork-21-deep-linking',d:30},sus:{file:'artwork-22-sus-singularity',d:30,w:960,h:1706},
   abacus:{file:'artwork-23-abacus-ram',d:9.2,w:960,h:506},selfie:{file:'art-video-3',d:13.7,w:960,h:1200},mass:{file:'art-video-4',d:60},
   gallery:{file:'art-video-2',d:24.4,w:720,h:404},bio:{file:'bio-animation',d:9.1,w:960,h:1196},
+  mech3:{file:'mechanics-3',d:30},
   // Text-bearing source videos are used only through crops that exclude the text.
   eggplant:{file:'contact-video',d:1.8,crop:{x:20,y:80,width:410,height:820}},
   fire:{file:'mechanics-2',d:23.6,crop:{x:110,y:380,width:740,height:580},in:20,out:22.7},
@@ -109,6 +110,8 @@ const shots=[
     layer('animal',{at:[.57,.5,.96,.96],m:[.5,.52,.9,.9],scaleFrom:1,scaleTo:1.05}),
     layer('bio',{at:[.05,.8,.2,.26],m:[.88,.07,.14,.18],in:1.9,blend:'screen',opacity:.9,fadeInBeats:1.5}),
     layer('tweet',{at:[.95,.82,.22,.22],m:[.3,.945,.2,.2],blend:'lighten',fadeInBeats:1.5}),
+    // Recovered from the Wayback Machine (its Imgur file is gone). An explicit start keeps later shots' timing.
+    layer('mech3',{at:[.93,.2,.28,.28],m:[.13,.07,.2,.2],in:3.2,blend:'lighten',fadeInBeats:1.5}),
   ]},
   {id:'dense',post:loud,transition:{type:'mosaic',beats:1.5,blockSize:96*K},layers:[
     layer('faces',{at:[.58,.5,.96,.96],m:[.5,.52,.92,.92],blend:'normal',in:24,scaleFrom:1,scaleTo:1.07}),

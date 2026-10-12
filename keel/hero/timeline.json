@@ -141,6 +141,11 @@
    "path": "src/bio-animation.mp4"
   },
   {
+   "id": "mech3",
+   "kind": "video",
+   "path": "src/mechanics-3.mp4"
+  },
+  {
    "id": "eggplant",
    "kind": "video",
    "path": "src/contact-video.mp4"
@@ -996,6 +1001,30 @@
        "rect": {
         "x": 144,
         "y": 788,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    },
+    {
+     "source": "mech3",
+     "fit": "cover",
+     "blend": "lighten",
+     "in": 3.2,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 1111,
+      "y": 43,
+      "width": 202,
+      "height": 202
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 22,
+        "y": 147,
         "width": 144,
         "height": 144
        }
