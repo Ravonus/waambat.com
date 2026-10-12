@@ -124,6 +124,35 @@ try {
   await page.waitForTimeout(1100); // let the arrival animation settle
   await page.screenshot({ path: "evidence/hero/desktop-1440.png" });
 
+  // The wordmark leads home: the banner's own wordmark is the link (the header
+  // one is hidden here), only the link takes clicks, and it works from inner pages.
+  const homeLink = page.getByRole("link", { name: "waambat home" });
+  assert.equal(await homeLink.count(), 1, "one home link, not two");
+  assert.equal(await homeLink.getAttribute("href"), "/");
+  assert.ok(
+    await homeLink.evaluate((el) => {
+      const box = el.getBoundingClientRect();
+      const hit = document.elementFromPoint(
+        box.x + box.width / 2,
+        box.y + box.height / 2,
+      );
+      return !!hit && el.contains(hit);
+    }),
+    "the wordmark is clickable, not covered by the video",
+  );
+  const nav = await desktop.newPage();
+  await nav.goto(`${origin}/contact-waambat`, {
+    waitUntil: "domcontentloaded",
+  });
+  await nav.getByRole("link", { name: "waambat home" }).click();
+  await nav.waitForURL(`${origin}/`);
+  await nav.locator("[data-hero]").waitFor();
+  await nav.getByRole("link", { name: "waambat home" }).click();
+  await nav.waitForTimeout(500);
+  assert.equal(new URL(nav.url()).pathname, "/", "stays home from home");
+  await nav.locator("[data-hero]").waitFor();
+  await nav.close();
+
   // Manual pause is respected through scroll away and back; offscreen pauses automatically.
   const name = (await page
     .locator("[data-hero] .media-control")
@@ -258,6 +287,30 @@ try {
   );
   await mobile.waitForTimeout(1100); // let the arrival animation settle
   await mobile.screenshot({ path: "evidence/hero/mobile-menu-390.png" });
+  const menuHome = mobile
+    .locator("#mobile-site-menu")
+    .getByRole("link", { name: "waambat home" });
+  assert.equal(await menuHome.getAttribute("href"), "/");
+  await menuHome.click(); // already home: the menu closes, the page stays
+  await mobile
+    .locator("#mobile-site-menu[open]")
+    .waitFor({ state: "detached" });
+  assert.equal(new URL(mobile.url()).pathname, "/");
+  await mobile.getByRole("button", { name: "Menu", exact: true }).click();
+  await mobile.locator("#mobile-site-menu[open]").waitFor();
+  const inner = await phone.newPage();
+  await inner.goto(`${origin}/contact-waambat`, {
+    waitUntil: "domcontentloaded",
+  });
+  await inner.getByRole("button", { name: "Menu", exact: true }).click();
+  await inner.locator("#mobile-site-menu[open]").waitFor();
+  await inner
+    .locator("#mobile-site-menu")
+    .getByRole("link", { name: "waambat home" })
+    .click();
+  await inner.waitForURL(`${origin}/`);
+  await inner.locator("[data-hero]").waitFor();
+  await inner.close();
   await mobile.getByRole("button", { name: "Close menu" }).click();
   await playing(mobile);
   assert.equal(await mobile.evaluate(() => document.body.style.position), "");

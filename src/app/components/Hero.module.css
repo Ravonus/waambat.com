@@ -58,6 +58,19 @@
   pointer-events: none;
   animation: hero-wordmark-in 760ms steps(7, end) 120ms both;
 }
+/* The wordmark box ignores the pointer so the video controls stay reachable;
+   only the link itself takes clicks. */
+.hero .wordmark .wordmarkLink {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  pointer-events: auto;
+}
+.hero .wordmark .wordmarkLink:focus-visible {
+  outline: 2px solid var(--color-waambat-logo, #ff94b2);
+  outline-offset: 0.12em;
+  border-radius: 2px;
+}
 .hero .wordmark img {
   display: block;
   max-width: 34cqw;

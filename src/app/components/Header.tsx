@@ -118,6 +118,13 @@ export default function Header({
     };
   }, [open]);
 
+  // The wordmark always leads home; in the private preview that is the
+  // preview's home, so the studio flow is not left for the published site.
+  const home = preview ? "/admin/preview?page=nfts" : "/";
+  const goHome = (mobile: boolean) => () => {
+    if (mobile && current === "/") setOpenedAt(null);
+    if (!preview) window.dispatchEvent(new Event("waambat:navigate"));
+  };
   const links = (mobile: boolean) =>
     navigation
       .filter((item) => !item.archived)
@@ -147,7 +154,8 @@ export default function Header({
       data-with-hero={hero || undefined}
     >
       <Link
-        href="/"
+        href={home}
+        onNavigate={goHome(false)}
         className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`}
         aria-label="waambat home"
       >
@@ -193,9 +201,14 @@ export default function Header({
           }}
         >
           <div className={styles.overlayHeader}>
-            <span className={`font-brand ${styles.overlayWordmark}`}>
+            <Link
+              href={home}
+              onNavigate={goHome(true)}
+              aria-label="waambat home"
+              className={`font-brand ${styles.overlayWordmark}`}
+            >
               waambat
-            </span>
+            </Link>
             <button
               ref={closeButton}
               onClick={() => setOpenedAt(null)}

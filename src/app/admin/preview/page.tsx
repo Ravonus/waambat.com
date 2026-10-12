@@ -39,7 +39,7 @@ export default async function Preview({
   return (
     <Layout
       preview
-      hero={hero && <Hero section={hero.section} item={hero.item} />}
+      hero={hero && <Hero section={hero.section} item={hero.item} preview />}
       theme={state.draft.theme}
       wide={article?.layout === "archive"}
       navigation={state.draft.navigation.filter(

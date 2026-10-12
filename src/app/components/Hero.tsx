@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import type { Artwork, Content } from "~/lib/content";
 import { PlaybackButton } from "./MediaControls";
 import { useViewportPlayback } from "./useViewportPlayback";
@@ -15,9 +16,11 @@ const PORTRAIT_PHONE = "(max-width: 767px) and (orientation: portrait)";
 export default function Hero({
   section,
   item,
+  preview = false,
 }: {
   section: Content["sections"][number];
   item: Artwork;
+  preview?: boolean;
 }) {
   const frame = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -126,16 +129,26 @@ export default function Hero({
             }}
           />
         )}
-        {item.logoSrc ? (
-          <h1 className={styles.wordmark}>
-            {/* eslint-disable-next-line @next/next/no-img-element -- Artist-supplied logo of unknown size and format. */}
-            <img src={item.logoSrc} alt={section.title} />
-          </h1>
-        ) : (
-          <h1 className={`${styles.wordmark} font-brand text-waambat-logo`}>
-            {section.title}
-          </h1>
-        )}
+        {/* The wordmark leads home, like the header wordmark it stands in for. */}
+        <h1
+          className={`${styles.wordmark} ${item.logoSrc ? "" : "font-brand text-waambat-logo"}`}
+        >
+          <Link
+            href={preview ? "/admin/preview?page=nfts" : "/"}
+            onNavigate={() => {
+              if (!preview) window.dispatchEvent(new Event("waambat:navigate"));
+            }}
+            aria-label={`${section.title} home`}
+            className={styles.wordmarkLink}
+          >
+            {item.logoSrc ? (
+              // eslint-disable-next-line @next/next/no-img-element -- Artist-supplied logo of unknown size and format.
+              <img src={item.logoSrc} alt="" />
+            ) : (
+              section.title
+            )}
+          </Link>
+        </h1>
         {playable && (
           <div className={styles.controls}>
             <PlaybackButton
