@@ -1,0 +1,828 @@
+From 4e507365756309b1bd3cf1bfd652d34afca44552 Mon Sep 17 00:00:00 2001
+From: Ravonus <chadkoslovsky@gmail.com>
+Date: Sun, 11 Oct 2026 21:45:21 -0600
+Subject: [PATCH 1/2] Add art-montage layers, datamosh/mosaic/displace
+ transitions, loop seam and silent delivery
+
+Generic-profile extensions: stage shots composed from blended layers, bloom/chroma/pulse post effects, block-motion datamosh, stepped mosaic and chromatic displacement transitions, a seamless loop seam, and silent H.264 delivery with video-only size targeting. Reference (crucible-v3) behaviour is unchanged.
+
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+---
+ README.md                     |  28 +++++-
+ python/montage.py             | 132 ++++++++++++++++++++++++++
+ python/renderer.py            | 174 +++++++++++++++++++++++++++-------
+ src/index.mjs                 |   2 +-
+ src/schema.mjs                |  50 ++++++++--
+ test/make-montage-fixtures.py |  10 ++
+ test/montage-invariants.py    |  41 ++++++++
+ test/montage.test.mjs         |  61 ++++++++++++
+ 8 files changed, 458 insertions(+), 40 deletions(-)
+ create mode 100644 python/montage.py
+ create mode 100644 test/make-montage-fixtures.py
+ create mode 100644 test/montage-invariants.py
+ create mode 100644 test/montage.test.mjs
+
+diff --git a/README.md b/README.md
+index 4c45685..ce46b4e 100644
+--- a/README.md
++++ b/README.md
+@@ -108,7 +108,8 @@ Text uses a supplied font at native fontSize and an integer scale, without
+ antialiasing, with optional typing and deterministic flicker. Text wraps inside
+ the safe area or fails when its declared scale cannot fit.
+ 
+-Transitions: cut, dither, scanline-tear, glitch, match-cut and flash.
++Transitions: cut, dither, scanline-tear, glitch, match-cut, flash, and the art-montage transitions
++`datamosh`, `mosaic` and `displace` (see *Art montages* below).
+ Durations use local beats; pixelScale sets whole output-pixel blocks. Generic
+ dither uses the KEEL core BAYER4/BAYER2 expansion. The reference retains v3's
+ existing material ordering for exact visual parity. Match-cut sourceRect and
+@@ -128,6 +129,31 @@ truePeak and posterBeat. Posters come from actual lossless rendered frames.
+ Preview skips two-pass size targeting and uses a fast draft encode at the
+ declared resolution; composition still renders all requested frames.
+ 
++## Art montages (layers, datamosh, loop seam, silent delivery)
++
++The generic profile can build a montage of several moving works instead of one source per shot.
++All of it is declared in timeline JSON and rendered by the same deterministic worker.
++
++- `kind: "stage"` shots start from the timeline `background` and are composed only from `layers`.
++- `layers[]` place a source into a `rect` (default: the whole frame) with `crop`, `fit` (`cover` or
++  `contain`), `blend` (`normal`, `add`, `screen`, `multiply`, `difference`, `lighten`), `opacity`,
++  `fadeInBeats`/`fadeOutBeats`, a soft `mask` (`ellipse` or `rect`) with `feather`, a slow push
++  (`scaleFrom`/`scaleTo`, `driftX`/`driftY`), `loop`, `invert` and `posterize`. Sources keep their
++  orientation: nothing rotates or stretches them.
++- `post` adds a radial `bloom` halo, a radial/horizontal `chroma` split and a small `pulse` on the beat.
++- Transitions `datamosh` (the previous output is pushed along the incoming clip's block motion while its
++  change bleeds in as residual and blocks refresh to the real frame; `blockSize`, `strength`),
++  `mosaic` (stepped pixel-block resolve from `blockSize` down to 1) and `displace` (chromatic
++  displacement handover; `strength` is the peak pixel offset). All are seeded and deterministic.
++- `loop: {seamBeats, transition}` makes a seamless loop: output starts `seamBeats` into the authored
++  timeline and its last `seamBeats` hand the authored tail over to the opening, so the final frame leads
++  into the first. `seamBeats` must be shorter than the opening shot; a target's `posterBeat` must lie
++  after the lead-in.
++- Targets may set `silent: true` (no audio stream, no loudness verification) and `crf` (when there is no
++  `maxBytes`). `maxBytes` size targeting then spends the whole budget on video.
++
++Tests: `test/montage.test.mjs` and `test/montage-invariants.py`.
++
+ ## Capture adapters
+ 
+ Web requests support url, cinematicFlag (e.g. cinematic=1), width/height/fps,
+diff --git a/python/montage.py b/python/montage.py
+new file mode 100644
+index 0000000..f2fdb8e
+--- /dev/null
++++ b/python/montage.py
+@@ -0,0 +1,132 @@
++"""Layer compositing, post effects and block-based transitions for art montages.
++
++Everything here is deterministic numpy: no wall clock, no unseeded randomness.
++"""
++import numpy as np
++from PIL import Image,ImageFilter
++
++def _f(a):return a.astype(np.float32)
++def _u8(a):return np.clip(a+.5,0,255).astype(np.uint8)
++
++def blend(dst,src,alpha,mode="normal"):
++    """Composite src over dst (both HxWx3 uint8) through a per-pixel alpha in 0..1."""
++    a=alpha[...,None] if alpha.ndim==2 else alpha;d=_f(dst);s=_f(src)
++    if mode=="normal":out=d*(1-a)+s*a
++    elif mode=="add":out=d+s*a
++    elif mode=="screen":out=255-(255-d)*(255-s*a)/255
++    elif mode=="multiply":out=d*(1-a+a*s/255)
++    elif mode=="difference":out=d*(1-a)+np.abs(d-s)*a
++    elif mode=="lighten":out=d*(1-a)+np.maximum(d,s)*a
++    else:raise ValueError("Unknown blend mode "+mode)
++    return _u8(out)
++
++_masks={}
++def soft_mask(h,w,kind,feather):
++    """Alpha mask 0..1. 'ellipse' falls off radially; 'rect' feathers the edges."""
++    key=(h,w,kind,round(feather,4))
++    if key in _masks:return _masks[key]
++    if kind=="ellipse":
++        y=(np.arange(h)[:,None]+.5)/h*2-1;x=(np.arange(w)[None,:]+.5)/w*2-1
++        r=np.sqrt(x*x+y*y);edge=max(1e-3,feather);m=np.clip((1-r)/edge,0,1)
++    else:
++        y=np.minimum(np.arange(h)+.5,h-np.arange(h)-.5)/max(1,h/2);x=np.minimum(np.arange(w)+.5,w-np.arange(w)-.5)/max(1,w/2)
++        edge=max(1e-3,feather);m=np.clip(np.minimum(y[:,None],x[None,:])/edge,0,1)
++    m=m*m*(3-2*m);m=m.astype(np.float32);_masks[key]=m;return m
++
++def bloom(frame,radius,gain,threshold=.35):
++    """Additive halo from the bright parts of the frame (her radial bloom clusters)."""
++    h,w=frame.shape[:2];small=Image.fromarray(frame).resize((max(2,w//4),max(2,h//4)),Image.Resampling.BILINEAR)
++    s=_f(np.array(small))/255;lum=s.max(2,keepdims=True);gate=np.clip((lum-threshold)/max(1e-3,1-threshold),0,1)
++    glow=Image.fromarray(_u8(s*gate*255)).filter(ImageFilter.GaussianBlur(max(.5,radius/4)))
++    glow=np.array(glow.resize((w,h),Image.Resampling.BILINEAR))
++    return _u8(_f(frame)+_f(glow)*gain)
++
++def chroma(frame,pixels,radial=True):
++    """Red/blue split. Radial scales the channels about the centre (lens-like fringe)."""
++    if pixels<=0:return frame
++    h,w=frame.shape[:2];out=frame.copy()
++    if radial:
++        for ch,k in ((0,1+pixels/w),(2,1-pixels/w)):
++            im=Image.fromarray(frame[...,ch]);cx,cy=w/2,h/2
++            out[...,ch]=np.array(im.transform((w,h),Image.Transform.AFFINE,(1/k,0,cx-cx/k,0,1/k,cy-cy/k),Image.Resampling.BILINEAR))
++    else:
++        s=int(round(pixels));out[...,0]=np.roll(frame[...,0],s,axis=1);out[...,2]=np.roll(frame[...,2],-s,axis=1)
++    return out
++
++def zoom_about_center(frame,k):
++    if abs(k-1)<1e-4:return frame
++    h,w=frame.shape[:2];cx,cy=w/2,h/2
++    return np.array(Image.fromarray(frame).transform((w,h),Image.Transform.AFFINE,(1/k,0,cx-cx/k,0,1/k,cy-cy/k),Image.Resampling.BILINEAR))
++
++def ease(p):p=min(1.,max(0.,p));return p*p*(3-2*p)
++
++_noise={}
++def block_noise(h,w,bs,seed):
++    key=(h,w,bs,seed)
++    if key not in _noise:
++        rng=np.random.default_rng(seed);_noise[key]=rng.random((-(-h//bs),-(-w//bs))).astype(np.float32)
++    return _noise[key]
++
++def mosaic_mix(a,b,p,max_block,seed=7):
++    """Stepped pixel-block resolve: blocks shrink from max_block to 1 while a hands over to b per block."""
++    p=min(1.,max(0.,p))
++    if p<=0:return a
++    if p>=1:return b
++    h,w=a.shape[:2];size=max(1,int(round(max_block*(1-p)**1.6)))
++    # Quantise to a ladder so blocks step, not slide.
++    size=1<<int(np.floor(np.log2(size)))
++    def pool(f):
++        if size==1:return f
++        ph=-(-h//size)*size;pw=-(-w//size)*size
++        pad=np.pad(f,((0,ph-h),(0,pw-w),(0,0)),mode="edge");m=_f(pad).reshape(ph//size,size,pw//size,size,3).mean((1,3))
++        return _u8(np.repeat(np.repeat(m,size,0),size,1)[:h,:w])
++    pa,pb=pool(a),pool(b);noise=block_noise(h,w,size,seed+size)
++    mask=np.repeat(np.repeat(noise<ease(p),size,0),size,1)[:h,:w]
++    return np.where(mask[...,None],pb,pa)
++
++def displace_mix(a,b,p,strength,seed=7):
++    """Chromatic displacement handover: channels pull apart radially and through a slow ripple, then settle on b."""
++    p=min(1.,max(0.,p))
++    if p<=0:return a
++    if p>=1:return b
++    h,w=a.shape[:2];peak=np.sin(np.pi*p)*strength
++    ys=np.arange(h)[:,None];ripple=np.sin(ys/h*np.pi*5+p*9)*peak*.5
++    def warp(f,sign):
++        out=np.empty_like(f);xs=np.arange(w)[None,:]
++        for ch,k in ((0,1.),(1,0.),(2,-1.)):
++            sh=(ripple*(1+.4*k)+k*sign*peak).astype(np.float32);idx=np.clip((xs+sh).round().astype(int),0,w-1)
++            out[...,ch]=np.take_along_axis(f[...,ch],idx,axis=1)
++        return out
++    t=ease(p);wa=warp(a,1);wb=warp(b,-1)
++    return _u8(_f(wa)*(1-t)+_f(wb)*t)
++
++def block_motion(prev,cur,bs=16,search=3,scale=4):
++    """Per-block integer motion (dx,dy) in pixels from prev to cur, via SAD on a downsampled luma."""
++    h,w=cur.shape[:2]
++    def luma(f):
++        g=_f(f).mean(2);g=g[:h//scale*scale,:w//scale*scale].reshape(h//scale,scale,w//scale,scale).mean((1,3));return g
++    gp,gc=luma(prev),luma(cur);bh=bs//scale;gh,gw=gc.shape;by=gh//bh;bx=gw//bh
++    best=np.full((by,bx),np.inf,np.float32);mv=np.zeros((by,bx,2),np.int32)
++    gc_blocks=gc[:by*bh,:bx*bh].reshape(by,bh,bx,bh)
++    for dy in range(-search,search+1):
++        for dx in range(-search,search+1):
++            shifted=np.roll(np.roll(gp,dy,axis=0),dx,axis=1)[:by*bh,:bx*bh].reshape(by,bh,bx,bh)
++            sad=np.abs(shifted-gc_blocks).sum((1,3))+.5*(abs(dx)+abs(dy))
++            better=sad<best;best=np.where(better,sad,best);mv[better]=(dx*scale,dy*scale)
++    return mv
++
++def datamosh_step(mosh,prev_in,cur,p,bs=16,strength=1.,seed=7):
++    """One P-frame-without-I-frame step: the previous output is pushed along the incoming clip's motion,
++    the incoming clip's change bleeds in as residual, and blocks refresh to the real frame as p grows."""
++    h,w=cur.shape[:2]
++    if p>=1:return cur
++    mv=block_motion(prev_in,cur,bs) if prev_in is not None else np.zeros((h//bs,w//bs,2),np.int32)
++    by,bx=mv.shape[:2]
++    pix=np.repeat(np.repeat(mv,bs,0),bs,1)
++    yy=np.clip(np.arange(by*bs)[:,None]-pix[...,1],0,h-1);xx=np.clip(np.arange(bx*bs)[None,:]-pix[...,0],0,w-1)
++    moved=mosh.copy();moved[:by*bs,:bx*bs]=mosh[yy,xx]
++    resid=(_f(cur)-_f(prev_in if prev_in is not None else cur))*(.9*strength)
++    out=_u8(_f(moved)+resid)
++    refresh=block_noise(h,w,bs,seed)<(ease(p)**2.2)
++    mask=np.repeat(np.repeat(refresh,bs,0),bs,1)[:h,:w]
++    return np.where(mask[...,None],cur,out)
+diff --git a/python/renderer.py b/python/renderer.py
+index 4e9e0e8..35a6c24 100644
+--- a/python/renderer.py
++++ b/python/renderer.py
+@@ -5,6 +5,7 @@ import numpy as np
+ from PIL import Image,ImageDraw,ImageFont
+ from common import *
+ from materials import transition,zoom
++import montage as M
+ 
+ class Reader:
+     def __init__(self,source,target=None):
+@@ -77,6 +78,68 @@ def draw_text(canvas,card,seconds,safe):
+         im.paste(hex_color(card.get("color","#ffffff")),(x,y),mask);y+=line_height*k
+     return np.array(im)
+ 
++def lerp(a,b,u):return a+(b-a)*u
++
++def layer_patch(comp,layer,shot,b,seconds,W,H):
++    """Render one visual layer to (patch, x, y, alpha). The source is cropped, pushed in, fitted into
++    its rect and masked; nothing here changes the source's orientation."""
++    reader=comp.reader(layer["source"]);index=source_frame(layer,b,seconds,reader.fps)
++    if layer.get("loop") and getattr(reader,"count",None):index%=reader.count
++    frame=reader.frame(index);crop=layer.get("crop")
++    if crop:
++        x,y,w,h=[int(crop[k]) for k in ("x","y","width","height")];frame=frame[y:y+h,x:x+w]
++        if not frame.size:raise ValueError("Layer crop does not intersect source")
++    fh,fw=frame.shape[:2];u=min(1.,max(0.,b/shot["beats"]))
++    k=max(1.,lerp(layer.get("scaleFrom",1.),layer.get("scaleTo",layer.get("scaleFrom",1.)),u))
++    ww,wh=fw/k,fh/k;cx=fw/2+layer.get("driftX",0)*fw*(u-.5);cy=fh/2+layer.get("driftY",0)*fh*(u-.5)
++    cx=min(max(cx,ww/2),fw-ww/2);cy=min(max(cy,wh/2),fh-wh/2)
++    rect=layer.get("rect",{"x":0,"y":0,"width":W,"height":H});rw,rh=int(rect["width"]),int(rect["height"])
++    if layer.get("fit","cover")=="cover":
++        ratio=rw/rh
++        if ww/wh>ratio:ww=wh*ratio
++        else:wh=ww/ratio
++        pw,ph=rw,rh
++    else:
++        scale=min(rw/ww,rh/wh);pw,ph=max(1,round(ww*scale)),max(1,round(wh*scale))
++    x0=int(round(cx-ww/2));y0=int(round(cy-wh/2));x1=max(x0+1,int(round(cx+ww/2)));y1=max(y0+1,int(round(cy+wh/2)))
++    window=frame[max(0,y0):y1,max(0,x0):x1]
++    patch=np.array(Image.fromarray(window).resize((pw,ph),Image.Resampling.LANCZOS))
++    if layer.get("invert"):patch=255-patch
++    if layer.get("posterize"):
++        n=layer["posterize"];patch=(np.floor(patch.astype(np.float32)/256*n)*(255/(n-1))).astype(np.uint8)
++    alpha=np.ones((ph,pw),np.float32)
++    if layer.get("mask"):alpha=M.soft_mask(ph,pw,layer["mask"],layer.get("feather",.35))
++    opacity=layer.get("opacity",1.)
++    if layer.get("fadeInBeats"):opacity*=min(1.,b/layer["fadeInBeats"])
++    if layer.get("fadeOutBeats"):opacity*=min(1.,(shot["beats"]-b)/layer["fadeOutBeats"])
++    return patch,int(rect["x"]+(rw-pw)//2),int(rect["y"]+(rh-ph)//2),alpha*opacity
++
++def composite_layers(comp,frame,shot,b,seconds):
++    H,W=frame.shape[:2]
++    for layer in shot.get("layers",[]):
++        patch,x,y,alpha=layer_patch(comp,layer,shot,b,seconds,W,H)
++        ph,pw=patch.shape[:2];X0,Y0=max(0,x),max(0,y);X1,Y1=min(W,x+pw),min(H,y+ph)
++        if X1<=X0 or Y1<=Y0:continue
++        sub=(slice(Y0-y,Y1-y),slice(X0-x,X1-x))
++        frame[Y0:Y1,X0:X1]=M.blend(frame[Y0:Y1,X0:X1],patch[sub],alpha[sub],layer.get("blend","normal"))
++    return frame
++
++def apply_post(frame,post,global_beat):
++    if post.get("bloom"):
++        b=post["bloom"];frame=M.bloom(frame,b["radius"],b["gain"],b.get("threshold",.35))
++    if post.get("pulse"):
++        p=post["pulse"];frame=M.zoom_about_center(frame,1+p["amount"]*(.5-.5*math.cos(2*math.pi*global_beat/p["periodBeats"])))
++    if post.get("chroma"):frame=M.chroma(frame,post["chroma"]["pixels"],post["chroma"].get("radial",True))
++    return frame
++
++def cross_transition(a_static,prev_out,prev_in,cur,p,tr,seed):
++    kind=tr["type"];seed=tr.get("seed",seed)
++    if kind=="datamosh":return M.datamosh_step(prev_out,prev_in,cur,p,tr.get("blockSize",16),tr.get("strength",1.),seed)
++    if kind=="mosaic":return M.mosaic_mix(a_static,cur,p,tr.get("blockSize",64),seed)
++    if kind=="displace":return M.displace_mix(a_static,cur,p,tr.get("strength",24),seed)
++    raise ValueError("Unsupported cross transition "+kind)
++CROSS={"datamosh","mosaic","displace"}
++
+ class GenericCompositor:
+     def __init__(self,t,target):
+         self.t=t;self.target=target;self.shots=[]
+@@ -84,7 +147,7 @@ class GenericCompositor:
+             s=dict(shot);variant=next((v for v in s.get("rampVariants",[]) if v["target"]==target["id"]),None)
+             if variant:s["ramp"]=variant["ramp"]
+             self.shots.append(s)
+-        self.sources={s["id"]:s for s in t["sources"]};self.readers={};self.prev=None;self.frozen=None;self.shot=None
++        self.sources={s["id"]:s for s in t["sources"]};self.readers={};self.prev=None;self.frozen=None;self.shot=None;self.incoming=None
+         self.rng=np.random.default_rng(t.get("seed",7))
+     def reader(self,id):
+         if id not in self.readers:self.readers[id]=Reader(self.sources[id],self.target["id"])
+@@ -92,8 +155,10 @@ class GenericCompositor:
+     def draw(self,tt):
+         tempo=self.t["tempo"];s=next((s for s in self.shots if edit_time(tempo,s["startBeat"])<=tt<edit_time(tempo,s["startBeat"]+s["beats"])),self.shots[-1])
+         seconds=tt-edit_time(tempo,s["startBeat"]);b=local_beat(tempo,s["startBeat"],seconds);W,H=self.target["width"],self.target["height"]
+-        if self.shot is not s:self.frozen=self.prev;self.shot=s;self.readers.clear()
+-        if s["kind"]=="card":
++        if self.shot is not s:self.frozen=self.prev;self.shot=s;self.incoming=None;self.readers.clear()
++        if s["kind"]=="stage":
++            frame=np.empty((H,W,3),np.uint8);frame[:]=hex_color(self.t.get("background","#000000"))
++        elif s["kind"]=="card":
+             frame=np.empty((H,W,3),np.uint8);frame[:]=hex_color(s["text"].get("background",self.t.get("background","#000000")))
+         elif s["kind"]=="pair":
+             landscape=W>=H
+@@ -104,10 +169,12 @@ class GenericCompositor:
+             frame=np.concatenate(parts,axis=1 if landscape else 0)
+         else:
+             r=self.reader(s["source"]);frame=fit_frame(r.frame(source_frame(s,b,seconds,r.fps)),self.target,s,self.sources[s["source"]])
++        if s.get("layers"):frame=composite_layers(self,frame,s,b,seconds)
++        if s.get("post"):frame=apply_post(frame,s["post"],s["startBeat"]+b)
+         safe=self.target.get("safeArea",{"x":0,"y":0,"width":W,"height":H})
+         if s.get("text"):frame=draw_text(frame,s["text"],seconds,safe)
+         if s.get("caption"):frame=draw_text(frame,s["caption"],seconds,safe)
+-        tr=s.get("transition",{});kind=tr.get("type","cut")
++        tr=s.get("transition",{});kind=tr.get("type","cut");composed=frame
+         if kind=="match-cut":
+             source=tr.get("sourceRect")
+             if source is None:
+@@ -120,8 +187,11 @@ class GenericCompositor:
+             frame=zoom(frame,source,tr["targetRect"],p)
+         elif kind!="cut" and self.frozen is not None:
+             dur=edit_time(tempo,s["startBeat"]+tr.get("beats",.25))-edit_time(tempo,s["startBeat"])
+-            if seconds<dur:frame=transition(self.frozen,frame,seconds/max(dur,1e-9),kind,tr.get("pixelScale",1),self.rng)
+-        self.prev=frame;return frame
++            if seconds<dur:
++                p=seconds/max(dur,1e-9)
++                if kind in CROSS:frame=cross_transition(self.frozen,self.prev,self.incoming,composed,p,tr,self.t.get("seed",7))
++                else:frame=transition(self.frozen,composed,p,kind,tr.get("pixelScale",1),self.rng)
++        self.incoming=composed;self.prev=frame;return frame
+ 
+ class ReferenceCompositor:
+     def __init__(self,t,target):
+@@ -131,10 +201,35 @@ class ReferenceCompositor:
+         self.rng=np.random.default_rng(t.get("seed",7))
+     def draw(self,tt):return self.ref.render(self.layout,tt,self.rng)
+ 
+-def compositor(t,target):return ReferenceCompositor(t,target) if t.get("reference") else GenericCompositor(t,target)
++class LoopCompositor:
++    """Output starts `lead` seconds into the authored timeline. Its last `lead` seconds hand the authored
++    tail over to the opening (the seam target) with the declared transition, so the final frame is the
++    frame that precedes the first and the video can loop without a visible join."""
++    def __init__(self,t,target):
++        self.t=t;self.main=GenericCompositor(t,target);self.head=GenericCompositor(t,target)
++        tempo=t["tempo"];end=t["shots"][-1];self.lead=edit_time(tempo,t["loop"]["seamBeats"])
++        self.total=edit_time(tempo,end["startBeat"]+end["beats"])-self.lead
++        tr=t["loop"]["transition"];self.tr=tr;self.dur=edit_time(tempo,tr.get("beats",t["loop"]["seamBeats"]))
++        self.prev=None;self.head_prev=None
++    def draw(self,tt):
++        tail=self.main.draw(tt+self.lead);start=self.total-self.lead
++        if tt<start-1e-9:return tail
++        h=tt-start;head=self.head.draw(h);p=min(1.,h/max(self.dur,1e-9))
++        if p>=1:out=head
++        elif self.tr["type"] in CROSS:out=cross_transition(tail,self.prev if self.prev is not None else tail,self.head_prev,head,p,self.tr,self.t.get("seed",7))
++        else:out=transition(tail,head,p,self.tr["type"],self.tr.get("pixelScale",1),self.main.rng)
++        self.prev=out;self.head_prev=head;return out
++
++def output_seconds(t):
++    end=t["shots"][-1];total=edit_time(t["tempo"],end["startBeat"]+end["beats"])
++    return total-edit_time(t["tempo"],t["loop"]["seamBeats"]) if t.get("loop") else total
++
++def compositor(t,target):
++    if t.get("reference"):return ReferenceCompositor(t,target)
++    return LoopCompositor(t,target) if t.get("loop") else GenericCompositor(t,target)
+ 
+ def render_video(t,target,video):
+-    comp=compositor(t,target);fps=t["fps"];total=edit_time(t["tempo"],t["shots"][-1]["startBeat"]+t["shots"][-1]["beats"])
++    comp=compositor(t,target);fps=t["fps"];total=output_seconds(t)
+     # Preserve original v3 floor duration; generic timelines cover their final boundary.
+     frames=int(total*fps) if t.get("reference") else int(math.ceil(total*fps-1e-9))
+     proc=subprocess.Popen(["ffmpeg","-v","error","-y","-f","rawvideo","-pix_fmt","rgb24","-s",f'{target["width"]}x{target["height"]}',
+@@ -151,19 +246,22 @@ def render_video(t,target,video):
+     return {"frames":frames,"rgbSha256":digest.hexdigest()}
+ 
+ def mux(t,target,video,audio,final,preview):
+-    fps=t["fps"];duration=float(probe(video)["format"]["duration"])
++    fps=t["fps"];duration=float(probe(video)["format"]["duration"]);silent=target.get("silent",False)
+     common=["-c:v","libx264","-threads","1","-tune","animation","-pix_fmt","yuv420p","-profile:v","high","-movflags","+faststart",
+             "-r",str(fps),"-map_metadata","-1","-fflags","+bitexact","-flags:v","+bitexact"]
+-    aud=["-c:a","aac","-b:a","160k","-ar","48000","-flags:a","+bitexact"]
++    aud=["-an"] if silent else ["-c:a","aac","-b:a","160k","-ar","48000","-flags:a","+bitexact"]
++    inputs=["-i",str(video)] if silent else ["-i",str(video),"-i",str(audio)]
++    tail=[] if silent else ["-shortest"]
+     if preview or not target.get("maxBytes"):
+-        run(["ffmpeg","-v","error","-y","-i",str(video),"-i",str(audio),*common,"-preset","veryfast" if preview else "slow","-crf","30" if preview else "18",*aud,"-shortest",str(final)])
++        crf=str(30 if preview else target.get("crf",18))
++        run(["ffmpeg","-v","error","-y",*inputs,*common,"-preset","veryfast" if preview else "slow","-crf",crf,*aud,*tail,str(final)])
+     else:
+-        kbps=int(target["maxBytes"]*8*.95/duration/1000-160)
++        kbps=int(target["maxBytes"]*8*.95/duration/1000-(0 if silent else 160))
+         if kbps<64:raise ValueError("Size cap cannot fit audio and video")
+         log=str(final.with_suffix(".pass"))
+         for attempt in range(3):
+             run(["ffmpeg","-v","error","-y","-i",str(video),*common,"-preset","slow","-b:v",str(kbps)+"k","-pass","1","-passlogfile",log,"-an","-f","mp4","/dev/null"])
+-            run(["ffmpeg","-v","error","-y","-i",str(video),"-i",str(audio),*common,"-preset","slow","-b:v",str(kbps)+"k","-pass","2","-passlogfile",log,*aud,"-shortest",str(final)])
++            run(["ffmpeg","-v","error","-y",*inputs,*common,"-preset","slow","-b:v",str(kbps)+"k","-pass","2","-passlogfile",log,*aud,*tail,str(final)])
+             if final.stat().st_size<=target["maxBytes"]:break
+             kbps=int(kbps*target["maxBytes"]/final.stat().st_size*.97)
+         if final.stat().st_size>target["maxBytes"]:raise ValueError("Encoded file exceeds size cap")
+@@ -217,18 +315,19 @@ def contact_sheet(paths,out):
+ 
+ def render(t,out,preview=False,targets=None):
+     out=Path(out);out.mkdir(parents=True,exist_ok=True);work=out/"work";work.mkdir(exist_ok=True)
+-    raw=audio_mix(t,work/"mix-raw.wav");items=[]
++    raw=audio_mix(t,work/"mix-raw.wav") if any(not x.get("silent") for x in t["targets"] if not targets or x["id"] in targets) else None;items=[]
+     for target in t["targets"]:
+         if targets and target["id"] not in targets:continue
+-        audio=work/f'mix-{target["id"]}.wav'
+-        normalize(raw,audio,target.get("loudness",-14),target.get("truePeak",-1.5),"lowpass=f=9000,highpass=f=35" if t.get("reference") else "")
++        silent=target.get("silent",False);audio=None if silent else work/f'mix-{target["id"]}.wav'
++        if not silent:normalize(raw,audio,target.get("loudness",-14),target.get("truePeak",-1.5),"lowpass=f=9000,highpass=f=35" if t.get("reference") else "")
+         video=work/f'video-{target["id"]}.mkv';pixels=render_video(t,target,video)
+         final=out/f'{t["name"]}-{target["id"]}.mp4';mux(t,target,video,audio,final,preview)
+-        audio_result=ensure_delivery_audio(t,target,raw,audio,final)
++        audio_result=None if silent else ensure_delivery_audio(t,target,raw,audio,final)
+         frames=pixels["frames"]
+         # Poster comes from exact rendered output frame, not an independently seeded draw.
+-        poster=out/f'poster-{target["id"]}.png';time=edit_time(t["tempo"],target.get("posterBeat",t["shots"][-1]["startBeat"]))
+-        export_frame(video,min(time,(frames-1)/t["fps"]),poster)
++        poster=out/f'poster-{target["id"]}.png';lead=edit_time(t["tempo"],t["loop"]["seamBeats"]) if t.get("loop") else 0
++        time=edit_time(t["tempo"],target.get("posterBeat",t["shots"][-1]["startBeat"]))-lead
++        export_frame(video,max(0,min(time,(frames-1)/t["fps"])),poster)
+         items.append({"target":target["id"],"path":str(final),"bytes":final.stat().st_size,"sha256":sha(final),"losslessPath":str(video),"poster":str(poster),"audio":audio_result,**pixels})
+     manifest={"version":1,"preview":preview,"outputs":items,"inputs":[{"id":s["id"],"sha256":sha(s["path"])} for s in t["sources"]],
+               "timelineSha256":hashlib.sha256(json.dumps(t,sort_keys=True,separators=(",",":")).encode()).hexdigest(),
+@@ -240,29 +339,40 @@ def render(t,out,preview=False,targets=None):
+     return manifest
+ 
+ def verify(t,out,tolerance=15,loudnessTolerance=.5):
+-    out=Path(out);manifest=json.loads((out/"render.json").read_text());cuts=[edit_time(t["tempo"],s["startBeat"]) for s in t["shots"][1:]]
++    out=Path(out);manifest=json.loads((out/"render.json").read_text())
++    lead=edit_time(t["tempo"],t["loop"]["seamBeats"]) if t.get("loop") else 0
++    cuts=[c-lead for c in (edit_time(t["tempo"],s["startBeat"]) for s in t["shots"][1:]) if c-lead>0]
+     bed=next((s for s in t["sources"] if s["id"]==t["tempo"].get("audioSource")),None)
+     bed_layer=next((l for l in t.get("audio",[]) if l["source"]==t["tempo"].get("audioSource") and l["role"]=="bed"),None)
+-    offset=bed_layer.get("in",beat_time(t["tempo"],0)) if bed_layer else beat_time(t["tempo"],0)
+-    beat=attack_report(bed["path"],cuts,offset,tolerance) if bed else {"passed":False,"reason":"No declared tempo.audioSource to measure attacks"}
++    offset=(bed_layer.get("in",beat_time(t["tempo"],0)) if bed_layer else beat_time(t["tempo"],0))+lead
++    needs_audio=any(not x.get("silent") for x in t["targets"] if any(i["target"]==x["id"] for i in manifest["outputs"]))
++    if bed:beat=attack_report(bed["path"],cuts,offset,tolerance)
++    elif needs_audio:beat={"passed":False,"reason":"No declared tempo.audioSource to measure attacks"}
++    else:beat={"passed":True,"skipped":"All verified targets are silent web deliveries; there is no audio to align."}
+     rows=[];pics=[];framecuts=[math.ceil(c*t["fps"]-1e-9)/t["fps"] for c in cuts]
+     encoded=attack_report(bed["path"],framecuts,offset,tolerance+1000/t["fps"]) if bed else None
+     for item in manifest["outputs"]:
+-        target=next(x for x in t["targets"] if x["id"]==item["target"]);path=Path(item["path"])
+-        loud=loudness(path);budget=target.get("maxBytes")
+-        okI=loud["integratedLUFS"] is not None and abs(loud["integratedLUFS"]-target.get("loudness",-14))<=loudnessTolerance
+-        # AAC can introduce small true-peak overshoot, measured on delivery bytes.
+-        okTP=loud["truePeakDBTP"] is not None and loud["truePeakDBTP"]<=target.get("truePeak",-1.5)+.1
+-        delivered=attack_report(path,framecuts,0,tolerance+1000/t["fps"]) if bed else None
++        target=next(x for x in t["targets"] if x["id"]==item["target"]);path=Path(item["path"]);silent=target.get("silent",False)
++        budget=target.get("maxBytes")
+         info=probe(path);v=next(x for x in info["streams"] if x["codec_type"]=="video");dimensions=v["width"]==target["width"] and v["height"]==target["height"]
+-        times=[cuts[0] if cuts else 0,cuts[len(cuts)//2] if cuts else 0,max(0,float(info["format"]["duration"])-1)]
++        has_audio=any(x["codec_type"]=="audio" for x in info["streams"])
++        if silent:
++            loud={"integratedLUFS":None,"truePeakDBTP":None,"rangeLU":None};okI=okTP=not has_audio;delivered=None
++        else:
++            loud=loudness(path)
++            okI=loud["integratedLUFS"] is not None and abs(loud["integratedLUFS"]-target.get("loudness",-14))<=loudnessTolerance
++            # AAC can introduce small true-peak overshoot, measured on delivery bytes.
++            okTP=loud["truePeakDBTP"] is not None and loud["truePeakDBTP"]<=target.get("truePeak",-1.5)+.1
++            delivered=attack_report(path,framecuts,0,tolerance+1000/t["fps"]) if bed else None
++        dur=float(info["format"]["duration"])
++        times=[cuts[0] if cuts else 0,cuts[len(cuts)//2] if cuts else 0,max(0,dur-1)]
+         for k,ts in enumerate(times):
+             img=out/f'verify-{target["id"]}-{k}.png'
+-            export_frame(path,ts,img);pics.append(str(img))
++            export_frame(path,min(ts,max(0,dur-1/t["fps"])),img);pics.append(str(img))
+         intact=sha(path)==item["sha256"]
+-        rows.append({"target":item["target"],"path":str(path),**loud,"loudnessPassed":okI,"truePeakPassed":okTP,"bytes":path.stat().st_size,
++        rows.append({"target":item["target"],"path":str(path),**loud,"silent":silent,"hasAudioStream":has_audio,"loudnessPassed":okI,"truePeakPassed":okTP,"bytes":path.stat().st_size,
+                      "deliveredAttackAlignment":delivered,"maxBytes":budget,"sizePassed":budget is None or path.stat().st_size<=budget,"hashPassed":intact,"dimensionsPassed":dimensions,
+-                     "duration":float(info["format"]["duration"]),"passed":okI and okTP and dimensions and intact and (delivered is None or delivered["passed"]) and (budget is None or path.stat().st_size<=budget)})
++                     "duration":dur,"passed":okI and okTP and dimensions and intact and (delivered is None or delivered["passed"]) and (budget is None or path.stat().st_size<=budget)})
+     result={"version":1,"beatAlignment":beat,"quantizedFrameAlignment":encoded,
+             "encodedAttackToleranceMs":tolerance+1000/t["fps"],"frameQuantization":[{"cut":c,"frame":math.ceil(c*t["fps"]-1e-9),"deltaMs":round((q-c)*1000,3)} for c,q in zip(cuts,framecuts)],
+             "outputs":rows,"stillsSheet":str(contact_sheet(pics,out/"verification-sheet.png")),
+diff --git a/src/index.mjs b/src/index.mjs
+index d733b27..508a4ae 100644
+--- a/src/index.mjs
++++ b/src/index.mjs
+@@ -145,7 +145,7 @@ export async function runTrailerTool(name,input,{workspaceRoot='.',python,log,si
+   x.timeline=await resolveTimeline(root,x,context);delete x.timelinePath;
+   if(x.targets && x.targets.some(id=>!x.timeline.targets.some(t=>t.id===id)))throw Error('Unknown target');
+   if(name==='trailer-stills'){
+-    const end=x.timeline.shots.at(-1);const total=editSeconds(x.timeline.tempo,end.startBeat+end.beats);
++    const end=x.timeline.shots.at(-1);const total=editSeconds(x.timeline.tempo,end.startBeat+end.beats)-(x.timeline.loop?editSeconds(x.timeline.tempo,x.timeline.loop.seamBeats):0);
+     if(x.times.some(t=>t>=total))throw Error('Still time falls outside timeline');
+   }
+   if(x.outDir)x.outDir=await output(root,x.outDir);
+diff --git a/src/schema.mjs b/src/schema.mjs
+index 843db44..7c71497 100644
+--- a/src/schema.mjs
++++ b/src/schema.mjs
+@@ -15,7 +15,9 @@ const point = obj({beat:nonneg,frame:uint}, ['beat','frame']);
+ const target = obj({
+   id:{type:'string',pattern:'^[a-zA-Z0-9_-]{1,80}$'}, width:integer,height:integer,
+   safeArea:rect,crop:rect,maxBytes:integer,loudness:{type:'number',minimum:-70,maximum:-5},
+-  truePeak:{type:'number',minimum:-9,maximum:0},posterBeat:nonneg
++  truePeak:{type:'number',minimum:-9,maximum:0},posterBeat:nonneg,
++  // Web delivery: no audio stream at all (autoplay-muted media), and an explicit x264 CRF when no byte cap applies.
++  silent:bool,crf:{type:'integer',minimum:10,maximum:40}
+ }, ['id','width','height']);
+ const source = obj({
+   id:{type:'string',pattern:'^[a-zA-Z0-9_-]{1,80}$'},kind:{enum:['web','gameboy','video','image','audio']},
+@@ -23,8 +25,10 @@ const source = obj({
+   variants:array(obj({target:str,path:str,metadataPath:str}, ['target','path']))
+ }, ['id','kind','path']);
+ const transition = obj({
+-  type:{enum:['cut','dither','scanline-tear','glitch','match-cut','flash']}, beats:nonneg,
++  type:{enum:['cut','dither','scanline-tear','glitch','match-cut','flash','datamosh','mosaic','displace']}, beats:nonneg,
+   pixelScale:integer,sourceRect:rect,targetRect:rect,rectSelector:str,zoomStartBeat:nonneg,
++  // datamosh: block size and residual strength; mosaic: largest block; displace: peak channel offset in pixels.
++  blockSize:integer,strength:nonneg,seed:uint,
+   // The CRUCIBLE reference preserves its original drop/head durations.
+   referenceEffect:{enum:['cut','drop','glitch-in','tear','dither-in']}
+ }, ['type']);
+@@ -32,10 +36,23 @@ const text = obj({
+   lines:array(str,1),font:str,fontSize:integer,scale:integer,color:color,background:color,
+   typingCps:pos,flicker:bool,x:num,y:num
+ }, ['lines','font']);
++const blendMode = {enum:['normal','add','screen','multiply','difference','lighten']};
++const visualLayer = obj({
++  source:str,in:nonneg,out:nonneg,speed:nonneg,holdFrame:uint,ramp:array(point,2),loop:bool,
++  crop:rect,fit:{enum:['contain','cover']},rect,blend:blendMode,opacity:{type:'number',minimum:0,maximum:1},
++  fadeInBeats:nonneg,fadeOutBeats:nonneg,mask:{enum:['rect','ellipse']},feather:{type:'number',minimum:0,maximum:1},
++  // Slow push through the source (1 = full crop) and drift as a fraction of the source.
++  scaleFrom:pos,scaleTo:pos,driftX:num,driftY:num,invert:bool,posterize:{type:'integer',minimum:2,maximum:32}
++}, ['source']);
++const post = obj({
++  bloom:obj({radius:pos,gain:nonneg,threshold:{type:'number',minimum:0,maximum:1}},['radius','gain']),
++  chroma:obj({pixels:nonneg,radial:bool},['pixels']),
++  pulse:obj({periodBeats:pos,amount:{type:'number',minimum:0,maximum:.1}},['periodBeats','amount'])
++});
+ const shot = obj({
+-  id:str,startBeat:nonneg,beats:pos,kind:{enum:['video','image','pair','card','opening','end']},
++  id:str,startBeat:nonneg,beats:pos,kind:{enum:['video','image','pair','card','opening','end','stage']},
+   source:str,secondSource:str,in:nonneg,out:nonneg,speed:nonneg,ramp:array(point,2),rampVariants:array(obj({target:str,ramp:array(point,2)},['target','ramp'])),
+-  holdFrame:uint,transition,text,caption:text,
++  holdFrame:uint,transition,text,caption:text,layers:array(visualLayer),post,
+   fit:{enum:['contain','cover','integer']},pixelScale:integer,crop:rect,
+   energy:bool,stutter:bool,shake:bool
+ }, ['id','startBeat','beats','kind']);
+@@ -48,6 +65,9 @@ const tempo = obj({
+   bpm:pos,beatSeconds:pos,firstDownbeat:nonneg,beats:array(nonneg,2),
+   audioSource:str,mode:{enum:['declared','detected']},onsets:array(nonneg)
+ });
++// The final seamBeats are authored tail that is cross-handed into the opening, and the
++// output starts at the opening's seamBeats mark, so the last frame flows into the first.
++const loop = obj({seamBeats:pos,transition},['seamBeats','transition']);
+ const reference = obj({
+   profile:{enum:['crucible-v3']},capturesRoot:str,font:str,
+   title:str,subtitle:str,url:str,handle:str
+@@ -59,7 +79,7 @@ export const TIMELINE_SCHEMA = {
+   ...obj({
+     version:{const:1},name:{type:'string',pattern:'^[a-zA-Z0-9_-]{1,80}$'},fps:integer,seed:uint,tempo,
+     sources:array(source,1),shots:array(shot,1),audio:array(layer),
+-    targets:array(target,1),background:color,reference,brief:str
++    targets:array(target,1),background:color,reference,loop,brief:str
+   }, ['version','name','fps','tempo','sources','shots','targets'])
+ };
+ const button = {enum:['a','b','start','select','up','down','left','right']};
+@@ -136,7 +156,17 @@ export function validateTimeline(t) {
+     if(Math.abs(s.startBeat-end)>1e-8)err(at+'.startBeat','shots must cover the timeline consecutively without gaps or overlap');
+     end=s.startBeat+s.beats;
+     if(s.kind==='card' && !s.text)err(at+'.text','card requires text');
+-    if(s.kind!=='card' && (!s.source || !ids.has(s.source)))err(at+'.source','unknown source');
++    if(s.kind==='stage' && !s.layers?.length)err(at+'.layers','stage requires at least one layer');
++    if(s.kind==='stage' && s.source)err(at+'.source','stage composes layers only');
++    if(!['card','stage'].includes(s.kind) && (!s.source || !ids.has(s.source)))err(at+'.source','unknown source');
++    for(const [j,l] of (s.layers??[]).entries()){
++      const lat=at+'.layers['+j+']';
++      if(!ids.has(l.source) || t.sources.find(x=>x.id===l.source)?.kind==='audio')err(lat+'.source','must refer to a visual source');
++      if(l.in!==undefined && l.out!==undefined && l.out<=l.in)err(lat+'.out','must exceed in');
++      if(l.ramp && (l.ramp[0].beat!==0 || l.ramp.at(-1).beat!==s.beats || l.ramp.some((p,k)=>k && p.beat<=l.ramp[k-1].beat)))err(lat+'.ramp','ramp must span 0..beats in increasing beat order');
++      if((l.fadeInBeats??0)+(l.fadeOutBeats??0)>s.beats)err(lat,'layer fades exceed shot');
++    }
++    if(s.kind==='stage' && s.transition?.type==='match-cut')err(at+'.transition','match-cut needs a single source shot');
+     if(s.source && t.sources.find(x=>x.id===s.source)?.kind==='audio')err(at+'.source','visual shot cannot use audio');
+     if(s.kind==='pair' && (!s.secondSource || !ids.has(s.secondSource)))err(at+'.secondSource','pair requires second source');
+     if(['opening','end'].includes(s.kind) && !t.reference)err(at+'.kind','requires crucible-v3 profile');
+@@ -157,11 +187,19 @@ export function validateTimeline(t) {
+     if(l.startBeat>=end)err('$.audio['+i+'].startBeat','outside timeline');
+     if(l.in!==undefined && l.out!==undefined && l.out<=l.in)err('$.audio['+i+'].out','must exceed in');
+   }
++  if(t.loop){
++    if(t.reference)err('$.loop','loop belongs to the generic profile');
++    if(t.loop.seamBeats>=end)err('$.loop.seamBeats','must be shorter than the timeline');
++    if(t.shots[0] && t.loop.seamBeats>=t.shots[0].beats)err('$.loop.seamBeats','must be shorter than the opening shot, which is the seam target');
++    if(t.loop.transition.type==='match-cut')err('$.loop.transition.type','match-cut cannot bridge a loop seam');
++    if((t.loop.transition.beats??t.loop.seamBeats)>t.loop.seamBeats)err('$.loop.transition.beats','exceeds seam');
++  }
+   for(const [i,o] of t.targets.entries()) {
+     if(o.width%2 || o.height%2)err('$.targets['+i+']','H.264 dimensions must be even');
+     const r=o.safeArea;
+     if(r && (r.x<0 || r.y<0 || r.x+r.width>o.width || r.y+r.height>o.height))err('$.targets['+i+'].safeArea','outside output');
+     if(o.posterBeat!==undefined && o.posterBeat>=end)err('$.targets['+i+'].posterBeat','outside timeline');
++    if(o.posterBeat!==undefined && t.loop && o.posterBeat<t.loop.seamBeats)err('$.targets['+i+'].posterBeat','falls in the loop lead-in that is not part of the output');
+   }
+   return {valid:issues.length===0,issues};
+ }
+diff --git a/test/make-montage-fixtures.py b/test/make-montage-fixtures.py
+new file mode 100644
+index 0000000..66fead0
+--- /dev/null
++++ b/test/make-montage-fixtures.py
+@@ -0,0 +1,10 @@
++import numpy as np,subprocess,sys
++from PIL import Image
++from pathlib import Path
++p=Path(sys.argv[1]);rng=np.random.default_rng(5)
++y,x=np.mgrid[0:120,0:160]
++for name,cx,cy,col in (('still-a.png',60,50,(255,60,120)),('still-b.png',100,70,(255,190,40))):
++    r=np.sqrt((x-cx)**2+(y-cy)**2);im=np.zeros((120,160,3),np.float32)
++    for c in range(3):im[...,c]=np.clip(col[c]*np.exp(-(r/38)**2),0,255)
++    Image.fromarray(im.astype(np.uint8)).save(p/name)
++subprocess.run(['ffmpeg','-v','error','-y','-f','lavfi','-i','testsrc2=size=160x120:rate=12:duration=6','-pix_fmt','yuv420p','-c:v','libx264',str(p/'motion.mp4')],check=True)
+diff --git a/test/montage-invariants.py b/test/montage-invariants.py
+new file mode 100644
+index 0000000..c0580d0
+--- /dev/null
++++ b/test/montage-invariants.py
+@@ -0,0 +1,41 @@
++"""Pixel invariants for layer blending, post effects and block-based transitions."""
++import sys
++from pathlib import Path
++sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'python'))
++import numpy as np
++import montage as M
++rng=np.random.default_rng(1)
++a=rng.integers(0,255,(64,96,3),dtype=np.uint8);b=rng.integers(0,255,(64,96,3),dtype=np.uint8)
++one=np.ones((64,96),np.float32);zero=np.zeros((64,96),np.float32)
++# Blend modes keep their algebra and never leave 0..255.
++assert np.array_equal(M.blend(a,b,zero,'add'),a) and np.array_equal(M.blend(a,b,one,'normal'),b)
++assert np.all(M.blend(a,b,one,'add')>=np.maximum(a,b)-1) and M.blend(a,b,one,'add').max()<=255
++assert np.all(M.blend(a,b,one,'screen').astype(int)>=np.maximum(a,b).astype(int)-1)
++assert np.all(M.blend(a,b,one,'multiply').astype(int)<=np.minimum(a,b).astype(int)+1)
++assert np.array_equal(M.blend(a,b,one,'difference'),M.blend(b,a,one,'difference'))
++assert np.array_equal(M.blend(a,b,one,'lighten'),np.maximum(a,b))
++black=np.zeros_like(a)
++assert np.array_equal(M.blend(black,b,one,'screen'),b) and np.array_equal(M.blend(black,b,one,'add'),b)
++# Masks are bounded, soft and centred.
++for kind in ('ellipse','rect'):
++    m=M.soft_mask(40,60,kind,.4);assert m.min()>=0 and m.max()<=1 and m[20,30]==1 and m[0,0]<.05
++# Bloom adds light around bright pixels and never darkens.
++dark=np.zeros((64,96,3),np.uint8);dark[24:40,40:56]=255;glow=M.bloom(dark,6,1.2,.2)
++assert glow[32,60].sum()>0 and np.all(glow>=dark) and glow[32,48].min()==255
++# Mosaic and displace: exact endpoints, determinism, genuine block steps.
++for fn,args in ((M.mosaic_mix,(32,)),(M.displace_mix,(20,))):
++    assert np.array_equal(fn(a,b,0,*args),a) and np.array_equal(fn(a,b,1,*args),b)
++    x=fn(a,b,.5,*args);assert np.array_equal(x,fn(a,b,.5,*args)) and not np.array_equal(x,a) and not np.array_equal(x,b)
++mid=M.mosaic_mix(a,b,.5,32,seed=3);size=1<<int(np.floor(np.log2(max(1,round(32*(1-.5)**1.6)))))
++assert all(np.unique(mid[y:y+size,x:x+size].reshape(-1,3),axis=0).shape[0]==1 for y in range(0,64-size+1,size) for x in range(0,96-size+1,size))
++assert not np.array_equal(M.mosaic_mix(a,b,.5,32,seed=3),M.mosaic_mix(a,b,.5,32,seed=4))
++# Block motion recovers a known whole-pixel translation, and datamosh pushes the old frame along it.
++base=rng.integers(0,255,(96,160,3),dtype=np.uint8);moved=np.roll(base,8,axis=1)
++mv=M.block_motion(base,moved,16);interior=mv[1:-1,2:-2]
++assert (interior[...,0]==8).mean()>.9 and (interior[...,1]==0).mean()>.9,interior
++old=rng.integers(0,255,(96,160,3),dtype=np.uint8)
++smear=M.datamosh_step(old,base,moved,0.,16,0.,7)
++assert np.array_equal(smear[16:80,48:112],np.roll(old,8,axis=1)[16:80,48:112]) or (smear[16:80,48:112]==np.roll(old,8,axis=1)[16:80,48:112]).mean()>.9
++assert np.array_equal(M.datamosh_step(old,base,moved,1.,16,1.,7),moved)
++r1=M.datamosh_step(old,base,moved,.5,16,1.,7);assert np.array_equal(r1,M.datamosh_step(old,base,moved,.5,16,1.,7))
++print('ok')
+diff --git a/test/montage.test.mjs b/test/montage.test.mjs
+new file mode 100644
+index 0000000..45b69a9
+--- /dev/null
++++ b/test/montage.test.mjs
+@@ -0,0 +1,61 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {mkdtemp,rm} from 'node:fs/promises';
++import os from 'node:os';
++import path from 'node:path';
++import {spawnSync} from 'node:child_process';
++import {fileURLToPath} from 'node:url';
++import {runTrailerTool,validateTimeline} from '../src/index.mjs';
++const python=process.env.TRAILER_PYTHON??'python3';
++const fixtures=root=>{const r=spawnSync(python,[fileURLToPath(new URL('make-montage-fixtures.py',import.meta.url)),root],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);};
++const base=()=>({version:1,name:'mont',fps:12,seed:7,tempo:{bpm:120,firstDownbeat:0},
++  sources:[{id:'a',kind:'image',path:'still-a.png'},{id:'b',kind:'image',path:'still-b.png'},{id:'m',kind:'video',path:'motion.mp4'}],
++  shots:[
++   {id:'open',kind:'stage',startBeat:0,beats:4,layers:[{source:'m',blend:'normal',fit:'cover'},{source:'a',blend:'add',opacity:.6,mask:'ellipse',feather:.6,rect:{x:20,y:10,width:80,height:60},scaleFrom:1,scaleTo:1.2}],post:{bloom:{radius:8,gain:.5},chroma:{pixels:1}}},
++   {id:'mosh',kind:'stage',startBeat:4,beats:4,transition:{type:'datamosh',beats:1.5,blockSize:16},layers:[{source:'m',in:2,fit:'cover'},{source:'b',blend:'screen',opacity:.8,fit:'contain',invert:true}]},
++   {id:'mosaic',kind:'stage',startBeat:8,beats:4,transition:{type:'mosaic',beats:1,blockSize:32},layers:[{source:'b',fit:'cover'},{source:'m',blend:'difference',opacity:.5,loop:true}]},
++   {id:'tail',kind:'stage',startBeat:12,beats:4,transition:{type:'displace',beats:1,strength:12},layers:[{source:'a',fit:'cover',posterize:6},{source:'m',blend:'lighten',opacity:.7}],post:{pulse:{periodBeats:4,amount:.02}}}],
++  targets:[{id:'web',width:160,height:96,silent:true,maxBytes:400000,posterBeat:6},{id:'tall',width:96,height:128,silent:true,crf:26}],
++  loop:{seamBeats:2,transition:{type:'datamosh',beats:1.5,blockSize:16}}});
++const frames=(file,w,h)=>{const r=spawnSync('ffmpeg',['-v','error','-i',file,'-f','rawvideo','-pix_fmt','rgb24','-'],{maxBuffer:1<<28});assert.equal(r.status,0,r.stderr?.toString());const n=w*h*3;return Array.from({length:r.stdout.length/n},(_,i)=>r.stdout.subarray(i*n,(i+1)*n));};
++const diff=(x,y)=>{let d=0;for(let i=0;i<x.length;i++)d+=Math.abs(x[i]-y[i]);return d/x.length;};
++test('layers, post effects and cross transitions render deterministically with silent delivery and a smooth loop',async()=>{
++  const root=await mkdtemp(path.join(os.tmpdir(),'keel-trailer-montage-'));
++  try{
++    fixtures(root);const timeline=base();assert.ok(validateTimeline(timeline).valid,JSON.stringify(validateTimeline(timeline).issues));
++    const opts={workspaceRoot:root,python};
++    const one=await runTrailerTool('trailer-render',{timeline,outDir:'one'},opts);
++    const two=await runTrailerTool('trailer-render',{timeline,outDir:'two'},opts);
++    // 16 authored beats minus a 2-beat lead-in at 0.5 s/beat = 7 s at 12 fps.
++    for(let i=0;i<2;i++){assert.equal(one.outputs[i].frames,84);assert.equal(one.outputs[i].rgbSha256,two.outputs[i].rgbSha256);assert.equal(one.outputs[i].audio,null);}
++    assert.ok(one.outputs[0].bytes<=400000);
++    const streams=spawnSync('ffprobe',['-v','error','-show_entries','stream=codec_type','-of','csv=p=0',one.outputs[0].path],{encoding:'utf8'}).stdout.trim().split('\n');
++    assert.deepEqual(streams,['video'],'silent target carries no audio stream');
++    const clip=frames(one.outputs[0].losslessPath,160,96);assert.equal(clip.length,84);
++    const steps=clip.slice(1).map((f,i)=>diff(clip[i],f)).sort((p,q)=>p-q);const median=steps[steps.length>>1];
++    // The join is as continuous as the video's own consecutive frames, not a cut.
++    assert.ok(diff(clip.at(-1),clip[0])<=Math.max(3*median,2),'loop join '+diff(clip.at(-1),clip[0])+' vs median '+median);
++    // Transitions are real: their frames differ from both neighbours' endpoints.
++    assert.ok(new Set(clip.map(f=>f.subarray(0,4096).join())).size>60);
++    const verification=await runTrailerTool('trailer-verify',{timeline,renderDir:'one'},opts);
++    assert.ok(verification.passed,JSON.stringify(verification.outputs));assert.equal(verification.beatAlignment.skipped.length>0,true);
++    const still=await runTrailerTool('trailer-stills',{timeline,outDir:'stills',times:[0,3.2],targets:['web']},opts);
++    assert.equal(still.stills.length,2);
++    await assert.rejects(()=>runTrailerTool('trailer-stills',{timeline,outDir:'bad',times:[7.1]},opts),/outside timeline/);
++  }finally{await rm(root,{recursive:true,force:true});}
++});
++test('schema rejects malformed layers, stage shots and loop seams',()=>{
++  const bad=(edit,message)=>{const t=base();edit(t);const r=validateTimeline(t);assert.equal(r.valid,false);assert.ok(r.issues.some(i=>i.message.includes(message)),JSON.stringify(r.issues));};
++  bad(t=>{t.shots[0].layers=[];},'stage requires');
++  bad(t=>{t.shots[0].layers[0].source='nope';},'visual source');
++  bad(t=>{t.shots[0].layers[0].blend='burn';},'unsupported');
++  bad(t=>{t.shots[0].layers[1].opacity=2;},'out of range');
++  bad(t=>{t.loop.seamBeats=4;},'shorter than the opening');
++  bad(t=>{t.loop.transition.type='match-cut';},'cannot bridge');
++  bad(t=>{t.targets[0].posterBeat=1;},'lead-in');
++  bad(t=>{t.shots[1].layers[0].fadeInBeats=5;},'fades exceed');
++});
++test('layer blends, masks, bloom, mosaic, displacement and datamosh keep their pixel invariants',()=>{
++  const r=spawnSync(python,[fileURLToPath(new URL('montage-invariants.py',import.meta.url))],{encoding:'utf8'});
++  assert.equal(r.status,0,r.stderr);
++});
+-- 
+2.47.1
+
+
+From 00d3d09d7d9c7df37406f635368f7f4aa97593f5 Mon Sep 17 00:00:00 2001
+From: Ravonus <chadkoslovsky@gmail.com>
+Date: Sun, 11 Oct 2026 21:47:21 -0600
+Subject: [PATCH 2/2] Add layer black point and per-target rect variants
+
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+---
+ python/renderer.py    | 5 ++++-
+ src/schema.mjs        | 7 ++++++-
+ test/montage.test.mjs | 4 +++-
+ 3 files changed, 13 insertions(+), 3 deletions(-)
+
+diff --git a/python/renderer.py b/python/renderer.py
+index 35a6c24..ad416c7 100644
+--- a/python/renderer.py
++++ b/python/renderer.py
+@@ -93,7 +93,8 @@ def layer_patch(comp,layer,shot,b,seconds,W,H):
+     k=max(1.,lerp(layer.get("scaleFrom",1.),layer.get("scaleTo",layer.get("scaleFrom",1.)),u))
+     ww,wh=fw/k,fh/k;cx=fw/2+layer.get("driftX",0)*fw*(u-.5);cy=fh/2+layer.get("driftY",0)*fh*(u-.5)
+     cx=min(max(cx,ww/2),fw-ww/2);cy=min(max(cy,wh/2),fh-wh/2)
+-    rect=layer.get("rect",{"x":0,"y":0,"width":W,"height":H});rw,rh=int(rect["width"]),int(rect["height"])
++    rect=next((v["rect"] for v in layer.get("rectVariants",[]) if v["target"]==comp.target["id"]),layer.get("rect",{"x":0,"y":0,"width":W,"height":H}))
++    rw,rh=int(rect["width"]),int(rect["height"])
+     if layer.get("fit","cover")=="cover":
+         ratio=rw/rh
+         if ww/wh>ratio:ww=wh*ratio
+@@ -104,6 +105,8 @@ def layer_patch(comp,layer,shot,b,seconds,W,H):
+     x0=int(round(cx-ww/2));y0=int(round(cy-wh/2));x1=max(x0+1,int(round(cx+ww/2)));y1=max(y0+1,int(round(cy+wh/2)))
+     window=frame[max(0,y0):y1,max(0,x0):x1]
+     patch=np.array(Image.fromarray(window).resize((pw,ph),Image.Resampling.LANCZOS))
++    if layer.get("blackPoint"):
++        bp=layer["blackPoint"]*255;patch=np.clip((patch.astype(np.float32)-bp)*(255/(255-bp))+.5,0,255).astype(np.uint8)
+     if layer.get("invert"):patch=255-patch
+     if layer.get("posterize"):
+         n=layer["posterize"];patch=(np.floor(patch.astype(np.float32)/256*n)*(255/(n-1))).astype(np.uint8)
+diff --git a/src/schema.mjs b/src/schema.mjs
+index 7c71497..c9ad8fc 100644
+--- a/src/schema.mjs
++++ b/src/schema.mjs
+@@ -42,7 +42,11 @@ const visualLayer = obj({
+   crop:rect,fit:{enum:['contain','cover']},rect,blend:blendMode,opacity:{type:'number',minimum:0,maximum:1},
+   fadeInBeats:nonneg,fadeOutBeats:nonneg,mask:{enum:['rect','ellipse']},feather:{type:'number',minimum:0,maximum:1},
+   // Slow push through the source (1 = full crop) and drift as a fraction of the source.
+-  scaleFrom:pos,scaleTo:pos,driftX:num,driftY:num,invert:bool,posterize:{type:'integer',minimum:2,maximum:32}
++  scaleFrom:pos,scaleTo:pos,driftX:num,driftY:num,invert:bool,posterize:{type:'integer',minimum:2,maximum:32},
++  // Levels: values at or below blackPoint (0..0.5 of full scale) become pure black, so grounds that are not quite black can sit on the stage.
++  blackPoint:{type:'number',minimum:0,maximum:.5},
++  // Per-target placement, like rampVariants: one timeline can compose desktop and mobile frames differently.
++  rectVariants:array(obj({target:str,rect},['target','rect']))
+ }, ['source']);
+ const post = obj({
+   bloom:obj({radius:pos,gain:nonneg,threshold:{type:'number',minimum:0,maximum:1}},['radius','gain']),
+@@ -165,6 +169,7 @@ export function validateTimeline(t) {
+       if(l.in!==undefined && l.out!==undefined && l.out<=l.in)err(lat+'.out','must exceed in');
+       if(l.ramp && (l.ramp[0].beat!==0 || l.ramp.at(-1).beat!==s.beats || l.ramp.some((p,k)=>k && p.beat<=l.ramp[k-1].beat)))err(lat+'.ramp','ramp must span 0..beats in increasing beat order');
+       if((l.fadeInBeats??0)+(l.fadeOutBeats??0)>s.beats)err(lat,'layer fades exceed shot');
++      for(const v of l.rectVariants??[])if(!t.targets.some(x=>x.id===v.target))err(lat+'.rectVariants','unknown target');
+     }
+     if(s.kind==='stage' && s.transition?.type==='match-cut')err(at+'.transition','match-cut needs a single source shot');
+     if(s.source && t.sources.find(x=>x.id===s.source)?.kind==='audio')err(at+'.source','visual shot cannot use audio');
+diff --git a/test/montage.test.mjs b/test/montage.test.mjs
+index 45b69a9..35098d3 100644
+--- a/test/montage.test.mjs
++++ b/test/montage.test.mjs
+@@ -11,7 +11,7 @@ const fixtures=root=>{const r=spawnSync(python,[fileURLToPath(new URL('make-mont
+ const base=()=>({version:1,name:'mont',fps:12,seed:7,tempo:{bpm:120,firstDownbeat:0},
+   sources:[{id:'a',kind:'image',path:'still-a.png'},{id:'b',kind:'image',path:'still-b.png'},{id:'m',kind:'video',path:'motion.mp4'}],
+   shots:[
+-   {id:'open',kind:'stage',startBeat:0,beats:4,layers:[{source:'m',blend:'normal',fit:'cover'},{source:'a',blend:'add',opacity:.6,mask:'ellipse',feather:.6,rect:{x:20,y:10,width:80,height:60},scaleFrom:1,scaleTo:1.2}],post:{bloom:{radius:8,gain:.5},chroma:{pixels:1}}},
++   {id:'open',kind:'stage',startBeat:0,beats:4,layers:[{source:'m',blend:'normal',fit:'cover',blackPoint:.1,rectVariants:[{target:'tall',rect:{x:8,y:8,width:80,height:100}}]},{source:'a',blend:'add',opacity:.6,mask:'ellipse',feather:.6,rect:{x:20,y:10,width:80,height:60},scaleFrom:1,scaleTo:1.2}],post:{bloom:{radius:8,gain:.5},chroma:{pixels:1}}},
+    {id:'mosh',kind:'stage',startBeat:4,beats:4,transition:{type:'datamosh',beats:1.5,blockSize:16},layers:[{source:'m',in:2,fit:'cover'},{source:'b',blend:'screen',opacity:.8,fit:'contain',invert:true}]},
+    {id:'mosaic',kind:'stage',startBeat:8,beats:4,transition:{type:'mosaic',beats:1,blockSize:32},layers:[{source:'b',fit:'cover'},{source:'m',blend:'difference',opacity:.5,loop:true}]},
+    {id:'tail',kind:'stage',startBeat:12,beats:4,transition:{type:'displace',beats:1,strength:12},layers:[{source:'a',fit:'cover',posterize:6},{source:'m',blend:'lighten',opacity:.7}],post:{pulse:{periodBeats:4,amount:.02}}}],
+@@ -54,6 +54,8 @@ test('schema rejects malformed layers, stage shots and loop seams',()=>{
+   bad(t=>{t.loop.transition.type='match-cut';},'cannot bridge');
+   bad(t=>{t.targets[0].posterBeat=1;},'lead-in');
+   bad(t=>{t.shots[1].layers[0].fadeInBeats=5;},'fades exceed');
++  bad(t=>{t.shots[0].layers[0].rectVariants[0].target='phone';},'unknown target');
++  bad(t=>{t.shots[0].layers[0].blackPoint=.9;},'out of range');
+ });
+ test('layer blends, masks, bloom, mosaic, displacement and datamosh keep their pixel invariants',()=>{
+   const r=spawnSync(python,[fileURLToPath(new URL('montage-invariants.py',import.meta.url))],{encoding:'utf8'});
+-- 
+2.47.1
+
