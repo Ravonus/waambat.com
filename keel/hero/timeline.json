@@ -248,48 +248,52 @@
     },
     {
      "source": "kismet",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 1.2,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1,
      "rect": {
-      "x": 297,
-      "y": 490,
-      "width": 202,
-      "height": 202
+      "x": 290,
+      "y": 482,
+      "width": 216,
+      "height": 216
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 144,
-        "y": 788,
-        "width": 144,
-        "height": 144
+        "x": 139,
+        "y": 746,
+        "width": 154,
+        "height": 154
        }
       }
      ]
     },
     {
      "source": "cord",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "in": 6.74,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 1164,
-      "y": 22,
-      "width": 173,
-      "height": 173
+      "x": 1095,
+      "y": 15,
+      "width": 185,
+      "height": 185
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 547,
-        "y": 144,
-        "width": 144,
-        "height": 144
+        "x": 542,
+        "y": 138,
+        "width": 154,
+        "height": 154
        }
       }
      ]
@@ -373,48 +377,52 @@
     },
     {
      "source": "disco",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 16.85,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1,
      "rect": {
-      "x": 261,
-      "y": 36,
-      "width": 216,
-      "height": 216
+      "x": 253,
+      "y": 28,
+      "width": 232,
+      "height": 232
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 18,
-        "y": 144,
-        "width": 151,
-        "height": 151
+        "x": 13,
+        "y": 138,
+        "width": 162,
+        "height": 162
        }
       }
      ]
     },
     {
      "source": "profits",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "in": 20.22,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 241,
-      "y": 511,
-      "width": 216,
-      "height": 216
+      "x": 233,
+      "y": 488,
+      "width": 232,
+      "height": 232
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 558,
-        "y": 780,
-        "width": 151,
-        "height": 151
+        "x": 553,
+        "y": 738,
+        "width": 162,
+        "height": 162
        }
       }
      ]
@@ -502,7 +510,7 @@
     },
     {
      "source": "eggplant",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "crop": {
       "x": 20,
@@ -512,70 +520,76 @@
      },
      "in": 0.46,
      "loop": true,
+     "mask": "ellipse",
+     "feather": 0.7,
      "fadeInBeats": 1,
      "rect": {
-      "x": 301,
-      "y": 446,
-      "width": 115,
-      "height": 245
+      "x": 295,
+      "y": 441,
+      "width": 127,
+      "height": 255
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 29,
-        "y": 777,
-        "width": 86,
-        "height": 144
+        "x": 30,
+        "y": 731,
+        "width": 85,
+        "height": 169
        }
       }
      ]
     },
     {
      "source": "haptic",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "in": 3.83,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 1111,
-      "y": 43,
-      "width": 202,
-      "height": 202
+      "x": 1064,
+      "y": 36,
+      "width": 216,
+      "height": 216
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 576,
-        "y": 147,
-        "width": 144,
-        "height": 144
+        "x": 566,
+        "y": 142,
+        "width": 154,
+        "height": 154
        }
       }
      ]
     },
     {
      "source": "selfieLo",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 3.4,
      "opacity": 0.8,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 2,
      "rect": {
-      "x": 1170,
-      "y": 518,
-      "width": 122,
-      "height": 144
+      "x": 1153,
+      "y": 511,
+      "width": 127,
+      "height": 159
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 25,
-        "y": 162,
-        "width": 94,
-        "height": 115
+        "x": 22,
+        "y": 157,
+        "width": 100,
+        "height": 124
        }
       }
      ]
@@ -664,48 +678,52 @@
     },
     {
      "source": "troll",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 17.31,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1,
      "rect": {
-      "x": 261,
-      "y": 454,
-      "width": 216,
-      "height": 216
+      "x": 253,
+      "y": 446,
+      "width": 232,
+      "height": 232
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 144,
-        "y": 788,
-        "width": 144,
-        "height": 144
+        "x": 139,
+        "y": 746,
+        "width": 154,
+        "height": 154
        }
       }
      ]
     },
     {
      "source": "future",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "in": 14.18,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 1131,
-      "y": 32,
-      "width": 180,
-      "height": 180
+      "x": 1087,
+      "y": 26,
+      "width": 193,
+      "height": 193
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 547,
-        "y": 144,
-        "width": 144,
-        "height": 144
+        "x": 542,
+        "y": 138,
+        "width": 154,
+        "height": 154
        }
       }
      ]
@@ -793,31 +811,33 @@
     },
     {
      "source": "feels404",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 0.92,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1,
      "rect": {
-      "x": 261,
-      "y": 36,
-      "width": 216,
-      "height": 216
+      "x": 253,
+      "y": 28,
+      "width": 232,
+      "height": 232
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 18,
-        "y": 144,
-        "width": 151,
-        "height": 151
+        "x": 13,
+        "y": 138,
+        "width": 162,
+        "height": 162
        }
       }
      ]
     },
     {
      "source": "fire",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "crop": {
       "x": 110,
@@ -827,46 +847,50 @@
      },
      "in": 20,
      "out": 22.7,
+     "mask": "ellipse",
+     "feather": 0.7,
      "fadeInBeats": 1,
      "fadeOutBeats": 1,
      "rect": {
-      "x": 289,
+      "x": 277,
       "y": 504,
-      "width": 158,
-      "height": 144
+      "width": 183,
+      "height": 143
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 562,
-        "y": 795,
-        "width": 144,
-        "height": 122
+        "x": 553,
+        "y": 774,
+        "width": 161,
+        "height": 126
        }
       }
      ]
     },
     {
      "source": "netmelt",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "in": 4.29,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 1137,
-      "y": 497,
-      "width": 187,
-      "height": 187
+      "x": 1079,
+      "y": 490,
+      "width": 201,
+      "height": 201
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 144,
-        "y": 788,
-        "width": 144,
-        "height": 144
+        "x": 139,
+        "y": 746,
+        "width": 154,
+        "height": 154
        }
       }
      ]
@@ -954,32 +978,34 @@
     },
     {
      "source": "bio",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 1.9,
      "opacity": 0.9,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 277,
-      "y": 482,
-      "width": 144,
-      "height": 187
+      "x": 270,
+      "y": 478,
+      "width": 158,
+      "height": 197
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 583,
-        "y": 154,
-        "width": 101,
-        "height": 130
+        "x": 579,
+        "y": 151,
+        "width": 110,
+        "height": 137
        }
       }
      ]
     },
     {
      "source": "tweet",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "crop": {
       "x": 190,
@@ -988,45 +1014,49 @@
       "height": 700
      },
      "in": 4.5,
+     "mask": "ellipse",
+     "feather": 0.7,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 1152,
-      "y": 511,
-      "width": 158,
-      "height": 158
+      "x": 1109,
+      "y": 506,
+      "width": 171,
+      "height": 169
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 144,
-        "y": 788,
-        "width": 144,
-        "height": 144
+        "x": 138,
+        "y": 747,
+        "width": 156,
+        "height": 153
        }
       }
      ]
     },
     {
      "source": "mech3",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "in": 3.2,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 1111,
-      "y": 43,
-      "width": 202,
-      "height": 202
+      "x": 1064,
+      "y": 36,
+      "width": 216,
+      "height": 216
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 22,
-        "y": 147,
-        "width": 144,
-        "height": 144
+        "x": 16,
+        "y": 142,
+        "width": 154,
+        "height": 154
        }
       }
      ]
@@ -1087,48 +1117,52 @@
     },
     {
      "source": "boiama",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 11.03,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1,
      "rect": {
-      "x": 246,
-      "y": 439,
-      "width": 245,
-      "height": 245
+      "x": 237,
+      "y": 430,
+      "width": 263,
+      "height": 263
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 137,
-        "y": 770,
-        "width": 158,
-        "height": 158
+        "x": 131,
+        "y": 730,
+        "width": 170,
+        "height": 170
        }
       }
      ]
     },
     {
      "source": "meta",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "in": 14.4,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 1123,
-      "y": 36,
-      "width": 216,
-      "height": 216
+      "x": 1048,
+      "y": 28,
+      "width": 232,
+      "height": 232
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 540,
-        "y": 144,
-        "width": 158,
-        "height": 158
+        "x": 534,
+        "y": 138,
+        "width": 170,
+        "height": 170
        }
       }
      ]
@@ -1188,100 +1222,108 @@
     },
     {
      "source": "cheers",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 21.14,
+     "mask": "ellipse",
+     "feather": 0.5,
      "scaleFrom": 1,
      "scaleTo": 1.06,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 1046,
-      "y": 410,
-      "width": 331,
-      "height": 331
+      "x": 925,
+      "y": 365,
+      "width": 355,
+      "height": 355
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 461,
-        "y": 683,
-        "width": 288,
-        "height": 288
+        "x": 411,
+        "y": 591,
+        "width": 309,
+        "height": 309
        }
       }
      ]
     },
     {
      "source": "swipe",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "lighten",
      "in": 24.51,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 290,
-      "y": 482,
-      "width": 216,
-      "height": 216
+      "x": 282,
+      "y": 475,
+      "width": 232,
+      "height": 232
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 144,
-        "y": 788,
-        "width": 144,
-        "height": 144
+        "x": 139,
+        "y": 746,
+        "width": 154,
+        "height": 154
        }
       }
      ]
     },
     {
      "source": "abacus",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 1.08,
      "opacity": 0.85,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 1.5,
      "rect": {
-      "x": 352,
-      "y": -4,
-      "width": 288,
-      "height": 151
+      "x": 342,
+      "y": 0,
+      "width": 308,
+      "height": 162
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 36,
-        "y": 169,
-        "width": 360,
-        "height": 101
+        "x": 75,
+        "y": 145,
+        "width": 281,
+        "height": 148
        }
       }
      ]
     },
     {
      "source": "gallery",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "in": 17,
      "opacity": 0.8,
+     "mask": "ellipse",
+     "feather": 0.5,
      "fadeInBeats": 2,
      "rect": {
-      "x": 1113,
-      "y": 11,
-      "width": 216,
-      "height": 122
+      "x": 1047,
+      "y": 7,
+      "width": 233,
+      "height": 131
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 468,
-        "y": 169,
-        "width": 245,
-        "height": 101
+        "x": 478,
+        "y": 156,
+        "width": 225,
+        "height": 126
        }
       }
      ]
@@ -1344,7 +1386,7 @@
     },
     {
      "source": "strip",
-     "fit": "cover",
+     "fit": "contain",
      "blend": "screen",
      "crop": {
       "x": 14,
@@ -1354,20 +1396,22 @@
      },
      "holdFrame": 36,
      "opacity": 0.9,
+     "mask": "ellipse",
+     "feather": 0.7,
      "rect": {
-      "x": 402,
-      "y": 65,
-      "width": 187,
-      "height": 101
+      "x": 382,
+      "y": 68,
+      "width": 228,
+      "height": 95
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 22,
-        "y": 165,
-        "width": 245,
-        "height": 108
+        "x": 9,
+        "y": 163,
+        "width": 269,
+        "height": 113
        }
       }
      ]

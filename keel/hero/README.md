@@ -34,7 +34,10 @@ Nine shots of 3 s (6 beats at 120 bpm), the last 1.5 s, over a black ground. Tra
 | lore   | Joys of Lore                          | chromatic displacement                               |
 | tail   | Swap Exchange                         | datamosh, then the loop seam (datamosh) back to goat |
 
-Satellite layers in each shot (screen/lighten/add blends, small, drifting) bring in the other works. All 35
+Satellite layers in each shot (screen/lighten/add blends, small, drifting) bring in the other works. Each one
+shows its whole piece, fitted (not cropped) inside a soft elliptical mask so its edge fades into the black ground and
+overlaps its neighbours without a hard border; `build-timeline.mjs` sizes it from the source's aspect ratio and keeps
+it inside the frame, so no satellite is cut off at the edge. All 35
 sources are used: the 22 NFT paintings that still load, LUX, Kismet Twist, the art-archive videos, the bio
 animation, and the contact, mechanics and press videos (the three with embedded text only through
 text-free crops). `sources.json` lists each one with its origin, the page it appears on, and the sha256 of
