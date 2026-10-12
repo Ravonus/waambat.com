@@ -16,8 +16,15 @@
         "width": 640,
         "height": 640
       },
-      "decodedFixtureTime0": 0.265406,
-      "decodedFixtureTime1": 0.628177,
+      "luxFrame": {
+        "x": 436,
+        "y": 93.25,
+        "width": 640,
+        "height": 640
+      },
+      "verifiedPlayerURLsWired": true,
+      "decodedFixtureTime0": 0.346291,
+      "decodedFixtureTime1": 0.724173,
       "iframeRequests": 3,
       "originalHostedFontRequested": true,
       "exactOriginalAmboyResourceRequested": true,
@@ -35,9 +42,16 @@
         "width": 350,
         "height": 350
       },
-      "decodedFixtureTime0": 0.282892,
-      "decodedFixtureTime1": 0.643754,
-      "iframeRequests": 3,
+      "luxFrame": {
+        "x": 20,
+        "y": 317.9375,
+        "width": 350,
+        "height": 350
+      },
+      "verifiedPlayerURLsWired": true,
+      "decodedFixtureTime0": 0.281235,
+      "decodedFixtureTime1": 0.642466,
+      "iframeRequests": 4,
       "originalHostedFontRequested": true,
       "exactOriginalAmboyResourceRequested": true,
       "animatedPngExactSourceAndSpacedFrames": true,

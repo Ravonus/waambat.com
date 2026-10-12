@@ -1,9 +1,9 @@
 {
-  "checkedUTC": "2026-10-12T00:09:15.207158+00:00",
+  "checkedUTC": "2026-10-12T00:59:09.534510+00:00",
   "base": "c7b1056aa04704a124ab4cc142dd3c2573709d98",
   "privateCandidatePreserved": "0e9cc7a154430f0d8152f14dac4be2541a2daeca",
   "websiteCandidateHasProvisionalAssets": false,
-  "unitTests": 29,
+  "unitTests": 33,
   "lint": "passed",
   "types": "passed",
   "format": "passed",
@@ -15,8 +15,11 @@
   "ordinalLifecycle": "passed; controlled cross-origin native MP4 and native APNG fixtures only",
   "NetlifyAdapterChecks": 28,
   "build": "passed",
-  "actualRequirementsAcceptance": "INCOMPLETE; see live-requirements-recheck.json and docs/ACTUAL-MOTION-QA.md",
+  "actualRequirementsAcceptance": "Original font and full LUX/Kismet sources verified in Mac; new hosted deployment acceptance pending. Mechanics original source confirmed broken upstream.",
   "credentialsAndConfigChanged": false,
   "hostedContentChanged": false,
-  "pushedOrDeployed": false
+  "pushedOrDeployed": false,
+  "verifiedPlayerSourceDiscovery": true,
+  "schemaCompatibility": "One-time ordinalSourceVersion marker; exact legacy defaults only. Artist can choose static/alternate media after migration. Reads do not write; real authenticated Save persists corrected sources.",
+  "modalMediaSuspension": "Passed; hidden renderer released during fullscreen mobile menu and restored on dismissal"
 }

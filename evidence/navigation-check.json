@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-12T00:00:43.165Z",
+  "checkedAt": "2026-10-12T00:55:57.199Z",
   "mode": "Local real browser, synthetic network delay, remote media blocked",
   "modal": "390×844 fullscreen; close initially focused; native modal traps Tab/Shift+Tab and blocks background; Escape restores trigger; reduced motion has no animation",
   "repeatedDismissal": "Four open/close cycles preserve prior scroll; wheel cannot scroll underlying fixed body; body styles fully restored",
