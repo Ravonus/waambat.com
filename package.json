@@ -25,7 +25,8 @@
     "test:auth": "tsx scripts/check-backup-auth.ts",
     "test:inline": "tsx scripts/check-inline-playback.ts",
     "media:prepare": "tsx scripts/prepare-media.ts",
-    "content:check": "tsx scripts/check-content.ts"
+    "content:check": "tsx scripts/check-content.ts",
+    "test:lux": "tsx scripts/check-lux-interaction.ts"
   },
   "dependencies": {
     "@netlify/blobs": "^11.1.4",
