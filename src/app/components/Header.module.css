@@ -85,6 +85,12 @@
   justify-content: space-between;
   gap: 24px;
 }
+.logo:hover,
+.logo:focus-visible,
+.overlayWordmark:hover,
+.overlayWordmark:focus-visible {
+  color: var(--color-waambat-logo, #ff94b2);
+}
 .overlayWordmark {
   display: inline-block;
   color: var(--color-waambat-logo, #ff94b2);

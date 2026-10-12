@@ -66,6 +66,10 @@
   text-decoration: none;
   pointer-events: auto;
 }
+.hero .wordmark .wordmarkLink:hover,
+.hero .wordmark .wordmarkLink:focus-visible {
+  color: var(--color-waambat-logo, #ff94b2);
+}
 .hero .wordmark .wordmarkLink:focus-visible {
   outline: 2px solid var(--color-waambat-logo, #ff94b2);
   outline-offset: 0.12em;

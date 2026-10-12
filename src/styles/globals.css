@@ -34,6 +34,12 @@ a {
 a:hover {
   color: #ff7070;
 }
+/* The wordmark is her pink everywhere, including under the pointer or keyboard focus; the
+   generic link hover above is more specific than the utility that colours it. */
+a.site-logo:hover,
+a.site-logo:focus-visible {
+  color: var(--color-waambat-logo, #ff94b2);
+}
 button {
   cursor: pointer;
 }

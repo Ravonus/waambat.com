@@ -1,4 +1,4 @@
-import { chromium, type Page } from "playwright";
+import { chromium, type Locator, type Page } from "playwright";
 import { spawn } from "node:child_process";
 import { mkdir } from "node:fs/promises";
 import assert from "node:assert/strict";
@@ -140,10 +140,23 @@ try {
     }),
     "the wordmark is clickable, not covered by the video",
   );
+  // The wordmark stays her pink under the pointer and keyboard focus, in the banner and in the header.
+  const PINK = "rgb(255, 148, 178)";
+  const colorOf = (link: Locator) =>
+    link.evaluate((el) => getComputedStyle(el).color);
+  await homeLink.hover();
+  assert.equal(await colorOf(homeLink), PINK, "banner wordmark on hover");
+  await homeLink.focus();
+  assert.equal(await colorOf(homeLink), PINK, "banner wordmark on focus");
+  await page.mouse.move(2, 2);
   const nav = await desktop.newPage();
   await nav.goto(`${origin}/contact-waambat`, {
     waitUntil: "domcontentloaded",
   });
+  const headerLogo = nav.getByRole("link", { name: "waambat home" });
+  assert.equal(await colorOf(headerLogo), PINK, "header wordmark at rest");
+  await headerLogo.hover();
+  assert.equal(await colorOf(headerLogo), PINK, "header wordmark on hover");
   await nav.getByRole("link", { name: "waambat home" }).click();
   await nav.waitForURL(`${origin}/`);
   await nav.locator("[data-hero]").waitFor();
@@ -291,6 +304,12 @@ try {
     .locator("#mobile-site-menu")
     .getByRole("link", { name: "waambat home" });
   assert.equal(await menuHome.getAttribute("href"), "/");
+  await menuHome.hover();
+  assert.equal(
+    await menuHome.evaluate((el) => getComputedStyle(el).color),
+    "rgb(255, 148, 178)",
+    "menu wordmark on hover",
+  );
   await menuHome.click(); // already home: the menu closes, the page stays
   await mobile
     .locator("#mobile-site-menu[open]")
