@@ -10,7 +10,7 @@
 // Every source is one of WAAMBAT's own works. Nothing is rotated or restyled: layers only crop,
 // place, blend and push in slowly. Datamosh / mosaic / displace transitions bridge the shots, and the
 // last shot hands over to the first so the video loops without a join.
-import {writeFileSync} from 'node:fs';
+import {readFileSync,writeFileSync} from 'node:fs';
 import {parseArgs} from 'node:util';
 
 const {values:args}=parseArgs({options:{out:{type:'string',default:'keel/hero/timeline.json'},scale:{type:'string',default:'1'},fps:{type:'string',default:'24'}}});
@@ -63,8 +63,19 @@ function layer(src,o={}){
     const place=id==='desktop'?at:m;
     rects[id]=wide?{x:Math.round(K*f.stage.x),y:Math.round(K*f.stage.y),width:Math.round(K*f.stage.w),height:Math.round(K*f.stage.h)}:rectOf(f,place);
   }
+  if(o.inside)for(const [id,f] of Object.entries(FORMATS)){const r=rects[id];r.x=Math.min(Math.max(0,r.x),f.width-r.width);r.y=Math.min(Math.max(0,r.y),f.height-r.height);}
   L.rect=rects.desktop;L.rectVariants=[{target:'mobile',rect:rects.mobile}];
   return L;
+}
+// Satellites are whole pieces, not crops: the box takes the source's own aspect (same area as the placement
+// asked for, a little more to make up for the faded corners), the piece is fitted whole, a feathered ellipse
+// dissolves its edge into the stage, and the box is kept inside the frame. With the screen/lighten blends the
+// black drops out, so pieces overlap the main work and each other with no hard cut anywhere.
+const dims=Object.fromEntries(JSON.parse(readFileSync(new URL('sources.json',import.meta.url),'utf8')).sources.map(s=>[s.file.replace(/\.mp4$/,''),s]));
+const aspectOf=id=>{const s=S[id];if(s.crop)return s.crop.width/s.crop.height;const d=dims[s.file];return d.width/d.height;};
+function sat(id,o={}){
+  const a=aspectOf(id),whole=([cx,cy,w,h])=>{const nw=Math.sqrt(w*h*1.15*a);return[cx,cy,nw,nw/a];};
+  return layer(id,{...o,at:whole(o.at),m:whole(o.m??o.at),fit:'contain',mask:'ellipse',feather:o.feather??.5,inside:true});
 }
 const bg=(src,o={})=>layer(src,{stage:'full',blend:'add',opacity:.3,mask:'ellipse',feather:.95,scaleFrom:1,scaleTo:1.1,...o});
 
@@ -76,59 +87,59 @@ const shots=[
   {id:'goat',post:quiet,layers:[
     bg('mass'),
     layer('goat',{at:[.57,.5,.96,.96],m:[.5,.52,.9,.9],scaleFrom:1,scaleTo:1.06}),
-    layer('kismet',{at:[.1,.82,.28,.28],m:[.3,.945,.2,.2],in:1.2,blend:'screen',fadeInBeats:1}),
-    layer('cord',{at:[.97,.15,.24,.24],m:[.86,.065,.2,.2],blend:'lighten',fadeInBeats:1.5}),
+    sat('kismet',{at:[.1,.82,.28,.28],m:[.3,.945,.2,.2],in:1.2,blend:'screen',fadeInBeats:1}),
+    sat('cord',{at:[.97,.15,.24,.24],m:[.86,.065,.2,.2],blend:'lighten',fadeInBeats:1.5}),
   ]},
   {id:'lux',post:quiet,transition:{type:'displace',beats:1.5,strength:26*K},layers:[
     bg('deep',{opacity:.22}),
     layer('lux',{at:[.57,.5,.8,.8],m:[.5,.52,.8,.8],blend:'screen',scaleFrom:1,scaleTo:1.05}),
-    layer('disco',{at:[.07,.2,.3,.3],m:[.13,.07,.21,.21],blend:'screen',fadeInBeats:1}),
-    layer('profits',{at:[.05,.86,.3,.3],m:[.88,.94,.21,.21],blend:'lighten',fadeInBeats:1.5}),
+    sat('disco',{at:[.07,.2,.3,.3],m:[.13,.07,.21,.21],blend:'screen',fadeInBeats:1}),
+    sat('profits',{at:[.05,.86,.3,.3],m:[.88,.94,.21,.21],blend:'lighten',fadeInBeats:1.5}),
   ]},
   {id:'faces',post:loud,transition:{type:'datamosh',beats:2,blockSize:16,strength:1.1},layers:[
     bg('catfish',{opacity:.34}),
     layer('selfie',{at:[.58,.5,.78,.97],m:[.5,.52,.72,.9],fit:'cover',in:.4,scaleFrom:1,scaleTo:1.04}),
-    layer('eggplant',{at:[.06,.79,.16,.34],m:[.1,.93,.12,.2],blend:'screen',fadeInBeats:1}),
-    layer('haptic',{at:[.93,.2,.28,.28],m:[.9,.07,.2,.2],blend:'lighten',fadeInBeats:1.5}),
-    layer('selfieLo',{at:[.95,.82,.17,.2],m:[.1,.07,.13,.16],blend:'screen',opacity:.8,fadeInBeats:2}),
+    sat('eggplant',{feather:.7,at:[.06,.79,.16,.34],m:[.1,.93,.12,.2],blend:'screen',fadeInBeats:1}),
+    sat('haptic',{at:[.93,.2,.28,.28],m:[.9,.07,.2,.2],blend:'lighten',fadeInBeats:1.5}),
+    sat('selfieLo',{at:[.95,.82,.17,.2],m:[.1,.07,.13,.16],blend:'screen',opacity:.8,fadeInBeats:2}),
   ]},
   {id:'hard',post:quiet,transition:{type:'mosaic',beats:1.5,blockSize:64*K},layers:[
     bg('axiom',{opacity:.2}),
     layer('hard',{at:[.57,.5,.96,.96],m:[.5,.52,.9,.9],scaleFrom:1,scaleTo:1.06}),
-    layer('troll',{at:[.07,.78,.3,.3],m:[.3,.945,.2,.2],blend:'screen',fadeInBeats:1}),
-    layer('future',{at:[.94,.17,.25,.25],m:[.86,.065,.2,.2],blend:'lighten',fadeInBeats:1.5}),
+    sat('troll',{at:[.07,.78,.3,.3],m:[.3,.945,.2,.2],blend:'screen',fadeInBeats:1}),
+    sat('future',{at:[.94,.17,.25,.25],m:[.86,.065,.2,.2],blend:'lighten',fadeInBeats:1.5}),
   ]},
   {id:'kismet',post:quiet,transition:{type:'displace',beats:1.5,strength:30*K},layers:[
     bg('sus',{opacity:.2}),
     layer('kismet',{at:[.57,.5,.86,.86],m:[.5,.52,.84,.84],in:3.8,blend:'screen',scaleFrom:1,scaleTo:1.04}),
-    layer('feels404',{at:[.07,.2,.3,.3],m:[.13,.07,.21,.21],blend:'screen',fadeInBeats:1}),
-    layer('fire',{at:[.07,.8,.22,.2],m:[.88,.94,.2,.17],blend:'screen',fadeInBeats:1,fadeOutBeats:1}),
-    layer('netmelt',{at:[.95,.82,.26,.26],m:[.3,.945,.2,.2],blend:'lighten',fadeInBeats:1.5}),
+    sat('feels404',{at:[.07,.2,.3,.3],m:[.13,.07,.21,.21],blend:'screen',fadeInBeats:1}),
+    sat('fire',{feather:.7,at:[.07,.8,.22,.2],m:[.88,.94,.2,.17],blend:'screen',fadeInBeats:1,fadeOutBeats:1}),
+    sat('netmelt',{at:[.95,.82,.26,.26],m:[.3,.945,.2,.2],blend:'lighten',fadeInBeats:1.5}),
   ]},
   {id:'animal',post:quiet,transition:{type:'datamosh',beats:2,blockSize:16,strength:1},layers:[
     bg('faces',{opacity:.24}),
     layer('animal',{at:[.57,.5,.96,.96],m:[.5,.52,.9,.9],scaleFrom:1,scaleTo:1.05}),
-    layer('bio',{at:[.05,.8,.2,.26],m:[.88,.07,.14,.18],in:1.9,blend:'screen',opacity:.9,fadeInBeats:1.5}),
-    layer('tweet',{at:[.95,.82,.22,.22],m:[.3,.945,.2,.2],blend:'lighten',fadeInBeats:1.5}),
+    sat('bio',{at:[.05,.8,.2,.26],m:[.88,.07,.14,.18],in:1.9,blend:'screen',opacity:.9,fadeInBeats:1.5}),
+    sat('tweet',{feather:.7,at:[.95,.82,.22,.22],m:[.3,.945,.2,.2],blend:'lighten',fadeInBeats:1.5}),
     // Recovered from the Wayback Machine (its Imgur file is gone). An explicit start keeps later shots' timing.
-    layer('mech3',{at:[.93,.2,.28,.28],m:[.13,.07,.2,.2],in:3.2,blend:'lighten',fadeInBeats:1.5}),
+    sat('mech3',{at:[.93,.2,.28,.28],m:[.13,.07,.2,.2],in:3.2,blend:'lighten',fadeInBeats:1.5}),
   ]},
   {id:'dense',post:loud,transition:{type:'mosaic',beats:1.5,blockSize:96*K},layers:[
     layer('faces',{at:[.58,.5,.96,.96],m:[.5,.52,.92,.92],blend:'normal',in:24,scaleFrom:1,scaleTo:1.07}),
-    layer('boiama',{at:[.07,.78,.34,.34],m:[.3,.93,.22,.22],blend:'screen',fadeInBeats:1}),
-    layer('meta',{at:[.95,.2,.3,.3],m:[.86,.075,.22,.22],blend:'lighten',fadeInBeats:1.5}),
+    sat('boiama',{at:[.07,.78,.34,.34],m:[.3,.93,.22,.22],blend:'screen',fadeInBeats:1}),
+    sat('meta',{at:[.95,.2,.3,.3],m:[.86,.075,.22,.22],blend:'lighten',fadeInBeats:1.5}),
   ]},
   {id:'lore',post:quiet,transition:{type:'displace',beats:1.5,strength:24*K},layers:[
     layer('lore',{at:[.55,.5,.92,.92],m:[.5,.52,.9,.9],scaleFrom:1,scaleTo:1.05}),
-    layer('cheers',{at:[.93,.8,.46,.46],m:[.84,.9,.4,.4],blend:'screen',scaleFrom:1,scaleTo:1.06,fadeInBeats:1.5}),
-    layer('swipe',{at:[.1,.82,.3,.3],m:[.3,.945,.2,.2],blend:'lighten',fadeInBeats:1.5}),
-    layer('abacus',{at:[.2,.1,.4,.21],m:[.3,.07,.5,.14],blend:'screen',opacity:.85,fadeInBeats:1.5,fit:'cover'}),
-    layer('gallery',{at:[.94,.1,.3,.17],m:[.82,.07,.34,.14],blend:'screen',opacity:.8,in:17,fadeInBeats:2}),
+    sat('cheers',{at:[.93,.8,.46,.46],m:[.84,.9,.4,.4],blend:'screen',scaleFrom:1,scaleTo:1.06,fadeInBeats:1.5}),
+    sat('swipe',{at:[.1,.82,.3,.3],m:[.3,.945,.2,.2],blend:'lighten',fadeInBeats:1.5}),
+    sat('abacus',{at:[.2,.1,.4,.21],m:[.3,.07,.5,.14],blend:'screen',opacity:.85,fadeInBeats:1.5,fit:'cover'}),
+    sat('gallery',{at:[.94,.1,.3,.17],m:[.82,.07,.34,.14],blend:'screen',opacity:.8,in:17,fadeInBeats:2}),
   ]},
   // Pre-seam tail: its last beats are replaced by the hand-over to the first shot.
   {id:'tail',post:quiet,transition:{type:'datamosh',beats:2,blockSize:16,strength:1},beats:3,layers:[
     bg('swap',{opacity:.9,mask:'ellipse',feather:.5}),
-    layer('strip',{at:[.2,.16,.26,.14],m:[.2,.07,.34,.15],blend:'screen',opacity:.9}),
+    sat('strip',{feather:.7,at:[.2,.16,.26,.14],m:[.2,.07,.34,.15],blend:'screen',opacity:.9}),
   ]},
 ];
 const BEATS=6,SEAM=3,beatsOf=s=>s.beats??BEATS;
