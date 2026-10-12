@@ -24,6 +24,7 @@ export function defaultHeroSection(): Section {
         tokenLink: "/",
         videoSrc: "/hero/waambat-hero-desktop.mp4",
         mobileVideoSrc: "/hero/waambat-hero-mobile.mp4",
+        previewSrc: "",
         poster: "/hero/waambat-hero-poster.webp",
         mobilePoster: "/hero/waambat-hero-poster-mobile.webp",
         logoSrc: "",

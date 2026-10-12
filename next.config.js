@@ -27,6 +27,17 @@ const config = {
         ],
       },
       {
+        // Ordinals preview loops carry a hash of their bytes in the file name, so a
+        // new render is a new URL and the old one can be kept forever.
+        source: "/previews/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
         // Hero renders keep their file names when re-rendered, so cache for an
         // hour and revalidate in the background instead of marking them immutable.
         source: "/hero/:path*",

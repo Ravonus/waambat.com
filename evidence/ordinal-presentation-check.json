@@ -1,7 +1,7 @@
 {
   "boundary": "Compiled application in real Chromium; generated MP4/APNG and controlled on-chain iframe transport. Actual upstream fonts, Kismet/LUX and mechanics media remain separate live acceptance.",
-  "collectionPresentation": "Generous640px desktop / full-width350px mobile frame, uncropped, direct Satflow/Pink Paper links; original legacy Ordinals preserved",
-  "lifecycle": "Automatic in-view inscription frame, kept attached (never reloaded) when it leaves the viewport or the menu opens; no pause control because the inscriptions have no pause protocol; reduced motion needs explicit Play",
+  "collectionPresentation": "LUX, Kismet Twist and Edge Corporeal side by side on a desktop (one square column on a phone), uncropped, each a cached same-origin loop playing at once; direct Satflow/Gamma/Pink Paper links; the early GIF inscriptions kept",
+  "lifecycle": "Loops play from cached files with a pause control and no request to ordinals.com; only LUX is interactive, opened on request and kept attached (never reloaded) when it leaves the viewport or the menu opens, and the visitor can return to the loop; reduced motion needs an explicit Play",
   "font": "Original Squarespace/Typekit embed requested; blocked cloud response is not proof of actual Amboy font loading",
   "trailer": "Existing editable archived empty slot remains; no rejectedcut or Kismetloop substituted",
   "results": [
@@ -11,21 +11,19 @@
         "height": 733
       },
       "frame": {
-        "x": 436,
-        "y": 46.375,
-        "width": 640,
-        "height": 640
+        "x": 570.65625,
+        "y": 297.875,
+        "width": 370.671875,
+        "height": 370.671875
       },
       "luxFrame": {
-        "x": 436,
-        "y": 93.25,
-        "width": 640,
-        "height": 640
+        "x": 160,
+        "y": 297.875,
+        "width": 370.65625,
+        "height": 370.65625
       },
       "verifiedPlayerURLsWired": true,
-      "decodedFixtureTime0": 0.287441,
-      "decodedFixtureTime1": 0.647465,
-      "iframeRequests": 2,
+      "inscriptionRequests": 1,
       "originalHostedFontRequested": true,
       "exactOriginalAmboyResourceRequested": true,
       "animatedPngExactSourceAndSpacedFrames": true,
@@ -38,20 +36,18 @@
       },
       "frame": {
         "x": 20,
-        "y": 247.0625,
+        "y": 915.5,
         "width": 350,
         "height": 350
       },
       "luxFrame": {
         "x": 20,
-        "y": 317.9375,
+        "y": 226.375,
         "width": 350,
         "height": 350
       },
       "verifiedPlayerURLsWired": true,
-      "decodedFixtureTime0": 0.523242,
-      "decodedFixtureTime1": 0.885217,
-      "iframeRequests": 2,
+      "inscriptionRequests": 1,
       "originalHostedFontRequested": true,
       "exactOriginalAmboyResourceRequested": true,
       "animatedPngExactSourceAndSpacedFrames": true,

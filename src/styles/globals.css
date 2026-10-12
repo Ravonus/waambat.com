@@ -407,20 +407,6 @@ button:disabled {
 .source-two-columns > div {
   padding: 0 var(--site-block-padding);
 }
-.original-ordinal-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0 calc(-1 * var(--site-block-padding)) 34px;
-}
-.original-ordinal-row > div {
-  padding: var(--site-block-padding);
-}
-.original-ordinal-row h2 {
-  margin-bottom: 13px;
-}
-.original-ordinal-row img {
-  width: auto;
-}
 .archive-montage {
   display: flex;
   flex-direction: column;
@@ -711,8 +697,7 @@ button:disabled {
   .source-contact {
     width: 100%;
   }
-  .source-two-columns,
-  .original-ordinal-row {
+  .source-two-columns {
     grid-template-columns: 1fr;
   }
   .legacy-contact {

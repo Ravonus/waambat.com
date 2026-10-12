@@ -436,14 +436,15 @@
           "id": "lux-ok-algo",
           "title": "LUX · OK ALGO",
           "year": "",
-          "description": "Live full LUX · Infinity #3. Explore the collection on Satflow.",
+          "description": "Infinity #3 · the OK Algo facet.",
           "tokenLink": "https://www.satflow.com/ordinals/lux_ok_algo",
           "videoSrc": "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
-          "poster": "https://whitepaper.terminus.art/images/lux3.webp",
+          "poster": "/previews/lux-43c6cf7659.webp",
           "mobileVideoSrc": "",
           "kind": "embed",
           "archived": false,
-          "aspectRatio": 1
+          "aspectRatio": 1,
+          "previewSrc": "/previews/lux-9b87c251ff.mp4"
         },
         {
           "id": "lux-pink-paper",
@@ -470,14 +471,15 @@
           "id": "kismet-twist-collection",
           "title": "Kismet Twist",
           "year": "",
-          "description": "Live Kismet Twist #1. Explore the collection on Satflow.",
+          "description": "Kismet Twist #1.",
           "tokenLink": "https://www.satflow.com/ordinals/kismettwist",
           "videoSrc": "https://ordinals.com/content/60533f24d8b77bcc049f27d9853d185591ea4b81ffe51076cfd985f6f542ef9ai0",
-          "poster": "",
+          "poster": "/previews/kismet-e2dfe19111.webp",
           "mobileVideoSrc": "",
           "kind": "embed",
           "archived": false,
-          "aspectRatio": 1
+          "aspectRatio": 1,
+          "previewSrc": "/previews/kismet-3c8c06ebe1.mp4"
         }
       ]
     },
@@ -603,16 +605,18 @@
       "items": [
         {
           "id": "gamma-user-artwork",
-          "title": "View artwork on Gamma",
+          "title": "Edge Corporeal",
           "year": "",
-          "description": "Open the supplied individual artwork destination. Title and preview metadata have not been verified.",
+          "description": "Edge Corporeal by WAAMBAT, with Ravonus as technomancer, inscribed on Bitcoin.",
           "tokenLink": "https://gamma.io/ordinals/inscriptions/2d284790a8ecddb0f4aa21e7763e0e499fdb068e79f398ad268dda7fcb3eabfei0",
-          "videoSrc": "",
+          "videoSrc": "https://ordinals.com/content/2d284790a8ecddb0f4aa21e7763e0e499fdb068e79f398ad268dda7fcb3eabfei0",
           "mobileVideoSrc": "",
-          "poster": "",
-          "kind": "link",
+          "poster": "/previews/gamma-8ebd8126c1.webp",
+          "kind": "embed",
           "featured": false,
-          "archived": false
+          "archived": false,
+          "previewSrc": "/previews/gamma-02b3d18c54.mp4",
+          "aspectRatio": 1
         }
       ]
     },
@@ -2660,6 +2664,6 @@
       "archived": false
     }
   ],
-  "ordinalSourceVersion": 1,
+  "ordinalSourceVersion": 2,
   "heroVersion": 1
 }

@@ -53,7 +53,8 @@ type MediaField =
   | "mobilePoster"
   | "logoSrc"
   | "videoSrc"
-  | "mobileVideoSrc";
+  | "mobileVideoSrc"
+  | "previewSrc";
 const IMAGE_FIELDS: MediaField[] = ["poster", "mobilePoster", "logoSrc"];
 const MEDIA_LABELS: Record<MediaField, string> = {
   poster: "Poster / image URL",
@@ -61,6 +62,8 @@ const MEDIA_LABELS: Record<MediaField, string> = {
   logoSrc: "Image wordmark URL (optional; replaces the live wordmark)",
   videoSrc: "Original video URL",
   mobileVideoSrc: "Mobile video URL (optional)",
+  previewSrc:
+    "Cached preview loop (optional; plays at once, before the live piece is opened)",
 };
 export default function Editor({ initial }: { initial: ContentState }) {
   const [state, setState] = useState(initial);
@@ -760,38 +763,44 @@ export default function Editor({ initial }: { initial: ContentState }) {
                               "poster",
                               "videoSrc",
                               "mobileVideoSrc",
+                              "previewSrc",
                             ]) as MediaField[]
-                    ).map((field) => (
-                      <div key={field}>
-                        <Field
-                          label={MEDIA_LABELS[field]}
-                          value={item[field]}
-                          onChange={(v) => changeItem(item.id, field, v)}
-                        />
-                        <label className="mt-2 block text-sm">
-                          Or upload{" "}
-                          {IMAGE_FIELDS.includes(field) ? "image" : "video"} (4
-                          MB max)
-                          <input
-                            type="file"
-                            className="mt-2 block w-full text-xs"
-                            accept={
-                              IMAGE_FIELDS.includes(field)
-                                ? "image/png,image/jpeg,image/webp,image/gif"
-                                : "video/mp4,video/webm"
-                            }
-                            onChange={(e) => {
-                              void uploadFile(
-                                e.target.files?.[0],
-                                item.id,
-                                field,
-                              );
-                              e.target.value = "";
-                            }}
+                    )
+                      .filter(
+                        (field) =>
+                          field !== "previewSrc" || item.kind === "embed",
+                      )
+                      .map((field) => (
+                        <div key={field}>
+                          <Field
+                            label={MEDIA_LABELS[field]}
+                            value={item[field]}
+                            onChange={(v) => changeItem(item.id, field, v)}
                           />
-                        </label>
-                      </div>
-                    ))}
+                          <label className="mt-2 block text-sm">
+                            Or upload{" "}
+                            {IMAGE_FIELDS.includes(field) ? "image" : "video"}{" "}
+                            (4 MB max)
+                            <input
+                              type="file"
+                              className="mt-2 block w-full text-xs"
+                              accept={
+                                IMAGE_FIELDS.includes(field)
+                                  ? "image/png,image/jpeg,image/webp,image/gif"
+                                  : "video/mp4,video/webm"
+                              }
+                              onChange={(e) => {
+                                void uploadFile(
+                                  e.target.files?.[0],
+                                  item.id,
+                                  field,
+                                );
+                                e.target.value = "";
+                              }}
+                            />
+                          </label>
+                        </div>
+                      ))}
                     <label>
                       <input
                         type="checkbox"
@@ -859,6 +868,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
                     tokenLink: "https://waambat.com",
                     videoSrc: "",
                     mobileVideoSrc: "",
+                    previewSrc: "",
                     mobilePoster: "",
                     logoSrc: "",
                     poster: "",
