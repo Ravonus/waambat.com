@@ -862,7 +862,7 @@ try {
     0,
   );
   evidence.trailer =
-    "Same media schema and real isolated save/publish; top-of-home placement, muted inline native controls, audio toggle, offscreen pause and reduced-motion deferral passed with generated 2-second fixture. Final 60-second artifact is still awaited; no old cut substituted.";
+    "Same media schema and real isolated save/publish; top-of-home placement, muted inline native controls, audio toggle, offscreen pause and reduced-motion deferral passed with generated 2-second fixture. Final six-work artifact remains pending; provisional v9 stays in its separate private review branch.";
   evidence.admin =
     "Real signed Auth.js session, isolated Git repository and media filesystem: unauthorized access, CSRF, validation, upload deduplication, private media, byte ranges, upload error, browser theme save/private preview, authenticated backup export, draft/save/preview/publish/cancel/add/archive and upload-error/cancellation, stale revision conflict and restore passed";
   await writeFile(

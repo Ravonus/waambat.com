@@ -1,0 +1,45 @@
+{
+  "checkedUTC": "2026-10-12T00:00:18.451556+00:00",
+  "executor": "Shell and Git checks succeed; original commit and files remain present",
+  "preservedPrivateCandidate": "0e9cc7a154430f0d8152f14dac4be2541a2daeca",
+  "privateReviewWorktree": "/workspace/waambat.com",
+  "privateReviewBranch": "review/ui-with-private-v9",
+  "websiteCorrectionsWorktree": "/workspace/waambat-ui-corrections",
+  "websiteCorrectionsBranch": "feat/gallery-admin-modernization",
+  "provisionalFilesInCorrectionsBranch": false,
+  "mechanics": {
+    "source": "https://i.imgur.com/3hhNUKR.mp4",
+    "actualComponent": "ContentPage loop -> ArtworkCard native video",
+    "exactSourceRetained": true,
+    "identifiedImplementationDefect": "Unknown page-loop dimensions were forced to square; now initial 150px native fallback and decoded MP4 intrinsic ratio, with real unavailable/retry state",
+    "actualUpstreamResponse": "Web reader cannot access binary; previous direct source transport CONNECT403. Source page GET in this turn CONNECT403.",
+    "actualPlaybackVerified": false,
+    "sourceReplacement": "None"
+  },
+  "wordmark": {
+    "exactFace": "amboy-inline normal400",
+    "exactRemoteResource": "https://use.typekit.net/af/f4c430/00000000000000007735b4f5/31/l?subset_id=2&fvd=n4&v=3",
+    "identifiedImplementationDefect": "Original integration disabled/gated by application; now original remote face and original loader enabled, host gate removed",
+    "actualResponse": "Binary inaccessible to web reader; earlier direct request CONNECT403",
+    "actualGlyphDecodingVerified": false,
+    "binaryCopied": false
+  },
+  "lux": {
+    "officialPaperRead": true,
+    "officialCollectionRead": true,
+    "officialPaper": "https://whitepaper.terminus.art/waambat/componentsofthediamond",
+    "collection": "https://www.satflow.com/ordinals/lux_ok_algo",
+    "candidateMetadataIsOneCaratOnly": true,
+    "directPaperGET": "CONNECT403",
+    "inscriptionPreviewReader": "not accessible",
+    "verifiedPlayableFullVariant": false,
+    "runtimeReplacement": "None; no provisional montage/one-carat static piece/ private renderer used as full LUX"
+  },
+  "requiredConnectedBrowserEvidence": [
+    "Original Mechanics: exact currentSrc, dimensions, currentTime twice, readyState/networkState/error, source response status/content-type; do not infer deletion from readyState0",
+    "LUX: working Satflow variant iframe/preview ID, full-LUX mode, loaded dimensions, spaced changing facet frames; paper metadata does not select variant",
+    "Original and deployed wordmark: rendered custom font identity/glyph use, FontFace status and actual font network result, width at1512px (original181.3046875px)"
+  ],
+  "newDeployment": false,
+  "credentialsOrConfigChanged": false
+}

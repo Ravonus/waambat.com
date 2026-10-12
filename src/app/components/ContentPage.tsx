@@ -156,9 +156,10 @@ export default function ContentPage({ page }: { page: SitePage }) {
               showCaption={false}
               aspect={block.aspect}
               ratio={block.ratio}
+              naturalAspect={!block.ratio && !block.aspect}
               artwork={{
                 id: block.id,
-                title: block.text || "Archived video",
+                title: block.text || page.title,
                 year: "",
                 description: "",
                 tokenLink: block.href || block.src,

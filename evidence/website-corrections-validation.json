@@ -1,0 +1,22 @@
+{
+  "checkedUTC": "2026-10-12T00:09:15.207158+00:00",
+  "base": "c7b1056aa04704a124ab4cc142dd3c2573709d98",
+  "privateCandidatePreserved": "0e9cc7a154430f0d8152f14dac4be2541a2daeca",
+  "websiteCandidateHasProvisionalAssets": false,
+  "unitTests": 29,
+  "lint": "passed",
+  "types": "passed",
+  "format": "passed",
+  "nativeMechanicsChecks": "passed; exact source URL, generated H264 bytes, desktop/mobile decoded proportions and changing frames; manual/offscreen/retry/reduced motion",
+  "browserCRUD": "passed; real isolated repository writes, preview/publish, upload cancellation/errors, competing/uncertain requests",
+  "databaseAuth": "passed; isolated PostgreSQL real password/session/rate/revocation/backup restore",
+  "compiledPreview": "passed",
+  "navigation": "passed; compiled server, 390/short450/desktop, keyboard/modal/scroll restoration, interruption/history/unmount",
+  "ordinalLifecycle": "passed; controlled cross-origin native MP4 and native APNG fixtures only",
+  "NetlifyAdapterChecks": 28,
+  "build": "passed",
+  "actualRequirementsAcceptance": "INCOMPLETE; see live-requirements-recheck.json and docs/ACTUAL-MOTION-QA.md",
+  "credentialsAndConfigChanged": false,
+  "hostedContentChanged": false,
+  "pushedOrDeployed": false
+}

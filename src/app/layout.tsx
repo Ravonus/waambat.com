@@ -14,10 +14,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const adobeProject = adobeProjectURL(process.env.WAAMBAT_ADOBE_PROJECT_URL);
+  const originalFonts =
+    !adobeProject && process.env.WAAMBAT_ORIGINAL_FONTS !== "0";
   return (
     <html lang="en">
       <head>
         {adobeProject && <link rel="stylesheet" href={adobeProject} />}
+        {originalFonts && (
+          // eslint-disable-next-line @next/next/no-css-tags -- Conditional original hosted font-face; no font binary self-hosting.
+          <link rel="stylesheet" href="/original-fonts.css" />
+        )}
       </head>
       <body>
         <a
@@ -26,13 +32,7 @@ export default function RootLayout({
         >
           Skip to artwork
         </a>
-        <OriginalFonts
-          enabled={!adobeProject && process.env.WAAMBAT_ORIGINAL_FONTS === "1"}
-          approvedHosts={(process.env.WAAMBAT_FONT_HOSTS ?? "")
-            .split(",")
-            .map((host) => host.trim())
-            .filter((host) => /^[a-z0-9.-]+$/.test(host))}
-        />
+        <OriginalFonts enabled={originalFonts} />
         <RouteEffects />
         {children}
       </body>

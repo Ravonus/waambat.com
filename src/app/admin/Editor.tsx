@@ -116,7 +116,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
   function changeItem(
     id: string,
     key: keyof Artwork,
-    value: string | boolean | number,
+    value: string | boolean | number | undefined,
   ) {
     edit((d) => {
       for (const s of d.sections) {
@@ -322,9 +322,15 @@ export default function Editor({ initial }: { initial: ContentState }) {
       <h1 className="text-waambat-pink text-3xl">Manage artwork & content</h1>
       <p className="mt-2">
         Edit → save draft → preview → publish. Archiving hides an item and keeps
-        its original media. Draft {state.revision.slice(0, 8)} · Production
-        branch {state.publishedRevision.slice(0, 8)} · Deployed{" "}
-        {state.deployedRevision.slice(0, 12)}
+        its original media. Draft{" "}
+        {state.revision === "0".repeat(40)
+          ? "original seed"
+          : state.revision.slice(0, 8)}{" "}
+        · Published{" "}
+        {state.publishedRevision === "0".repeat(40)
+          ? "original seed"
+          : state.publishedRevision.slice(0, 8)}{" "}
+        · Site build {state.deployedRevision.slice(0, 12)}
       </p>
       <div className="sticky top-0 z-20 my-6 flex flex-wrap items-center gap-4 border-y border-white/20 bg-black py-4">
         <button
@@ -561,6 +567,15 @@ export default function Editor({ initial }: { initial: ContentState }) {
                 </select>
               </label>
             </div>
+            {section.presentation === "trailer" &&
+              !section.items.some(
+                (item) => !item.archived && item.kind === "video",
+              ) && (
+                <p className="mt-4 text-white/75">
+                  Add the reviewed trailer video and poster, then unarchive this
+                  section to show it at the top of the page.
+                </p>
+              )}
             <div className="mt-4">
               <Field
                 label="Introduction (plain text)"
@@ -594,21 +609,29 @@ export default function Editor({ initial }: { initial: ContentState }) {
                       value={item.year}
                       onChange={(v) => changeItem(item.id, "year", v)}
                     />
-                    {section.presentation === "trailer" && (
+                    {["video", "embed", "image"].includes(item.kind) && (
                       <label>
-                        Trailer width / height ratio
+                        {section.presentation === "trailer"
+                          ? "Trailer"
+                          : "Artwork"}{" "}
+                        width / height ratio
                         <input
                           className={inputClass}
                           type="number"
                           min="0.25"
                           max="4"
                           step="0.001"
-                          value={item.aspectRatio ?? 16 / 9}
+                          value={
+                            item.aspectRatio ??
+                            (section.presentation === "trailer" ? 16 / 9 : "")
+                          }
                           onChange={(e) =>
                             changeItem(
                               item.id,
                               "aspectRatio",
-                              Number(e.target.value),
+                              e.target.value
+                                ? Number(e.target.value)
+                                : undefined,
                             )
                           }
                         />
@@ -640,7 +663,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
                       >
                         <option value="video">Video painting</option>
                         <option value="embed">
-                          Provider player (YouTube / Vimeo / Imgur)
+                          Provider player / on-chain artwork
                         </option>
                         <option value="image">Image / GIF</option>
                         <option value="link">Link</option>

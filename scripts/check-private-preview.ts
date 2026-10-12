@@ -310,8 +310,8 @@ try {
   });
   assert.equal(
     await page.locator('script[src*="use.typekit.net"]').count(),
-    0,
-    "Original domain license is not extended to the preview",
+    1,
+    "Original hosted embed is present without an artificial hostname gate",
   );
   const result = {
     publicPortfolio:
@@ -324,7 +324,7 @@ try {
     recoveredContent:
       "Desktop/mobile: 32-image Instagram grid, eight posts, legacy routes, 4 reduced-motion-aware legacy loops, archive justified montage, fullscreen Vimeo/YouTube activation/close/next/Escape and image-only entries pass. Provider HTML is a controlled fixture; actual remote playback and original geometry are not verified.",
     typography:
-      "Recovered body 14px/300/.04em and active navigation colors pass; original font loader stays disabled on preview hosts.",
+      "Recovered body 14px/300/.04em and active navigation colors pass; original hosted font wiring is enabled. Cloud transport does not verify upstream font decoding or exact glyph fidelity.",
     deployment:
       "Local compiled production server; no external deployment or credentials",
   };

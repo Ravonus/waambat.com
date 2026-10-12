@@ -5,6 +5,6 @@
   "anonymousMedia": "404",
   "browser": "Compiled production gallery: 23 original paintings, no login/database, desktop/mobile rendered without overflow; reduced motion attached no video source",
   "recoveredContent": "Desktop/mobile: 32-image Instagram grid, eight posts, legacy routes, 4 reduced-motion-aware legacy loops, archive justified montage, fullscreen Vimeo/YouTube activation/close/next/Escape and image-only entries pass. Provider HTML is a controlled fixture; actual remote playback and original geometry are not verified.",
-  "typography": "Recovered body 14px/300/.04em and active navigation colors pass; original font loader stays disabled on preview hosts.",
+  "typography": "Recovered body 14px/300/.04em and active navigation colors pass; original hosted font wiring is enabled. Cloud transport does not verify upstream font decoding or exact glyph fidelity.",
   "deployment": "Local compiled production server; no external deployment or credentials"
 }

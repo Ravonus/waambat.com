@@ -5,6 +5,7 @@ const config = {
   poweredByHeader: false,
   devIndicators: false,
   env: {
+    WAAMBAT_BUILD_REVISION: process.env.COMMIT_REF ?? "local-working-tree",
     WAAMBAT_REVIEW_BUILD: process.env.WAAMBAT_PRIVATE_SITE === "1" ? "1" : "0",
     WAAMBAT_CONTENT_CONTEXT:
       process.env.CONTEXT === "deploy-preview"

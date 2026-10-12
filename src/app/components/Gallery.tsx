@@ -1,6 +1,7 @@
 import type { Content } from "~/lib/content";
 import ArtworkCard from "./ArtworkCard";
 import SourceImage from "./SourceImage";
+import OrdinalCollection from "./OrdinalCollection";
 export default function Gallery({
   content,
   page,
@@ -99,11 +100,10 @@ export default function Gallery({
   return (
     <>
       {featured.length > 0 && (
-        <div
-          aria-label="Featured Ordinals collections"
-          className="grid grid-cols-1 gap-x-10 md:grid-cols-2"
-        >
-          {featured.map((s) => render(s, true))}
+        <div aria-label="Featured Ordinals collections">
+          {featured.map((section) => (
+            <OrdinalCollection key={section.id} section={section} />
+          ))}
         </div>
       )}
       {sections.filter((s) => !featured.includes(s)).map((s) => render(s))}

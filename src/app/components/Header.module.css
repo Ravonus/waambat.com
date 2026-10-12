@@ -1,0 +1,144 @@
+.link {
+  transition:
+    color 140ms ease,
+    transform 100ms ease;
+}
+.link::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.4);
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+}
+.link:hover::after,
+.link:focus-visible::after,
+.link[aria-current="page"]::after {
+  opacity: 0.8;
+  transform: scaleX(1);
+}
+.link:active {
+  transform: translateY(1px);
+}
+.link:focus-visible,
+.logo:focus-visible,
+.menuButton:focus-visible,
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-waambat-logo, #ff94b2);
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+.menuButton {
+  position: absolute;
+  top: 36px;
+  right: var(--site-mobile-padding, 20px);
+  min-height: 44px;
+  padding: 10px 4px;
+  color: var(--site-navigation, #9c9c9c);
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+.menuButton:hover,
+.closeButton:hover {
+  color: var(--color-waambat-logo, #ff94b2);
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+  padding: max(28px, env(safe-area-inset-top))
+    max(24px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom))
+    max(24px, env(safe-area-inset-left));
+  border: 0;
+  background: var(--site-background, #000);
+  color: var(--site-body, #ebebeb);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  animation: reveal 160ms ease-out;
+}
+.overlay::backdrop {
+  background: var(--site-background, #000);
+}
+.overlayHeader {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 1;
+  background: var(--site-background, #000);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.overlayWordmark {
+  color: var(--color-waambat-logo, #ff94b2);
+  font-size: var(--site-logo-size, 37px);
+  line-height: 1;
+}
+.closeButton {
+  min-width: 76px;
+  min-height: 44px;
+  color: var(--site-active-navigation, #fff);
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.closeButton span {
+  margin-right: 5px;
+  font-size: 24px;
+  vertical-align: -2px;
+}
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: clamp(32px, 7dvh, 64px) 6px 24px;
+}
+.mobileLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.mobileLink::after {
+  bottom: 2px;
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 768px) {
+  .menuButton {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .link::after {
+    transition: none;
+  }
+  .overlay {
+    animation: none;
+  }
+}

@@ -34,6 +34,7 @@ export default function ArtworkCard({
   ratio,
   originalFlow = false,
   trailer = false,
+  naturalAspect = false,
 }: {
   artwork: Artwork;
   showCaption?: boolean;
@@ -41,6 +42,7 @@ export default function ArtworkCard({
   ratio?: number;
   originalFlow?: boolean;
   trailer?: boolean;
+  naturalAspect?: boolean;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -57,7 +59,20 @@ export default function ArtworkCard({
   const { requested, wanted } = lifecycle;
   const [mobile, setMobile] = useState(false);
   const [error, setError] = useState(false);
+  const [intrinsic, setIntrinsic] = useState<{
+    src: string;
+    ratio: number;
+  } | null>(null);
   const [muted, setMuted] = useState(true);
+  const selectedSource =
+    mobile && artwork.mobileVideoSrc
+      ? artwork.mobileVideoSrc
+      : artwork.videoSrc;
+  const mediaRatio =
+    ratio ??
+    (naturalAspect && intrinsic?.src === selectedSource
+      ? intrinsic.ratio
+      : undefined);
   useEffect(() => {
     const query = matchMedia("(max-width: 767px)");
     const update = () =>
@@ -96,6 +111,7 @@ export default function ArtworkCard({
           src={artwork.videoSrc}
           title={artwork.title}
           poster={artwork.poster}
+          ratio={ratio}
         />
         <p>{artwork.description}</p>
         <a href={artwork.tokenLink}>View collection ↗</a>
@@ -105,6 +121,15 @@ export default function ArtworkCard({
   return (
     <article
       data-artwork={artwork.id}
+      data-playback-state={
+        error
+          ? "unavailable"
+          : playing
+            ? "playing"
+            : requested
+              ? "paused"
+              : "idle"
+      }
       className={
         originalFlow ? "original-artwork text-center" : "mb-10 text-center"
       }
@@ -115,8 +140,14 @@ export default function ArtworkCard({
       {artwork.kind !== "link" && (
         <div
           ref={container}
-          style={ratio ? { aspectRatio: ratio } : undefined}
-          className={`artwork-media relative w-full bg-black ${aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"}`}
+          style={
+            mediaRatio
+              ? { aspectRatio: mediaRatio }
+              : naturalAspect
+                ? { height: 150 }
+                : undefined
+          }
+          className={`artwork-media relative w-full bg-black ${naturalAspect ? "" : aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"}`}
         >
           <a
             href={trailer ? undefined : artwork.tokenLink}
@@ -128,11 +159,7 @@ export default function ArtworkCard({
             ) : (
               <video
                 ref={video}
-                src={
-                  mobile && artwork.mobileVideoSrc
-                    ? artwork.mobileVideoSrc
-                    : artwork.videoSrc
-                }
+                src={selectedSource}
                 poster={
                   mobile && /^\/posters\/\d+-960.webp$/.test(artwork.poster)
                     ? artwork.poster.replace("-960", "-480")
@@ -143,6 +170,18 @@ export default function ArtworkCard({
                 controls={trailer}
                 playsInline
                 preload="none"
+                onLoadedMetadata={(event) => {
+                  const element = event.currentTarget;
+                  if (
+                    naturalAspect &&
+                    element.videoWidth &&
+                    element.videoHeight
+                  )
+                    setIntrinsic({
+                      src: selectedSource,
+                      ratio: element.videoWidth / element.videoHeight,
+                    });
+                }}
                 onLoadedData={() => {
                   if (lifecycle.desired.current)
                     void video.current?.play().catch(() => setPlaying(false));
@@ -168,6 +207,22 @@ export default function ArtworkCard({
                 onClick={toggle}
                 error={error}
               />
+            </div>
+          )}
+          {error && (
+            <div
+              role="status"
+              className="absolute inset-x-2 bottom-14 text-sm text-white"
+            >
+              <p>Video could not load.</p>
+              <a
+                href={artwork.videoSrc}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                Open original video ↗
+              </a>
             </div>
           )}
           {artwork.kind === "video" && trailer && (

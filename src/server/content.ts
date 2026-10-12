@@ -28,7 +28,8 @@ export async function getContentState(): Promise<ContentState> {
   if (blobContentConfigured())
     return {
       ...(await readBlobContent(seed())),
-      deployedRevision: process.env.COMMIT_REF ?? "local-working-tree",
+      deployedRevision:
+        process.env.WAAMBAT_BUILD_REVISION ?? "local-working-tree",
       updatedAt: null,
     };
   const store = getGitStore();
@@ -44,7 +45,8 @@ export async function getContentState(): Promise<ContentState> {
     draft: draft.content,
     published: published.content,
     publishedRevision: published.sha,
-    deployedRevision: process.env.COMMIT_REF ?? "local-working-tree",
+    deployedRevision:
+      process.env.WAAMBAT_BUILD_REVISION ?? "local-working-tree",
     updatedAt: null,
   };
 }

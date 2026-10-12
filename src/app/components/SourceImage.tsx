@@ -1,3 +1,4 @@
+import { sourceImageSet } from "~/lib/source-image";
 export default function SourceImage({
   src,
   alt,
@@ -11,18 +12,12 @@ export default function SourceImage({
   className?: string;
   sizes?: string;
 }) {
-  const responsive = src.startsWith("https://images.squarespace-cdn.com/");
-  const variant = (width: number) =>
-    `${src}${src.includes("?") ? "&" : "?"}format=${width}w`;
+  const source = sourceImageSet(src);
   return (
     // eslint-disable-next-line @next/next/no-img-element -- Retains the original CDN and its responsive renditions.
     <img
-      src={responsive ? variant(1000) : src}
-      srcSet={
-        responsive
-          ? `${variant(100)} 100w, ${variant(300)} 300w, ${variant(500)} 500w, ${variant(1000)} 1000w, ${variant(1500)} 1500w`
-          : undefined
-      }
+      src={source.src}
+      srcSet={source.srcSet}
       sizes={sizes}
       alt={alt}
       loading={eager ? "eager" : "lazy"}
