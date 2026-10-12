@@ -67,7 +67,7 @@ try {
     await new Promise((r) => setTimeout(r, 500));
   }
   browser = await chromium.launch({
-    executablePath: "/usr/bin/chromium",
+    executablePath: process.env.CHROMIUM_PATH ?? "/usr/bin/chromium",
     headless: true,
     args: ["--no-sandbox"],
   });

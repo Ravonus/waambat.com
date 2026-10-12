@@ -111,7 +111,7 @@ try {
   assert.ok(errors.includes("WAAMBAT content storage read failed"));
   assert.ok(errors.includes("deadline"));
   browser = await chromium.launch({
-    executablePath: "/usr/bin/chromium",
+    executablePath: process.env.CHROMIUM_PATH ?? "/usr/bin/chromium",
     headless: true,
     args: ["--no-sandbox"],
   });

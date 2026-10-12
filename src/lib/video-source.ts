@@ -9,6 +9,9 @@ export type VideoSource = {
 export function videoSource(value: string): VideoSource | null {
   if (/^\/api\/media\/[a-f0-9]{64}$/.test(value))
     return { provider: "direct", original: value, player: value, direct: true };
+  // Same-origin hero renders shipped with the site (public/hero), never a user-supplied host.
+  if (/^\/hero\/[a-z0-9][a-z0-9-]{0,80}\.(mp4|webm)$/.test(value))
+    return { provider: "direct", original: value, player: value, direct: true };
   try {
     const url = new URL(value);
     if (url.protocol !== "https:" || url.username || url.password || url.port)

@@ -6,6 +6,8 @@ import Layout from "~/app/components/Layout";
 import Gallery from "~/app/components/Gallery";
 import ContentPage from "~/app/components/ContentPage";
 import LegacySplash from "~/app/components/LegacySplash";
+import Hero from "~/app/components/Hero";
+import { activeHero } from "~/lib/hero";
 export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Private draft preview",
@@ -33,9 +35,11 @@ export default async function Preview({
         <LegacySplash page={article} theme={state.draft.theme} />
       </>
     );
+  const hero = article ? null : activeHero(state.draft, page);
   return (
     <Layout
       preview
+      hero={hero && <Hero section={hero.section} item={hero.item} />}
       theme={state.draft.theme}
       wide={article?.layout === "archive"}
       navigation={state.draft.navigation.filter(

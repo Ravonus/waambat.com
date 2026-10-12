@@ -1,0 +1,163 @@
+.hero {
+  position: relative;
+  width: 100%;
+  background: var(--site-background, #000);
+}
+/* The frame is the video's own aspect ratio, capped so the whole banner fits
+   the viewport on wide screens; black sides, never cropped art. */
+.frame {
+  --hero-top: 96px;
+  position: relative;
+  margin-inline: auto;
+  width: 100%;
+  aspect-ratio: var(--hero-ratio, 1.7778);
+  max-width: max(
+    min(1600px, calc((100vh - var(--hero-top)) * var(--hero-ratio, 1.7778))),
+    min(100%, 560px)
+  );
+  max-width: max(
+    min(1600px, calc((100svh - var(--hero-top)) * var(--hero-ratio, 1.7778))),
+    min(100%, 560px)
+  );
+  overflow: hidden;
+  container-type: inline-size;
+  background: #000;
+  isolation: isolate;
+}
+.poster,
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+.poster {
+  animation: hero-poster-in 520ms steps(8, end) both;
+}
+.video {
+  opacity: 0;
+  transition: opacity 360ms ease-out;
+}
+.video[data-shown="true"] {
+  opacity: 1;
+}
+.hero .wordmark {
+  position: absolute;
+  z-index: 2;
+  left: 4.6cqw;
+  top: 47%;
+  transform: translateY(-50%);
+  margin: 0;
+  font-size: calc(6.3cqw * var(--site-hero-wordmark-scale, 1));
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--color-waambat-logo, #ff94b2);
+  pointer-events: none;
+  animation: hero-wordmark-in 760ms steps(7, end) 120ms both;
+}
+.hero .wordmark img {
+  display: block;
+  max-width: 34cqw;
+  max-height: 18cqw;
+  height: auto;
+  width: auto;
+}
+.controls {
+  position: absolute;
+  z-index: 3;
+  left: max(12px, 2cqw);
+  bottom: max(12px, 2cqw);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.controls :global(.media-control) {
+  opacity: 0.55;
+  transition:
+    opacity 150ms,
+    background-color 150ms,
+    color 150ms;
+}
+.hero:hover .controls :global(.media-control),
+.controls :global(.media-control):hover,
+.controls :global(.media-control):focus-visible {
+  opacity: 1;
+}
+.status {
+  margin: 0;
+  max-width: 24ch;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--site-body, #ebebeb);
+}
+@keyframes hero-poster-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Stepped, slightly chromatic arrival: the pink wordmark resolves out of her own
+   violet and coral fringe instead of fading like a template. */
+@keyframes hero-wordmark-in {
+  0% {
+    opacity: 0;
+    text-shadow:
+      -0.06em 0 #9457ff,
+      0.06em 0 #ff7070;
+  }
+  45% {
+    opacity: 1;
+    text-shadow:
+      -0.035em 0 #9457ffaa,
+      0.035em 0 #ff7070aa;
+  }
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 #9457ff00,
+      0 0 #ff707000;
+  }
+}
+@media (max-width: 767px) and (orientation: portrait) {
+  .frame {
+    max-width: none;
+    aspect-ratio: var(--hero-ratio-mobile, 0.8);
+    --hero-top: 0px;
+  }
+  .hero .wordmark {
+    left: 5.5cqw;
+    top: 3.2cqw;
+    transform: none;
+    font-size: calc(12.5cqw * var(--site-hero-wordmark-scale, 1));
+  }
+  .hero .wordmark img {
+    max-width: 58cqw;
+    max-height: 18cqw;
+  }
+}
+@media (max-width: 767px) and (orientation: landscape) {
+  .frame {
+    --hero-top: 0px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poster,
+  .wordmark {
+    animation: none;
+  }
+  .video {
+    transition: none;
+  }
+}
+:global([data-motion="off"]) .poster,
+:global([data-motion="off"]) .hero .wordmark {
+  animation: none;
+}
+:global([data-motion="calm"]) .hero .wordmark {
+  animation-timing-function: ease-out;
+}

@@ -27,6 +27,17 @@ const config = {
         ],
       },
       {
+        // Hero renders keep their file names when re-rendered, so cache for an
+        // hour and revalidate in the background instead of marking them immutable.
+        source: "/hero/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
         source: "/admin/:path*",
         headers: [
           { key: "Cache-Control", value: "private, no-store" },

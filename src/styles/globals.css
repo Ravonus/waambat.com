@@ -296,6 +296,18 @@ button:disabled {
   line-height: 0.6;
   vertical-align: top;
 }
+/* With the hero banner the large wordmark lives in the banner; the header is
+   just the navigation, tightened so the artwork starts higher. */
+.site-header[data-with-hero] {
+  padding-top: 26px;
+  padding-bottom: 20px;
+}
+.site-header[data-with-hero] .site-logo {
+  display: none;
+}
+.site-header[data-with-hero] nav {
+  margin-top: 0;
+}
 .site-nav-link {
   position: relative;
   font-size: var(--site-navigation-size);
@@ -684,6 +696,17 @@ button:disabled {
   }
 }
 @media (max-width: 767px) {
+  /* On phones the hero starts at the very top and the menu button floats in
+     its black band beside the wordmark. */
+  .site-header[data-with-hero] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 30;
+    height: 0;
+    padding: 0;
+  }
   .source-centered,
   .source-contact {
     width: 100%;
@@ -730,4 +753,182 @@ button:disabled {
 }
 .original-artwork .artwork-caption p:last-child {
   margin-bottom: 0;
+}
+
+/* Art direction pass.
+   Spacing: the original flow's per-artwork gap, tightened on phones where a
+   200px black gap reads as a missing image rather than rhythm. */
+.original-artwork {
+  padding-top: var(--artwork-gap, 200px);
+}
+@media (max-width: 767px) {
+  .original-artwork {
+    padding-top: calc(var(--artwork-gap, 200px) * 0.4);
+  }
+  .original-home .home-intro {
+    padding-top: 12px;
+  }
+}
+
+/* Captions: title first, the quieter facts recede. */
+.original-artwork .artwork-caption h2 a {
+  transition: color 150ms ease;
+}
+.original-artwork .artwork-caption h2 a:hover,
+.original-artwork .artwork-caption h2 a:focus-visible {
+  color: var(--color-waambat-hover);
+}
+.original-artwork .artwork-caption p {
+  color: color-mix(in srgb, var(--site-body) 78%, transparent);
+}
+
+/* Navigation: the underline carries her violet/coral split, like the wordmark
+   arrival, instead of a flat line. */
+.site-nav-link:hover::after,
+.site-nav-link:focus-visible::after,
+.site-nav-link[aria-current="page"]::after {
+  box-shadow:
+    -1px 1px 0 #9457ffcc,
+    1px -1px 0 #ff7070aa;
+}
+
+/* Controls: a pressed state and a ring in the logo pink. */
+.media-control {
+  transition:
+    background-color 150ms,
+    color 150ms,
+    border-color 150ms,
+    opacity 150ms,
+    transform 90ms;
+}
+.media-control:hover {
+  border-color: var(--color-waambat-logo);
+}
+.media-control:active {
+  transform: scale(0.94);
+}
+
+/* Objects arrive as the reader reaches them: opacity and a short rise, the
+   caption title resolving out of the violet/coral fringe. Scroll-driven, so it
+   needs no script, does not touch the video lifecycle, and simply does not
+   run where unsupported, with reduced motion, or when the studio sets
+   motion to "off". "calm" keeps the fade and drops the rise. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-theme:not([data-motion="off"]) .original-artwork .artwork-media,
+    .site-theme:not([data-motion="off"]) .original-artwork .artwork-caption,
+    .site-theme:not([data-motion="off"]) .archive-row {
+      animation: object-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+    .site-theme:not([data-motion="off"]) .original-artwork .artwork-caption h2 {
+      animation: title-resolve linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 70%;
+    }
+    .site-theme[data-motion="calm"] .original-artwork .artwork-media,
+    .site-theme[data-motion="calm"] .original-artwork .artwork-caption,
+    .site-theme[data-motion="calm"] .archive-row {
+      animation-name: object-in-calm;
+    }
+    .site-theme[data-motion="calm"] .original-artwork .artwork-caption h2 {
+      animation: none;
+    }
+  }
+}
+/* Page titles arrive the way the wordmark does; other pages' figures and
+   artwork cards fade in as they are reached. */
+@media (prefers-reduced-motion: no-preference) {
+  .site-theme:not([data-motion="off"]):not([data-motion="calm"]) .site-main h1 {
+    animation: title-arrive 640ms steps(6, end) both;
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-theme:not([data-motion="off"])
+      .site-main
+      [data-artwork]:not(.original-artwork),
+    .site-theme:not([data-motion="off"]) .source-content figure {
+      animation: object-in-calm linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}
+@keyframes title-arrive {
+  0% {
+    opacity: 0;
+    text-shadow:
+      -0.06em 0 #9457ff,
+      0.06em 0 #ff7070;
+  }
+  45% {
+    opacity: 1;
+    text-shadow:
+      -0.035em 0 #9457ffaa,
+      0.035em 0 #ff7070aa;
+  }
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 #9457ff00,
+      0 0 #ff707000;
+  }
+}
+@keyframes object-in {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes object-in-calm {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes title-resolve {
+  from {
+    text-shadow:
+      -0.07em 0 #9457ff,
+      0.07em 0 #ff7070;
+  }
+  to {
+    text-shadow:
+      0 0 #9457ff00,
+      0 0 #ff707000;
+  }
+}
+
+/* The click-to-interact gate for LUX: same control, with states. */
+.ordinal-gate {
+  letter-spacing: 0.08em;
+  transition:
+    border-color 150ms,
+    color 150ms,
+    background-color 150ms,
+    box-shadow 150ms,
+    transform 90ms;
+}
+.ordinal-gate:hover,
+.ordinal-gate:focus-visible {
+  border-color: var(--color-waambat-logo);
+  color: var(--color-waambat-logo);
+  box-shadow:
+    -2px 0 0 #9457ff88,
+    2px 0 0 #ff707088;
+}
+.ordinal-gate:active {
+  transform: scale(0.97);
+}
+.ordinal-gate[aria-pressed="true"] {
+  border-color: var(--color-waambat-logo);
+  background: #ff94b218;
 }

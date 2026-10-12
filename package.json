@@ -26,7 +26,8 @@
     "test:inline": "tsx scripts/check-inline-playback.ts",
     "media:prepare": "tsx scripts/prepare-media.ts",
     "content:check": "tsx scripts/check-content.ts",
-    "test:lux": "tsx scripts/check-lux-interaction.ts"
+    "test:lux": "tsx scripts/check-lux-interaction.ts",
+    "test:hero": "tsx scripts/check-hero.ts"
   },
   "dependencies": {
     "@netlify/blobs": "^11.1.4",

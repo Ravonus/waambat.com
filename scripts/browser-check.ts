@@ -13,6 +13,11 @@ const repository = join(fixtureDir, "repository");
 await mkdir(join(repository, "src/content"), { recursive: true });
 const legacySeed = JSON.parse(await readFile("src/content/site.json", "utf8"));
 legacySeed.ordinalSourceVersion = 0;
+// A store saved before the hero banner existed: it must be presented without being written.
+legacySeed.heroVersion = 0;
+legacySeed.sections = legacySeed.sections.filter(
+  (section: { id: string }) => section.id !== "site-hero",
+);
 const legacyLux = legacySeed.sections.find(
   (section: { id: string }) => section.id === "lux",
 ).items[0];
@@ -157,9 +162,19 @@ try {
     await route.fulfill({ body: videoBytes, contentType: "video/mp4" });
   });
   await page.goto(origin);
+  // The hero banner fills the first screen: its video is a same-origin file, so
+  // nothing remote loads until the first painting is reached.
+  await page.waitForFunction(() => {
+    const v = document.querySelector<HTMLVideoElement>("[data-hero] video");
+    return !!v && !v.paused && v.readyState >= 2;
+  });
+  assert.equal(requests.length, 0, "Hero must not trigger remote requests");
+  await page.locator('[data-artwork="artwork-1"]').scrollIntoViewIfNeeded();
   await page.waitForFunction(() =>
-    Array.from(document.querySelectorAll("video")).some(
-      (v) => !v.paused && v.readyState >= 2,
+    Array.from(document.querySelectorAll("[data-artwork] video")).some(
+      (v) =>
+        !(v as HTMLVideoElement).paused &&
+        (v as HTMLVideoElement).readyState >= 2,
     ),
   );
   assert.ok(
@@ -323,7 +338,7 @@ try {
   const popupEvent = anon.waitForEvent("page");
   await navigation
     .getByRole("link", { name: "quantum mechanics", exact: true })
-    .click({ modifiers: ["Control"] });
+    .click({ modifiers: ["ControlOrMeta"] });
   const popup = await popupEvent;
   await popup.waitForLoadState();
   assert.equal(navigation.url(), beforeModified);
@@ -400,6 +415,28 @@ try {
     await owner.request.get(`${origin}/api/admin/content`)
   ).json();
   assert.equal(initial.sourceCorrectionsPending, true);
+  // Stored before the banner existed: presented with the default hero, not written.
+  assert.equal(initial.heroPending, true);
+  assert.equal(initial.draft.heroVersion, 1);
+  assert.ok(
+    initial.draft.sections.some(
+      (section: { id: string; presentation?: string }) =>
+        section.id === "site-hero" && section.presentation === "hero",
+    ),
+  );
+  assert.equal(
+    JSON.parse(
+      execFileSync(
+        "git",
+        ["-C", repository, "show", "main:src/content/site.json"],
+        {
+          encoding: "utf8",
+        },
+      ),
+    ).heroVersion,
+    0,
+    "reading must not write the compatibility banner",
+  );
   assert.equal(
     initial.draft.sections.find(
       (section: { id: string }) => section.id === "lux",
@@ -517,6 +554,15 @@ try {
   await pageBlock
     .getByLabel("Page block text / image description", { exact: true })
     .fill("Private contact draft");
+  const heroEditor = admin
+    .locator("section")
+    .filter({ hasText: "runs a silent looping video" });
+  await heroEditor
+    .getByLabel("Section title", { exact: true })
+    .fill("waambat draft wordmark");
+  await admin
+    .getByLabel("Theme motion energy", { exact: true })
+    .selectOption("calm");
   await admin.getByLabel("Theme heading", { exact: true }).fill("#123456");
   await admin.getByLabel("Theme content width", { exact: true }).fill("1000");
   await admin.getByLabel("Theme font", { exact: true }).selectOption("system");
@@ -527,6 +573,18 @@ try {
   ).json();
   assert.equal(saved.draft.sections[0].items[0].title, "Draft test title");
   assert.equal(saved.sourceCorrectionsPending, false);
+  assert.equal(
+    saved.heroPending,
+    false,
+    "an ordinary Save persists the banner",
+  );
+  assert.equal(
+    saved.draft.sections.find(
+      (section: { id: string }) => section.id === "site-hero",
+    ).title,
+    "waambat draft wordmark",
+  );
+  assert.equal(saved.draft.theme.motion, "calm");
   const persistedDraft = JSON.parse(
     execFileSync(
       "git",
@@ -571,6 +629,17 @@ try {
   await preview
     .getByRole("heading", { name: "Draft test title", exact: true })
     .waitFor();
+  assert.equal(
+    ((await preview.locator("[data-hero] h1").textContent()) ?? "").trim(),
+    "waambat draft wordmark",
+  );
+  assert.equal(
+    await preview.locator(".site-theme").getAttribute("data-motion"),
+    "calm",
+  );
+  const publicHome = await (await owner.request.get(origin)).text();
+  assert.ok(publicHome.includes("data-hero"));
+  assert.ok(!publicHome.includes("waambat draft wordmark"));
   const videoUpload = await owner.request.post(`${origin}/api/admin/upload`, {
     headers: { Origin: origin },
     multipart: {
@@ -590,12 +659,20 @@ try {
   await mobilePreview.setViewportSize({ width: 390, height: 844 });
   await mobilePreview.goto(`${origin}/admin/preview`);
   await mobilePreview.waitForFunction(() => {
-    const v = document.querySelector("video");
+    const v = document.querySelector<HTMLVideoElement>("[data-artwork] video");
     return v && !v.paused && v.readyState >= 2;
   });
   assert.equal(
-    await mobilePreview.locator("video").first().getAttribute("src"),
+    await mobilePreview
+      .locator("[data-artwork] video")
+      .first()
+      .getAttribute("src"),
     mobileMedia.url,
+  );
+  // The hero banner in the same preview uses its own phone render.
+  assert.equal(
+    await mobilePreview.locator("[data-hero] video").getAttribute("src"),
+    "/hero/waambat-hero-mobile.mp4",
   );
   // An external save must cause a stale studio write to fail without losing its edits.
   await admin

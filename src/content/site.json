@@ -624,6 +624,33 @@
       "presentation": "trailer",
       "archived": true,
       "items": []
+    },
+    {
+      "id": "site-hero",
+      "title": "waambat",
+      "intro": "",
+      "presentation": "hero",
+      "page": "nfts",
+      "archived": false,
+      "items": [
+        {
+          "id": "site-hero-montage",
+          "title": "WAAMBAT hero montage",
+          "year": "",
+          "description": "A moving montage of WAAMBAT's own artworks, including LUX and Kismet Twist.",
+          "tokenLink": "/",
+          "videoSrc": "/hero/waambat-hero-desktop.mp4",
+          "mobileVideoSrc": "/hero/waambat-hero-mobile.mp4",
+          "poster": "/hero/waambat-hero-poster.webp",
+          "mobilePoster": "/hero/waambat-hero-poster-mobile.webp",
+          "logoSrc": "",
+          "kind": "video",
+          "aspectRatio": 1.7777777777777777,
+          "mobileAspectRatio": 0.8,
+          "featured": false,
+          "archived": false
+        }
+      ]
     }
   ],
   "pages": [
@@ -2633,5 +2660,6 @@
       "archived": false
     }
   ],
-  "ordinalSourceVersion": 1
+  "ordinalSourceVersion": 1,
+  "heroVersion": 1
 }

@@ -17,9 +17,11 @@ function NavigationHint() {
 export default function Header({
   preview = false,
   navigation = defaultNavigation,
+  hero = false,
 }: {
   preview?: boolean;
   navigation?: Content["navigation"];
+  hero?: boolean;
 }) {
   const pathname = usePathname();
   const params = useSearchParams();
@@ -140,7 +142,10 @@ export default function Header({
       ));
 
   return (
-    <header className="site-header mx-auto w-full max-w-none text-center">
+    <header
+      className="site-header mx-auto w-full max-w-none text-center"
+      data-with-hero={hero || undefined}
+    >
       <Link
         href="/"
         className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`}

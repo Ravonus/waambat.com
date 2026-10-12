@@ -41,6 +41,10 @@ export const themeSchema = z
     blockPadding: number(17, 0, 40),
     paragraphGap: number(14, 0, 40),
     archiveGap: number(10, 4, 24),
+    // Reveal and transition energy. The visitor's reduced-motion setting always wins.
+    motion: z.enum(["full", "calm", "off"]).default("full"),
+    // Size of the live wordmark inside the hero banner, as a percentage.
+    heroWordmarkScale: number(100, 60, 160),
   })
   .strict();
 export type Theme = z.infer<typeof themeSchema>;
@@ -71,6 +75,7 @@ export function themeStyle(theme: Theme): CSSProperties {
     "--site-weight": theme.bodyWeight,
     "--site-leading": theme.lineHeight,
     "--site-tracking": `${theme.tracking}em`,
+    "--site-hero-wordmark-scale": theme.heroWordmarkScale / 100,
   };
   for (const key of [
     "headingSize",
