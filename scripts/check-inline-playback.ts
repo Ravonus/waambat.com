@@ -307,14 +307,14 @@ try {
   await page.mouse.move(80, 370);
   await page.waitForFunction(
     () =>
-      document.querySelector<HTMLElement>("[data-pink-cursor]")?.style
-        .opacity === "0",
+      document.querySelector<HTMLElement>("[data-pink-cursor]")?.dataset
+        .cursorState === "text",
   );
   evidence.cursor = {
     arrow: true,
     pointer: true,
     disabledNested: true,
-    nativeText: true,
+    pinkText: true,
     gradientChanges: true,
     renderedGradientPixelsChange: true,
   };

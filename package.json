@@ -20,6 +20,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "test": "tsx --test tests/*.test.ts",
     "test:browser": "tsx scripts/browser-check.ts",
+    "test:cursor": "tsx scripts/check-cursor.ts",
     "test:preview": "tsx scripts/check-private-preview.ts",
     "test:auth": "tsx scripts/check-backup-auth.ts",
     "test:inline": "tsx scripts/check-inline-playback.ts",

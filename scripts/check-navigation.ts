@@ -60,17 +60,13 @@ try {
   );
   await menu.click();
   await dialog.waitFor();
-  await page.waitForFunction(() =>
-    Boolean(document.querySelector("#mobile-site-menu [data-pink-cursor]")),
-  );
   await dialog.getByRole("link", { name: "bio", exact: true }).hover();
   await page.waitForFunction(() => {
-    const pointer = document.querySelector<HTMLElement>(
-      "#mobile-site-menu [data-pink-cursor]",
-    );
+    const pointer = document.querySelector<HTMLElement>("[data-pink-cursor]");
     return (
       pointer?.style.opacity === "1" &&
-      pointer.dataset.cursorState === "pointer"
+      pointer.dataset.cursorState === "pointer" &&
+      pointer.matches(":popover-open")
     );
   });
   assert.equal(await lock(), "fixed");
@@ -228,7 +224,7 @@ try {
   evidence.interrupted =
     "Delayed navigation keeps menu usable and locked; explicit dismissal during pending request restores scroll; later successful route stays unlocked";
   evidence.navigationAppearance =
-    "Pink hamburger retains accessible Menu name; pink pointer renders inside the native dialog top layer and returns to body on dismissal; delayed navigation shows no ellipsis";
+    "Pink hamburger retains accessible Menu name; one pink pointer renders above native dialogs in the top layer throughout open/close; delayed navigation shows no ellipsis";
   await context.unroute(delayed);
 
   await menu.click();
