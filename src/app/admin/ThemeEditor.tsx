@@ -29,6 +29,7 @@ const numbers = [
   "blockPadding",
   "paragraphGap",
   "archiveGap",
+  "heroWordmarkScale",
 ] as const;
 const label = (value: string) =>
   value.replace(/[A-Z]/g, (m) => ` ${m.toLowerCase()}`);
@@ -83,9 +84,32 @@ export default function ThemeEditor({
             </select>
           </label>
         ))}
+        <label>
+          Motion energy
+          <select
+            aria-label="Theme motion energy"
+            value={theme.motion}
+            onChange={(e) =>
+              onChange({ ...theme, motion: e.target.value as Theme["motion"] })
+            }
+            className="block w-full border bg-black p-2"
+          >
+            <option value="full">
+              Full: reveals, hero entrance, route pulse
+            </option>
+            <option value="calm">Calm: shorter, softer reveals</option>
+            <option value="off">Off: no decorative motion</option>
+          </select>
+          <span className="mt-1 block text-sm text-white/70">
+            Visitors who ask their device for reduced motion never see
+            decorative motion, whatever this is set to.
+          </span>
+        </label>
         {numbers.map((key) => (
           <label key={key} className="capitalize">
-            {label(key)}
+            {key === "heroWordmarkScale"
+              ? "Hero wordmark size (%)"
+              : label(key)}
             <input
               aria-label={`Theme ${label(key)}`}
               type="number"

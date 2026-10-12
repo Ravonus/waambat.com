@@ -1,0 +1,1397 @@
+{
+ "version": 1,
+ "name": "waambat-hero",
+ "brief": "WAAMBAT hero montage: her own works layered on black, bridged by datamosh, mosaic and chromatic displacement, looping seamlessly.",
+ "fps": 24,
+ "seed": 7,
+ "tempo": {
+  "bpm": 120,
+  "firstDownbeat": 0
+ },
+ "background": "#000000",
+ "sources": [
+  {
+   "id": "feels404",
+   "kind": "video",
+   "path": "src/artwork-01-feels-404.mp4"
+  },
+  {
+   "id": "animal",
+   "kind": "video",
+   "path": "src/artwork-02-animal-spirits.mp4"
+  },
+  {
+   "id": "swap",
+   "kind": "video",
+   "path": "src/artwork-03-swap-exchange.mp4"
+  },
+  {
+   "id": "boiama",
+   "kind": "video",
+   "path": "src/artwork-05-enter-boi-ama.mp4"
+  },
+  {
+   "id": "disco",
+   "kind": "video",
+   "path": "src/artwork-06-fap-disco.mp4"
+  },
+  {
+   "id": "haptic",
+   "kind": "video",
+   "path": "src/artwork-07-haptic-feedback.mp4"
+  },
+  {
+   "id": "swipe",
+   "kind": "video",
+   "path": "src/artwork-08-swipe-swag.mp4"
+  },
+  {
+   "id": "profits",
+   "kind": "video",
+   "path": "src/artwork-09-profits.mp4"
+  },
+  {
+   "id": "netmelt",
+   "kind": "video",
+   "path": "src/artwork-10-net-melt.mp4"
+  },
+  {
+   "id": "troll",
+   "kind": "video",
+   "path": "src/artwork-11-troll-crash.mp4"
+  },
+  {
+   "id": "goat",
+   "kind": "video",
+   "path": "src/artwork-12-goat.mp4"
+  },
+  {
+   "id": "cord",
+   "kind": "video",
+   "path": "src/artwork-13-cord-cutter.mp4"
+  },
+  {
+   "id": "hard",
+   "kind": "video",
+   "path": "src/artwork-14-hard-launch.mp4"
+  },
+  {
+   "id": "future",
+   "kind": "video",
+   "path": "src/artwork-15-fucking-future.mp4"
+  },
+  {
+   "id": "lore",
+   "kind": "video",
+   "path": "src/artwork-16-joys-of-lore.mp4"
+  },
+  {
+   "id": "meta",
+   "kind": "video",
+   "path": "src/artwork-17-meta-matters.mp4"
+  },
+  {
+   "id": "cheers",
+   "kind": "video",
+   "path": "src/artwork-18-cheers-chad.mp4"
+  },
+  {
+   "id": "catfish",
+   "kind": "video",
+   "path": "src/artwork-19-catfish-glitch.mp4"
+  },
+  {
+   "id": "axiom",
+   "kind": "video",
+   "path": "src/artwork-20-axiom-glow-up.mp4"
+  },
+  {
+   "id": "deep",
+   "kind": "video",
+   "path": "src/artwork-21-deep-linking.mp4"
+  },
+  {
+   "id": "sus",
+   "kind": "video",
+   "path": "src/artwork-22-sus-singularity.mp4"
+  },
+  {
+   "id": "abacus",
+   "kind": "video",
+   "path": "src/artwork-23-abacus-ram.mp4"
+  },
+  {
+   "id": "selfie",
+   "kind": "video",
+   "path": "src/art-video-3.mp4"
+  },
+  {
+   "id": "mass",
+   "kind": "video",
+   "path": "src/art-video-4.mp4"
+  },
+  {
+   "id": "gallery",
+   "kind": "video",
+   "path": "src/art-video-2.mp4"
+  },
+  {
+   "id": "bio",
+   "kind": "video",
+   "path": "src/bio-animation.mp4"
+  },
+  {
+   "id": "eggplant",
+   "kind": "video",
+   "path": "src/contact-video.mp4"
+  },
+  {
+   "id": "fire",
+   "kind": "video",
+   "path": "src/mechanics-2.mp4"
+  },
+  {
+   "id": "tweet",
+   "kind": "video",
+   "path": "src/press-3.mp4"
+  },
+  {
+   "id": "strip",
+   "kind": "video",
+   "path": "src/press-1.mp4"
+  },
+  {
+   "id": "faces",
+   "kind": "video",
+   "path": "src/press-5.mp4"
+  },
+  {
+   "id": "selfieLo",
+   "kind": "video",
+   "path": "src/press-2.mp4"
+  },
+  {
+   "id": "lux",
+   "kind": "video",
+   "path": "src/lux.mp4"
+  },
+  {
+   "id": "kismet",
+   "kind": "video",
+   "path": "src/kismet.mp4"
+  }
+ ],
+ "shots": [
+  {
+   "id": "goat",
+   "kind": "stage",
+   "startBeat": 0,
+   "beats": 6,
+   "layers": [
+    {
+     "source": "mass",
+     "fit": "cover",
+     "blend": "add",
+     "in": 0,
+     "opacity": 0.3,
+     "mask": "ellipse",
+     "feather": 0.95,
+     "scaleFrom": 1,
+     "scaleTo": 1.1,
+     "rect": {
+      "x": 300,
+      "y": 0,
+      "width": 980,
+      "height": 720
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 0,
+        "y": 168,
+        "width": 720,
+        "height": 732
+       }
+      }
+     ]
+    },
+    {
+     "source": "goat",
+     "fit": "cover",
+     "blend": "normal",
+     "in": 3.37,
+     "scaleFrom": 1,
+     "scaleTo": 1.06,
+     "rect": {
+      "x": 513,
+      "y": 14,
+      "width": 691,
+      "height": 691
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 36,
+        "y": 225,
+        "width": 648,
+        "height": 648
+       }
+      }
+     ]
+    },
+    {
+     "source": "kismet",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 1.2,
+     "fadeInBeats": 1,
+     "rect": {
+      "x": 297,
+      "y": 490,
+      "width": 202,
+      "height": 202
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 144,
+        "y": 788,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    },
+    {
+     "source": "cord",
+     "fit": "cover",
+     "blend": "lighten",
+     "in": 6.74,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 1164,
+      "y": 22,
+      "width": 173,
+      "height": 173
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 547,
+        "y": 144,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 26,
+     "gain": 0.32,
+     "threshold": 0.55
+    },
+    "chroma": {
+     "pixels": 1.5,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.012
+    }
+   }
+  },
+  {
+   "id": "lux",
+   "kind": "stage",
+   "startBeat": 6,
+   "beats": 6,
+   "layers": [
+    {
+     "source": "deep",
+     "fit": "cover",
+     "blend": "add",
+     "in": 10.11,
+     "opacity": 0.22,
+     "mask": "ellipse",
+     "feather": 0.95,
+     "scaleFrom": 1,
+     "scaleTo": 1.1,
+     "rect": {
+      "x": 300,
+      "y": 0,
+      "width": 980,
+      "height": 720
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 0,
+        "y": 168,
+        "width": 720,
+        "height": 732
+       }
+      }
+     ]
+    },
+    {
+     "source": "lux",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 13.48,
+     "scaleFrom": 1,
+     "scaleTo": 1.05,
+     "blackPoint": 0.12,
+     "rect": {
+      "x": 571,
+      "y": 72,
+      "width": 576,
+      "height": 576
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 72,
+        "y": 261,
+        "width": 576,
+        "height": 576
+       }
+      }
+     ]
+    },
+    {
+     "source": "disco",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 16.85,
+     "fadeInBeats": 1,
+     "rect": {
+      "x": 261,
+      "y": 36,
+      "width": 216,
+      "height": 216
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 18,
+        "y": 144,
+        "width": 151,
+        "height": 151
+       }
+      }
+     ]
+    },
+    {
+     "source": "profits",
+     "fit": "cover",
+     "blend": "lighten",
+     "in": 20.22,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 241,
+      "y": 511,
+      "width": 216,
+      "height": 216
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 558,
+        "y": 780,
+        "width": 151,
+        "height": 151
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 26,
+     "gain": 0.32,
+     "threshold": 0.55
+    },
+    "chroma": {
+     "pixels": 1.5,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.012
+    }
+   },
+   "transition": {
+    "type": "displace",
+    "beats": 1.5,
+    "strength": 26
+   }
+  },
+  {
+   "id": "faces",
+   "kind": "stage",
+   "startBeat": 12,
+   "beats": 6,
+   "layers": [
+    {
+     "source": "catfish",
+     "fit": "cover",
+     "blend": "add",
+     "in": 23.59,
+     "opacity": 0.34,
+     "mask": "ellipse",
+     "feather": 0.95,
+     "scaleFrom": 1,
+     "scaleTo": 1.1,
+     "rect": {
+      "x": 300,
+      "y": 0,
+      "width": 980,
+      "height": 720
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 0,
+        "y": 168,
+        "width": 720,
+        "height": 732
+       }
+      }
+     ]
+    },
+    {
+     "source": "selfie",
+     "fit": "cover",
+     "blend": "normal",
+     "in": 0.4,
+     "scaleFrom": 1,
+     "scaleTo": 1.04,
+     "rect": {
+      "x": 588,
+      "y": 11,
+      "width": 562,
+      "height": 698
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 101,
+        "y": 225,
+        "width": 518,
+        "height": 648
+       }
+      }
+     ]
+    },
+    {
+     "source": "eggplant",
+     "fit": "cover",
+     "blend": "screen",
+     "crop": {
+      "x": 20,
+      "y": 80,
+      "width": 410,
+      "height": 820
+     },
+     "in": 0.46,
+     "loop": true,
+     "fadeInBeats": 1,
+     "rect": {
+      "x": 301,
+      "y": 446,
+      "width": 115,
+      "height": 245
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 29,
+        "y": 777,
+        "width": 86,
+        "height": 144
+       }
+      }
+     ]
+    },
+    {
+     "source": "haptic",
+     "fit": "cover",
+     "blend": "lighten",
+     "in": 3.83,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 1111,
+      "y": 43,
+      "width": 202,
+      "height": 202
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 576,
+        "y": 147,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    },
+    {
+     "source": "selfieLo",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 3.4,
+     "opacity": 0.8,
+     "fadeInBeats": 2,
+     "rect": {
+      "x": 1170,
+      "y": 518,
+      "width": 122,
+      "height": 144
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 25,
+        "y": 162,
+        "width": 94,
+        "height": 115
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 34,
+     "gain": 0.5,
+     "threshold": 0.5
+    },
+    "chroma": {
+     "pixels": 4,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.02
+    }
+   },
+   "transition": {
+    "type": "datamosh",
+    "beats": 2,
+    "blockSize": 16,
+    "strength": 1.1
+   }
+  },
+  {
+   "id": "hard",
+   "kind": "stage",
+   "startBeat": 18,
+   "beats": 6,
+   "layers": [
+    {
+     "source": "axiom",
+     "fit": "cover",
+     "blend": "add",
+     "in": 37.07,
+     "opacity": 0.2,
+     "mask": "ellipse",
+     "feather": 0.95,
+     "scaleFrom": 1,
+     "scaleTo": 1.1,
+     "rect": {
+      "x": 300,
+      "y": 0,
+      "width": 980,
+      "height": 720
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 0,
+        "y": 168,
+        "width": 720,
+        "height": 732
+       }
+      }
+     ]
+    },
+    {
+     "source": "hard",
+     "fit": "cover",
+     "blend": "normal",
+     "in": 7.44,
+     "scaleFrom": 1,
+     "scaleTo": 1.06,
+     "rect": {
+      "x": 513,
+      "y": 14,
+      "width": 691,
+      "height": 691
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 36,
+        "y": 225,
+        "width": 648,
+        "height": 648
+       }
+      }
+     ]
+    },
+    {
+     "source": "troll",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 17.31,
+     "fadeInBeats": 1,
+     "rect": {
+      "x": 261,
+      "y": 454,
+      "width": 216,
+      "height": 216
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 144,
+        "y": 788,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    },
+    {
+     "source": "future",
+     "fit": "cover",
+     "blend": "lighten",
+     "in": 14.18,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 1131,
+      "y": 32,
+      "width": 180,
+      "height": 180
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 547,
+        "y": 144,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 26,
+     "gain": 0.32,
+     "threshold": 0.55
+    },
+    "chroma": {
+     "pixels": 1.5,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.012
+    }
+   },
+   "transition": {
+    "type": "mosaic",
+    "beats": 1.5,
+    "blockSize": 64
+   }
+  },
+  {
+   "id": "kismet",
+   "kind": "stage",
+   "startBeat": 24,
+   "beats": 6,
+   "layers": [
+    {
+     "source": "sus",
+     "fit": "cover",
+     "blend": "add",
+     "in": 24.05,
+     "opacity": 0.2,
+     "mask": "ellipse",
+     "feather": 0.95,
+     "scaleFrom": 1,
+     "scaleTo": 1.1,
+     "rect": {
+      "x": 300,
+      "y": 0,
+      "width": 980,
+      "height": 720
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 0,
+        "y": 168,
+        "width": 720,
+        "height": 732
+       }
+      }
+     ]
+    },
+    {
+     "source": "kismet",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 3.8,
+     "scaleFrom": 1,
+     "scaleTo": 1.04,
+     "rect": {
+      "x": 549,
+      "y": 50,
+      "width": 619,
+      "height": 619
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 58,
+        "y": 246,
+        "width": 605,
+        "height": 605
+       }
+      }
+     ]
+    },
+    {
+     "source": "feels404",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 0.92,
+     "fadeInBeats": 1,
+     "rect": {
+      "x": 261,
+      "y": 36,
+      "width": 216,
+      "height": 216
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 18,
+        "y": 144,
+        "width": 151,
+        "height": 151
+       }
+      }
+     ]
+    },
+    {
+     "source": "fire",
+     "fit": "cover",
+     "blend": "screen",
+     "crop": {
+      "x": 110,
+      "y": 380,
+      "width": 740,
+      "height": 580
+     },
+     "in": 20,
+     "out": 22.7,
+     "fadeInBeats": 1,
+     "fadeOutBeats": 1,
+     "rect": {
+      "x": 289,
+      "y": 504,
+      "width": 158,
+      "height": 144
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 562,
+        "y": 795,
+        "width": 144,
+        "height": 122
+       }
+      }
+     ]
+    },
+    {
+     "source": "netmelt",
+     "fit": "cover",
+     "blend": "lighten",
+     "in": 4.29,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 1137,
+      "y": 497,
+      "width": 187,
+      "height": 187
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 144,
+        "y": 788,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 26,
+     "gain": 0.32,
+     "threshold": 0.55
+    },
+    "chroma": {
+     "pixels": 1.5,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.012
+    }
+   },
+   "transition": {
+    "type": "displace",
+    "beats": 1.5,
+    "strength": 30
+   }
+  },
+  {
+   "id": "animal",
+   "kind": "stage",
+   "startBeat": 30,
+   "beats": 6,
+   "layers": [
+    {
+     "source": "faces",
+     "fit": "cover",
+     "blend": "add",
+     "in": 10,
+     "opacity": 0.24,
+     "mask": "ellipse",
+     "feather": 0.95,
+     "scaleFrom": 1,
+     "scaleTo": 1.1,
+     "rect": {
+      "x": 300,
+      "y": 0,
+      "width": 980,
+      "height": 720
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 0,
+        "y": 168,
+        "width": 720,
+        "height": 732
+       }
+      }
+     ]
+    },
+    {
+     "source": "animal",
+     "fit": "cover",
+     "blend": "normal",
+     "in": 7.66,
+     "scaleFrom": 1,
+     "scaleTo": 1.05,
+     "rect": {
+      "x": 513,
+      "y": 14,
+      "width": 691,
+      "height": 691
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 36,
+        "y": 225,
+        "width": 648,
+        "height": 648
+       }
+      }
+     ]
+    },
+    {
+     "source": "bio",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 1.9,
+     "opacity": 0.9,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 277,
+      "y": 482,
+      "width": 144,
+      "height": 187
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 583,
+        "y": 154,
+        "width": 101,
+        "height": 130
+       }
+      }
+     ]
+    },
+    {
+     "source": "tweet",
+     "fit": "cover",
+     "blend": "lighten",
+     "crop": {
+      "x": 190,
+      "y": 360,
+      "width": 710,
+      "height": 700
+     },
+     "in": 4.5,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 1152,
+      "y": 511,
+      "width": 158,
+      "height": 158
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 144,
+        "y": 788,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 26,
+     "gain": 0.32,
+     "threshold": 0.55
+    },
+    "chroma": {
+     "pixels": 1.5,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.012
+    }
+   },
+   "transition": {
+    "type": "datamosh",
+    "beats": 2,
+    "blockSize": 16,
+    "strength": 1
+   }
+  },
+  {
+   "id": "dense",
+   "kind": "stage",
+   "startBeat": 36,
+   "beats": 6,
+   "layers": [
+    {
+     "source": "faces",
+     "fit": "cover",
+     "blend": "normal",
+     "in": 24,
+     "scaleFrom": 1,
+     "scaleTo": 1.07,
+     "rect": {
+      "x": 523,
+      "y": 14,
+      "width": 691,
+      "height": 691
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 29,
+        "y": 217,
+        "width": 662,
+        "height": 662
+       }
+      }
+     ]
+    },
+    {
+     "source": "boiama",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 11.03,
+     "fadeInBeats": 1,
+     "rect": {
+      "x": 246,
+      "y": 439,
+      "width": 245,
+      "height": 245
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 137,
+        "y": 770,
+        "width": 158,
+        "height": 158
+       }
+      }
+     ]
+    },
+    {
+     "source": "meta",
+     "fit": "cover",
+     "blend": "lighten",
+     "in": 14.4,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 1123,
+      "y": 36,
+      "width": 216,
+      "height": 216
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 540,
+        "y": 144,
+        "width": 158,
+        "height": 158
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 34,
+     "gain": 0.5,
+     "threshold": 0.5
+    },
+    "chroma": {
+     "pixels": 4,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.02
+    }
+   },
+   "transition": {
+    "type": "mosaic",
+    "beats": 1.5,
+    "blockSize": 96
+   }
+  },
+  {
+   "id": "lore",
+   "kind": "stage",
+   "startBeat": 42,
+   "beats": 6,
+   "layers": [
+    {
+     "source": "lore",
+     "fit": "cover",
+     "blend": "normal",
+     "in": 17.77,
+     "scaleFrom": 1,
+     "scaleTo": 1.05,
+     "rect": {
+      "x": 508,
+      "y": 29,
+      "width": 662,
+      "height": 662
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 36,
+        "y": 225,
+        "width": 648,
+        "height": 648
+       }
+      }
+     ]
+    },
+    {
+     "source": "cheers",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 21.14,
+     "scaleFrom": 1,
+     "scaleTo": 1.06,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 1046,
+      "y": 410,
+      "width": 331,
+      "height": 331
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 461,
+        "y": 683,
+        "width": 288,
+        "height": 288
+       }
+      }
+     ]
+    },
+    {
+     "source": "swipe",
+     "fit": "cover",
+     "blend": "lighten",
+     "in": 24.51,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 290,
+      "y": 482,
+      "width": 216,
+      "height": 216
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 144,
+        "y": 788,
+        "width": 144,
+        "height": 144
+       }
+      }
+     ]
+    },
+    {
+     "source": "abacus",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 1.08,
+     "opacity": 0.85,
+     "fadeInBeats": 1.5,
+     "rect": {
+      "x": 352,
+      "y": -4,
+      "width": 288,
+      "height": 151
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 36,
+        "y": 169,
+        "width": 360,
+        "height": 101
+       }
+      }
+     ]
+    },
+    {
+     "source": "gallery",
+     "fit": "cover",
+     "blend": "screen",
+     "in": 17,
+     "opacity": 0.8,
+     "fadeInBeats": 2,
+     "rect": {
+      "x": 1113,
+      "y": 11,
+      "width": 216,
+      "height": 122
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 468,
+        "y": 169,
+        "width": 245,
+        "height": 101
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 26,
+     "gain": 0.32,
+     "threshold": 0.55
+    },
+    "chroma": {
+     "pixels": 1.5,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.012
+    }
+   },
+   "transition": {
+    "type": "displace",
+    "beats": 1.5,
+    "strength": 24
+   }
+  },
+  {
+   "id": "tail",
+   "kind": "stage",
+   "startBeat": 48,
+   "beats": 3,
+   "layers": [
+    {
+     "source": "swap",
+     "fit": "cover",
+     "blend": "add",
+     "in": 4.75,
+     "opacity": 0.9,
+     "mask": "ellipse",
+     "feather": 0.5,
+     "scaleFrom": 1,
+     "scaleTo": 1.1,
+     "rect": {
+      "x": 300,
+      "y": 0,
+      "width": 980,
+      "height": 720
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 0,
+        "y": 168,
+        "width": 720,
+        "height": 732
+       }
+      }
+     ]
+    },
+    {
+     "source": "strip",
+     "fit": "cover",
+     "blend": "screen",
+     "crop": {
+      "x": 14,
+      "y": 146,
+      "width": 468,
+      "height": 196
+     },
+     "holdFrame": 36,
+     "opacity": 0.9,
+     "rect": {
+      "x": 402,
+      "y": 65,
+      "width": 187,
+      "height": 101
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 22,
+        "y": 165,
+        "width": 245,
+        "height": 108
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 26,
+     "gain": 0.32,
+     "threshold": 0.55
+    },
+    "chroma": {
+     "pixels": 1.5,
+     "radial": true
+    },
+    "pulse": {
+     "periodBeats": 9,
+     "amount": 0.012
+    }
+   },
+   "transition": {
+    "type": "datamosh",
+    "beats": 2,
+    "blockSize": 16,
+    "strength": 1
+   }
+  }
+ ],
+ "loop": {
+  "seamBeats": 3,
+  "transition": {
+   "type": "datamosh",
+   "beats": 2.4,
+   "blockSize": 16,
+   "strength": 1
+  }
+ },
+ "targets": [
+  {
+   "id": "desktop",
+   "width": 1280,
+   "height": 720,
+   "silent": true,
+   "maxBytes": 3900000,
+   "posterBeat": 3
+  },
+  {
+   "id": "mobile",
+   "width": 720,
+   "height": 900,
+   "silent": true,
+   "maxBytes": 2900000,
+   "posterBeat": 3
+  }
+ ]
+}

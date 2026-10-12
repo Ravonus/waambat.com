@@ -28,6 +28,7 @@
 }
 .link:focus-visible,
 .logo:focus-visible,
+.overlayWordmark:focus-visible,
 .menuButton:focus-visible,
 .closeButton:focus-visible {
   outline: 2px solid var(--color-waambat-logo, #ff94b2);
@@ -85,7 +86,9 @@
   gap: 24px;
 }
 .overlayWordmark {
+  display: inline-block;
   color: var(--color-waambat-logo, #ff94b2);
+  text-decoration: none;
   font-size: var(--site-logo-size, 37px);
   line-height: 1;
 }

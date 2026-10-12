@@ -10,10 +10,11 @@ assert.equal(
   "0",
   "Build a public portfolio preview; admin and draft protection is independent",
 );
-const origin = "http://localhost:3031";
+const port = process.env.PREVIEW_PORT ?? "3031";
+const origin = `http://localhost:${port}`;
 const child = spawn(
   "node",
-  ["node_modules/next/dist/bin/next", "start", "--port", "3031"],
+  ["node_modules/next/dist/bin/next", "start", "--port", port],
   {
     env: {
       ...process.env,
@@ -211,19 +212,33 @@ try {
       });
   await page.goto(origin);
   geometry.home = {
+    hero: await rect("section[data-hero]"),
     media: await rect('[data-artwork="artwork-1"] .artwork-media'),
     title: await rect('[data-artwork="artwork-1"] h2'),
   };
   const home = geometry.home as {
+    hero: { y: number; height: number };
     media: { x: number; y: number; width: number };
     title: { y: number };
   };
+  // Her original painting column is unchanged: same left edge and width, same
+  // distance from the painting to its caption. Only its start moved, down by
+  // the hero banner that now opens the page; her own 200px gap (plus 38px of
+  // page rhythm) separates the banner from the first painting. This context
+  // uses reduced motion, so the scroll reveal's 18px rise is not in play.
   assert.ok(
     Math.abs(home.media.x - 276) < 0.1 &&
       Math.abs(home.media.width - 960) < 0.1,
+    JSON.stringify(home),
   );
-  assert.ok(Math.abs(home.media.y - 419.703) < 0.2, JSON.stringify(home));
-  assert.ok(Math.abs(home.title.y - 1421.406) < 0.2);
+  assert.ok(
+    Math.abs(home.media.y - (home.hero.y + home.hero.height + 238)) < 0.5,
+    JSON.stringify(home),
+  );
+  assert.ok(
+    Math.abs(home.title.y - home.media.y - 1001.703) < 0.2,
+    JSON.stringify(home),
+  );
   await page.goto(`${origin}/bio-waambat`);
   geometry.biography = {
     text: await rect(".bio-main h1"),

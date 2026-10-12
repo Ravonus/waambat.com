@@ -94,7 +94,7 @@ try {
       "127.0.0.1::5432",
       "--env-file",
       join(directory, "database.env"),
-      "postgres:17-alpine",
+      process.env.TEST_POSTGRES_IMAGE ?? "postgres:17-alpine",
     ],
     { stdio: "pipe" },
   );

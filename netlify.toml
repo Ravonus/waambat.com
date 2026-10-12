@@ -2,6 +2,14 @@
   command = "pnpm build"
   publish = ".next"
 
+# Hero renders keep their file names when re-rendered, so cache them for an hour
+# and revalidate in the background instead of marking them immutable. The same
+# rule lives in next.config.js for hosts that serve public/ through Next.
+[[headers]]
+  for = "/hero/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
 [build.environment]
   NODE_VERSION = "24"
   NETLIFY_NEXT_SKEW_PROTECTION = "true"

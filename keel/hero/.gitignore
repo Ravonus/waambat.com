@@ -1,0 +1,5 @@
+# Source videos, captures and renders are large and reproducible; see README.
+/src/
+/captures/*/
+/out/
+/work/

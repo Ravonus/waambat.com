@@ -9,20 +9,25 @@ export default async function Layout({
   navigation,
   wide = false,
   theme,
+  hero,
 }: {
   children: React.ReactNode;
   preview?: boolean;
   navigation?: Content["navigation"];
   wide?: boolean;
   theme?: Theme;
+  hero?: React.ReactNode;
 }) {
   const awaitContent = await getPublishedContent();
+  const active = theme ?? awaitContent.theme;
   return (
     <div
       className="site-theme flex min-h-screen flex-col"
-      style={themeStyle(theme ?? awaitContent.theme)}
+      data-motion={active.motion}
+      style={themeStyle(active)}
     >
       <Header
+        hero={!!hero}
         preview={preview}
         navigation={(navigation ?? awaitContent.navigation).filter(
           (entry) =>
@@ -32,6 +37,7 @@ export default async function Layout({
               ?.archived,
         )}
       />
+      {hero}
       <main
         id="main-content"
         className={`site-main mx-auto w-full flex-grow ${wide ? "site-main-wide" : ""}`}

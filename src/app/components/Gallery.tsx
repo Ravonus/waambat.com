@@ -10,7 +10,7 @@ export default function Gallery({
   page: string;
 }) {
   const sections = content.sections
-    .filter((s) => s.page === page && !s.archived)
+    .filter((s) => s.page === page && !s.archived && s.presentation !== "hero")
     .sort(
       (a, b) =>
         Number(b.presentation === "trailer") -

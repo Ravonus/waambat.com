@@ -48,15 +48,41 @@ function Field({
     </label>
   );
 }
+type MediaField =
+  | "poster"
+  | "mobilePoster"
+  | "logoSrc"
+  | "videoSrc"
+  | "mobileVideoSrc";
+const IMAGE_FIELDS: MediaField[] = ["poster", "mobilePoster", "logoSrc"];
+const MEDIA_LABELS: Record<MediaField, string> = {
+  poster: "Poster / image URL",
+  mobilePoster: "Mobile poster URL (optional)",
+  logoSrc: "Image wordmark URL (optional; replaces the live wordmark)",
+  videoSrc: "Original video URL",
+  mobileVideoSrc: "Mobile video URL (optional)",
+};
 export default function Editor({ initial }: { initial: ContentState }) {
   const [state, setState] = useState(initial);
   const [content, setContent] = useState<Content>(
     structuredClone(initial.draft),
   );
   const [status, setStatus] = useState(
-    initial.sourceCorrectionsPending
-      ? "Verified live artwork sources are ready. Save this draft to retain these source updates in your content, then preview before publishing."
-      : "",
+    [
+      initial.sourceCorrectionsPending
+        ? "Verified live artwork sources are ready."
+        : "",
+      initial.heroPending ? "The new home hero banner is ready." : "",
+    ]
+      .filter(Boolean)
+      .concat(
+        initial.sourceCorrectionsPending || initial.heroPending
+          ? [
+              "Save this draft to retain these updates in your content, then preview before publishing.",
+            ]
+          : [],
+      )
+      .join(" "),
   );
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -65,6 +91,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
   const upload = useRef<AbortController | null>(null);
   const dirty =
     !!state.sourceCorrectionsPending ||
+    !!state.heroPending ||
     JSON.stringify(content) !== JSON.stringify(state.draft);
   useEffect(() => {
     const before = (e: BeforeUnloadEvent) => {
@@ -266,7 +293,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
   async function uploadFile(
     file: File | undefined,
     id: string,
-    field: "poster" | "videoSrc" | "mobileVideoSrc",
+    field: MediaField,
   ) {
     if (!file || uploading || busy) return;
     if (file.size > MAX_UPLOAD || !file.size) {
@@ -298,9 +325,9 @@ export default function Editor({ initial }: { initial: ContentState }) {
         error?: string;
       };
       if (!res.ok || !body.url) throw new Error(body.error ?? "Upload failed");
-      if (field === "poster" && !body.type?.startsWith("image/"))
-        throw new Error("Choose an image for the poster.");
-      if (field !== "poster" && !body.type?.startsWith("video/"))
+      if (IMAGE_FIELDS.includes(field) && !body.type?.startsWith("image/"))
+        throw new Error("Choose an image for this field.");
+      if (!IMAGE_FIELDS.includes(field) && !body.type?.startsWith("video/"))
         throw new Error("Choose a video for the video source.");
       if (upload.current !== controller || controller.signal.aborted) return;
       changeItem(id, field, body.url);
@@ -534,12 +561,14 @@ export default function Editor({ initial }: { initial: ContentState }) {
                     edit((d) => {
                       d.sections[si]!.presentation = e.target.value as
                         | "gallery"
-                        | "trailer";
+                        | "trailer"
+                        | "hero";
                     })
                   }
                 >
                   <option value="gallery">Original gallery flow</option>
                   <option value="trailer">Trailer at top of page</option>
+                  <option value="hero">Hero banner above the page</option>
                 </select>
               </label>
               <Field
@@ -573,6 +602,15 @@ export default function Editor({ initial }: { initial: ContentState }) {
                 </select>
               </label>
             </div>
+            {section.presentation === "hero" && (
+              <p className="mt-4 text-white/75">
+                The hero banner runs a silent looping video full width under the
+                navigation, with the section title as the live wordmark (colour
+                and font come from Theme). Without a video or poster it is
+                hidden. The poster should be the video&apos;s first frame; add a
+                mobile video and poster for the portrait composition.
+              </p>
+            )}
             {section.presentation === "trailer" &&
               !section.items.some(
                 (item) => !item.archived && item.kind === "video",
@@ -617,9 +655,11 @@ export default function Editor({ initial }: { initial: ContentState }) {
                     />
                     {["video", "embed", "image"].includes(item.kind) && (
                       <label>
-                        {section.presentation === "trailer"
-                          ? "Trailer"
-                          : "Artwork"}{" "}
+                        {section.presentation === "hero"
+                          ? "Hero banner"
+                          : section.presentation === "trailer"
+                            ? "Trailer"
+                            : "Artwork"}{" "}
                         width / height ratio
                         <input
                           className={inputClass}
@@ -629,7 +669,11 @@ export default function Editor({ initial }: { initial: ContentState }) {
                           step="0.001"
                           value={
                             item.aspectRatio ??
-                            (section.presentation === "trailer" ? 16 / 9 : "")
+                            (["trailer", "hero"].includes(
+                              section.presentation ?? "",
+                            )
+                              ? 16 / 9
+                              : "")
                           }
                           onChange={(e) =>
                             changeItem(
@@ -643,6 +687,29 @@ export default function Editor({ initial }: { initial: ContentState }) {
                         />
                       </label>
                     )}
+                    {section.presentation === "hero" &&
+                      item.kind === "video" && (
+                        <label>
+                          Mobile banner width / height ratio
+                          <input
+                            className={inputClass}
+                            type="number"
+                            min="0.25"
+                            max="4"
+                            step="0.001"
+                            value={item.mobileAspectRatio ?? ""}
+                            onChange={(e) =>
+                              changeItem(
+                                item.id,
+                                "mobileAspectRatio",
+                                e.target.value
+                                  ? Number(e.target.value)
+                                  : undefined,
+                              )
+                            }
+                          />
+                        </label>
+                      )}
                     <Field
                       label="Description (plain text)"
                       multiline
@@ -678,30 +745,38 @@ export default function Editor({ initial }: { initial: ContentState }) {
                         </option>
                       </select>
                     </label>
-                    {(item.kind === "instagram"
-                      ? (["poster"] as const)
-                      : (["poster", "videoSrc", "mobileVideoSrc"] as const)
+                    {(
+                      (item.kind === "instagram"
+                        ? ["poster"]
+                        : section.presentation === "hero"
+                          ? [
+                              "videoSrc",
+                              "poster",
+                              "mobileVideoSrc",
+                              "mobilePoster",
+                              "logoSrc",
+                            ]
+                          : [
+                              "poster",
+                              "videoSrc",
+                              "mobileVideoSrc",
+                            ]) as MediaField[]
                     ).map((field) => (
                       <div key={field}>
                         <Field
-                          label={
-                            field === "poster"
-                              ? "Poster / image URL"
-                              : field === "videoSrc"
-                                ? "Original video URL"
-                                : "Mobile video URL (optional)"
-                          }
+                          label={MEDIA_LABELS[field]}
                           value={item[field]}
                           onChange={(v) => changeItem(item.id, field, v)}
                         />
                         <label className="mt-2 block text-sm">
-                          Or upload {field === "poster" ? "image" : "video"} (4
+                          Or upload{" "}
+                          {IMAGE_FIELDS.includes(field) ? "image" : "video"} (4
                           MB max)
                           <input
                             type="file"
                             className="mt-2 block w-full text-xs"
                             accept={
-                              field === "poster"
+                              IMAGE_FIELDS.includes(field)
                                 ? "image/png,image/jpeg,image/webp,image/gif"
                                 : "video/mp4,video/webm"
                             }
@@ -784,6 +859,8 @@ export default function Editor({ initial }: { initial: ContentState }) {
                     tokenLink: "https://waambat.com",
                     videoSrc: "",
                     mobileVideoSrc: "",
+                    mobilePoster: "",
+                    logoSrc: "",
                     poster: "",
                     archived: false,
                     featured: false,

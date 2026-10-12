@@ -46,6 +46,10 @@ export const artworkSchema = z
     videoSrc: mediaLink,
     poster: mediaLink,
     mobileVideoSrc: mediaLink.default(""),
+    // Hero banner only: portrait poster/ratio for phones and an optional image wordmark.
+    mobilePoster: mediaLink.default(""),
+    mobileAspectRatio: z.number().min(0.25).max(4).optional(),
+    logoSrc: mediaLink.default(""),
     kind: z
       .enum(["video", "image", "link", "instagram", "embed"])
       .default("video"),
@@ -88,7 +92,7 @@ export const sectionSchema = z
     id: z.string().regex(/^[a-z0-9-]{1,80}$/),
     title: text(120).refine((s) => s.length > 0, "A title is required"),
     intro: text(2000),
-    presentation: z.enum(["gallery", "trailer"]).optional(),
+    presentation: z.enum(["gallery", "trailer", "hero"]).optional(),
     page: z
       .string()
       .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
@@ -290,6 +294,8 @@ export const emailSettingsSchema = z
 export const contentSchema = z
   .object({
     ordinalSourceVersion: z.number().int().min(0).max(1).default(0),
+    // 0 = stored before the hero banner existed; the default banner is added on read.
+    heroVersion: z.number().int().min(0).max(1).default(0),
     sections: z.array(sectionSchema).min(1).max(30),
     pages: z.array(pageSchema).max(80).default([]),
     navigation: z.array(navigationSchema).max(50).default([]),
@@ -394,7 +400,13 @@ export function mediaReferences(content: Content) {
       .flatMap((s) =>
         s.items
           .filter((i) => !i.archived)
-          .flatMap((i) => [i.videoSrc, i.mobileVideoSrc, i.poster]),
+          .flatMap((i) => [
+            i.videoSrc,
+            i.mobileVideoSrc,
+            i.poster,
+            i.mobilePoster,
+            i.logoSrc,
+          ]),
       ),
     ...content.pages
       .filter((p) => !p.archived)

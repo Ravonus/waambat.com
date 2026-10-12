@@ -76,7 +76,7 @@ export default function OrdinalPlayer({ artwork }: { artwork: Artwork }) {
           aria-pressed={interacting}
           aria-controls={`ordinal-frame-${artwork.id}`}
           onClick={() => setInteracting((value) => !value)}
-          className="text-waambat-pink absolute top-3 right-3 z-10 min-h-11 rounded border border-white/30 bg-black/80 px-3 py-2"
+          className="ordinal-gate text-waambat-pink absolute top-3 right-3 z-10 min-h-11 rounded border border-white/30 bg-black/80 px-3 py-2"
         >
           {interacting ? "Exit interaction" : "Interact"}
         </button>

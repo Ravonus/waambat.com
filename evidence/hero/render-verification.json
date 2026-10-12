@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "beatAlignment": {
+    "passed": true,
+    "skipped": "All verified targets are silent web deliveries; there is no audio to align."
+  },
+  "quantizedFrameAlignment": null,
+  "encodedAttackToleranceMs": 56.666666666666664,
+  "frameQuantization": [
+    {
+      "cut": 1.5,
+      "frame": 36,
+      "deltaMs": 0.0
+    },
+    {
+      "cut": 4.5,
+      "frame": 108,
+      "deltaMs": 0.0
+    },
+    {
+      "cut": 7.5,
+      "frame": 180,
+      "deltaMs": 0.0
+    },
+    {
+      "cut": 10.5,
+      "frame": 252,
+      "deltaMs": 0.0
+    },
+    {
+      "cut": 13.5,
+      "frame": 324,
+      "deltaMs": 0.0
+    },
+    {
+      "cut": 16.5,
+      "frame": 396,
+      "deltaMs": 0.0
+    },
+    {
+      "cut": 19.5,
+      "frame": 468,
+      "deltaMs": 0.0
+    },
+    {
+      "cut": 22.5,
+      "frame": 540,
+      "deltaMs": 0.0
+    }
+  ],
+  "outputs": [
+    {
+      "target": "desktop",
+      "path": "/private/tmp/claude-501/-Users-ravonus-Library-Application-Support-Claude-scratch-workspaces-523a0444-19c6-4385-bfee-f194aab599f1-b8f22c19-ae9e-4486-9461-afb8f15c2dec-scratch-2026-10-12-3096df/5b095d9a-191b-4f9a-a083-a5e49f63f21a/scratchpad/hero/out/render-3/waambat-hero-desktop.mp4",
+      "integratedLUFS": null,
+      "truePeakDBTP": null,
+      "rangeLU": null,
+      "silent": true,
+      "hasAudioStream": false,
+      "loudnessPassed": true,
+      "truePeakPassed": true,
+      "bytes": 3717036,
+      "deliveredAttackAlignment": null,
+      "maxBytes": 3900000,
+      "sizePassed": true,
+      "hashPassed": true,
+      "dimensionsPassed": true,
+      "duration": 24.0,
+      "passed": true
+    },
+    {
+      "target": "mobile",
+      "path": "/private/tmp/claude-501/-Users-ravonus-Library-Application-Support-Claude-scratch-workspaces-523a0444-19c6-4385-bfee-f194aab599f1-b8f22c19-ae9e-4486-9461-afb8f15c2dec-scratch-2026-10-12-3096df/5b095d9a-191b-4f9a-a083-a5e49f63f21a/scratchpad/hero/out/render-3/waambat-hero-mobile.mp4",
+      "integratedLUFS": null,
+      "truePeakDBTP": null,
+      "rangeLU": null,
+      "silent": true,
+      "hasAudioStream": false,
+      "loudnessPassed": true,
+      "truePeakPassed": true,
+      "bytes": 2767113,
+      "deliveredAttackAlignment": null,
+      "maxBytes": 2900000,
+      "sizePassed": true,
+      "hashPassed": true,
+      "dimensionsPassed": true,
+      "duration": 24.0,
+      "passed": true
+    }
+  ],
+  "stillsSheet": "/private/tmp/claude-501/-Users-ravonus-Library-Application-Support-Claude-scratch-workspaces-523a0444-19c6-4385-bfee-f194aab599f1-b8f22c19-ae9e-4486-9461-afb8f15c2dec-scratch-2026-10-12-3096df/5b095d9a-191b-4f9a-a083-a5e49f63f21a/scratchpad/hero/out/render-3/verification-sheet.png",
+  "passed": true,
+  "preview": false
+}

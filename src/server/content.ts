@@ -2,6 +2,7 @@ import { contentSchema, type Content } from "~/lib/content";
 import stored from "~/content/site.json";
 import { cache } from "react";
 import { correctLegacyOrdinalSources } from "~/lib/ordinal-sources";
+import { addDefaultHero } from "~/lib/hero";
 import { removedContent } from "~/lib/content-change";
 import {
   getGitStore,
@@ -25,15 +26,27 @@ export interface ContentState {
   deployedRevision: string;
   updatedAt: null;
   sourceCorrectionsPending?: boolean;
+  heroPending?: boolean;
+}
+// Stored documents predate some defaults; present them current without writing.
+function present(content: Content) {
+  const sources = correctLegacyOrdinalSources(content);
+  const hero = addDefaultHero(sources.content);
+  return {
+    content: hero.content,
+    sourcesChanged: sources.changed,
+    heroChanged: hero.changed,
+  };
 }
 function presentState(state: ContentState): ContentState {
-  const draft = correctLegacyOrdinalSources(state.draft);
-  const published = correctLegacyOrdinalSources(state.published);
+  const draft = present(state.draft);
+  const published = present(state.published);
   return {
     ...state,
     draft: draft.content,
     published: published.content,
-    sourceCorrectionsPending: draft.changed,
+    sourceCorrectionsPending: draft.sourcesChanged,
+    heroPending: draft.heroChanged,
   };
 }
 export async function getContentState(): Promise<ContentState> {
@@ -66,13 +79,9 @@ export async function getContentState(): Promise<ContentState> {
 // This does not cache drafts or carry a snapshot across requests/publishes.
 export const getPublishedContent = cache(async (): Promise<Content> => {
   if (blobContentConfigured())
-    return correctLegacyOrdinalSources(
-      (await readBlobContent(seed())).published,
-    ).content;
+    return present((await readBlobContent(seed())).published).content;
   if (localTestConfigured())
-    return correctLegacyOrdinalSources(
-      (await getGitStore().read(baseBranch()))!.content,
-    ).content;
+    return present((await getGitStore().read(baseBranch()))!.content).content;
   // Netlify builds exactly the JSON in the commit being deployed. No runtime Git token is needed for public artwork.
   return contentSchema.parse(stored);
 });

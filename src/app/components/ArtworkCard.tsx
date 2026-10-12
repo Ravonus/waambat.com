@@ -134,7 +134,11 @@ export default function ArtworkCard({
         originalFlow ? "original-artwork text-center" : "mb-10 text-center"
       }
       style={
-        originalFlow ? { paddingTop: artwork.precedingGap ?? 200 } : undefined
+        originalFlow
+          ? ({
+              "--artwork-gap": `${artwork.precedingGap ?? 200}px`,
+            } as React.CSSProperties)
+          : undefined
       }
     >
       {artwork.kind !== "link" && (

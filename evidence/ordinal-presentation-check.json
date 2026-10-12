@@ -1,7 +1,7 @@
 {
   "boundary": "Compiled application in real Chromium; generated MP4/APNG and controlled on-chain iframe transport. Actual upstream fonts, Kismet/LUX and mechanics media remain separate live acceptance.",
   "collectionPresentation": "Generous640px desktop / full-width350px mobile frame, uncropped, direct Satflow/Pink Paper links; original legacy Ordinals preserved",
-  "lifecycle": "Automatic in-view inscription frame, reliable pause via frame removal on offscreen/manual pause; manual pause persists, reduced motion needs explicitPlay. Cross-origin inscriptions have no verified pause protocol, so reentry reinitializes the frame.",
+  "lifecycle": "Automatic in-view inscription frame, kept attached (never reloaded) when it leaves the viewport or the menu opens; no pause control because the inscriptions have no pause protocol; reduced motion needs explicit Play",
   "font": "Original Squarespace/Typekit embed requested; blocked cloud response is not proof of actual Amboy font loading",
   "trailer": "Existing editable archived empty slot remains; no rejectedcut or Kismetloop substituted",
   "results": [
@@ -23,9 +23,9 @@
         "height": 640
       },
       "verifiedPlayerURLsWired": true,
-      "decodedFixtureTime0": 0.346291,
-      "decodedFixtureTime1": 0.724173,
-      "iframeRequests": 3,
+      "decodedFixtureTime0": 0.287441,
+      "decodedFixtureTime1": 0.647465,
+      "iframeRequests": 2,
       "originalHostedFontRequested": true,
       "exactOriginalAmboyResourceRequested": true,
       "animatedPngExactSourceAndSpacedFrames": true,
@@ -49,9 +49,9 @@
         "height": 350
       },
       "verifiedPlayerURLsWired": true,
-      "decodedFixtureTime0": 0.281235,
-      "decodedFixtureTime1": 0.642466,
-      "iframeRequests": 4,
+      "decodedFixtureTime0": 0.523242,
+      "decodedFixtureTime1": 0.885217,
+      "iframeRequests": 2,
       "originalHostedFontRequested": true,
       "exactOriginalAmboyResourceRequested": true,
       "animatedPngExactSourceAndSpacedFrames": true,
