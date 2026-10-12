@@ -46,6 +46,11 @@ export const artworkSchema = z
     videoSrc: mediaLink,
     poster: mediaLink,
     mobileVideoSrc: mediaLink.default(""),
+    // Hero banner only: the video plays once and ends on its last shot; these are the same shot carried on as a
+    // seamlessly looping video, which the banner swaps to when the first one ends. Empty keeps the old behavior
+    // (the whole video repeats).
+    loopSrc: mediaLink.default(""),
+    mobileLoopSrc: mediaLink.default(""),
     // A cached same-origin loop (MP4/WebM) of a live provider piece: it appears at once while the
     // live player stays an explicit step. Optional; the poster is its first frame.
     previewSrc: mediaLink.default(""),
@@ -87,6 +92,13 @@ export const artworkSchema = z
         code: "custom",
         message: "Use a direct HTTPS MP4/WebM or uploaded media URL",
       });
+    for (const loop of [item.loopSrc, item.mobileLoopSrc])
+      if (loop && !videoSource(loop)?.direct)
+        ctx.addIssue({
+          code: "custom",
+          message:
+            "Use an uploaded or site-hosted MP4/WebM for the ending loop",
+        });
     if (item.previewSrc && !videoSource(item.previewSrc)?.direct)
       ctx.addIssue({
         code: "custom",
@@ -303,7 +315,7 @@ export const contentSchema = z
   .object({
     ordinalSourceVersion: z.number().int().min(0).max(2).default(0),
     // 0 = stored before the hero banner existed; the default banner is added on read.
-    heroVersion: z.number().int().min(0).max(1).default(0),
+    heroVersion: z.number().int().min(0).max(2).default(0),
     sections: z.array(sectionSchema).min(1).max(30),
     pages: z.array(pageSchema).max(80).default([]),
     navigation: z.array(navigationSchema).max(50).default([]),
@@ -411,6 +423,8 @@ export function mediaReferences(content: Content) {
           .flatMap((i) => [
             i.videoSrc,
             i.mobileVideoSrc,
+            i.loopSrc,
+            i.mobileLoopSrc,
             i.previewSrc,
             i.poster,
             i.mobilePoster,

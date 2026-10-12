@@ -1,7 +1,7 @@
 {
  "version": 1,
  "name": "waambat-hero",
- "brief": "WAAMBAT hero montage: her own works layered on black, bridged by datamosh, mosaic and chromatic displacement, looping seamlessly.",
+ "brief": "WAAMBAT hero montage: her own works layered on black, bridged by datamosh, mosaic and chromatic displacement, ending on her dark self-portrait, which loops.",
  "fps": 24,
  "seed": 7,
  "tempo": {
@@ -148,7 +148,8 @@
   {
    "id": "eggplant",
    "kind": "video",
-   "path": "src/contact-video.mp4"
+   "path": "src/eggplant-ordinal.gif",
+   "alpha": true
   },
   {
    "id": "fire",
@@ -250,10 +251,16 @@
      "source": "kismet",
      "fit": "contain",
      "blend": "screen",
+     "lint": {
+      "allow": [
+       "hard-edge"
+      ]
+     },
      "in": 1.2,
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1,
+     "inside": true,
      "rect": {
       "x": 290,
       "y": 482,
@@ -265,7 +272,7 @@
        "target": "mobile",
        "rect": {
         "x": 139,
-        "y": 746,
+        "y": 783,
         "width": 154,
         "height": 154
        }
@@ -280,8 +287,9 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
-      "x": 1095,
+      "x": 1158,
       "y": 15,
       "width": 185,
       "height": 185
@@ -353,6 +361,11 @@
      "source": "lux",
      "fit": "cover",
      "blend": "screen",
+     "lint": {
+      "allow": [
+       "hard-edge"
+      ]
+     },
      "in": 13.48,
      "scaleFrom": 1,
      "scaleTo": 1.05,
@@ -383,6 +396,7 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1,
+     "inside": true,
      "rect": {
       "x": 253,
       "y": 28,
@@ -409,9 +423,10 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
       "x": 233,
-      "y": 488,
+      "y": 503,
       "width": 232,
       "height": 232
      },
@@ -420,7 +435,7 @@
        "target": "mobile",
        "rect": {
         "x": 553,
-        "y": 738,
+        "y": 775,
         "width": 162,
         "height": 162
        }
@@ -511,32 +526,25 @@
     {
      "source": "eggplant",
      "fit": "contain",
-     "blend": "screen",
-     "crop": {
-      "x": 20,
-      "y": 80,
-      "width": 410,
-      "height": 820
-     },
+     "blend": "normal",
      "in": 0.46,
      "loop": true,
-     "mask": "ellipse",
-     "feather": 0.7,
      "fadeInBeats": 1,
+     "inside": true,
      "rect": {
-      "x": 295,
-      "y": 441,
-      "width": 127,
-      "height": 255
+      "x": 301,
+      "y": 472,
+      "width": 193,
+      "height": 193
      },
      "rectVariants": [
       {
        "target": "mobile",
        "rect": {
-        "x": 30,
-        "y": 731,
-        "width": 85,
-        "height": 169
+        "x": 10,
+        "y": 787,
+        "width": 124,
+        "height": 124
        }
       }
      ]
@@ -549,8 +557,9 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
-      "x": 1064,
+      "x": 1103,
       "y": 36,
       "width": 216,
       "height": 216
@@ -559,7 +568,7 @@
       {
        "target": "mobile",
        "rect": {
-        "x": 566,
+        "x": 571,
         "y": 142,
         "width": 154,
         "height": 154
@@ -576,8 +585,9 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 2,
+     "inside": true,
      "rect": {
-      "x": 1153,
+      "x": 1167,
       "y": 511,
       "width": 127,
       "height": 159
@@ -684,6 +694,7 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1,
+     "inside": true,
      "rect": {
       "x": 253,
       "y": 446,
@@ -695,7 +706,7 @@
        "target": "mobile",
        "rect": {
         "x": 139,
-        "y": 746,
+        "y": 783,
         "width": 154,
         "height": 154
        }
@@ -710,8 +721,9 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
-      "x": 1087,
+      "x": 1125,
       "y": 26,
       "width": 193,
       "height": 193
@@ -788,6 +800,11 @@
      "source": "kismet",
      "fit": "cover",
      "blend": "screen",
+     "lint": {
+      "allow": [
+       "hard-edge"
+      ]
+     },
      "in": 3.8,
      "scaleFrom": 1,
      "scaleTo": 1.04,
@@ -817,6 +834,7 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1,
+     "inside": true,
      "rect": {
       "x": 253,
       "y": 28,
@@ -845,12 +863,18 @@
       "width": 740,
       "height": 580
      },
+     "lint": {
+      "allow": [
+       "cutoff"
+      ]
+     },
      "in": 20,
      "out": 22.7,
      "mask": "ellipse",
      "feather": 0.7,
      "fadeInBeats": 1,
      "fadeOutBeats": 1,
+     "inside": true,
      "rect": {
       "x": 277,
       "y": 504,
@@ -862,7 +886,7 @@
        "target": "mobile",
        "rect": {
         "x": 553,
-        "y": 774,
+        "y": 793,
         "width": 161,
         "height": 126
        }
@@ -877,8 +901,9 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
-      "x": 1079,
+      "x": 1131,
       "y": 490,
       "width": 201,
       "height": 201
@@ -888,7 +913,7 @@
        "target": "mobile",
        "rect": {
         "x": 139,
-        "y": 746,
+        "y": 783,
         "width": 154,
         "height": 154
        }
@@ -985,6 +1010,7 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
       "x": 270,
       "y": 478,
@@ -1013,12 +1039,18 @@
       "width": 710,
       "height": 700
      },
+     "lint": {
+      "allow": [
+       "cutoff"
+      ]
+     },
      "in": 4.5,
      "mask": "ellipse",
      "feather": 0.7,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
-      "x": 1109,
+      "x": 1145,
       "y": 506,
       "width": 171,
       "height": 169
@@ -1028,7 +1060,7 @@
        "target": "mobile",
        "rect": {
         "x": 138,
-        "y": 747,
+        "y": 783,
         "width": 156,
         "height": 153
        }
@@ -1043,8 +1075,9 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
-      "x": 1064,
+      "x": 1103,
       "y": 36,
       "width": 216,
       "height": 216
@@ -1123,6 +1156,7 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1,
+     "inside": true,
      "rect": {
       "x": 237,
       "y": 430,
@@ -1134,7 +1168,7 @@
        "target": "mobile",
        "rect": {
         "x": 131,
-        "y": 730,
+        "y": 764,
         "width": 170,
         "height": 170
        }
@@ -1149,8 +1183,9 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
-      "x": 1048,
+      "x": 1115,
       "y": 28,
       "width": 232,
       "height": 232
@@ -1230,9 +1265,10 @@
      "scaleFrom": 1,
      "scaleTo": 1.06,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
-      "x": 925,
-      "y": 365,
+      "x": 1034,
+      "y": 398,
       "width": 355,
       "height": 355
      },
@@ -1240,8 +1276,8 @@
       {
        "target": "mobile",
        "rect": {
-        "x": 411,
-        "y": 591,
+        "x": 450,
+        "y": 672,
         "width": 309,
         "height": 309
        }
@@ -1256,6 +1292,7 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
       "x": 282,
       "y": 475,
@@ -1267,7 +1304,7 @@
        "target": "mobile",
        "rect": {
         "x": 139,
-        "y": 746,
+        "y": 783,
         "width": 154,
         "height": 154
        }
@@ -1283,9 +1320,10 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 1.5,
+     "inside": true,
      "rect": {
       "x": 342,
-      "y": 0,
+      "y": -9,
       "width": 308,
       "height": 162
      },
@@ -1310,8 +1348,9 @@
      "mask": "ellipse",
      "feather": 0.5,
      "fadeInBeats": 2,
+     "inside": true,
      "rect": {
-      "x": 1047,
+      "x": 1105,
       "y": 7,
       "width": 233,
       "height": 131
@@ -1354,7 +1393,7 @@
    "id": "tail",
    "kind": "stage",
    "startBeat": 48,
-   "beats": 3,
+   "beats": 4,
    "layers": [
     {
      "source": "swap",
@@ -1394,10 +1433,16 @@
       "width": 468,
       "height": 196
      },
+     "lint": {
+      "allow": [
+       "cutoff"
+      ]
+     },
      "holdFrame": 36,
      "opacity": 0.9,
      "mask": "ellipse",
      "feather": 0.7,
+     "inside": true,
      "rect": {
       "x": 382,
       "y": 68,
@@ -1438,15 +1483,65 @@
     "blockSize": 16,
     "strength": 1
    }
+  },
+  {
+   "id": "waambat",
+   "kind": "stage",
+   "startBeat": 52,
+   "beats": 4,
+   "layers": [
+    {
+     "source": "bio",
+     "fit": "contain",
+     "blend": "normal",
+     "in": 0,
+     "mask": "rect",
+     "feather": 0.18,
+     "rect": {
+      "x": 578,
+      "y": 11,
+      "width": 562,
+      "height": 698
+     },
+     "rectVariants": [
+      {
+       "target": "mobile",
+       "rect": {
+        "x": 101,
+        "y": 225,
+        "width": 518,
+        "height": 648
+       }
+      }
+     ]
+    }
+   ],
+   "post": {
+    "bloom": {
+     "radius": 26,
+     "gain": 0.32,
+     "threshold": 0.55
+    },
+    "chroma": {
+     "pixels": 1.5,
+     "radial": true
+    }
+   },
+   "transition": {
+    "type": "datamosh",
+    "beats": 2,
+    "blockSize": 16,
+    "strength": 1
+   }
   }
  ],
- "loop": {
+ "ending": {
+  "kind": "loop",
+  "seconds": 6,
   "seamBeats": 3,
   "transition": {
-   "type": "datamosh",
-   "beats": 2.4,
-   "blockSize": 16,
-   "strength": 1
+   "type": "dissolve",
+   "beats": 3
   }
  },
  "targets": [
@@ -1456,7 +1551,8 @@
    "height": 720,
    "silent": true,
    "maxBytes": 3900000,
-   "posterBeat": 3
+   "loopMaxBytes": 1100000,
+   "posterBeat": 0
   },
   {
    "id": "mobile",
@@ -1464,7 +1560,8 @@
    "height": 900,
    "silent": true,
    "maxBytes": 2900000,
-   "posterBeat": 3
+   "loopMaxBytes": 900000,
+   "posterBeat": 0
   }
  ]
 }

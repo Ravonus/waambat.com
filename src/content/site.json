@@ -645,6 +645,8 @@
           "tokenLink": "/",
           "videoSrc": "/hero/waambat-hero-desktop.mp4",
           "mobileVideoSrc": "/hero/waambat-hero-mobile.mp4",
+          "loopSrc": "/hero/waambat-hero-desktop-loop.mp4",
+          "mobileLoopSrc": "/hero/waambat-hero-mobile-loop.mp4",
           "poster": "/hero/waambat-hero-poster.webp",
           "mobilePoster": "/hero/waambat-hero-poster-mobile.webp",
           "logoSrc": "",
@@ -2665,5 +2667,5 @@
     }
   ],
   "ordinalSourceVersion": 2,
-  "heroVersion": 1
+  "heroVersion": 2
 }

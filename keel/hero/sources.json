@@ -1,5 +1,5 @@
 {
-  "about": "Provenance of every video the hero montage uses. All are WAAMBAT's own works as published on waambat.netlify.app (one, mechanics-3, from the Wayback Machine because its Imgur file is gone); the two Ordinals pieces are recorded from the live inscriptions. Hashes are of the files the committed timeline.json was rendered from.",
+  "about": "Provenance of every video the hero montage uses. All are WAAMBAT's own works as published on waambat.netlify.app (the eggplant is her own transparent GIF inscription on ordinals.com) (one, mechanics-3, from the Wayback Machine because its Imgur file is gone); the two Ordinals pieces are recorded from the live inscriptions. Hashes are of the files the committed timeline.json was rendered from.",
   "sources": [
     {
       "id": "feels404",
@@ -337,15 +337,16 @@
     },
     {
       "id": "eggplant",
-      "file": "contact-video.mp4",
-      "width": 960,
-      "height": 960,
+      "file": "eggplant-ordinal.gif",
+      "width": 200,
+      "height": 200,
       "seconds": 1.8,
-      "bytes": 1282990,
-      "sha256": "4376062b50a57598646c8a0301311faaa5d4fe718e1194d7cfa2b3ced2af3a13",
-      "kind": "site-video",
-      "origin": "https://i.imgur.com/JC0hAbH.mp4",
-      "appearsOn": "collect + contact (used through a text-free crop)"
+      "bytes": 334467,
+      "sha256": "9b4e419c898804071240c7bf87178d716df15d5d8d0ecc3371f197dec8e45a83",
+      "kind": "inscription",
+      "origin": "https://ordinals.com/content/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+      "siteTitle": "the eggplant GIF",
+      "appearsOn": "her own GIF inscription, with real transparency, so it is placed whole as a cut-out (the earlier cropped contact-video version is retired)"
     },
     {
       "id": "fire",

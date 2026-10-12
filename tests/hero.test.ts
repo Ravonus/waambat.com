@@ -32,12 +32,15 @@ const hero = (content: Content) =>
 
 test("the shipped content carries the home hero banner", async () => {
   const content = await stored();
-  assert.equal(content.heroVersion, 1);
+  assert.equal(content.heroVersion, 2);
   assert.ok(content.sections.some((s) => s.id === HERO_SECTION_ID));
   const live = activeHero(content, "nfts")!;
   assert.equal(live.section.presentation, "hero");
   assert.equal(live.item.videoSrc, "/hero/waambat-hero-desktop.mp4");
   assert.equal(live.item.mobileVideoSrc, "/hero/waambat-hero-mobile.mp4");
+  // The montage plays once and ends on a looping shot of her dark self-portrait.
+  assert.equal(live.item.loopSrc, "/hero/waambat-hero-desktop-loop.mp4");
+  assert.equal(live.item.mobileLoopSrc, "/hero/waambat-hero-mobile-loop.mp4");
   assert.equal(activeHero(content, "ordinals"), null);
 });
 
@@ -46,6 +49,8 @@ test("hero media exists, loads as a direct source and fits the studio's upload l
   for (const reference of [
     live.videoSrc,
     live.mobileVideoSrc,
+    live.loopSrc,
+    live.mobileLoopSrc,
     live.poster,
     live.mobilePoster,
   ]) {
@@ -59,6 +64,8 @@ test("hero media exists, loads as a direct source and fits the studio's upload l
   }
   assert.equal(videoSource(live.videoSrc)?.direct, true);
   assert.equal(videoSource(live.mobileVideoSrc)?.direct, true);
+  assert.equal(videoSource(live.loopSrc)?.direct, true);
+  assert.equal(videoSource(live.mobileLoopSrc)?.direct, true);
 });
 
 test("seeded hero matches the default added to older stores", async () => {
@@ -72,7 +79,7 @@ test("older stored content gains the hero on read, without being written back or
   const before = structuredClone(old);
   const result = addDefaultHero(old);
   assert.equal(result.changed, true);
-  assert.equal(result.content.heroVersion, 1);
+  assert.equal(result.content.heroVersion, 2);
   assert.equal(result.content.sections.at(-1)!.id, HERO_SECTION_ID);
   assert.equal(result.content.sections.length, old.sections.length + 1);
   assert.deepEqual(old, before);
@@ -87,7 +94,7 @@ test("an archived or artist-edited hero is respected, never replaced or restored
   archived.sections.push({ ...defaultHeroSection(), archived: true });
   const kept = addDefaultHero(archived);
   assert.equal(kept.changed, false);
-  assert.equal(kept.content.heroVersion, 1);
+  assert.equal(kept.content.heroVersion, 2);
   assert.equal(
     kept.content.sections.filter((s) => s.presentation === "hero").length,
     1,
@@ -103,6 +110,71 @@ test("an archived or artist-edited hero is respected, never replaced or restored
   assert.equal(result.changed, false);
   assert.equal(hero(result.content).title, "my banner");
   assert.equal(hero(result.content).items[0]!.videoSrc, "/hero/mine.mp4");
+});
+
+test("a stored banner that is still the shipped one gains the ending loop on read; an edited one is left alone", async () => {
+  // Content saved when the banner repeated its whole montage.
+  const old = await stored();
+  old.heroVersion = 1;
+  const item = hero(old).items[0]!;
+  item.loopSrc = "";
+  item.mobileLoopSrc = "";
+  const before = structuredClone(old);
+  const result = addDefaultHero(old);
+  assert.equal(result.changed, true);
+  assert.equal(result.content.heroVersion, 2);
+  assert.equal(
+    hero(result.content).items[0]!.loopSrc,
+    "/hero/waambat-hero-desktop-loop.mp4",
+  );
+  assert.equal(
+    hero(result.content).items[0]!.mobileLoopSrc,
+    "/hero/waambat-hero-mobile-loop.mp4",
+  );
+  assert.deepEqual(old, before, "the stored document is not mutated");
+  assert.doesNotThrow(() => contentSchema.parse(result.content));
+  assert.equal(addDefaultHero(result.content).changed, false);
+
+  // Her own video, or an archived banner, never gains the shipped ending.
+  for (const change of [
+    (h: Content) => {
+      hero(h).items[0]!.videoSrc = "/hero/mine.mp4";
+    },
+    (h: Content) => {
+      hero(h).archived = true;
+    },
+    (h: Content) => {
+      hero(h).items[0]!.loopSrc = "/hero/my-loop.mp4";
+    },
+  ]) {
+    const mine = structuredClone(old);
+    change(mine);
+    const kept = addDefaultHero(mine);
+    assert.equal(kept.changed, false);
+    assert.notEqual(
+      hero(kept.content).items[0]!.loopSrc,
+      "/hero/waambat-hero-desktop-loop.mp4",
+    );
+  }
+});
+
+test("an ending loop must be a direct video file", async () => {
+  const content = await stored();
+  const item = hero(content).items[0]!;
+  assert.equal(
+    contentSchema.safeParse({
+      ...content,
+      sections: content.sections.map((s) =>
+        s.id === HERO_SECTION_ID
+          ? {
+              ...s,
+              items: [{ ...item, loopSrc: "https://example.com/a.html" }],
+            }
+          : s,
+      ),
+    }).success,
+    false,
+  );
 });
 
 test("a hero the artist moved to another page, or whose video they archived, no longer shows on home", async () => {
@@ -135,6 +207,8 @@ test("hero media references are tracked so uploads are kept and checked", async 
   for (const reference of [
     "/hero/waambat-hero-desktop.mp4",
     "/hero/waambat-hero-mobile.mp4",
+    "/hero/waambat-hero-desktop-loop.mp4",
+    "/hero/waambat-hero-mobile-loop.mp4",
     "/hero/waambat-hero-poster.webp",
     "/hero/waambat-hero-poster-mobile.webp",
   ])

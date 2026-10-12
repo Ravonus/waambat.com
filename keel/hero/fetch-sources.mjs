@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Downloads the site-video sources named in sources.json into ./src and checks their sha256.
+// Downloads the site-video and inscription (immutable ordinals.com content) sources named in sources.json into ./src and checks their sha256.
 // One of them (mechanics-3) comes from the Wayback Machine; its original Imgur file no longer exists.
 //   node keel/hero/fetch-sources.mjs [--dest keel/hero/src]
 // The two Ordinals pieces (LUX, Kismet Twist) are not downloadable files; see capture-ordinals.mjs.
@@ -18,7 +18,7 @@ mkdirSync(values.dest, { recursive: true });
 let missing = 0;
 for (const source of sources) {
   const target = path.join(values.dest, source.file);
-  if (source.kind !== 'site-video') {
+  if (source.kind !== 'site-video' && source.kind !== 'inscription') {
     if (!existsSync(target)) { console.log(`capture needed: ${source.file} (${source.title})`); missing++; }
     continue;
   }

@@ -54,6 +54,8 @@ type MediaField =
   | "logoSrc"
   | "videoSrc"
   | "mobileVideoSrc"
+  | "loopSrc"
+  | "mobileLoopSrc"
   | "previewSrc";
 const IMAGE_FIELDS: MediaField[] = ["poster", "mobilePoster", "logoSrc"];
 const MEDIA_LABELS: Record<MediaField, string> = {
@@ -62,6 +64,9 @@ const MEDIA_LABELS: Record<MediaField, string> = {
   logoSrc: "Image wordmark URL (optional; replaces the live wordmark)",
   videoSrc: "Original video URL",
   mobileVideoSrc: "Mobile video URL (optional)",
+  loopSrc:
+    "Ending loop URL (optional; the video plays once, then this loops. Leave empty to repeat the whole video)",
+  mobileLoopSrc: "Mobile ending loop URL (optional)",
   previewSrc:
     "Cached preview loop (optional; plays at once, before the live piece is opened)",
 };
@@ -756,6 +761,8 @@ export default function Editor({ initial }: { initial: ContentState }) {
                               "videoSrc",
                               "poster",
                               "mobileVideoSrc",
+                              "loopSrc",
+                              "mobileLoopSrc",
                               "mobilePoster",
                               "logoSrc",
                             ]
@@ -868,6 +875,8 @@ export default function Editor({ initial }: { initial: ContentState }) {
                     tokenLink: "https://waambat.com",
                     videoSrc: "",
                     mobileVideoSrc: "",
+                    loopSrc: "",
+                    mobileLoopSrc: "",
                     previewSrc: "",
                     mobilePoster: "",
                     logoSrc: "",
