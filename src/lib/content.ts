@@ -289,6 +289,7 @@ export const emailSettingsSchema = z
   .strict();
 export const contentSchema = z
   .object({
+    ordinalSourceVersion: z.number().int().min(0).max(1).default(0),
     sections: z.array(sectionSchema).min(1).max(30),
     pages: z.array(pageSchema).max(80).default([]),
     navigation: z.array(navigationSchema).max(50).default([]),

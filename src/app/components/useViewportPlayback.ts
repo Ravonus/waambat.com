@@ -32,8 +32,10 @@ export function useViewportPlayback(
     const update = () => {
       const play =
         !disabled &&
+        element.isConnected &&
         visible.current &&
         !document.hidden &&
+        !document.querySelector("#mobile-site-menu[open]") &&
         !paused.current &&
         (!restricted.current || manual.current);
       desired.current = play;
@@ -57,6 +59,7 @@ export function useViewportPlayback(
     );
     observer.observe(element);
     document.addEventListener("visibilitychange", update);
+    document.addEventListener("waambat:media-visibility", update);
     motion.addEventListener("change", preferences);
     connection?.addEventListener("change", preferences);
     return () => {
@@ -64,6 +67,7 @@ export function useViewportPlayback(
       listener.current?.(false);
       observer.disconnect();
       document.removeEventListener("visibilitychange", update);
+      document.removeEventListener("waambat:media-visibility", update);
       motion.removeEventListener("change", preferences);
       connection?.removeEventListener("change", preferences);
     };

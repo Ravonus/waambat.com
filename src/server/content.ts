@@ -1,6 +1,7 @@
 import { contentSchema, type Content } from "~/lib/content";
 import stored from "~/content/site.json";
 import { cache } from "react";
+import { correctLegacyOrdinalSources } from "~/lib/ordinal-sources";
 import { removedContent } from "~/lib/content-change";
 import {
   getGitStore,
@@ -23,15 +24,26 @@ export interface ContentState {
   publishedRevision: string;
   deployedRevision: string;
   updatedAt: null;
+  sourceCorrectionsPending?: boolean;
+}
+function presentState(state: ContentState): ContentState {
+  const draft = correctLegacyOrdinalSources(state.draft);
+  const published = correctLegacyOrdinalSources(state.published);
+  return {
+    ...state,
+    draft: draft.content,
+    published: published.content,
+    sourceCorrectionsPending: draft.changed,
+  };
 }
 export async function getContentState(): Promise<ContentState> {
   if (blobContentConfigured())
-    return {
+    return presentState({
       ...(await readBlobContent(seed())),
       deployedRevision:
         process.env.WAAMBAT_BUILD_REVISION ?? "local-working-tree",
       updatedAt: null,
-    };
+    });
   const store = getGitStore();
   const published = await store.read(baseBranch());
   if (!published)
@@ -40,7 +52,7 @@ export async function getContentState(): Promise<ContentState> {
       "The configured production content branch does not exist",
     );
   const draft = (await store.read(draftBranch())) ?? published;
-  return {
+  return presentState({
     revision: draft.sha,
     draft: draft.content,
     published: published.content,
@@ -48,14 +60,19 @@ export async function getContentState(): Promise<ContentState> {
     deployedRevision:
       process.env.WAAMBAT_BUILD_REVISION ?? "local-working-tree",
     updatedAt: null,
-  };
+  });
 }
 // Metadata, page and layout share one validated published snapshot per render.
 // This does not cache drafts or carry a snapshot across requests/publishes.
 export const getPublishedContent = cache(async (): Promise<Content> => {
-  if (blobContentConfigured()) return (await readBlobContent(seed())).published;
+  if (blobContentConfigured())
+    return correctLegacyOrdinalSources(
+      (await readBlobContent(seed())).published,
+    ).content;
   if (localTestConfigured())
-    return (await getGitStore().read(baseBranch()))!.content;
+    return correctLegacyOrdinalSources(
+      (await getGitStore().read(baseBranch()))!.content,
+    ).content;
   // Netlify builds exactly the JSON in the commit being deployed. No runtime Git token is needed for public artwork.
   return contentSchema.parse(stored);
 });

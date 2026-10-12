@@ -1,5 +1,5 @@
 {
-  "checkedUTC": "2026-10-12T00:00:18.451556+00:00",
+  "checkedUTC": "2026-10-12T00:21:25.166132+00:00",
   "executor": "Shell and Git checks succeed; original commit and files remain present",
   "preservedPrivateCandidate": "0e9cc7a154430f0d8152f14dac4be2541a2daeca",
   "privateReviewWorktree": "/workspace/waambat.com",
@@ -14,7 +14,27 @@
     "identifiedImplementationDefect": "Unknown page-loop dimensions were forced to square; now initial 150px native fallback and decoded MP4 intrinsic ratio, with real unavailable/retry state",
     "actualUpstreamResponse": "Web reader cannot access binary; previous direct source transport CONNECT403. Source page GET in this turn CONNECT403.",
     "actualPlaybackVerified": false,
-    "sourceReplacement": "None"
+    "sourceReplacement": "None",
+    "actualOriginalBrowser": {
+      "originalRequest": "https://i.imgur.com/3hhNUKR.mp4",
+      "httpStatus": 301,
+      "redirect": "https://imgur.com/",
+      "contentType": "text/html; charset=utf-8",
+      "reportedResponseLength": 0,
+      "samples": 2,
+      "readyState": 0,
+      "videoWidth": 0,
+      "videoHeight": 0,
+      "currentTime": 0,
+      "paused": true
+    },
+    "diagnosis": "Confirmed original upstream source delivers HTML rather than a decodable video. Not an image-optimization or autoplay defect; source is preserved and failure/retry visible.",
+    "recoverySearch": {
+      "repositoryHistory": "Only separate v9 MP4 derivatives found; no matching original MP4/GIF filename",
+      "LibraryBoundedSearch": "No matching copy returned; this is not proof of global absence",
+      "replacementChosen": false
+    },
+    "remaining": "Recover the original clip or obtain an explicitly approved replacement source; do not guess a different artwork or bypass provider access."
   },
   "wordmark": {
     "exactFace": "amboy-inline normal400",
@@ -22,7 +42,27 @@
     "identifiedImplementationDefect": "Original integration disabled/gated by application; now original remote face and original loader enabled, host gate removed",
     "actualResponse": "Binary inaccessible to web reader; earlier direct request CONNECT403",
     "actualGlyphDecodingVerified": false,
-    "binaryCopied": false
+    "binaryCopied": false,
+    "originalBrowserVerified": {
+      "httpStatus": 200,
+      "bytes": 11888,
+      "FontFaceStatus": "loaded",
+      "fontsCheck": true,
+      "renderedFamily": "Amboy",
+      "renderedFace": "Amboy-Inline",
+      "resource": "Network resource",
+      "glyphs": 7,
+      "width": 181.3046875,
+      "cssSize": 37,
+      "cssWeight": 400
+    },
+    "existingNetlifyBrowserObservation": {
+      "declaredFamily": "same original family",
+      "renderedFont": "fallback sans",
+      "width": 152.8125,
+      "candidateAd91955Deployed": false
+    },
+    "remaining": "Verify actual rendered face/width after approved website-only deployment; no new font asset discovery or Adobe setup is required by this patch."
   },
   "lux": {
     "officialPaperRead": true,
@@ -32,14 +72,47 @@
     "candidateMetadataIsOneCaratOnly": true,
     "directPaperGET": "CONNECT403",
     "inscriptionPreviewReader": "not accessible",
-    "verifiedPlayableFullVariant": false,
-    "runtimeReplacement": "None; no provisional montage/one-carat static piece/ private renderer used as full LUX"
+    "verifiedPlayableFullVariant": true,
+    "runtimeReplacement": "None; no provisional montage/one-carat static piece/ private renderer used as full LUX",
+    "player": "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
+    "inscription": "https://ordinals.com/inscription/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
+    "sample": "Infinity #3",
+    "sourceBrowserEngine": "three.js r163",
+    "sourceBrowserCanvas": {
+      "width": 1512,
+      "height": 677,
+      "viewportResponsive": true
+    },
+    "sourceBrowserSpacedFrames": "Complete default diamond; moving collage/textures on upper and lower facets",
+    "rendererCopied": false,
+    "hostedCandidatePlaybackVerified": false
   },
   "requiredConnectedBrowserEvidence": [
-    "Original Mechanics: exact currentSrc, dimensions, currentTime twice, readyState/networkState/error, source response status/content-type; do not infer deletion from readyState0",
-    "LUX: working Satflow variant iframe/preview ID, full-LUX mode, loaded dimensions, spaced changing facet frames; paper metadata does not select variant",
-    "Original and deployed wordmark: rendered custom font identity/glyph use, FontFace status and actual font network result, width at1512px (original181.3046875px)"
+    "After website-only deployment: real Amboy-Inline network glyphs and original181.3046875px desktop width",
+    "After deployment: exact LUX Infinity#3 and Kismet#1 iframe sources, completed changing texture/shape frames, uncropped desktop/mobile framing and pause/visibility behavior",
+    "Mechanics: original clip or approved exact replacement remains necessary; current upstream response is confirmed HTML, not video"
   ],
   "newDeployment": false,
-  "credentialsOrConfigChanged": false
+  "credentialsOrConfigChanged": false,
+  "sourceBrowserThread": "01a12d76-b550-77c3-b3cc-3748003ab035",
+  "kismet": {
+    "player": "https://ordinals.com/content/60533f24d8b77bcc049f27d9853d185591ea4b81ffe51076cfd985f6f542ef9ai0",
+    "sample": "Kismet Twist #1",
+    "sourceBrowserCanvas": {
+      "width": 750,
+      "height": 750
+    },
+    "sourceBrowserDisplay": {
+      "width": 677,
+      "height": 677,
+      "x": 417.5,
+      "viewportWidth": 1512,
+      "viewportHeight": 677,
+      "crop": false
+    },
+    "sourceBrowserSpacedFrames": "Cat/infinity then glowing ankh/eclipsing ring",
+    "contentType": "HTML canvas player, not MP4",
+    "hostedCandidatePlaybackVerified": false
+  },
+  "legacyPersistenceCompatibility": "Only exact old generated LUX/Kismet defaults normalize on read. Artist-selected media/captions/ratios/archival stay authoritative; no storage write/revision replacement. Studio marks source updates pending; normal authenticated CAS Save persists them."
 }

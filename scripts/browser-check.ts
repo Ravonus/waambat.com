@@ -11,9 +11,28 @@ const secret = randomBytes(48).toString("hex");
 const fixtureDir = await mkdtemp(join(tmpdir(), "waambat-git-browser-"));
 const repository = join(fixtureDir, "repository");
 await mkdir(join(repository, "src/content"), { recursive: true });
+const legacySeed = JSON.parse(await readFile("src/content/site.json", "utf8"));
+legacySeed.ordinalSourceVersion = 0;
+const legacyLux = legacySeed.sections.find(
+  (section: { id: string }) => section.id === "lux",
+).items[0];
+Object.assign(legacyLux, {
+  kind: "image",
+  videoSrc: "",
+  description: "The OK Algo facet · Explore LUX on Satflow",
+});
+const legacyKismet = legacySeed.sections.find(
+  (section: { id: string }) => section.id === "kismet-twist",
+).items[0];
+Object.assign(legacyKismet, {
+  videoSrc:
+    "https://ordinals.com/preview/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98",
+  description:
+    "Explore the Kismet Twist collection on Satflow. The optional on-chain preview is Kismet Twist #100, attributed to WAAMBAT with Ravonus as technomancer in its inscription metadata.",
+});
 await writeFile(
   join(repository, "src/content/site.json"),
-  await readFile("src/content/site.json"),
+  JSON.stringify(legacySeed, null, 2) + "\n",
 );
 execFileSync("git", ["init", "-b", "main", repository]);
 execFileSync("git", ["-C", repository, "add", "src/content/site.json"]);
@@ -127,7 +146,7 @@ try {
   assert.equal(await rp.locator('[data-artwork^="ordinal-"]').count(), 3);
   assert.equal(await rp.locator("iframe").count(), 0);
   evidence.ordinals =
-    "Visible LUX and Kismet collection cards precede preserved Ordinal A/B/C; exact Satflow targets, verified consent-only Kismet #100 on-chain preview and exact supplied Gamma destination checked. Gamma title/preview metadata unavailable; no price/supply/availability invented.";
+    "Verified LUX Infinity #3 and Kismet #1 player destinations, exact Satflow links and preserved Ordinal A/B/C/Gamma checked. Real upstream rendering is verified separately by the Mac browser; no price/supply/availability invented.";
   await rp.screenshot({ path: "evidence/ordinals-mobile.png", fullPage: true });
   evidence.reducedMotion = "No video source loaded before explicit playback";
   const page = await anon.newPage();
@@ -380,6 +399,13 @@ try {
   const initial = await (
     await owner.request.get(`${origin}/api/admin/content`)
   ).json();
+  assert.equal(initial.sourceCorrectionsPending, true);
+  assert.equal(
+    initial.draft.sections.find(
+      (section: { id: string }) => section.id === "lux",
+    ).items[0].videoSrc,
+    "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
+  );
   assert.equal(
     (
       await owner.request.post(`${origin}/api/admin/content`, {
@@ -500,6 +526,20 @@ try {
     await owner.request.get(`${origin}/api/admin/content`)
   ).json();
   assert.equal(saved.draft.sections[0].items[0].title, "Draft test title");
+  assert.equal(saved.sourceCorrectionsPending, false);
+  const persistedDraft = JSON.parse(
+    execFileSync(
+      "git",
+      ["-C", repository, "show", "cms/waambat-drafts:src/content/site.json"],
+      { encoding: "utf8" },
+    ),
+  );
+  assert.equal(
+    persistedDraft.sections.find(
+      (section: { id: string }) => section.id === "lux",
+    ).items[0].videoSrc,
+    "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
+  );
   assert.equal(
     saved.published.sections[0].items[0].title,
     initial.published.sections[0].items[0].title,

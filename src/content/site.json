@@ -436,13 +436,14 @@
           "id": "lux-ok-algo",
           "title": "LUX · OK ALGO",
           "year": "",
-          "description": "The OK Algo facet · Explore LUX on Satflow",
+          "description": "Live full LUX · Infinity #3. Explore the collection on Satflow.",
           "tokenLink": "https://www.satflow.com/ordinals/lux_ok_algo",
-          "videoSrc": "",
+          "videoSrc": "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
           "poster": "https://whitepaper.terminus.art/images/lux3.webp",
           "mobileVideoSrc": "",
-          "kind": "image",
-          "archived": false
+          "kind": "embed",
+          "archived": false,
+          "aspectRatio": 1
         },
         {
           "id": "lux-pink-paper",
@@ -469,13 +470,14 @@
           "id": "kismet-twist-collection",
           "title": "Kismet Twist",
           "year": "",
-          "description": "Explore the Kismet Twist collection on Satflow. The optional on-chain preview is Kismet Twist #100, attributed to WAAMBAT with Ravonus as technomancer in its inscription metadata.",
+          "description": "Live Kismet Twist #1. Explore the collection on Satflow.",
           "tokenLink": "https://www.satflow.com/ordinals/kismettwist",
-          "videoSrc": "https://ordinals.com/preview/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98",
+          "videoSrc": "https://ordinals.com/content/60533f24d8b77bcc049f27d9853d185591ea4b81ffe51076cfd985f6f542ef9ai0",
           "poster": "",
           "mobileVideoSrc": "",
           "kind": "embed",
-          "archived": false
+          "archived": false,
+          "aspectRatio": 1
         }
       ]
     },
@@ -2630,5 +2632,6 @@
       "href": "/contact-waambat",
       "archived": false
     }
-  ]
+  ],
+  "ordinalSourceVersion": 1
 }

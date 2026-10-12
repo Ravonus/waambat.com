@@ -72,6 +72,7 @@ export default function Header({
     body.style.overflow = "hidden";
     root.style.overflow = "hidden";
     panel.showModal();
+    document.dispatchEvent(new Event("waambat:media-visibility"));
     closeButton.current?.focus({ preventScroll: true });
     const trapFocus = (event: KeyboardEvent) => {
       if (event.key !== "Tab") return;
@@ -116,6 +117,7 @@ export default function Header({
         root.style.scrollBehavior = saved.scrollBehavior;
         if (!desktop.matches) trigger?.focus({ preventScroll: true });
       }
+      document.dispatchEvent(new Event("waambat:media-visibility"));
     };
   }, [open]);
 

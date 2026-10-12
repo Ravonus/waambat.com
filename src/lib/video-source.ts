@@ -23,7 +23,7 @@ export function videoSource(value: string): VideoSource | null {
       return null;
     if (
       host === "ordinals.com" &&
-      /^\/preview\/[a-f0-9]{64}i\d{1,12}$/.test(url.pathname) &&
+      /^\/(?:preview|content)\/[a-f0-9]{64}i\d{1,12}$/.test(url.pathname) &&
       !url.search &&
       !url.hash
     )

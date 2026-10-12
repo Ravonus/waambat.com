@@ -31,3 +31,19 @@ Cloud direct font access returns CONNECT 403, and the web reader cannot read the
 This cloud task has shell/Chromium and web extraction, but no callable connected-Mac browser tool or outbound cross-thread tool. The parent must relay these bounded read-only checks to Mac QA thread `01a12b02-e0db-726c-be99-6561059b6001`. Do not use foreground native controls while the user is actively using Chrome. No credential forms, cookies or tokens are involved in these checks.
 
 Website corrections can be reviewed/published separately from v9. New pushes to the existing feature branch still auto-publish Netlify production and preview. No new push or deployment occurred during this recheck. Keep v9 private pending the parent's user decision; its source worktree and previous Library backup remain intact.
+
+## New actual Mac source receipt
+
+Mac source worker `01a12d76-b550-77c3-b3cc-3748003ab035` verified the original WOFF2 HTTP200/11,888 bytes, loaded FontFace, and Chrome Rendered fonts **Amboy / Amboy-Inline / Network resource / 7 glyphs**. Original width is181.3046875px at37px; existing Netlify renders fallback sans at152.8125px despite the same declared family. The new code removes the application gate and wires this exact verified resource. Verify its actual Netlify decoding after publication; do not request a new Adobe account/font substitute as a prerequisite.
+
+The same worker verified original `3hhNUKR.mp4` returns HTTP301 to `https://imgur.com/`, with `text/html; charset=utf-8` and reported zero response length. Two samples have readyState0,0×0 dimensions, time0 and paused. The upstream response cannot decode as the requested video. This is an original upstream-media problem, not a GIF optimization or an autoplay problem. The code preserves the URL, restores unknown/intrinsic native geometry and displays honest failure/retry; restoring actual motion requires the original media or an approved replacement. Bounded repository/history and Library searches found no matching original; no other artwork was substituted. Official LUX browser discovery remains ongoing.
+
+## Confirmed complete-player receipt and implementation
+
+The same Mac worker followed official Satflow collection content links and verified **LUX Infinity #3** at `https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2`. Default mode shows the complete Three.js r163 diamond; spaced screenshots show changing collage textures on upper and lower facets. Its canvas follows the1512×677 source viewport. This is the live player, not the still Satflow thumbnail or a single Carat.
+
+**Kismet #1** is verified at `https://ordinals.com/content/60533f24d8b77bcc049f27d9853d185591ea4b81ffe51076cfd985f6f542ef9ai0`: a750×750 HTML canvas, rendered677×677 centered atx417.5 in the1512×677 source viewport, uncropped. Spaced frames show cat/infinity and glowing ankh/eclipsing ring. These exact content routes are now the default player sources; they are not MP4 URLs. Original Satflow links and A/B/C artwork remain.
+
+The code supports existing persisted content without overwriting artist edits. Only the exact old generated placeholder/sample definitions receive the verified source correction on read. Alternate selected media, customized captions, ratios and archive state remain authoritative. Storage/revisions/namespaces are untouched by reads. The studio explicitly marks corrected sources pending; ordinary authenticated Save stores them through existing revision/conflict/history checks, then Preview/Publish stays unchanged. Real isolated browser tests verify the correction is actually stored after Save.
+
+Next is actual deployment and hosted font/player verification. No new credential or project setup is needed. Provisional v9 files remain excluded from this branch and its history. Mechanics source recovery remains a distinct upstream asset requirement.

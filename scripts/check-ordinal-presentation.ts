@@ -8,7 +8,9 @@ import { createHash } from "node:crypto";
 const origin = "http://localhost:3043";
 const directory = await mkdtemp(join(tmpdir(), "waambat-presentation-"));
 const preview =
-  "https://ordinals.com/preview/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98";
+  "https://ordinals.com/content/60533f24d8b77bcc049f27d9853d185591ea4b81ffe51076cfd985f6f542ef9ai0";
+const lux =
+  "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2";
 const image =
   "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/153558c0-d955-4f3c-ad18-5e491d9fd70a/MECHANICS_v002.png";
 let server: ReturnType<typeof spawn> | undefined;
@@ -116,12 +118,39 @@ try {
         body: '<html><style>html,body{margin:0;background:black;height:100%}video{width:100%;height:100%;object-fit:contain}</style><body><video src="http://localhost:3043/fixture-motion.mp4" autoplay muted loop playsinline></video></body></html>',
       });
     });
+    await context.route(lux, (route) =>
+      route.fulfill({
+        contentType: "text/html",
+        body: '<html><style>html,body{margin:0;background:black;height:100%}video{width:100%;height:100%;object-fit:contain}</style><body><video src="http://localhost:3043/fixture-motion.mp4" autoplay muted loop playsinline></video></body></html>',
+      }),
+    );
     await page.goto(origin + "/ordinals");
+    const luxPlayer = page.locator('[data-ordinal-player="lux-ok-algo"]');
+    await luxPlayer.scrollIntoViewIfNeeded();
+    await luxPlayer.locator("iframe").waitFor();
+    assert.equal(await luxPlayer.locator("iframe").getAttribute("src"), lux);
+    const luxBounds = await luxPlayer.boundingBox();
+    assert.equal(luxBounds?.width, viewport.width === 390 ? 350 : 640);
+    assert.equal(luxBounds?.height, luxBounds?.width);
     const player = page.locator(
       '[data-ordinal-player="kismet-twist-collection"]',
     );
     await player.scrollIntoViewIfNeeded();
     await player.locator("iframe").waitFor();
+    assert.equal(await player.locator("iframe").getAttribute("src"), preview);
+    if (viewport.width === 390) {
+      await page
+        .getByRole("button", { name: "Menu", exact: true })
+        .evaluate((button) => (button as HTMLButtonElement).click());
+      await page.getByRole("dialog", { name: "Main navigation" }).waitFor();
+      assert.equal(
+        await player.locator("iframe").count(),
+        0,
+        "Fullscreen navigation releases hidden artwork renderer",
+      );
+      await page.getByRole("button", { name: "Close menu" }).click();
+      await player.locator("iframe").waitFor();
+    }
     const video = page
       .frameLocator('iframe[title="Kismet Twist"]')
       .locator("video");
@@ -159,7 +188,10 @@ try {
     await player.locator("iframe").waitFor();
     await page.evaluate(() => scrollTo(0, 0));
     await page.waitForFunction(
-      () => !document.querySelector("[data-ordinal-player] iframe"),
+      () =>
+        !document.querySelector(
+          '[data-ordinal-player="kismet-twist-collection"] iframe',
+        ),
     );
     assert.ok(
       (await page
@@ -213,6 +245,8 @@ try {
     results.push({
       viewport,
       frame,
+      luxFrame: luxBounds,
+      verifiedPlayerURLsWired: true,
       decodedFixtureTime0: t0,
       decodedFixtureTime1: t1,
       iframeRequests: frameRequests,

@@ -53,13 +53,19 @@ export default function Editor({ initial }: { initial: ContentState }) {
   const [content, setContent] = useState<Content>(
     structuredClone(initial.draft),
   );
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(
+    initial.sourceCorrectionsPending
+      ? "Verified live artwork sources are ready. Save this draft to retain these source updates in your content, then preview before publishing."
+      : "",
+  );
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [mailPreview, setMailPreview] = useState("");
   const [uncertain, setUncertain] = useState<PendingWrite | null>(null);
   const upload = useRef<AbortController | null>(null);
-  const dirty = JSON.stringify(content) !== JSON.stringify(state.draft);
+  const dirty =
+    !!state.sourceCorrectionsPending ||
+    JSON.stringify(content) !== JSON.stringify(state.draft);
   useEffect(() => {
     const before = (e: BeforeUnloadEvent) => {
       if (dirty || uploading || uncertain) {
