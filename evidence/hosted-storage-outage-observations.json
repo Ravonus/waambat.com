@@ -1,0 +1,40 @@
+{
+  "source": "Read-only measurements supplied by parent/Mac operator; cloud did not access hosted credentials or mutate configuration",
+  "productionHome": {
+    "method": "GET",
+    "path": "/",
+    "time": "2026-10-11 09:17:06.30 MDT",
+    "status": 504,
+    "elapsedMs": 30490,
+    "requestId": "01M4NRKZM34K8GHG2371Q11SDE"
+  },
+  "productionArchive": {
+    "path": "/art-by-waambat",
+    "time": "2026-10-11 08:45:42.16 MDT",
+    "status": 504,
+    "elapsedMs": 30665,
+    "requestId": "01M4NPTFMHZ89JHF7NH1PXY3ZY"
+  },
+  "previewArchive": {
+    "path": "/art-by-waambat",
+    "time": "2026-10-11 08:46:26.27 MDT",
+    "status": 504,
+    "elapsedMs": 30380,
+    "requestId": "01M4NPVTQ1963BF19XRPNP8DXX"
+  },
+  "nearbyFunctionInvocation": {
+    "shortId": "2b5a783d",
+    "time": "2026-10-11 08:45:42 MDT",
+    "durationMs": 60000,
+    "memoryMb": 197,
+    "explicitRequestMapping": false
+  },
+  "storeSelector": {
+    "displayedDeployStoreCount": 15,
+    "productionContentStoreDisplayed": false,
+    "previewContentStoreDisplayed": false,
+    "limitation": "Selector absence does not prove absence of stored content, permissions error or runtime namespace mismatch. Do not provision/rename/migrate stores based on this alone."
+  },
+  "namespaceInspection": "Current names contain no colon/slash and are under64bytes; SDK adds internal site: prefix to request path. Automatic native function bootstrap supplies edge and uncached URLs. No legacy connectLambda or manually entered token is required by this native handler.",
+  "smallestMissingDiagnostic": "Provider response HTTPstatus/error and phase for GET state through the actual runtime context, correlated to failing frontend request. Alternatively deployed failure classification logs after separately approved patch. Store selector alone and frontend504 do not establish provider status."
+}

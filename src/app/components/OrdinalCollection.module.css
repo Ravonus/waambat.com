@@ -1,0 +1,62 @@
+.collection {
+  margin: 0 0 96px;
+  text-align: center;
+}
+.collection h1 {
+  margin: 0 0 18px;
+}
+.intro {
+  max-width: 620px;
+  margin: 0 auto 34px;
+}
+.artwork {
+  margin: 0 0 28px;
+}
+.media {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--site-background);
+}
+.caption {
+  max-width: 620px;
+  margin: 24px auto 0;
+}
+.caption h2 {
+  margin: 0 0 12px;
+}
+.caption a,
+.resource a {
+  color: var(--color-waambat-pink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.caption a:hover,
+.resource a:hover {
+  text-decoration: underline;
+}
+.caption a:focus-visible,
+.resource a:focus-visible {
+  outline: 2px solid var(--color-waambat-logo);
+  outline-offset: 6px;
+}
+.resource {
+  margin: 20px 0 0;
+}
+.details {
+  margin: 0 0 18px;
+}
+.details summary {
+  cursor: pointer;
+}
+.details p {
+  margin: 14px 0 0;
+}
+@media (max-width: 767px) {
+  .collection {
+    margin-bottom: 64px;
+  }
+  .intro {
+    margin-bottom: 26px;
+  }
+}

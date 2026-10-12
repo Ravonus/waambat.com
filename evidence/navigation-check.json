@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-12T01:10:08.417Z",
+  "mode": "Local real browser, synthetic network delay, remote media blocked",
+  "modal": "390×844 fullscreen; close initially focused; native modal traps Tab/Shift+Tab and blocks background; Escape restores trigger; reduced motion has no animation",
+  "repeatedDismissal": "Four open/close cycles preserve prior scroll; wheel cannot scroll underlying fixed body; body styles fully restored",
+  "desktop": "Original header geometry retained; active underline, hover underline, press translation and visible keyboard focus checked; resizing closes overlay and releases body lock",
+  "cancelled": "A prevented selection leaves the dialog available; browser Back while open commits the route and unlocks without reopening on Forward",
+  "navigation": "Successful selection closes only after route commit; Back/Forward do not reopen prior menu or retain body lock",
+  "interrupted": "Delayed navigation keeps menu usable and locked; explicit dismissal during pending request restores scroll; later successful route stays unlocked",
+  "navigationAppearance": "Pink hamburger retains accessible Menu name; pink pointer renders inside the native dialog top layer and returns to body on dismissal; delayed navigation shows no ellipsis",
+  "samePage": "Selecting the current route dismisses without requiring a pathname change",
+  "unmount": "Navigation to header-free legacy splash releases modal/body lock",
+  "shortViewport": "390×450 menu scrolls independently while close control stays visible; dismissal unlocks body"
+}

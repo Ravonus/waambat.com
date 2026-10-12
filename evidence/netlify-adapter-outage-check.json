@@ -1,0 +1,504 @@
+{
+  "boundary": "Installed Netlify Next adapter5.16.2 + fresh compiled application + real SDK11.1.4 + loopback storage contract. Synthetic signed local Auth.js session; password/Postgres tested separately. No hosted requests/credentials.",
+  "mechanism": "Explicit fetch signal avoids Next GET response cloning and pending SDK cancellation; deadline handles independent transport/body stalls.",
+  "sourceBase": "20ddb7c5c64389c201870d65165867b9a57ac0b3 plus local candidate",
+  "buildId": "6Qkknck5bF2GeevUKS2jp",
+  "results": [
+    {
+      "label": "anonymous admin",
+      "path": "/admin",
+      "status": 200,
+      "elapsedMs": 423,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-store"
+    },
+    {
+      "label": "anonymous state denied",
+      "path": "/api/admin/content",
+      "status": 401,
+      "elapsedMs": 61,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "anonymous private preview denied",
+      "path": "/admin/preview",
+      "status": 307,
+      "elapsedMs": 19,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-store"
+    },
+    {
+      "label": "published home",
+      "path": "/",
+      "status": 200,
+      "elapsedMs": 86,
+      "publishedSentinel": true,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "published archive",
+      "path": "/art-by-waambat",
+      "status": 200,
+      "elapsedMs": 55,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "authorized state",
+      "path": "/api/admin/content",
+      "status": 200,
+      "elapsedMs": 47,
+      "publishedSentinel": true,
+      "privateDraftExcluded": false,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "wrong origin denied",
+      "path": "/api/admin/content",
+      "status": 403,
+      "elapsedMs": 31,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "stale revision denied",
+      "path": "/api/admin/content",
+      "status": 409,
+      "elapsedMs": 29,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "authorized draft save",
+      "path": "/api/admin/content",
+      "status": 200,
+      "elapsedMs": 81,
+      "publishedSentinel": true,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": true,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "saved draft remains private",
+      "path": "/",
+      "status": 200,
+      "elapsedMs": 32,
+      "publishedSentinel": true,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "authorized private preview",
+      "path": "/admin/preview",
+      "status": 200,
+      "elapsedMs": 69,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": true,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-store"
+    },
+    {
+      "label": "authorized publish",
+      "path": "/api/admin/content",
+      "status": 200,
+      "elapsedMs": 58,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": true,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "fresh published read",
+      "path": "/",
+      "status": 200,
+      "elapsedMs": 41,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": true,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "anonymous unpublished media denied",
+      "path": "/api/media/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": 404,
+      "elapsedMs": 21,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": null
+    },
+    {
+      "label": "authorized missing media",
+      "path": "/api/media/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": 404,
+      "elapsedMs": 20,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": null
+    },
+    {
+      "label": "media provider 401",
+      "path": "/api/media/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": 503,
+      "elapsedMs": 29,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": null
+    },
+    {
+      "label": "media provider 403",
+      "path": "/api/media/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": 503,
+      "elapsedMs": 24,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": null
+    },
+    {
+      "label": "missing state uses seed",
+      "path": "/bio-waambat",
+      "status": 200,
+      "elapsedMs": 18,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "missing state authorized read",
+      "path": "/api/admin/content",
+      "status": 200,
+      "elapsedMs": 12,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "public provider 401",
+      "path": "/bio-waambat",
+      "status": 500,
+      "elapsedMs": 34,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "admin provider 401",
+      "path": "/api/admin/content",
+      "status": 503,
+      "elapsedMs": 10,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "public provider 403",
+      "path": "/bio-waambat",
+      "status": 500,
+      "elapsedMs": 19,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "admin provider 403",
+      "path": "/api/admin/content",
+      "status": 503,
+      "elapsedMs": 9,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "public provider 503",
+      "path": "/bio-waambat",
+      "status": 500,
+      "elapsedMs": 5015,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "admin provider 503",
+      "path": "/api/admin/content",
+      "status": 503,
+      "elapsedMs": 2511,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    },
+    {
+      "label": "authorized admin storage unavailable",
+      "path": "/admin",
+      "status": 200,
+      "elapsedMs": 2538,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": false,
+      "storageUnavailable": true,
+      "cacheControl": "private, no-store"
+    },
+    {
+      "label": "public recovery preserves published data",
+      "path": "/",
+      "status": 200,
+      "elapsedMs": 23,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": true,
+      "storageUnavailable": false,
+      "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+    },
+    {
+      "label": "authorized recovery",
+      "path": "/api/admin/content",
+      "status": 200,
+      "elapsedMs": 22,
+      "publishedSentinel": false,
+      "privateDraftExcluded": true,
+      "savedDraftVisible": true,
+      "storageUnavailable": false,
+      "cacheControl": "no-store"
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/fixture/site:waambat-content-production/history/d835a378f3a547b74d77a04582814f63690f959b",
+      "providerStatus": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/fixture/site:waambat-content-production/history/375a236752f68bc2ec093af31c32e4c6885c0617",
+      "providerStatus": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-media/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-media/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "providerStatus": 401
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-media/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "providerStatus": 403
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 404
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 404
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 401
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 401
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 401
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 403
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 403
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 403
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 503
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 503
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 503
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 503
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "providerStatus": 200
+    }
+  ],
+  "limitations": "Loopback ETag/CAS storage is not hosted acceptance. Separate browser/auth tests cover password, upload cancellation/errors and validation. Hosted CRUD still required."
+}

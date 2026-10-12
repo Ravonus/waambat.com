@@ -1,0 +1,920 @@
+import { chromium } from "playwright";
+import { encode } from "next-auth/jwt";
+import { randomBytes } from "node:crypto";
+import { spawn, execFileSync } from "node:child_process";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { readFile, writeFile, mkdir, mkdtemp, rm } from "node:fs/promises";
+import assert from "node:assert/strict";
+const origin = "http://localhost:3000";
+const secret = randomBytes(48).toString("hex");
+const fixtureDir = await mkdtemp(join(tmpdir(), "waambat-git-browser-"));
+const repository = join(fixtureDir, "repository");
+await mkdir(join(repository, "src/content"), { recursive: true });
+const legacySeed = JSON.parse(await readFile("src/content/site.json", "utf8"));
+legacySeed.ordinalSourceVersion = 0;
+const legacyLux = legacySeed.sections.find(
+  (section: { id: string }) => section.id === "lux",
+).items[0];
+Object.assign(legacyLux, {
+  kind: "image",
+  videoSrc: "",
+  description: "The OK Algo facet · Explore LUX on Satflow",
+});
+const legacyKismet = legacySeed.sections.find(
+  (section: { id: string }) => section.id === "kismet-twist",
+).items[0];
+Object.assign(legacyKismet, {
+  videoSrc:
+    "https://ordinals.com/preview/383773bbfe98f8fecef04f65c3bbf56fbdc044cb3cdeaf2eb546d140adac5162i98",
+  description:
+    "Explore the Kismet Twist collection on Satflow. The optional on-chain preview is Kismet Twist #100, attributed to WAAMBAT with Ravonus as technomancer in its inscription metadata.",
+});
+await writeFile(
+  join(repository, "src/content/site.json"),
+  JSON.stringify(legacySeed, null, 2) + "\n",
+);
+execFileSync("git", ["init", "-b", "main", repository]);
+execFileSync("git", ["-C", repository, "add", "src/content/site.json"]);
+execFileSync("git", [
+  "-C",
+  repository,
+  "-c",
+  "user.name=Local browser test",
+  "-c",
+  "user.email=test@example.invalid",
+  "commit",
+  "-m",
+  "Initial isolated content",
+]);
+const fixture = process.env.TEST_VIDEO ?? join(fixtureDir, "loop.mp4");
+if (!process.env.TEST_VIDEO)
+  execFileSync("ffmpeg", [
+    "-loglevel",
+    "error",
+    "-loop",
+    "1",
+    "-i",
+    "public/thumbnails/1.png",
+    "-t",
+    "2",
+    "-vf",
+    "scale=320:320",
+    "-c:v",
+    "libx264",
+    "-pix_fmt",
+    "yuv420p",
+    "-movflags",
+    "+faststart",
+    "-an",
+    fixture,
+  ]);
+const child = spawn("node", ["node_modules/next/dist/bin/next", "dev"], {
+  env: {
+    ...process.env,
+    AUTH_SECRET: secret,
+    CMS_LOCAL_TEST: "1",
+    CMS_LOCAL_REPOSITORY: repository,
+    CMS_LOCAL_MEDIA: join(fixtureDir, "media"),
+    WAAMBAT_PRIVATE_SITE: "0",
+    AUTH_GITHUB_ID: "local-test",
+    AUTH_GITHUB_SECRET: "local-test",
+    ADMIN_GITHUB_IDS: "900000001",
+    AUTH_URL: origin,
+  },
+  stdio: ["ignore", "pipe", "pipe"],
+});
+let logs = "";
+child.stdout.on("data", (d) => {
+  logs += String(d);
+});
+child.stderr.on("data", (d) => {
+  logs += String(d);
+});
+const evidence: Record<string, unknown> = {};
+let browser;
+try {
+  for (let i = 0; i < 120; i++) {
+    try {
+      if ((await fetch(origin)).ok) break;
+    } catch {}
+    await new Promise((r) => setTimeout(r, 500));
+  }
+  browser = await chromium.launch({
+    executablePath: process.env.CHROMIUM_PATH ?? "/usr/bin/chromium",
+    headless: true,
+    args: ["--no-sandbox"],
+  });
+  await mkdir("evidence", { recursive: true });
+  const anon = await browser.newContext({
+    viewport: { width: 1440, height: 1000 },
+  });
+  const api = anon.request;
+  assert.equal((await api.get(`${origin}/api/admin/content`)).status(), 401);
+  assert.equal(
+    (await api.post(`${origin}/api/admin/content`, { data: {} })).status(),
+    401,
+  );
+  assert.equal(
+    (await api.post(`${origin}/api/admin/upload`, { data: "bad" })).status(),
+    401,
+  );
+  const reduced = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    reducedMotion: "reduce",
+  });
+  const rp = await reduced.newPage();
+  await rp.goto(origin);
+  await rp.waitForTimeout(500);
+  assert.equal(await rp.locator("video[src]").count(), 0);
+  await rp.getByRole("button", { name: "Menu", exact: true }).click();
+  await rp.getByRole("link", { name: "ORDINALS", exact: true }).click();
+  await rp.getByRole("heading", { name: "LUX", exact: true }).waitFor();
+  for (const [id, target] of [
+    ["lux-ok-algo", "https://www.satflow.com/ordinals/lux_ok_algo"],
+    ["kismet-twist-collection", "https://www.satflow.com/ordinals/kismettwist"],
+    [
+      "gamma-user-artwork",
+      "https://gamma.io/ordinals/inscriptions/2d284790a8ecddb0f4aa21e7763e0e499fdb068e79f398ad268dda7fcb3eabfei0",
+    ],
+  ]) {
+    const card = rp.locator(`[data-artwork="${id}"]`);
+    await card.scrollIntoViewIfNeeded();
+    assert.equal(await card.isVisible(), true);
+    assert.ok((await card.locator(`a[href="${target}"]`).count()) > 0);
+  }
+  assert.equal(await rp.locator('[data-artwork^="ordinal-"]').count(), 3);
+  assert.equal(await rp.locator("iframe").count(), 0);
+  evidence.ordinals =
+    "Verified LUX Infinity #3 and Kismet #1 player destinations, exact Satflow links and preserved Ordinal A/B/C/Gamma checked. Real upstream rendering is verified separately by the Mac browser; no price/supply/availability invented.";
+  await rp.screenshot({ path: "evidence/ordinals-mobile.png", fullPage: true });
+  evidence.reducedMotion = "No video source loaded before explicit playback";
+  const page = await anon.newPage();
+  const videoBytes = await readFile(fixture);
+  const requests: string[] = [];
+  await page.route("https://i.imgur.com/**", async (route) => {
+    requests.push(route.request().url());
+    await route.fulfill({ body: videoBytes, contentType: "video/mp4" });
+  });
+  await page.goto(origin);
+  await page.waitForFunction(() =>
+    Array.from(document.querySelectorAll("video")).some(
+      (v) => !v.paused && v.readyState >= 2,
+    ),
+  );
+  assert.ok(
+    new Set(requests).size <= 4,
+    `Only viewport paintings load initially: ${new Set(requests).size}`,
+  );
+  const initialCount = requests.length;
+  const firstCount = requests.filter((u) => u.includes("bNlZWHY")).length;
+  await page.screenshot({ path: "evidence/playback-fixture-desktop.png" });
+  await page.locator('[data-artwork="artwork-10"]').scrollIntoViewIfNeeded();
+  await page.waitForTimeout(800);
+  assert.ok(
+    await page
+      .locator('[data-artwork="artwork-1"] video')
+      .evaluate((v: HTMLVideoElement) => v.paused),
+  );
+  await page.locator('[data-artwork="artwork-1"]').scrollIntoViewIfNeeded();
+  await page.waitForTimeout(500);
+  assert.equal(
+    requests.filter((u) => u.includes("bNlZWHY")).length,
+    firstCount,
+  );
+  evidence.video = {
+    initialRequests: initialCount,
+    totalRequestsAfterScrolling: requests.length,
+    repeatFetchesOnScrollReturn: 0,
+    initialSources: new Set(requests.slice(0, initialCount)).size,
+    responsiveSource:
+      "Mobile preview decoded a real privately uploaded MP4 fixture from the isolated media filesystem",
+    playback:
+      "Real browser decoding with generated local fixture; original Imgur transport blocked",
+  };
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(origin);
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: "evidence/playback-fixture-mobile.png" });
+  assert.ok(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  );
+  const visual = await reduced.newPage();
+  await visual.goto(origin);
+  await visual
+    .getByRole("heading", { name: "Feels 404", exact: true })
+    .waitFor();
+  await visual.screenshot({ path: "evidence/mobile.png" });
+  await visual.setViewportSize({ width: 1440, height: 1000 });
+  await visual.goto(origin);
+  await visual
+    .getByRole("heading", { name: "Feels 404", exact: true })
+    .waitFor();
+  await visual.screenshot({ path: "evidence/desktop.png" });
+  const articles = await reduced.newPage();
+  for (const [label, path, heading] of [
+    [
+      "quantum mechanics",
+      "mechanics",
+      "Utility Mechanics of the Quantum Series",
+    ],
+    ["blog + press", "blog-press", "Artists Against Algorithms"],
+    ["bio", "bio-waambat", "WAAMBAT"],
+    ["collect + contact", "contact-waambat", "How to collect WAAMBAT:"],
+  ]) {
+    await articles.goto(origin);
+    await articles.getByRole("button", { name: "Menu", exact: true }).click();
+    await articles.getByRole("link", { name: label!, exact: true }).click();
+    await articles.waitForURL(`${origin}/${path}`);
+    await articles
+      .getByRole("heading", { name: heading!, exact: true })
+      .waitFor();
+    assert.ok(
+      await articles.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    );
+    assert.equal(
+      await articles.locator("iframe").count(),
+      0,
+      "External players stay unloaded until requested",
+    );
+  }
+  assert.equal(
+    await articles.locator('a[href="https://discord.gg/7UhEguFr"]').count(),
+    1,
+  );
+  await articles.goto(`${origin}/art-by-waambat`);
+  assert.equal(await articles.locator(".archive-tile").count(), 25);
+  assert.equal(await articles.locator("iframe").count(), 0);
+  await articles
+    .getByRole("button", { name: "View Axiom GL0w Up (2021)", exact: true })
+    .click();
+  await articles
+    .getByRole("button", { name: "Next artwork", exact: true })
+    .click();
+  await articles.getByRole("button", { name: "info", exact: true }).click();
+  assert.equal(
+    await articles.locator("#archive-info").innerText(),
+    "Sus Singularity (2021)",
+  );
+  await articles
+    .getByRole("button", { name: "Previous artwork", exact: true })
+    .click();
+  await articles.getByRole("button", { name: "info", exact: true }).click();
+  assert.equal(
+    await articles.locator("#archive-info").innerText(),
+    "Axiom GL0w Up (2021)",
+  );
+  await articles.getByRole("button", { name: "Close archive viewer" }).click();
+  await articles
+    .getByRole("button", {
+      name: "View Poison Progression (2010)",
+      exact: true,
+    })
+    .click();
+  await articles.getByRole("button", { name: "info", exact: true }).click();
+  assert.ok(
+    (await articles.locator("#archive-info").innerText()).includes("Top award"),
+  );
+  await articles.keyboard.press("Escape");
+  assert.equal(
+    (await articles.request.get(`${origin}/missing-page`)).status(),
+    404,
+  );
+  evidence.pages =
+    "All five local page routes, mobile navigation/overflow, contact links, deferred embeds, archive montage, fullscreen prev/next/info/Escape and missing-route 404 passed. Live media transport and original visual matching remain separately blocked.";
+  const navigation = await anon.newPage();
+  await navigation.goto(`${origin}/mechanics`);
+  await navigation
+    .locator("[data-cursor-ready]")
+    .waitFor({ state: "attached" });
+  assert.equal(
+    await navigation.evaluate(
+      () => matchMedia("(hover: hover) and (pointer: fine)").matches,
+    ),
+    true,
+  );
+  await navigation.mouse.move(180, 180, { steps: 3 });
+  await navigation.waitForFunction(
+    () =>
+      document.querySelector<HTMLElement>("[data-pink-cursor]")?.style
+        .opacity === "1",
+  );
+  assert.equal(
+    await navigation
+      .locator("[data-pink-cursor]")
+      .evaluate((el) => getComputedStyle(el).pointerEvents),
+    "none",
+  );
+  await navigation.getByRole("link", { name: "bio", exact: true }).focus();
+  await navigation.keyboard.press("Enter");
+  await navigation.waitForURL(`${origin}/bio-waambat`);
+  await navigation
+    .getByRole("heading", { name: "WAAMBAT", exact: true })
+    .waitFor();
+  await navigation.goBack();
+  await navigation.waitForURL(`${origin}/mechanics`);
+  await navigation.goForward();
+  await navigation.waitForURL(`${origin}/bio-waambat`);
+  const beforeModified = navigation.url();
+  const popupEvent = anon.waitForEvent("page");
+  await navigation
+    .getByRole("link", { name: "quantum mechanics", exact: true })
+    .click({ modifiers: ["Control"] });
+  const popup = await popupEvent;
+  await popup.waitForLoadState();
+  assert.equal(navigation.url(), beforeModified);
+  await popup.close();
+  await rp.getByRole("button", { name: "Menu", exact: true }).click();
+  await rp.getByRole("link", { name: "bio", exact: true }).click();
+  await rp.waitForURL(`${origin}/bio-waambat`);
+  assert.equal(
+    await rp
+      .locator("[data-route-pulse]")
+      .evaluate((el) => getComputedStyle(el).display),
+    "none",
+  );
+  assert.equal(
+    await rp
+      .locator("[data-pink-cursor] span")
+      .evaluate((el) => getComputedStyle(el).animationName),
+    "none",
+  );
+  const touch = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true,
+    reducedMotion: "reduce",
+  });
+  const touchPage = await touch.newPage();
+  await touchPage.goto(`${origin}/mechanics`);
+  assert.equal(
+    await touchPage
+      .locator("[data-pink-cursor]")
+      .evaluate((el) => getComputedStyle(el).display),
+    "none",
+  );
+  await touchPage.getByRole("button", { name: "Menu", exact: true }).tap();
+  await touchPage.getByRole("link", { name: "bio", exact: true }).tap();
+  await touchPage.waitForURL(`${origin}/bio-waambat`);
+  assert.ok(
+    await touchPage.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  );
+  await touch.close();
+  evidence.navigation =
+    "Keyboard Enter, native Back/Forward, Ctrl-click new tab, touch navigation, non-intercepting fine-pointer gradient cursor and reduced-motion transition/cursor checks passed; no mocked route success.";
+  const owner = await browser.newContext({
+    viewport: { width: 1280, height: 900 },
+  });
+  const jwt = await encode({
+    secret,
+    token: { sub: "900000001", adminId: "900000001", name: "Test owner" },
+    salt: "authjs.session-token",
+    maxAge: 3600,
+  });
+  await owner.addCookies([
+    {
+      name: "authjs.session-token",
+      value: jwt,
+      domain: "localhost",
+      path: "/",
+      httpOnly: true,
+      sameSite: "Lax",
+    },
+  ]);
+  const admin = await owner.newPage();
+  await admin.goto(`${origin}/admin`);
+  console.log(
+    "Admin loaded",
+    (await admin.locator("body").innerText()).slice(0, 120),
+  );
+  await admin
+    .getByRole("heading", { name: "Manage artwork & content" })
+    .waitFor();
+  const initial = await (
+    await owner.request.get(`${origin}/api/admin/content`)
+  ).json();
+  assert.equal(initial.sourceCorrectionsPending, true);
+  assert.equal(
+    initial.draft.sections.find(
+      (section: { id: string }) => section.id === "lux",
+    ).items[0].videoSrc,
+    "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
+  );
+  assert.equal(
+    (
+      await owner.request.post(`${origin}/api/admin/content`, {
+        data: { revision: initial.revision, action: "publish" },
+        headers: { Origin: "https://attacker.test" },
+      })
+    ).status(),
+    403,
+  );
+  const forged = structuredClone(initial.draft);
+  forged.sections[0].intro = '<img onerror="alert(1)">';
+  assert.equal(
+    (
+      await owner.request.post(`${origin}/api/admin/content`, {
+        data: { revision: initial.revision, action: "save", content: forged },
+        headers: { Origin: origin },
+      })
+    ).status(),
+    400,
+  );
+  const file = await readFile("public/posters/1-480.webp");
+  const uploaded = await owner.request.post(`${origin}/api/admin/upload`, {
+    headers: { Origin: origin },
+    multipart: {
+      file: { name: "poster.webp", mimeType: "image/webp", buffer: file },
+    },
+  });
+  assert.equal(uploaded.status(), 200);
+  const media = await uploaded.json();
+  assert.equal((await api.get(`${origin}${media.url}`)).status(), 404);
+  const repeated = await owner.request.post(`${origin}/api/admin/upload`, {
+    headers: { Origin: origin },
+    multipart: {
+      file: { name: "poster.webp", mimeType: "image/webp", buffer: file },
+    },
+  });
+  assert.equal((await repeated.json()).url, media.url);
+  const range = await owner.request.get(`${origin}${media.url}`, {
+    headers: { Range: "bytes=0-3" },
+  });
+  assert.equal(range.status(), 206);
+  assert.equal((await range.body()).length, 4);
+  const badUpload = await owner.request.post(`${origin}/api/admin/upload`, {
+    headers: { Origin: origin },
+    multipart: {
+      file: {
+        name: "evil.webp",
+        mimeType: "image/webp",
+        buffer: Buffer.from("<html>not image</html>"),
+      },
+    },
+  });
+  assert.equal(badUpload.status(), 415);
+  await admin.getByText("Feels 404", { exact: true }).click();
+  const originalDetail = admin
+    .locator("section:has(details)")
+    .first()
+    .locator("details")
+    .first();
+  const uploadInput = originalDetail.locator('input[type="file"]').first();
+  await uploadInput.setInputFiles({
+    name: "bad.webp",
+    mimeType: "image/webp",
+    buffer: Buffer.from("<html>not image</html>"),
+  });
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "File content does not match" })
+    .waitFor();
+  let release: () => void = () => {};
+  const held = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  await admin.route("**/api/admin/upload", async (route) => {
+    await held;
+    await route.abort().catch(() => {});
+  });
+  const posterBefore = await originalDetail
+    .getByLabel("Poster / image URL", { exact: true })
+    .inputValue();
+  await uploadInput.setInputFiles({
+    name: "poster.webp",
+    mimeType: "image/webp",
+    buffer: file,
+  });
+  await admin
+    .getByRole("button", { name: "Cancel upload", exact: true })
+    .click();
+  release();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "Upload cancelled" })
+    .waitFor();
+  assert.equal(
+    await originalDetail
+      .getByLabel("Poster / image URL", { exact: true })
+      .inputValue(),
+    posterBefore,
+  );
+  await admin.unroute("**/api/admin/upload");
+  await admin
+    .getByLabel("Artwork title", { exact: true })
+    .first()
+    .fill("Draft test title");
+  const contactEditor = admin.locator('details[data-page="contact-waambat"]');
+  await contactEditor.locator("summary").first().click();
+  const pageBlock = contactEditor.locator("details").first();
+  await pageBlock.locator("summary").click();
+  await pageBlock
+    .getByLabel("Page block text / image description", { exact: true })
+    .fill("Private contact draft");
+  await admin.getByLabel("Theme heading", { exact: true }).fill("#123456");
+  await admin.getByLabel("Theme content width", { exact: true }).fill("1000");
+  await admin.getByLabel("Theme font", { exact: true }).selectOption("system");
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin.getByRole("status").filter({ hasText: "Draft saved." }).waitFor();
+  const saved = await (
+    await owner.request.get(`${origin}/api/admin/content`)
+  ).json();
+  assert.equal(saved.draft.sections[0].items[0].title, "Draft test title");
+  assert.equal(saved.sourceCorrectionsPending, false);
+  const persistedDraft = JSON.parse(
+    execFileSync(
+      "git",
+      ["-C", repository, "show", "cms/waambat-drafts:src/content/site.json"],
+      { encoding: "utf8" },
+    ),
+  );
+  assert.equal(
+    persistedDraft.sections.find(
+      (section: { id: string }) => section.id === "lux",
+    ).items[0].videoSrc,
+    "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
+  );
+  assert.equal(
+    saved.published.sections[0].items[0].title,
+    initial.published.sections[0].items[0].title,
+  );
+  const preview = await owner.newPage();
+  await preview.goto(`${origin}/admin/preview?page=contact-waambat`);
+  await preview
+    .getByRole("heading", { name: "Private contact draft", exact: true })
+    .waitFor();
+  assert.equal(
+    await (await owner.request.get(`${origin}/contact-waambat`))
+      .text()
+      .then((t) => t.includes("Private contact draft")),
+    false,
+  );
+  assert.equal(saved.draft.theme.heading, "#123456");
+  assert.equal(saved.published.theme.heading, initial.published.theme.heading);
+  assert.equal(
+    await preview
+      .getByRole("heading", { name: "Private contact draft", exact: true })
+      .evaluate((el) => getComputedStyle(el).color),
+    "rgb(18, 52, 86)",
+  );
+  const backup = await owner.request.get(`${origin}/api/admin/export`);
+  assert.equal(backup.status(), 200);
+  assert.equal((await backup.json()).draft.theme.heading, "#123456");
+  assert.equal((await api.get(`${origin}/api/admin/export`)).status(), 401);
+  await preview.goto(`${origin}/admin/preview`);
+  await preview
+    .getByRole("heading", { name: "Draft test title", exact: true })
+    .waitFor();
+  const videoUpload = await owner.request.post(`${origin}/api/admin/upload`, {
+    headers: { Origin: origin },
+    multipart: {
+      file: { name: "loop.mp4", mimeType: "video/mp4", buffer: videoBytes },
+    },
+  });
+  assert.equal(videoUpload.status(), 200);
+  const mobileMedia = await videoUpload.json();
+  const withMobile = structuredClone(saved.draft);
+  withMobile.sections[0].items[0].mobileVideoSrc = mobileMedia.url;
+  const mobileSave = await owner.request.post(`${origin}/api/admin/content`, {
+    headers: { Origin: origin },
+    data: { revision: saved.revision, action: "save", content: withMobile },
+  });
+  assert.equal(mobileSave.status(), 200);
+  const mobilePreview = await owner.newPage();
+  await mobilePreview.setViewportSize({ width: 390, height: 844 });
+  await mobilePreview.goto(`${origin}/admin/preview`);
+  await mobilePreview.waitForFunction(() => {
+    const v = document.querySelector("video");
+    return v && !v.paused && v.readyState >= 2;
+  });
+  assert.equal(
+    await mobilePreview.locator("video").first().getAttribute("src"),
+    mobileMedia.url,
+  );
+  // An external save must cause a stale studio write to fail without losing its edits.
+  await admin
+    .getByLabel("Year", { exact: true })
+    .first()
+    .fill("2023 · unsaved conflict test");
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "A newer version exists" })
+    .waitFor();
+  assert.equal(
+    await admin.getByLabel("Year", { exact: true }).first().inputValue(),
+    "2023 · unsaved conflict test",
+  );
+  admin.once("dialog", (d) => d.accept());
+  await admin
+    .getByRole("button", { name: "Reload / discard edits", exact: true })
+    .click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "Latest draft loaded" })
+    .waitFor();
+  const currentSaved = await (
+    await owner.request.get(`${origin}/api/admin/content`)
+  ).json();
+  assert.equal(
+    (
+      await owner.request.post(`${origin}/api/admin/content`, {
+        data: {
+          revision: initial.revision,
+          action: "save",
+          content: initial.draft,
+        },
+        headers: { Origin: origin },
+      })
+    ).status(),
+    409,
+  );
+  admin.once("dialog", (d) => d.dismiss());
+  await admin
+    .getByRole("button", { name: "Publish saved draft", exact: true })
+    .click();
+  assert.equal(
+    (await (await owner.request.get(`${origin}/api/admin/content`)).json())
+      .revision,
+    currentSaved.revision,
+  );
+  admin.once("dialog", (d) => d.accept());
+  await admin
+    .getByRole("button", { name: "Publish saved draft", exact: true })
+    .click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "Published content saved" })
+    .waitFor();
+  await admin
+    .getByRole("button", { name: "+ Add artwork", exact: true })
+    .first()
+    .click();
+  await admin.getByText("New artwork", { exact: true }).click();
+  const added = admin
+    .locator("section:has(details)")
+    .first()
+    .locator("details")
+    .last();
+  await added
+    .getByLabel("Artwork title", { exact: true })
+    .fill("New test artwork");
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin.getByRole("status").filter({ hasText: "Draft saved." }).waitFor();
+  await added.getByLabel("Archive artwork (reversible)").check();
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin.getByRole("status").filter({ hasText: "Draft saved." }).waitFor();
+  await admin.screenshot({
+    path: "evidence/admin-desktop.png",
+    fullPage: true,
+  });
+  const firstTitle = admin.getByLabel("Artwork title", { exact: true }).first();
+  const firstDetails = admin
+    .locator("section:has(details)")
+    .first()
+    .locator("details")
+    .first();
+  if (
+    !(await firstDetails.evaluate(
+      (element) => (element as HTMLDetailsElement).open,
+    ))
+  )
+    await firstDetails.locator("summary").first().click();
+  await firstTitle.fill("Commit confirmed after response loss");
+  let writeAttempts = 0;
+  await admin.route("**/api/admin/content", async (route) => {
+    if (route.request().method() === "POST") {
+      writeAttempts++;
+      await route.fetch();
+      await route.abort("connectionreset");
+    } else await route.continue();
+  });
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "Saved revision confirmed." })
+    .waitFor();
+  assert.equal(
+    writeAttempts,
+    1,
+    "The editor reconciles without replaying the write",
+  );
+  assert.equal(
+    await firstTitle.inputValue(),
+    "Commit confirmed after response loss",
+  );
+  await admin.unroute("**/api/admin/content");
+  await firstTitle.fill("Retain edits while commit status unknown");
+  await admin.route("**/api/admin/content", async (route) => {
+    if (route.request().method() === "POST") writeAttempts++;
+    await route.abort("connectionreset");
+  });
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "Save status is still unknown." })
+    .waitFor();
+  assert.equal(
+    await admin
+      .getByRole("button", { name: "Save draft", exact: true })
+      .isDisabled(),
+    true,
+  );
+  assert.equal(
+    await admin
+      .getByRole("button", { name: "Publish saved draft", exact: true })
+      .isDisabled(),
+    true,
+  );
+  assert.equal(
+    await firstTitle.inputValue(),
+    "Retain edits while commit status unknown",
+  );
+  await admin.unroute("**/api/admin/content");
+  await admin
+    .getByRole("button", { name: "Check remote revision", exact: true })
+    .click();
+  await admin
+    .getByRole("status")
+    .filter({ hasText: "No new revision observed." })
+    .waitFor();
+  assert.equal(
+    writeAttempts,
+    2,
+    "No automatic retry while the remote state is unknown",
+  );
+  await admin.getByRole("button", { name: "Save draft", exact: true }).click();
+  await admin.getByRole("status").filter({ hasText: "Draft saved." }).waitFor();
+  evidence.adminRequests =
+    "Unconfirmed response after a real Git commit is reconciled without a repeated write; disconnected writes/readback retain edits and block further mutations until explicit remote-state reconciliation. Deadline abort is also covered by unit tests.";
+  // Restore the isolated Git draft/production branches, retaining commit history.
+  const latest = await (
+    await owner.request.get(`${origin}/api/admin/content`)
+  ).json();
+  const restoration = structuredClone(initial.draft);
+  for (const section of latest.draft.sections) {
+    const original = restoration.sections.find(
+      (s: { id: string }) => s.id === section.id,
+    );
+    if (!original) {
+      restoration.sections.push({ ...section, archived: true });
+      continue;
+    }
+    for (const item of section.items)
+      if (!original.items.some((a: { id: string }) => a.id === item.id))
+        original.items.push({ ...item, archived: true });
+  }
+  for (const page of latest.draft.pages) {
+    const original = restoration.pages.find(
+      (p: { slug: string }) => p.slug === page.slug,
+    );
+    if (!original) {
+      restoration.pages.push({ ...page, archived: true });
+      continue;
+    }
+    for (const block of page.blocks)
+      if (!original.blocks.some((b: { id: string }) => b.id === block.id))
+        original.blocks.push({ ...block, archived: true });
+    for (const item of page.archive)
+      if (!original.archive.some((b: { id: string }) => b.id === item.id))
+        original.archive.push({ ...item, archived: true });
+  }
+  for (const entry of latest.draft.navigation)
+    if (!restoration.navigation.some((n: { id: string }) => n.id === entry.id))
+      restoration.navigation.push({ ...entry, archived: true });
+  const restored = await owner.request.post(`${origin}/api/admin/content`, {
+    data: { revision: latest.revision, action: "save", content: restoration },
+    headers: { Origin: origin },
+  });
+  assert.equal(restored.status(), 200);
+  const restoredState = await restored.json();
+  assert.equal(
+    (
+      await owner.request.post(`${origin}/api/admin/content`, {
+        data: {
+          revision: restoredState.revision,
+          publishedRevision: restoredState.publishedRevision,
+          action: "publish",
+        },
+        headers: { Origin: origin },
+      })
+    ).status(),
+    200,
+  );
+  evidence.boundary =
+    "Browser tests use the production content schema and real local Git commits under a development-only adapter. Real GitHub OAuth/App grants, remote Netlify deployments and Netlify Blobs have not been exercised. Netlify adapter packaging is checked separately.";
+  const trailerState = await (
+    await owner.request.get(`${origin}/api/admin/content`)
+  ).json();
+  const trailer = trailerState.draft.sections.find(
+    (s: { id: string }) => s.id === "site-trailer",
+  );
+  trailer.archived = false;
+  trailer.items = [
+    {
+      id: "trailer-browser-fixture",
+      title: "Trailer playback fixture",
+      year: "",
+      description: "",
+      kind: "video",
+      tokenLink: "https://waambat.com",
+      videoSrc: "https://i.imgur.com/trailer-fixture.mp4",
+      mobileVideoSrc: "",
+      poster: "/posters/1-960.webp",
+      aspectRatio: 16 / 9,
+      archived: false,
+      featured: false,
+    },
+  ];
+  const trailerSave = await owner.request.post(`${origin}/api/admin/content`, {
+    data: {
+      revision: trailerState.revision,
+      action: "save",
+      content: trailerState.draft,
+    },
+    headers: { Origin: origin },
+  });
+  assert.equal(trailerSave.status(), 200);
+  const trailerSaved = await trailerSave.json();
+  assert.equal(
+    (
+      await owner.request.post(`${origin}/api/admin/content`, {
+        data: {
+          revision: trailerSaved.revision,
+          publishedRevision: trailerSaved.publishedRevision,
+          action: "publish",
+        },
+        headers: { Origin: origin },
+      })
+    ).status(),
+    200,
+  );
+  await page.goto(origin);
+  const trailerCard = page.locator('[data-artwork="trailer-browser-fixture"]');
+  await trailerCard.locator("video").waitFor();
+  await page.waitForFunction(() => {
+    const v = document.querySelector(
+      '[data-artwork="trailer-browser-fixture"] video',
+    ) as HTMLVideoElement;
+    return v?.readyState >= 2 && !v.paused;
+  });
+  assert.ok(
+    await trailerCard
+      .locator("video")
+      .evaluate(
+        (v: HTMLVideoElement) =>
+          v.muted && v.controls && v.playsInline && !v.loop,
+      ),
+  );
+  assert.equal(
+    await trailerCard.locator("a[href]").count(),
+    0,
+    "Trailer controls do not navigate to token pages",
+  );
+  await trailerCard
+    .getByRole("button", { name: "Enable trailer audio" })
+    .click();
+  assert.equal(
+    await trailerCard
+      .locator("video")
+      .evaluate((v: HTMLVideoElement) => v.muted),
+    false,
+  );
+  await trailerCard.getByRole("button", { name: "Mute trailer audio" }).click();
+  await page.locator('[data-artwork="artwork-10"]').scrollIntoViewIfNeeded();
+  await page.waitForFunction(
+    () =>
+      (
+        document.querySelector(
+          '[data-artwork="trailer-browser-fixture"] video',
+        ) as HTMLVideoElement
+      )?.paused,
+  );
+  await rp.goto(origin);
+  assert.equal(
+    await rp.locator('[data-artwork="trailer-browser-fixture"] video').count(),
+    0,
+  );
+  evidence.trailer =
+    "Same media schema and real isolated save/publish; top-of-home placement, muted inline native controls, audio toggle, offscreen pause and reduced-motion deferral passed with generated 2-second fixture. Final six-work artifact remains pending; provisional v9 stays in its separate private review branch.";
+  evidence.admin =
+    "Real signed Auth.js session, isolated Git repository and media filesystem: unauthorized access, CSRF, validation, upload deduplication, private media, byte ranges, upload error, browser theme save/private preview, authenticated backup export, draft/save/preview/publish/cancel/add/archive and upload-error/cancellation, stale revision conflict and restore passed";
+  await writeFile(
+    "evidence/browser-results.json",
+    JSON.stringify(evidence, null, 2) + "\n",
+  );
+  console.log(JSON.stringify(evidence, null, 2));
+} catch (e) {
+  console.error(logs.slice(-4000));
+  throw e;
+} finally {
+  await browser?.close();
+  child.kill("SIGTERM");
+  await rm(fixtureDir, { recursive: true, force: true });
+}

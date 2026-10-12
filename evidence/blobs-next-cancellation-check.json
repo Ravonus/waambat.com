@@ -1,0 +1,27 @@
+{
+  "boundary": "Real installed BlobsSDK11.1.4 + Next16.4 createDedupeFetch + local HTTP responses; no hosted credentials or access",
+  "mechanism": "Next clones GET response body and retains a second tee branch. SDK discardBody awaits cancellation of its branch. Cancellation cannot complete while retained branch is uncancelled. Explicit AbortSignal bypasses Next request memoization and the response cloning.",
+  "findings": [
+    {
+      "providerStatus": 404,
+      "withoutSignalSettledAfter350ms": false,
+      "withSignalResult": "null / absent",
+      "withSignalElapsedMs": 4
+    },
+    {
+      "providerStatus": 401,
+      "withoutSignalSettledAfter350ms": false,
+      "withSignalResult": "BlobsInternalError",
+      "withSignalStatus": 401,
+      "withSignalElapsedMs": 3
+    },
+    {
+      "providerStatus": 403,
+      "withoutSignalSettledAfter350ms": false,
+      "withSignalResult": "BlobsInternalError",
+      "withSignalStatus": 403,
+      "withSignalElapsedMs": 3
+    }
+  ],
+  "hostedQualification": "This integration bug is proven locally. Hosted exact provider response remains unobserved, so virgin-store404 is a supported explanation, not a directly captured hosted status."
+}

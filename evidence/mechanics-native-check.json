@@ -1,0 +1,28 @@
+{
+  "390": {
+    "src": "https://i.imgur.com/3hhNUKR.mp4",
+    "width": 320,
+    "height": 180,
+    "boxWidth": 350,
+    "boxHeight": 196.875,
+    "changingFrames": true,
+    "manualPauseResume": true,
+    "offscreenPause": true,
+    "repeatRequestsOnReturn": 0
+  },
+  "1512": {
+    "src": "https://i.imgur.com/3hhNUKR.mp4",
+    "width": 320,
+    "height": 180,
+    "boxWidth": 628.65625,
+    "boxHeight": 353.609375,
+    "changingFrames": true,
+    "manualPauseResume": true,
+    "offscreenPause": true,
+    "repeatRequestsOnReturn": 0
+  },
+  "upstreamPlaybackVerified": false,
+  "exactSource": "https://i.imgur.com/3hhNUKR.mp4",
+  "transport": "Generated native H.264 fixture; other external requests aborted",
+  "reducedMotionAndError": "No initial source; 150px unknown-source fallback; explicit play, honest unavailable state/direct source and successful native retry verified"
+}

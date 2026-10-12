@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://waambat.com/",
+    "error": "Error: page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://waambat.com/\nCall log:\n\u001b[2m  - navigating to \"https://waambat.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "requests": [
+      {
+        "url": "https://waambat.com/",
+        "failure": "net::ERR_TUNNEL_CONNECTION_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "https://waambat.netlify.app/art-by-waambat",
+    "error": "Error: page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://waambat.netlify.app/art-by-waambat\nCall log:\n\u001b[2m  - navigating to \"https://waambat.netlify.app/art-by-waambat\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "requests": [
+      {
+        "url": "https://waambat.netlify.app/art-by-waambat",
+        "failure": "net::ERR_TUNNEL_CONNECTION_FAILED"
+      }
+    ]
+  }
+]

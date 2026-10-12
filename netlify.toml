@@ -1,0 +1,31 @@
+[build]
+  command = "pnpm build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "24"
+  NETLIFY_NEXT_SKEW_PROTECTION = "true"
+
+[context.deploy-preview.environment]
+  WAAMBAT_PRIVATE_SITE = "0"
+  AUTH_URL = "https://deploy-preview-1--waambat.netlify.app"
+  ADMIN_DATABASE_PROVIDER = "netlify"
+  ADMIN_PASSWORD_LOGIN = "1"
+  ADMIN_TEST_LOGIN = "1"
+  CMS_CONTENT_PROVIDER = "netlify-blobs"
+  NETLIFY_MEDIA_ENABLED = "1"
+
+[context.branch-deploy.environment]
+  WAAMBAT_PRIVATE_SITE = "0"
+
+# Netlify automatically applies its maintained OpenNext adapter.
+# No pinned legacy plugin, build hook token, Identity, or Git Gateway is required.
+
+[context.production.environment]
+  WAAMBAT_PRIVATE_SITE = "0"
+  AUTH_URL = "https://waambat.netlify.app"
+  ADMIN_DATABASE_PROVIDER = "netlify"
+  ADMIN_PASSWORD_LOGIN = "1"
+  ADMIN_TEST_LOGIN = "1"
+  CMS_CONTENT_PROVIDER = "netlify-blobs"
+  NETLIFY_MEDIA_ENABLED = "1"

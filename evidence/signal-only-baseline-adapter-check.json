@@ -1,0 +1,109 @@
+{
+  "boundary": "Unmodified20ddb7c runtime source with signal-only fetch opt-out; no deadline or React cache added; Netlify handler5.16.2; isolated Turbopack root expanded with synthetic platform context and local HTTP storage; not hosted acceptance",
+  "code": 0,
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 200,
+      "elapsedMs": 811
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 200,
+      "elapsedMs": 847
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 200,
+      "elapsedMs": 937
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 200,
+      "elapsedMs": 939
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 200,
+      "elapsedMs": 972
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 404,
+      "elapsedMs": 1022
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 404,
+      "elapsedMs": 1023
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 404,
+      "elapsedMs": 1029
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 401,
+      "elapsedMs": 1057
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 401,
+      "elapsedMs": 1058
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 401,
+      "elapsedMs": 1082
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 403,
+      "elapsedMs": 1101
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 403,
+      "elapsedMs": 1101
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 403,
+      "elapsedMs": 1110
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 200,
+      "elapsedMs": 1130
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 200,
+      "elapsedMs": 1132
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/site:waambat-content-production/state",
+      "status": 200,
+      "elapsedMs": 1162
+    }
+  ],
+  "output": "✓ Running next.config took 3ms\n⨯ Error [BlobsInternalError]: Netlify Blobs has generated an internal error (401 status code)\n    at <unknown> (BlobsInternalError: Netlify Blobs has generated an internal error (401 status code))\n    at <unknown> (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:35:9963)\n    at async j (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:3270)\n    at async k (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:3768)\n    at async k (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:4550)\n    at async Module.m [as generateMetadata] (.next/server/chunks/ssr/[root-of-the-server]__0eymnozcio4zp._.js:1:402) {\n  status: 401,\n  responseBody: undefined,\n  digest: '1111291977'\n}\n⨯ Error [BlobsInternalError]: Netlify Blobs has generated an internal error (401 status code)\n    at <unknown> (BlobsInternalError: Netlify Blobs has generated an internal error (401 status code))\n    at <unknown> (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:35:9963)\n    at async j (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:3270)\n    at async k (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:3768)\n    at async k (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:4550)\n    at async n (.next/server/chunks/ssr/[root-of-the-server]__0eymnozcio4zp._.js:1:616) {\n  status: 401,\n  responseBody: undefined,\n  digest: '3550607819'\n}\n⨯ Error [BlobsInternalError]: Netlify Blobs has generated an internal error (403 status code)\n    at <unknown> (BlobsInternalError: Netlify Blobs has generated an internal error (403 status code))\n    at <unknown> (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:35:9963)\n    at async j (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:3270)\n    at async k (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:3768)\n    at async k (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:4550)\n    at async n (.next/server/chunks/ssr/[root-of-the-server]__0eymnozcio4zp._.js:1:616) {\n  status: 403,\n  responseBody: undefined,\n  digest: '2514109579'\n}\n⨯ Error [BlobsInternalError]: Netlify Blobs has generated an internal error (403 status code)\n    at <unknown> (BlobsInternalError: Netlify Blobs has generated an internal error (403 status code))\n    at <unknown> (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:35:9963)\n    at async j (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:3270)\n    at async k (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:3768)\n    at async k (.next/server/chunks/ssr/_0s2-dsj3vv2c8._.js:17:4550)\n    at async Module.m [as generateMetadata] (.next/server/chunks/ssr/[root-of-the-server]__0eymnozcio4zp._.js:1:402) {\n  status: 403,\n  responseBody: undefined,\n  digest: '4013272457'\n}\nFIXTURE_RESULT [{\"path\":\"/admin\",\"status\":200,\"elapsedMs\":428,\"archive\":false,\"seedArt\":false,\"bytes\":9429,\"publishedSentinel\":false,\"privateDraftExcluded\":true},{\"path\":\"/api/admin/content\",\"status\":401,\"elapsedMs\":60,\"archive\":false,\"seedArt\":false,\"bytes\":46,\"publishedSentinel\":false,\"privateDraftExcluded\":true},{\"path\":\"/\",\"status\":200,\"elapsedMs\":148,\"archive\":false,\"seedArt\":false,\"bytes\":57976,\"publishedSentinel\":true,\"privateDraftExcluded\":true},{\"path\":\"/art-by-waambat\",\"status\":200,\"elapsedMs\":84,\"archive\":true,\"seedArt\":false,\"bytes\":75048,\"publishedSentinel\":false,\"privateDraftExcluded\":true},{\"path\":\"/bio-waambat\",\"status\":200,\"elapsedMs\":31,\"archive\":false,\"seedArt\":false,\"bytes\":86793,\"publishedSentinel\":false,\"privateDraftExcluded\":true},{\"path\":\"/bio-waambat\",\"status\":500,\"elapsedMs\":45,\"archive\":false,\"seedArt\":false,\"bytes\":7368,\"publishedSentinel\":false,\"privateDraftExcluded\":true},{\"path\":\"/bio-waambat\",\"status\":500,\"elapsedMs\":24,\"archive\":false,\"seedArt\":false,\"bytes\":7368,\"publishedSentinel\":false,\"privateDraftExcluded\":true},{\"path\":\"/bio-waambat\",\"status\":200,\"elapsedMs\":67,\"archive\":false,\"seedArt\":false,\"bytes\":86793,\"publishedSentinel\":false,\"privateDraftExcluded\":true}]\n"
+}

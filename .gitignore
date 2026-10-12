@@ -44,3 +44,5 @@ yarn-error.log*
 
 # idea files
 .idea
+# Local Netlify adapter outputs (no site credentials in source)
+.netlify/

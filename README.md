@@ -1,29 +1,27 @@
-# Create T3 App
+# WAAMBAT portfolio
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Next.js, React and Tailwind portfolio with a protected content studio. The deployed Netlify test site uses private Netlify Blobs for saved drafts and published content; Git keeps the initial seed in `src/content/site.json`; original media sources remain in place. See [modernization review](docs/MODERNIZATION.md) and [Netlify/runtime setup](docs/NETLIFY-SETUP.md) for evidence and remaining source/auth integration work.
 
-## What's next? How do I make an app with this?
+Use Node 24 and the pinned pnpm version:
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+```
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+The selected existing Netlify deployment uses its Database for real password authentication and Blobs for real content/media persistence. The explicitly requested `admin` / `password` test account is seeded only into an empty account table and accepted only with enabled test flags on the exact approved Netlify hosts. `/admin` fails closed without a private `AUTH_SECRET` and working database. Google and a new GitHub App are not prerequisites. See [runtime setup](docs/NETLIFY-SETUP.md); never commit secrets.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+```sh
+pnpm check          # lint and types
+pnpm test           # schemas, providers, Git persistence and request failures
+pnpm build          # validates content, then production build
+pnpm test:preview   # compiled public portfolio and protected admin/drafts/media
+pnpm test:browser   # Chromium video, navigation and isolated Git/media studio
+pnpm test:auth      # Docker Postgres + actual credentials form, backup/restore and composition
+```
 
-## Learn More
+Browser checks need Chromium (default `/usr/bin/chromium`) and FFmpeg. Auth integration tests need Docker and use temporary loopback-only Postgres, random credentials and an isolated Git repository; resources are removed afterward. Original provider playback and remote Netlify persistence and original provider playback require deployment QA.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+Public SSR and the studio use the same selected canonical content backend. Netlify native additive migrations run before deployment availability. Private drafts, compare-and-swap revisions and history protect concurrent edits; exports support explicit Git source sync. The original Git adapter remains available when selected instead.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+This work stays on a feature branch and draft PR. The user authorized publishing that branch to the existing Netlify production hostname. It does not merge main or change original waambat.com DNS.

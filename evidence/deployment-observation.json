@@ -1,0 +1,20 @@
+[
+  {
+    "name": "netlify-preview",
+    "url": "https://deploy-preview-1--waambat.netlify.app",
+    "error": "Error: page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://deploy-preview-1--waambat.netlify.app/\nCall log:\n\u001b[2m  - navigating to \"https://deploy-preview-1--waambat.netlify.app/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "status": "Network transport blocked; no baseline or page visibility claim"
+  },
+  {
+    "name": "netlify-main",
+    "url": "https://waambat.netlify.app",
+    "error": "Error: page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://waambat.netlify.app/\nCall log:\n\u001b[2m  - navigating to \"https://waambat.netlify.app/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "status": "Network transport blocked; no baseline or page visibility claim"
+  },
+  {
+    "name": "live-baseline",
+    "url": "https://waambat.com",
+    "error": "Error: page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://waambat.com/\nCall log:\n\u001b[2m  - navigating to \"https://waambat.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "status": "Network transport blocked; no baseline or page visibility claim"
+  }
+]

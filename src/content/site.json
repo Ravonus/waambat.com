@@ -1,0 +1,2637 @@
+{
+  "sections": [
+    {
+      "id": "nfts",
+      "title": "NFTs",
+      "intro": ">>>>> click through any artwork to open the original token page <<<<<",
+      "page": "nfts",
+      "archived": false,
+      "items": [
+        {
+          "id": "artwork-1",
+          "title": "Feels 404",
+          "year": "2023",
+          "description": "Video Painting (Quantum, Series G) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/808942",
+          "videoSrc": "https://i.imgur.com/bNlZWHY.mp4",
+          "poster": "/posters/1-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "precedingGap": 142.203125,
+          "captionLines": [
+            "Video Painting (Quantum, Series G)",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-2",
+          "title": "Animal Spirits",
+          "year": "2022",
+          "description": "Video Painting (Quantum, Series F) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/771743",
+          "videoSrc": "https://i.imgur.com/f6s856X.mp4",
+          "poster": "/posters/2-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "precedingGap": 203.4140625,
+          "captionLines": [
+            "Video Painting (Quantum, Series F)",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-3",
+          "title": "Swap Exchange",
+          "year": "2022",
+          "description": "Video Painting (Quantum, Series E) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/736667",
+          "videoSrc": "https://i.imgur.com/a38BLir.mp4",
+          "poster": "/posters/3-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "precedingGap": 200.9921875,
+          "captionLines": [
+            "Video Painting (Quantum, Series E)",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-4",
+          "title": "Autocorrection",
+          "year": "2022",
+          "description": "Video Painting (Quantum, Series D) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/725958",
+          "videoSrc": "https://i.imgur.com/5oHMMfH.mp4",
+          "poster": "/posters/4-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting (Quantum, Series D)",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-5",
+          "title": "Enter Boi AMA",
+          "year": "2022",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://nft.artsy.net/artwork/waambat/enter-boi-ama/47/",
+          "videoSrc": "https://i.imgur.com/zclilHq.mp4",
+          "poster": "/posters/5-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-6",
+          "title": "Fap Disco",
+          "year": "2022",
+          "description": "Video Painting (Quantum, Series C) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/708808",
+          "videoSrc": "https://i.imgur.com/lpyf8NE.mp4",
+          "poster": "/posters/6-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting (Quantum, Series C)",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-7",
+          "title": "Haptic Feedback",
+          "year": "2021",
+          "description": "Video Painting (Quantum, Series B) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/687951",
+          "videoSrc": "https://i.imgur.com/kraOC6E.mp4",
+          "poster": "/posters/7-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting (Quantum, Series B)",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-8",
+          "title": "Swipe Swag",
+          "year": "2021",
+          "description": "Video Painting (Quantum, Series A) – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/657581",
+          "videoSrc": "https://i.imgur.com/q02r3Ja.mp4",
+          "poster": "/posters/8-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting (Quantum, Series A)",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-9",
+          "title": "Profits",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/398402",
+          "videoSrc": "https://i.imgur.com/0oqBS1z.mp4",
+          "poster": "/posters/9-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-10",
+          "title": "Net Melt",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/554487",
+          "videoSrc": "https://i.imgur.com/rt1I53R.mp4",
+          "poster": "/posters/10-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-11",
+          "title": "Troll Crash",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/365658",
+          "videoSrc": "https://i.imgur.com/yNizVps.mp4",
+          "poster": "/posters/11-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-12",
+          "title": "GOAT",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/321248",
+          "videoSrc": "https://i.imgur.com/KMyQNc2.mp4",
+          "poster": "/posters/12-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-13",
+          "title": "Cord Cutter",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/280544",
+          "videoSrc": "https://i.imgur.com/F9gCVez.mp4",
+          "poster": "/posters/13-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-14",
+          "title": "Hard Launch",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/258050",
+          "videoSrc": "https://i.imgur.com/HO67SIX.mp4",
+          "poster": "/posters/14-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-15",
+          "title": "Fucking Future",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://objkt.com/asset/hicetnunc/238065",
+          "videoSrc": "https://i.imgur.com/UojHuj5.mp4",
+          "poster": "/posters/15-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-16",
+          "title": "Joys of Lore",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/58649600852012708895659537074238112708336320722717125391565243152060037201923",
+          "videoSrc": "https://i.imgur.com/gCwY2MQ.mp4",
+          "poster": "/posters/16-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-17",
+          "title": "Meta Matters",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/58649600852012708895659537074238112708336320722717125391565243153159548829699",
+          "videoSrc": "https://i.imgur.com/YPUR7Lt.mp4",
+          "poster": "/posters/17-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-18",
+          "title": "Cheers, Chad",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/58649600852012708895659537074238112708336320722717125391565243150960525574147",
+          "videoSrc": "https://i.imgur.com/JKc1k3C.mp4",
+          "poster": "/posters/18-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-19",
+          "title": "Catfish Glitch",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/58649600852012708895659537074238112708336320722717125391565243154259060457473",
+          "videoSrc": "https://i.imgur.com/OSNGtQs.mp4",
+          "poster": "/posters/19-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-20",
+          "title": "Axiom GL0w Up",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/109357140932249174184232105731133177415490681567806678064024980617072056729601",
+          "videoSrc": "https://i.imgur.com/7ouIHyN.mp4",
+          "poster": "/posters/20-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-21",
+          "title": "Deep Linking",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://foundation.app/@waambat/foundation/38901",
+          "videoSrc": "https://i.imgur.com/QY2Y73n.mp4",
+          "poster": "/posters/21-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-22",
+          "title": "Sus Singularity",
+          "year": "2021",
+          "description": "Video Painting – Seamless Loop, 2160x2160",
+          "tokenLink": "https://www.niftygateway.com/itemdetail/primary/0x0e1c5f0237f7737251e1aec9ada22086345f5691/1",
+          "videoSrc": "https://i.imgur.com/b8XNIJY.mp4",
+          "poster": "/posters/22-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Video Painting",
+            "Seamless Loop, 2160x2160"
+          ]
+        },
+        {
+          "id": "artwork-23",
+          "title": "Abacus RAM",
+          "year": "2017",
+          "description": "Infinite Loop Video Painting – Exhibited at LA Art Show 2017 and Installation Gallery, Los Angeles",
+          "tokenLink": "https://foundation.app/@waambat/foundation/37954",
+          "videoSrc": "https://i.imgur.com/mh4T2To.mp4",
+          "poster": "/posters/23-960.webp",
+          "mobileVideoSrc": "",
+          "kind": "video",
+          "archived": false,
+          "captionLines": [
+            "Infinite Loop Video Painting",
+            "Exhibited at LA Art Show 2017 and Installation Gallery, Los Angeles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ordinals",
+      "title": "ORDINALS",
+      "intro": ">>>>> click through any artwork to open the original inscription page <<<<<",
+      "page": "ordinals",
+      "archived": false,
+      "items": [
+        {
+          "id": "ordinal-1",
+          "title": "Ordinal A",
+          "year": "2023",
+          "description": "GIF, 200x200",
+          "tokenLink": "https://ordinals.com/inscription/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+          "videoSrc": "",
+          "poster": "https://ordinals.com/content/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+          "mobileVideoSrc": "",
+          "kind": "image",
+          "archived": false
+        },
+        {
+          "id": "ordinal-2",
+          "title": "Ordinal B",
+          "year": "2023",
+          "description": "GIF, 300x300",
+          "tokenLink": "https://ordinals.com/inscription/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0",
+          "videoSrc": "",
+          "poster": "https://ordinals.com/content/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0",
+          "mobileVideoSrc": "",
+          "kind": "image",
+          "archived": false
+        },
+        {
+          "id": "ordinal-3",
+          "title": "Ordinal C",
+          "year": "2023",
+          "description": "GIF, 300x300",
+          "tokenLink": "https://ordinals.com/inscription/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3i0",
+          "videoSrc": "",
+          "poster": "https://ordinals.com/content/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3i0",
+          "mobileVideoSrc": "",
+          "kind": "image",
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "lux",
+      "title": "LUX",
+      "intro": "LUX by WAAMBAT + Ravonus. A video-textured diamond assembled through recursive inscriptions on Bitcoin. Explore OK Algo and the Pink Paper.",
+      "page": "ordinals",
+      "archived": false,
+      "items": [
+        {
+          "id": "lux-ok-algo",
+          "title": "LUX · OK ALGO",
+          "year": "",
+          "description": "Live full LUX · Infinity #3. Explore the collection on Satflow.",
+          "tokenLink": "https://www.satflow.com/ordinals/lux_ok_algo",
+          "videoSrc": "https://ordinals.com/content/ce994e920942542babe215b0837704be9c73e9d08cdb8e6a818cf7767dbc7dcci2",
+          "poster": "https://whitepaper.terminus.art/images/lux3.webp",
+          "mobileVideoSrc": "",
+          "kind": "embed",
+          "archived": false,
+          "aspectRatio": 1
+        },
+        {
+          "id": "lux-pink-paper",
+          "title": "LUX Pink Paper",
+          "year": "",
+          "description": "Read about the artwork, recursion, and its creation",
+          "tokenLink": "https://whitepaper.terminus.art/waambat",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "link",
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "kismet-twist",
+      "title": "Kismet Twist",
+      "intro": "Kismet Twist by WAAMBAT + Ravonus",
+      "page": "ordinals",
+      "archived": false,
+      "items": [
+        {
+          "id": "kismet-twist-collection",
+          "title": "Kismet Twist",
+          "year": "",
+          "description": "Live Kismet Twist #1. Explore the collection on Satflow.",
+          "tokenLink": "https://www.satflow.com/ordinals/kismettwist",
+          "videoSrc": "https://ordinals.com/content/60533f24d8b77bcc049f27d9853d185591ea4b81ffe51076cfd985f6f542ef9ai0",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "embed",
+          "archived": false,
+          "aspectRatio": 1
+        }
+      ]
+    },
+    {
+      "id": "instagram-survivors",
+      "title": "Instagram",
+      "intro": "",
+      "page": "instagram",
+      "archived": false,
+      "items": [
+        {
+          "id": "instagram-1",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/Cn0H_WePrhj/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-2",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/CRj8p6irdfd/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-3",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/CP4Es5sHYQ8/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-4",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/CPBVcEhH-j0/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-5",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/COa9eKuHUio/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-6",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/B1mVhK7nmeM/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-7",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/BxvjS_dH6l_/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        },
+        {
+          "id": "instagram-8",
+          "title": "",
+          "year": "",
+          "description": "",
+          "tokenLink": "https://www.instagram.com/p/Bw-JRs0hXr0/",
+          "videoSrc": "",
+          "poster": "",
+          "mobileVideoSrc": "",
+          "kind": "instagram",
+          "featured": false,
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "gamma-artwork",
+      "title": "Artwork on Gamma",
+      "intro": "",
+      "page": "ordinals",
+      "archived": false,
+      "items": [
+        {
+          "id": "gamma-user-artwork",
+          "title": "View artwork on Gamma",
+          "year": "",
+          "description": "Open the supplied individual artwork destination. Title and preview metadata have not been verified.",
+          "tokenLink": "https://gamma.io/ordinals/inscriptions/2d284790a8ecddb0f4aa21e7763e0e499fdb068e79f398ad268dda7fcb3eabfei0",
+          "videoSrc": "",
+          "mobileVideoSrc": "",
+          "poster": "",
+          "kind": "link",
+          "featured": false,
+          "archived": false
+        }
+      ]
+    },
+    {
+      "id": "site-trailer",
+      "title": "WAAMBAT trailer",
+      "intro": "",
+      "page": "nfts",
+      "presentation": "trailer",
+      "archived": true,
+      "items": []
+    }
+  ],
+  "pages": [
+    {
+      "slug": "mechanics",
+      "title": "quantum mechanics",
+      "layout": "centered",
+      "blocks": [
+        {
+          "id": "mechanics-text-24",
+          "type": "heading",
+          "text": "Utility Mechanics of the Quantum Series",
+          "level": 1,
+          "links": []
+        },
+        {
+          "id": "mechanics-text-25",
+          "type": "heading",
+          "text": "Each Quantum is a full video painting built from Elements. Elements are “smaller” video paintings — ideas to be built into more complex compositions. Collectors must acquire a full letter series (5-7 Elements) in order to build their edition of the latest Quantum. Quantums are masterworks which also function as whitelist spots (one WL spot per Quantum edition held by a collector).",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "mechanics-text-26",
+          "type": "heading",
+          "text": "During a given burn window, collectors will send their full Element letter series to the burn wallet — waambatburn.tez.",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "mechanics-text-28",
+          "type": "heading",
+          "text": "For each set burned, a Quantum edition is awarded.",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "mechanics-text-30",
+          "type": "heading",
+          "text": "When a new series round is announced, a schedule will be released. At this time, WL holders will be provided with a form (in discord) to claim their spots during presale. Payments will be settled, and they will receive each Element via airdrop.",
+          "level": 3,
+          "links": [
+            {
+              "text": "(in discord)",
+              "href": "https://discord.gg/7UhEguFr"
+            }
+          ]
+        },
+        {
+          "id": "mechanics-text-31",
+          "type": "heading",
+          "text": "Each Element is revealed on drop day (upon mint).",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "mechanics-original-video-1",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/3hhNUKR.mp4",
+          "loop": true
+        },
+        {
+          "id": "mechanics-image-9",
+          "type": "image",
+          "text": "quantum mechanics artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/153558c0-d955-4f3c-ad18-5e491d9fd70a/MECHANICS_v002.png"
+        },
+        {
+          "id": "mechanics-original-video-2",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/8oZCxzC.mp4",
+          "loop": true
+        },
+        {
+          "id": "mechanics-image-10",
+          "type": "image",
+          "text": "quantum mechanics artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/9d602d6d-58da-47ab-9d60-89fbcfc9d3a8/WL_v003.png"
+        },
+        {
+          "id": "mechanics-text-37",
+          "type": "heading",
+          "text": "Utility Mechanics of the Fusion Series",
+          "level": 1,
+          "links": []
+        },
+        {
+          "id": "mechanics-text-39",
+          "type": "heading",
+          "text": "Fusions are distinguishable from Quantums by their electric rotating boarder.",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "mechanics-text-40",
+          "type": "heading",
+          "text": "Fusions are custom compositions created with combinations of Elements. In order to make a Fusion, a Canvas token must be acquired. During designated windows, Fusions can be built by submitting your Canvas along with Elements from 2 or more different letter series. An order will be placed (via form) designating which Elements you will be sending to the burn wallet. WAAMBAT constructs each Element batch into a unique composition.",
+          "level": 3,
+          "links": [
+            {
+              "text": "Canvas token",
+              "href": "https://objkt.com/asset/hicetnunc/738084"
+            },
+            {
+              "text": "Canvas",
+              "href": "https://objkt.com/asset/hicetnunc/738084"
+            }
+          ]
+        },
+        {
+          "id": "mechanics-text-41",
+          "type": "heading",
+          "text": "There are additional types of mechanics in WAAMBAT’s project (such as Rogue Elements and the special 8urn token). Above summarizes the fundamentals — meanwhile the Quantum universe is consistently expanding.",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "mechanics-original-video-3",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/TBObuJ0.mp4",
+          "loop": true
+        },
+        {
+          "id": "mechanics-image-12",
+          "type": "image",
+          "text": "quantum mechanics artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/5c124246-96fb-42c6-bfd4-6ffb1a9ef355/QuantumCollection_v002.png"
+        }
+      ]
+    },
+    {
+      "slug": "art-by-waambat",
+      "title": "art archive",
+      "layout": "archive",
+      "blocks": [],
+      "archive": [
+        {
+          "id": "archive-original-1",
+          "title": "Axiom GL0w Up (2021)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621215520280-DSS7NTZVWL6S6D0EXLJR/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/538169390?app_id=122963&wmode=opaque",
+          "ratio": 0.5633124377530544,
+          "rowEnd": false,
+          "videoRatio": 0.5625
+        },
+        {
+          "id": "archive-original-2",
+          "title": "Sus Singularity (2021)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621215737824-0C9M7DEM6B1Z2DZWH862/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/543748855?app_id=122963&wmode=opaque",
+          "ratio": 1.7762103893114327,
+          "rowEnd": true,
+          "videoRatio": 0.5625
+        },
+        {
+          "id": "archive-original-3",
+          "title": "Video Art by Lindsay Scoggins",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621202242076-CQ4E0S9AHY8U83ZFUPLD/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/224251774?app_id=122963&wmode=opaque",
+          "ratio": 1.7771171928668021,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-4",
+          "title": "YouTube Play 2010 feat. waambat",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621206411822-Q0WVOTSLGZIVIDI965TE/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/viIqF6OrAuQ",
+          "ratio": 1.333962652367106,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-5",
+          "title": "waambat visuals for Hans Zimmer (2017)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621221467235-S1ET01QYGPZZ6N1ETHWZ/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/HbP9ujYh_J4?feature=oembed",
+          "ratio": 1.3333333333333333,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-6",
+          "title": "Dichotomy Bifurcation @ LA Art Show 2017",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621202316558-H9U8W0SKF9A5UO3UX4AU/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/ue2lNsG_mlc?feature=oembed",
+          "ratio": 1.3333333333333333,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-7",
+          "title": "Wonderland Mafia (2008)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621201609274-JGJKKBS37A8MPNFLG9YK/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/mkIoJZdKIAE?feature=oembed",
+          "ratio": 1.3333333333333333,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-8",
+          "title": "self p (2021)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621209083040-KIN0NA3H4UEF8A5CG5GA/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/wxTev97XXlw",
+          "ratio": 1.3333333333333333,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-9",
+          "title": "FTPA Sung by Miss P (2008)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621201721853-OVAXEH8E6R4ZEU6BVLRO/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/-aGTNS13SDU?feature=oembed",
+          "ratio": 1.3339861132554853,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-10",
+          "title": "isle evo (2015)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621214401371-S25C3S411J42GXSSY1MW/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/198626504?app_id=122963&wmode=opaque",
+          "ratio": 1.7771484476759416,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-11",
+          "title": "Jeepest Range (2012)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621201082782-L6IZ3K4S52SGRJEW2029/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/198626531?app_id=122963&wmode=opaque",
+          "ratio": 1.7771171928668021,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-12",
+          "title": "Minter & waambat @ Guggenheim",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621221804386-6VATOXPPE33RWM7X28I9/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/ahlHTPSnXM8?feature=oembed",
+          "ratio": 1.333962652367106,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-13",
+          "title": "PSA (2012)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621207447390-2F1FHP5A9KMJCOH46IYW/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/198626554?app_id=122963&wmode=opaque",
+          "ratio": 1.7777777777777777,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-14",
+          "title": "haploid nebula (2015)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621214429531-73E1HPM1JWAOCUZZOD64/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/198626259?app_id=122963&wmode=opaque",
+          "ratio": 1.7771484476759416,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-15",
+          "title": "Lucy's Closet (2013 short film)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621476108515-SS6QBS6PE1CD9FWA1J0J/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/CgSaJBrjqXA?feature=oembed",
+          "ratio": 1.3339861132554853,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-16",
+          "title": "vp3 (2014)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621214221175-7L1I5QXN8JMGG1640SDT/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/198626656?app_id=122963&wmode=opaque",
+          "ratio": 1.7777777777777777,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-17",
+          "title": "vp1 (2015)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621214290628-6391TAOLBEPMCGOWGB6L/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/198626597?app_id=122963&wmode=opaque",
+          "ratio": 1.7771484476759416,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-18",
+          "title": "Pimp Comforts (2011 short film)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621202370909-BMVKQI4G0Z71GZBJN54M/image-asset.jpeg",
+          "description": "",
+          "embed": "",
+          "ratio": 1.3339861132554853,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-19",
+          "title": "Everything (2015 film concept)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621214531856-A2WAY2IXBZBEPSPCVMJ4/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/115879626?app_id=122963&wmode=opaque",
+          "ratio": 1.7777777777777777,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-20",
+          "title": "Untld3 (2014)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621214365567-XXWXQU32IBZN7SEJ193V/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/198626569?app_id=122963&wmode=opaque",
+          "ratio": 1.7771171928668021,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-21",
+          "title": "Wonderland Mafia \"Chicken Head Hoes\" Crunk Remix",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621201665681-DM813886YIBU3VQLHIAO/image-asset.jpeg",
+          "description": "",
+          "embed": "https://www.youtube.com/embed/sp8J4WBW8TY?feature=oembed",
+          "ratio": 1.333962652367106,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-22",
+          "title": "Artist Statement (2015)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621214491402-XB3MLT2WDLSK9OAJYJB1/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/130840561?app_id=122963&wmode=opaque",
+          "ratio": 1.7769632149646382,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-23",
+          "title": "",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621204966353-J7HVHBTLPLSDBMUL6JOF/waambat_v007b.png",
+          "description": "",
+          "embed": "",
+          "ratio": 0.9812187449636386,
+          "rowEnd": true
+        },
+        {
+          "id": "archive-original-24",
+          "title": "vp2 (2015)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621214266128-P8FU26UA00XRMQ2B0CV4/image-asset.jpeg",
+          "description": "",
+          "embed": "https://player.vimeo.com/video/198626629?app_id=122963&wmode=opaque",
+          "ratio": 1.7739972539748308,
+          "rowEnd": false
+        },
+        {
+          "id": "archive-original-25",
+          "title": "Poison Progression (2010)",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621207626928-Q6ZRV1RJGNJS5LMG1EQJ/image-asset.jpeg",
+          "description": "Top award from the USF Juried Exhibition at the CAM",
+          "embed": "https://www.youtube.com/embed/Z4RYyIslgJQ?feature=oembed",
+          "ratio": 1.3316207235532591,
+          "rowEnd": true
+        }
+      ]
+    },
+    {
+      "slug": "blog-press",
+      "title": "blog + press",
+      "layout": "centered",
+      "blocks": [
+        {
+          "id": "blog-original-video-1",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/4qW6jPj.mp4",
+          "loop": true,
+          "ratio": 1.4367919332094607
+        },
+        {
+          "id": "blog-press-text-24",
+          "type": "heading",
+          "text": "Artists Against Algorithms",
+          "level": 1,
+          "links": [],
+          "href": "https://www.rightclicksave.com/article/artists-against-algorithms"
+        },
+        {
+          "id": "blog-press-text-25",
+          "type": "heading",
+          "text": "Gretchen Andrew and WAAMBAT tell Cody Edison how their practices battle algorithms, subvert SEOs, and thrive in Web3.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "blog-press-image-9",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/54edbd52-a616-482c-9ab6-9840c862c987/timesSquare.png"
+        },
+        {
+          "id": "blog-press-image-10",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/178e9ff6-4a5b-4252-98fa-11a30859856b/cryptoArtFair.png"
+        },
+        {
+          "id": "blog-press-text-35",
+          "type": "heading",
+          "text": "25 Videos Chosen from 23,358 Worldwide Submissions On View at the Guggenheim",
+          "level": 1,
+          "links": [],
+          "href": "https://www.broadwayworld.com/article/25-Videos-Chosen-from-23358-Worldwide-Submissions-On-View-at-the-Guggenheim-20101022"
+        },
+        {
+          "id": "blog-press-text-39",
+          "type": "heading",
+          "text": "Podcast - A Conversation with thr33som3s on WAAMBAT’s History & Practice",
+          "level": 1,
+          "links": [],
+          "href": "https://t.co/RkaRyxRAGx"
+        },
+        {
+          "id": "blog-press-image-12",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/3a5a02a5-bbac-4fee-bf3a-decf212ef5d0/deeptimedigitallyA.png"
+        },
+        {
+          "id": "blog-original-video-2",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/UDgMljC.mp4",
+          "loop": true,
+          "ratio": 0.8000020360689617
+        },
+        {
+          "id": "blog-press-text-49",
+          "type": "heading",
+          "text": "The Tokenized Building Process of Quantums and Fusions",
+          "level": 1,
+          "links": [],
+          "href": "https://twitter.com/waambat/status/1546528704339197952?s=20&t=xNCXFt-YTCMdCdv3wp_m8g"
+        },
+        {
+          "id": "blog-press-text-50",
+          "type": "heading",
+          "text": "Artsy Hosts Female-Focused NFT Exhibition, Supporting Girls Who Code",
+          "level": 1,
+          "links": [],
+          "href": "https://nftevening.com/artsy-hosts-female-focused-nft-exhibition-supporting-girls-who-code/"
+        },
+        {
+          "id": "blog-press-text-54",
+          "type": "heading",
+          "text": "Vellum LA and Artsy Present",
+          "level": 1,
+          "links": [],
+          "href": "https://www.vellumla.com/artists-who-code"
+        },
+        {
+          "id": "blog-press-text-56",
+          "type": "heading",
+          "text": "Artists Who Code:",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "blog-press-text-57",
+          "type": "paragraph",
+          "text": "Generative Art NFTs by Women and Non-Binary Artists",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "blog-original-video-3",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/CaEFmAo.mp4",
+          "loop": true,
+          "ratio": 0.793392017668402
+        },
+        {
+          "id": "blog-press-image-16",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/f27db154-da5c-4433-b781-2094c05d66d3/vellum_panel.png"
+        },
+        {
+          "id": "blog-press-image-17",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/8ce99165-8734-4681-a498-40d01fa85325/Screenshot%2B2023-03-28%2Bat%2B4.16.54%2BPM.png.png"
+        },
+        {
+          "id": "blog-press-image-18",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/0f77ede9-432d-49ac-b348-6f8a6cad2c80/Screenshot%2B2023-03-28%2Bat%2B4.15.36%2BPM.png.png"
+        },
+        {
+          "id": "blog-press-image-19",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/fe5783f2-ace5-4f47-a659-1171f761ce1b/Screenshot%2B2023-03-28%2Bat%2B4.16.06%2BPM.png.png"
+        },
+        {
+          "id": "blog-press-image-20",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/f80319a5-c6e5-4f5b-a187-1188002f54a6/mccGallery.png"
+        },
+        {
+          "id": "blog-press-image-21",
+          "type": "image",
+          "text": "blog + press artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/6d5ccc89-6c5e-4f30-9f75-5956d3dec8b4/mccGalleryB.png"
+        },
+        {
+          "id": "blog-press-text-74",
+          "type": "heading",
+          "text": "Abacus RAM becomes #34 in the Ascent Collection",
+          "level": 1,
+          "links": [],
+          "href": "https://jpg.space/Ascent/exhibition/The%20Ascent%20Collection"
+        },
+        {
+          "id": "blog-press-text-78",
+          "type": "heading",
+          "text": "SuperChief Gallery's Every Women Biennial aims to correct the underrepresentation of women in tech art.",
+          "level": 1,
+          "links": [],
+          "href": "https://www.timeout.com/newyork/news/check-out-an-nft-exhibition-spotlighting-female-artists-this-weekend-070121"
+        },
+        {
+          "id": "blog-press-text-84",
+          "type": "heading",
+          "text": "The Every Woman Biennial Is Launching an Exhibition at Superchief Gallery NFT",
+          "level": 1,
+          "links": [],
+          "href": "https://observer.com/2021/06/superchief-nft-gallery-show-every-woman-binennial/"
+        },
+        {
+          "id": "blog-press-embed-25",
+          "type": "embed",
+          "text": "blog + press video",
+          "src": "https://www.youtube.com/embed/T5i24dLZ9Ds?feature=oembed"
+        },
+        {
+          "id": "blog-press-embed-26",
+          "type": "embed",
+          "text": "blog + press video",
+          "src": "https://www.youtube.com/embed/ue2lNsG_mlc?feature=oembed"
+        },
+        {
+          "id": "blog-original-video-4",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/mh4T2To.mp4",
+          "loop": true,
+          "ratio": 1.8935206380569143
+        },
+        {
+          "id": "blog-press-text-96",
+          "type": "heading",
+          "text": "Dichotomy Bifurcation Featured at the Entrance of LA Art Show 2017",
+          "level": 1,
+          "links": [],
+          "href": "https://www.laartshow.com/special-exhibits-2017/"
+        },
+        {
+          "id": "blog-original-video-5",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/j8tewfm.mp4",
+          "loop": true,
+          "ratio": 1.0
+        },
+        {
+          "id": "blog-press-text-97",
+          "type": "heading",
+          "text": "Art Wynwood Shows Off Plushies, Presidential Assassinations, and a Suicidal Damien Hirst",
+          "level": 1,
+          "links": [],
+          "href": "http://www.adelaandea.com/reviews/2012/ArtWynwood.html"
+        },
+        {
+          "id": "blog-press-text-99",
+          "type": "heading",
+          "text": "Featuring Kennedy, WAAMBAT’s work from 2012",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "blog-press-text-103",
+          "type": "heading",
+          "text": "Lindsay Scoggins Rocks the Shots That Ricocheted Around Art Wynwood",
+          "level": 1,
+          "links": [],
+          "href": "https://www.huffpost.com/entry/lindsay-scoggins_b_1299781"
+        }
+      ]
+    },
+    {
+      "slug": "bio-waambat",
+      "title": "bio",
+      "layout": "biography",
+      "blocks": [
+        {
+          "id": "bio-waambat-text-24",
+          "type": "heading",
+          "text": "WAAMBAT",
+          "level": 1,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-25",
+          "type": "heading",
+          "text": "[too edgy for algos]",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-27",
+          "type": "paragraph",
+          "text": "WAAMBAT is an LA-based artist whose experimental animation style first gained traction on YouTube in 2008. Her video painting process mashes up elements from the underbelly of the internet, speaking through the meme cult semiosis of the online atmosphere. Her video paintings thrive in web3 and large installations, influenced by her combined history in fine art, creative tech and the concert visual world.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-28",
+          "type": "paragraph",
+          "text": "Her work has been exhibited internationally in museums, concert tours, and large scale architectural installations — including four Guggenheim Museums, LA Art Show, Art Wynwood Contemporary, the Empire State Building, Times Square, Radio City Music Hall, Coachella, and the Hollywood Bowl.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-separator-30",
+          "type": "separator"
+        },
+        {
+          "id": "bio-waambat-separator-32",
+          "type": "separator"
+        },
+        {
+          "id": "bio-waambat-separator-34",
+          "type": "separator"
+        },
+        {
+          "id": "bio-waambat-text-35",
+          "type": "heading",
+          "text": "Below are WAAMBAT’s unedited responses to her interview in\nRight Click Save",
+          "level": 1,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-image-8",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/233f7218-548f-42ee-b807-97663fecf759/Animal%2BSpirits%281%29.png"
+        },
+        {
+          "id": "bio-waambat-text-39",
+          "type": "heading",
+          "text": "1. How have our expectations of the Internet changed in the years since Y2K and, especially, since the loss of net neutrality? Is Web3 changing those expectations?",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-blank-39-after",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-41",
+          "type": "paragraph",
+          "text": "I uploaded my first video to YouTube in 2008, after a room full of fellow art students suggested that I put my videos on the platform. It was a funny thought to me at the time. YouTube was a place for car crash videos and toddlers biting one another's fingers. It hadn't occurred to me that art could live there.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-42",
+          "type": "paragraph",
+          "text": "A couple million views later, one of my early experiments ended up being shown in the Guggenheim museums for the YouTube Play Biennial. Over 23,000 video submissions had been watched by Guggenheim curators, and mine had made it to the shortlist. I was told to go thank Nancy Spector when I arrived — she had personally fought for the rights clearance to include my work in the ceremony.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-43",
+          "type": "paragraph",
+          "text": "The title of this exhibition suggested it would be held every 2 years. Mysteriously, it never occurred again. The algorithms were developing into something entirely different, and large corporations began paving their way on the platform. The nature of YouTube as a discovery ground for experimental art quickly became a thing of the past. Net neutrality had officially faded away.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-image-9",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/82e4f7bd-319c-4063-a5e6-bd5455efca23/wonderland%2Bmafia%2Bat%2Bguggenheim.png"
+        },
+        {
+          "id": "bio-waambat-text-46",
+          "type": "paragraph",
+          "text": "The more these content sorting algorithms evolved, the harder it was for me to come across experimental video styles. Talking head videos became the overwhelming priority. YouTube began to resemble low production versions of broadcast tv. Having an unusual style led to being algorithmically buried. The Web2 walls were closing in on artists like me. Eventually I became digitally nomadic and left the platform entirely. It was no longer my artistic playground.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-47",
+          "type": "paragraph",
+          "text": "Video as an art object has always had difficulty finding a place to live. Then came the ultimate resolution with the advent of blockchain.",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "Video as an art object has always had difficulty finding a place to live. Then came the ultimate resolution with the advent of blockchain.",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-text-48",
+          "type": "paragraph",
+          "text": "People have the aspiration that Web3 will remain unscathed by centralized control. The truth is, the way culture in Web3 will develop is still an enticing mystery. This is part of the beauty that comes with starting over. We're about to terraform whole new digital territory to live on. Blockchain feels like a new version of the rapture - many people will be left behind.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-image-10",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/e055471f-534d-49ea-9ffd-4d127be5519d/Haptic%2BFeedback.png"
+        },
+        {
+          "id": "bio-blank-51-before",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-51",
+          "type": "heading",
+          "text": "2. Waambat your works collage the Internet’s underbelly, trolling Instagram’s content-scanning algorithms.",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-52",
+          "type": "heading",
+          "text": "How is art which resists online censorship evolving in Web3 and what new risks are you taking?",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-blank-52-after",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 2
+        },
+        {
+          "id": "bio-waambat-text-54",
+          "type": "paragraph",
+          "text": "It’s been fascinating watching these algorithms making such widespread decisions about the degree to which various content and conversations can be visible. Invisibility is akin to nonexistence. Algos run everything — promoting and demoting, scanning and banishing. They are godlike in power.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-55",
+          "type": "paragraph",
+          "text": "During any given moment, there are masses of people all over the globe sending their content to this mighty force, praying that it gets a boost. It becomes a form of ritual. There are many ironic ways in which this new era reflects the old world analogue.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-56",
+          "type": "paragraph",
+          "text": "Video in the Web2 world has become overwhelmingly safe, decorative, and domesticated by commercialism. Why is this? Because departing from the mainstream has notoriously resulted in algorithmic exile. Today, algorithmic exile also makes up a substantial portion of societal exile. This conditioning can lead to paranoia — anything to avoid being smited by the unnuanced puritanical judgment of this giant Orwellian eye watching over us all the time. The big platforms play upon humanity's greatest fear — excommunication.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-57",
+          "type": "paragraph",
+          "text": "The big platforms play upon humanity's greatest fear — excommunication.",
+          "level": 2,
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "bio-waambat-text-58",
+          "type": "paragraph",
+          "text": "Web3 has given me the greatest gift I could ever ask for — the chance to create my video paintings exactly the way I've always wanted to make them. It's a sanctuary for controversial ideas — a place of permanence. My art can exist in its purest form there, tokenized on a block in the chain. My playground is back, and I feel ready to bask in the complex nonsense of the new age. We've just entered the most dystopian utopia, and I have a place to artistically talk about every part of it.",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "Web3 has given me the greatest gift I could ever ask for — the chance to create my video paintings exactly the way I've always wanted to make them. It's a sanctuary for controversial ideas — a place of permanence. My art can exist in its purest form there, tokenized on a block in the chain. My playground is back, and I feel ready to bask in the complex nonsense of the new age. We've just entered the most dystopian utopia, and I have a place to artistically talk about every part of it.",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-image-11",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/9f3ec57d-9965-4add-965f-18af198b0b09/Fap%2BDisco.png"
+        },
+        {
+          "id": "bio-blank-60-before",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-60",
+          "type": "heading",
+          "text": "3. GQ defines a Thirst Trap as “The act of disingenuously posting sexy photos-while suggesting the subject of the photo is something else entirely.” How are you flipping this idea to reassert agency over technology?",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-blank-60-after",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-61",
+          "type": "paragraph",
+          "text": "Sometimes my experiments develop into a personal relationship with the platform itself. For instance, Instagram has an odd way of making decisions. It highly promotes near-nudity (such as models in bikinis), yet bans content as soon as a nipple is detected. When I notice patterns like these I'm determined to dig into a gray area. This is what led to my video Body Paint. I made it as \"a gift for the IG algo\", like an offering to a god. I submerged my body with waves of pixelated color washing over me. It has a datamosh ocean feel to it. Frame by frame my exposure isn't visible, but seeing it in motion reveals the nudity of my pixel-painted flesh. Apparently the gods accepted my offering, as it remains pinned to the top of my grid today.",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "Body Paint.",
+              "kind": "em"
+            },
+            {
+              "text": "Frame by frame my exposure isn't visible, but seeing it in motion reveals the nudity of my pixel-painted flesh. Apparently the gods accepted my offering, as it remains pinned to the top of my grid today.",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-text-62",
+          "type": "paragraph",
+          "text": "It has a datamosh ocean feel to it. Frame by frame my exposure isn't visible, but seeing it in motion reveals the nudity of my pixel-painted flesh. Apparently the gods accepted my offering, as it remains pinned to the top of my grid today.",
+          "level": 2,
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "bio-waambat-image-12",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/e7ca62d9-13fa-4107-9da2-99c1fbd0ba13/Body%2BPaint.png"
+        },
+        {
+          "id": "bio-waambat-text-65",
+          "type": "paragraph",
+          "text": "Another experiment came when AI avatar apps abruptly emerged in fall of 2022. Lensa acquired a brand new GAN avatar feature, ready to be trained on new data sets. Users were instructed to upload 8-20 selfies to receive 25-100 stylized avatar versions of themselves in return. There was one condition — no nudity allowed.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-67",
+          "type": "paragraph",
+          "text": "This point infuriated me. Constraining the output of creative tools is oppressive, and I've been repeatedly vocal about my stance on this.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-68",
+          "type": "paragraph",
+          "text": "I had found my new target. I was determined to teach Lensa to render the entirety of my body. I assembled multiple data sets to feed into the system, all images of me. Several explicit photos were scattered throughout the batches, taken from my personal stash. Over the next couple of weeks I uploaded these sets to see what Lensa would return.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-69",
+          "type": "paragraph",
+          "text": "In the beginning, many of the avatars I got back looked like someone else. But repeating the process led to increased accuracy. Lensa was starting to become familiar with my features. A few times images entered bizarre realms. Triple-breasted WAAMBAT was pretty fucking intriguing. From another batch appeared a WAAMBAT with mangled flesh and fisheye areolas. The system was feeling out my form with each transaction.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-70",
+          "type": "paragraph",
+          "text": "A few days went by and I sent another set of images, sans nudes. Lensa slipped a nude WAAMBAT into my return batch. Did she remember me from our recent affair? It felt like I was having a saucy fling with a curious machine admirer. I imagined Lensa personified, seeing my face and thinking \"Here she is again — the one who shows me her whole body\".",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "A few days went by and I sent another set of images, sans nudes. Lensa slipped a nude WAAMBAT into my return batch. Did she remember me from our recent affair? It felt like I was having a saucy fling with a curious machine admirer. I imagined Lensa personified, seeing my face and thinking \"Here she is again — the one who shows me her whole body\".",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-text-71",
+          "type": "paragraph",
+          "text": "The fact is these AIs do remember interactions, and memory formation is an important part of the machine learning process. Systems like these are tricky for anyone to control. Actual autonomy develops there. It ends up being a use-at-your-own-risk situation. Here we are, already encountering the vast complexities of entering the singularity.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-image-13",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/6f22ca12-f15b-4ae7-9e3c-9cad0b639606/the%2Blensa%2Bexperiments.JPG"
+        },
+        {
+          "id": "bio-blank-75-before",
+          "type": "heading",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-75",
+          "type": "heading",
+          "text": "4. How do you adapt your practices to attempts to censor your work?",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-blank-75-after",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-77",
+          "type": "paragraph",
+          "text": "Censorship of my work has been an ordeal, both online and offline. In 2017 a surprising amount of drama surrounded one of my corporate commissions — a large scale video installation for an 80' ceiling display in NYC. It was commissioned by the owner of the business building, and I was given carte blanche to run wild with my ideas and make a series of works to play on weekdays.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-78",
+          "type": "paragraph",
+          "text": "In collaboration with technologist Ian Shelanskey, a server system with custom software was designed to keep the piece running to my specifications. We referred to it as \"smart art\". My animation designs flowed with multilayered datamined imagery that refreshed daily.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-79",
+          "type": "paragraph",
+          "text": "One piece in the lineup was comprised of images from the associated press. Repeatedly, tenants called management, demanding that the piece be shut off. They didn't understand the concept of the project, nor comprehend its design. I was accused of supporting the individuals showing up in the AP photos (politicians and various celebrities under siege by cancel culture). The building owner would respond to the situation, calling in to override the tenants. \"Turn it back on,\" he would say, and management would oblige. Over time the conflict wore everyone down. A couple years later, the work wasn't able to continue running in its original form.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-80",
+          "type": "paragraph",
+          "text": "\"Turn it back on,\" he would say, and management would oblige. Over time the conflict wore everyone down. A couple years later, the work wasn't able to continue running in its original form.",
+          "level": 2,
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "bio-waambat-image-14",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/80d72a43-f8d1-4696-9ec3-480001fba5d4/250%2BContinuum.png"
+        },
+        {
+          "id": "bio-waambat-text-83",
+          "type": "paragraph",
+          "text": "Jump to today, where my battles are now waged against restrictive social media platforms. The challenge is being able to navigate the conflict while preserving my ideas — still letting the work say exactly what I want it to say.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-84",
+          "type": "paragraph",
+          "text": "To get past the content scanner, sometimes I have to make my pieces increasingly cryptic. I'll twist the animation to a sweet spot where it works. I'll complicate the aesthetics, piling up the layers and amplifying the motion. I'll weave multiple works together with an array of masks and blending modes. I like to paint imagery with other imagery. Complexity and nuance are my weaponry for fucking with the algo. Meanwhile my ideas are still there, cloaked in multiple stained glass windows of even more ideas.",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "Complexity and nuance are my weaponry for fucking with the algo. Meanwhile my ideas are still there, cloaked in multiple stained glass windows of even more ideas.",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-text-85",
+          "type": "paragraph",
+          "text": "Meanwhile my ideas are still there, cloaked in multiple stained glass windows of even more ideas.",
+          "level": 2,
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "bio-waambat-text-86",
+          "type": "paragraph",
+          "text": "I had this so perfected by summer 2022 that one of my reels received a quarter million views before being taken down. Later, another shot to a million before meeting its demise. However, the algorithm progressively upgrades itself. Its detection system evolves, forcing me to chase a new sweet spot again. Certain techniques work, until one day they don't. Big upgrades break my tricks, at which point I assess the damage and get to work on my next strategy.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-87",
+          "type": "paragraph",
+          "text": "In a recent turn of events, even my \"clean\" content has been getting flagged. The algo seems to associate my overall aesthetic with dangerous territory. The absurdity of it all becomes fucking hilarious. This scenario perfectly summarizes the current state of these AIs — they're rather smart, yet simultaneously idiotic.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-88",
+          "type": "paragraph",
+          "text": "My work has not only been slashed due to nudity. Instagram has sent me notices that their technology classified some of my artworks as \"acts of sexual solicitation\". I've gotten used to the idea that many of my pieces there are ephemeral. Part of the excitement now lies in my awareness that many of them won’t survive. At this point my account status states that I'm near total deletion, which would mean I'll lose access to over a decade of posts and archive material. I've created a backup account in anticipation.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-89",
+          "type": "paragraph",
+          "text": "I've created a backup account in anticipation.",
+          "level": 2,
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "bio-blank-90-before",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-90",
+          "type": "heading",
+          "text": "5. In 1967, Charlotte Moorman collaborated with Nam June Paik on a work titled, Opera Sextronique — a bare-breasted cello performance, with electric propellers pasted to her nipples. It’s well known that she was arrested for indecent exposure, and they both spent the night in jail. Paik was dismissed, yet Moorman was charged, tried, and convicted. Historians found in her papers that she was in fact an equal partner in the planning and execution of this performance. What is “NFT Feminism” and how does it extend previous attempts to challenge structural failings in the art world and wider society?",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-blank-90-after",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-91",
+          "type": "paragraph",
+          "text": "What is “NFT Feminism” and how does it extend previous attempts to challenge structural failings in the art world and wider society?",
+          "level": 2,
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "bio-waambat-text-92",
+          "type": "paragraph",
+          "text": "Since the NFT scene blossomed in LA, I've become connected to so many women launching into this new realm alongside me. Some of them are newer arrivals to the tech atmosphere, and I’ve been sharing my knowledge when they seek it. There’s a feminist ring to the situation, but there’s also a humanist one.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-93",
+          "type": "paragraph",
+          "text": "Existentially, this scene resonates with a rising wave of reclamation. You can feel exploratory boundaries being broken down in realtime. There's been an explosive outpour resulting from multiple dimensions being unlocked (dimensions largely stonewalled by the traditional art world for decades). The digital advancement of fine art has swept in with a swiftness propelled by the nature of how extremely overdue it is. The conversation table has also been upgraded, expanding the diversity pool of who receives a warm welcome to take a seat.",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "extremely",
+              "kind": "em"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-text-94",
+          "type": "paragraph",
+          "text": "The conversation table has also been upgraded, expanding the diversity pool of who receives a warm welcome to take a seat.",
+          "level": 2,
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "bio-waambat-text-95",
+          "type": "paragraph",
+          "text": "All of this reclamation can be seen reflecting within the artwork. Take for example media from the adult industry. It makes up an absolutely massive amount of online data. In my Quantum series I use rotoscoping to meticulously remove the male figures from sex scenes, meanwhile applying a special level of adornment to the remaining females. They live in a glorified flow with the rest of digital existence.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-96",
+          "type": "paragraph",
+          "text": "There's a lot going on conceptually in these moments, far too much to discuss here (the digital play-out of libidinal psyche is one of the most complex subjects imaginable). But amongst all that, I'm dietizing these females while laughing at the male gaze with an air of \"this is mine now\".",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "I'm dietizing these females while laughing at the male gaze with an air of \"this is mine now\".",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-image-15",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/cdac3163-9d1c-4fc9-be85-75f81bd1bd9a/Feels%2B404%2B%28stillB%29.png"
+        },
+        {
+          "id": "bio-blank-99-before",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-99",
+          "type": "heading",
+          "text": "6. The Japanese filmmaker Yasujiro Ozu famously opined: “[e]ven if my films appear to all be the same, I am always trying to express something new, and I have a new interest in each film. I am like a painter who keeps painting the same rose over and over again.” What do you consider to be your media? What are their limits and what variations are they capable of sustaining?",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-blank-99-after",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-100",
+          "type": "paragraph",
+          "text": "My media is anything on the internet. I take from it, and give back to it. About a third of my practice involves the digging process. This refers to all the time I spend hunting for the right raw materials (that I'll later transform into something else entirely). These are stashed away for future use in my video paintings and music compositions. I've accumulated a massive archive at this point (untold amount of terabytes) of files ripped over the years.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-101",
+          "type": "paragraph",
+          "text": "I'll latch onto something that strikes me in the right way, anything that can eventually find the right conceptual home in a composition. I make a point to incorporate objects from massive online industries, such as spam and porn. I'll include things like extinct application icons, deleted tweets, remnants of the dark web, or components of photos ripped from 4chan. I've been sinking deeper into my obsession with reaction gifs. To me they're a perfect illustration of fair use — a topic baked into my art practice since the very beginning. Market turmoil has become particularly inspiring to me lately. It's something that effects everyone (whether they directly play in them or not).",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "fair use",
+              "kind": "em"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-text-102",
+          "type": "paragraph",
+          "text": "To me they're a perfect illustration of fair use — a topic baked into my art practice since the very beginning. Market turmoil has become particularly inspiring to me lately. It's something that effects everyone (whether they directly play in them or not).",
+          "level": 2,
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "bio-waambat-text-103",
+          "type": "paragraph",
+          "text": "I hybridize memes, encapsulating various semiosis into my own hieroglyphics, which I use to spell out all my current world observations. I'm writing motion-based love letters and hate mail about all the wild shit comprising postreality. I'll fight with a composition for a long time until I strike the right rhythm. Eventually I figure out how it all comes together — conceptually fitting everything into that tight space between bright wonder and dark sarcasm.",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "I hybridize memes, encapsulating various semiosis into my own hieroglyphics, which I use to spell out all my current world observations. I'm writing motion-based love letters and hate mail about all the wild shit comprising postreality. I'll fight with a composition for a long time until I strike the right rhythm. Eventually I figure out how it all comes together — conceptually fitting everything into that tight space between bright wonder and dark sarcasm.",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-text-104",
+          "type": "paragraph",
+          "text": "My video paintings provide a telescopic view into it all, like deep space photography. I'm building these microcosms from various cultural data. All this net candy is the digital matter that comes together, forming the metaverse.",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "All this net candy is the digital matter that comes together, forming the metaverse.",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-image-16",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/a4b70aee-54ec-4193-974c-44128360847b/Swap%2BExchange.png"
+        },
+        {
+          "id": "bio-blank-107-before",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-107",
+          "type": "heading",
+          "text": "7. Finally, we’d love to hear about any forthcoming projects you might be working on at the moment.",
+          "level": 3,
+          "links": []
+        },
+        {
+          "id": "bio-blank-107-after",
+          "type": "paragraph",
+          "text": "",
+          "level": 3,
+          "blankLines": 1
+        },
+        {
+          "id": "bio-waambat-text-109",
+          "type": "paragraph",
+          "text": "I’m excited about putting together more large installation work again this year. My history in the concert visual world set me up to have a distinct craving for this. There’s a particular attention to detail required to have video show nicely at a mass scale. My pieces are created to maintain a pristine display at any size.",
+          "level": 2,
+          "links": []
+        },
+        {
+          "id": "bio-waambat-text-110",
+          "type": "paragraph",
+          "text": "Meanwhile, my tezos video painting collection continues to expand. My Quantum series (along with its interactive utility mechanics) is very involved. It’s been through several rounds so far. My collectors have taken an intense journey with me traversing series A,B,C,D,E,F, and G. Now I’m back to building once more, constructing all the components of series H.",
+          "level": 2,
+          "links": [],
+          "marks": [
+            {
+              "text": "I’m back to building once more, constructing all the components of series H.",
+              "kind": "strong"
+            }
+          ]
+        },
+        {
+          "id": "bio-waambat-image-17",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/3817465b-94ca-42cf-ae59-27480b07e24c/beeple%2Binstall.png"
+        },
+        {
+          "id": "bio-waambat-original-animation",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/yFj1FwD.mp4",
+          "loop": true,
+          "aspect": "portrait",
+          "column": "side"
+        },
+        {
+          "id": "bio-waambat-image-18",
+          "type": "image",
+          "text": "bio artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/2bbcf63a-94e9-401c-ad36-f2ba77ad69ee/stuido.JPG",
+          "column": "side"
+        }
+      ]
+    },
+    {
+      "slug": "contact-waambat",
+      "title": "collect + contact",
+      "layout": "contact",
+      "blocks": [
+        {
+          "id": "contact-heading",
+          "type": "heading",
+          "level": 1,
+          "text": "How to collect WAAMBAT:"
+        },
+        {
+          "id": "contact-steps",
+          "type": "list",
+          "items": [
+            {
+              "text": "Join the WAAMBAT Chat discord",
+              "href": "https://discord.gg/7UhEguFr"
+            },
+            {
+              "text": "Be the first to see the latest drop schedule"
+            },
+            {
+              "text": "Read about the utility mechanics - explore the Quantum interactive building process",
+              "href": "/mechanics"
+            },
+            {
+              "text": "Profit"
+            }
+          ]
+        },
+        {
+          "id": "contact-original-video",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/JC0hAbH.mp4",
+          "loop": true
+        },
+        {
+          "id": "contact-name",
+          "type": "heading",
+          "level": 1,
+          "text": "Her name is WAAMBAT everywhere"
+        },
+        {
+          "id": "contact-twitter",
+          "type": "heading",
+          "text": "twitter @waambat",
+          "href": "https://twitter.com/waambat",
+          "level": 3
+        },
+        {
+          "id": "contact-instagram",
+          "type": "heading",
+          "text": "IG @waambat",
+          "href": "https://www.instagram.com/waambat/",
+          "level": 3
+        },
+        {
+          "id": "contact-instagram-backup",
+          "type": "heading",
+          "text": "IG backup @waam.bat",
+          "href": "https://www.instagram.com/waam.bat/",
+          "level": 3
+        },
+        {
+          "id": "contact-discord-historical",
+          "type": "heading",
+          "text": "discord waambat#7494",
+          "level": 3
+        }
+      ]
+    },
+    {
+      "slug": "instagram",
+      "title": "instagram",
+      "layout": "image-grid",
+      "blocks": [
+        {
+          "id": "instagram-intro-1",
+          "type": "heading",
+          "text": "WAAMBAT’s practice involves an ongoing battle with the Instagram content scanning algorithm.",
+          "href": "",
+          "src": "",
+          "level": 1,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-2",
+          "type": "heading",
+          "text": "What remains in her feed are artworks which have survived the algo via her subversive animation techniques.",
+          "href": "",
+          "src": "",
+          "level": 1,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-3",
+          "type": "paragraph",
+          "text": "From her interview in Right Click Save:",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [
+            {
+              "text": "interview in Right Click Save",
+              "href": "https://www.rightclicksave.com/article/artists-against-algorithms"
+            }
+          ],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-quote-start",
+          "type": "paragraph",
+          "text": "“The challenge is being able to navigate the conflict while preserving my ideas — still letting the work say exactly what I want it to say.\nTo get past the content scanner, sometimes I have to make my pieces increasingly cryptic. I'll twist the animation to a sweet spot where it works. I'll complicate the aesthetics, piling up the layers and amplifying the motion. I'll weave multiple works together with an array of masks and blending modes. I like to paint imagery with other imagery. Complexity and nuance are my weaponry for fucking with the algo.\nMeanwhile my ideas are still there, cloaked in multiple stained glass windows of even more ideas.\nI had this so perfected by summer 2022 that one of my reels received a quarter million views before being taken down. Later, another shot to a million before meeting its demise. However, the algorithm progressively upgrades itself. Its detection system evolves, forcing me to chase a new sweet spot again. Certain techniques work, until one day they don't. Big upgrades break my tricks, at which point I assess the damage and get to work on my next strategy.\nIn a recent turn of events, even my \"clean\" content has been getting flagged. The algo seems to associate my overall aesthetic with dangerous territory. The absurdity of it all becomes fucking hilarious. This scenario perfectly summarizes the current state of these AIs — they're rather smart, yet simultaneously idiotic.\nMy work has not only been slashed due to nudity. Instagram has sent me notices that their technology classified some of my artworks as \"acts of sexual solicitation\". I've gotten used to the idea that many of my pieces there are ephemeral. Part of the excitement now lies in my awareness that many of them won’t survive. At this point my account status states that I'm near total deletion, which would mean I'll lose access to over a decade of posts and archive material.\nI've created a backup account in anticipation.”",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-intro-4",
+          "type": "paragraph",
+          "text": "To get past the content scanner, sometimes I have to make my pieces increasingly cryptic. I'll twist the animation to a sweet spot where it works. I'll complicate the aesthetics, piling up the layers and amplifying the motion. I'll weave multiple works together with an array of masks and blending modes. I like to paint imagery with other imagery. Complexity and nuance are my weaponry for fucking with the algo.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "instagram-intro-5",
+          "type": "paragraph",
+          "text": "Meanwhile my ideas are still there, cloaked in multiple stained glass windows of even more ideas.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "instagram-intro-6",
+          "type": "paragraph",
+          "text": "I had this so perfected by summer 2022 that one of my reels received a quarter million views before being taken down. Later, another shot to a million before meeting its demise. However, the algorithm progressively upgrades itself. Its detection system evolves, forcing me to chase a new sweet spot again. Certain techniques work, until one day they don't. Big upgrades break my tricks, at which point I assess the damage and get to work on my next strategy.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "instagram-intro-7",
+          "type": "paragraph",
+          "text": "In a recent turn of events, even my \"clean\" content has been getting flagged. The algo seems to associate my overall aesthetic with dangerous territory. The absurdity of it all becomes fucking hilarious. This scenario perfectly summarizes the current state of these AIs — they're rather smart, yet simultaneously idiotic.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "instagram-intro-8",
+          "type": "paragraph",
+          "text": "My work has not only been slashed due to nudity. Instagram has sent me notices that their technology classified some of my artworks as \"acts of sexual solicitation\". I've gotten used to the idea that many of my pieces there are ephemeral. Part of the excitement now lies in my awareness that many of them won’t survive. At this point my account status states that I'm near total deletion, which would mean I'll lose access to over a decade of posts and archive material.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "instagram-intro-9",
+          "type": "paragraph",
+          "text": "I've created a backup account in anticipation.",
+          "href": "",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "instagram-intro-10",
+          "type": "paragraph",
+          "text": "Instagram @waambat",
+          "href": "https://www.instagram.com/waambat/",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "instagram-intro-11",
+          "type": "paragraph",
+          "text": "Backup @waam.bat",
+          "href": "https://www.instagram.com/waam.bat/",
+          "src": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": true
+        },
+        {
+          "id": "instagram-original-image-1",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 1",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1677636252667-RIKA1CZY701CJJ29L9O7/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-2",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 2",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676509558830-5TL1Z8SO76JEQ5V1F5VQ/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-3",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 3",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156267362-1WZABABMDLIOVCSX1A8F/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-4",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 4",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156268238-UOXSNIH2PJYJ7Y95KQYD/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-5",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 5",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156269607-BJ40QG5SJ38BUJK6N1EW/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-6",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 6",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156270467-HGXB8RB5KK61OW9DXIAU/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-7",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 7",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156271156-2STMQDU5NBFHDIU1FKNK/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-8",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 8",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156271918-KKAK8GF9ZAY03FS6767W/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-9",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 9",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156272644-T4XQ2MREINBO0F1BCNER/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-10",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 10",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156273478-PQSRUC2H0N3PDFQP6MIY/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-11",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 11",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156274275-O6PRMI0F40TPPTYDRUOO/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-12",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 12",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156275111-75RK5B7CZ0PW0X1GR6Z3/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-13",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 13",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156275982-IOD0M60V54JLCWT6SE5L/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-14",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 14",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156277052-WFNXVJOEF5BCWX2XXMPD/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-15",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 15",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156277715-8635031Y3NRDI52LQBGL/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-16",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 16",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156278477-1JZ6LEBPFO8B4HGT25VD/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-17",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 17",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156279207-CWCHIRLMPMLX68ZQYFQS/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-18",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 18",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156279855-I00DCCLWNJT4D8NKSCEH/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-19",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 19",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1676156280655-1F7VQFS8491M48D2D8WP/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-20",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 20",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1624570885544-RQ2O64RRYZCE25C097L1/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-21",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 21",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1622661329321-F8XS4S92XLZVIE4UBY89/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-22",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 22",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621819497502-3HJU7W5H3953K37YPCXV/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-23",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 23",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621727826185-IWJAYINA6909HNOFW3NQ/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-24",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 24",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205473005-QNYFY6VCK9V7USGI1DVN/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-25",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 25",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205473394-IBSZH9EE9496SBS7AEZK/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-26",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 26",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205473771-1DIG04DKWY12K23JZBRZ/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-27",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 27",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205474092-7DZ3ZUQJ85SQCEBKD156/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-28",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 28",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205474704-8UZ195UGQYIYBS4RL1M1/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-29",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 29",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205475265-9L1SA5TPETOMVBWOPDC2/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-30",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 30",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1622582858759-DWJEHXDXTEVTZNDXI03A/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-31",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 31",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205475887-AB1Y18FCAQCXZ5Z1CYQN/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        },
+        {
+          "id": "instagram-original-image-32",
+          "type": "image",
+          "text": "Original WAAMBAT Instagram archive image 32",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621205476186-E5XNAN88Y55DQWJ9L328/image-asset.jpeg",
+          "href": "",
+          "level": 2,
+          "items": [],
+          "links": [],
+          "archived": false
+        }
+      ],
+      "archive": []
+    },
+    {
+      "slug": "waambat",
+      "title": "video art by Lindsay Scoggins",
+      "layout": "splash",
+      "blocks": [
+        {
+          "id": "legacy-waambat-background",
+          "type": "image",
+          "text": "",
+          "src": "https://static1.squarespace.com/static/5e17c59b7605d5016da6d51c/t/5e180a6ef4f2d72934824238/1578620272396/Screen+Shot+2020-01-09+at+5.37.12+PM.png?format=2500w"
+        },
+        {
+          "id": "legacy-waambat-heading",
+          "type": "heading",
+          "text": "video art by Lindsay Scoggins",
+          "level": 1
+        },
+        {
+          "id": "legacy-waambat-contact",
+          "type": "link",
+          "text": "studiowaambat@gmail.com",
+          "href": "mailto:studiowaambat@gmail.com"
+        }
+      ],
+      "archive": []
+    },
+    {
+      "slug": "lindsay-scoggins",
+      "title": "Art by waambat",
+      "layout": "split-splash",
+      "blocks": [
+        {
+          "id": "legacy-lindsay-background",
+          "type": "image",
+          "text": "",
+          "src": "https://static1.squarespace.com/static/5e17c59b7605d5016da6d51c/t/5e1912874ea7cf33bb3744ca/1578701502865/webGIF_v002.gif?format=2500w"
+        },
+        {
+          "id": "legacy-lindsay-foundation-logo",
+          "type": "image",
+          "text": "Foundation",
+          "src": "https://static1.squarespace.com/static/5e17c59b7605d5016da6d51c/t/60a08763c16bc25dd8b8cbf9/1621133155583/FND_v001.png?format=1500w"
+        },
+        {
+          "id": "legacy-lindsay-heading",
+          "type": "heading",
+          "text": "Art by waambat",
+          "level": 1
+        },
+        {
+          "id": "legacy-lindsay-announcement",
+          "type": "paragraph",
+          "text": "NFT genesis auction — Tuesday May 18th"
+        },
+        {
+          "id": "legacy-lindsay-foundation-1",
+          "type": "link",
+          "text": "Foundation",
+          "href": "https://foundation.app/waambat"
+        },
+        {
+          "id": "legacy-lindsay-foundation-2",
+          "type": "link",
+          "text": "Foundation",
+          "href": "https://foundation.app/waambat"
+        },
+        {
+          "id": "legacy-lindsay-foundation-3",
+          "type": "link",
+          "text": "Foundation",
+          "href": "https://foundation.app/waambat"
+        }
+      ],
+      "archive": []
+    },
+    {
+      "slug": "art",
+      "title": "art",
+      "layout": "two-column",
+      "blocks": [
+        {
+          "id": "legacy-art-video-1",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/QY2Y73n.mp4",
+          "loop": true
+        },
+        {
+          "id": "legacy-art-video-2",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/SqX1UJD.mp4",
+          "loop": true,
+          "ratio": 1.7822155672488058
+        },
+        {
+          "id": "legacy-art-video-3",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/OPXG8lr.mp4",
+          "loop": true,
+          "ratio": 0.8
+        },
+        {
+          "id": "legacy-art-video-4",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/1YBF7tW.mp4",
+          "loop": true,
+          "column": "side",
+          "ratio": 0.5623941715071435
+        },
+        {
+          "id": "legacy-art-foundation-1",
+          "type": "link",
+          "text": "Foundation",
+          "href": "https://foundation.app/waambat"
+        },
+        {
+          "id": "legacy-art-foundation-2",
+          "type": "link",
+          "text": "Foundation",
+          "href": "https://foundation.app/waambat"
+        }
+      ],
+      "archive": []
+    }
+  ],
+  "navigation": [
+    {
+      "id": "nfts",
+      "label": "NFTs",
+      "href": "/",
+      "archived": false
+    },
+    {
+      "id": "ordinals",
+      "label": "ORDINALS",
+      "href": "/ordinals",
+      "archived": false
+    },
+    {
+      "id": "mechanics",
+      "label": "quantum mechanics",
+      "href": "/mechanics",
+      "archived": false
+    },
+    {
+      "id": "archive",
+      "label": "art archive",
+      "href": "/art-by-waambat",
+      "archived": false
+    },
+    {
+      "id": "instagram",
+      "label": "instagram",
+      "href": "/instagram",
+      "archived": false
+    },
+    {
+      "id": "press",
+      "label": "blog + press",
+      "href": "/blog-press",
+      "archived": false
+    },
+    {
+      "id": "bio",
+      "label": "bio",
+      "href": "/bio-waambat",
+      "archived": false
+    },
+    {
+      "id": "contact",
+      "label": "collect + contact",
+      "href": "/contact-waambat",
+      "archived": false
+    }
+  ],
+  "ordinalSourceVersion": 1
+}
