@@ -97,7 +97,11 @@ export default function ContactForm({
       {form.description && (
         <p className={styles.description}>{form.description}</p>
       )}
-      <form onSubmit={(event) => void submit(event)}>
+      <form
+        method="post"
+        action="/api/contact"
+        onSubmit={(event) => void submit(event)}
+      >
         <fieldset disabled={busy} className={styles.grid}>
           <legend className={styles.srOnly}>{form.title} questions</legend>
           {form.questions

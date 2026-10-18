@@ -1,8 +1,8 @@
 # Netlify test-site setup
 
-The user explicitly selected the new Netlify site as the working test deployment and requested the real `admin` / `password` login and real persistent edits. The target is `https://waambat.netlify.app`, with the PR preview at `https://deploy-preview-1--waambat.netlify.app`. Domain Management contains only the Netlify domain. The original Squarespace site and `waambat.com` DNS remain separate.
+The existing Netlify project `waambat` now serves the public domain `https://waamb.at`; `www.waamb.at` redirects to it. GoDaddy retains its nameservers, with the apex A record pointing to `75.2.60.5` and `www` CNAME pointing to `waambat.netlify.app`. The original Squarespace site and `waambat.com` DNS remain separate. Administrator authentication remains at `https://waambat.netlify.app/admin`; the existing test-account host restrictions are unchanged.
 
-Set the existing Netlify project's production branch to `feat/gallery-admin-modernization` and deploy the validated commit. No Git merge or new GitHub App is required for the selected Netlify content backend.
+The verified production branch is `main`. Pull requests receive separate deploy previews and content contexts. The historical approved test-login preview remains `https://deploy-preview-1--waambat.netlify.app`; a new preview URL does not automatically gain test-account access. No new GitHub App is required for the Netlify content backend.
 
 ## One required private setup value
 
