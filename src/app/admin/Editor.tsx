@@ -6,6 +6,8 @@ import { MAX_UPLOAD } from "~/lib/uploads";
 import PageEditor from "./PageEditor";
 import NavigationEditor from "./NavigationEditor";
 import ThemeEditor from "./ThemeEditor";
+import FormsEditor from "./FormsEditor";
+import ContactInbox from "./ContactInbox";
 import { AdminRequestError, requestContentState } from "~/lib/admin-request";
 type PendingWrite = {
   action: "save" | "publish";
@@ -81,10 +83,15 @@ export default function Editor({ initial }: { initial: ContentState }) {
         ? "Verified live artwork sources are ready."
         : "",
       initial.heroPending ? "The new home hero banner is ready." : "",
+      initial.formsPending ? "The contact form is ready to customize." : "",
+      initial.optimizationPending ? "Optimized display media is ready." : "",
     ]
       .filter(Boolean)
       .concat(
-        initial.sourceCorrectionsPending || initial.heroPending
+        initial.sourceCorrectionsPending ||
+          initial.heroPending ||
+          initial.formsPending ||
+          initial.optimizationPending
           ? [
               "Save this draft to retain these updates in your content, then preview before publishing.",
             ]
@@ -100,6 +107,8 @@ export default function Editor({ initial }: { initial: ContentState }) {
   const dirty =
     !!state.sourceCorrectionsPending ||
     !!state.heroPending ||
+    !!state.formsPending ||
+    !!state.optimizationPending ||
     JSON.stringify(content) !== JSON.stringify(state.draft);
   useEffect(() => {
     const before = (e: BeforeUnloadEvent) => {
@@ -422,6 +431,18 @@ export default function Editor({ initial }: { initial: ContentState }) {
         {status}
       </p>
       <fieldset disabled={busy || uploading} className="space-y-8">
+        <FormsEditor
+          forms={content.forms}
+          pages={content.pages}
+          theme={content.theme}
+          onChange={(forms) =>
+            edit((draft) => {
+              draft.forms = forms;
+              draft.formsVersion = 1;
+            })
+          }
+        />
+        <ContactInbox />
         <section className="rounded border border-white/25 p-5">
           <h2 className="text-waambat-pink mb-4 text-xl">Outgoing email</h2>
           <p className="mb-4 text-sm">

@@ -1,9 +1,23 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { themeSchema } from "../src/lib/theme";
+import { themeSchema, themeStyle } from "../src/lib/theme";
 import { archiveRows } from "../src/lib/archive-layout";
 import { seedContent } from "../src/content/seed";
 import { testSiteConfigured } from "../src/lib/test-site";
+test("filled form actions use readable text after changing theme colors", () => {
+  for (const [link, foreground] of [
+    ["#9457ff", "#000000"],
+    ["#000000", "#ffffff"],
+    ["#ffffff", "#000000"],
+    ["#0000ff", "#ffffff"],
+  ]) {
+    const style = themeStyle(
+      themeSchema.parse({ link, linkHover: link }),
+    ) as Record<string, string>;
+    assert.equal(style["--site-action-text"], foreground);
+    assert.equal(style["--site-action-hover-text"], foreground);
+  }
+});
 test("theme rejects arbitrary styles, external fonts and unsafe or unbounded values", () => {
   for (const value of [
     { heading: "url(javascript:alert(1))" },

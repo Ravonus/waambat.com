@@ -28,6 +28,7 @@ export default function Hero({
   const video = useRef<HTMLVideoElement>(null);
   const endless = useRef<HTMLVideoElement>(null);
   const [mobile, setMobile] = useState(false);
+  const [sourceReady, setSourceReady] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [shown, setShown] = useState(false);
   const [error, setError] = useState(false);
@@ -50,7 +51,10 @@ export default function Hero({
   const { requested, wanted } = lifecycle;
   useEffect(() => {
     const query = matchMedia(PORTRAIT_PHONE);
-    const update = () => setMobile(query.matches);
+    const update = () => {
+      setMobile(query.matches);
+      setSourceReady(true);
+    };
     const initial = requestAnimationFrame(update);
     query.addEventListener("change", update);
     return () => {
@@ -63,7 +67,7 @@ export default function Hero({
     if (wanted && !error) void element?.play().catch(() => setPlaying(false));
     else element?.pause();
     return () => element?.pause();
-  }, [wanted, requested, error, phase]);
+  }, [wanted, requested, error, phase, sourceReady, mobile]);
   const portrait = mobile && !!item.mobileVideoSrc;
   const source = portrait ? item.mobileVideoSrc : item.videoSrc;
   // The ending loop follows the video it was rendered with (portrait with portrait).
@@ -114,7 +118,7 @@ export default function Hero({
             className={styles.poster}
           />
         </picture>
-        {playable && requested && !error && (
+        {playable && requested && sourceReady && !error && (
           <video
             ref={video}
             src={source}
@@ -165,7 +169,7 @@ export default function Hero({
             }}
           />
         )}
-        {playable && requested && !error && loopSource && (
+        {playable && requested && sourceReady && !error && loopSource && (
           <video
             ref={endless}
             src={loopWanted ? loopSource : undefined}

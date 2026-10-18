@@ -22,6 +22,16 @@ export function removedContent(previous: Content, next: Content) {
     for (const id of [section.id, ...section.items.map((i) => i.id)])
       if (!ids.has(id)) missing.push(id);
   const navigationIds = new Set(next.navigation.map((n) => n.id));
+  for (const form of previous.forms) {
+    const updated = next.forms.find((candidate) => candidate.id === form.id);
+    if (!updated) missing.push(`form ${form.id}`);
+    else
+      for (const question of form.questions)
+        if (
+          !updated.questions.some((candidate) => candidate.id === question.id)
+        )
+          missing.push(`question ${question.id}`);
+  }
   for (const entry of previous.navigation)
     if (!navigationIds.has(entry.id)) missing.push(`navigation ${entry.id}`);
   return missing;

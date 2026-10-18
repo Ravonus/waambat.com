@@ -1,11 +1,14 @@
 import "~/styles/globals.css";
-import OriginalFonts from "./components/OriginalFonts";
 import RouteEffects from "./components/RouteEffects";
 import type { Metadata } from "next";
 import { adobeProjectURL } from "~/lib/adobe-project";
+import { pageMetadata, siteOrigin, siteDescription } from "~/lib/seo";
 export const metadata: Metadata = {
+  ...pageMetadata("/", "Video paintings & Ordinals", siteDescription),
+  metadataBase: new URL(siteOrigin),
   title: { default: "waambat", template: "%s — waambat" },
-  description: "Video paintings and Ordinals by WAAMBAT · Lindsay Scoggins",
+  authors: [{ name: "Lindsay Scoggins", url: `${siteOrigin}/bio-waambat` }],
+  creator: "WAAMBAT",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 export default function RootLayout({
@@ -19,10 +22,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {(adobeProject || originalFonts) && (
+          <link
+            rel="preconnect"
+            href="https://use.typekit.net"
+            crossOrigin="anonymous"
+          />
+        )}
         {adobeProject && <link rel="stylesheet" href={adobeProject} />}
         {originalFonts && (
-          // eslint-disable-next-line @next/next/no-css-tags -- Conditional original hosted font-face; no font binary self-hosting.
-          <link rel="stylesheet" href="/original-fonts.css" />
+          // Keep the exact Adobe-hosted face while removing a blocking stylesheet request.
+          <style>{`@font-face{font-family:"amboy-inline";font-style:normal;font-weight:400;font-display:swap;src:url("https://use.typekit.net/af/f4c430/00000000000000007735b4f5/31/l?subset_id=2&fvd=n4&v=3") format("woff2")}`}</style>
         )}
       </head>
       <body>
@@ -32,7 +42,6 @@ export default function RootLayout({
         >
           Skip to artwork
         </a>
-        <OriginalFonts enabled={originalFonts} />
         <RouteEffects />
         {children}
       </body>

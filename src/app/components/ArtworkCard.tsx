@@ -5,26 +5,41 @@ import InstagramCard from "./InstagramCard";
 import VideoEmbed from "./VideoEmbed";
 import { useViewportPlayback } from "./useViewportPlayback";
 import { PlaybackButton, MediaIcon } from "./MediaControls";
+import { newTabProps } from "~/lib/new-tab";
+import { paintingPoster } from "~/lib/painting-source";
 export type { Artwork } from "~/lib/content";
-function Poster({ artwork }: { artwork: Artwork }) {
+function Poster({
+  artwork,
+  priority,
+}: {
+  artwork: Artwork;
+  priority: boolean;
+}) {
   if (!artwork.poster) return null;
-  const local = /^\/posters\/\d+-960.webp$/.test(artwork.poster);
+  const poster = paintingPoster(artwork.poster);
   // Original animated GIFs remain untouched; local paintings have responsive stills.
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- Pre-generated responsive stills and original GIFs avoid a server image proxy.
-    <img
-      src={artwork.poster}
-      srcSet={
-        local
-          ? `${artwork.poster.replace("-960", "-480")} 480w, ${artwork.poster} 960w`
-          : undefined
-      }
-      sizes="(max-width: 767px) calc(100vw - 40px), 960px"
-      alt={artwork.title}
-      loading="lazy"
-      decoding="async"
-      className="h-full w-full object-contain"
-    />
+    <picture className="block h-full w-full">
+      {poster.avif && (
+        <source
+          type="image/avif"
+          srcSet={poster.avif}
+          sizes="(max-width: 767px) calc(100vw - 40px), 960px"
+        />
+      )}
+      <img
+        src={artwork.poster}
+        srcSet={poster.srcSet}
+        sizes="(max-width: 767px) calc(100vw - 40px), 960px"
+        alt={artwork.title}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
+        width={poster.local ? 960 : undefined}
+        height={poster.local ? 960 : undefined}
+        decoding="async"
+        className="h-full w-full object-contain"
+      />
+    </picture>
   );
 }
 export default function ArtworkCard({
@@ -35,6 +50,7 @@ export default function ArtworkCard({
   originalFlow = false,
   trailer = false,
   naturalAspect = false,
+  priority = false,
 }: {
   artwork: Artwork;
   showCaption?: boolean;
@@ -43,6 +59,7 @@ export default function ArtworkCard({
   originalFlow?: boolean;
   trailer?: boolean;
   naturalAspect?: boolean;
+  priority?: boolean;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -58,6 +75,8 @@ export default function ArtworkCard({
   );
   const { requested, wanted } = lifecycle;
   const [mobile, setMobile] = useState(false);
+  const [sourceReady, setSourceReady] = useState(false);
+  const [shownSource, setShownSource] = useState("");
   const [error, setError] = useState(false);
   const [intrinsic, setIntrinsic] = useState<{
     src: string;
@@ -67,7 +86,7 @@ export default function ArtworkCard({
   const selectedSource =
     mobile && artwork.mobileVideoSrc
       ? artwork.mobileVideoSrc
-      : artwork.videoSrc;
+      : artwork.previewSrc || artwork.videoSrc;
   const mediaRatio =
     ratio ??
     (naturalAspect && intrinsic?.src === selectedSource
@@ -75,12 +94,14 @@ export default function ArtworkCard({
       : undefined);
   useEffect(() => {
     const query = matchMedia("(max-width: 767px)");
-    const update = () =>
+    const update = () => {
       setMobile(
         query.matches ||
           !!(navigator as Navigator & { connection?: { saveData?: boolean } })
             .connection?.saveData,
       );
+      setSourceReady(true);
+    };
     const initial = requestAnimationFrame(update);
     query.addEventListener("change", update);
     return () => {
@@ -95,7 +116,7 @@ export default function ArtworkCard({
     return () => {
       element?.pause();
     };
-  }, [wanted, requested, error]);
+  }, [wanted, requested, error, sourceReady, selectedSource]);
   const toggle = () => {
     if (playing) lifecycle.pause();
     else {
@@ -114,7 +135,9 @@ export default function ArtworkCard({
           ratio={ratio}
         />
         <p>{artwork.description}</p>
-        <a href={artwork.tokenLink}>View collection ↗</a>
+        <a href={artwork.tokenLink} {...newTabProps(artwork.tokenLink)}>
+          View collection ↗
+        </a>
       </article>
     );
   if (artwork.kind === "instagram") return <InstagramCard artwork={artwork} />;
@@ -155,20 +178,16 @@ export default function ArtworkCard({
         >
           <a
             href={trailer ? undefined : artwork.tokenLink}
+            {...newTabProps(trailer ? undefined : artwork.tokenLink)}
             aria-label={`Open ${artwork.title} original ${artwork.kind === "image" ? "inscription" : "token"} page`}
-            className="block h-full w-full"
+            className="relative block h-full w-full"
           >
-            {artwork.kind === "image" || !requested || error ? (
-              <Poster artwork={artwork} />
-            ) : (
+            <Poster artwork={artwork} priority={priority} />
+            {artwork.kind === "video" && requested && sourceReady && !error && (
               <video
+                key={selectedSource}
                 ref={video}
                 src={selectedSource}
-                poster={
-                  mobile && /^\/posters\/\d+-960.webp$/.test(artwork.poster)
-                    ? artwork.poster.replace("-960", "-480")
-                    : artwork.poster
-                }
                 muted={muted}
                 loop={!trailer}
                 controls={trailer}
@@ -195,11 +214,14 @@ export default function ArtworkCard({
                   setPlaying(lifecycle.desired.current);
                 }}
                 onPause={() => setPlaying(false)}
+                onPlaying={() => setShownSource(selectedSource)}
                 onError={() => {
                   setError(true);
                   setPlaying(false);
+                  setShownSource("");
                 }}
-                className="h-full w-full object-contain"
+                className="absolute inset-0 h-full w-full object-contain"
+                style={{ opacity: shownSource === selectedSource ? 1 : 0 }}
               />
             )}
           </a>
@@ -255,7 +277,10 @@ export default function ArtworkCard({
       {showCaption && (
         <div className="artwork-caption">
           <h2 className="text-waambat-pink mt-5 text-[26px] leading-snug">
-            <a href={trailer ? undefined : artwork.tokenLink}>
+            <a
+              href={trailer ? undefined : artwork.tokenLink}
+              {...newTabProps(trailer ? undefined : artwork.tokenLink)}
+            >
               {artwork.title}
             </a>
           </h2>
@@ -272,6 +297,7 @@ export default function ArtworkCard({
       {artwork.kind === "link" && (
         <a
           href={artwork.tokenLink}
+          {...newTabProps(artwork.tokenLink)}
           className="text-waambat-link mt-3 inline-block"
         >
           {artwork.title.includes("Paper")

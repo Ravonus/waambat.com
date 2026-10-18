@@ -1,5 +1,7 @@
 # WAAMBAT portfolio
 
+Contact-form editing, the private inbox, email notifications, SEO settings, and media regeneration are documented in [Contact forms and site optimization](docs/CONTACT-AND-SEO.md).
+
 Next.js, React and Tailwind portfolio with a protected content studio. The deployed Netlify test site uses private Netlify Blobs for saved drafts and published content; Git keeps the initial seed in `src/content/site.json`; original media sources remain in place. See [modernization review](docs/MODERNIZATION.md), [art-direction pass and hero banner](docs/ART-DIRECTION-PASS.md) and [Netlify/runtime setup](docs/NETLIFY-SETUP.md) for evidence and remaining source/auth integration work.
 
 Use Node 24 and the pinned pnpm version:

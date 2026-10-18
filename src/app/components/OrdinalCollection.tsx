@@ -112,6 +112,8 @@ export default function OrdinalCollection({
                 <a
                   href={item.tokenLink}
                   aria-label={`Open ${item.title} original inscription page`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={styles.gifImage}
                 >
                   <SourceImage
@@ -122,7 +124,13 @@ export default function OrdinalCollection({
                   />
                 </a>
                 <h3>
-                  <a href={item.tokenLink}>{item.title}</a>
+                  <a
+                    href={item.tokenLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.title}
+                  </a>
                 </h3>
                 <p>{item.description}</p>
               </article>

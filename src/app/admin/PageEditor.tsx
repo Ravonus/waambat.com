@@ -205,6 +205,58 @@ export default function PageEditor({
             >
               Preview saved {page.title} ↗
             </a>
+            <details className="border border-white/20 p-4">
+              <summary className="text-waambat-pink">
+                Search and social sharing
+              </summary>
+              <div className="mt-4 space-y-4">
+                <Field
+                  label="Search title (optional)"
+                  value={page.seo.title}
+                  onChange={(value) =>
+                    edit(pi, (item) => {
+                      item.seo.title = value;
+                    })
+                  }
+                />
+                <Field
+                  label="Search description (optional)"
+                  large
+                  value={page.seo.description}
+                  onChange={(value) =>
+                    edit(pi, (item) => {
+                      item.seo.description = value;
+                    })
+                  }
+                />
+                <Field
+                  label="Social image URL (optional; 1200 × 630 recommended)"
+                  value={page.seo.image}
+                  onChange={(value) =>
+                    edit(pi, (item) => {
+                      item.seo.image = value;
+                    })
+                  }
+                />
+                <p className="text-sm opacity-70">
+                  Leave these empty to use the page title, an automatic
+                  description, and the WAAMBAT share image. The canonical
+                  address and sitemap update automatically.
+                </p>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={page.seo.noIndex}
+                    onChange={(event) =>
+                      edit(pi, (item) => {
+                        item.seo.noIndex = event.target.checked;
+                      })
+                    }
+                  />{" "}
+                  Ask search engines not to index this page
+                </label>
+              </div>
+            </details>
             {page.blocks.map((block, bi) => (
               <details
                 key={block.id}

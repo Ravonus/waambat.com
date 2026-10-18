@@ -5,6 +5,7 @@ const config = {
   poweredByHeader: false,
   devIndicators: false,
   env: {
+    WAAMBAT_DEPLOY_CONTEXT: process.env.CONTEXT ?? "production",
     WAAMBAT_BUILD_REVISION: process.env.COMMIT_REF ?? "local-working-tree",
     WAAMBAT_REVIEW_BUILD: process.env.WAAMBAT_PRIVATE_SITE === "1" ? "1" : "0",
     WAAMBAT_CONTENT_CONTEXT:
@@ -45,6 +46,15 @@ const config = {
           {
             key: "Cache-Control",
             value: "public, max-age=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
+        source: "/paintings/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },

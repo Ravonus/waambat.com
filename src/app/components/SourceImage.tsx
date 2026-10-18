@@ -21,6 +21,7 @@ export default function SourceImage({
       sizes={sizes}
       alt={alt}
       loading={eager ? "eager" : "lazy"}
+      fetchPriority={eager ? "high" : undefined}
       decoding="async"
       className={className}
     />

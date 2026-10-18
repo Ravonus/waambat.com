@@ -1,6 +1,7 @@
 import type { Content, SitePage } from "~/lib/content";
 import { themeStyle } from "~/lib/theme";
 import SourceImage from "./SourceImage";
+import { newTabProps } from "~/lib/new-tab";
 export default function LegacySplash({
   page,
   theme,
@@ -47,7 +48,11 @@ export default function LegacySplash({
               <p key={b.id}>{b.text}</p>
             ))}
           {links[0] && (
-            <a className="legacy-foundation-button" href={links[0].href}>
+            <a
+              className="legacy-foundation-button"
+              href={links[0].href}
+              {...newTabProps(links[0].href)}
+            >
               On Foundation
             </a>
           )}
@@ -57,7 +62,12 @@ export default function LegacySplash({
         <>
           <div className="legacy-contact">
             {links.map((b) => (
-              <a key={b.id} className="legacy-contact-pill" href={b.href}>
+              <a
+                key={b.id}
+                className="legacy-contact-pill"
+                href={b.href}
+                {...newTabProps(b.href)}
+              >
                 {b.text}
               </a>
             ))}
@@ -72,13 +82,28 @@ export default function LegacySplash({
 function socials() {
   return (
     <>
-      <a href="https://www.youtube.com/waambat" aria-label="YouTube">
+      <a
+        href="https://www.youtube.com/waambat"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="YouTube"
+      >
         ▶
       </a>
-      <a href="http://instagram.com/waambat" aria-label="Instagram">
+      <a
+        href="http://instagram.com/waambat"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
         ◎
       </a>
-      <a href="https://foundation.app/waambat" aria-label="Foundation">
+      <a
+        href="https://foundation.app/waambat"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Foundation"
+      >
         FND
       </a>
     </>
