@@ -1,5 +1,12 @@
 "use client";
-import { useEffect, useRef, useState, type RefObject } from "react";
+import {
+  useEffect,
+  useEffectEvent,
+  useRef,
+  useState,
+  type RefObject,
+} from "react";
+import { useNavigationStoreApi } from "./navigation/NavigationProvider";
 
 // One lifecycle for native home paintings and archive provider players.
 // Keep requested sources attached; visibility changes pause instead of reloading.
@@ -17,11 +24,9 @@ export function useViewportPlayback(
   const paused = useRef(false);
   const restricted = useRef(false);
   const desired = useRef(false);
-  const listener = useRef(onChange);
-  useEffect(() => {
-    listener.current = onChange;
-  }, [onChange]);
-  const sync = useRef(() => {});
+  const navigation = useNavigationStoreApi();
+  const notify = useEffectEvent((playing: boolean) => onChange?.(playing));
+  const sync = useRef<() => boolean>(() => false);
   useEffect(() => {
     const element = container.current;
     if (!element) return;
@@ -31,21 +36,23 @@ export function useViewportPlayback(
         connection?: EventTarget & { saveData?: boolean };
       }
     ).connection;
-    const update = () => {
+    const compute = () => {
       const play =
         !disabled &&
         element.isConnected &&
         (visible.current || (manual.current && intersecting.current)) &&
         !document.hidden &&
-        !document.querySelector("#mobile-site-menu[open]") &&
+        navigation.getState().menu === "closed" &&
         !paused.current &&
         (!restricted.current || manual.current);
       desired.current = play;
-      listener.current?.(play);
       if (play) setRequested(true);
       setWanted(play);
+      return play;
     };
-    sync.current = update;
+    sync.current = compute;
+    const update = () => notify(compute());
+    const unsubscribeMenu = navigation.subscribe(update);
     const preferences = () => {
       restricted.current = motion.matches || !!connection?.saveData;
       manual.current = false;
@@ -81,19 +88,18 @@ export function useViewportPlayback(
     );
     observer.observe(element);
     document.addEventListener("visibilitychange", update);
-    document.addEventListener("waambat:media-visibility", update);
     motion.addEventListener("change", preferences);
     connection?.addEventListener("change", preferences);
     return () => {
       desired.current = false;
-      listener.current?.(false);
+      notify(false);
+      unsubscribeMenu();
       observer.disconnect();
       document.removeEventListener("visibilitychange", update);
-      document.removeEventListener("waambat:media-visibility", update);
       motion.removeEventListener("change", preferences);
       connection?.removeEventListener("change", preferences);
     };
-  }, [container, disabled, minimumVisible]);
+  }, [container, disabled, minimumVisible, navigation]);
   return {
     requested,
     wanted,
@@ -101,12 +107,12 @@ export function useViewportPlayback(
     play() {
       manual.current = true;
       paused.current = false;
-      sync.current();
+      onChange?.(sync.current());
     },
     pause() {
       paused.current = true;
       manual.current = false;
-      sync.current();
+      onChange?.(sync.current());
     },
   };
 }

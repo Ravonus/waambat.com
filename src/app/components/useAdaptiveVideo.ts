@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, type RefObject } from "react";
+import { useEffect, useEffectEvent, useRef, type RefObject } from "react";
 import type Hls from "hls.js";
 import { adaptiveStream } from "~/lib/adaptive-media";
 import { adaptiveVideoConfig } from "~/lib/adaptive-video-config";
@@ -13,12 +13,8 @@ export function useAdaptiveVideo(
   preload = false,
 ) {
   const controller = useRef<Hls | null>(null);
-  const desired = useRef(wanted);
-  const warm = useRef(preload);
-  useEffect(() => {
-    desired.current = wanted;
-    warm.current = preload;
-  }, [wanted, preload]);
+  const shouldPlay = useEffectEvent(() => wanted);
+  const shouldLoad = useEffectEvent(() => wanted || preload);
   useEffect(() => {
     const video = ref.current;
     if (!video || !source) return;
@@ -31,7 +27,7 @@ export function useAdaptiveVideo(
       controller.current = null;
     };
     const play = () => {
-      if (desired.current) void video.play().catch(() => {});
+      if (shouldPlay()) void video.play().catch(() => {});
     };
     const fallback = () => {
       if (cancelled || fallbackUsed) return;
@@ -78,7 +74,7 @@ export function useAdaptiveVideo(
           if (data.fatal) nativeFallback();
         });
         player.on(Player.Events.MANIFEST_PARSED, () => {
-          if (desired.current || warm.current) player.startLoad();
+          if (shouldLoad()) player.startLoad();
           play();
         });
         player.attachMedia(video);

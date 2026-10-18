@@ -70,7 +70,11 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  animation: reveal 160ms ease-out;
+  animation: menu-enter 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.overlay[data-phase="closing"] {
+  animation: menu-exit 220ms cubic-bezier(0.4, 0, 0.6, 1) both;
+  pointer-events: none;
 }
 .overlay::backdrop {
   background: var(--site-background, #000);
@@ -119,14 +123,47 @@
 .mobileLink::after {
   bottom: 2px;
 }
-@keyframes reveal {
+@keyframes menu-enter {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes menu-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+.linkProgress {
+  position: absolute;
+  left: calc(100% + 10px);
+  top: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  border: 1px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0;
+}
+.link[data-pending="true"] {
+  color: var(--color-waambat-logo, #ff94b2);
+}
+.link[data-pending="true"] .linkProgress {
+  opacity: 1;
+  animation: link-spin 800ms linear infinite;
+}
+@keyframes link-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 @media (min-width: 768px) {
@@ -140,8 +177,14 @@
     transition: none;
   }
   .overlay {
-    animation: none;
+    animation-duration: 1ms;
   }
+  .linkProgress {
+    animation: none !important;
+  }
+}
+:global([data-motion="off"]) .overlay {
+  animation-duration: 1ms;
 }
 
 :global([data-menu-open="true"]) .logo {

@@ -1,6 +1,7 @@
 import type { Content, SitePage } from "~/lib/content";
 import { themeStyle } from "~/lib/theme";
 import SourceImage from "./SourceImage";
+import SourceLink from "./SourceLink";
 import { newTabProps } from "~/lib/new-tab";
 export default function LegacySplash({
   page,
@@ -48,13 +49,13 @@ export default function LegacySplash({
               <p key={b.id}>{b.text}</p>
             ))}
           {links[0] && (
-            <a
+            <SourceLink
               className="legacy-foundation-button"
               href={links[0].href}
               {...newTabProps(links[0].href)}
             >
               On Foundation
-            </a>
+            </SourceLink>
           )}
           <div className="legacy-socials">{socials()}</div>
         </section>
@@ -62,14 +63,14 @@ export default function LegacySplash({
         <>
           <div className="legacy-contact">
             {links.map((b) => (
-              <a
+              <SourceLink
                 key={b.id}
                 className="legacy-contact-pill"
                 href={b.href}
                 {...newTabProps(b.href)}
               >
                 {b.text}
-              </a>
+              </SourceLink>
             ))}
             <div className="legacy-socials">{socials()}</div>
           </div>
@@ -82,30 +83,30 @@ export default function LegacySplash({
 function socials() {
   return (
     <>
-      <a
+      <SourceLink
         href="https://www.youtube.com/waambat"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="YouTube"
       >
         ▶
-      </a>
-      <a
+      </SourceLink>
+      <SourceLink
         href="http://instagram.com/waambat"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
       >
         ◎
-      </a>
-      <a
+      </SourceLink>
+      <SourceLink
         href="https://foundation.app/waambat"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Foundation"
       >
         FND
-      </a>
+      </SourceLink>
     </>
   );
 }

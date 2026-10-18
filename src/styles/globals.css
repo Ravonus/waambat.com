@@ -134,62 +134,12 @@ button:disabled {
     background-position: 100% 100%;
   }
 }
-.route-pulse {
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  pointer-events: none;
-  overflow: hidden;
-  animation: route-fade 280ms ease-out both;
-}
-.route-pulse i {
-  position: absolute;
-  left: -3%;
-  width: 106%;
-  height: 4%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #9457ff22,
-    #ff94b222,
-    transparent
-  );
-  transform: translateX(-2%);
-  animation: route-drift 280ms ease-out both;
-}
-.route-pulse i:nth-child(1) {
-  top: 28%;
-}
-.route-pulse i:nth-child(2) {
-  top: 52%;
-  transform: translateX(2%);
-}
-.route-pulse i:nth-child(3) {
-  top: 76%;
-}
-@keyframes route-fade {
-  0% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-@keyframes route-drift {
-  to {
-    transform: translateX(2%);
-  }
-}
 @media (hover: none), (pointer: coarse) {
   .waambat-cursor {
     display: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .route-pulse {
-    display: none;
-  }
   .waambat-cursor span {
     animation: none;
   }

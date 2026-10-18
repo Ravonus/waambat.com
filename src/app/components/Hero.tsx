@@ -1,10 +1,11 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import SiteLink from "./navigation/SiteLink";
 import type { Artwork, Content } from "~/lib/content";
 import { PlaybackButton } from "./MediaControls";
 import { useViewportPlayback } from "./useViewportPlayback";
 import { useAdaptiveVideo } from "./useAdaptiveVideo";
+import { useMediaPreference } from "./useMediaPreference";
 import { adaptivePoster } from "~/lib/adaptive-media";
 import styles from "./Hero.module.css";
 
@@ -29,8 +30,8 @@ export default function Hero({
   const frame = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const endless = useRef<HTMLVideoElement>(null);
-  const [mobile, setMobile] = useState(false);
-  const [sourceReady, setSourceReady] = useState(false);
+  const mobile = useMediaPreference(PORTRAIT_PHONE);
+  const sourceReady = mobile !== undefined;
   const [playing, setPlaying] = useState(false);
   const [shown, setShown] = useState(false);
   const [error, setError] = useState(false);
@@ -39,11 +40,7 @@ export default function Hero({
   const [loopWanted, setLoopWanted] = useState(false);
   const [loopShown, setLoopShown] = useState(false);
   const activeVideo = () =>
-    phaseRef.current === "loop" ? endless.current : video.current;
-  const phaseRef = useRef(phase);
-  useEffect(() => {
-    phaseRef.current = phase;
-  }, [phase]);
+    phase === "loop" ? endless.current : video.current;
   const lifecycle = useViewportPlayback(frame, false, (wanted) => {
     const element = activeVideo();
     if (!wanted) element?.pause();
@@ -51,19 +48,6 @@ export default function Hero({
       void element.play().catch(() => setPlaying(false));
   });
   const { requested, wanted } = lifecycle;
-  useEffect(() => {
-    const query = matchMedia(PORTRAIT_PHONE);
-    const update = () => {
-      setMobile(query.matches);
-      setSourceReady(true);
-    };
-    const initial = requestAnimationFrame(update);
-    query.addEventListener("change", update);
-    return () => {
-      cancelAnimationFrame(initial);
-      query.removeEventListener("change", update);
-    };
-  }, []);
   useEffect(() => {
     const element = phase === "loop" ? endless.current : video.current;
     if (wanted && !error) void element?.play().catch(() => setPlaying(false));
@@ -149,14 +133,13 @@ export default function Hero({
             data-done={loopShown}
             className={styles.video}
             onLoadedData={() => {
-              if (lifecycle.desired.current && phaseRef.current === "intro")
+              if (lifecycle.desired.current && phase === "intro")
                 void video.current?.play().catch(() => setPlaying(false));
             }}
             onPlaying={() => setShown(true)}
             onPlay={() => {
               if (!lifecycle.desired.current) video.current?.pause();
-              else if (phaseRef.current === "intro")
-                setPlaying(lifecycle.desired.current);
+              else if (phase === "intro") setPlaying(lifecycle.desired.current);
             }}
             onPause={(event) => {
               // Reaching the end pauses the video; that is not the visitor pausing the banner.
@@ -197,7 +180,7 @@ export default function Hero({
             data-shown={loopShown}
             className={styles.video}
             onCanPlay={() => {
-              if (phaseRef.current === "loop" && lifecycle.desired.current)
+              if (phase === "loop" && lifecycle.desired.current)
                 void endless.current?.play().catch(() => setPlaying(false));
             }}
             onPlaying={() => {
@@ -209,7 +192,7 @@ export default function Hero({
               if (!lifecycle.desired.current) endless.current?.pause();
             }}
             onPause={() => {
-              if (phaseRef.current === "loop") setPlaying(false);
+              if (phase === "loop") setPlaying(false);
             }}
             onError={() => {
               // The ending stays on the last frame of the video, which is the artwork's final shot.
@@ -222,12 +205,9 @@ export default function Hero({
           data-hero-wordmark
           className={`${styles.wordmark} ${item.logoSrc ? "" : "font-brand text-waambat-logo"}`}
         >
-          <Link
+          <SiteLink
             href={preview ? "/admin/preview?page=nfts" : "/"}
-            onNavigate={() => {
-              window.dispatchEvent(new Event("waambat:close-menu"));
-              if (!preview) window.dispatchEvent(new Event("waambat:navigate"));
-            }}
+            label="NFTs"
             aria-label={`${section.title} home`}
             className={styles.wordmarkLink}
           >
@@ -237,7 +217,7 @@ export default function Hero({
             ) : (
               section.title
             )}
-          </Link>
+          </SiteLink>
         </h1>
         {playable && (
           <div className={styles.controls}>

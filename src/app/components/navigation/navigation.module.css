@@ -1,0 +1,158 @@
+.progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 80;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+  animation: progress-in 160ms ease-out 100ms both;
+}
+.progress i {
+  display: block;
+  height: 100%;
+  width: 36%;
+  background: linear-gradient(90deg, transparent, #ff94b2, #fa75d0);
+  animation: progress-travel 1.2s ease-in-out infinite;
+}
+@keyframes progress-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes progress-travel {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(380%);
+  }
+}
+.skeleton {
+  padding-bottom: 64px;
+  min-height: 65svh;
+}
+.caption {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--site-navigation, #9c9c9c);
+}
+.placeholder {
+  max-width: 1080px;
+  margin-inline: auto;
+}
+.bone {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: color-mix(
+    in srgb,
+    var(--color-waambat-pink, #e1bcc2) 9%,
+    transparent
+  );
+}
+.bone::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(
+    100deg,
+    transparent 25%,
+    #e1bcc20b 50%,
+    transparent 75%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+.heading {
+  width: min(72%, 440px);
+  height: 30px;
+  margin-bottom: 30px;
+}
+.hero {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin-bottom: 48px;
+}
+.artwork {
+  width: min(100%, 580px);
+  aspect-ratio: 1;
+  margin: 32px auto;
+}
+.lines {
+  display: grid;
+  gap: 14px;
+  max-width: 680px;
+}
+.lines i {
+  height: 14px;
+}
+.lines i:last-child {
+  width: 68%;
+}
+.fields {
+  display: grid;
+  gap: 14px;
+  max-width: 720px;
+  margin-top: 32px;
+}
+.fields i {
+  height: 58px;
+}
+.fields i:last-child {
+  height: 124px;
+}
+.collection,
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.tile {
+  aspect-ratio: 1;
+}
+.mosaic {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.mosaic .tile:nth-child(3n + 1) {
+  aspect-ratio: 0.8;
+}
+@keyframes skeleton-shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+@media (max-width: 767px) {
+  .hero {
+    aspect-ratio: 4/5;
+  }
+  .collection {
+    grid-template-columns: 1fr;
+  }
+  .mosaic {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bone::after {
+    animation: none;
+    display: none;
+  }
+  .progress,
+  .progress i {
+    animation: none;
+  }
+  .progress i {
+    width: 100%;
+  }
+}
+:global([data-motion="off"]) .bone::after {
+  animation: none;
+  display: none;
+}

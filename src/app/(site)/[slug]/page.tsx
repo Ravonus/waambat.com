@@ -1,5 +1,4 @@
 import { notFound, permanentRedirect } from "next/navigation";
-import Layout from "~/app/components/Layout";
 import ContentPage from "~/app/components/ContentPage";
 import Gallery from "~/app/components/Gallery";
 import LegacySplash from "~/app/components/LegacySplash";
@@ -42,7 +41,7 @@ export default async function Page({
   if (["splash", "split-splash"].includes(page.layout))
     return <LegacySplash page={page} theme={content.theme} />;
   return (
-    <Layout wide={page.layout === "archive"}>
+    <>
       <ContentPage
         page={page}
         forms={content.forms
@@ -50,6 +49,6 @@ export default async function Page({
           .map(publicForm)}
       />
       <Gallery content={content} page={slug} />
-    </Layout>
+    </>
   );
 }

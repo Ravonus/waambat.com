@@ -1,6 +1,5 @@
 import { requirePreviewAccess } from "~/server/preview-access";
-import Layout from "../components/Layout";
-import Gallery from "../components/Gallery";
+import Gallery from "~/app/components/Gallery";
 import { getPublishedContent } from "~/server/content";
 import { pageMetadata } from "~/lib/seo";
 export const metadata = pageMetadata(
@@ -11,9 +10,5 @@ export const metadata = pageMetadata(
 export const dynamic = "force-dynamic";
 export default async function Ordinals() {
   await requirePreviewAccess();
-  return (
-    <Layout wide>
-      <Gallery content={await getPublishedContent()} page="ordinals" />
-    </Layout>
-  );
+  return <Gallery content={await getPublishedContent()} page="ordinals" />;
 }

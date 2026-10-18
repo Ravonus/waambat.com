@@ -1,15 +1,9 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { cursorShapes, cursorStateAt, type CursorState } from "~/lib/cursor";
 
 export default function RouteEffects() {
   const cursor = useRef<HTMLDivElement>(null);
-  const [pulse, setPulse] = useState(0);
-  useEffect(() => {
-    const route = () => setPulse((v) => v + 1);
-    window.addEventListener("waambat:navigate", route);
-    return () => window.removeEventListener("waambat:navigate", route);
-  }, []);
   useEffect(() => {
     const pointer = cursor.current;
     const ink = pointer?.firstElementChild as HTMLElement | null;
@@ -224,7 +218,6 @@ export default function RouteEffects() {
     document.addEventListener("fullscreenchange", layer);
     window.addEventListener("blur", suspend);
     window.addEventListener("popstate", refresh);
-    window.addEventListener("waambat:navigate", refresh);
     window.addEventListener("resize", refresh);
     capability.addEventListener("change", suspend);
     pointer.dataset.cursorReady = "true";
@@ -245,7 +238,6 @@ export default function RouteEffects() {
       document.removeEventListener("fullscreenchange", layer);
       window.removeEventListener("blur", suspend);
       window.removeEventListener("popstate", refresh);
-      window.removeEventListener("waambat:navigate", refresh);
       window.removeEventListener("resize", refresh);
       capability.removeEventListener("change", suspend);
     };
@@ -261,18 +253,6 @@ export default function RouteEffects() {
       >
         <span />
       </div>
-      {pulse > 0 && (
-        <div
-          key={pulse}
-          data-route-pulse
-          aria-hidden="true"
-          className="route-pulse"
-        >
-          <i />
-          <i />
-          <i />
-        </div>
-      )}
     </>
   );
 }
