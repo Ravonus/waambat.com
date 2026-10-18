@@ -4,7 +4,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import type { Content } from "~/lib/content";
 import type { PageRoute } from "~/lib/navigation";
 import Header from "../Header";
-import { PageRoutesContext, useMenuPhase } from "./NavigationProvider";
+import { PageRoutesContext, useRouteAnimations } from "./NavigationProvider";
 
 export default function SiteFrame({
   children,
@@ -29,7 +29,7 @@ export default function SiteFrame({
 }) {
   const pathname = usePathname();
   const search = useSearchParams();
-  const animate = useMenuPhase() === "closed";
+  const animate = useRouteAnimations();
   const route = routes.find((entry) => entry.href === pathname);
   const showHero = preview ? !!hero : pathname === "/" && !!hero;
   const routeKey = preview ? `${pathname}?${search.toString()}` : pathname;

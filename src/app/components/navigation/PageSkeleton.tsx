@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { fallbackRoute, type SkeletonKind } from "~/lib/navigation";
 import {
   PageRoutesContext,
-  useMenuPhase,
+  useRouteAnimations,
   useNavigation,
 } from "./NavigationProvider";
 import styles from "./navigation.module.css";
@@ -12,7 +12,7 @@ import styles from "./navigation.module.css";
 export default function PageSkeleton({ kind }: { kind?: SkeletonKind }) {
   const pathname = usePathname();
   const { target } = useNavigation();
-  const animate = useMenuPhase() === "closed";
+  const animate = useRouteAnimations();
   const routes = use(PageRoutesContext);
   const address = target?.href.split(/[?#]/)[0] ?? pathname;
   const route =

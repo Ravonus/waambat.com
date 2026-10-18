@@ -40,6 +40,12 @@ export function useNavigationStoreApi() {
 export function useMenuPhase() {
   return useStore(useNavigationStoreApi(), (state) => state.menu);
 }
+export function useRouteAnimations() {
+  return useStore(
+    useNavigationStoreApi(),
+    (state) => state.hasNavigated && state.menu === "closed",
+  );
+}
 export function useNavigation() {
   const navigation = use(NavigationContext);
   if (!navigation) throw new Error("NavigationProvider is missing");
@@ -88,6 +94,9 @@ export default function NavigationProvider({
         store.getState().closeMenu();
         return;
       }
+      // Initial streaming should paint immediately. Enable view transitions
+      // only once a person actually navigates within this application.
+      store.getState().navigationStarted();
       startNavigation(() => {
         setTarget(destination);
         const settings = { scroll: options.scroll };

@@ -8,12 +8,18 @@ export function createNavigationStore() {
   return createStore<{
     menu: MenuPhase;
     menuOrigin: string | null;
+    hasNavigated: boolean;
+    navigationStarted: () => void;
     openMenu: (route: string) => void;
     closeMenu: () => void;
     finishClose: () => void;
   }>((set, get) => ({
     menu: "closed",
     menuOrigin: null,
+    hasNavigated: false,
+    navigationStarted: () => {
+      if (!get().hasNavigated) set({ hasNavigated: true });
+    },
     openMenu: (route) => set({ menu: "open", menuOrigin: route }),
     closeMenu: () => {
       if (get().menu === "open") set({ menu: "closing" });
