@@ -21,6 +21,11 @@
   NODE_VERSION = "24"
   NETLIFY_NEXT_SKEW_PROTECTION = "true"
 
+[[headers]]
+  for = "/paintings/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 [context.deploy-preview.environment]
   WAAMBAT_PRIVATE_SITE = "0"
   AUTH_URL = "https://deploy-preview-1--waambat.netlify.app"

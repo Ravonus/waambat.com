@@ -1,0 +1,143 @@
+{
+  "verifiedAt": "2026-10-18T04:34:11.401Z",
+  "paintings": [
+    {
+      "id": "artwork-1",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-2",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-3",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-4",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-5",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-6",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-7",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-8",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-9",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-10",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-11",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-12",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-13",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-14",
+      "original": 20.03,
+      "desktop": 20.03,
+      "mobile": 20.03
+    },
+    {
+      "id": "artwork-15",
+      "original": 20.03,
+      "desktop": 20.03,
+      "mobile": 20.03
+    },
+    {
+      "id": "artwork-16",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-17",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-18",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-19",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-20",
+      "original": 60.03,
+      "desktop": 60.03,
+      "mobile": 60.03
+    },
+    {
+      "id": "artwork-21",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-22",
+      "original": 30.03,
+      "desktop": 30.03,
+      "mobile": 30.03
+    },
+    {
+      "id": "artwork-23",
+      "original": 9.26,
+      "desktop": 9.26,
+      "mobile": 9.26
+    }
+  ]
+}

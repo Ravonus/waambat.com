@@ -3,6 +3,8 @@ import stored from "~/content/site.json";
 import { cache } from "react";
 import { correctLegacyOrdinalSources } from "~/lib/ordinal-sources";
 import { addDefaultHero } from "~/lib/hero";
+import { defaultContactForm } from "~/lib/forms";
+import { optimizeStoredMedia } from "~/lib/optimized-media";
 import { removedContent } from "~/lib/content-change";
 import {
   getGitStore,
@@ -27,15 +29,32 @@ export interface ContentState {
   updatedAt: null;
   sourceCorrectionsPending?: boolean;
   heroPending?: boolean;
+  formsPending?: boolean;
+  optimizationPending?: boolean;
 }
 // Stored documents predate some defaults; present them current without writing.
 function present(content: Content) {
   const sources = correctLegacyOrdinalSources(content);
   const hero = addDefaultHero(sources.content);
+  const optimized = optimizeStoredMedia(hero.content);
+  const formsChanged = optimized.content.formsVersion === 0;
+  const updated = formsChanged
+    ? {
+        ...optimized.content,
+        formsVersion: 1,
+        forms:
+          optimized.content.forms.length ||
+          !optimized.content.pages.some((page) => page.slug === "contact-waambat")
+            ? optimized.content.forms
+            : [structuredClone(defaultContactForm)],
+      }
+    : optimized.content;
   return {
-    content: hero.content,
+    content: updated,
     sourcesChanged: sources.changed,
     heroChanged: hero.changed,
+    formsChanged,
+    optimizationChanged: optimized.changed,
   };
 }
 function presentState(state: ContentState): ContentState {
@@ -47,6 +66,8 @@ function presentState(state: ContentState): ContentState {
     published: published.content,
     sourceCorrectionsPending: draft.sourcesChanged,
     heroPending: draft.heroChanged,
+    formsPending: draft.formsChanged,
+    optimizationPending: draft.optimizationChanged,
   };
 }
 export async function getContentState(): Promise<ContentState> {
@@ -83,7 +104,7 @@ export const getPublishedContent = cache(async (): Promise<Content> => {
   if (localTestConfigured())
     return present((await getGitStore().read(baseBranch()))!.content).content;
   // Netlify builds exactly the JSON in the commit being deployed. No runtime Git token is needed for public artwork.
-  return contentSchema.parse(stored);
+  return present(contentSchema.parse(stored)).content;
 });
 export async function updateContent(
   revision: string,

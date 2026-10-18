@@ -36,7 +36,7 @@ export default function Gallery({
           )}
         {section.intro &&
           (page === "nfts" ? (
-            <h3 className="home-intro text-center">{section.intro}</h3>
+            <p className="home-intro text-center font-bold">{section.intro}</p>
           ) : (
             <p className="mb-10 text-center">{section.intro}</p>
           ))}
@@ -52,10 +52,11 @@ export default function Gallery({
           {section.items
             .filter((a) => !a.archived)
             .sort((a, b) => Number(b.featured) - Number(a.featured))
-            .map((a) => (
+            .map((a, index) => (
               <ArtworkCard
                 key={a.id}
                 artwork={a}
+                priority={section.id === sections[0]?.id && index === 0}
                 originalFlow={
                   page === "nfts" && section.presentation !== "trailer"
                 }

@@ -8,6 +8,7 @@ import ContentPage from "~/app/components/ContentPage";
 import LegacySplash from "~/app/components/LegacySplash";
 import Hero from "~/app/components/Hero";
 import { activeHero } from "~/lib/hero";
+import { publicForm } from "~/lib/forms";
 export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Private draft preview",
@@ -59,7 +60,13 @@ export default async function Preview({
       </div>
       {article ? (
         <>
-          <ContentPage page={article} />
+          <ContentPage
+            page={article}
+            forms={state.draft.forms
+              .filter((form) => form.enabled && form.page === page)
+              .map(publicForm)}
+            preview
+          />
           <Gallery content={state.draft} page={page} />
         </>
       ) : (

@@ -7,6 +7,8 @@ export type VideoSource = {
 };
 // Parse URLs only; never fetch user-supplied URLs or accept HTML.
 export function videoSource(value: string): VideoSource | null {
+  if (/^\/paintings\/[a-f0-9]{24}(?:-(?:640|960))?\.(mp4|webm)$/.test(value))
+    return { provider: "direct", original: value, player: value, direct: true };
   if (/^\/api\/media\/[a-f0-9]{64}$/.test(value))
     return { provider: "direct", original: value, player: value, direct: true };
   // Same-origin hero renders shipped with the site (public/hero), never a user-supplied host.

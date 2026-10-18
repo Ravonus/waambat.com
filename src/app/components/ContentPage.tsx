@@ -4,6 +4,9 @@ import Archive from "./Archive";
 import SourceImage from "./SourceImage";
 import VideoEmbed from "./VideoEmbed";
 import ArtworkCard from "./ArtworkCard";
+import { newTabProps } from "~/lib/new-tab";
+import type { PublicContactForm } from "~/lib/forms";
+import ContactForm from "./forms/ContactForm";
 function linkedText(block: PageBlock): ReactNode {
   function emphasized(value: string): ReactNode {
     const pieces: ReactNode[] = [];
@@ -40,6 +43,7 @@ function linkedText(block: PageBlock): ReactNode {
             : "source-inline-link"
         }
         href={block.href}
+        {...newTabProps(block.href)}
       >
         {emphasized(block.text)}
       </a>
@@ -70,6 +74,7 @@ function linkedText(block: PageBlock): ReactNode {
             : "source-inline-link"
         }
         href={match.link.href}
+        {...newTabProps(match.link.href)}
       >
         {emphasized(match.link.text)}
       </a>,
@@ -79,18 +84,51 @@ function linkedText(block: PageBlock): ReactNode {
   }
   return parts;
 }
-export default function ContentPage({ page }: { page: SitePage }) {
-  if (page.layout === "archive") return <Archive items={page.archive} />;
+export default function ContentPage({
+  page,
+  forms = [],
+  preview = false,
+}: {
+  page: SitePage;
+  forms?: PublicContactForm[];
+  preview?: boolean;
+}) {
+  const renderedForms = forms.map((form) => (
+    <ContactForm key={form.id} form={form} preview={preview} />
+  ));
+  if (page.layout === "archive")
+    return (
+      <>
+        <Archive items={page.archive} />
+        {renderedForms}
+      </>
+    );
+  const visibleHeadings = page.blocks.filter(
+    (block) => !block.archived && block.type === "heading",
+  );
+  const levels = new Map<string, number>();
+  let previousLevel = 0;
+  for (const block of visibleHeadings) {
+    const level =
+      previousLevel === 0
+        ? 1
+        : Math.min(block.level === 1 ? 2 : block.level, previousLevel + 1);
+    levels.set(block.id, level);
+    previousLevel = level;
+  }
+  const firstImageId = page.blocks.find(
+    (block) => !block.archived && block.type === "image",
+  )?.id;
   const renderBlock = (block: PageBlock) => {
     const linked = linkedText(block);
     switch (block.type) {
       case "heading": {
-        const Heading =
-          block.level === 1 ? "h1" : block.level === 3 ? "h3" : "h2";
+        const level = levels.get(block.id) ?? block.level;
+        const Heading = level === 1 ? "h1" : level === 3 ? "h3" : "h2";
         return (
           <Heading
             key={block.id}
-            className="text-waambat-pink whitespace-pre-line"
+            className={`text-waambat-pink whitespace-pre-line ${block.level === 3 ? "source-small-heading" : "source-large-heading"}`}
           >
             {block.blankLines
               ? Array.from({ length: block.blankLines }, (_, i) => (
@@ -122,7 +160,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
             }
           >
             {block.href ? (
-              <a href={block.href}>
+              <a href={block.href} {...newTabProps(block.href)}>
                 <SourceImage
                   src={block.src}
                   sizes={
@@ -131,6 +169,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
                       : undefined
                   }
                   alt={block.text}
+                  eager={block.id === firstImageId}
                   className="w-full object-contain"
                 />
               </a>
@@ -143,6 +182,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
                     : undefined
                 }
                 alt={block.text}
+                eager={block.id === firstImageId}
                 className="w-full object-contain"
               />
             )}
@@ -197,9 +237,15 @@ export default function ContentPage({ page }: { page: SitePage }) {
           <ol key={block.id} className="source-list list-decimal pl-8">
             {block.items.map((item, i) => (
               <li key={i}>
-                <h3>
-                  {item.href ? <a href={item.href}>{item.text}</a> : item.text}
-                </h3>
+                <span className="source-list-label">
+                  {item.href ? (
+                    <a href={item.href} {...newTabProps(item.href)}>
+                      {item.text}
+                    </a>
+                  ) : (
+                    item.text
+                  )}
+                </span>
               </li>
             ))}
           </ol>
@@ -236,6 +282,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
     <article
       className={`source-content ${page.layout === "biography" ? "biography-content" : ""} source-${page.layout} pb-16 ${page.layout === "image-grid" ? "grid grid-cols-4 [&>h1]:col-span-full [&>h2]:col-span-full [&>h3]:col-span-full [&>hr]:col-span-full [&>ol]:col-span-full [&>p]:col-span-full" : ""}`}
     >
+      {!visibleHeadings.length && <h1 className="sr-only">{page.title}</h1>}
       {page.layout === "biography" ? (
         <div className="bio-columns">
           <div className="bio-main">
@@ -267,6 +314,7 @@ export default function ContentPage({ page }: { page: SitePage }) {
       ) : (
         visible.map(renderBlock)
       )}
+      {renderedForms}
     </article>
   );
 }

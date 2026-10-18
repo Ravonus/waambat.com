@@ -12,6 +12,7 @@ const messageSchema = z
       .max(160)
       .regex(/^[^\r\n]+$/),
     text: z.string().min(1).max(12000),
+    replyTo: z.string().email().max(254).optional(),
   })
   .strict();
 export async function captureEmail(settings: unknown, input: unknown) {
@@ -22,7 +23,7 @@ export async function captureEmail(settings: unknown, input: unknown) {
     .sendMail({
       ...message,
       from: config.from,
-      replyTo: config.replyTo || undefined,
+      replyTo: message.replyTo || config.replyTo || undefined,
     });
   return (result.message as Buffer).toString("utf8");
 }
@@ -53,10 +54,17 @@ export function emailReadiness(settings: z.infer<typeof emailSettingsSchema>) {
     enabled: settings.enabled,
   };
 }
-// Invoke only for a separately authorized delivery. No automatic email, invitation or sign-in scope expansion.
+// Manual sends require an administrator. Public form notifications use published,
+// administrator-selected recipients and both the form and global delivery switches.
 export async function sendAdminEmail(input: unknown) {
   await requireAdmin();
   const settings = (await getPublishedContent()).email;
+  return deliverEmail(settings, input);
+}
+export async function deliverEmail(
+  settings: z.infer<typeof emailSettingsSchema>,
+  input: unknown,
+) {
   const message = messageSchema.parse(input);
   if (!emailReadiness(settings).ready)
     throw new Error(
@@ -113,7 +121,7 @@ export async function sendAdminEmail(input: unknown) {
     const result = await transport.sendMail({
       ...message,
       from: settings.from,
-      replyTo: settings.replyTo || undefined,
+      replyTo: message.replyTo || settings.replyTo || undefined,
     });
     return { accepted: result.accepted.length === 1 };
   } finally {

@@ -338,6 +338,19 @@ button:disabled {
 .source-content h3 {
   margin: 14px 0 7px;
 }
+.source-content .source-small-heading,
+.source-content .source-list-label {
+  display: block;
+  font-size: var(--site-small-heading-size);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-waambat-pink);
+  margin: 14px 0 7px;
+}
+.source-content .source-large-heading {
+  font-size: var(--site-heading-size);
+  margin: 0 0 13px;
+}
 .source-content p {
   margin: 0 0 var(--site-paragraph-gap);
 }

@@ -30,18 +30,24 @@ const Footer: React.FC = () => {
         >
           <a
             href="http://instagram.com/waambat"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="WAAMBAT on Instagram"
           >
             Instagram
           </a>
           <a
             href="https://www.youtube.com/waambat"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="WAAMBAT on YouTube"
           >
             YouTube
           </a>
           <a
             href="https://foundation.app/waambat"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="WAAMBAT on Foundation"
           >
             Foundation

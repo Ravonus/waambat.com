@@ -2,6 +2,7 @@ import { z } from "zod";
 import { instagramTarget } from "./instagram";
 import { videoSource } from "./video-source";
 import { themeSchema } from "./theme";
+import { contactFormSchema } from "./forms";
 const text = (max: number) =>
   z
     .string()
@@ -298,6 +299,15 @@ export const pageSchema = z
       .default("article"),
     archived: z.boolean().default(false),
     blocks: z.array(pageBlockSchema).max(250),
+    seo: z
+      .object({
+        title: text(160).default(""),
+        description: text(320).default(""),
+        image: mediaLink.default(""),
+        noIndex: z.boolean().default(false),
+      })
+      .strict()
+      .default({}),
     archive: z.array(archiveItemSchema).max(100).default([]),
   })
   .strict();
@@ -320,6 +330,9 @@ export const contentSchema = z
     pages: z.array(pageSchema).max(80).default([]),
     navigation: z.array(navigationSchema).max(50).default([]),
     email: emailSettingsSchema.default({}),
+    formsVersion: z.number().int().min(0).max(1).default(0),
+    mediaOptimizationVersion: z.number().int().min(0).max(1).default(0),
+    forms: z.array(contactFormSchema).max(20).default([]),
     theme: themeSchema.default({}),
   })
   .strict()
@@ -336,6 +349,14 @@ export const contentSchema = z
     if (new Set(doc.pages.map((p) => p.slug)).size !== doc.pages.length)
       ctx.addIssue({ code: "custom", message: "Page slugs must be unique" });
     const pages = new Map(doc.pages.map((p) => [p.slug, p]));
+    if (new Set(doc.forms.map((form) => form.id)).size !== doc.forms.length)
+      ctx.addIssue({ code: "custom", message: "Form IDs must be unique" });
+    for (const form of doc.forms)
+      if (form.enabled && !pages.has(form.page))
+        ctx.addIssue({
+          code: "custom",
+          message: `Form page /${form.page} does not exist`,
+        });
     if (new Set(doc.navigation.map((n) => n.id)).size !== doc.navigation.length)
       ctx.addIssue({
         code: "custom",
