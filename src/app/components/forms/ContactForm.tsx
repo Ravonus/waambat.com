@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useId, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import type { AnswerValue, PublicContactForm } from "~/lib/forms";
 import FormField from "./FormField";
@@ -17,10 +17,12 @@ export default function ContactForm({
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const status = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (message) status.current?.focus();
-  }, [message]);
+  const focusStatus = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (node && (errors._form || message)) node.focus();
+    },
+    [errors._form, message],
+  );
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (busy) return;
@@ -143,7 +145,7 @@ export default function ContactForm({
           </div>
         </fieldset>
         <div
-          ref={status}
+          ref={focusStatus}
           role="status"
           aria-live="polite"
           tabIndex={-1}

@@ -365,12 +365,7 @@ try {
   await rp.getByRole("button", { name: "Menu", exact: true }).click();
   await rp.getByRole("link", { name: "bio", exact: true }).click();
   await rp.waitForURL(`${origin}/bio-waambat`);
-  assert.equal(
-    await rp
-      .locator("[data-route-pulse]")
-      .evaluate((el) => getComputedStyle(el).display),
-    "none",
-  );
+  await rp.locator("#mobile-site-menu").waitFor({ state: "detached" });
   assert.equal(
     await rp
       .locator("[data-pink-cursor] span")

@@ -1,5 +1,7 @@
 import "~/styles/globals.css";
+import "~/styles/navigation.css";
 import RouteEffects from "./components/RouteEffects";
+import NavigationProvider from "./components/navigation/NavigationProvider";
 import type { Metadata } from "next";
 import { adobeProjectURL } from "~/lib/adobe-project";
 import { pageMetadata, siteOrigin, siteDescription } from "~/lib/seo";
@@ -42,8 +44,10 @@ export default function RootLayout({
         >
           Skip to artwork
         </a>
-        <RouteEffects />
-        {children}
+        <NavigationProvider>
+          <RouteEffects />
+          {children}
+        </NavigationProvider>
       </body>
     </html>
   );

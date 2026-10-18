@@ -1,26 +1,23 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import Link, { useLinkStatus } from "next/link";
+import { useCallback, useRef, ViewTransition } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { defaultNavigation, type Content } from "~/lib/content";
+import type { Content } from "~/lib/content";
+import { routeAddress } from "~/lib/navigation";
+import SiteLink from "./navigation/SiteLink";
+import {
+  useMenuPhase,
+  useNavigationStoreApi,
+} from "./navigation/NavigationProvider";
+import { mountMobileMenu } from "./navigation/mobile-menu";
 import styles from "./Header.module.css";
-
-function NavigationHint() {
-  const { pending } = useLinkStatus();
-  return (
-    <span role="status" aria-live="polite" className="sr-only">
-      {pending ? "Loading page" : null}
-    </span>
-  );
-}
 
 export default function Header({
   preview = false,
-  navigation = defaultNavigation,
+  navigation,
   hero = false,
 }: {
   preview?: boolean;
-  navigation?: Content["navigation"];
+  navigation: Content["navigation"];
   hero?: boolean;
 }) {
   const pathname = usePathname();
@@ -30,184 +27,81 @@ export default function Header({
       ? "/"
       : `/${params.get("page") ?? "nfts"}`
     : pathname;
-  const routeKey = `${pathname}?${params.toString()}`;
-  // Dismiss when Next accepts navigation. Modifier clicks keep this menu open;
-  // a committed route also clears state if navigation started elsewhere.
-  const [openedAt, setOpenedAt] = useState<string | null>(null);
-  const [observedRoute, setObservedRoute] = useState(routeKey);
-  if (observedRoute !== routeKey) {
-    setObservedRoute(routeKey);
-    setOpenedAt(null);
-  }
-  const open = openedAt === routeKey;
+  const routeKey = routeAddress(pathname, params.toString());
+  const phase = useMenuPhase();
+  const open = phase !== "closed";
+  const store = useNavigationStoreApi();
   const header = useRef<HTMLElement>(null);
   const button = useRef<HTMLButtonElement>(null);
-  const dialog = useRef<HTMLDialogElement>(null);
-  const closeButton = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!open || !dialog.current) return;
-    const panel = dialog.current;
-    const site = header.current?.closest<HTMLElement>(".site-theme");
-    if (!site) return;
-    const trigger = button.current;
-    const body = document.body;
-    const root = document.documentElement;
-    const scrollX = window.scrollX;
-    const scrollY = window.scrollY;
-    const location = window.location.href;
-    const saved = {
-      position: body.style.position,
-      top: body.style.top,
-      left: body.style.left,
-      width: body.style.width,
-      overflow: body.style.overflow,
-      rootOverflow: root.style.overflow,
-      scrollBehavior: root.style.scrollBehavior,
-    };
-    body.style.position = "fixed";
-    body.style.top = `${-scrollY}px`;
-    body.style.left = `${-scrollX}px`;
-    body.style.width = "100%";
-    body.style.overflow = "hidden";
-    root.style.overflow = "hidden";
-    // The existing page logo stays in its own position above the overlay.
-    // A regular dialog permits that stacking; the enclosing site owns the
-    // modal semantics, background inertness, and focus containment.
-    const attributes = [
-      "role",
-      "aria-modal",
-      "aria-label",
-      "data-menu-open",
-    ].map((name) => [name, site.getAttribute(name)] as const);
-    site.setAttribute("role", "dialog");
-    site.setAttribute("aria-modal", "true");
-    site.setAttribute("aria-label", "Main navigation");
-    site.dataset.menuOpen = "true";
-    const background = Array.from(site.children).filter(
-      (node): node is HTMLElement =>
-        node instanceof HTMLElement &&
-        node !== header.current &&
-        !node.matches("[data-hero]"),
-    );
-    const inert = background.map((node) => [node, node.inert] as const);
-    for (const node of background) node.inert = true;
-    panel.show();
-    const close = () => setOpenedAt(null);
-    window.addEventListener("waambat:close-menu", close);
-    document.dispatchEvent(new Event("waambat:media-visibility"));
-    closeButton.current?.focus({ preventScroll: true });
-    const trapFocus = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        setOpenedAt(null);
-        return;
+  const controller = useRef<ReturnType<typeof mountMobileMenu>>(undefined);
+  const headerRef = useCallback(
+    (node: HTMLElement | null) => {
+      header.current = node;
+      const state = store.getState();
+      if (node && state.menuOrigin !== null && state.menuOrigin !== routeKey) {
+        controller.current?.releaseForNavigation();
+        state.closeMenu();
       }
-      if (event.key !== "Tab") return;
-      const targets = Array.from(
-        site.querySelectorAll<HTMLElement>(
-          'a[href], button:not(:disabled), [tabindex="0"]',
-        ),
-      ).filter(
-        (element) =>
-          element.getClientRects().length > 0 &&
-          !element.closest("[inert]") &&
-          getComputedStyle(element).visibility !== "hidden",
+    },
+    [routeKey, store],
+  );
+  const menuRef = useCallback(
+    (node: HTMLDialogElement | null) => {
+      if (!node || !header.current) return;
+      const state = store.getState();
+      const mounted = mountMobileMenu(
+        node,
+        header.current,
+        button.current,
+        state.closeMenu,
+        state.finishClose,
       );
-      const first = targets[0];
-      const last = targets.at(-1);
-      if (
-        (event.shiftKey && document.activeElement === first) ||
-        (!event.shiftKey && document.activeElement === last) ||
-        !site.contains(document.activeElement)
-      ) {
-        event.preventDefault();
-        (event.shiftKey ? last : first)?.focus({ preventScroll: true });
-      }
-    };
-    document.addEventListener("keydown", trapFocus);
-    const desktop = window.matchMedia("(min-width: 768px)");
-    const resize = () => {
-      if (desktop.matches) setOpenedAt(null);
-    };
-    desktop.addEventListener("change", resize);
-    resize();
-    return () => {
-      desktop.removeEventListener("change", resize);
-      document.removeEventListener("keydown", trapFocus);
-      panel.close();
-      window.removeEventListener("waambat:close-menu", close);
-      for (const [node, previous] of inert) node.inert = previous;
-      for (const [name, value] of attributes) {
-        if (value === null) site.removeAttribute(name);
-        else site.setAttribute(name, value);
-      }
-      body.style.position = saved.position;
-      body.style.top = saved.top;
-      body.style.left = saved.left;
-      body.style.width = saved.width;
-      body.style.overflow = saved.overflow;
-      root.style.overflow = saved.rootOverflow;
-      // Dismissal restores the underlying page. Successful navigation keeps
-      // Next's destination scroll position instead of reviving the old one.
-      if (window.location.href === location) {
-        root.style.scrollBehavior = "auto";
-        window.scrollTo(scrollX, scrollY);
-        root.style.scrollBehavior = saved.scrollBehavior;
-        if (!desktop.matches) trigger?.focus({ preventScroll: true });
-      }
-      document.dispatchEvent(new Event("waambat:media-visibility"));
-    };
-  }, [open]);
-
-  // The wordmark always leads home; in the private preview that is the
-  // preview's home, so the studio flow is not left for the published site.
+      controller.current = mounted;
+      return () => {
+        mounted?.dispose();
+        if (controller.current === mounted) controller.current = undefined;
+      };
+    },
+    [store],
+  );
   const home = preview ? "/admin/preview?page=nfts" : "/";
-  const goHome = (mobile: boolean) => () => {
-    if (mobile) setOpenedAt(null);
-    if (!preview) window.dispatchEvent(new Event("waambat:navigate"));
-  };
   const links = (mobile: boolean) =>
     navigation
       .filter((item) => !item.archived)
       .map((item) => (
-        <Link
+        <SiteLink
           key={item.id}
           href={
             preview && item.href.startsWith("/")
               ? `/admin/preview?page=${item.href === "/" ? "nfts" : item.href.slice(1)}`
               : item.href
           }
-          onNavigate={() => {
-            if (mobile) setOpenedAt(null);
-            if (!preview) window.dispatchEvent(new Event("waambat:navigate"));
-          }}
+          label={item.label}
           aria-current={current === item.href ? "page" : undefined}
           className={`site-nav-link ${styles.link} ${mobile ? styles.mobileLink : ""} leading-[19.503px] tracking-[.06em]`}
         >
           {item.label}
-          <NavigationHint />
-        </Link>
+          <span className={styles.linkProgress} aria-hidden="true" />
+        </SiteLink>
       ));
-
   return (
     <header
-      ref={header}
+      ref={headerRef}
       data-menu-open={open || undefined}
       className="site-header mx-auto w-full max-w-none text-center"
       data-with-hero={hero || undefined}
     >
-      <Link
+      <SiteLink
         href={home}
-        onNavigate={goHome(open)}
+        label="NFTs"
         className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`}
         aria-label="waambat home"
       >
         waambat
-      </Link>
+      </SiteLink>
       <button
         ref={button}
-        onClick={() => setOpenedAt(routeKey)}
+        onClick={() => store.getState().openMenu(routeKey)}
         aria-expanded={open}
         aria-haspopup="dialog"
         aria-controls="mobile-site-menu"
@@ -234,30 +128,39 @@ export default function Header({
         {links(false)}
       </nav>
       {open && (
-        <dialog
-          ref={dialog}
-          id="mobile-site-menu"
-          role="presentation"
-          className={styles.overlay}
-          onCancel={(event) => {
-            event.preventDefault();
-            setOpenedAt(null);
-          }}
-        >
-          <div className={styles.overlayHeader}>
-            <button
-              ref={closeButton}
-              onClick={() => setOpenedAt(null)}
-              className={styles.closeButton}
-              aria-label="Close menu"
-            >
-              <span aria-hidden="true">×</span> Close
-            </button>
-          </div>
-          <nav className={styles.mobileNav} aria-label="Mobile navigation">
-            {links(true)}
-          </nav>
-        </dialog>
+        <ViewTransition exit="menu-exit" default="none">
+          <dialog
+            ref={menuRef}
+            id="mobile-site-menu"
+            role="presentation"
+            className={styles.overlay}
+            data-phase={phase}
+            onCancel={(event) => {
+              event.preventDefault();
+              store.getState().closeMenu();
+            }}
+            onAnimationEnd={(event) => {
+              if (
+                event.target === event.currentTarget &&
+                store.getState().menu === "closing"
+              )
+                store.getState().finishClose();
+            }}
+          >
+            <div className={styles.overlayHeader}>
+              <button
+                onClick={() => store.getState().closeMenu()}
+                className={styles.closeButton}
+                aria-label="Close menu"
+              >
+                <span aria-hidden="true">×</span> Close
+              </button>
+            </div>
+            <nav className={styles.mobileNav} aria-label="Mobile navigation">
+              {links(true)}
+            </nav>
+          </dialog>
+        </ViewTransition>
       )}
     </header>
   );

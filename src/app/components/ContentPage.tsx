@@ -7,6 +7,7 @@ import ArtworkCard from "./ArtworkCard";
 import { newTabProps } from "~/lib/new-tab";
 import type { PublicContactForm } from "~/lib/forms";
 import ContactForm from "./forms/ContactForm";
+import SourceLink from "./SourceLink";
 function linkedText(block: PageBlock): ReactNode {
   function emphasized(value: string): ReactNode {
     const pieces: ReactNode[] = [];
@@ -36,7 +37,7 @@ function linkedText(block: PageBlock): ReactNode {
   }
   if (block.href)
     return (
-      <a
+      <SourceLink
         className={
           block.type === "heading"
             ? "source-heading-link"
@@ -46,7 +47,7 @@ function linkedText(block: PageBlock): ReactNode {
         {...newTabProps(block.href)}
       >
         {emphasized(block.text)}
-      </a>
+      </SourceLink>
     );
   const parts: ReactNode[] = [];
   let remaining = block.text,
@@ -66,7 +67,7 @@ function linkedText(block: PageBlock): ReactNode {
     }
     parts.push(
       emphasized(remaining.slice(0, match.index)),
-      <a
+      <SourceLink
         key={offset + match.index}
         className={
           block.type === "heading"
@@ -77,7 +78,7 @@ function linkedText(block: PageBlock): ReactNode {
         {...newTabProps(match.link.href)}
       >
         {emphasized(match.link.text)}
-      </a>,
+      </SourceLink>,
     );
     offset += match.index + match.link.text.length;
     remaining = remaining.slice(match.index + match.link.text.length);
@@ -164,7 +165,7 @@ export default function ContentPage({
             }
           >
             {block.href ? (
-              <a href={block.href} {...newTabProps(block.href)}>
+              <SourceLink href={block.href} {...newTabProps(block.href)}>
                 <SourceImage
                   src={block.src}
                   sizes={
@@ -176,7 +177,7 @@ export default function ContentPage({
                   eager={block.id === firstImageId}
                   className="w-full object-contain"
                 />
-              </a>
+              </SourceLink>
             ) : (
               <SourceImage
                 src={block.src}
@@ -244,9 +245,9 @@ export default function ContentPage({
               <li key={i}>
                 <span className="source-list-label">
                   {item.href ? (
-                    <a href={item.href} {...newTabProps(item.href)}>
+                    <SourceLink href={item.href} {...newTabProps(item.href)}>
                       {item.text}
-                    </a>
+                    </SourceLink>
                   ) : (
                     item.text
                   )}

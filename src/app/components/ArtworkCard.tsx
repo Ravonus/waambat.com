@@ -7,6 +7,7 @@ import { useViewportPlayback } from "./useViewportPlayback";
 import { PlaybackButton, MediaIcon } from "./MediaControls";
 import { newTabProps } from "~/lib/new-tab";
 import { useAdaptiveVideo } from "./useAdaptiveVideo";
+import { useMediaPreference, useSaveData } from "./useMediaPreference";
 import { adaptivePoster, adaptivePreview } from "~/lib/adaptive-media";
 import { paintingPoster } from "~/lib/painting-source";
 export type { Artwork } from "~/lib/content";
@@ -79,8 +80,10 @@ export default function ArtworkCard({
     0.5,
   );
   const { requested, wanted } = lifecycle;
-  const [mobile, setMobile] = useState(false);
-  const [sourceReady, setSourceReady] = useState(false);
+  const smallScreen = useMediaPreference("(max-width: 767px)");
+  const savingData = useSaveData();
+  const mobile = smallScreen || savingData;
+  const sourceReady = smallScreen !== undefined;
   const [shownSource, setShownSource] = useState("");
   const [error, setError] = useState(false);
   const [intrinsic, setIntrinsic] = useState<{
@@ -103,23 +106,6 @@ export default function ArtworkCard({
     (naturalAspect && intrinsic?.src === selectedSource
       ? intrinsic.ratio
       : undefined);
-  useEffect(() => {
-    const query = matchMedia("(max-width: 767px)");
-    const update = () => {
-      setMobile(
-        query.matches ||
-          !!(navigator as Navigator & { connection?: { saveData?: boolean } })
-            .connection?.saveData,
-      );
-      setSourceReady(true);
-    };
-    const initial = requestAnimationFrame(update);
-    query.addEventListener("change", update);
-    return () => {
-      cancelAnimationFrame(initial);
-      query.removeEventListener("change", update);
-    };
-  }, []);
   useEffect(() => {
     const element = video.current;
     if (wanted && !error) void element?.play().catch(() => setPlaying(false));

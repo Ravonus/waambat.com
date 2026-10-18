@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useCallback, useRef, useState, type KeyboardEvent } from "react";
 import styles from "./forms.module.css";
 
 // Native form validation + a themed, keyboard-operated listbox share one value.
@@ -33,34 +33,39 @@ export default function FormSelect({
   const button = useRef<HTMLButtonElement>(null);
   const native = useRef<HTMLSelectElement>(null);
   const search = useRef({ value: "", time: 0 });
-  useEffect(() => {
-    const close = (event: PointerEvent) => {
-      if (!root.current?.contains(event.target as Node)) setOpen(false);
-    };
-    const reset = () => {
-      setValue(defaultValue);
-      setOpen(false);
-      queueMicrotask(() => {
-        if (native.current) native.current.value = defaultValue;
-      });
-    };
-    const form = native.current?.form;
-    document.addEventListener("pointerdown", close);
-    form?.addEventListener("reset", reset);
-    return () => {
-      document.removeEventListener("pointerdown", close);
-      form?.removeEventListener("reset", reset);
-    };
-  }, [defaultValue]);
-  useEffect(() => {
-    if (!open) return;
+  const connectNative = useCallback(
+    (node: HTMLSelectElement | null) => {
+      native.current = node;
+      if (!node) return;
+      const close = (event: PointerEvent) => {
+        if (!root.current?.contains(event.target as Node)) setOpen(false);
+      };
+      const reset = () => {
+        setValue(defaultValue);
+        setOpen(false);
+        queueMicrotask(() => {
+          if (node.isConnected) node.value = defaultValue;
+        });
+      };
+      const form = node.form;
+      document.addEventListener("pointerdown", close);
+      form?.addEventListener("reset", reset);
+      return () => {
+        document.removeEventListener("pointerdown", close);
+        form?.removeEventListener("reset", reset);
+        if (native.current === node) native.current = null;
+      };
+    },
+    [defaultValue],
+  );
+  const openList = () => {
     const bounds = root.current?.getBoundingClientRect();
     if (bounds) setAbove(innerHeight - bounds.bottom < 280 && bounds.top > 280);
-    const panel = list.current;
-    const option = panel?.querySelector<HTMLElement>(
-      `[data-option="${active}"]`,
-    );
-    if (panel && option) {
+    setOpen(true);
+  };
+  const keepVisible = (option: HTMLDivElement | null, index: number) => {
+    const panel = option?.parentElement;
+    if (panel && option && active === index) {
       if (option.offsetTop < panel.scrollTop)
         panel.scrollTop = option.offsetTop;
       else if (
@@ -70,7 +75,7 @@ export default function FormSelect({
         panel.scrollTop =
           option.offsetTop + option.offsetHeight - panel.clientHeight;
     }
-  }, [active, open]);
+  };
   const choose = (index: number) => {
     const selected = options[index];
     if (selected === undefined) return;
@@ -95,7 +100,7 @@ export default function FormSelect({
     }
     if (["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      setOpen(true);
+      openList();
       setActive((index) =>
         event.key === "Home"
           ? 0
@@ -114,7 +119,7 @@ export default function FormSelect({
     } else if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       if (open) choose(active);
-      else setOpen(true);
+      else openList();
     } else if (event.key.length === 1 && !event.ctrlKey && !event.metaKey) {
       const now = Date.now();
       search.current = {
@@ -127,7 +132,7 @@ export default function FormSelect({
         option.toLowerCase().startsWith(search.current.value),
       );
       if (index >= 0) {
-        setOpen(true);
+        openList();
         setActive(index);
       }
     }
@@ -135,7 +140,7 @@ export default function FormSelect({
   return (
     <div ref={root} className={styles.select}>
       <select
-        ref={native}
+        ref={connectNative}
         name={name}
         value={value}
         required={required}
@@ -145,7 +150,7 @@ export default function FormSelect({
         onChange={(event) => setValue(event.target.value)}
         onInvalid={(event) => {
           event.preventDefault();
-          setOpen(true);
+          openList();
           button.current?.focus();
         }}
       >
@@ -171,7 +176,8 @@ export default function FormSelect({
         onKeyDown={key}
         onClick={() => {
           setActive(Math.max(0, options.indexOf(value)));
-          setOpen(!open);
+          if (open) setOpen(false);
+          else openList();
         }}
         className={`${styles.control} ${styles.selectButton} ${value ? styles.chosen : ""}`}
       >
@@ -206,6 +212,7 @@ export default function FormSelect({
               key={option}
               id={`${id}-option-${index}`}
               data-option={index}
+              ref={(node) => keepVisible(node, index)}
               role="option"
               aria-selected={value === option}
               data-active={active === index}

@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import SiteLink from "./components/navigation/SiteLink";
 export default function ErrorPage({ reset }: { reset: () => void }) {
   return (
     <main id="main-content" className="mx-auto max-w-[1080px] px-5 py-16">
@@ -8,7 +8,7 @@ export default function ErrorPage({ reset }: { reset: () => void }) {
       <button type="button" onClick={reset} className="text-waambat-link mr-5">
         Try again
       </button>
-      <Link href="/">Return home</Link>
+      <SiteLink href="/">Return home</SiteLink>
     </main>
   );
 }
