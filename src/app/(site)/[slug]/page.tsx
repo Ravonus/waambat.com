@@ -6,6 +6,7 @@ import { getPublishedContent } from "~/server/content";
 import { requirePreviewAccess } from "~/server/preview-access";
 import { publicForm } from "~/lib/forms";
 import { pageDescription, pageMetadata } from "~/lib/seo";
+import PageTransition from "~/app/components/navigation/PageTransition";
 export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
@@ -39,9 +40,13 @@ export default async function Page({
   const page = content.pages.find((p) => p.slug === slug && !p.archived);
   if (!page) notFound();
   if (["splash", "split-splash"].includes(page.layout))
-    return <LegacySplash page={page} theme={content.theme} />;
+    return (
+      <PageTransition key={slug} routeKey={`/${slug}`}>
+        <LegacySplash page={page} theme={content.theme} />
+      </PageTransition>
+    );
   return (
-    <>
+    <PageTransition key={slug} routeKey={`/${slug}`}>
       <ContentPage
         page={page}
         forms={content.forms
@@ -49,6 +54,6 @@ export default async function Page({
           .map(publicForm)}
       />
       <Gallery content={content} page={slug} />
-    </>
+    </PageTransition>
   );
 }

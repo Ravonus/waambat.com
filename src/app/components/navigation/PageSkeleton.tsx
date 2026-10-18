@@ -1,29 +1,21 @@
 "use client";
-import { use, ViewTransition } from "react";
+import { use } from "react";
 import { usePathname } from "next/navigation";
 import { fallbackRoute, type SkeletonKind } from "~/lib/navigation";
-import {
-  PageRoutesContext,
-  useRouteAnimations,
-  useNavigation,
-} from "./NavigationProvider";
+import { PageRoutesContext, useNavigation } from "./NavigationProvider";
 import styles from "./navigation.module.css";
+import PageTransition from "./PageTransition";
 
 export default function PageSkeleton({ kind }: { kind?: SkeletonKind }) {
   const pathname = usePathname();
   const { target } = useNavigation();
-  const animate = useRouteAnimations();
   const routes = use(PageRoutesContext);
   const address = target?.href.split(/[?#]/)[0] ?? pathname;
   const route =
     routes.find((entry) => entry.href === address) ?? fallbackRoute(address);
   const layout = kind ?? route.kind;
   return (
-    <ViewTransition
-      enter={animate ? "skeleton-enter" : "none"}
-      exit={animate ? "skeleton-exit" : "none"}
-      default="none"
-    >
+    <PageTransition skeleton>
       <section
         className={styles.skeleton}
         role="status"
@@ -84,6 +76,6 @@ export default function PageSkeleton({ kind }: { kind?: SkeletonKind }) {
           )}
         </div>
       </section>
-    </ViewTransition>
+    </PageTransition>
   );
 }
