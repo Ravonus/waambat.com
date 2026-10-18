@@ -16,7 +16,6 @@ export default function ContactForm({
   const submissionId = useRef<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const status = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -46,7 +45,6 @@ export default function ContactForm({
     setBusy(true);
     setErrors({});
     setMessage("");
-    setSuccess(false);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -73,7 +71,6 @@ export default function ContactForm({
       }
       element.reset();
       submissionId.current = null;
-      setSuccess(true);
       setMessage(form.successMessage);
     } catch (error) {
       setMessage(
@@ -100,6 +97,9 @@ export default function ContactForm({
       <form
         method="post"
         action="/api/contact"
+        onInput={() => {
+          if (message) setMessage("");
+        }}
         onSubmit={(event) => void submit(event)}
       >
         <fieldset disabled={busy} className={styles.grid}>
@@ -121,9 +121,23 @@ export default function ContactForm({
             </label>
           </div>
           <div className={styles.actions}>
-            <button type="submit" className={styles.submit}>
-              {busy ? "Sending…" : form.submitLabel}
-              <span aria-hidden="true">↗</span>
+            <button type="submit" className={styles.submit} data-busy={busy}>
+              <span>{busy ? "Sending…" : form.submitLabel}</span>
+              <span className={styles.buttonIcon} aria-hidden="true">
+                {busy ? (
+                  <i className={styles.spinner} />
+                ) : (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12h14m-6-6 6 6-6 6"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+              </span>
             </button>
             <span className={styles.help}>* Required</span>
           </div>
@@ -133,7 +147,7 @@ export default function ContactForm({
           role="status"
           aria-live="polite"
           tabIndex={-1}
-          className={`${styles.status} ${success ? styles.success : ""}`}
+          className={styles.status}
         >
           {errors._form || message}
         </div>

@@ -31,8 +31,8 @@ export default function Header({
       : `/${params.get("page") ?? "nfts"}`
     : pathname;
   const routeKey = `${pathname}?${params.toString()}`;
-  // A click starts navigation; only a committed route dismisses the menu.
-  // An interrupted request leaves the close control and links available.
+  // Dismiss when Next accepts navigation. Modifier clicks keep this menu open;
+  // a committed route also clears state if navigation started elsewhere.
   const [openedAt, setOpenedAt] = useState<string | null>(null);
   const [observedRoute, setObservedRoute] = useState(routeKey);
   if (observedRoute !== routeKey) {
@@ -40,6 +40,7 @@ export default function Header({
     setOpenedAt(null);
   }
   const open = openedAt === routeKey;
+  const header = useRef<HTMLElement>(null);
   const button = useRef<HTMLButtonElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
@@ -47,6 +48,8 @@ export default function Header({
   useEffect(() => {
     if (!open || !dialog.current) return;
     const panel = dialog.current;
+    const site = header.current?.closest<HTMLElement>(".site-theme");
+    if (!site) return;
     const trigger = button.current;
     const body = document.body;
     const root = document.documentElement;
@@ -68,22 +71,55 @@ export default function Header({
     body.style.width = "100%";
     body.style.overflow = "hidden";
     root.style.overflow = "hidden";
-    panel.showModal();
+    // The existing page logo stays in its own position above the overlay.
+    // A regular dialog permits that stacking; the enclosing site owns the
+    // modal semantics, background inertness, and focus containment.
+    const attributes = [
+      "role",
+      "aria-modal",
+      "aria-label",
+      "data-menu-open",
+    ].map((name) => [name, site.getAttribute(name)] as const);
+    site.setAttribute("role", "dialog");
+    site.setAttribute("aria-modal", "true");
+    site.setAttribute("aria-label", "Main navigation");
+    site.dataset.menuOpen = "true";
+    const background = Array.from(site.children).filter(
+      (node): node is HTMLElement =>
+        node instanceof HTMLElement &&
+        node !== header.current &&
+        !node.matches("[data-hero]"),
+    );
+    const inert = background.map((node) => [node, node.inert] as const);
+    for (const node of background) node.inert = true;
+    panel.show();
+    const close = () => setOpenedAt(null);
+    window.addEventListener("waambat:close-menu", close);
     document.dispatchEvent(new Event("waambat:media-visibility"));
     closeButton.current?.focus({ preventScroll: true });
     const trapFocus = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpenedAt(null);
+        return;
+      }
       if (event.key !== "Tab") return;
       const targets = Array.from(
-        panel.querySelectorAll<HTMLElement>(
+        site.querySelectorAll<HTMLElement>(
           'a[href], button:not(:disabled), [tabindex="0"]',
         ),
-      ).filter((element) => element.getClientRects().length > 0);
+      ).filter(
+        (element) =>
+          element.getClientRects().length > 0 &&
+          !element.closest("[inert]") &&
+          getComputedStyle(element).visibility !== "hidden",
+      );
       const first = targets[0];
       const last = targets.at(-1);
       if (
         (event.shiftKey && document.activeElement === first) ||
         (!event.shiftKey && document.activeElement === last) ||
-        !panel.contains(document.activeElement)
+        !site.contains(document.activeElement)
       ) {
         event.preventDefault();
         (event.shiftKey ? last : first)?.focus({ preventScroll: true });
@@ -100,6 +136,12 @@ export default function Header({
       desktop.removeEventListener("change", resize);
       document.removeEventListener("keydown", trapFocus);
       panel.close();
+      window.removeEventListener("waambat:close-menu", close);
+      for (const [node, previous] of inert) node.inert = previous;
+      for (const [name, value] of attributes) {
+        if (value === null) site.removeAttribute(name);
+        else site.setAttribute(name, value);
+      }
       body.style.position = saved.position;
       body.style.top = saved.top;
       body.style.left = saved.left;
@@ -137,7 +179,7 @@ export default function Header({
               : item.href
           }
           onNavigate={() => {
-            if (mobile && current === item.href) setOpenedAt(null);
+            if (mobile) setOpenedAt(null);
             if (!preview) window.dispatchEvent(new Event("waambat:navigate"));
           }}
           aria-current={current === item.href ? "page" : undefined}
@@ -150,12 +192,14 @@ export default function Header({
 
   return (
     <header
+      ref={header}
+      data-menu-open={open || undefined}
       className="site-header mx-auto w-full max-w-none text-center"
       data-with-hero={hero || undefined}
     >
       <Link
         href={home}
-        onNavigate={goHome(false)}
+        onNavigate={goHome(open)}
         className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`}
         aria-label="waambat home"
       >
@@ -193,7 +237,7 @@ export default function Header({
         <dialog
           ref={dialog}
           id="mobile-site-menu"
-          aria-label="Main navigation"
+          role="presentation"
           className={styles.overlay}
           onCancel={(event) => {
             event.preventDefault();
@@ -201,14 +245,6 @@ export default function Header({
           }}
         >
           <div className={styles.overlayHeader}>
-            <Link
-              href={home}
-              onNavigate={goHome(true)}
-              aria-label="waambat home"
-              className={`font-brand ${styles.overlayWordmark}`}
-            >
-              waambat
-            </Link>
             <button
               ref={closeButton}
               onClick={() => setOpenedAt(null)}

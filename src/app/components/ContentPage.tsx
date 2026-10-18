@@ -119,6 +119,10 @@ export default function ContentPage({
   const firstImageId = page.blocks.find(
     (block) => !block.archived && block.type === "image",
   )?.id;
+  const firstMediaId = page.blocks.find(
+    (b) =>
+      !b.archived && (b.type === "image" || (b.type === "embed" && b.loop)),
+  )?.id;
   const renderBlock = (block: PageBlock) => {
     const linked = linkedText(block);
     switch (block.type) {
@@ -194,6 +198,7 @@ export default function ContentPage({
             <ArtworkCard
               key={block.id}
               showCaption={false}
+              priority={block.id === firstMediaId}
               aspect={block.aspect}
               ratio={block.ratio}
               naturalAspect={!block.ratio && !block.aspect}

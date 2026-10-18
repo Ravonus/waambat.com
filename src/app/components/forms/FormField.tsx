@@ -1,4 +1,5 @@
 import type { FormQuestion } from "~/lib/forms";
+import FormSelect from "./FormSelect";
 import styles from "./forms.module.css";
 
 export default function FormField({
@@ -96,58 +97,53 @@ export default function FormField({
     );
   return (
     <div className={className}>
-      <label htmlFor={id} className={styles.label}>
-        {label}
-      </label>
-      {question.type === "textarea" ? (
-        <textarea
-          {...common}
-          className={styles.control}
-          rows={5}
-          maxLength={question.maxLength}
-          placeholder={question.placeholder}
-          defaultValue={question.defaultValue}
-        />
-      ) : question.type === "select" ? (
-        <div className={styles.select}>
-          <select
+      <div
+        className={`${styles.frame} ${["select", "textarea", "date"].includes(question.type) ? styles.fixedLabel : ""} ${question.label.length > (question.width === "half" ? 24 : 40) ? styles.extended : ""}`}
+      >
+        <label htmlFor={id} className={styles.floatingLabel}>
+          {label}
+        </label>
+        {question.type === "textarea" ? (
+          <textarea
             {...common}
             className={styles.control}
+            rows={3}
+            maxLength={question.maxLength}
+            placeholder={question.placeholder || " "}
             defaultValue={question.defaultValue}
-          >
-            <option value="">
-              {question.placeholder || "Choose an option"}
-            </option>
-            {question.options.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <span className={styles.arrow} aria-hidden="true">
-            ⌄
-          </span>
-        </div>
-      ) : (
-        <input
-          {...common}
-          className={styles.control}
-          type={question.type}
-          step={question.type === "number" ? "any" : undefined}
-          maxLength={question.maxLength}
-          placeholder={question.placeholder}
-          defaultValue={question.defaultValue}
-          autoComplete={
-            question.type === "email"
-              ? "email"
-              : question.type === "tel"
-                ? "tel"
-                : question.id === "name"
-                  ? "name"
-                  : undefined
-          }
-        />
-      )}
+          />
+        ) : question.type === "select" ? (
+          <FormSelect
+            id={id}
+            name={question.id}
+            options={question.options}
+            placeholder={question.placeholder || "Choose an option"}
+            defaultValue={question.defaultValue}
+            required={question.required}
+            description={description}
+            invalid={!!error}
+          />
+        ) : (
+          <input
+            {...common}
+            className={styles.control}
+            type={question.type}
+            step={question.type === "number" ? "any" : undefined}
+            maxLength={question.maxLength}
+            placeholder={question.placeholder || " "}
+            defaultValue={question.defaultValue}
+            autoComplete={
+              question.type === "email"
+                ? "email"
+                : question.type === "tel"
+                  ? "tel"
+                  : question.id === "name"
+                    ? "name"
+                    : undefined
+            }
+          />
+        )}
+      </div>
       {caption}
     </div>
   );

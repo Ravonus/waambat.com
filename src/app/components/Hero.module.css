@@ -34,7 +34,8 @@
   background: #000;
 }
 .poster {
-  animation: hero-poster-in 520ms steps(8, end) both;
+  /* The lightweight still is immediately visible while adaptive video starts. */
+  opacity: 1;
 }
 .video {
   opacity: 0;
@@ -183,4 +184,17 @@
 }
 :global([data-motion="calm"]) .hero .wordmark {
   animation-timing-function: ease-out;
+}
+
+/* While the menu is open, only this same wordmark rises above its overlay. */
+:global([data-menu-open="true"]) .hero {
+  z-index: 40;
+  background: transparent;
+  pointer-events: none;
+}
+:global([data-menu-open="true"]) .frame {
+  background: transparent;
+}
+:global([data-menu-open="true"]) .frame > :not(.wordmark) {
+  visibility: hidden;
 }

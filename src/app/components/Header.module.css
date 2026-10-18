@@ -28,7 +28,6 @@
 }
 .link:focus-visible,
 .logo:focus-visible,
-.overlayWordmark:focus-visible,
 .menuButton:focus-visible,
 .closeButton:focus-visible {
   outline: 2px solid var(--color-waambat-logo, #ff94b2);
@@ -54,6 +53,7 @@
 }
 .overlay {
   position: fixed;
+  z-index: 50;
   inset: 0;
   margin: 0;
   width: 100%;
@@ -82,21 +82,12 @@
   background: var(--site-background, #000);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 24px;
 }
 .logo:hover,
-.logo:focus-visible,
-.overlayWordmark:hover,
-.overlayWordmark:focus-visible {
+.logo:focus-visible {
   color: var(--color-waambat-logo, #ff94b2);
-}
-.overlayWordmark {
-  display: inline-block;
-  color: var(--color-waambat-logo, #ff94b2);
-  text-decoration: none;
-  font-size: var(--site-logo-size, 37px);
-  line-height: 1;
 }
 .closeButton {
   min-width: 76px;
@@ -151,4 +142,12 @@
   .overlay {
     animation: none;
   }
+}
+
+:global([data-menu-open="true"]) .logo {
+  position: relative;
+  z-index: 51;
+}
+:global([data-menu-open="true"]) .menuButton {
+  visibility: hidden;
 }

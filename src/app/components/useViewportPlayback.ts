@@ -52,7 +52,8 @@ export function useViewportPlayback(
     preferences();
     const observer = new IntersectionObserver(
       (entries) => {
-        visible.current = !!entries[0]?.isIntersecting;
+        visible.current =
+          !!entries[0]?.isIntersecting && entries[0].intersectionRatio >= 0.1;
         update();
       },
       { threshold: [0, 0.1] },

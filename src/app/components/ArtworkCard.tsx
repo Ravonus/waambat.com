@@ -6,6 +6,8 @@ import VideoEmbed from "./VideoEmbed";
 import { useViewportPlayback } from "./useViewportPlayback";
 import { PlaybackButton, MediaIcon } from "./MediaControls";
 import { newTabProps } from "~/lib/new-tab";
+import { useAdaptiveVideo } from "./useAdaptiveVideo";
+import { adaptivePoster, adaptivePreview } from "~/lib/adaptive-media";
 import { paintingPoster } from "~/lib/painting-source";
 export type { Artwork } from "~/lib/content";
 function Poster({
@@ -15,8 +17,10 @@ function Poster({
   artwork: Artwork;
   priority: boolean;
 }) {
-  if (!artwork.poster) return null;
-  const poster = paintingPoster(artwork.poster);
+  const still = artwork.poster || adaptivePreview(artwork.videoSrc)?.poster;
+  if (!still) return null;
+  const source = adaptivePoster(still);
+  const poster = paintingPoster(source);
   // Original animated GIFs remain untouched; local paintings have responsive stills.
   return (
     <picture className="block h-full w-full">
@@ -28,7 +32,7 @@ function Poster({
         />
       )}
       <img
-        src={artwork.poster}
+        src={source}
         srcSet={poster.srcSet}
         sizes="(max-width: 767px) calc(100vw - 40px), 960px"
         alt={artwork.title}
@@ -87,8 +91,14 @@ export default function ArtworkCard({
     mobile && artwork.mobileVideoSrc
       ? artwork.mobileVideoSrc
       : artwork.previewSrc || artwork.videoSrc;
+  useAdaptiveVideo(
+    video,
+    requested && sourceReady && !error ? selectedSource : undefined,
+    wanted,
+  );
   const mediaRatio =
     ratio ??
+    (naturalAspect ? adaptivePreview(artwork.videoSrc)?.ratio : undefined) ??
     (naturalAspect && intrinsic?.src === selectedSource
       ? intrinsic.ratio
       : undefined);
@@ -187,7 +197,6 @@ export default function ArtworkCard({
               <video
                 key={selectedSource}
                 ref={video}
-                src={selectedSource}
                 muted={muted}
                 loop={!trailer}
                 controls={trailer}
@@ -215,7 +224,8 @@ export default function ArtworkCard({
                 }}
                 onPause={() => setPlaying(false)}
                 onPlaying={() => setShownSource(selectedSource)}
-                onError={() => {
+                onError={(event) => {
+                  if (!event.currentTarget.error) return;
                   setError(true);
                   setPlaying(false);
                   setShownSource("");
@@ -245,7 +255,7 @@ export default function ArtworkCard({
                 href={artwork.videoSrc}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline"
+                className="inline-flex min-h-11 items-center underline"
               >
                 Open original video ↗
               </a>
