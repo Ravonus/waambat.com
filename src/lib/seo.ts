@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Content, SitePage } from "./content";
+import socialImages from "~/content/social-images.json";
 export const siteOrigin = "https://waamb.at";
 export const siteDescription =
   "Video paintings, cryptoart, and Ordinals by WAAMBAT — artist Lindsay Scoggins.";
@@ -51,7 +52,11 @@ export function pageMetadata(
 ): Metadata {
   const url = new URL(path, siteOrigin).href;
   const share = new URL(
-    image || `/social/${path === "/" ? "home" : path.slice(1)}`,
+    image ||
+      (socialImages as Record<string, string>)[
+        path === "/" ? "home" : path.slice(1)
+      ] ||
+      socialImages.home,
     siteOrigin,
   ).href;
   return {

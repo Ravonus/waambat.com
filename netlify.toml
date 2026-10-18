@@ -26,6 +26,11 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+[[headers]]
+  for = "/social/cards/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 [context.deploy-preview.environment]
   WAAMBAT_PRIVATE_SITE = "0"
   AUTH_URL = "https://deploy-preview-1--waambat.netlify.app"
