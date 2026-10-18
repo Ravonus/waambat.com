@@ -59,6 +59,15 @@ const config = {
         ],
       },
       {
+        source: "/social/cards/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
         source: "/admin/:path*",
         headers: [
           { key: "Cache-Control", value: "private, no-store" },

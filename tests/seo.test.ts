@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { contentSchema } from "../src/lib/content";
 import { seedContent } from "../src/content/seed";
+import socialImages from "../src/content/social-images.json";
 import {
   indexableSite,
   pageDescription,
@@ -22,7 +23,7 @@ test("public pages have canonical metadata and an absolute social image", () => 
   assert.equal(metadata.openGraph?.url, "https://waamb.at/contact-waambat");
   assert.match(
     JSON.stringify(metadata.openGraph?.images),
-    /https:\/\/waamb.at\/social\/contact-waambat/,
+    new RegExp(`https://waamb.at${socialImages["contact-waambat"]}`),
   );
   assert.equal(
     pageMetadata("/", "Art", "Art", undefined, true).robots &&
