@@ -16,7 +16,7 @@ The admin entry remains the existing `https://waambat.netlify.app/admin` authent
 
 ## Progressive delivery and form controls
 
-`prepare-adaptive-media.mjs` builds full-duration H.264/fMP4 HLS variants with aligned two-second segments. It verifies every frame against the source display file, starts at 384px (360px for the portrait hero), and provides 640px phone / 960px gallery variants. Phone playlists exclude the desktop gallery rendition. `useAdaptiveVideo` loads the light HLS player only for requested videos, bounds forward buffering, stops loading on pause/offscreen/menu visibility, and falls back through native HLS to the existing MP4. Artist-edited sources remain untouched. The montage and its ending loop keep their separate phases.
+`prepare-adaptive-media.mjs` builds full-duration H.264/fMP4 HLS variants with aligned two-second segments. It verifies every frame against the source display file, starts at 384px (360px for the portrait hero), and provides 640px phone / 960px gallery variants. Phone playlists exclude the desktop gallery rendition. `useAdaptiveVideo` loads the light HLS player only for requested videos, bounds forward buffering, keeps a still until a painting is at least half visible (or explicitly played), stops loading on pause/offscreen/menu visibility, and falls back through native HLS to the existing MP4. Artist-edited sources remain untouched. The montage and its ending loop keep their separate phases.
 
 Posters have 384/640/768/960px AVIF and WebP versions. The representative hero still appears before video starts. Content hashes cover the playlist and segment bytes; `/streams/` and `/paintings/` use immutable caching. Originals and token links are retained.
 

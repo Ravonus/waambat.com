@@ -76,6 +76,7 @@ export default function ArtworkCard({
       else if (video.current?.readyState)
         void video.current.play().catch(() => setPlaying(false));
     },
+    0.5,
   );
   const { requested, wanted } = lifecycle;
   const [mobile, setMobile] = useState(false);
