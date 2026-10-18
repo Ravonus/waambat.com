@@ -20,9 +20,10 @@ export async function GET(
       : slug === "ordinals"
         ? "Art on Bitcoin.\nOrdinals."
         : page!.seo.title || page!.title;
-  const poster = await readFile(
-    join(process.cwd(), "public/social/artwork-1.jpg"),
-  );
+  const [poster, font] = await Promise.all([
+    readFile(join(process.cwd(), "public/social/artwork-1.jpg")),
+    readFile(join(process.cwd(), "public/social/Geist-Regular.ttf")),
+  ]);
   return new ImageResponse(
     (
       <div
@@ -32,7 +33,7 @@ export async function GET(
           background: "#000",
           color: "#fff",
           display: "flex",
-          fontFamily: "sans-serif",
+          fontFamily: "Geist",
         }}
       >
         <div
@@ -88,6 +89,7 @@ export async function GET(
     {
       width: 1200,
       height: 630,
+      fonts: [{ name: "Geist", data: font, weight: 400, style: "normal" }],
       headers: {
         "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
       },
