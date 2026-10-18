@@ -9,6 +9,7 @@ import LegacySplash from "~/app/components/LegacySplash";
 import Hero from "~/app/components/Hero";
 import { activeHero } from "~/lib/hero";
 import { publicForm } from "~/lib/forms";
+import PageTransition from "~/app/components/navigation/PageTransition";
 export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Private draft preview",
@@ -48,33 +49,37 @@ export default async function Preview({
           !state.draft.pages.find((p) => `/${p.slug}` === n.href)?.archived,
       )}
     >
-      <div className="border-waambat-pink mb-8 border p-4 text-center">
-        <strong>Private draft · revision {state.revision.slice(0, 12)}</strong>
-        <p>
-          This is the saved draft. Public visitors still see the published
-          version.
-        </p>
-        <Link href="/admin">Return to studio</Link> ·{" "}
-        <Link href="/admin/preview?page=nfts">NFTs</Link> ·{" "}
-        <Link href="/admin/preview?page=ordinals">Ordinals</Link>
-      </div>
-      {article ? (
-        <>
-          <ContentPage
-            page={article}
-            forms={state.draft.forms
-              .filter((form) => form.enabled && form.page === page)
-              .map(publicForm)}
-            preview
+      <PageTransition key={page} routeKey={`preview:${page}`}>
+        <div className="border-waambat-pink mb-8 border p-4 text-center">
+          <strong>
+            Private draft · revision {state.revision.slice(0, 12)}
+          </strong>
+          <p>
+            This is the saved draft. Public visitors still see the published
+            version.
+          </p>
+          <Link href="/admin">Return to studio</Link> ·{" "}
+          <Link href="/admin/preview?page=nfts">NFTs</Link> ·{" "}
+          <Link href="/admin/preview?page=ordinals">Ordinals</Link>
+        </div>
+        {article ? (
+          <>
+            <ContentPage
+              page={article}
+              forms={state.draft.forms
+                .filter((form) => form.enabled && form.page === page)
+                .map(publicForm)}
+              preview
+            />
+            <Gallery content={state.draft} page={page} />
+          </>
+        ) : (
+          <Gallery
+            content={state.draft}
+            page={page === "ordinals" ? "ordinals" : "nfts"}
           />
-          <Gallery content={state.draft} page={page} />
-        </>
-      ) : (
-        <Gallery
-          content={state.draft}
-          page={page === "ordinals" ? "ordinals" : "nfts"}
-        />
-      )}
+        )}
+      </PageTransition>
     </Layout>
   );
 }

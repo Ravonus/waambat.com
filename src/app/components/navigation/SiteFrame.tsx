@@ -1,10 +1,10 @@
 "use client";
-import { ViewTransition, type CSSProperties, type ReactNode } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import type { CSSProperties, ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import type { Content } from "~/lib/content";
 import type { PageRoute } from "~/lib/navigation";
 import Header from "../Header";
-import { PageRoutesContext, useRouteAnimations } from "./NavigationProvider";
+import { PageRoutesContext } from "./NavigationProvider";
 
 export default function SiteFrame({
   children,
@@ -28,11 +28,8 @@ export default function SiteFrame({
   wide?: boolean;
 }) {
   const pathname = usePathname();
-  const search = useSearchParams();
-  const animate = useRouteAnimations();
   const route = routes.find((entry) => entry.href === pathname);
   const showHero = preview ? !!hero : pathname === "/" && !!hero;
-  const routeKey = preview ? `${pathname}?${search.toString()}` : pathname;
   return (
     <PageRoutesContext value={routes}>
       {route?.splash ? (
@@ -44,32 +41,13 @@ export default function SiteFrame({
           style={style}
         >
           <Header preview={preview} navigation={navigation} hero={showHero} />
-          {showHero && (
-            <ViewTransition
-              enter={animate ? "page-enter" : "none"}
-              exit={animate ? "page-exit" : "none"}
-              default="none"
-            >
-              {hero}
-            </ViewTransition>
-          )}
+          {showHero && hero}
           <main
             id="main-content"
             tabIndex={-1}
             className={`site-main mx-auto w-full flex-grow ${wide || route?.wide ? "site-main-wide" : ""}`}
           >
-            <ViewTransition
-              name="page-content"
-              enter={animate ? "page-enter" : "none"}
-              exit={animate ? "page-exit" : "none"}
-              share={animate ? "page-change" : "none"}
-              update={animate ? "page-change" : "none"}
-              default="none"
-            >
-              <div key={routeKey} data-page-content={routeKey}>
-                {children}
-              </div>
-            </ViewTransition>
+            {children}
           </main>
           {footer}
         </div>

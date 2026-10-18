@@ -1,5 +1,6 @@
 import { requirePreviewAccess } from "~/server/preview-access";
 import Gallery from "~/app/components/Gallery";
+import PageTransition from "~/app/components/navigation/PageTransition";
 import { getPublishedContent } from "~/server/content";
 import { siteOrigin } from "~/lib/seo";
 export const dynamic = "force-dynamic";
@@ -7,7 +8,7 @@ export default async function Home() {
   await requirePreviewAccess();
   const content = await getPublishedContent();
   return (
-    <>
+    <PageTransition routeKey="/">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -38,6 +39,6 @@ export default async function Home() {
         }}
       />
       <Gallery content={content} page="nfts" />
-    </>
+    </PageTransition>
   );
 }
