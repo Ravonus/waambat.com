@@ -164,7 +164,7 @@ export default function Header({
   // preview's home, so the studio flow is not left for the published site.
   const home = preview ? "/admin/preview?page=nfts" : "/";
   const goHome = (mobile: boolean) => () => {
-    if (mobile && current === "/") setOpenedAt(null);
+    if (mobile) setOpenedAt(null);
     if (!preview) window.dispatchEvent(new Event("waambat:navigate"));
   };
   const links = (mobile: boolean) =>
