@@ -9,11 +9,12 @@ import {
   withContactStore,
 } from "~/server/contact";
 import { AdminError } from "~/server/auth";
+import { contactOriginAllowed } from "~/lib/contact-origin";
 export const runtime = "nodejs";
 export async function POST(request: Request) {
   const headers = { "Cache-Control": "no-store" };
   try {
-    if (request.headers.get("origin") !== new URL(request.url).origin)
+    if (!contactOriginAllowed(request))
       throw new ContactError(403, "Please submit from this website.");
     if (!request.headers.get("content-type")?.startsWith("application/json"))
       throw new ContactError(415, "Send JSON form data.");

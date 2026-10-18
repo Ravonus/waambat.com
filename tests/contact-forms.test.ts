@@ -22,6 +22,47 @@ import {
   updateSubmission,
 } from "../src/server/contact";
 import { captureEmail } from "../src/server/mail";
+import { contactOriginAllowed } from "../src/lib/contact-origin";
+
+test("contact origins accept exact deployed aliases behind Netlify's canonical proxy and isolate previews", () => {
+  const request = (origin: string) =>
+    new Request("https://waambat.netlify.app/api/contact", {
+      headers: { origin },
+    });
+  for (const origin of [
+    "https://waamb.at",
+    "https://www.waamb.at",
+    "https://waambat.netlify.app",
+  ])
+    assert.equal(contactOriginAllowed(request(origin), "production"), true);
+  for (const origin of [
+    "https://evil.test",
+    "null",
+    "http://waamb.at",
+    "https://waamb.at.evil.test",
+    "https://waamb.at/",
+    "https://deploy-preview-8--waambat.netlify.app",
+  ])
+    assert.equal(contactOriginAllowed(request(origin), "production"), false);
+  assert.equal(
+    contactOriginAllowed(
+      request("https://deploy-preview-8--waambat.netlify.app"),
+      "review-8",
+    ),
+    true,
+  );
+  assert.equal(
+    contactOriginAllowed(
+      request("https://deploy-preview-9--waambat.netlify.app"),
+      "review-8",
+    ),
+    false,
+  );
+  assert.equal(
+    contactOriginAllowed(request("https://waamb.at"), "review-8"),
+    false,
+  );
+});
 
 test("questions validate required answers, types, choices and archived fields on the server", () => {
   assert.throws(
