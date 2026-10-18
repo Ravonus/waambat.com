@@ -1,0 +1,984 @@
+[
+  {
+    "id": "artwork-1",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 669216,
+        "average": 607290,
+        "bytes": 2279866,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 151494
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 3216562,
+        "average": 2894123,
+        "bytes": 10865019,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 721631
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 6182127,
+        "average": 5521824,
+        "bytes": 20729846,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 1392991
+      }
+    ]
+  },
+  {
+    "id": "artwork-2",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 530536,
+        "average": 477451,
+        "bytes": 1792427,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 115987
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2501781,
+        "average": 2252090,
+        "bytes": 8454720,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 562438
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 4876574,
+        "average": 4392304,
+        "bytes": 16489439,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 1098730
+      }
+    ]
+  },
+  {
+    "id": "artwork-3",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 513933,
+        "average": 470289,
+        "bytes": 1765541,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 112356
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2231221,
+        "average": 2006972,
+        "bytes": 7534504,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 498503
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 4123098,
+        "average": 3738373,
+        "bytes": 14034475,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 921590
+      }
+    ]
+  },
+  {
+    "id": "artwork-4",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 604960,
+        "average": 552080,
+        "bytes": 2072598,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 139712
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2746229,
+        "average": 2498081,
+        "bytes": 9378209,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 632062
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 5343140,
+        "average": 4816322,
+        "bytes": 18081275,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 1222739
+      }
+    ]
+  },
+  {
+    "id": "artwork-5",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 527739,
+        "average": 459708,
+        "bytes": 1725819,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 118317
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2200893,
+        "average": 1846721,
+        "bytes": 6932895,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 438923
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 4130982,
+        "average": 3472265,
+        "bytes": 13035458,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 832534
+      }
+    ]
+  },
+  {
+    "id": "artwork-6",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 714962,
+        "average": 627457,
+        "bytes": 2355578,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 167077
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 3105476,
+        "average": 2687238,
+        "bytes": 10088336,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 737635
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 5798214,
+        "average": 4997637,
+        "bytes": 18761960,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 1380527
+      }
+    ]
+  },
+  {
+    "id": "artwork-7",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 366686,
+        "average": 290941,
+        "bytes": 1092240,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 69337
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 1429727,
+        "average": 1142931,
+        "bytes": 4290750,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 272131
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 2655900,
+        "average": 2102078,
+        "bytes": 7891550,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 508533
+      }
+    ]
+  },
+  {
+    "id": "artwork-8",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 254365,
+        "average": 230446,
+        "bytes": 865132,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 59664
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 937596,
+        "average": 816871,
+        "bytes": 3066668,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 208742
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 1654523,
+        "average": 1454401,
+        "bytes": 5460061,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 371853
+      }
+    ]
+  },
+  {
+    "id": "artwork-9",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 276230,
+        "average": 251574,
+        "bytes": 944448,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 62127
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 1182489,
+        "average": 1091811,
+        "bytes": 4098839,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 271008
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 2286947,
+        "average": 2110984,
+        "bytes": 7924982,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 523878
+      }
+    ]
+  },
+  {
+    "id": "artwork-10",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 543699,
+        "average": 506074,
+        "bytes": 1899883,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 122901
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2212317,
+        "average": 2063286,
+        "bytes": 7745919,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 519624
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 4082669,
+        "average": 3790415,
+        "bytes": 14229846,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 960547
+      }
+    ]
+  },
+  {
+    "id": "artwork-11",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 313232,
+        "average": 271838,
+        "bytes": 1020524,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 62544
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 1188105,
+        "average": 1066702,
+        "bytes": 4004574,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 254436
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 2265795,
+        "average": 2039669,
+        "bytes": 7657254,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 481960
+      }
+    ]
+  },
+  {
+    "id": "artwork-12",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 471513,
+        "average": 400065,
+        "bytes": 1501910,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 112265
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2290806,
+        "average": 1911106,
+        "bytes": 7174608,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 545430
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 4419929,
+        "average": 3685701,
+        "bytes": 13836732,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 1052364
+      }
+    ]
+  },
+  {
+    "id": "artwork-13",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 522648,
+        "average": 486435,
+        "bytes": 1826157,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 120012
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2371165,
+        "average": 2208120,
+        "bytes": 8289648,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 545545
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 4406380,
+        "average": 4084366,
+        "bytes": 15333388,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 1011873
+      }
+    ]
+  },
+  {
+    "id": "artwork-14",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 601,
+        "dimensions": "384x384",
+        "bandwidth": 235343,
+        "average": 208137,
+        "bytes": 521209,
+        "duration": 20.033333,
+        "segments": 11,
+        "firstSegmentBytes": 54106
+      },
+      {
+        "width": 640,
+        "frames": 601,
+        "dimensions": "640x640",
+        "bandwidth": 947172,
+        "average": 845426,
+        "bytes": 2117086,
+        "duration": 20.033333,
+        "segments": 11,
+        "firstSegmentBytes": 216608
+      },
+      {
+        "width": 960,
+        "frames": 601,
+        "dimensions": "960x960",
+        "bandwidth": 1840386,
+        "average": 1644403,
+        "bytes": 4117859,
+        "duration": 20.033333,
+        "segments": 11,
+        "firstSegmentBytes": 414233
+      }
+    ]
+  },
+  {
+    "id": "artwork-15",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 601,
+        "dimensions": "384x384",
+        "bandwidth": 241584,
+        "average": 213729,
+        "bytes": 535211,
+        "duration": 20.033333,
+        "segments": 11,
+        "firstSegmentBytes": 52999
+      },
+      {
+        "width": 640,
+        "frames": 601,
+        "dimensions": "640x640",
+        "bandwidth": 881433,
+        "average": 817466,
+        "bytes": 2047069,
+        "duration": 20.033333,
+        "segments": 11,
+        "firstSegmentBytes": 200712
+      },
+      {
+        "width": 960,
+        "frames": 601,
+        "dimensions": "960x960",
+        "bandwidth": 1547780,
+        "average": 1440886,
+        "bytes": 3608217,
+        "duration": 20.033333,
+        "segments": 11,
+        "firstSegmentBytes": 353528
+      }
+    ]
+  },
+  {
+    "id": "artwork-16",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 347786,
+        "average": 315101,
+        "bytes": 1182941,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 73748
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 1232070,
+        "average": 1112618,
+        "bytes": 4176953,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 256746
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 2007243,
+        "average": 1817165,
+        "bytes": 6821937,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 428180
+      }
+    ]
+  },
+  {
+    "id": "artwork-17",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 454251,
+        "average": 418437,
+        "bytes": 1570879,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 104186
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 1703033,
+        "average": 1528423,
+        "bytes": 5737952,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 362481
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 2677933,
+        "average": 2484264,
+        "bytes": 9326338,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 624061
+      }
+    ]
+  },
+  {
+    "id": "artwork-18",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 335614,
+        "average": 303283,
+        "bytes": 1138573,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 77464
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 1225187,
+        "average": 1112045,
+        "bytes": 4174800,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 291711
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 2128073,
+        "average": 1935513,
+        "bytes": 7266238,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 506684
+      }
+    ]
+  },
+  {
+    "id": "artwork-19",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 594313,
+        "average": 519017,
+        "bytes": 1948476,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 134282
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2154710,
+        "average": 1929990,
+        "bytes": 7245503,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 488244
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 3912935,
+        "average": 3514660,
+        "bytes": 13194617,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 894150
+      }
+    ]
+  },
+  {
+    "id": "artwork-20",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 1801,
+        "dimensions": "384x682",
+        "bandwidth": 1099376,
+        "average": 1003383,
+        "bytes": 7529546,
+        "duration": 60.033333,
+        "segments": 31,
+        "firstSegmentBytes": 242359
+      },
+      {
+        "width": 640,
+        "frames": 1801,
+        "dimensions": "640x1138",
+        "bandwidth": 4951985,
+        "average": 4576835,
+        "bytes": 34345329,
+        "duration": 60.033333,
+        "segments": 31,
+        "firstSegmentBytes": 1109223
+      },
+      {
+        "width": 960,
+        "frames": 1801,
+        "dimensions": "960x1706",
+        "bandwidth": 8082413,
+        "average": 7426008,
+        "bytes": 55725994,
+        "duration": 60.033333,
+        "segments": 31,
+        "firstSegmentBytes": 1746257
+      }
+    ]
+  },
+  {
+    "id": "artwork-21",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x384",
+        "bandwidth": 628602,
+        "average": 575845,
+        "bytes": 2161817,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 141721
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x640",
+        "bandwidth": 2737649,
+        "average": 2497629,
+        "bytes": 9376514,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 629499
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x960",
+        "bandwidth": 4322162,
+        "average": 3906219,
+        "bytes": 14664595,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 968206
+      }
+    ]
+  },
+  {
+    "id": "artwork-22",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 901,
+        "dimensions": "384x682",
+        "bandwidth": 1395417,
+        "average": 1276496,
+        "bytes": 4792178,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 308323
+      },
+      {
+        "width": 640,
+        "frames": 901,
+        "dimensions": "640x1138",
+        "bandwidth": 6244489,
+        "average": 5680524,
+        "bytes": 21325630,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 1399049
+      },
+      {
+        "width": 960,
+        "frames": 901,
+        "dimensions": "960x1706",
+        "bandwidth": 10529951,
+        "average": 9536413,
+        "bytes": 35801280,
+        "duration": 30.033333,
+        "segments": 16,
+        "firstSegmentBytes": 2352118
+      }
+    ]
+  },
+  {
+    "id": "artwork-23",
+    "levels": [
+      {
+        "width": 384,
+        "frames": 222,
+        "dimensions": "384x202",
+        "bandwidth": 255580,
+        "average": 236199,
+        "bytes": 273378,
+        "duration": 9.25925,
+        "segments": 5,
+        "firstSegmentBytes": 59967
+      },
+      {
+        "width": 640,
+        "frames": 222,
+        "dimensions": "640x338",
+        "bandwidth": 1204570,
+        "average": 1118299,
+        "bytes": 1294326,
+        "duration": 9.25925,
+        "segments": 5,
+        "firstSegmentBytes": 284401
+      },
+      {
+        "width": 960,
+        "frames": 222,
+        "dimensions": "960x506",
+        "bandwidth": 2276342,
+        "average": 2128334,
+        "bytes": 2463347,
+        "duration": 9.25925,
+        "segments": 5,
+        "firstSegmentBytes": 542132
+      }
+    ]
+  },
+  {
+    "id": "waambat-hero-desktop",
+    "levels": [
+      {
+        "width": 480,
+        "frames": 672,
+        "dimensions": "480x270",
+        "bandwidth": 460530,
+        "average": 286011,
+        "bytes": 1001036,
+        "duration": 28,
+        "segments": 14,
+        "firstSegmentBytes": 52849
+      },
+      {
+        "width": 1280,
+        "frames": 672,
+        "dimensions": "1280x720",
+        "bandwidth": 3097580,
+        "average": 1799811,
+        "bytes": 6299336,
+        "duration": 28,
+        "segments": 14,
+        "firstSegmentBytes": 434094
+      }
+    ]
+  },
+  {
+    "id": "waambat-hero-mobile",
+    "levels": [
+      {
+        "width": 360,
+        "frames": 672,
+        "dimensions": "360x450",
+        "bandwidth": 615376,
+        "average": 346008,
+        "bytes": 1211026,
+        "duration": 28,
+        "segments": 14,
+        "firstSegmentBytes": 70199
+      },
+      {
+        "width": 720,
+        "frames": 672,
+        "dimensions": "720x900",
+        "bandwidth": 2687782,
+        "average": 1450683,
+        "bytes": 5077389,
+        "duration": 28,
+        "segments": 14,
+        "firstSegmentBytes": 348683
+      }
+    ]
+  },
+  {
+    "id": "waambat-hero-desktop-loop",
+    "levels": [
+      {
+        "width": 480,
+        "frames": 144,
+        "dimensions": "480x270",
+        "bandwidth": 90473,
+        "average": 76362,
+        "bytes": 57271,
+        "duration": 6,
+        "segments": 3,
+        "firstSegmentBytes": 21532
+      },
+      {
+        "width": 1280,
+        "frames": 144,
+        "dimensions": "1280x720",
+        "bandwidth": 643327,
+        "average": 495556,
+        "bytes": 371667,
+        "duration": 6,
+        "segments": 3,
+        "firstSegmentBytes": 134049
+      }
+    ]
+  },
+  {
+    "id": "waambat-hero-mobile-loop",
+    "levels": [
+      {
+        "width": 360,
+        "frames": 144,
+        "dimensions": "360x450",
+        "bandwidth": 120687,
+        "average": 101835,
+        "bytes": 76376,
+        "duration": 6,
+        "segments": 3,
+        "firstSegmentBytes": 28735
+      },
+      {
+        "width": 720,
+        "frames": 144,
+        "dimensions": "720x900",
+        "bandwidth": 570612,
+        "average": 444455,
+        "bytes": 333341,
+        "duration": 6,
+        "segments": 3,
+        "firstSegmentBytes": 121203
+      }
+    ]
+  }
+]

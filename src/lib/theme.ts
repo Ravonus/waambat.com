@@ -76,6 +76,7 @@ export function themeStyle(theme: Theme): CSSProperties {
     "--color-waambat-link": theme.link,
     "--color-waambat-link-hover": theme.linkHover,
     "--site-action-text": actionText(theme.link),
+    "--site-logo-text": actionText(theme.logo),
     "--site-action-hover-text": actionText(theme.linkHover),
     "--color-waambat-hover": theme.navigationHover,
     "--site-navigation": theme.navigation,

@@ -7,10 +7,12 @@ export function useViewportPlayback(
   container: RefObject<HTMLElement | null>,
   disabled = false,
   onChange?: (playing: boolean) => void,
+  minimumVisible = 0.1,
 ) {
   const [requested, setRequested] = useState(false);
   const [wanted, setWanted] = useState(false);
   const visible = useRef(false);
+  const intersecting = useRef(false);
   const manual = useRef(false);
   const paused = useRef(false);
   const restricted = useRef(false);
@@ -33,7 +35,7 @@ export function useViewportPlayback(
       const play =
         !disabled &&
         element.isConnected &&
-        visible.current &&
+        (visible.current || (manual.current && intersecting.current)) &&
         !document.hidden &&
         !document.querySelector("#mobile-site-menu[open]") &&
         !paused.current &&
@@ -52,10 +54,30 @@ export function useViewportPlayback(
     preferences();
     const observer = new IntersectionObserver(
       (entries) => {
-        visible.current = !!entries[0]?.isIntersecting;
+        const entry = entries[0];
+        intersecting.current = !!entry?.isIntersecting;
+        if (entry) {
+          const width = Math.min(
+            entry.boundingClientRect.width,
+            entry.rootBounds?.width ?? innerWidth,
+          );
+          const height = Math.min(
+            entry.boundingClientRect.height,
+            entry.rootBounds?.height ?? innerHeight,
+          );
+          const fraction =
+            (entry.intersectionRect.width * entry.intersectionRect.height) /
+            Math.max(1, width * height);
+          visible.current = intersecting.current && fraction >= minimumVisible;
+        } else visible.current = false;
         update();
       },
-      { threshold: [0, 0.1] },
+      {
+        threshold:
+          minimumVisible > 0.1
+            ? Array.from({ length: 21 }, (_, i) => i / 20)
+            : [0, 0.1],
+      },
     );
     observer.observe(element);
     document.addEventListener("visibilitychange", update);
@@ -71,7 +93,7 @@ export function useViewportPlayback(
       motion.removeEventListener("change", preferences);
       connection?.removeEventListener("change", preferences);
     };
-  }, [container, disabled]);
+  }, [container, disabled, minimumVisible]);
   return {
     requested,
     wanted,

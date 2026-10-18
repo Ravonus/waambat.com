@@ -50,6 +50,15 @@ const config = {
         ],
       },
       {
+        source: "/streams/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
         source: "/paintings/:path*",
         headers: [
           {

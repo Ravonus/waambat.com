@@ -4,6 +4,8 @@ import Link from "next/link";
 import type { Artwork, Content } from "~/lib/content";
 import { PlaybackButton } from "./MediaControls";
 import { useViewportPlayback } from "./useViewportPlayback";
+import { useAdaptiveVideo } from "./useAdaptiveVideo";
+import { adaptivePoster } from "~/lib/adaptive-media";
 import styles from "./Hero.module.css";
 
 // The portrait composition is for phones held upright. A phone on its side has
@@ -72,6 +74,17 @@ export default function Hero({
   const source = portrait ? item.mobileVideoSrc : item.videoSrc;
   // The ending loop follows the video it was rendered with (portrait with portrait).
   const loopSource = portrait ? item.mobileLoopSrc : item.loopSrc;
+  useAdaptiveVideo(
+    video,
+    requested && sourceReady && !error ? source : undefined,
+    wanted && phase === "intro",
+  );
+  useAdaptiveVideo(
+    endless,
+    requested && sourceReady && !error && loopWanted ? loopSource : undefined,
+    wanted && phase === "loop",
+    wanted && loopWanted,
+  );
   // A poster-only banner is a legitimate choice; it just has nothing to play.
   const playable = !!source;
   const ratio = item.aspectRatio ?? 16 / 9;
@@ -107,11 +120,14 @@ export default function Hero({
       <div ref={frame} className={styles.frame}>
         <picture>
           {item.mobilePoster && (
-            <source media={PORTRAIT_PHONE} srcSet={item.mobilePoster} />
+            <source
+              media={PORTRAIT_PHONE}
+              srcSet={adaptivePoster(item.mobilePoster)}
+            />
           )}
-          {/* The still is the first frame of the video, so playback begins without a visible change. */}
+          {/* A compact artwork still appears before the complete montage buffers. */}
           <img
-            src={item.poster}
+            src={adaptivePoster(item.poster)}
             alt={item.title}
             fetchPriority="high"
             decoding="async"
@@ -121,14 +137,13 @@ export default function Hero({
         {playable && requested && sourceReady && !error && (
           <video
             ref={video}
-            src={source}
-            poster={
-              mobile && item.mobilePoster ? item.mobilePoster : item.poster
-            }
+            poster={adaptivePoster(
+              mobile && item.mobilePoster ? item.mobilePoster : item.poster,
+            )}
             muted
             loop={!loopSource}
             playsInline
-            preload="auto"
+            preload="none"
             aria-label={item.title}
             data-shown={shown}
             data-done={loopShown}
@@ -162,7 +177,8 @@ export default function Hero({
               setLoopWanted(true);
               setPhase("loop");
             }}
-            onError={() => {
+            onError={(event) => {
+              if (!event.currentTarget.error) return;
               setError(true);
               setPlaying(false);
               setShown(false);
@@ -172,11 +188,10 @@ export default function Hero({
         {playable && requested && sourceReady && !error && loopSource && (
           <video
             ref={endless}
-            src={loopWanted ? loopSource : undefined}
             muted
             loop
             playsInline
-            preload="auto"
+            preload="none"
             aria-hidden="true"
             tabIndex={-1}
             data-shown={loopShown}
@@ -204,11 +219,13 @@ export default function Hero({
         )}
         {/* The wordmark leads home, like the header wordmark it stands in for. */}
         <h1
+          data-hero-wordmark
           className={`${styles.wordmark} ${item.logoSrc ? "" : "font-brand text-waambat-logo"}`}
         >
           <Link
             href={preview ? "/admin/preview?page=nfts" : "/"}
             onNavigate={() => {
+              window.dispatchEvent(new Event("waambat:close-menu"));
               if (!preview) window.dispatchEvent(new Event("waambat:navigate"));
             }}
             aria-label={`${section.title} home`}

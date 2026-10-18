@@ -1,0 +1,28 @@
+{
+  "source": "https://i.imgur.com/JC0hAbH.mp4",
+  "original": {
+    "frames": 54,
+    "width": 960,
+    "height": 960
+  },
+  "levels": [
+    {
+      "frames": 54,
+      "width": 320,
+      "height": 320,
+      "rendition": 320,
+      "bandwidth": 693420,
+      "average": 666787,
+      "bytes": 150027
+    },
+    {
+      "frames": 54,
+      "width": 640,
+      "height": 640,
+      "rendition": 640,
+      "bandwidth": 2841737,
+      "average": 2728667,
+      "bytes": 613950
+    }
+  ]
+}
