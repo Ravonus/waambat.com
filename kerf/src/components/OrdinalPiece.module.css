@@ -1,0 +1,95 @@
+.stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  /* The art is never cropped or masked; a hairline and a faint glow set it on the black page. */
+  box-shadow:
+    0 0 0 1px #ffffff14,
+    0 0 56px -14px #ff94b24d;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+  transition: opacity 600ms ease;
+}
+.live {
+  opacity: 0;
+}
+.stage[data-live="shown"] .live {
+  opacity: 1;
+}
+/* Once the live piece is up the loop behind it has nothing left to show. */
+.stage[data-live="shown"] video.layer,
+.stage[data-live="shown"] img.layer {
+  opacity: 0;
+}
+.name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-waambat-pink);
+}
+/* Beneath the art, never over it. */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+.action {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #ffffff60;
+  border-radius: 22px;
+  background: #000b;
+  color: var(--color-waambat-pink);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 150ms,
+    color 150ms,
+    border-color 150ms,
+    transform 90ms;
+}
+.action:hover {
+  border-color: var(--color-waambat-logo);
+  background: #000e;
+  color: var(--color-waambat-logo);
+}
+.action:active {
+  transform: scale(0.96);
+}
+.action:focus-visible {
+  outline: 2px solid var(--color-waambat-logo);
+  outline-offset: 3px;
+}
+.status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 14px;
+  background: #000b;
+  color: var(--color-waambat-pink);
+  font-size: 13px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .layer,
+  .action {
+    transition: none;
+  }
+}

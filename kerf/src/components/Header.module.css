@@ -1,0 +1,196 @@
+.link {
+  transition:
+    color 140ms ease,
+    transform 100ms ease;
+}
+.link::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.4);
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+}
+.link:hover::after,
+.link:focus-visible::after,
+.link[aria-current="page"]::after {
+  opacity: 0.8;
+  transform: scaleX(1);
+}
+.link:active {
+  transform: translateY(1px);
+}
+.link:focus-visible,
+.logo:focus-visible,
+.menuButton:focus-visible,
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-waambat-logo, #ff94b2);
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+.menuButton {
+  position: absolute;
+  top: 36px;
+  right: var(--site-mobile-padding, 20px);
+  min-height: 44px;
+  min-width: 44px;
+  padding: 11px 9px;
+  color: var(--color-waambat-logo, #ff94b2);
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+.menuButton:hover,
+.closeButton:hover {
+  color: var(--color-waambat-logo, #ff94b2);
+}
+.overlay {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+  padding: max(28px, env(safe-area-inset-top))
+    max(24px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom))
+    max(24px, env(safe-area-inset-left));
+  border: 0;
+  background: var(--site-background, #000);
+  color: var(--site-body, #ebebeb);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  animation: menu-enter 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.overlay[data-phase="closing"] {
+  animation: menu-exit 220ms cubic-bezier(0.4, 0, 0.6, 1) both;
+  pointer-events: none;
+}
+.overlay::backdrop {
+  background: var(--site-background, #000);
+}
+.overlayHeader {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 1;
+  background: var(--site-background, #000);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+.logo:hover,
+.logo:focus-visible {
+  color: var(--color-waambat-logo, #ff94b2);
+}
+.closeButton {
+  min-width: 76px;
+  min-height: 44px;
+  color: var(--site-active-navigation, #fff);
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.closeButton span {
+  margin-right: 5px;
+  font-size: 24px;
+  vertical-align: -2px;
+}
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: clamp(32px, 7dvh, 64px) 6px 24px;
+}
+.mobileLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.mobileLink::after {
+  bottom: 2px;
+}
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes menu-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+.linkProgress {
+  position: absolute;
+  left: calc(100% + 10px);
+  top: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  border: 1px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0;
+}
+.link[data-pending] {
+  color: var(--color-waambat-logo, #ff94b2);
+}
+.link[data-pending] .linkProgress {
+  opacity: 1;
+  animation: link-spin 800ms linear infinite;
+}
+@keyframes link-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (min-width: 768px) {
+  .menuButton {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .link::after {
+    transition: none;
+  }
+  .overlay {
+    animation-duration: 1ms;
+  }
+  .linkProgress {
+    animation: none !important;
+  }
+}
+:global([data-motion="off"]) .overlay {
+  animation-duration: 1ms;
+}
+
+:global([data-menu-open="true"]) .logo {
+  position: relative;
+  z-index: 51;
+}
+:global([data-menu-open="true"]) .menuButton {
+  visibility: hidden;
+}

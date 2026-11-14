@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/Ravonus/kerf",
+  "baseRevision": "538f2dd5987a151ca0840a2b499d5b8d6db66015",
+  "branch": "fix/media-frame-delivery",
+  "status": "local verified integration snapshot",
+  "packages": {
+    "@kerf-js/core": {
+      "file": "kerf-core-media-60a0b82c961f.tgz",
+      "sha256": "60a0b82c961f9130609980a4b8966f9134fbe06c889a289d5f58ec12a1fd9611",
+      "size": 1104671
+    },
+    "@kerf-js/media": {
+      "file": "kerf-media-media-21d995479812.tgz",
+      "sha256": "21d995479812d3b17f1ac93d9eb9431eba45534b5268fa995b1d5d56d2aa91d0",
+      "size": 42121
+    },
+    "@kerf-js/media-ffmpeg": {
+      "file": "kerf-media-ffmpeg-media-84e7bc72994b.tgz",
+      "sha256": "84e7bc72994b6f0bd668c6cad01296f1a65238c678e6efc21cb6323b455d6325",
+      "size": 14324
+    }
+  },
+  "sourceRevision": "db7fbbe18251e07f9845de5aad768346738ec2bd"
+}
