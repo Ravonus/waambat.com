@@ -18,7 +18,7 @@ export async function readCardImage(source: string, options: Options = {}): Prom
   const path = source.split(/[?#]/)[0]!;
   const decoded = decodeURIComponent(path);
   if (!decoded.startsWith('/') || decoded.startsWith('//') || /[\\\0]/.test(decoded) ||
-      /(^|\/)\.{1,2}(\/|$)/.test(decoded) || /^\/(admin|api|_kerf)(\/|$)/.test(decoded) ||
+      /(^|\/)\.{1,2}(\/|$)/.test(decoded) || /^\/(admin|api|_kerf|social-card\.jpg)(\/|$)/i.test(decoded) ||
       !/\.(avif|webp|png|jpe?g|gif|svg)$/i.test(decoded))
     throw Error('Use a public image path');
   const root = resolve(options.root ?? resolve(process.cwd(), 'public'));

@@ -28,7 +28,7 @@ test('development card images use exact local bytes without fetching', () => fix
 test('card images cannot request other hosts, private endpoints or traversal paths', () => fixture(async root => {
   let requests = 0;
   const fetcher: typeof fetch = async () => {requests++;return new Response();};
-  for (const source of ['https://other.test/a.png', '//other.test/a.png', '/api/admin/a.png', '/admin/a.svg', '/_kerf/a.webp', '/%61dmin/a.svg', '/../a.png', '/a/%2e%2e/b.png', '/a\\b.png', '/x.json'])
+  for (const source of ['https://other.test/a.png', '//other.test/a.png', '/api/admin/a.png', '/admin/a.svg', '/_kerf/a.webp', '/social-card.jpg', '/%61dmin/a.svg', '/../a.png', '/a/%2e%2e/b.png', '/a\\b.png', '/x.json'])
     await assert.rejects(readCardImage(source, {root, fetcher}));
   assert.equal(requests, 0);
 }));
