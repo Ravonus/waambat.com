@@ -3,7 +3,7 @@
   "plugins": {
     "@kerf-js/media": {
       "version": "0.1.0",
-      "integrity": "sha512-THfoMQyuuHbjedSSOzIzFzU87lRWctez+1PuM7dn8JeYJqyhcY2LabTG59rkfBN0/XxaHNU7Lsn49wFd1dD8cw==",
+      "integrity": "sha512-0MvBZk14pQLtt9CO+3xoO8nnW3wYKH1kSKBydnU1lZa8SMKJpIqt4yp7cAYp93W2WotK7qhdKfdBCpPx5t+3Gg==",
       "permissions": [
         "env:KERF_MEDIA_DIR",
         "fs.read:**/*.{png,jpg,jpeg,gif,webp,avif,svg,mp4,m4v,mov,webm,mkv,ogv,mp3,wav,flac,ogg,oga,opus,m4a,aac}",
@@ -18,7 +18,7 @@
     },
     "@kerf-js/media-ffmpeg": {
       "version": "0.1.0",
-      "integrity": "sha512-Q6s5dAl2HnXvjYhzdurnQU31GOQ8X2Jxz0gT4LjFYmDORSzPFLsEYXjq2N5mu8S1TMs+kEfTGi4cEcj2DJlqpw==",
+      "integrity": "sha512-vSckUI2GuFEle29S35BrdWXhqD5S8KH5psbRPng5FIg4R+t4dqIztZOBYifWE+KQ/qYsm/dhq3H8xH3/8SNFxA==",
       "permissions": [
         "fs.read:**/*.{gif,mp4,m4v,mov,webm,mkv,ogv,mp3,wav,flac,ogg,oga,opus,m4a,aac}",
         "fs.write:$TMPDIR/kerf-ffmpeg-*",

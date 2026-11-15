@@ -39,7 +39,7 @@
 }
 .video {
   opacity: 0;
-  transition: opacity 360ms ease-out;
+  transition: none;
 }
 .video[data-shown] {
   opacity: 1;

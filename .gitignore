@@ -46,3 +46,12 @@ yarn-error.log*
 .idea
 # Local Netlify adapter outputs (no site credentials in source)
 .netlify/
+
+# Immutable media release bundles restore these generated assets before the native build.
+/public/media-originals/
+/public/media-optimized/
+/public/streams/kerf-copy-*/
+
+# Regenerable UI capture output; review reports and scripts remain tracked.
+/evidence/ui-refinement/**/*.png
+/evidence/ui-refinement/vimeo-local/

@@ -1,11 +1,12 @@
+import VideoStill from './VideoStill';
 import OptimizedVideo, {type VideoHandle} from './OptimizedVideo';
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
 import {playbackSource as videoSource} from "~/lib/playback-source";
 import { youtubeAPI } from "~/lib/youtube-api";
 import { useViewportPlayback } from "./useViewportPlayback";
+import {useAdaptiveVideo} from "./useAdaptiveVideo";
 import { PlaybackButton } from "./MediaControls";
-import SourceImage from "./SourceImage";
 type Controls = {
     play: () => void;
     pause: () => void;
@@ -22,6 +23,8 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
     const native = { current: null as VideoHandle | null | undefined };
     const controls = { current: null as (Controls | null) | null | undefined };
     const playing = state(false);
+    const stillReadyFor = state("");
+    const loadedPoster = state<string|undefined>(undefined);
     const error = state(false);
     const lifecycle = useViewportPlayback(container, () => suspended, (wanted) => {
         if (wanted)
@@ -33,6 +36,7 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
     const provider = derived(() => target.value?.provider);
     const source = derived(() => target.value?.player);
     const direct = derived(() => target.value?.direct);
+    useAdaptiveVideo(native,()=>direct.value&&lifecycle.requested.value&&stillReadyFor.value===src&&!error.value?src:undefined,()=>lifecycle.wanted.value);
     // Read-only, on-demand browser QA. No timer, media polling or control API is
     // exposed. The sample comes from the provider SDK, rather than UI state.
     onMount(() => watch(() => [], () => {
@@ -50,8 +54,8 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
         element?.addEventListener("waambat:inspect-playback", inspect);
         return () => element?.removeEventListener("waambat:inspect-playback", inspect);
     }));
-    onMount(() => watch(() => [lifecycle.requested.value, lifecycle.desired, source.value, provider.value, direct.value], () => {
-        if (!lifecycle.requested.value || !source.value || direct.value)
+    onMount(() => watch(() => [lifecycle.requested.value, lifecycle.desired, source.value, provider.value, direct.value, stillReadyFor.value], () => {
+        if (!lifecycle.requested.value || stillReadyFor.value!==src || !source.value || direct.value)
             return;
         const element = frame.current;
         if (!element)
@@ -169,8 +173,8 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
             destroy?.();
         };
     }));
-    onMount(() => watch(() => [direct.value, lifecycle.requested.value, lifecycle.wanted.value], () => {
-        if (!direct.value || !lifecycle.requested.value)
+    onMount(() => watch(() => [direct.value, lifecycle.requested.value, lifecycle.wanted.value, stillReadyFor.value], () => {
+        if (!direct.value || !lifecycle.requested.value || stillReadyFor.value!==src)
             return;
         // The <video> mounts in the same update that runs this watch, so its ref may
         // not be attached yet: read it at call time, never capture it here.
@@ -204,12 +208,12 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
     return (<div ref={node => {
             container.current = node;
         }} className="inline-video" data-save-url={src} data-inline-provider={provider.value} data-playback-state={error.value ? "unavailable" : playing.value ? "playing" : "paused"}>
-      <SourceImage src={poster} alt="" className="absolute inset-0 h-full w-full object-contain"/>
+      <VideoStill source={src} fallback={poster} alt="" className="absolute inset-0 h-full w-full object-contain" onReady={(source,poster)=>{loadedPoster.value=poster;stillReadyFor.value=source;}}/>
       {lifecycle.requested.value &&
-            !error.value && source.value &&
+            !error.value && source.value && stillReadyFor.value===src &&
             (direct.value ? (<OptimizedVideo source={src} width={960} height={540} ref={node => {
                     native.current = node;
-                }} src={source.value} poster={poster} muted loop playsInline preload="none" className="absolute inset-0 h-full w-full object-contain" onLoadedData={() => {
+                }} poster={loadedPoster.value} muted loop playsInline preload="none" className="absolute inset-0 h-full w-full object-contain" onLoadedData={() => {
                     if (lifecycle.desired.current)
                         controls.current?.play();
                 }} onPlay={() => {

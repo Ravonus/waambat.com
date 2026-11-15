@@ -7,19 +7,20 @@
   },
   "scripts": {
     "dev": "kerf dev --port 3287",
-    "build": "kerf build",
+    "build": "node scripts/restore-media.mjs && kerf build",
     "start": "kerf start",
     "check": "kerf check",
     "typecheck": "kerf tsc",
     "audit": "kerf audit",
     "test": "kerf run contracts",
-    "media:prepare": "kerf run media.prepare"
+    "media:prepare": "kerf run media.prepare",
+    "media:restore": "node scripts/restore-media.mjs"
   },
   "dependencies": {
     "@auth/core": "0.41.3",
-    "@kerf-js/core": "file:vendor/kerf-core-media-60a0b82c961f.tgz",
-    "@kerf-js/media": "file:vendor/kerf-media-media-21d995479812.tgz",
-    "@kerf-js/media-ffmpeg": "file:vendor/kerf-media-ffmpeg-media-84e7bc72994b.tgz",
+    "@kerf-js/core": "file:vendor/kerf-core-media-370eb3092a9a.tgz",
+    "@kerf-js/media": "file:vendor/kerf-media-media-9aa84fd3eebc.tgz",
+    "@kerf-js/media-ffmpeg": "file:vendor/kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
     "@kerf-js/scroll": "0.1.0",
     "@kerf-js/start": "0.1.0",
     "@netlify/blobs": "11.1.4",

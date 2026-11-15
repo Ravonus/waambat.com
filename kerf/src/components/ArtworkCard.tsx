@@ -1,3 +1,4 @@
+import VideoStill from './VideoStill';
 import OptimizedVideo, {type VideoHandle} from './OptimizedVideo';
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
@@ -12,14 +13,16 @@ import { useMediaPreference, useSaveData } from "./useMediaPreference";
 import { adaptivePoster, adaptivePreview } from "~/lib/adaptive-media";
 import { paintingPoster } from "~/lib/painting-source";
 export type { Artwork } from "~/lib/content";
-function Poster({ artwork, priority, }: {
+function Poster({ artwork, priority, videoSource, onReady }: {
     artwork: Artwork;
     priority: boolean;
+    videoSource?: string;
+    onReady?: (source:string,poster?:string)=>void;
 }) {
     const still = derived(() => artwork.poster || adaptivePreview(artwork.videoSrc)?.poster);
     const source = derived(() => adaptivePoster(still.value ?? ""));
     const poster = derived(() => paintingPoster(source.value));
-    return <>{!still.value ? null : (<picture className="block h-full w-full">
+    return <>{artwork.kind==="video"?<VideoStill source={videoSource||artwork.videoSrc||""} fallback={source.value} alt={artwork.title} priority={priority} onReady={onReady}/>:!still.value ? null : (<picture className="block h-full w-full">
       {poster.value.avif && (<source type="image/avif" srcSet={poster.value.avif} sizes="(max-width: 767px) calc(100vw - 40px), 960px"/>)}
       <img src={source.value} srcSet={poster.value.srcSet} sizes="(max-width: 767px) calc(100vw - 40px), 960px" alt={artwork.title} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} width={poster.value.local ? 960 : undefined} height={poster.value.local ? 960 : undefined} decoding="async" className="h-full w-full object-contain"/>
     </picture>)}</>;
@@ -49,6 +52,8 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     const mobile = derived(() => smallScreen.value || savingData.value);
     const sourceReady = derived(() => smallScreen.value !== undefined);
     const shownSource = state("");
+    const posterReadyFor = state("");
+    const loadedPoster = state<string|undefined>(undefined);
     const error = state(false);
     const intrinsic = state<{
         src: string;
@@ -58,7 +63,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     const selectedSource = derived(() => mobile.value && artwork.mobileVideoSrc
         ? artwork.mobileVideoSrc
         : artwork.previewSrc || artwork.videoSrc);
-    useAdaptiveVideo(video, () => requested.value && sourceReady.value && !error.value ? selectedSource.value : undefined, () => wanted.value);
+    useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value ? selectedSource.value : undefined, () => wanted.value);
     const mediaRatio = derived(() => ratio ??
         (naturalAspect ? adaptivePreview(artwork.videoSrc)?.ratio : undefined) ??
         (naturalAspect && intrinsic.value?.src === selectedSource.value
@@ -104,8 +109,8 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
                     ? { height: 150 }
                     : undefined} className={`artwork-media relative w-full bg-black ${naturalAspect ? "" : aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"}`}>
           <a href={trailer ? undefined : artwork.tokenLink} {...newTabProps(trailer ? undefined : artwork.tokenLink)} aria-label={`Open ${artwork.title} original ${artwork.kind === "image" ? "inscription" : "token"} page`} className="relative block h-full w-full">
-            <Poster artwork={artwork} priority={priority}/>
-            {artwork.kind === "video" && requested.value && sourceReady.value && !error.value && (<OptimizedVideo source={selectedSource.value ?? ""} width={960} height={960} poster={adaptivePoster(artwork.poster)} key={selectedSource.value} ref={node => {
+            <Poster artwork={artwork} priority={priority} videoSource={selectedSource.value} onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
+            {artwork.kind === "video" && requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value && (<OptimizedVideo source={selectedSource.value ?? ""} width={960} height={960} poster={loadedPoster.value} key={selectedSource.value} ref={node => {
                     video.current = node;
                 }} muted={muted.value} loop={!trailer} controls={trailer} playsInline preload="none" onLoadedMetadata={(event) => {
                     const element = event.currentTarget;

@@ -1,0 +1,83 @@
+{
+  "originals": 210,
+  "movies": 96,
+  "animations": 4,
+  "staticImages": 110,
+  "originalBytes": 2362973704,
+  "playbackBytes": 2298276867,
+  "selections": {
+    "original": 94,
+    "native": 2
+  },
+  "firstFrames": 100,
+  "firstFrameErrors": [],
+  "streamedNewMovies": 22,
+  "streamErrors": [],
+  "blockedUpstream": [
+    {
+      "source": "https://i.imgur.com/3hhNUKR.mp4",
+      "error": "video/h264: ffprobe failed: [mov,mp4,m4a,3gp,3g2,mj2 @ 0x11ff07170] moov atom not found /Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/public/media-originals/3725ecd45d294c1dfb182d0d101481fb12dc4db70eb67d14e5de3f4f4a68fa97.mp4: Invalid data found when processing input"
+    },
+    {
+      "source": "https://player.vimeo.com/video/538169390?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/543748855?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/224251774?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/198626504?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/198626531?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/198626554?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/198626259?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/198626656?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/198626597?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/198626569?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/130840561?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://player.vimeo.com/video/198626629?app_id=122963&wmode=opaque",
+      "error": "Provider HTTP 403"
+    },
+    {
+      "source": "https://www.youtube.com/embed/mkIoJZdKIAE?feature=oembed",
+      "error": "ERROR: [youtube] mkIoJZdKIAE: Sign in to confirm your age. This video may be inappropriate for some users. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies\n"
+    },
+    {
+      "source": "https://www.youtube.com/embed/-aGTNS13SDU?feature=oembed",
+      "error": "ERROR: [youtube] -aGTNS13SDU: Sign in to confirm your age. This video may be inappropriate for some users. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies\n"
+    },
+    {
+      "source": "https://www.youtube.com/embed/sp8J4WBW8TY?feature=oembed",
+      "error": "ERROR: [youtube] sp8J4WBW8TY: Sign in to confirm your age. This video may be inappropriate for some users. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies\n"
+    }
+  ],
+  "errors": []
+}
