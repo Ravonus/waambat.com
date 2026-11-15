@@ -18,7 +18,7 @@ export function useViewportPlayback(container:RefObject<HTMLElement>,disabled:bo
   const connection=(navigator as Navigator&{connection?:EventTarget&{saveData?:boolean}}).connection;
   const preferences=()=>{restricted.value=motion.matches||!!connection?.saveData;manual.value=false;};
   const visibility=()=>{foreground.value=!document.hidden;};preferences();visibility();
-  const stop=observeMediaViewport(el,s=>{visible.value=s.visible;intersecting.value=s.intersecting;ahead.value=s.anticipating;near.value=s.preparing;},minimumVisible);
+  const stop=observeMediaViewport(el,s=>{visible.value=s.visible;intersecting.value=s.intersecting;ahead.value=s.anticipating&&(!s.intersecting||desired.current);near.value=s.preparing;},minimumVisible);
   watch(()=>[visible.value,intersecting.value,ahead.value,near.value,manual.value,paused.value,restricted.value,foreground.value,nav.menu.value,typeof disabled==='function'?disabled():disabled],()=>{sync();});
   document.addEventListener('visibilitychange',visibility);motion.addEventListener('change',preferences);connection?.addEventListener('change',preferences);
   onCleanup(()=>{desired.current=false;onChange?.(false);stop();document.removeEventListener('visibilitychange',visibility);motion.removeEventListener('change',preferences);connection?.removeEventListener('change',preferences);});

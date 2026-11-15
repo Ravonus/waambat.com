@@ -64,7 +64,7 @@ export function useViewportPlayback(
       update();
     };
     preferences();
-    const stop=observeMediaViewport(element,state=>{visible.current=state.visible;intersecting.current=state.intersecting;ahead.current=state.anticipating;near.current=state.preparing;update();},minimumVisible);
+    const stop=observeMediaViewport(element,state=>{visible.current=state.visible;intersecting.current=state.intersecting;ahead.current=state.anticipating&&(!state.intersecting||desired.current);near.current=state.preparing;update();},minimumVisible);
     document.addEventListener("visibilitychange", update);
     motion.addEventListener("change", preferences);
     connection?.addEventListener("change", preferences);

@@ -77,8 +77,11 @@ export function useAdaptiveVideo(ref: RefObject<VideoHandle>, source: () => stri
                     if (data.fatal)
                         nativeFallback();
                 });
+                player.on(Player.Events.FRAG_BUFFERED, () => {
+                    if (!shouldPlay()) player.stopLoad();
+                });
                 player.on(Player.Events.MANIFEST_PARSED, () => {
-          player.startLevel=initialMediaLevel(player.levels,video.clientWidth,video.clientHeight,mediaConnection(),devicePixelRatio);
+                    player.startLevel=initialMediaLevel(player.levels,video.clientWidth,video.clientHeight,mediaConnection(),devicePixelRatio);
                     if (shouldLoad())
                         player.startLoad();
                     play();

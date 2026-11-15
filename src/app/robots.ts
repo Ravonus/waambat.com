@@ -3,7 +3,7 @@ import { indexableSite, siteOrigin } from "~/lib/seo";
 export default function robots(): MetadataRoute.Robots {
   return indexableSite()
     ? {
-        rules: { userAgent: "*", allow: "/", disallow: ["/admin", "/api/"] },
+        rules: { userAgent: "*", allow: ["/", "/api/media/"], disallow: ["/admin", "/api/"] },
         sitemap: `${siteOrigin}/sitemap.xml`,
         host: siteOrigin,
       }

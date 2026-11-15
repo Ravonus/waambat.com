@@ -22,7 +22,7 @@ function Poster({ artwork, priority, videoSource, onReady }: {
     const still = derived(() => artwork.poster || adaptivePreview(artwork.videoSrc)?.poster);
     const source = derived(() => adaptivePoster(still.value ?? ""));
     const poster = derived(() => paintingPoster(source.value));
-    return <>{artwork.kind==="video"?<VideoStill source={videoSource||artwork.videoSrc||""} fallback={source.value} alt={artwork.title} priority={priority} onReady={onReady}/>:!still.value ? null : (<picture className="block h-full w-full">
+    return <>{artwork.kind==="video"?<VideoStill source={artwork.previewSrc||artwork.videoSrc||""} mobileSource={artwork.mobileVideoSrc||undefined} media="(max-width: 767px)" fallback={source.value} alt={artwork.title} priority={priority} onReady={(_source,poster)=>onReady?.(videoSource||artwork.videoSrc,poster)}/>:!still.value ? null : (<picture className="block h-full w-full">
       {poster.value.avif && (<source type="image/avif" srcSet={poster.value.avif} sizes="(max-width: 767px) calc(100vw - 40px), 960px"/>)}
       <img src={source.value} srcSet={poster.value.srcSet} sizes="(max-width: 767px) calc(100vw - 40px), 960px" alt={artwork.title} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} width={poster.value.local ? 960 : undefined} height={poster.value.local ? 960 : undefined} decoding="async" className="h-full w-full object-contain"/>
     </picture>)}</>;

@@ -1,4 +1,3 @@
-import nodemailer from "nodemailer";
 import { z } from "zod3";
 import { emailSettingsSchema } from "~/lib/content";
 import { getPublishedContent } from "./content";
@@ -18,6 +17,7 @@ const messageSchema = z
 export async function captureEmail(settings: unknown, input: unknown) {
   const config = emailSettingsSchema.parse(settings);
   const message = messageSchema.parse(input);
+  const { default: nodemailer } = await import("nodemailer");
   const result = await nodemailer
     .createTransport({ streamTransport: true, buffer: true, newline: "unix" })
     .sendMail({
@@ -106,6 +106,7 @@ export async function deliverEmail(
     return { accepted: true };
   }
   const port = Number(process.env.SMTP_PORT);
+  const { default: nodemailer } = await import("nodemailer");
   const transport = nodemailer.createTransport({
     host: process.env.SMTP_HOST!,
     port,
