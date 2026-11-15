@@ -1,6 +1,6 @@
 # WAAMBAT on native Kerf
 
-This directory contains the native TSX migration. It uses Kerf Start routes, native state/derived/watch lifetimes, the existing visual design and controls, the CMS/admin APIs and the shared Kerf media and canvas-scroll plugins. Production at waamb.at still uses the root Next application; this migration is not deployed.
+This directory contains the native TSX migration. It uses Kerf Start routes, native state/derived/watch lifetimes, the existing visual design and controls, the CMS/admin APIs and the shared Kerf media and canvas-scroll plugins. Netlify now targets this directory on Node 26 with the Netlify preset; the root Next application is retained as a tested compatibility renderer. Verify the exact production deploy revision before reporting a change live.
 
 Use Node 26, then `npm ci --ignore-scripts`. `npm run media:restore` restores any missing immutable media bundles listed in `media/storage-manifest.json`; `npm run build` performs that check automatically. Bundles live in the public GitHub media release and verify both archive and individual file SHA256. Changed local artwork is preserved and causes a clear build error. The media files stay outside ordinary Git.
 
