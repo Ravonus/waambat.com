@@ -253,13 +253,17 @@ button:disabled {
   vertical-align: top;
 }
 .site-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25em;
+  position: relative;
+  display: inline-block;
 }
 .site-logo img {
+  position: absolute;
+  right: calc(100% + 0.25em);
+  top: 50%;
+  transform: translateY(-50%);
   display: block;
   width: auto;
+  max-width: none;
   height: 0.6em;
 }
 /* With the hero banner the large wordmark lives in the banner; the header is
