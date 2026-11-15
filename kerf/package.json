@@ -7,14 +7,16 @@
   },
   "scripts": {
     "dev": "kerf dev --port 3287",
-    "build": "node scripts/restore-media.mjs && kerf build",
+    "build": "kerf build",
     "start": "kerf start",
     "check": "kerf check",
     "typecheck": "kerf tsc",
     "audit": "kerf audit",
     "test": "kerf run contracts",
     "media:prepare": "kerf run media.prepare",
-    "media:restore": "node scripts/restore-media.mjs"
+    "media:restore": "kerf run media.restore",
+    "prebuild": "kerf run build.prepare",
+    "verify:built": "kerf run site.verify"
   },
   "dependencies": {
     "@auth/core": "0.41.3",

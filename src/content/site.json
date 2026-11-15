@@ -684,7 +684,8 @@
           "type": "embed",
           "text": "",
           "src": "https://i.imgur.com/3hhNUKR.mp4",
-          "loop": true
+          "loop": true,
+          "archived": true
         },
         {
           "id": "mechanics-text-26",
@@ -827,7 +828,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/224251774?app_id=122963&wmode=opaque",
           "ratio": 1.7771171928668021,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-4",
@@ -863,7 +865,8 @@
           "description": "",
           "embed": "https://www.youtube.com/embed/mkIoJZdKIAE?feature=oembed",
           "ratio": 1.3333333333333333,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-8",
@@ -881,7 +884,8 @@
           "description": "",
           "embed": "https://www.youtube.com/embed/-aGTNS13SDU?feature=oembed",
           "ratio": 1.3339861132554853,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-10",
@@ -890,7 +894,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/198626504?app_id=122963&wmode=opaque",
           "ratio": 1.7771484476759416,
-          "rowEnd": true
+          "rowEnd": true,
+          "archived": true
         },
         {
           "id": "archive-original-11",
@@ -899,7 +904,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/198626531?app_id=122963&wmode=opaque",
           "ratio": 1.7771171928668021,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-12",
@@ -917,7 +923,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/198626554?app_id=122963&wmode=opaque",
           "ratio": 1.7777777777777777,
-          "rowEnd": true
+          "rowEnd": true,
+          "archived": true
         },
         {
           "id": "archive-original-14",
@@ -926,7 +933,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/198626259?app_id=122963&wmode=opaque",
           "ratio": 1.7771484476759416,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-15",
@@ -944,7 +952,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/198626656?app_id=122963&wmode=opaque",
           "ratio": 1.7777777777777777,
-          "rowEnd": true
+          "rowEnd": true,
+          "archived": true
         },
         {
           "id": "archive-original-17",
@@ -953,7 +962,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/198626597?app_id=122963&wmode=opaque",
           "ratio": 1.7771484476759416,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-18",
@@ -980,7 +990,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/198626569?app_id=122963&wmode=opaque",
           "ratio": 1.7771171928668021,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-21",
@@ -989,7 +1000,8 @@
           "description": "",
           "embed": "https://www.youtube.com/embed/sp8J4WBW8TY?feature=oembed",
           "ratio": 1.333962652367106,
-          "rowEnd": true
+          "rowEnd": true,
+          "archived": true
         },
         {
           "id": "archive-original-22",
@@ -998,7 +1010,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/130840561?app_id=122963&wmode=opaque",
           "ratio": 1.7769632149646382,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-23",
@@ -1016,7 +1029,8 @@
           "description": "",
           "embed": "https://player.vimeo.com/video/198626629?app_id=122963&wmode=opaque",
           "ratio": 1.7739972539748308,
-          "rowEnd": false
+          "rowEnd": false,
+          "archived": true
         },
         {
           "id": "archive-original-25",

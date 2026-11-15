@@ -327,6 +327,7 @@ export const emailSettingsSchema = z
 export const contentSchema = z
   .object({
     ordinalSourceVersion: z.number().int().min(0).max(2).default(0),
+    archiveSourceVersion: z.number().int().min(0).max(1).default(0),
     // 0 = stored before the hero banner existed; the default banner is added on read.
     heroVersion: z.number().int().min(0).max(4).default(0),
     sections: z.array(sectionSchema).min(1).max(30),

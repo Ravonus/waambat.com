@@ -45,10 +45,18 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
     }catch{fallback();}
    }else fallback();
   };
-  const onNativeError=()=>{if(video.dataset.delivery==='native-hls')fallback();};
-  video.addEventListener('error',onNativeError);
+  // A failed HLS attachment can emit a native error before its fallback is ready.
+  // Only a failure of the final native file belongs to the artwork's error UI.
+  const onNativeError=(event:Event)=>{
+   if(video.dataset.delivery==='adaptive-hls'){event.stopImmediatePropagation();void nativeFallback();}
+   else if(video.dataset.delivery==='native-hls'){event.stopImmediatePropagation();fallback();}
+  };
+  video.addEventListener('error',onNativeError,true);
   void (async()=>{
    if(!stream){fallback();return;}
+   // Safari can play the pinned single-rendition playlist itself; no JS player
+   // or worker needs to download for that browser.
+   if(video.canPlayType('application/vnd.apple.mpegurl')){void nativeFallback();return;}
    try{
     const {default:Player}=await import('hls.js/light');
     if(cancelled)return;
@@ -71,7 +79,7 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
     player.attachMedia(video);player.loadSource(stream);
    }catch{void nativeFallback();}
   })();
-  return()=>{cancelled=true;if(frameRequest!==undefined)video.cancelVideoFrameCallback(frameRequest);for(const event of ['playing','resize','loadeddata'])video.removeEventListener(event,schedule);video.removeEventListener('error',onNativeError);destroy();video.pause();video.removeAttribute('src');video.load();};
+  return()=>{cancelled=true;if(frameRequest!==undefined)video.cancelVideoFrameCallback(frameRequest);for(const event of ['playing','resize','loadeddata'])video.removeEventListener(event,schedule);video.removeEventListener('error',onNativeError,true);destroy();video.pause();video.removeAttribute('src');video.load();};
  }));
  onMount(()=>watch(()=>[wanted(),typeof preload==='function'?preload():preload],()=>{
   if(!ready.current)return;

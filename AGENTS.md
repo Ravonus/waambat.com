@@ -116,3 +116,35 @@ Contact fields use Veneer's `field`, `floatingLabel`, `formReset` and Kerf `use`
 Preserve the site's pastel theme and existing Send Message button. Empty labels rest
 inside; hover, focus or a value lifts them across the border using the measured notch.
 Keep native form values, validation and reset behavior alongside the custom dropdown.
+
+## Delivery and production verification
+
+Keep the full `local-media.json` inventory for encoding and original-file provenance.
+Browser image components use the generated `image-media.json` view: image records,
+responsive formats and exact Save metadata, without video records or blur placeholders.
+`npm run build` restores the verified media release and regenerates that view through
+the declared `build.prepare` task. Both media preparation/indexing scripts regenerate
+it too. Do not hand-edit the generated image index or flatten animated images.
+
+Public responses use `publicContent`, then `shellContent` for the persistent frame
+and `routeContent` for the destination gallery. Do not send the whole content document
+twice on every page. Preserve published metadata and hero data; notification recipients,
+email configuration and archived content stay out of public responses. Archive source
+repairs are a versioned, one-time migration. Artist replacements or subsequent restores
+must remain editable. Unavailable works are archived in admin, not deleted from history.
+
+Start legacy-gallery warming from `NavigationArrival` after the committed route mounts.
+An optimistic pathname change can still have the outgoing DOM; scanning it warms the
+wrong page. Keep using Kerf's shared bounded queue. Native HLS capability is checked
+before downloading the JS HLS player. Intermediate attachment failures must advance
+through the pinned-playlist/native-file fallbacks before showing an unavailable message.
+
+Run `npm test`, `npm run typecheck`, `kerf check --json`, `npm run build`, then
+`npm run verify:built` in `kerf/`. The current SSR build's automatic static audit finds
+zero pages; that is not coverage. `verify:built` starts one temporary production server,
+requires all eight primary routes at phone and desktop widths, saves its report under
+`.kerf/audit/`, and stops its server. Check actual playback, first decoded dimensions,
+scroll return and forced segment failure separately. The installed `kerf test --gate`
+currently requires Vitest while these contracts use `node:test`; record that limitation,
+never describe the mutation gate as passed. Regenerate `kerf/AGENTS.md` from config
+with `kerf agents-md` after changing tasks; keep site-specific instructions here.

@@ -1,7 +1,7 @@
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
 import type { SitePage } from "~/lib/content";
-import { archiveRows } from "~/lib/archive-layout";
+import { archiveGroups } from "~/lib/archive-layout";
 import SourceImage from "./SourceImage";
 import VideoEmbed from "./VideoEmbed";
 import InlineVideo from "./InlineVideo";
@@ -10,23 +10,9 @@ export default function Archive({ items }: {
     items: SitePage["archive"];
 }) {
     const visible = derived(() => items.filter((i) => !i.archived));
-    const container = { current: null as HTMLDivElement | null | undefined };
     const dialog = { current: null as HTMLDialogElement | null | undefined };
-    const width = state(1392);
-    const gap = state(10);
     const selected = state<number | null>(null);
     const info = state(false);
-    onMount(() => watch(() => [], () => {
-        const el = container.current;
-        if (!el)
-            return;
-        const observer = new ResizeObserver(() => {
-            writeBox(width, el.clientWidth);
-            writeBox(gap, parseFloat(getComputedStyle(el).getPropertyValue("--site-archive-gap")) || 10);
-        });
-        observer.observe(el);
-        return () => observer.disconnect();
-    }));
     onMount(() => watch(() => [selected.value], () => {
         const el = dialog.current;
         if (!el || selected.value === null)
@@ -46,11 +32,9 @@ export default function Archive({ items }: {
         writeBox(selected, (next + visible.value.length) % visible.value.length);
     };
     return (<section aria-label="Art archive" className="pb-16">
-      <div ref={node => {
-            container.current = node;
-        }} className="archive-montage">
-        {archiveRows(visible.value, width.value, gap.value).map((row) => (<div key={row.items[0]!.id} className="archive-row" style={{ height: row.height, gap }}>
-            {row.items.map((art) => (<div key={art.id} className="archive-tile" style={{ flexGrow: art.ratio }} data-archive-artwork={art.id}>
+      <div className="archive-montage">
+        {archiveGroups(visible.value).map((row) => (<div key={row[0]!.id} className="archive-row">
+            {row.map((art) => (<div key={art.id} className="archive-tile" style={{ '--artwork-ratio': art.ratio }} data-archive-artwork={art.id}>
                 {art.embed ? (<InlineVideo key={art.embed} src={art.embed} poster={art.image} title={art.title || "Untitled artwork"} suspended={selected.value !== null}/>) : (<SourceImage src={art.image} alt="" sizes="(max-width: 767px) calc(100vw - 40px), 1100px" className="h-full w-full object-contain"/>)}
                 <button type="button" className="media-control archive-expand" onClick={() => select(visible.value.indexOf(art))} aria-label={`View ${art.title || "untitled artwork"}`} title="Open fullscreen viewer">
                   <MediaIcon kind="expand"/>

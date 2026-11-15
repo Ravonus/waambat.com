@@ -1,4 +1,5 @@
 import {correctMarketplaceLinks} from '../lib/marketplace-links';
+import {recoverArchiveSources} from '../lib/archive-sources';
 import {buildRevision} from '#/lib/deployment';
 import { contentSchema, type Content } from "~/lib/content";
 import stored from "../../../src/content/site.json";
@@ -38,7 +39,8 @@ export interface ContentState {
 function present(content: Content) {
   const markets = correctMarketplaceLinks(content);
   const sources = correctLegacyOrdinalSources(markets.content);
-  const hero = addDefaultHero(sources.content);
+  const archive = recoverArchiveSources(sources.content);
+  const hero = addDefaultHero(archive.content);
   const optimized = optimizeStoredMedia(hero.content);
   const formsChanged = optimized.content.formsVersion === 0;
   const updated = formsChanged
@@ -54,7 +56,7 @@ function present(content: Content) {
     : optimized.content;
   return {
     content: updated,
-    sourcesChanged: sources.changed || markets.changed,
+    sourcesChanged: sources.changed || markets.changed || archive.changed,
     heroChanged: hero.changed,
     formsChanged,
     optimizationChanged: optimized.changed,

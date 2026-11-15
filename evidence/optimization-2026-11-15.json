@@ -1,0 +1,199 @@
+{
+  "comparison": [
+    {
+      "path": "/",
+      "jsBefore": 261959,
+      "jsAfter": 150309,
+      "jsSavingsPct": 42.6,
+      "documentBefore": 35627,
+      "documentAfter": 19225,
+      "clsBefore": 0.0003562490038192867,
+      "clsAfter": 0.0003562490038192867
+    },
+    {
+      "path": "/art-by-waambat",
+      "jsBefore": 283920,
+      "jsAfter": 164747,
+      "jsSavingsPct": 42.0,
+      "documentBefore": 33998,
+      "documentAfter": 15029,
+      "clsBefore": 0.0034695232954025158,
+      "clsAfter": 0.0005551266519141932
+    },
+    {
+      "path": "/ordinals",
+      "jsBefore": 261963,
+      "jsAfter": 150313,
+      "jsSavingsPct": 42.6,
+      "documentBefore": 31953,
+      "documentAfter": 31049,
+      "clsBefore": 0.0005551266519141932,
+      "clsAfter": 0.0005551266519141932
+    },
+    {
+      "path": "/contact-waambat",
+      "jsBefore": 275076,
+      "jsAfter": 163243,
+      "jsSavingsPct": 40.7,
+      "documentBefore": 32993,
+      "documentAfter": 14970,
+      "clsBefore": 0,
+      "clsAfter": 0.0005551266519141932
+    },
+    {
+      "path": "/bio-waambat",
+      "jsBefore": 188891,
+      "jsAfter": 164747,
+      "jsSavingsPct": 12.8,
+      "documentBefore": 33315,
+      "documentAfter": 23350,
+      "clsBefore": 0.0005551266519141932,
+      "clsAfter": 0.0005551266519141932
+    },
+    {
+      "path": "/mechanics",
+      "jsBefore": 188891,
+      "jsAfter": 164747,
+      "jsSavingsPct": 12.8,
+      "documentBefore": 31897,
+      "documentAfter": 14346,
+      "clsBefore": 0,
+      "clsAfter": 0.0005551266519141932
+    },
+    {
+      "path": "/blog-press",
+      "jsBefore": 276580,
+      "jsAfter": 164747,
+      "jsSavingsPct": 40.4,
+      "documentBefore": 33573,
+      "documentAfter": 16542,
+      "clsBefore": 0.0005551266519141932,
+      "clsAfter": 0.0005551266519141932
+    }
+  ],
+  "archive": {
+    "items": 12,
+    "playingVideos": 10,
+    "stills": 2,
+    "unavailable": 0,
+    "pageErrors": 0,
+    "httpErrors": 0
+  },
+  "baseline": "372afe3",
+  "environment": "same Yuna Mac; Chrome 157.0.8103.51; mobile 390x844 DPR 2; 4x CPU; 100ms latency, 200000 bytes/sec download; fresh browser context and 10-second observation per page",
+  "date": "2026-11-15",
+  "status": "local; not deployed",
+  "runtimeSnapshotSha256": "5d317a5ccb909791cf4f5eacb90a50604fb90fa9d93417ccf90860b67e150ae5",
+  "node": "26.13.0",
+  "contracts": {
+    "pass": 115,
+    "fail": 0
+  },
+  "types": {
+    "errors": 0
+  },
+  "sourceCheck": {
+    "errors": 0,
+    "existingWarnings": 5
+  },
+  "mutationGate": {
+    "ok": false,
+    "code": "E_NO_VITEST",
+    "reason": "Installed gate requires Vitest; this project uses node:test."
+  },
+  "productionAudit": {
+    "ok": true,
+    "pages": [
+      "/",
+      "/ordinals",
+      "/art-by-waambat",
+      "/mechanics",
+      "/instagram",
+      "/contact-waambat",
+      "/bio-waambat",
+      "/blog-press"
+    ],
+    "diagnostics": [],
+    "ms": 17740
+  },
+  "segmentFailureFallback": {
+    "blocked": [
+      "http://127.0.0.1:3288/streams/8e2d44dc892f63185979ee05/384-000.m4s",
+      "http://127.0.0.1:3288/streams/368d058c0bf20271fdfbb2cf/960-000.m4s",
+      "http://127.0.0.1:3288/streams/kerf-copy-9401a680a63e99d7c478eded/segment-00000.m4s"
+    ],
+    "errors": [],
+    "player": {
+      "state": "playing",
+      "time": 0.276,
+      "width": 960,
+      "height": 1707,
+      "delivery": "mp4",
+      "error": null,
+      "visible": "1"
+    }
+  },
+  "geometry": {
+    "desktopWidth": 1350,
+    "phoneWidth": 390,
+    "ratioTolerancePx": 1,
+    "passed": true
+  },
+  "startupShift": {
+    "shifts": [
+      {
+        "t": 80.40000009536743,
+        "v": 1.1457747261874143e-05,
+        "recent": false,
+        "sources": [
+          {
+            "node": "<span data-kerf-shared=\"waambat-sigil\" class=\"_sigil_56x46_634\"><img src=\"/assets/waambat-sigil-7e17073f.svg\" width=\"484\" height=\"500\" alt=\"\" loading=\"lazy\" decoding=\"async\" style=",
+            "from": {
+              "x": 608.78125,
+              "y": 21.6875,
+              "width": 25.5625,
+              "height": 26.40625,
+              "top": 21.6875,
+              "right": 634.34375,
+              "bottom": 48.09375,
+              "left": 608.78125
+            },
+            "to": {
+              "x": 591.453125,
+              "y": 20.09375,
+              "width": 28.640625,
+              "height": 29.59375,
+              "top": 20.09375,
+              "right": 620.09375,
+              "bottom": 49.6875,
+              "left": 591.453125
+            }
+          }
+        ]
+      }
+    ],
+    "boxes": [
+      {
+        "t": 33.60000002384186,
+        "y": 60,
+        "h": 181.6875,
+        "p": "static",
+        "ready": false,
+        "floating": false,
+        "top": "",
+        "bottom": ""
+      },
+      {
+        "t": 65.40000009536743,
+        "y": 60,
+        "h": 181.6875,
+        "p": "fixed",
+        "ready": true,
+        "floating": false,
+        "top": "60px",
+        "bottom": "102.2px"
+      }
+    ]
+  },
+  "quality": "Existing encodes unchanged; exact first-frame stills and original Save assets preserved."
+}

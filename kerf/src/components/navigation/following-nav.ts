@@ -1,6 +1,7 @@
 /** Keep the same navigation within reach without leaving it over the artwork. */
 export function mountFollowingNav(header: HTMLElement, chrome: HTMLElement, dock: HTMLElement) {
   let frame = 0,
+    motionFrame = 0,
     anchor = Math.max(0, scrollY),
     upward = false,
     idle = false,
@@ -15,6 +16,8 @@ export function mountFollowingNav(header: HTMLElement, chrome: HTMLElement, dock
     else header.removeAttribute(name);
   };
   const measure = () => {
+    flag('data-nav-animate', false);
+    cancelAnimationFrame(motionFrame);
     header.removeAttribute("data-nav-ready");
     header.removeAttribute("data-nav-floating");
     const bounds = header.getBoundingClientRect(),
@@ -24,6 +27,11 @@ export function mountFollowingNav(header: HTMLElement, chrome: HTMLElement, dock
     header.style.setProperty("--header-rest-bottom", style.paddingBottom);
     threshold = bounds.bottom + Math.max(0, scrollY) + 24;
     flag("data-nav-ready", desktop.matches);
+    motionFrame = requestAnimationFrame(() => {
+      // Settle the initial fixed padding before enabling compact/expanded motion.
+      chrome.getBoundingClientRect();
+      flag('data-nav-animate', true);
+    });
   };
   const update = () => {
     frame = 0;
@@ -106,6 +114,7 @@ export function mountFollowingNav(header: HTMLElement, chrome: HTMLElement, dock
   const dispose = () => {
     disposed = true;
     cancelAnimationFrame(frame);
+    cancelAnimationFrame(motionFrame);
     clearTimeout(idleTimer);
     window.removeEventListener("scroll", scroll);
     window.removeEventListener("resize", resize);
@@ -118,6 +127,7 @@ export function mountFollowingNav(header: HTMLElement, chrome: HTMLElement, dock
     chrome.inert = false;
     for (const name of [
       "data-nav-ready",
+      "data-nav-animate",
       "data-nav-floating",
       "data-nav-revealed",
       "data-nav-dock",

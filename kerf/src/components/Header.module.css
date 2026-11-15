@@ -527,8 +527,10 @@
     transition:
       transform 240ms cubic-bezier(0.22, 0.8, 0.22, 1),
       opacity 180ms ease,
-      visibility 240ms,
-      padding 240ms ease;
+      visibility 240ms;
+  }
+  :global(.site-header[data-nav-animate]) .chrome {
+    transition: transform 240ms cubic-bezier(.22,.8,.22,1), opacity 180ms ease, visibility 240ms, padding 240ms ease;
   }
   :global(.site-header[data-nav-revealed]) .chrome {
     transform: translateY(0);

@@ -52,7 +52,6 @@ export function Cart({ items, taxRate }: {
     Loading and errors: `<Boundary pending={…} error={(e, retry) => …}>`.
 
 **Leave props untyped**: `kerf docs props`.
-Media: install media + media-ffmpeg; render ?media records with Core Media for automatic sharp previews and bounded caching. See `kerf docs media`.
 
 ## API in kerf@0.1.0
 
@@ -84,7 +83,6 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 - **Auth:** `ctx.user` is the user or `null`; `auth: 'user'` refuses anyone else (A002), `{ role: 'admin' }` or `{ can: (ctx) => … }` the wrong user (A006). With auth on, mutations need a signed-in user unless `auth: 'public'` (sign-in, sign-up, sign-out). Guard pages with `redirect('/login')` in a layout's `load`; `run` still checks who owns a row. Sessions live in the database; pages cache them 5 minutes in a signed cookie (`session.cookieCache`). JWTs are API-only (`api: { functions }`).
 - **Never** copy query results into `state`, import `db` from a component (Q012), `fetch` `/_kerf/*`, or poll (`todos.live()`; rooms: `channel`).
 - **Navigation:** chrome shared by sections (sidebar, tabs) goes in the one layout above them, following `currentPath()`: a per-section `_layout.tsx` is replaced on each move. Route changes show a skeleton from the page's markup; `export const skeleton = Named` (plain markup, class and data-* only) overrides it.
-- **Shared marks:** match `data-kerf-shared` keys; add `data-kerf-shared-fit="text"` for text. Start captures before the optimistic path swap. Respect reduced motion; never add a delayed logo clone around `navigate`.
 - **Every page sets `meta` as you build it**, from `data` and `params`: `kerf docs meta`.
 
 ## Styling
@@ -104,6 +102,9 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 | `kerf test` | The test gate on the diff (`--gate`) | fs:.kerf/gate |
 | `kerf browser` | Drive the running app in any open browser by role/label/text (`kerf browser help`) | network:dev-server, fs:.kerf/browser |
 | `kerf run` | Run a project task by name | task |
+| `kerf run site.verify` | Audit all public SSR routes at phone and desktop widths using one temporary production server | network:localhost, fs:.kerf/audit/** |
+| `kerf run build.prepare` | Restore verified media and generate the lightweight image delivery index | network, fs:public/**, fs:src/content/image-media.json, fs:.kerf/** |
+| `kerf run media.restore` | Restore the hash-verified public media release | network, fs:public/**, fs:.kerf/** |
 | `kerf run contracts` | Exercise content, storage concurrency, security and media contracts | network:localhost, fs:/tmp/** |
 | `kerf run media.prepare` | Acquire public originals and verify lossless image and video variants | network, fs:public/media-*/**, fs:src/content/*.json, fs:media/**, fs:.kerf/media-cache/** |
 | `kerf run build.stamp` | Record deploy revision and isolate preview content stores | fs:src/content/build-stamp.json |

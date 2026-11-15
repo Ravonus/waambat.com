@@ -1,7 +1,7 @@
 import type {Content} from './content';
 type GAWindow=Window & {dataLayer?:unknown[];gtag?:(...args:unknown[])=>void;[key:`ga-disable-${string}`]:boolean};
 let active='',last='';
-export function trackingTitle(content:Content,path:string){const clean=path.split(/[?#]/)[0];if(clean==='/')return content.seo.homeTitle;const page=content.pages.find(p=>'/'+p.slug===clean);return `${page?.seo.title||page?.title||(clean==='/ordinals'?'Ordinals':'WAAMBAT')} — waambat`;}
+export function trackingTitle(content:Pick<Content,'seo'>&{pages:Pick<Content['pages'][number],'slug'|'title'|'seo'>[]},path:string){const clean=path.split(/[?#]/)[0];if(clean==='/')return content.seo.homeTitle;const page=content.pages.find(p=>'/'+p.slug===clean);return `${page?.seo.title||page?.title||(clean==='/ordinals'?'Ordinals':'WAAMBAT')} — waambat`;}
 export function trackPublicPage(settings:Content['integrations'],path:string,title:string,allowed:boolean){
  if(typeof window==='undefined')return;
  const win=window as unknown as GAWindow;

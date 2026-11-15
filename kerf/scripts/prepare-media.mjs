@@ -8,6 +8,7 @@ import sharp from 'sharp';
 import {createMediaEncode} from '@kerf-js/media-ffmpeg/build';
 import {createMediaBuild} from '@kerf-js/media/build';
 import {restoreDownloadIndex} from './media/download-index.mjs';
+import {writeImageIndex} from './media/image-index.mjs';
 import {getPublishedContent} from '../src/server/content.ts';
 const exec=promisify(execFile),root=path.resolve('../public');
 const originals=path.join(root,'media-originals'),outputs=path.join(root,'media-optimized');
@@ -160,6 +161,7 @@ receipt.unavailable=receipt.unavailable.filter(item=>!receipt.entries[item.sourc
 await atomic('src/content/playback-media.json',playback);
 await atomic('src/content/playback-assets.json',playbackAssets);
 await atomic('src/content/local-media.json',images);
+await writeImageIndex();
 await atomic('src/content/media-downloads.json',downloads);
 await atomic(receiptFile,receipt,true);
 console.log(JSON.stringify({complete:Object.keys(receipt.entries).length,unavailable:receipt.unavailable.length,downloadedMiB:Math.round(added/1048576)}));

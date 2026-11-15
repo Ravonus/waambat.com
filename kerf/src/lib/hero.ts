@@ -77,13 +77,13 @@ export type ActiveHero = { section: Section; item: Artwork };
 
 // The first live hero banner for a page, or null when none is enabled or it has
 // neither a video nor a poster to show.
-export function activeHero(content: Content, page: string): ActiveHero | null {
+export function activeHero(content: Pick<Content, 'sections'> & {pages?: readonly Pick<Content['pages'][number], 'slug' | 'archived'>[]}, page: string): ActiveHero | null {
   for (const section of content.sections) {
     if (
       section.presentation !== "hero" ||
       section.archived ||
       section.page !== page ||
-      content.pages.find((p) => p.slug === page)?.archived
+      content.pages?.find((p) => p.slug === page)?.archived
     )
       continue;
     const item = section.items.find(
