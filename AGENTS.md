@@ -47,6 +47,9 @@ including custom page metadata, artist image and sigil. Their input hash changes
 publish, the response revalidates with an ETag, and stale revisions redirect to the
 current card. The old committed `social-images.json` is only a static fallback.
 Do not regenerate that manifest and claim it reflects later admin publications.
+Netlify serves public images from its CDN, outside the server function filesystem.
+Use `readCardImage` for published card inputs; retain its canonical-host, image,
+size and timeout bounds, and verify the deployed JPEG endpoint itself.
 Robots and sitemap read the public deployment state; archived, private and noindex
 pages stay out. Verify HTML metadata, card bytes, canonical URLs and sitemap after
 publishing. Both the Next production renderer and Native Kerf implementation must
