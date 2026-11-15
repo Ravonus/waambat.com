@@ -1,40 +1,18 @@
+# The site is built from the native Kerf app in kerf/. Paths below are relative to that base.
+# Netlify's automatic install picks pnpm from the repository-root lockfile (the Next app), so the
+# Kerf app installs its own npm dependencies here. `npm run build` restores the verified media bundles from the public GitHub release, then
+# runs `kerf build`. The lockfile was produced with legacy peer resolution (@auth/core's optional
+# nodemailer peer), and install scripts stay off as in the kerf README; the Netlify preset writes dist/ and .netlify/functions-internal/.
+# Cache headers come from kerf.config.ts (site.headers), which Kerf writes to dist/_headers.
 [build]
-  command = "pnpm build"
-  publish = ".next"
-
-# Hero renders keep their file names when re-rendered, so cache them for an hour
-# and revalidate in the background instead of marking them immutable. The same
-# rule lives in next.config.js for hosts that serve public/ through Next.
-[[headers]]
-  for = "/hero/*"
-  [headers.values]
-    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
-
-# The Ordinals preview loops and posters are named by a hash of their bytes (a new render is a
-# new URL), so the CDN and browsers keep them forever. The same rule lives in next.config.js.
-[[headers]]
-  for = "/previews/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+  base = "kerf"
+  command = "npm install --no-audit --no-fund --legacy-peer-deps --ignore-scripts && npm run build -- --preset netlify"
+  publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "24"
-  NETLIFY_NEXT_SKEW_PROTECTION = "true"
-
-[[headers]]
-  for = "/streams/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/paintings/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/social/cards/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+  NODE_VERSION = "26"
+  # The repository root is still the Next app; keep Netlify's Next.js runtime off this Kerf build.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 [context.deploy-preview.environment]
   WAAMBAT_PRIVATE_SITE = "0"
@@ -47,9 +25,6 @@
 
 [context.branch-deploy.environment]
   WAAMBAT_PRIVATE_SITE = "0"
-
-# Netlify automatically applies its maintained OpenNext adapter.
-# No pinned legacy plugin, build hook token, Identity, or Git Gateway is required.
 
 [context.production.environment]
   WAAMBAT_PRIVATE_SITE = "0"
