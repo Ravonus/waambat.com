@@ -30,4 +30,4 @@ Before a production switch: configure and validate the Netlify target/auth/backe
 
 ## Branding
 
-The original artist sigil is retained byte-for-byte in `public/brand/waambat-sigil-original.svg`, with inscription provenance in `media/sigil-source.json`. Header and home-hero logo slots use it by default. `node scripts/prepare-brand.mjs` regenerates the SVG/ICO favicon and Apple touch icon from that source. The existing hero logo override remains editable in admin.
+The original artist sigil is retained byte-for-byte in `public/brand/waambat-sigil-original.svg`, with inscription provenance in `media/sigil-source.json`. Header and home-hero branding keep the original WAAMBAT wordmark with the sigil alongside it. `node scripts/prepare-brand.mjs` regenerates the SVG/ICO favicon and Apple touch icon from that source. The existing hero logo override remains editable in admin.

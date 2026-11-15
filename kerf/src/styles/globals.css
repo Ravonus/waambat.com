@@ -306,7 +306,7 @@ button.text-waambat-link:not(:disabled):active {
   /* The phone menu button (and the close X in the same spot) centres on the
      wordmark: 40px padding + half the logo's 0.6 line box, less half the 44px
      button. */
-  --menu-top: calc(40px + 0.6 * var(--site-logo-size, 37px) - 22px);
+  --menu-top: calc(40px + 0.3 * var(--site-logo-size, 37px) - 22px);
 }
 /* On a portrait phone the hero wordmark sits at 3.2vw with a 12.5vw line box. */
 @media (max-width: 767px) and (orientation: portrait) {
@@ -322,10 +322,15 @@ button.text-waambat-link:not(:disabled):active {
   line-height: 0.6;
   vertical-align: top;
 }
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
 .site-logo img {
   display: block;
   width: auto;
-  height: 1.2em;
+  height: 0.6em;
 }
 /* With the hero banner the large wordmark lives in the banner; the header is
    just the navigation, tightened so the artwork starts higher. */

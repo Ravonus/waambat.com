@@ -252,10 +252,15 @@ button:disabled {
   line-height: 0.6;
   vertical-align: top;
 }
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
 .site-logo img {
   display: block;
   width: auto;
-  height: 1.2em;
+  height: 0.6em;
 }
 /* With the hero banner the large wordmark lives in the banner; the header is
    just the navigation, tightened so the artwork starts higher. */

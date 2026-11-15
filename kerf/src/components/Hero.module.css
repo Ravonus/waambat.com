@@ -199,8 +199,14 @@
   visibility: hidden;
 }
 
-/* Give the inscription an intrinsic-sized box inside the absolute logo slot. */
+/* Keep the original title and its added inscription together in the existing logo slot. */
 .hero .wordmark img[src="/brand/waambat-sigil-original.svg"] {
-  width: 0.96798em;
-  height: 1em;
+  width: 0.629187em;
+  height: 0.65em;
+}
+
+.hero .wordmark .wordmarkLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22em;
 }

@@ -203,7 +203,7 @@ export default function Hero({
         {/* The wordmark leads home, like the header wordmark it stands in for. */}
         <h1
           data-hero-wordmark
-          className={styles.wordmark}
+          className={`${styles.wordmark} ${item.logoSrc ? "" : "font-brand text-waambat-logo"}`}
         >
           <SiteLink
             href={preview ? "/admin/preview?page=nfts" : "/"}
@@ -211,8 +211,10 @@ export default function Hero({
             aria-label={`${section.title} home`}
             className={styles.wordmarkLink}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element -- Preserve the artist's original SVG. */}
-            <img src={item.logoSrc || "/brand/waambat-sigil-original.svg"} width={484} height={500} alt=""/>
+            {item.logoSrc ? (
+              // eslint-disable-next-line @next/next/no-img-element -- Preserve an artist-supplied logo.
+              <img src={item.logoSrc} alt=""/>
+            ) : <><span>{section.title}</span><img src="/brand/waambat-sigil-original.svg" width={484} height={500} alt=""/></>}
           </SiteLink>
         </h1>
         {playable && (
