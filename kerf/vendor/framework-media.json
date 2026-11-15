@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Ravonus/kerf",
   "baseRevision": "538f2dd5987a151ca0840a2b499d5b8d6db66015",
-  "branch": "feat/automatic-sharp-media",
+  "branch": "fix/shared-layout-handoff",
   "status": "verified automatic sharp-media integration snapshot",
   "packages": {
     "@kerf-js/core": {
@@ -27,9 +27,15 @@
       "sha256": "231254cc148eb1eeafe66bd8aed935b04cc2badf8e06d13b8cf3c311a161f595",
       "size": 513211,
       "sourceRevision": "888528a186b4424029115021ed606a222ed7df7c"
+    },
+    "@kerf-js/start": {
+      "file": "kerf-start-media-35261fefb2be.tgz",
+      "sha256": "35261fefb2be9214e3d2adba76ffcd04551cf563fdc10a8141cdda2fef6c94ff",
+      "size": 342755,
+      "sourceRevision": "6434d7830053d50d302c38c37399916089ca95cf"
     }
   },
-  "sourceRevision": "021601bd43706a13905234a3034303294ac3b136",
+  "sourceRevision": "6434d7830053d50d302c38c37399916089ca95cf",
   "manifestAdjustments": {
     "@kerf-js/core": {
       "omittedOptionalDependencies": [

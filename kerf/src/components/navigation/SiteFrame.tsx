@@ -16,5 +16,5 @@ export default function SiteFrame({ children, navigation, style, motion, routes 
     wide?: boolean;
 }) {
     const route = derived(() => routes.find(r => r.href === currentPath())), showHero = derived(() => preview ? hasHero : currentPath() === '/' && hasHero);
-    return <>{route.value?.splash ? children : <div className="site-theme flex min-h-screen flex-col" data-motion={motion} style={style}><Header navigation={navigation} preview={preview} hero={showHero.value}/>{showHero.value && hero}<main id="main-content" tabIndex={-1} className={`site-main mx-auto w-full flex-grow ${wide || route.value?.wide ? 'site-main-wide' : ''}`}>{children}</main>{footer}</div>}</>;
+    return <>{route.value?.splash ? children : <div className="site-theme flex min-h-screen flex-col" data-motion={motion} data-kerf-motion={motion} style={style}><Header navigation={navigation} preview={preview} hero={showHero.value}/>{showHero.value && hero}<main id="main-content" tabIndex={-1} className={`site-main mx-auto w-full flex-grow ${wide || route.value?.wide ? 'site-main-wide' : ''}`}>{children}</main>{footer}</div>}</>;
 }

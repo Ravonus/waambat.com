@@ -77,3 +77,10 @@ html:has(.site-theme[data-motion="off"])::view-transition-new(*),
 html:has(.site-theme[data-motion="off"])::view-transition-group(*) {
   animation: none !important;
 }
+
+/* The incoming wordmark moves directly; artwork stays live and is never a page-sized snapshot. */
+:root { view-transition-name: none; }
+[data-brand-wordmark] { display: inline-block; }
+
+/* A return to the hero uses the shared handoff instead of replaying its entrance. */
+html[data-kerf-shared-active] [data-hero-wordmark] { animation: none; }

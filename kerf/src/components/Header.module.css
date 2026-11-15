@@ -479,3 +479,45 @@
 .navIndicator[data-instant] {transition:none;}
 @media(prefers-reduced-motion:reduce){.navIndicator{transition:none;}}
 :global([data-motion="off"]) .navIndicator{transition:none;}
+
+/* The original header remains in the page; only its existing controls follow scroll intent. */
+.chrome { line-height: inherit; }
+.dock { display: none; }
+@media(min-width:768px) {
+  :global(.site-header[data-nav-floating]) { min-block-size: var(--header-rest-height); }
+  :global(.site-header[data-nav-floating]) .chrome {
+    position: fixed; z-index: 35; inset: 0 0 auto;
+    padding: 48px var(--site-desktop-padding, 32px) 18px;
+    background: var(--site-background, #000);
+    transform: translateY(-110%); visibility: hidden;
+    transition: transform 240ms cubic-bezier(.22,.8,.22,1), visibility 240ms;
+  }
+  :global(.site-header[data-nav-revealed]) .chrome { transform: translateY(0); visibility: visible; }
+  :global(.site-header[data-nav-floating]) .chrome :global(.site-logo) { display: block; top: 15px; font-size: calc(var(--site-logo-size) * .78); }
+}
+@media(max-width:767px) {
+  .dock {
+    position: fixed; z-index: 35;
+    left: max(14px,env(safe-area-inset-left)); right: max(14px,env(safe-area-inset-right));
+    bottom: max(10px,env(safe-area-inset-bottom));
+    display: flex; align-items: center; justify-content: center; gap: 2px;
+    max-width: 360px; margin-inline: auto; padding: 4px 10px;
+    border: 1px solid color-mix(in srgb,var(--ui-cursor) 22%,var(--site-background)); border-radius: 12px;
+    background: var(--site-background,#000); line-height: 1;
+    transform: translateY(calc(100% + 40px)); opacity: 0; visibility: hidden;
+    transition: transform 220ms cubic-bezier(.22,.8,.22,1), opacity 180ms ease, visibility 220ms;
+  }
+  :global(.site-header[data-nav-dock]) .dock { transform: translateY(0); opacity: 1; visibility: visible; }
+  :global(.site-header[data-menu-open]) .dock { opacity: 0; visibility: hidden; }
+  .dockLink, .dockMenu { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; flex: 1; padding: 0 10px; font-size: 12px; letter-spacing: .025em; color: var(--site-navigation,#999); }
+  .dockLink[aria-current="page"], .dockLink:hover, .dockMenu:hover { color: var(--ui-cursor,#ff94b2); }
+  .dockMenu { color: var(--ui-cursor,#ff94b2); }
+  .dockMenu .glyph { width: 18px; height: 16px; }
+  .dockLink:focus-visible, .dockMenu:focus-visible { outline: 1px solid var(--ui-accent-focus); outline-offset: -2px; border-radius: 5px; }
+}
+@media(prefers-reduced-motion:reduce) { .chrome, .dock { transition: none !important; } }
+:global([data-motion="off"]) .chrome, :global([data-motion="off"]) .dock { transition: none !important; }
+
+/* The animated wrapper owns placement; Media keeps the same single inscription image. */
+.logo .sigil { position: absolute; right: calc(100% + .25em); top: 50%; transform: translateY(-50%); inline-size: .5808em; block-size: .6em; }
+.logo .sigil :global([data-sigil]) { position: static; transform: none; height: .6em; inline-size: auto; }

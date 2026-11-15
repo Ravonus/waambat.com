@@ -97,3 +97,11 @@ The header wordmark sits above the desktop nav without moving the nav baseline. 
 WAAMBAT wordmark below that same nav row; keep the nav at the same vertical
 position when switching between Home and interior pages. Preserve the sigil and
 the single shared sliding indicator.
+
+The hero and header marks opt into Kerf navigation with matching `data-kerf-shared`
+keys; text also uses `data-kerf-shared-fit="text"`. Kerf captures before the optimistic
+path change. Do not restore an app-owned navigate wrapper or duplicate flying logo.
+`data-kerf-motion` follows the artist's motion setting. Keep the artwork live below it.
+The local navigation experiment reveals the existing desktop controls on upward
+scroll and a small phone dock for NFTs, Ordinals and the full menu. Hide it while
+scrolling into artwork or editing a form; retain the original menu's arrival/close lifecycle.

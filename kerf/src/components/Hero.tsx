@@ -140,8 +140,8 @@ export default function Hero({ section, item, preview = false, }: {
         {/* The wordmark leads home, like the header wordmark it stands in for. */}
         <h1 data-hero-wordmark className={`${styles.wordmark} ${"font-brand text-waambat-logo"}`}>
           <SiteLink href={preview ? "/admin/preview?page=nfts" : "/"} label="NFTs" aria-label={`${section.title} home`} className={styles.wordmarkLink}>
-            <span>{section.title}</span>
-            {item.logoSrc ? <img src={item.logoSrc} width={484} height={500} alt="" style={{objectFit:'contain'}}/> : <Sigil/>}
+            <span data-brand-wordmark data-kerf-shared="waambat-wordmark" data-kerf-shared-fit="text">{section.title}</span>
+            {item.logoSrc ? <img data-kerf-shared="waambat-sigil" src={item.logoSrc} width={484} height={500} alt="" style={{objectFit:'contain'}}/> : <Sigil shared="waambat-sigil"/>}
           </SiteLink>
         </h1>
         {playable.value && (<div className={styles.controls}>

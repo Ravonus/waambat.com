@@ -1,43 +1,35 @@
-import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
-import { update as writeBox } from "#/lib/reactive";
-const tags = [
-    "cryptoart",
-    "NFT",
-    "Foundation",
-    "Foundation.app",
-    "FND",
-    "token",
-    "digital art",
-    "video art",
-    "infinite loop",
-    "waambat",
-    "Lindsay Scoggins",
-    "ethereum",
-    "eth",
-    "blockchain",
-    "crypto artist",
-    "fine art",
-    "ordinals",
-];
-const Footer = () => {
-    return (<footer className="border-t border-gray-800 bg-black py-4">
-      <div className="mx-auto max-w-7xl px-4 text-center text-xs text-gray-400">
-        <nav aria-label="Social links" className="mb-5 flex justify-center gap-6">
-          <a href="http://instagram.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on Instagram">
-            Instagram
+import Sigil from "./Sigil";
+import SocialIcon from "./SocialIcon";
+import SiteLink from "./navigation/SiteLink";
+import styles from "./Footer.module.css";
+const socials = [
+  { name: "Instagram", href: "https://instagram.com/waambat" },
+  { name: "X", href: "https://twitter.com/waambat" },
+  { name: "YouTube", href: "https://www.youtube.com/waambat" },
+  { name: "OpenSea", href: "https://opensea.io/waambat" },
+] as const;
+export default function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <SiteLink href="/" className={styles.signature} aria-label="WAAMB.AT home">
+        <Sigil />
+        <span>WAAMB.AT</span>
+      </SiteLink>
+      <nav aria-label="Social links" className={styles.socials}>
+        {socials.map((social) => (
+          <a
+            key={social.name}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`WAAMBAT on ${social.name}`}
+            className={styles.social}
+          >
+            <SocialIcon name={social.name} />
+            <span>{social.name}</span>
           </a>
-          <a href="https://twitter.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on X">
-            X
-          </a>
-          <a href="https://www.youtube.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on YouTube">
-            YouTube
-          </a>
-          <a href="https://opensea.io/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on OpenSea">
-            OpenSea
-          </a>
-        </nav>
-        {tags.join(" | ")}
-      </div>
-    </footer>);
-};
-export default Footer;
+        ))}
+      </nav>
+    </footer>
+  );
+}
