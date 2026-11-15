@@ -22,7 +22,7 @@ function Poster({ artwork, priority, videoSource, onReady }: {
     const still = derived(() => artwork.poster || adaptivePreview(artwork.videoSrc)?.poster);
     const source = derived(() => adaptivePoster(still.value ?? ""));
     const poster = derived(() => paintingPoster(source.value));
-    return <>{artwork.kind==="video"?<VideoStill source={artwork.previewSrc||artwork.videoSrc||""} mobileSource={artwork.mobileVideoSrc||undefined} media="(max-width: 767px)" fallback={source.value} alt={artwork.title} priority={priority} onReady={(_source,poster)=>onReady?.(videoSource||artwork.videoSrc,poster)}/>:!still.value ? null : (<picture className="block h-full w-full">
+    return <>{artwork.kind==="video"?<VideoStill source={artwork.videoSrc||""} playbackSource={videoSource} fallback={source.value} alt={artwork.title} priority={priority} onReady={onReady}/>:!still.value ? null : (<picture className="block h-full w-full">
       {poster.value.avif && (<source type="image/avif" srcSet={poster.value.avif} sizes="(max-width: 767px) calc(100vw - 40px), 960px"/>)}
       <img src={source.value} srcSet={poster.value.srcSet} sizes="(max-width: 767px) calc(100vw - 40px), 960px" alt={artwork.title} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} width={poster.value.local ? 960 : undefined} height={poster.value.local ? 960 : undefined} decoding="async" className="h-full w-full object-contain"/>
     </picture>)}</>;
@@ -63,7 +63,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     const selectedSource = derived(() => mobile.value && artwork.mobileVideoSrc
         ? artwork.mobileVideoSrc
         : artwork.previewSrc || artwork.videoSrc);
-    useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value ? selectedSource.value : undefined, () => wanted.value,()=>lifecycle.preparing.value);
+    const quality = useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value ? selectedSource.value : undefined, () => wanted.value,()=>lifecycle.preparing.value);
     const mediaRatio = derived(() => ratio ??
         (naturalAspect ? adaptivePreview(artwork.videoSrc)?.ratio : undefined) ??
         (naturalAspect && intrinsic.value?.src === selectedSource.value
@@ -94,7 +94,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
         <a href={artwork.tokenLink} {...newTabProps(artwork.tokenLink)}>
           View collection ↗
         </a>
-      </article>) : artwork.kind === "instagram" ? <InstagramCard artwork={artwork}/> : (<article data-save-url={artwork.videoSrc||artwork.poster} data-artwork={artwork.id} data-playback-state={error.value ? "unavailable"
+      </article>) : artwork.kind === "instagram" ? <InstagramCard artwork={artwork}/> : (<article data-media-start={artwork.kind==="video"?selectedSource.value:undefined} data-save-url={artwork.videoSrc||artwork.poster} data-artwork={artwork.id} data-playback-state={error.value ? "unavailable"
             : playing.value ? "playing"
                 : requested.value ? "paused"
                     : "idle"} className={originalFlow ? "original-artwork text-center" : "mb-10 text-center"} style={originalFlow
@@ -134,7 +134,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
                     writeBox(error, true);
                     writeBox(playing, false);
                     writeBox(shownSource, "");
-                }} className="absolute inset-0 h-full w-full object-contain" style={{ opacity: shownSource.value === selectedSource.value ? 1 : 0 }}/>)}
+                }} className="absolute inset-0 h-full w-full object-contain" style={{ opacity: shownSource.value === selectedSource.value && quality.sharp.value ? 1 : 0 }}/>)}
           </a>
           {artwork.kind === "video" && !trailer && (<div className="painting-controls">
               <PlaybackButton playing={playing.value} title={artwork.title} onClick={toggle} error={error.value}/>

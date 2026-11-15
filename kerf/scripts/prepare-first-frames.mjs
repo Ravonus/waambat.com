@@ -6,7 +6,7 @@ import {createMediaEncode} from '@kerf-js/media-ffmpeg/build';
 const root=path.resolve('../public'),out=path.join(root,'media-optimized');
 const inventory=JSON.parse(await fs.readFile('media/source-manifest.json','utf8'));
 const records=await fs.readFile('media/first-frame-manifest.json','utf8').then(JSON.parse).catch(()=>({version:1,entries:{},errors:[]}));
-const builder=createFirstFrameBuild({widths:[384,640,960,1600],target:80});
+const builder=createFirstFrameBuild({widths:[384,640,960,1600],target:100,scorer:'none'});
 const encode={'video/h264':createMediaEncode({key:'video/h264',timeout:600000})};
 const assets=await fs.readFile('src/content/first-frames.json','utf8').then(JSON.parse).catch(()=>({sources:{},assets:{}}));
 const publish=asset=>({...asset,src:'/media-optimized/'+asset.src,sources:asset.sources.map(source=>({...source,srcset:source.srcset.split(', ').map(rung=>'/media-optimized/'+rung).join(', ')}))});

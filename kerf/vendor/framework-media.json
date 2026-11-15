@@ -1,31 +1,35 @@
 {
   "repository": "https://github.com/Ravonus/kerf",
   "baseRevision": "538f2dd5987a151ca0840a2b499d5b8d6db66015",
-  "branch": "fix/media-frame-delivery",
-  "status": "local verified integration snapshot",
+  "branch": "fix/sharp-media-starts",
+  "status": "verified sharp-start integration snapshot",
   "packages": {
     "@kerf-js/core": {
       "file": "kerf-core-media-25080c18dabb.tgz",
       "sha256": "25080c18dabbfde5e46b4386addd2d7fb2d09dd1fbc9e08f7aebc297efa3cb23",
-      "size": 1105731
+      "size": 1105731,
+      "sourceRevision": "888528a186b4424029115021ed606a222ed7df7c"
     },
     "@kerf-js/media": {
-      "file": "kerf-media-media-69baeae6016d.tgz",
-      "sha256": "69baeae6016d36d3349df6fc759151117b837ce55ea8b859e80fb8de1a3a8784",
-      "size": 51621
+      "file": "kerf-media-media-3615ab055a59.tgz",
+      "sha256": "3615ab055a5909a97a0e3045b2084f6ef9a475ccbc1328bb133f194eb55de6c6",
+      "size": 52309,
+      "sourceRevision": "f8646e2a9db513c30ecc949cd1e64ae71f2b61e1"
     },
     "@kerf-js/media-ffmpeg": {
       "file": "kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
       "sha256": "39c7fe6451c96c1f998f4f463c7ffea156a462d2aa32184bf6faa24a00ee798f",
-      "size": 15763
+      "size": 15763,
+      "sourceRevision": "888528a186b4424029115021ed606a222ed7df7c"
     },
     "@kerf-js/veneer-core": {
       "file": "kerf-veneer-core-media-231254cc148e.tgz",
       "sha256": "231254cc148eb1eeafe66bd8aed935b04cc2badf8e06d13b8cf3c311a161f595",
-      "size": 513211
+      "size": 513211,
+      "sourceRevision": "888528a186b4424029115021ed606a222ed7df7c"
     }
   },
-  "sourceRevision": "888528a186b4424029115021ed606a222ed7df7c",
+  "sourceRevision": "f8646e2a9db513c30ecc949cd1e64ae71f2b61e1",
   "manifestAdjustments": {
     "@kerf-js/core": {
       "omittedOptionalDependencies": [

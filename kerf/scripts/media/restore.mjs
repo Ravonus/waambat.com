@@ -4,6 +4,12 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {createReadStream} from 'node:fs';
 import {execFileSync} from 'node:child_process';
+/** Delta releases retain immutable bundles from their original release. */
+export function mediaReleaseUrl(manifest,pack){
+ const tag=pack.releaseTag??manifest.tag;
+ if(manifest.repository!=='Ravonus/waambat.com'||!/^waambat-media-[a-f0-9]{16}$/.test(tag)||!/^media-\d+-[a-f0-9]+\.tar$/.test(pack.name))throw new Error('Unexpected media release');
+ return `https://github.com/${manifest.repository}/releases/download/${tag}/${pack.name}`;
+}
 async function digest(file){const hash=createHash('sha256');for await(const chunk of createReadStream(file))hash.update(chunk);return hash.digest('hex');}
 function location(root,name){
  if(!/^(media-originals|media-optimized|streams\/kerf-copy-[a-f0-9]+)\/[A-Za-z0-9._/-]+$/.test(name)||name.split('/').some(part=>!part||part==='.'||part==='..'))throw new Error('Invalid media path');

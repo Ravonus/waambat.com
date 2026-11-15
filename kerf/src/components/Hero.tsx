@@ -60,8 +60,8 @@ export default function Hero({ section, item, preview = false, }: {
     const source = derived(() => portrait.value ? item.mobileVideoSrc : item.videoSrc);
     // The ending loop follows the video it was rendered with (portrait with portrait).
     const loopSource = derived(() => portrait.value ? item.mobileLoopSrc : item.loopSrc);
-    useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===source.value && !error.value ? source.value : undefined, () => wanted.value && phase.value === "intro");
-    useAdaptiveVideo(endless, () => requested.value && sourceReady.value && !error.value && loopWanted.value ? loopSource.value : undefined, () => wanted.value && phase.value === "loop", () => wanted.value && loopWanted.value);
+    const introQuality = useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===source.value && !error.value ? source.value : undefined, () => wanted.value && phase.value === "intro");
+    const loopQuality = useAdaptiveVideo(endless, () => requested.value && sourceReady.value && !error.value && loopWanted.value ? loopSource.value : undefined, () => wanted.value && phase.value === "loop", () => wanted.value && loopWanted.value);
     // A poster-only banner is a legitimate choice; it just has nothing to play.
     const playable = derived(() => !!source.value);
     const ratio = derived(() => item.aspectRatio ?? 16 / 9);
@@ -87,7 +87,7 @@ export default function Hero({ section, item, preview = false, }: {
         <VideoStill source={item.videoSrc||""} mobileSource={item.mobileVideoSrc} media={PORTRAIT_PHONE} fallback={adaptivePoster(item.poster)} mobileFallback={item.mobilePoster?adaptivePoster(item.mobilePoster):undefined} alt={item.title} priority className={styles.poster} sizes="(max-width: 767px) 100vw, 1600px" onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
         {playable.value && requested.value && sourceReady.value && posterReadyFor.value===source.value && !error.value && (<OptimizedVideo source={source.value ?? ""} width={1920} height={1080} ref={node => {
                 video.current = node;
-            }} poster={loadedPoster.value} muted loop={!loopSource.value} playsInline preload="none" aria-label={item.title} data-shown={shown.value} data-done={loopShown.value} className={styles.video} onLoadedData={() => {
+            }} poster={loadedPoster.value} muted loop={!loopSource.value} playsInline preload="none" aria-label={item.title} data-shown={shown.value&&introQuality.sharp.value?'true':undefined} data-done={loopShown.value&&loopQuality.sharp.value?'true':undefined} className={styles.video} onLoadedData={() => {
                 if (lifecycle.desired.current && phase.value === "intro")
                     void video.current?.play().catch(() => writeBox(playing, false));
             }} onPlaying={() => writeBox(shown, true)} onPlay={() => {
@@ -120,7 +120,7 @@ export default function Hero({ section, item, preview = false, }: {
             }}/>)}
         {playable.value && requested.value && sourceReady.value && !error.value && loopWanted.value && loopSource.value && (<OptimizedVideo source={loopSource.value ?? ""} width={1920} height={1080} poster={firstFramePoster(loopSource.value,adaptivePoster(item.poster))} ref={node => {
                 endless.current = node;
-            }} muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1} data-shown={loopShown.value} className={styles.video} onCanPlay={() => {
+            }} muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1} data-shown={loopShown.value&&loopQuality.sharp.value?'true':undefined} className={styles.video} onCanPlay={() => {
                 if (phase.value === "loop" && lifecycle.desired.current)
                     void endless.current?.play().catch(() => writeBox(playing, false));
             }} onPlaying={() => {

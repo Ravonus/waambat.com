@@ -6,6 +6,8 @@ import path from "node:path";
 import media from "../src/content/adaptive-media.json";
 import original from "../src/content/optimized-media.json";
 import evidence from "../evidence/adaptive-media.json";
+import frames from "../media/first-frame-manifest.json";
+import catalog from "../src/content/first-frames.json";
 import { adaptiveStream, adaptivePoster } from "../src/lib/adaptive-media";
 import { paintingPoster } from "../src/lib/painting-source";
 import { adaptiveVideoConfig } from "../src/lib/adaptive-video-config";
@@ -78,8 +80,8 @@ test("every complete painting and hero has content-addressed adaptive renditions
     );
   }
 });
-test("adaptive loader starts small with a bounded buffer and preserves custom media", () => {
-  assert.equal(adaptiveVideoConfig.startLevel, 0);
+test("adaptive loader waits for display quality with a bounded buffer and preserves custom media", () => {
+  assert.equal(adaptiveVideoConfig.startLevel, -1);
   assert.ok(adaptiveVideoConfig.maxMaxBufferLength <= 6);
   assert.equal(adaptiveVideoConfig.autoStartLoad, false);
   assert.equal(
@@ -90,4 +92,11 @@ test("adaptive loader starts small with a bounded buffer and preserves custom me
     adaptivePoster("https://example.com/artist-edit.webp"),
     "https://example.com/artist-edit.webp",
   );
+});
+
+// Every acquired video has a real first-frame asset; startup never uses a lossy thumbnail.
+test('all prepared movie first frames preserve their resized decoded pixels',()=>{
+ assert.equal(Object.keys(catalog.assets).length,100);
+ assert.ok(Object.values(catalog.assets).every(asset=>asset.quality==='original'));
+ assert.ok(Object.values(frames.entries).every(entry=>entry.verification.pixels==='exact'&&entry.verification.placeholder==='none'));
 });

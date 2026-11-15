@@ -73,6 +73,19 @@ predictor can prepare a landing area without loading every skipped artwork.
 Track clicks are smooth by default; `behavior="instant"` keeps a direct jump.
 Thumb dragging stays instant. Do not add a second per-video scroll listener.
 
+Video stills must come from the acquired original at frame zero and use Kerf's
+exact-pixel first-frame provider (`target:100`, `scorer:'none'`, no blur placeholder).
+Playback pins the display-sized HLS rendition before loading any segment. Network
+hints must not force a blurry starting rendition. Reveal video only after a presented
+frame reaches the chosen dimensions; `playing` alone is insufficient. Keep that
+rendition and source through pause, scroll return and loop restart. Native HLS uses
+the selected single-rendition playlist. Warm the actual responsive playback source
+(`data-media-start`), independently of its exact original Save URL, with the current
+viewport first. Start the serial background queue immediately, pause it for foreground
+buffering, and allow real clear fragment sizes (currently up to 7.3 MB). Verify first
+decoded dimensions, a complete loop, scroll return and an actual cache hit in a fresh
+browser; Lighthouse scores alone do not prove sharp playback.
+
 The desktop nav row precedes the header wordmark. The home hero carries its own
 WAAMBAT wordmark below that same nav row; keep the nav at the same vertical
 position when switching between Home and interior pages. Preserve the sigil and

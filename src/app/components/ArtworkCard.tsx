@@ -141,7 +141,7 @@ export default function ArtworkCard({
   if (artwork.kind === "instagram") return <InstagramCard artwork={artwork} />;
   return (
     <article
-      data-artwork={artwork.id} data-media-start={artwork.videoSrc}
+      data-artwork={artwork.id} data-media-start={selectedSource}
       data-playback-state={
         error
           ? "unavailable"

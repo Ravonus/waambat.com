@@ -5,8 +5,14 @@ import path from 'node:path';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
-import {restoreMedia} from '../scripts/media/restore.mjs';
+import {restoreMedia,mediaReleaseUrl} from '../scripts/media/restore.mjs';
 const hash=(data:Uint8Array)=>createHash('sha256').update(data).digest('hex');
+test('delta releases resolve retained and new bundles without changing their source',()=>{
+ const manifest={repository:'Ravonus/waambat.com',tag:'waambat-media-1111111111111111'},pack={name:'media-4-abcdef.tar'};
+ assert.match(mediaReleaseUrl(manifest,pack),/waambat-media-1111111111111111\/media-4/);
+ assert.match(mediaReleaseUrl(manifest,{...pack,releaseTag:'waambat-media-2222222222222222'}),/waambat-media-2222222222222222\/media-4/);
+ assert.throws(()=>mediaReleaseUrl(manifest,{...pack,releaseTag:'../../private'}),/Unexpected media release/);
+});
 async function fixture(run:(context:any)=>Promise<void>){
  const directory=await fs.mkdtemp(path.join(tmpdir(),'waambat-restore-'));
  try{

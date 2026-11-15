@@ -6,7 +6,7 @@ export default function MediaWarm(){
  onMount(()=>watch(()=>currentPath(),path=>{
   if(path.startsWith('/admin'))return;
   let queue:ReturnType<typeof warmMediaStarts>|undefined;
-  const timer=setTimeout(()=>{queue=warmMediaStarts(mediaWarmTargets(),{startDelayMs:0});},6000);
+  const timer=setTimeout(()=>{queue=warmMediaStarts(mediaWarmTargets(),{startDelayMs:0});},0);
   return ()=>{clearTimeout(timer);queue?.cancel();};
  }));
  return null;

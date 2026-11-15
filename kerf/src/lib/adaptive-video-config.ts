@@ -2,7 +2,7 @@
 // forward buffer bounds downloads while several paintings share a connection.
 export const adaptiveVideoConfig = {
   autoStartLoad: false,
-  startLevel: 0,
+  startLevel: -1,
   testBandwidth: false,
   maxBufferLength: 4,
   maxMaxBufferLength: 6,

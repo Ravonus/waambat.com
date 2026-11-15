@@ -1,10 +1,11 @@
 {
   "repository": "Ravonus/waambat.com",
-  "tag": "waambat-media-cbf9186871defd34",
-  "url": "https://github.com/Ravonus/waambat.com/releases/tag/waambat-media-cbf9186871defd34",
-  "target": "da6bc9cc5495d1ad956d4f25f3ef091f73db3ba9",
+  "tag": "waambat-media-e64ae94f39698a9e",
+  "url": "https://github.com/Ravonus/waambat.com/releases/tag/waambat-media-e64ae94f39698a9e",
+  "target": "57cc3dbdbc8abfbb538b015aa3f8e7cf52d3c76c",
   "public": true,
-  "assets": [
+  "retainedRelease": "waambat-media-cbf9186871defd34",
+  "retainedAssets": [
     {
       "name": "media-1-fc546631a633f2bbd3ea.tar",
       "bytes": 1186621952,
@@ -22,18 +23,29 @@
       "bytes": 615069696,
       "sha256": "6d12ac7da3558075b21ed6c2a70fa89281605f31119c06ad6d2cbe3d528e6081",
       "url": "https://github.com/Ravonus/waambat.com/releases/download/waambat-media-cbf9186871defd34/media-3-6d12ac7da3558075b21e.tar"
+    }
+  ],
+  "assets": [
+    {
+      "name": "media-4-f47edceecb435ac2a00a.tar",
+      "bytes": 78404608,
+      "sha256": "f47edceecb435ac2a00a653e2e8b35be315f0e4280ba7063014b59c2caec75bc",
+      "url": "https://github.com/Ravonus/waambat.com/releases/download/waambat-media-e64ae94f39698a9e/media-4-f47edceecb435ac2a00a.tar"
     },
     {
       "name": "storage-manifest.json",
-      "bytes": 445964,
-      "sha256": "82671b1be12c4d170b15dca3aa190cd53cfb801dffebb3fe1010d1a87329b76c",
-      "url": "https://github.com/Ravonus/waambat.com/releases/download/waambat-media-cbf9186871defd34/storage-manifest.json"
+      "bytes": 500370,
+      "sha256": "333eb80a79b77eb748dc4fc213bde8147f48c958112b3a58a9b2521745aff057"
     }
   ],
-  "checkedAt": "2026-11-15T04:16:50.461Z",
-  "anonymousManifestReadback": {
-    "bytes": 445964,
-    "sha256": "82671b1be12c4d170b15dca3aa190cd53cfb801dffebb3fe1010d1a87329b76c",
-    "matchesLocal": true
+  "checkedAt": "2026-11-15T16:40:22.683Z",
+  "anonymousReadback": {
+    "bytes": 78404608,
+    "sha256": "f47edceecb435ac2a00a653e2e8b35be315f0e4280ba7063014b59c2caec75bc",
+    "manifestMatches": true
+  },
+  "exactRestore": {
+    "files": 209,
+    "restoredPacks": 1
   }
 }

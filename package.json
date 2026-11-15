@@ -44,7 +44,7 @@
     "react-dom": "^19.2.0",
     "zod": "^3.23.3",
     "zustand": "5.0.15",
-    "@kerf-js/media": "file:kerf/vendor/kerf-media-media-69baeae6016d.tgz",
+    "@kerf-js/media": "file:kerf/vendor/kerf-media-media-3615ab055a59.tgz",
     "@kerf-js/veneer-core": "file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz",
     "sharp": "0.35.5"
   },

@@ -5,14 +5,18 @@ import {readFileSync,writeFileSync,renameSync,readdirSync,unlinkSync,mkdtempSync
 import {createHash} from 'node:crypto';
 import {join,resolve} from 'node:path';
 import {tmpdir} from 'node:os';
-const framework=resolve(process.argv[2]||'../../kerf-media');
+if(!process.argv[2]||process.argv[2].startsWith('--'))throw new Error('Usage: node scripts/vendor-framework.mjs /path/to/kerf [--only=media]');
+const framework=resolve(process.argv[2]);
+const selected=process.argv.find(value=>value.startsWith('--only='))?.slice(7).split(',');
 const app=resolve(import.meta.dirname,'..'),vendor=join(app,'vendor');
 const receipt=JSON.parse(readFileSync(join(vendor,'framework-media.json'),'utf8'));
 const pkg=JSON.parse(readFileSync(join(app,'package.json'),'utf8'));
+for(const entry of Object.values(receipt.packages))entry.sourceRevision??=receipt.sourceRevision;
 receipt.sourceRevision=execFileSync('git',['rev-parse','HEAD'],{cwd:framework,encoding:'utf8'}).trim();
 receipt.manifestAdjustments={'@kerf-js/core':{omittedOptionalDependencies:['@kerf-js/compiler-win32-arm64'],reason:'No 0.1.0 package exists on npm; Windows ARM uses the bundled matching WASM compiler, as in Kerf release staging.'}};
-execFileSync(process.execPath,['packages/core/scripts/copy-docs.mjs'],{cwd:framework,stdio:'inherit'});
+if(!selected||selected.includes('core'))execFileSync(process.execPath,['packages/core/scripts/copy-docs.mjs'],{cwd:framework,stdio:'inherit'});
 for(const name of ['core','media','media-ffmpeg','veneer-core']){
+ if(selected&&!selected.includes(name))continue;
  const packed=JSON.parse(execFileSync('npm',['pack','--ignore-scripts','--json','--pack-destination',vendor],{cwd:join(framework,'packages',name),encoding:'utf8'}))[0];
  let file=join(vendor,packed.filename);
  if(name==='core'){
@@ -29,7 +33,7 @@ for(const name of ['core','media','media-ffmpeg','veneer-core']){
  const sha256=createHash('sha256').update(readFileSync(file)).digest('hex');
  const target=`kerf-${name}-media-${sha256.slice(0,12)}.tgz`;
  renameSync(file,join(vendor,target));
- receipt.packages[`@kerf-js/${name}`]={file:target,sha256,size:statSync(join(vendor,target)).size};
+ receipt.packages[`@kerf-js/${name}`]={file:target,sha256,size:statSync(join(vendor,target)).size,sourceRevision:receipt.sourceRevision};
  pkg.dependencies[`@kerf-js/${name}`]=`file:vendor/${target}`;
 }
 writeFileSync(join(vendor,'framework-media.json'),JSON.stringify(receipt,null,2)+'\n');

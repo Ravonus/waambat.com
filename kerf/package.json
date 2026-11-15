@@ -19,7 +19,7 @@
   "dependencies": {
     "@auth/core": "0.41.3",
     "@kerf-js/core": "file:vendor/kerf-core-media-25080c18dabb.tgz",
-    "@kerf-js/media": "file:vendor/kerf-media-media-69baeae6016d.tgz",
+    "@kerf-js/media": "file:vendor/kerf-media-media-3615ab055a59.tgz",
     "@kerf-js/media-ffmpeg": "file:vendor/kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
     "@kerf-js/scroll": "0.1.0",
     "@kerf-js/start": "0.1.0",
