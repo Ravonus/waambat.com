@@ -205,7 +205,6 @@ textarea.control {
 }
 .option[data-active] {
   background: color-mix(in srgb, var(--ui-accent) 20%, transparent);
-  box-shadow: inset 3px 0 0 var(--ui-cursor);
   color: var(--ui-cursor);
 }
 .option svg {
