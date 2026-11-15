@@ -86,7 +86,7 @@ buffering, and allow real clear fragment sizes (currently up to 7.3 MB). Verify 
 decoded dimensions, a complete loop, scroll return and an actual cache hit in a fresh
 browser; Lighthouse scores alone do not prove sharp playback.
 
-The desktop nav row precedes the header wordmark. The home hero carries its own
+The header wordmark sits above the desktop nav without moving the nav baseline. The home hero carries its own
 WAAMBAT wordmark below that same nav row; keep the nav at the same vertical
 position when switching between Home and interior pages. Preserve the sigil and
 the single shared sliding indicator.
