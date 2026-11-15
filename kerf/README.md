@@ -1,6 +1,6 @@
 # WAAMBAT on native Kerf
 
-This directory is the native TSX migration, on branch `migration/kerf`. It uses Kerf Start routes, native state/derived/watch lifetimes, the existing visual design and controls, the CMS/admin APIs and the shared Kerf media and canvas-scroll plugins. Production at waamb.at still uses the root Next application; this migration is not deployed.
+This directory contains the native TSX migration. It uses Kerf Start routes, native state/derived/watch lifetimes, the existing visual design and controls, the CMS/admin APIs and the shared Kerf media and canvas-scroll plugins. Production at waamb.at still uses the root Next application; this migration is not deployed.
 
 Use Node 26, then `npm ci --ignore-scripts`. `npm run media:restore` restores any missing immutable media bundles listed in `media/storage-manifest.json`; `npm run build` performs that check automatically. Bundles live in the public GitHub media release and verify both archive and individual file SHA256. Changed local artwork is preserved and causes a clear build error. The media files stay outside ordinary Git.
 
@@ -26,4 +26,8 @@ The local contact clip was evaluated through the shared optimizer: 1,282,990-byt
 
 The source inventory has 210 acquired assets: 96 movies, four GIFs and 110 static images. Preparation is complete, with 100 sharp first-frame records and 22 additional verified native HLS streams. Original-file checks pass for every acquired asset. The automatic movie selection retained 94 native originals and chose two smaller native container copies; larger image-frame representations were rejected. Sixteen upstream videos remain unavailable: twelve restricted Vimeo sources, three YouTube sources requiring sign-in/age confirmation, and one deleted Imgur movie with no matching archive. They retain their original links/player behavior.
 
-Before a production switch: configure and validate the Netlify target/auth/backend environment, and pass the remaining framework release gates. The all-stack comparison currently stalls compiling `kerf-plain/feed/main.tsx`; the global runtime size budget also fails on the unchanged base. No replacement benchmark results or new PageSpeed score are claimed.
+Before a production switch: configure and validate the Netlify target/auth/backend environment, and pass the remaining framework release gates. The all-stack comparison completed on revision `046e19d5`; the icon compiler resolver no longer re-enters its own pending import. The actual history/chart and host provenance are committed in Kerf. The global runtime size budget still fails on the unchanged base (13.59 KiB Brotli against 13.37 KiB); the limit was not raised. No new PageSpeed score is claimed.
+
+## Branding
+
+The original artist sigil is retained byte-for-byte in `public/brand/waambat-sigil-original.svg`, with inscription provenance in `media/sigil-source.json`. Header and home-hero logo slots use it by default. `node scripts/prepare-brand.mjs` regenerates the SVG/ICO favicon and Apple touch icon from that source. The existing hero logo override remains editable in admin.

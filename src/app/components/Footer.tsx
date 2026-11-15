@@ -36,6 +36,9 @@ const Footer: React.FC = () => {
           >
             Instagram
           </a>
+          <a href="https://twitter.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on X">
+            X
+          </a>
           <a
             href="https://www.youtube.com/waambat"
             target="_blank"

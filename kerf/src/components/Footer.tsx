@@ -26,6 +26,9 @@ const Footer = () => {
           <a href="http://instagram.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on Instagram">
             Instagram
           </a>
+          <a href="https://twitter.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on X">
+            X
+          </a>
           <a href="https://www.youtube.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on YouTube">
             YouTube
           </a>

@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@auth/core": "0.41.3",
-    "@kerf-js/core": "file:vendor/kerf-core-media-370eb3092a9a.tgz",
+    "@kerf-js/core": "file:vendor/kerf-core-media-266cf24c3750.tgz",
     "@kerf-js/media": "file:vendor/kerf-media-media-9aa84fd3eebc.tgz",
     "@kerf-js/media-ffmpeg": "file:vendor/kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
     "@kerf-js/scroll": "0.1.0",
@@ -28,7 +28,7 @@
     "@vimeo/player": "2.30.4",
     "drizzle-orm": "0.45.4",
     "hls.js": "1.6.15",
-    "nodemailer": "8.0.5",
+    "nodemailer": "10.1.4",
     "postgres": "3.4.4",
     "sharp": "0.35.5",
     "zod": "4.6.7",

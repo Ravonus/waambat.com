@@ -5,9 +5,9 @@
   "status": "local verified integration snapshot",
   "packages": {
     "@kerf-js/core": {
-      "file": "kerf-core-media-370eb3092a9a.tgz",
-      "sha256": "370eb3092a9a445e687fdd45d18dbb94f500f8f4a43df91d309b579939ee01e9",
-      "size": 1105085
+      "file": "kerf-core-media-266cf24c3750.tgz",
+      "sha256": "266cf24c3750f3e7b8544d298d3c5eec6f4f2e497294c620ee98bbf79255fb4e",
+      "size": 1105120
     },
     "@kerf-js/media": {
       "file": "kerf-media-media-9aa84fd3eebc.tgz",
@@ -20,5 +20,5 @@
       "size": 15763
     }
   },
-  "sourceRevision": "be643547216ec6eddeeba4a91810c68a8301e146"
+  "sourceRevision": "046e19d50809253fa3d43e854cdaaebf3fcf8ee3"
 }
