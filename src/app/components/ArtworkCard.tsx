@@ -99,6 +99,7 @@ export default function ArtworkCard({
     video,
     requested && sourceReady && !error ? selectedSource : undefined,
     wanted,
+    lifecycle.preparing,
   );
   const mediaRatio =
     ratio ??
@@ -179,7 +180,7 @@ export default function ArtworkCard({
             aria-label={`Open ${artwork.title} original ${artwork.kind === "image" ? "inscription" : "token"} page`}
             className="relative block h-full w-full"
           >
-            <Poster artwork={artwork} priority={priority} />
+            <Poster artwork={artwork} priority={priority||lifecycle.preparing||wanted} />
             {artwork.kind === "video" && requested && sourceReady && !error && (
               <video
                 key={selectedSource}

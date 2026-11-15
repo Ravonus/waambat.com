@@ -42,7 +42,7 @@ export default function OrdinalPiece({ artwork, priority = false, }: {
             void video.current.play().catch(() => writeBox(playing, false));
     });
     const { wanted } = lifecycle;
-    useAdaptiveVideo(video,()=>lifecycle.requested.value&&stillReadyFor.value===loop.value&&!error.value?loop.value:undefined,()=>wanted.value);
+    useAdaptiveVideo(video,()=>lifecycle.requested.value&&stillReadyFor.value===loop.value&&!error.value?loop.value:undefined,()=>wanted.value,()=>lifecycle.preparing.value);
     onMount(() => watch(() => [wanted.value, error.value], () => {
         const element = video.current;
         if (wanted.value && !error.value)

@@ -6,6 +6,7 @@ import {
   useState,
   type RefObject,
 } from "react";
+import {observeMediaViewport} from '@kerf-js/media/browser';
 import { useNavigationStoreApi } from "./navigation/NavigationProvider";
 
 // One lifecycle for native home paintings and archive provider players.
@@ -18,6 +19,8 @@ export function useViewportPlayback(
 ) {
   const [requested, setRequested] = useState(false);
   const [wanted, setWanted] = useState(false);
+  const [preparing,setPreparing]=useState(false);
+  const ahead=useRef(false),near=useRef(false);
   const visible = useRef(false);
   const intersecting = useRef(false);
   const manual = useRef(false);
@@ -40,13 +43,15 @@ export function useViewportPlayback(
       const play =
         !disabled &&
         element.isConnected &&
-        (visible.current || (manual.current && intersecting.current)) &&
+        (visible.current || ahead.current || (manual.current && intersecting.current)) &&
         !document.hidden &&
         navigation.getState().menu === "closed" &&
         !paused.current &&
         (!restricted.current || manual.current);
       desired.current = play;
-      if (play) setRequested(true);
+      const prepare=!disabled&&element.isConnected&&!document.hidden&&navigation.getState().menu==='closed'&&!paused.current&&!restricted.current&&near.current;
+      setPreparing(prepare);
+      if (play||prepare) setRequested(true);
       setWanted(play);
       return play;
     };
@@ -59,34 +64,7 @@ export function useViewportPlayback(
       update();
     };
     preferences();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        intersecting.current = !!entry?.isIntersecting;
-        if (entry) {
-          const width = Math.min(
-            entry.boundingClientRect.width,
-            entry.rootBounds?.width ?? innerWidth,
-          );
-          const height = Math.min(
-            entry.boundingClientRect.height,
-            entry.rootBounds?.height ?? innerHeight,
-          );
-          const fraction =
-            (entry.intersectionRect.width * entry.intersectionRect.height) /
-            Math.max(1, width * height);
-          visible.current = intersecting.current && fraction >= minimumVisible;
-        } else visible.current = false;
-        update();
-      },
-      {
-        threshold:
-          minimumVisible > 0.1
-            ? Array.from({ length: 21 }, (_, i) => i / 20)
-            : [0, 0.1],
-      },
-    );
-    observer.observe(element);
+    const stop=observeMediaViewport(element,state=>{visible.current=state.visible;intersecting.current=state.intersecting;ahead.current=state.anticipating;near.current=state.preparing;update();},minimumVisible);
     document.addEventListener("visibilitychange", update);
     motion.addEventListener("change", preferences);
     connection?.addEventListener("change", preferences);
@@ -94,7 +72,7 @@ export function useViewportPlayback(
       desired.current = false;
       notify(false);
       unsubscribeMenu();
-      observer.disconnect();
+      stop();
       document.removeEventListener("visibilitychange", update);
       motion.removeEventListener("change", preferences);
       connection?.removeEventListener("change", preferences);
@@ -103,6 +81,7 @@ export function useViewportPlayback(
   return {
     requested,
     wanted,
+    preparing,
     desired,
     play() {
       manual.current = true;

@@ -24,9 +24,10 @@ export default function Header({ navigation, hero = false, preview = false }: {
     onMount(() => watch(() => nav.menu.value, phase => { if(phase!=='closing')return; if(currentPath()!==nav.origin.value)controller?.releaseForNavigation(); const panel=header?.querySelector('dialog'); if(!panel||!panel.open||document.hidden||getComputedStyle(panel).animationName==='none'){queueMicrotask(nav.finish);return;} const deadline=setTimeout(()=>{if(nav.menu.value==='closing')nav.finish();},600); return ()=>clearTimeout(deadline); }));
     onCleanup(() => controller?.dispose());
     return <header ref={node => { header = node; }} data-menu-open={open.value || undefined} data-with-hero={hero || undefined} className="site-header mx-auto w-full max-w-none text-center">
-  <SiteLink href={preview ? '/admin/preview?page=nfts' : '/'} className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`} aria-label="waambat home"><span>waambat</span><Sigil/></SiteLink>
+
   <button ref={node => { button = node; }} onClick={() => nav.open(currentPath())} aria-expanded={open.value} aria-haspopup="dialog" aria-controls="mobile-site-menu" aria-label="Menu" className={styles.menuButton}><MenuGlyph/></button>
-  <nav ref={node=>desktopNav=node} data-wa-nav aria-label="Main navigation" className="mt-[20px] hidden flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2 md:flex"><HeaderLinks navigation={navigation} preview={preview} mobile={false}/><span data-part="indicator" aria-hidden="true" className={styles.navIndicator}/></nav>
+  <nav ref={node=>desktopNav=node} data-wa-nav aria-label="Main navigation" className="hidden flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2 md:flex"><HeaderLinks navigation={navigation} preview={preview} mobile={false}/><span data-part="indicator" aria-hidden="true" className={styles.navIndicator}/></nav>
+  <SiteLink href={preview ? '/admin/preview?page=nfts' : '/'} className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`} aria-label="waambat home"><span>waambat</span><Sigil/></SiteLink>
   {open.value && <dialog ref={node => { if (header) {
             const mounted=mountMobileMenu(node,header,button??null,nav.close,nav.finish);controller=mounted;onCleanup(()=>{mounted?.dispose();if(controller===mounted)controller=undefined;}); queueMicrotask(()=>{if(node.isConnected&&nav.menu.value==='open')node.querySelector<HTMLButtonElement>('button[aria-label="Close menu"]')?.focus({preventScroll:true});});
 

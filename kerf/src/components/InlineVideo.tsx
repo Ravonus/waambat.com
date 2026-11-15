@@ -36,7 +36,7 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
     const provider = derived(() => target.value?.provider);
     const source = derived(() => target.value?.player);
     const direct = derived(() => target.value?.direct);
-    useAdaptiveVideo(native,()=>direct.value&&lifecycle.requested.value&&stillReadyFor.value===src&&!error.value?src:undefined,()=>lifecycle.wanted.value);
+    useAdaptiveVideo(native,()=>direct.value&&lifecycle.requested.value&&stillReadyFor.value===src&&!error.value?src:undefined,()=>lifecycle.wanted.value,()=>lifecycle.preparing.value);
     // Read-only, on-demand browser QA. No timer, media polling or control API is
     // exposed. The sample comes from the provider SDK, rather than UI state.
     onMount(() => watch(() => [], () => {

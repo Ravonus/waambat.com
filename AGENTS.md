@@ -56,3 +56,19 @@ Display the domain as **WAAMB.AT** in user-facing text, labels and share-card
 artwork. Preserve the WAAMBAT artist wordmark and artwork titles. URL parsing,
 DNS, HTTP hostnames and browsers normalize hostname case; use one stable canonical
 URL and do not introduce uppercase/lowercase redirect loops to change the address bar.
+
+## Predictive playback and page scrolling
+
+Use `observeMediaViewport` from `@kerf-js/media/browser` for document galleries.
+The viewport lifecycle keeps manual pause, reduced motion, Save Data, menu state
+and hidden tabs authoritative. Preparation may attach the next source and load
+its sharp first frame; anticipation starts muted playback just before entry.
+Use Veneer's `scrollPage` helper for document scrollbar destinations so the same
+predictor can prepare a landing area without loading every skipped artwork.
+Track clicks are smooth by default; `behavior="instant"` keeps a direct jump.
+Thumb dragging stays instant. Do not add a second per-video scroll listener.
+
+The desktop nav row precedes the header wordmark. The home hero carries its own
+WAAMBAT wordmark below that same nav row; keep the nav at the same vertical
+position when switching between Home and interior pages. Preserve the sigil and
+the single shared sliding indicator.

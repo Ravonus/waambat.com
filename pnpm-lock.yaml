@@ -12,11 +12,11 @@ importers:
   .:
     dependencies:
       '@kerf-js/media':
-        specifier: file:kerf/vendor/kerf-media-media-fc104b6c4114.tgz
-        version: file:kerf/vendor/kerf-media-media-fc104b6c4114.tgz(@types/node@24.19.2)
+        specifier: file:kerf/vendor/kerf-media-media-69baeae6016d.tgz
+        version: file:kerf/vendor/kerf-media-media-69baeae6016d.tgz(@types/node@24.19.2)
       '@kerf-js/veneer-core':
-        specifier: file:kerf/vendor/kerf-veneer-core-media-a8860bbb1065.tgz
-        version: file:kerf/vendor/kerf-veneer-core-media-a8860bbb1065.tgz
+        specifier: file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz
+        version: file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz
       '@netlify/blobs':
         specifier: ^11.1.4
         version: 11.1.4(supports-color@7.2.0)
@@ -908,8 +908,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@kerf-js/media@file:kerf/vendor/kerf-media-media-fc104b6c4114.tgz':
-    resolution: {integrity: sha512-wxrs+siR1suEUk1IwAS4bY86EqnQ4RW7FR9AdC/ugj0B2X1pY25Rzt2JWlnA39ZZtmIOkQ/lCAJ7JW1Ar05K9w==, tarball: file:kerf/vendor/kerf-media-media-fc104b6c4114.tgz}
+  '@kerf-js/media@file:kerf/vendor/kerf-media-media-69baeae6016d.tgz':
+    resolution: {integrity: sha512-w/Zt18QFjcyx5FJQu3XZVWczSx4Si/up3IaCpNUyygMyxroLVt4TztuvsfouK7A9JZue+bk25BtU+Czxk5jDHA==, tarball: file:kerf/vendor/kerf-media-media-69baeae6016d.tgz}
     version: 0.1.0
     engines: {node: '>=24'}
     peerDependencies:
@@ -918,8 +918,8 @@ packages:
       '@kerf-js/core':
         optional: true
 
-  '@kerf-js/veneer-core@file:kerf/vendor/kerf-veneer-core-media-a8860bbb1065.tgz':
-    resolution: {integrity: sha512-K8KINNgEuN+yK5xDyHAIG5Sn0E/urKUTXYaEgxmiQFyZzZw+GU1twAu43b5FppbwnfdnA3sKVAOom7ZmC+hOQw==, tarball: file:kerf/vendor/kerf-veneer-core-media-a8860bbb1065.tgz}
+  '@kerf-js/veneer-core@file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz':
+    resolution: {integrity: sha512-TwkXpj5gtKDxgsLS5fLg8qs97scuj0awJVMaWJJpdMaKEGNAbtIs/SMGCKsrTlL49itXzySZ+dpM9o33SqKIZg==, tarball: file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz}
     version: 0.1.0
     engines: {node: '>=24'}
     peerDependencies:
@@ -3761,14 +3761,14 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@kerf-js/media@file:kerf/vendor/kerf-media-media-fc104b6c4114.tgz(@types/node@24.19.2)':
+  '@kerf-js/media@file:kerf/vendor/kerf-media-media-69baeae6016d.tgz(@types/node@24.19.2)':
     dependencies:
       sharp: 0.35.5(@types/node@24.19.2)
       svgo: 4.1.0
     transitivePeerDependencies:
       - '@types/node'
 
-  '@kerf-js/veneer-core@file:kerf/vendor/kerf-veneer-core-media-a8860bbb1065.tgz': {}
+  '@kerf-js/veneer-core@file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz': {}
 
   '@keyv/bigmap@1.3.1(keyv@5.6.0)':
     dependencies:

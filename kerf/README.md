@@ -52,3 +52,10 @@ omits the unpublished Windows ARM optional addon; the bundled matching WASM
 compiler remains available there. The source revision and manifest adjustment
 are recorded in `vendor/framework-media.json`. Do not invent a lock entry for
 a package that does not exist. Verify `npm ci --ignore-scripts` in a clean copy.
+
+Predictive playback uses Kerf media's shared `observeMediaViewport`: the next one
+or two works buffer ahead according to scroll speed, direction and rail intent.
+The lifecycle still honors manual pause, reduced motion, data saver and menus.
+The canvas rail uses Veneer's `scrollPage`; track clicks are smooth by default,
+`<CanvasScrollbar behavior="instant"/>` opts into immediate jumps, and dragging
+remains direct. The desktop header wordmark sits below the aligned nav row.

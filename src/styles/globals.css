@@ -269,7 +269,7 @@ button:disabled {
 /* With the hero banner the large wordmark lives in the banner; the header is
    just the navigation, tightened so the artwork starts higher. */
 .site-header[data-with-hero] {
-  padding-top: 26px;
+  padding-top: var(--site-header-top, 40px);
   padding-bottom: 20px;
 }
 .site-header[data-with-hero] .site-logo {
@@ -899,4 +899,10 @@ button:disabled {
 .ordinal-gate[aria-pressed="true"] {
   border-color: var(--color-waambat-logo);
   background: #ff94b218;
+}
+
+/* The nav keeps one baseline; the artist wordmark follows it on interior pages. */
+@media (min-width:768px){
+ .site-header .site-logo{display:block;width:fit-content;margin:20px auto 0;}
+ .site-header[data-with-hero] .site-logo{display:none;}
 }

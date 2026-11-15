@@ -93,17 +93,6 @@ export default function Header({
       className="site-header mx-auto w-full max-w-none text-center"
       data-with-hero={hero || undefined}
     >
-      <SiteLink
-        href={home}
-        label="NFTs"
-        className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`}
-        aria-label="waambat home"
-      >
-        <span>waambat</span>
-        {/* The original inscription remains an SVG, without resampling. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/waambat-sigil-original.svg" width={484} height={500} alt="" />
-      </SiteLink>
       <button
         ref={button}
         onClick={() => store.getState().openMenu(routeKey)}
@@ -130,11 +119,22 @@ export default function Header({
         ref={sliderRef}
         data-wa-nav
         aria-label="Main navigation"
-        className="mt-[20px] hidden flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2 md:flex"
+        className="hidden flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2 md:flex"
       >
         {links(false)}
         <span data-part="indicator" aria-hidden="true" className={styles.navIndicator}/>
       </nav>
+      <SiteLink
+        href={home}
+        label="NFTs"
+        className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`}
+        aria-label="waambat home"
+      >
+        <span>waambat</span>
+        {/* The original inscription remains an SVG, without resampling. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/brand/waambat-sigil-original.svg" width={484} height={500} alt="" />
+      </SiteLink>
       {open && (
         <ViewTransition exit="menu-exit" default="none">
           <dialog

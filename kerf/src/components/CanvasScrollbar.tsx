@@ -1,10 +1,11 @@
+import {scrollPage} from '@kerf-js/veneer-core/page-scroll';
 import {onCleanup} from "@kerf-js/core";
 import { onMount } from '@kerf-js/core';
 import { canvas } from '@kerf-js/scroll/canvas';
 import type { BarFrame } from '@kerf-js/scroll';
 import '#/styles/scrollbar.css';
 /** Paint the document's rail; the document retains native scrolling and restoration. */
-export default function CanvasScrollbar() {
+export default function CanvasScrollbar({behavior='smooth'}:{behavior?:'smooth'|'instant'}={}) {
     let rail: HTMLDivElement | undefined;
     onMount(() => {
         if (!rail)
@@ -76,7 +77,7 @@ export default function CanvasScrollbar() {
             return;
         }
         doc.dataset.canvasScroll = '';
-        let frame = 0, hover = false, active = false, offset = 0;
+        let frame = 0, hover = false, active = false, offset = 0, dragging=false, pointerStart=0;
         const metrics = () => { const height = track.hidden ? Math.max(0,innerHeight-12) : track.clientHeight, total = Math.max(0, doc.scrollHeight - innerHeight), thumb = Math.min(height, Math.max(48, height * innerHeight / Math.max(1, doc.scrollHeight))); return { height, total, thumb, travel: height - thumb }; };
         const draw = () => { frame = 0; readColors(); const m = metrics(), progress = m.total ? Math.min(1, Math.max(0, scrollY / m.total)) : 0, width = active || hover ? 8 : 5; track.hidden = m.total < 1; track.setAttribute('aria-valuemax', String(Math.round(m.total))); track.setAttribute('aria-valuenow', String(Math.round(scrollY))); renderer.draw(track, { axis: 'y', track: { width: 14, height: m.height }, thumb: { x: 14 - width - 2, y: m.travel * progress, width, height: m.thumb }, grow: hover || active ? 1 : 0, hover, active, progress, span: { start: 0, end: m.travel }, rtl: false, bar: { width: 5, hoverWidth: 8, inset: 2, radius: 3, color: colors.rest, hoverColor: colors.light, activeColor: colors.deep, track: 'transparent', hoverTrack: 'transparent', layout: 'overlay', show: 'always', hideDelay: 0, fade: 150, trackClick: 'jump' } } satisfies BarFrame); if (energy > 0.02) { energy *= 0.84; schedule(); } else energy = 0; };
         const schedule = () => { frame ||= requestAnimationFrame(draw); };
@@ -84,18 +85,17 @@ export default function CanvasScrollbar() {
         const observer = new ResizeObserver(schedule);
         observer.observe(document.body);
         const hoverIn = () => { hover = true; schedule(); }, hoverOut = () => { hover = false; schedule(); };
-        const down = (e: PointerEvent) => { if (e.button !== 0)
-            return; e.preventDefault(); active = true; track.setPointerCapture(e.pointerId); const m = metrics(), top = track.getBoundingClientRect().top, y = e.clientY - top, at = m.total ? scrollY / m.total * m.travel : 0; offset = y >= at && y <= at + m.thumb ? y - at : m.thumb / 2; move(e); };
-        const move = (e: PointerEvent) => { if (!active)
-            return; const m = metrics(); scrollTo({ top: Math.max(0, Math.min(m.travel, e.clientY - track.getBoundingClientRect().top - offset)) / Math.max(1, m.travel) * m.total, behavior: 'instant' }); schedule(); };
-        const up = () => { active = false; schedule(); };
+        const destination=(y:number)=>{const m=metrics();return Math.max(0,Math.min(m.travel,y-track.getBoundingClientRect().top-offset))/Math.max(1,m.travel)*m.total;};
+        const down=(e:PointerEvent)=>{if(e.button!==0)return;e.preventDefault();active=true;pointerStart=e.clientY;track.setPointerCapture(e.pointerId);const m=metrics(),y=e.clientY-track.getBoundingClientRect().top,at=m.total?scrollY/m.total*m.travel:0;dragging=y>=at&&y<=at+m.thumb;offset=dragging?y-at:m.thumb/2;if(!dragging)scrollPage(destination(e.clientY),behavior);schedule();};
+        const move=(e:PointerEvent)=>{if(!active||(!dragging&&Math.abs(e.clientY-pointerStart)<3))return;dragging=true;scrollPage(destination(e.clientY),'instant');schedule();};
+        const up=()=>{active=false;dragging=false;schedule();};
         const key = (e: KeyboardEvent) => { const jumps: Record<string, number> = { ArrowDown: 40, ArrowUp: -40, PageDown: innerHeight * .9, PageUp: -innerHeight * .9, ' ': innerHeight * .9 }; if (e.key === 'Home' || e.key === 'End') {
             e.preventDefault();
-            scrollTo({ top: e.key === 'Home' ? 0 : doc.scrollHeight, behavior: 'instant' });
+            scrollPage(e.key === 'Home' ? 0 : doc.scrollHeight,'instant');
         }
         else if (e.key in jumps) {
             e.preventDefault();
-            scrollBy({ top: jumps[e.key] * (e.shiftKey ? -1 : 1), behavior: 'instant' });
+            scrollPage(scrollY+jumps[e.key]!*(e.shiftKey?-1:1),'instant');
         } };
         addEventListener('scroll', scrolled, { passive: true });
         addEventListener('resize', schedule);

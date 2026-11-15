@@ -63,7 +63,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     const selectedSource = derived(() => mobile.value && artwork.mobileVideoSrc
         ? artwork.mobileVideoSrc
         : artwork.previewSrc || artwork.videoSrc);
-    useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value ? selectedSource.value : undefined, () => wanted.value);
+    useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value ? selectedSource.value : undefined, () => wanted.value,()=>lifecycle.preparing.value);
     const mediaRatio = derived(() => ratio ??
         (naturalAspect ? adaptivePreview(artwork.videoSrc)?.ratio : undefined) ??
         (naturalAspect && intrinsic.value?.src === selectedSource.value
@@ -109,7 +109,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
                     ? { height: 150 }
                     : undefined} className={`artwork-media relative w-full bg-black ${naturalAspect ? "" : aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"}`}>
           <a href={trailer ? undefined : artwork.tokenLink} {...newTabProps(trailer ? undefined : artwork.tokenLink)} aria-label={`Open ${artwork.title} original ${artwork.kind === "image" ? "inscription" : "token"} page`} className="relative block h-full w-full">
-            <Poster artwork={artwork} priority={priority} videoSource={selectedSource.value} onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
+            <Poster artwork={artwork} priority={priority||lifecycle.preparing.value||wanted.value} videoSource={selectedSource.value} onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
             {artwork.kind === "video" && requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value && (<OptimizedVideo source={selectedSource.value ?? ""} width={960} height={960} poster={loadedPoster.value} key={selectedSource.value} ref={node => {
                     video.current = node;
                 }} muted={muted.value} loop={!trailer} controls={trailer} playsInline preload="none" onLoadedMetadata={(event) => {

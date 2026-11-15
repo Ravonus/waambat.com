@@ -5,14 +5,14 @@
   "status": "local verified integration snapshot",
   "packages": {
     "@kerf-js/core": {
-      "file": "kerf-core-media-2db67fe6005c.tgz",
-      "sha256": "2db67fe6005cb3be03a6897c60f89c56a2a95a84c32aa271016588a72940b42f",
-      "size": 1105433
+      "file": "kerf-core-media-25080c18dabb.tgz",
+      "sha256": "25080c18dabbfde5e46b4386addd2d7fb2d09dd1fbc9e08f7aebc297efa3cb23",
+      "size": 1105731
     },
     "@kerf-js/media": {
-      "file": "kerf-media-media-fc104b6c4114.tgz",
-      "sha256": "fc104b6c4114243b7e38838544aab71765448428d147b95a942965f9d9cd46fa",
-      "size": 48863
+      "file": "kerf-media-media-69baeae6016d.tgz",
+      "sha256": "69baeae6016d36d3349df6fc759151117b837ce55ea8b859e80fb8de1a3a8784",
+      "size": 51621
     },
     "@kerf-js/media-ffmpeg": {
       "file": "kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
@@ -20,12 +20,12 @@
       "size": 15763
     },
     "@kerf-js/veneer-core": {
-      "file": "kerf-veneer-core-media-a8860bbb1065.tgz",
-      "sha256": "a8860bbb10658378270bdecea7a87c88e6316512c6412fe244e7c2a7c8edb178",
-      "size": 512763
+      "file": "kerf-veneer-core-media-231254cc148e.tgz",
+      "sha256": "231254cc148eb1eeafe66bd8aed935b04cc2badf8e06d13b8cf3c311a161f595",
+      "size": 513211
     }
   },
-  "sourceRevision": "ca768650d3c54cad320cecb44ee9bd025ebfd639",
+  "sourceRevision": "888528a186b4424029115021ed606a222ed7df7c",
   "manifestAdjustments": {
     "@kerf-js/core": {
       "omittedOptionalDependencies": [
