@@ -202,10 +202,13 @@
 /* Keep the original title and its added inscription together in the existing logo slot. */
 .hero .wordmark img[src="/brand/waambat-sigil-original.svg"],
 .hero .wordmark [data-sigil] {
-  width: 0.629187em;
-  height: 0.65em;
-  block-size: 0.65em !important;
-  inline-size: 0.629187em !important;
+  width: 0.7744em;
+  height: 0.8em;
+  block-size: 1cap !important;
+  inline-size: 0.96798cap !important;
+}
+.hero[data-brand-arrival="shared"] .wordmark {
+  animation: none;
 }
 
 .hero .wordmark .wordmarkLink {

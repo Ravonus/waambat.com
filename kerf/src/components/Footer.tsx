@@ -6,7 +6,8 @@ const socials = [
   { name: "Instagram", href: "https://instagram.com/waambat" },
   { name: "X", href: "https://twitter.com/waambat" },
   { name: "YouTube", href: "https://www.youtube.com/waambat" },
-  { name: "OpenSea", href: "https://opensea.io/waambat" },
+  { name: "OpenSea", href: "https://opensea.io/collection/waambat-collection" },
+  { name: "Objkt", href: "https://objkt.com/@waambat.tez/created" },
 ] as const;
 export default function Footer() {
   return (
@@ -23,10 +24,10 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`WAAMBAT on ${social.name}`}
+            title={social.name}
             className={styles.social}
           >
             <SocialIcon name={social.name} />
-            <span>{social.name}</span>
           </a>
         ))}
       </nav>

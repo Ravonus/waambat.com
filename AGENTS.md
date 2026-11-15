@@ -104,4 +104,15 @@ path change. Do not restore an app-owned navigate wrapper or duplicate flying lo
 `data-kerf-motion` follows the artist's motion setting. Keep the artwork live below it.
 The local navigation experiment reveals the existing desktop controls on upward
 scroll and a small phone dock for NFTs, Ordinals and the full menu. Hide it while
-scrolling into artwork or editing a form; retain the original menu's arrival/close lifecycle.
+scrolling down or editing a form, and after two seconds without scrolling or pointer
+interaction; retain the original menu's arrival/close lifecycle. Keep one positioned
+header layer and its measured spacer so scrolling never changes the artwork's layout.
+A shared arrival must permanently skip that hero instance's cold wordmark entrance;
+re-enabling the intro when the shared-animation flag clears causes a second flash.
+The sigil matches the title's cap height. Footer socials are icon-only, with accessible
+names, and open the artist's verified destinations in new tabs.
+
+Contact fields use Veneer's `field`, `floatingLabel`, `formReset` and Kerf `use` binding.
+Preserve the site's pastel theme and existing Send Message button. Empty labels rest
+inside; hover, focus or a value lifts them across the border using the measured notch.
+Keep native form values, validation and reset behavior alongside the custom dropdown.

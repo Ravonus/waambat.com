@@ -124,7 +124,7 @@ export default function FormSelect({ id, name, options, placeholder, defaultValu
     return (<div ref={node => {
             root.current = node;
         }} className={styles.select}>
-      <select ref={connectNative} name={name} value={value.value} required={required} tabIndex={-1} aria-hidden="true" className={styles.nativeSelect} onChange={(event) => writeBox(value, event.currentTarget.value)} onInvalid={(event) => {
+      <select ref={connectNative} data-part="input" name={name} value={value.value} required={required} tabIndex={-1} aria-hidden="true" className={styles.nativeSelect} onChange={(event) => writeBox(value, event.currentTarget.value)} onInvalid={(event) => {
             event.preventDefault();
             openList();
             button.current?.focus();

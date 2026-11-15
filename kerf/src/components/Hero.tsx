@@ -26,6 +26,12 @@ export default function Hero({ section, item, preview = false, }: {
     preview?: boolean;
 }) {
     const frame = { current: null as HTMLDivElement | null | undefined };
+    // A shared arrival replaces this instance's cold entrance permanently. Re-enabling
+    // the intro when Kerf releases its handoff flag would flash the landed title off.
+    onMount(() => {
+        if (document.documentElement.hasAttribute('data-kerf-shared-active'))
+            frame.current?.closest('[data-hero]')?.setAttribute('data-brand-arrival', 'shared');
+    });
     const video = { current: null as VideoHandle | null | undefined };
     const endless = { current: null as VideoHandle | null | undefined };
     const mobile = useMediaPreference(PORTRAIT_PHONE);
