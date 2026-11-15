@@ -3,7 +3,7 @@
   "plugins": {
     "@kerf-js/media": {
       "version": "0.1.0",
-      "integrity": "sha512-0MvBZk14pQLtt9CO+3xoO8nnW3wYKH1kSKBydnU1lZa8SMKJpIqt4yp7cAYp93W2WotK7qhdKfdBCpPx5t+3Gg==",
+      "integrity": "sha512-Zlk0Vx4B9Lma3GyCAZ/+WkpwZygjELpnivUC/1IlvoYPbmVr7K/SwXtt5x89hQ4qrCoeW1NbR79mDjEPFxuBPw==",
       "permissions": [
         "env:KERF_MEDIA_DIR",
         "fs.read:**/*.{png,jpg,jpeg,gif,webp,avif,svg,mp4,m4v,mov,webm,mkv,ogv,mp3,wav,flac,ogg,oga,opus,m4a,aac}",

@@ -23,7 +23,7 @@ export default function LegacySplash({ page, theme, }: {
           {blocks.value.filter((b) => b.type === "paragraph")
                 .map((b) => (<p key={b.id}>{b.text}</p>))}
           {links.value[0] && (<SourceLink className="legacy-foundation-button" href={links.value[0].href} {...newTabProps(links.value[0].href)}>
-              On Foundation
+              On OpenSea
             </SourceLink>)}
           <div className="legacy-socials">{socials()}</div>
         </section>) : (<>
@@ -45,8 +45,8 @@ function socials() {
       <SourceLink href="http://instagram.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         ◎
       </SourceLink>
-      <SourceLink href="https://foundation.app/waambat" target="_blank" rel="noopener noreferrer" aria-label="Foundation">
-        FND
+      <SourceLink href="https://opensea.io/waambat" target="_blank" rel="noopener noreferrer" aria-label="OpenSea">
+        OpenSea
       </SourceLink>
     </>);
 }

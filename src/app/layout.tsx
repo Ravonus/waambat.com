@@ -1,6 +1,7 @@
 import "~/styles/globals.css";
 import "~/styles/navigation.css";
 import RouteEffects from "./components/RouteEffects";
+import MediaWarm from "./components/MediaWarm";
 import NavigationProvider from "./components/navigation/NavigationProvider";
 import type { Metadata } from "next";
 import { adobeProjectURL } from "~/lib/adobe-project";
@@ -46,6 +47,7 @@ export default function RootLayout({
         </a>
         <NavigationProvider>
           <RouteEffects />
+          <MediaWarm />
           {children}
         </NavigationProvider>
       </body>

@@ -54,7 +54,7 @@ export default function LegacySplash({
               href={links[0].href}
               {...newTabProps(links[0].href)}
             >
-              On Foundation
+              On OpenSea
             </SourceLink>
           )}
           <div className="legacy-socials">{socials()}</div>
@@ -100,12 +100,12 @@ function socials() {
         ◎
       </SourceLink>
       <SourceLink
-        href="https://foundation.app/waambat"
+        href="https://opensea.io/waambat"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Foundation"
+        aria-label="OpenSea"
       >
-        FND
+        OpenSea
       </SourceLink>
     </>
   );

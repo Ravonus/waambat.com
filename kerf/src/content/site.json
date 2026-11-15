@@ -335,7 +335,7 @@
           "title": "Deep Linking",
           "year": "2021",
           "description": "Video Painting – Seamless Loop, 2160x2160",
-          "tokenLink": "https://foundation.app/@waambat/foundation/38901",
+          "tokenLink": "https://opensea.io/item/ethereum/0x3b3ee1931dc30c1957379fac9aba94d1c48a5405/38901",
           "videoSrc": "https://i.imgur.com/QY2Y73n.mp4",
           "poster": "/posters/21-960.webp",
           "mobileVideoSrc": "",
@@ -367,7 +367,7 @@
           "title": "Abacus RAM",
           "year": "2017",
           "description": "Infinite Loop Video Painting – Exhibited at LA Art Show 2017 and Installation Gallery, Los Angeles",
-          "tokenLink": "https://foundation.app/@waambat/foundation/37954",
+          "tokenLink": "https://opensea.io/item/ethereum/0x3b3ee1931dc30c1957379fac9aba94d1c48a5405/37954",
           "videoSrc": "https://i.imgur.com/mh4T2To.mp4",
           "poster": "/posters/23-960.webp",
           "mobileVideoSrc": "",
@@ -639,16 +639,16 @@
       "items": [
         {
           "id": "site-hero-montage",
-          "title": "WAAMBAT hero montage",
+          "title": "WAAMBAT hero loop",
           "year": "",
-          "description": "A moving montage of WAAMBAT's own artworks, including LUX and Kismet Twist.",
+          "description": "A seamless loop of WAAMBAT's dark self-portrait.",
           "tokenLink": "/",
-          "videoSrc": "/hero/waambat-hero-desktop.mp4",
-          "mobileVideoSrc": "/hero/waambat-hero-mobile.mp4",
-          "loopSrc": "/hero/waambat-hero-desktop-loop.mp4",
-          "mobileLoopSrc": "/hero/waambat-hero-mobile-loop.mp4",
-          "poster": "/hero/waambat-hero-poster.webp",
-          "mobilePoster": "/hero/waambat-hero-poster-mobile.webp",
+          "videoSrc": "/hero/waambat-hero-desktop-loop.mp4",
+          "mobileVideoSrc": "/hero/waambat-hero-mobile-loop.mp4",
+          "loopSrc": "",
+          "mobileLoopSrc": "",
+          "poster": "/hero/waambat-hero-loop-poster.webp",
+          "mobilePoster": "/hero/waambat-hero-loop-poster-mobile.webp",
           "logoSrc": "",
           "kind": "video",
           "aspectRatio": 1.7777777777777777,
@@ -2549,20 +2549,20 @@
         {
           "id": "legacy-lindsay-foundation-1",
           "type": "link",
-          "text": "Foundation",
-          "href": "https://foundation.app/waambat"
+          "text": "OpenSea",
+          "href": "https://opensea.io/waambat"
         },
         {
           "id": "legacy-lindsay-foundation-2",
           "type": "link",
-          "text": "Foundation",
-          "href": "https://foundation.app/waambat"
+          "text": "OpenSea",
+          "href": "https://opensea.io/waambat"
         },
         {
           "id": "legacy-lindsay-foundation-3",
           "type": "link",
-          "text": "Foundation",
-          "href": "https://foundation.app/waambat"
+          "text": "OpenSea",
+          "href": "https://opensea.io/waambat"
         }
       ],
       "archive": []
@@ -2607,14 +2607,14 @@
         {
           "id": "legacy-art-foundation-1",
           "type": "link",
-          "text": "Foundation",
-          "href": "https://foundation.app/waambat"
+          "text": "OpenSea",
+          "href": "https://opensea.io/waambat"
         },
         {
           "id": "legacy-art-foundation-2",
           "type": "link",
-          "text": "Foundation",
-          "href": "https://foundation.app/waambat"
+          "text": "OpenSea",
+          "href": "https://opensea.io/waambat"
         }
       ],
       "archive": []
@@ -2671,5 +2671,5 @@
     }
   ],
   "ordinalSourceVersion": 2,
-  "heroVersion": 2
+  "heroVersion": 3
 }

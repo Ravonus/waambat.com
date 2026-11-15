@@ -1,4 +1,5 @@
 "use client";
+import {navIndicator} from "@kerf-js/veneer-core/nav";
 import { useCallback, useRef, ViewTransition } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import type { Content } from "~/lib/content";
@@ -20,6 +21,7 @@ export default function Header({
   navigation: Content["navigation"];
   hero?: boolean;
 }) {
+  const sliderRef=useCallback((node:HTMLElement|null)=>{if(!node)return;const binding=navIndicator(node);return ()=>binding.destroy();},[]);
   const pathname = usePathname();
   const params = useSearchParams();
   const current = preview
@@ -125,10 +127,13 @@ export default function Header({
         </svg>
       </button>
       <nav
+        ref={sliderRef}
+        data-wa-nav
         aria-label="Main navigation"
         className="mt-[20px] hidden flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2 md:flex"
       >
         {links(false)}
+        <span data-part="indicator" aria-hidden="true" className={styles.navIndicator}/>
       </nav>
       {open && (
         <ViewTransition exit="menu-exit" default="none">

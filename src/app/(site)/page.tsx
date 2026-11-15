@@ -2,8 +2,10 @@ import { requirePreviewAccess } from "~/server/preview-access";
 import Gallery from "~/app/components/Gallery";
 import PageTransition from "~/app/components/navigation/PageTransition";
 import { getPublishedContent } from "~/server/content";
-import { siteOrigin } from "~/lib/seo";
+import { pageMetadata } from "~/lib/seo";
+import {artistGraph} from "~/lib/site-settings";
 export const dynamic = "force-dynamic";
+export async function generateMetadata(){await requirePreviewAccess();const content=await getPublishedContent();return {...pageMetadata('/',content.seo.homeTitle,content.seo.description,undefined,false,content),title:{absolute:content.seo.homeTitle},verification:content.integrations.googleSiteVerification?{google:content.integrations.googleSiteVerification}:undefined};}
 export default async function Home() {
   await requirePreviewAccess();
   const content = await getPublishedContent();
@@ -12,30 +14,7 @@ export default async function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Person",
-                "@id": `${siteOrigin}/#artist`,
-                name: "Lindsay Scoggins",
-                alternateName: "WAAMBAT",
-                url: siteOrigin,
-                sameAs: [
-                  "https://www.instagram.com/waambat",
-                  "https://www.youtube.com/waambat",
-                  "https://foundation.app/waambat",
-                ],
-              },
-              {
-                "@type": "WebSite",
-                "@id": `${siteOrigin}/#website`,
-                name: "WAAMBAT",
-                url: siteOrigin,
-                creator: { "@id": `${siteOrigin}/#artist` },
-              },
-            ],
-          }).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(artistGraph(content)).replace(/</g, "\\u003c"),
         }}
       />
       <Gallery content={content} page="nfts" />

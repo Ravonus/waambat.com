@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import type { ContentState } from "~/server/content";
 import { contentSchema, type Artwork, type Content } from "~/lib/content";
 import { MAX_UPLOAD } from "~/lib/uploads";
+import SiteSettingsEditor from './SiteSettingsEditor';
 import PageEditor from "./PageEditor";
 import NavigationEditor from "./NavigationEditor";
 import ThemeEditor from "./ThemeEditor";
@@ -63,7 +64,7 @@ const IMAGE_FIELDS: MediaField[] = ["poster", "mobilePoster", "logoSrc"];
 const MEDIA_LABELS: Record<MediaField, string> = {
   poster: "Poster / image URL",
   mobilePoster: "Mobile poster URL (optional)",
-  logoSrc: "Image wordmark URL (optional; replaces the live wordmark)",
+  logoSrc: "Additional logo URL (optional; appears beside WAAMBAT)",
   videoSrc: "Original video URL",
   mobileVideoSrc: "Mobile video URL (optional)",
   loopSrc:
@@ -431,6 +432,7 @@ export default function Editor({ initial }: { initial: ContentState }) {
         {status}
       </p>
       <fieldset disabled={busy || uploading} className="space-y-8">
+        <SiteSettingsEditor content={content} onChange={patch=>edit(d=>Object.assign(d,patch))}/>
         <FormsEditor
           forms={content.forms}
           pages={content.pages}

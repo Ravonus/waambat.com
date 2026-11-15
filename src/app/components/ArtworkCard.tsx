@@ -123,7 +123,7 @@ export default function ArtworkCard({
   };
   if (artwork.kind === "embed")
     return (
-      <article data-artwork={artwork.id} className="mb-10 text-center">
+      <article data-artwork={artwork.id} data-media-start={artwork.videoSrc} className="mb-10 text-center">
         <h2 className="text-waambat-pink text-[22px]">{artwork.title}</h2>
         <VideoEmbed
           src={artwork.videoSrc}
@@ -140,7 +140,7 @@ export default function ArtworkCard({
   if (artwork.kind === "instagram") return <InstagramCard artwork={artwork} />;
   return (
     <article
-      data-artwork={artwork.id}
+      data-artwork={artwork.id} data-media-start={artwork.videoSrc}
       data-playback-state={
         error
           ? "unavailable"

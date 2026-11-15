@@ -31,3 +31,24 @@ Before a production switch: configure and validate the Netlify target/auth/backe
 ## Branding
 
 The original artist sigil is retained byte-for-byte in `public/brand/waambat-sigil-original.svg`, with inscription provenance in `media/sigil-source.json`. Header and home-hero branding keep the original WAAMBAT wordmark with the sigil alongside it. `node scripts/prepare-brand.mjs` regenerates the SVG/ICO favicon and Apple touch icon from that source. The existing hero logo override remains editable in admin.
+
+The browser-only media entry selects a display-appropriate first HLS level on ordinary connections and retains low startup levels on slow links. After the visible poster settles, one first playback chunk per artwork can warm through the shared queue (512 KiB/minute; 128 KiB/minute on slow links; no speculation in data-saver mode). Route changes cancel it. The header uses Veneer's one shared nav indicator, including wrapped rows.
+
+Auth uses GitHub, Google and credentials rather than Auth.js email providers. Its unused optional Nodemailer peer is narrowly overridden to the patched contact-mail dependency, so clean npm installs preserve the tested transport.
+
+## Artist settings and current cards
+
+Admin → Search, sharing & analytics edits the public GA4 ID, its enable switch,
+Search Console token, home title, descriptions, share image, portrait and sigil.
+Save → Preview → Publish applies the settings without a build. The shared agent
+contract is in `../AGENTS.md`. Tracking sends only public page views on waamb.at;
+GA4 Enhanced measurement stays off. A blank ID or disabled switch stops tracking.
+Cards at `/social-card.jpg` read published content per request and revalidate with
+an ETag; post-deployment publications no longer depend on the seed manifest.
+
+`node scripts/vendor-framework.mjs /path/to/kerf` regenerates the hash-pinned
+reviewed packages. As with Kerf's release staging, the vendored Core manifest
+omits the unpublished Windows ARM optional addon; the bundled matching WASM
+compiler remains available there. The source revision and manifest adjustment
+are recorded in `vendor/framework-media.json`. Do not invent a lock entry for
+a package that does not exist. Verify `npm ci --ignore-scripts` in a clean copy.

@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@auth/core": "0.41.3",
-    "@kerf-js/core": "file:vendor/kerf-core-media-266cf24c3750.tgz",
-    "@kerf-js/media": "file:vendor/kerf-media-media-9aa84fd3eebc.tgz",
+    "@kerf-js/core": "file:vendor/kerf-core-media-2db67fe6005c.tgz",
+    "@kerf-js/media": "file:vendor/kerf-media-media-fc104b6c4114.tgz",
     "@kerf-js/media-ffmpeg": "file:vendor/kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
     "@kerf-js/scroll": "0.1.0",
     "@kerf-js/start": "0.1.0",
@@ -32,7 +32,8 @@
     "postgres": "3.4.4",
     "sharp": "0.35.5",
     "zod": "4.6.7",
-    "zod3": "npm:zod@3.25.76"
+    "zod3": "npm:zod@3.25.76",
+    "@kerf-js/veneer-core": "file:vendor/kerf-veneer-core-media-a8860bbb1065.tgz"
   },
   "devDependencies": {
     "@kerf-js/cli": "0.1.0",
@@ -44,5 +45,10 @@
     "tailwindcss": "4.3.3",
     "tsx": "4.20.6",
     "typescript": "7.0.2"
+  },
+  "overrides": {
+    "@auth/core": {
+      "nodemailer": "$nodemailer"
+    }
   }
 }

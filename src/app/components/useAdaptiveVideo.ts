@@ -1,4 +1,5 @@
 "use client";
+import {initialMediaLevel,mediaConnection,mediaBandwidth} from "@kerf-js/media/browser";
 import { useEffect, useEffectEvent, useRef, type RefObject } from "react";
 import type Hls from "hls.js";
 import { adaptiveStream } from "~/lib/adaptive-media";
@@ -67,13 +68,14 @@ export function useAdaptiveVideo(
           nativeFallback();
           return;
         }
-        const player = new Player(adaptiveVideoConfig);
+        const player = new Player({...adaptiveVideoConfig,abrEwmaDefaultEstimate:mediaBandwidth(mediaConnection())});
         controller.current = player;
         video.dataset.delivery = "adaptive-hls";
         player.on(Player.Events.ERROR, (_event, data) => {
           if (data.fatal) nativeFallback();
         });
         player.on(Player.Events.MANIFEST_PARSED, () => {
+          player.startLevel=initialMediaLevel(player.levels,video.clientWidth,video.clientHeight,mediaConnection(),devicePixelRatio);
           if (shouldLoad()) player.startLoad();
           play();
         });

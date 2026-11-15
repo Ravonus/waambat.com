@@ -32,15 +32,15 @@ const hero = (content: Content) =>
 
 test("the shipped content carries the home hero banner", async () => {
   const content = await stored();
-  assert.equal(content.heroVersion, 2);
+  assert.equal(content.heroVersion, 3);
   assert.ok(content.sections.some((s) => s.id === HERO_SECTION_ID));
   const live = activeHero(content, "nfts")!;
   assert.equal(live.section.presentation, "hero");
-  assert.equal(live.item.videoSrc, "/hero/waambat-hero-desktop.mp4");
-  assert.equal(live.item.mobileVideoSrc, "/hero/waambat-hero-mobile.mp4");
-  // The montage plays once and ends on a looping shot of her dark self-portrait.
-  assert.equal(live.item.loopSrc, "/hero/waambat-hero-desktop-loop.mp4");
-  assert.equal(live.item.mobileLoopSrc, "/hero/waambat-hero-mobile-loop.mp4");
+  assert.equal(live.item.videoSrc, "/hero/waambat-hero-desktop-loop.mp4");
+  assert.equal(live.item.mobileVideoSrc, "/hero/waambat-hero-mobile-loop.mp4");
+  // Only the chosen self-portrait loop plays, from the first frame.
+  assert.equal(live.item.loopSrc, "");
+  assert.equal(live.item.mobileLoopSrc, "");
   assert.equal(activeHero(content, "ordinals"), null);
 });
 
@@ -53,10 +53,10 @@ test("hero media exists, loads as a direct source and fits the studio's upload l
     live.mobileLoopSrc,
     live.poster,
     live.mobilePoster,
-  ]) {
+  ].filter(Boolean)) {
     assert.ok(reference.startsWith("/hero/"), reference);
     const { size } = await stat(`public${reference}`);
-    assert.ok(size > 10_000, `${reference} is empty`);
+    assert.ok(size > (reference.endsWith(".mp4") ? 10_000 : 100), `${reference} is empty`);
     assert.ok(
       size <= 4 * 1024 * 1024,
       `${reference} exceeds the 4 MB upload cap`,
@@ -64,8 +64,8 @@ test("hero media exists, loads as a direct source and fits the studio's upload l
   }
   assert.equal(videoSource(live.videoSrc)?.direct, true);
   assert.equal(videoSource(live.mobileVideoSrc)?.direct, true);
-  assert.equal(videoSource(live.loopSrc)?.direct, true);
-  assert.equal(videoSource(live.mobileLoopSrc)?.direct, true);
+  assert.equal(live.loopSrc, "");
+  assert.equal(live.mobileLoopSrc, "");
 });
 
 test("seeded hero matches the default added to older stores", async () => {
@@ -79,7 +79,7 @@ test("older stored content gains the hero on read, without being written back or
   const before = structuredClone(old);
   const result = addDefaultHero(old);
   assert.equal(result.changed, true);
-  assert.equal(result.content.heroVersion, 2);
+  assert.equal(result.content.heroVersion, 3);
   assert.equal(result.content.sections.at(-1)!.id, HERO_SECTION_ID);
   assert.equal(result.content.sections.length, old.sections.length + 1);
   assert.deepEqual(old, before);
@@ -94,7 +94,7 @@ test("an archived or artist-edited hero is respected, never replaced or restored
   archived.sections.push({ ...defaultHeroSection(), archived: true });
   const kept = addDefaultHero(archived);
   assert.equal(kept.changed, false);
-  assert.equal(kept.content.heroVersion, 2);
+  assert.equal(kept.content.heroVersion, 3);
   assert.equal(
     kept.content.sections.filter((s) => s.presentation === "hero").length,
     1,
@@ -112,49 +112,35 @@ test("an archived or artist-edited hero is respected, never replaced or restored
   assert.equal(hero(result.content).items[0]!.videoSrc, "/hero/mine.mp4");
 });
 
-test("a stored banner that is still the shipped one gains the ending loop on read; an edited one is left alone", async () => {
-  // Content saved when the banner repeated its whole montage.
-  const old = await stored();
-  old.heroVersion = 1;
-  const item = hero(old).items[0]!;
-  item.loopSrc = "";
-  item.mobileLoopSrc = "";
-  const before = structuredClone(old);
-  const result = addDefaultHero(old);
-  assert.equal(result.changed, true);
-  assert.equal(result.content.heroVersion, 2);
-  assert.equal(
-    hero(result.content).items[0]!.loopSrc,
-    "/hero/waambat-hero-desktop-loop.mp4",
-  );
-  assert.equal(
-    hero(result.content).items[0]!.mobileLoopSrc,
-    "/hero/waambat-hero-mobile-loop.mp4",
-  );
-  assert.deepEqual(old, before, "the stored document is not mutated");
-  assert.doesNotThrow(() => contentSchema.parse(result.content));
-  assert.equal(addDefaultHero(result.content).changed, false);
-
-  // Her own video, or an archived banner, never gains the shipped ending.
-  for (const change of [
-    (h: Content) => {
-      hero(h).items[0]!.videoSrc = "/hero/mine.mp4";
-    },
-    (h: Content) => {
-      hero(h).archived = true;
-    },
-    (h: Content) => {
-      hero(h).items[0]!.loopSrc = "/hero/my-loop.mp4";
-    },
-  ]) {
-    const mine = structuredClone(old);
-    change(mine);
-    const kept = addDefaultHero(mine);
-    assert.equal(kept.changed, false);
-    assert.notEqual(
-      hero(kept.content).items[0]!.loopSrc,
-      "/hero/waambat-hero-desktop-loop.mp4",
-    );
+test("shipped v1 and v2 montages become loop-only without mutating artist content", async () => {
+  for (const version of [1, 2]) {
+    const old = await stored(); old.heroVersion = version;
+    const item = hero(old).items[0]!;
+    item.videoSrc = "/hero/waambat-hero-desktop.mp4";
+    item.mobileVideoSrc = "/hero/waambat-hero-mobile.mp4";
+    item.loopSrc = version === 2 ? "/hero/waambat-hero-desktop-loop.mp4" : "";
+    item.mobileLoopSrc = version === 2 ? "/hero/waambat-hero-mobile-loop.mp4" : "";
+    const before = structuredClone(old), result = addDefaultHero(old);
+    assert.equal(result.changed, true);
+    assert.equal(result.content.heroVersion, 3);
+    const updated = hero(result.content).items[0]!;
+    assert.equal(updated.videoSrc, "/hero/waambat-hero-desktop-loop.mp4");
+    assert.equal(updated.mobileVideoSrc, "/hero/waambat-hero-mobile-loop.mp4");
+    assert.equal(updated.loopSrc, ""); assert.equal(updated.mobileLoopSrc, "");
+    assert.equal(updated.poster, "/hero/waambat-hero-loop-poster.webp");
+    assert.deepEqual(old, before);
+    assert.doesNotThrow(() => contentSchema.parse(result.content));
+    assert.equal(addDefaultHero(result.content).changed, false);
+    for (const change of [
+      (h: Content) => { hero(h).items[0]!.videoSrc = "/hero/mine.mp4"; },
+      (h: Content) => { hero(h).archived = true; },
+      (h: Content) => { hero(h).items[0]!.loopSrc = "/hero/my-loop.mp4"; },
+    ]) {
+      const mine = structuredClone(old); change(mine);
+      const kept = addDefaultHero(mine);
+      assert.equal(kept.changed, false);
+      assert.deepEqual(kept.content.sections, mine.sections);
+    }
   }
 });
 
@@ -205,12 +191,10 @@ test("hero media references are tracked so uploads are kept and checked", async 
   const content = await stored();
   const references = mediaReferences(content);
   for (const reference of [
-    "/hero/waambat-hero-desktop.mp4",
-    "/hero/waambat-hero-mobile.mp4",
     "/hero/waambat-hero-desktop-loop.mp4",
     "/hero/waambat-hero-mobile-loop.mp4",
-    "/hero/waambat-hero-poster.webp",
-    "/hero/waambat-hero-poster-mobile.webp",
+    "/hero/waambat-hero-loop-poster.webp",
+    "/hero/waambat-hero-loop-poster-mobile.webp",
   ])
     assert.ok(references.has(reference), reference);
   const withLogo = await stored();

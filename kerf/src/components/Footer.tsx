@@ -32,8 +32,8 @@ const Footer = () => {
           <a href="https://www.youtube.com/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on YouTube">
             YouTube
           </a>
-          <a href="https://foundation.app/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on Foundation">
-            Foundation
+          <a href="https://opensea.io/waambat" target="_blank" rel="noopener noreferrer" aria-label="WAAMBAT on OpenSea">
+            OpenSea
           </a>
         </nav>
         {tags.join(" | ")}

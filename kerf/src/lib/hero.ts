@@ -8,7 +8,7 @@ export const HERO_MOBILE_VIDEO = "/hero/waambat-hero-mobile.mp4";
 export const HERO_LOOP = "/hero/waambat-hero-desktop-loop.mp4";
 export const HERO_MOBILE_LOOP = "/hero/waambat-hero-mobile-loop.mp4";
 
-// The banner shipped with the site: a Keel-rendered montage of her own works.
+// The default banner repeats the artist-selected self-portrait loop.
 // Everything here is ordinary section/artwork content, so the studio edits it
 // like any other item (placement, media, poster, titles, archiving).
 export function defaultHeroSection(): Section {
@@ -22,18 +22,18 @@ export function defaultHeroSection(): Section {
     items: [
       {
         id: "site-hero-montage",
-        title: "WAAMBAT hero montage",
+        title: "WAAMBAT hero loop",
         year: "",
         description:
-          "A moving montage of WAAMBAT's own artworks, including LUX and Kismet Twist.",
+          "A seamless loop of WAAMBAT's dark self-portrait.",
         tokenLink: "/",
-        videoSrc: HERO_VIDEO,
-        mobileVideoSrc: HERO_MOBILE_VIDEO,
-        loopSrc: HERO_LOOP,
-        mobileLoopSrc: HERO_MOBILE_LOOP,
+        videoSrc: HERO_LOOP,
+        mobileVideoSrc: HERO_MOBILE_LOOP,
+        loopSrc: "",
+        mobileLoopSrc: "",
         previewSrc: "",
-        poster: "/hero/waambat-hero-poster.webp",
-        mobilePoster: "/hero/waambat-hero-poster-mobile.webp",
+        poster: "/hero/waambat-hero-loop-poster.webp",
+        mobilePoster: "/hero/waambat-hero-loop-poster-mobile.webp",
         logoSrc: "",
         kind: "video",
         aspectRatio: 16 / 9,
@@ -45,47 +45,30 @@ export function defaultHeroSection(): Section {
   };
 }
 
-// Compatibility for content stored before the banner existed, or before it ended on a loop. Applied on
-// read, never written back: the artist's ordinary Save persists it. An archived or edited hero is always
-// respected: the default banner is only added when no hero exists, and only a banner that is still exactly
-// the shipped one (its original video files, no loop of its own) gains the ending loop.
-function gainsLoop(item: Artwork) {
-  return (
-    item.videoSrc === HERO_VIDEO &&
-    item.mobileVideoSrc === HERO_MOBILE_VIDEO &&
-    !item.loopSrc &&
-    !item.mobileLoopSrc
-  );
+// Upgrade only the shipped montage. Custom sources, custom endings and archived
+// entries remain the artist's choices; the stored document is never mutated.
+function shippedMontage(item: Artwork) {
+  return item.videoSrc === HERO_VIDEO && item.mobileVideoSrc === HERO_MOBILE_VIDEO &&
+    (!item.loopSrc || item.loopSrc === HERO_LOOP) &&
+    (!item.mobileLoopSrc || item.mobileLoopSrc === HERO_MOBILE_LOOP);
 }
 export function addDefaultHero(content: Content) {
-  if (content.heroVersion >= 2) return { content, changed: false };
-  const exists = content.sections.some(
-    (section) =>
-      section.id === HERO_SECTION_ID || section.presentation === "hero",
-  );
+  if (content.heroVersion >= 3) return { content, changed: false };
+  const exists = content.sections.some(section => section.id === HERO_SECTION_ID || section.presentation === "hero");
   let upgraded = false;
-  const sections = content.sections.map((section) => {
+  const sections = content.sections.map(section => {
     if (section.presentation !== "hero" || section.archived) return section;
-    if (!section.items.some((item) => !item.archived && gainsLoop(item)))
-      return section;
-    upgraded = true;
-    return {
-      ...section,
-      items: section.items.map((item) =>
-        !item.archived && gainsLoop(item)
-          ? { ...item, loopSrc: HERO_LOOP, mobileLoopSrc: HERO_MOBILE_LOOP }
-          : item,
-      ),
-    };
+    return {...section, items: section.items.map(item => {
+      if (item.archived || !shippedMontage(item)) return item;
+      upgraded = true;
+      return {...item, videoSrc: HERO_LOOP, mobileVideoSrc: HERO_MOBILE_LOOP,
+        loopSrc: "", mobileLoopSrc: "", poster: "/hero/waambat-hero-loop-poster.webp",
+        mobilePoster: "/hero/waambat-hero-loop-poster-mobile.webp",
+        title: item.title === "WAAMBAT hero montage" ? "WAAMBAT hero loop" : item.title};
+    })};
   });
-  return {
-    content: {
-      ...content,
-      heroVersion: 2 as const,
-      sections: exists ? sections : [...sections, defaultHeroSection()],
-    },
-    changed: !exists || upgraded,
-  };
+  return {content: {...content, heroVersion: 3 as const,
+    sections: exists ? sections : [...sections, defaultHeroSection()]}, changed: !exists || upgraded};
 }
 
 export type ActiveHero = { section: Section; item: Artwork };

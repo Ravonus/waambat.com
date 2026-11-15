@@ -43,7 +43,10 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "zod": "^3.23.3",
-    "zustand": "5.0.15"
+    "zustand": "5.0.15",
+    "@kerf-js/media": "file:kerf/vendor/kerf-media-media-fc104b6c4114.tgz",
+    "@kerf-js/veneer-core": "file:kerf/vendor/kerf-veneer-core-media-a8860bbb1065.tgz",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

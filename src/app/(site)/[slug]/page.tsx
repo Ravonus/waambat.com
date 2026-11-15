@@ -26,6 +26,7 @@ export async function generateMetadata({
     pageDescription(page),
     page.seo.image || undefined,
     page.seo.noIndex || ["splash", "split-splash"].includes(page.layout),
+    content,
   );
 }
 export default async function Page({

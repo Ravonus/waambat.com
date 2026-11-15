@@ -179,7 +179,7 @@ test("recovered source content preserves 23 media URLs, eight Instagram posts an
   );
   assert.equal(
     paintings[22]!.tokenLink,
-    "https://foundation.app/@waambat/foundation/37954",
+    "https://opensea.io/item/ethereum/0x3b3ee1931dc30c1957379fac9aba94d1c48a5405/37954",
   );
   assert.ok(
     paintings.every((a) =>

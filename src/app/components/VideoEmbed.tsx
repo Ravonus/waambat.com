@@ -26,7 +26,7 @@ export default function VideoEmbed({
   if (!target)
     return <p>Unsupported source. Review this entry in the studio.</p>;
   return (
-    <figure className={compact ? "h-full w-full" : "my-8 w-full"}>
+    <figure data-media-start={src} className={compact ? "h-full w-full" : "my-8 w-full"}>
       <div
         className={`relative bg-black ${target.provider === "ordinals" ? "aspect-square" : "aspect-video"}`}
         style={ratio ? { aspectRatio: ratio } : undefined}

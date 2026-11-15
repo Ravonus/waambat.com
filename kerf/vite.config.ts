@@ -6,5 +6,6 @@ export default defineConfig({plugins:[tailwindcss()],nitro:{routeRules:{
  '/api/admin/**':{proxy:'/_kerf/x/waambat/admin/**'},
  '/api/media/**':{proxy:'/_kerf/x/waambat/media/**'},
  '/robots.txt':{proxy:'/_kerf/x/waambat/robots'},
+ '/social-card.jpg':{proxy:'/_kerf/x/waambat/social-card'},
  '/sitemap.xml':{proxy:'/_kerf/x/waambat/sitemap'},
 }}});

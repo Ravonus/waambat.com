@@ -48,12 +48,12 @@ const Footer: React.FC = () => {
             YouTube
           </a>
           <a
-            href="https://foundation.app/waambat"
+            href="https://opensea.io/waambat"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="WAAMBAT on Foundation"
+            aria-label="WAAMBAT on OpenSea"
           >
-            Foundation
+            OpenSea
           </a>
         </nav>
         {tags.join(" | ")}

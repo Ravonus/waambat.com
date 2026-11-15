@@ -194,7 +194,7 @@ export default function InlineVideo({
   return (
     <div
       ref={container}
-      className="inline-video"
+      className="inline-video" data-media-start={src}
       data-inline-provider={provider}
       data-playback-state={
         error ? "unavailable" : playing ? "playing" : "paused"

@@ -13,7 +13,7 @@ import styles from "./Hero.module.css";
 // the width of a small tablet but the shape of the landscape banner.
 const PORTRAIT_PHONE = "(max-width: 767px) and (orientation: portrait)";
 
-// The home banner: a silent montage of her own works with the live wordmark in its quiet column.
+// The home banner keeps the selected loop and the live wordmark in its quiet column.
 // When the banner has an ending loop it plays once, ends on its last shot, and that shot carries on
 // as a second, seamlessly looping video: the montage never replays. Without one the whole video
 // repeats. Content (media, poster, titles, logo) comes from an ordinary section/artwork so the
@@ -85,6 +85,7 @@ export default function Hero({
       aria-label={section.title}
       className={styles.hero}
       data-hero
+      data-media-start={source}
       data-playback-state={
         error
           ? "unavailable"
@@ -203,7 +204,7 @@ export default function Hero({
         {/* The wordmark leads home, like the header wordmark it stands in for. */}
         <h1
           data-hero-wordmark
-          className={`${styles.wordmark} ${item.logoSrc ? "" : "font-brand text-waambat-logo"}`}
+          className={`${styles.wordmark} ${"font-brand text-waambat-logo"}`}
         >
           <SiteLink
             href={preview ? "/admin/preview?page=nfts" : "/"}
@@ -211,10 +212,9 @@ export default function Hero({
             aria-label={`${section.title} home`}
             className={styles.wordmarkLink}
           >
-            {item.logoSrc ? (
-              // eslint-disable-next-line @next/next/no-img-element -- Preserve an artist-supplied logo.
-              <img src={item.logoSrc} alt=""/>
-            ) : <><span>{section.title}</span><img src="/brand/waambat-sigil-original.svg" width={484} height={500} alt=""/></>}
+            <span>{section.title}</span>
+            {/* eslint-disable-next-line @next/next/no-img-element -- Preserve the artist-supplied logo and vector sigil. */}
+            {item.logoSrc ? <img src={item.logoSrc} width={484} height={500} alt="" style={{objectFit:'contain'}}/> : <img src="/brand/waambat-sigil-original.svg" width={484} height={500} alt=""/>}
           </SiteLink>
         </h1>
         {playable && (

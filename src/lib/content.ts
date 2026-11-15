@@ -1,3 +1,4 @@
+import integrationDefaults from "../content/integration-defaults.json";
 import { z } from "zod";
 import { instagramTarget } from "./instagram";
 import { videoSource } from "./video-source";
@@ -326,11 +327,23 @@ export const contentSchema = z
   .object({
     ordinalSourceVersion: z.number().int().min(0).max(2).default(0),
     // 0 = stored before the hero banner existed; the default banner is added on read.
-    heroVersion: z.number().int().min(0).max(2).default(0),
+    heroVersion: z.number().int().min(0).max(3).default(0),
     sections: z.array(sectionSchema).min(1).max(30),
     pages: z.array(pageSchema).max(80).default([]),
     navigation: z.array(navigationSchema).max(50).default([]),
     email: emailSettingsSchema.default({}),
+    integrations: z.object({
+      analyticsEnabled: z.boolean().default(false),
+      googleAnalyticsId: z.string().trim().toUpperCase().regex(/^(|G-[A-Z0-9]{6,20})$/, 'Use a GA4 measurement ID such as G-XXXXXXXXXX').default(''),
+      googleSiteVerification: z.string().trim().regex(/^[a-zA-Z0-9_-]{0,160}$/).default(''),
+    }).strict().default(integrationDefaults),
+    seo: z.object({
+      homeTitle: text(60).default('waambat'),
+      description: text(320).default('Video paintings, cryptoart, and Ordinals by WAAMBAT — artist Lindsay Scoggins.'),
+      socialImage: mediaLink.default(''),
+      artistImage: mediaLink.default('/hero/waambat-hero-loop-poster.webp'),
+      logo: mediaLink.default('/brand/waambat-sigil-original.svg'),
+    }).strict().default({}),
     formsVersion: z.number().int().min(0).max(1).default(0),
     mediaOptimizationVersion: z.number().int().min(0).max(1).default(0),
     forms: z.array(contactFormSchema).max(20).default([]),

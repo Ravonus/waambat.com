@@ -1,3 +1,5 @@
+import {publishedCard} from '../src/server/social-card';
+import {cardVersion} from '../src/lib/site-settings';
 import test from "node:test";
 import assert from "node:assert/strict";
 import { mkdtemp, rm } from "node:fs/promises";
@@ -87,6 +89,9 @@ test("Netlify SDK contract: persistent reload, private drafts, publish and compe
     const initial = await readBlobContent(seedContent);
     const change = structuredClone(initial.draft);
     change.theme.heading = "#123456";
+    const initialCard=cardVersion(publishedCard(initial.published,'/')!);
+    change.seo.description='Artist-owned metadata published after deployment';
+    change.integrations.googleAnalyticsId='G-1234567890';
     change.sections[0]!.items[0]!.title = "Persisted SDK draft";
     const saved = await updateBlobContent(
       seedContent,
@@ -96,6 +101,8 @@ test("Netlify SDK contract: persistent reload, private drafts, publish and compe
       "isolated-admin",
     );
     assert.deepEqual(await readBlobContent(seedContent), saved);
+    assert.equal(cardVersion(publishedCard(saved.published,'/')!),initialCard);
+    assert.notEqual(saved.published.integrations.googleAnalyticsId,'G-1234567890');
     assert.notEqual(
       saved.published.sections[0]!.items[0]!.title,
       "Persisted SDK draft",
@@ -126,6 +133,9 @@ test("Netlify SDK contract: persistent reload, private drafts, publish and compe
       "isolated-admin",
       latest.publishedRevision,
     );
+    const published=(await readBlobContent(seedContent)).published;
+    assert.notEqual(cardVersion(publishedCard(published,'/')!),initialCard);
+    assert.equal(published.integrations.googleAnalyticsId,'G-1234567890');
     await stop();
     server = fixture(file, token);
     await start();

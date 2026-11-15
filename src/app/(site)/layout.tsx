@@ -1,3 +1,5 @@
+import Analytics from '~/app/components/Analytics';
+import {indexableSite} from '~/lib/seo';
 import type { ReactNode } from "react";
 import { getPublishedContent } from "~/server/content";
 import { requirePreviewAccess } from "~/server/preview-access";
@@ -41,7 +43,7 @@ export default async function PublicLayout({
       ),
   ];
   return (
-    <SiteFrame
+    <><Analytics content={content} allowed={indexableSite()}/><SiteFrame
       navigation={content.navigation.filter(
         (entry) =>
           !entry.archived &&
@@ -56,6 +58,6 @@ export default async function PublicLayout({
       footer={<Footer />}
     >
       {children}
-    </SiteFrame>
+    </SiteFrame></>
   );
 }

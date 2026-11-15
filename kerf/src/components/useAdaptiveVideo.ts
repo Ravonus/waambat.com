@@ -1,3 +1,4 @@
+import {initialMediaLevel,mediaConnection,mediaBandwidth} from "@kerf-js/media/browser";
 import type {VideoHandle} from './OptimizedVideo';
 import {localVideo} from '#/lib/local-media';
 import type {RefObject} from "./useViewportPlayback";
@@ -69,7 +70,7 @@ export function useAdaptiveVideo(ref: RefObject<VideoHandle>, source: () => stri
                     nativeFallback();
                     return;
                 }
-                const player = new Player(adaptiveVideoConfig);
+                const player = new Player({...adaptiveVideoConfig,abrEwmaDefaultEstimate:mediaBandwidth(mediaConnection())});
                 controller.current = player;
                 video.dataset.delivery = "adaptive-hls";
                 player.on(Player.Events.ERROR, (_event, data) => {
@@ -77,6 +78,7 @@ export function useAdaptiveVideo(ref: RefObject<VideoHandle>, source: () => stri
                         nativeFallback();
                 });
                 player.on(Player.Events.MANIFEST_PARSED, () => {
+          player.startLevel=initialMediaLevel(player.levels,video.clientWidth,video.clientHeight,mediaConnection(),devicePixelRatio);
                     if (shouldLoad())
                         player.startLoad();
                     play();

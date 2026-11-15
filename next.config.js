@@ -2,6 +2,7 @@ import "./src/env.js";
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
+  transpilePackages: ["@kerf-js/media", "@kerf-js/veneer-core"],
   poweredByHeader: false,
   devIndicators: false,
   env: {
