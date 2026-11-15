@@ -1,1 +1,84 @@
-html{scrollbar-color:#ff94b2 #120b10;scrollbar-width:thin}html::-webkit-scrollbar{width:8px}html::-webkit-scrollbar-track{background:#120b10}html::-webkit-scrollbar-thumb{background:#ff94b2;border:2px solid #120b10;border-radius:8px}html[data-canvas-scroll]{scrollbar-width:none}html[data-canvas-scroll]::-webkit-scrollbar{width:0;height:0}.waambat-scroll-rail{position:fixed;inset:6px 1px 6px auto;width:14px;z-index:45;touch-action:none;outline-offset:2px;border-radius:8px}.waambat-scroll-rail[hidden]{display:none}html:has(.site-header[data-menu-open]) .waambat-scroll-rail{visibility:hidden}.waambat-scroll-rail:focus-visible{outline:1px solid #ff94b2;background:#ff94b212}.waambat-scroll-rail canvas{display:block}.waambat-skeleton{padding:32px 0;display:grid;gap:28px}.waambat-skeleton-art{aspect-ratio:1;background:linear-gradient(100deg,#151015 20%,#231720 48%,#151015 76%);background-size:200% 100%;animation:waambat-shimmer 1.6s ease-in-out infinite}.waambat-skeleton-line{height:15px;width:65%;border-radius:20px;background:#241720}.waambat-skeleton-line:nth-child(2){width:42%}@keyframes waambat-shimmer{to{background-position:-200% 0}}@media(prefers-reduced-motion:reduce){.waambat-skeleton-art{animation:none}}
+/* The side rail is the wordmark/title pink. Native fallback first. */
+html {
+  scrollbar-color: var(--ui-cursor) var(--ui-accent-surface);
+  scrollbar-width: thin;
+}
+html::-webkit-scrollbar {
+  width: 8px;
+}
+html::-webkit-scrollbar-track {
+  background: var(--ui-accent-surface);
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--ui-cursor);
+  border: 2px solid var(--ui-accent-surface);
+  border-radius: 8px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--ui-cursor-light);
+}
+html[data-canvas-scroll] {
+  scrollbar-width: none;
+}
+html[data-canvas-scroll]::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.waambat-scroll-rail {
+  position: fixed;
+  inset: 6px 1px 6px auto;
+  width: 14px;
+  z-index: 45;
+  touch-action: none;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.waambat-scroll-rail[hidden] {
+  display: none;
+}
+html:has(.site-header[data-menu-open]) .waambat-scroll-rail {
+  visibility: hidden;
+}
+.waambat-scroll-rail:focus-visible {
+  outline: 1px solid var(--ui-cursor);
+  background: color-mix(in srgb, var(--ui-cursor) 8%, transparent);
+}
+.waambat-scroll-rail canvas {
+  display: block;
+}
+/* Route skeletons: accent surfaces only. */
+.waambat-skeleton {
+  padding: 32px 0;
+  display: grid;
+  gap: 28px;
+}
+.waambat-skeleton-art {
+  aspect-ratio: 1;
+  background: linear-gradient(
+    100deg,
+    var(--ui-accent-surface) 20%,
+    var(--ui-accent-surface-strong) 48%,
+    var(--ui-accent-surface) 76%
+  );
+  background-size: 200% 100%;
+  animation: waambat-shimmer 1.6s ease-in-out infinite;
+}
+.waambat-skeleton-line {
+  height: 15px;
+  width: 65%;
+  border-radius: 20px;
+  background: var(--ui-accent-surface-strong);
+}
+.waambat-skeleton-line:nth-child(2) {
+  width: 42%;
+}
+@keyframes waambat-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .waambat-skeleton-art {
+    animation: none;
+  }
+}

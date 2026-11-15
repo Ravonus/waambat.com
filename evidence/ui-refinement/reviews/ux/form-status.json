@@ -1,0 +1,38 @@
+{
+  "success": {
+    "text": "Thank you — your message has been received.",
+    "color": "rgb(225, 188, 194)",
+    "focused": false,
+    "outline": "rgb(225, 188, 194) none 3px",
+    "nameValue": "",
+    "invalid": []
+  },
+  "error": {
+    "text": "Your message could not be saved. Please try again.",
+    "color": "rgb(225, 188, 194)",
+    "focused": false,
+    "outline": "rgb(225, 188, 194) none 3px",
+    "nameValue": "UX critic (intercepted)",
+    "invalid": []
+  },
+  "fields": {
+    "text": "Please check the highlighted fields.",
+    "color": "rgb(225, 188, 194)",
+    "focused": false,
+    "outline": "rgb(225, 188, 194) none 3px",
+    "nameValue": "UX critic (intercepted)",
+    "invalid": [
+      "contact-contact-email"
+    ]
+  },
+  "emailFrame": "rgb(255, 112, 112) 0px 0px 0px 1.5px inset",
+  "emailError": [
+    [
+      "contact-contact-email-error",
+      "Enter a valid email address.",
+      "rgb(255, 112, 112)"
+    ]
+  ],
+  "emailDescribedBy": "contact-contact-email-error",
+  "emailInvalidFocused": "rgb(255, 112, 112) 0px 0px 0px 1.5px inset"
+}

@@ -1,0 +1,4 @@
+before {"video":false,"msg":"","buttons":["Play quantum mechanics"],"h":150}
+g1 box [ 629, 629 ]
+btn Play quantum mechanics
+after {"video":false,"msg":"Video could not load.\n\nOpen original video ↗","buttons":["Retry playback of quantum mechanics"],"h":150}

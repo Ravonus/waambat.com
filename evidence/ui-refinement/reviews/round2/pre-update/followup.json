@@ -1,0 +1,84 @@
+{
+ "calm-x": {
+  "url": "/mechanics",
+  "menuInDom": false,
+  "phase": null,
+  "overlayOpacity": null,
+  "menuButtonVisibility": "visible",
+  "expanded": "false",
+  "inert": [],
+  "htmlOverflow": "visible",
+  "focus": "BUTTON",
+  "mainLinkHit": "A.source-heading-link source-hea"
+ },
+ "calm-escape": {
+  "url": "/mechanics",
+  "menuInDom": true,
+  "phase": "closing",
+  "overlayOpacity": "0",
+  "menuButtonVisibility": "hidden",
+  "expanded": "true",
+  "inert": [
+   "main#main-content",
+   "footer"
+  ],
+  "htmlOverflow": "hidden",
+  "focus": "BUTTON",
+  "mainLinkHit": "DIV.site-theme flex min-h-screen f"
+ },
+ "calm-destination": {
+  "url": "/bio-waambat",
+  "menuInDom": true,
+  "phase": "closing",
+  "overlayOpacity": "0",
+  "menuButtonVisibility": "hidden",
+  "expanded": "true",
+  "inert": [
+   "main#main-content",
+   "footer"
+  ],
+  "htmlOverflow": "visible",
+  "focus": "A",
+  "mainLinkHit": null
+ },
+ "clickArrival-fine390": [
+  {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "menu": false,
+   "overflow": "visible"
+  },
+  {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "menu": false,
+   "overflow": "visible"
+  },
+  {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "menu": false,
+   "overflow": "visible"
+  }
+ ],
+ "clickArrival-z200": [
+  {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "menu": false,
+   "overflow": "visible"
+  },
+  {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "menu": false,
+   "overflow": "visible"
+  },
+  {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "menu": false,
+   "overflow": "visible"
+  }
+ ]
+}

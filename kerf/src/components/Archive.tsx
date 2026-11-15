@@ -76,7 +76,7 @@ export default function Archive({ items }: {
           ×
         </button>
         {item.value && (<div className="archive-viewer-content">
-            <div className="archive-viewer-media" style={{ aspectRatio: item.value.videoRatio ?? item.value.ratio }}>
+            <div className="archive-viewer-media" style={{ aspectRatio: item.value.videoRatio ?? item.value.ratio, "--viewer-ratio": item.value.videoRatio ?? item.value.ratio }}>
               {item.value.embed ? (<VideoEmbed key={item.value.id} src={item.value.embed} title={item.value.title || "Untitled artwork"} poster={item.value.image} activated ratio={item.value.videoRatio ?? item.value.ratio} compact/>) : (<SourceImage src={item.value.image} alt={item.value.title} eager className="h-full w-full object-contain"/>)}
             </div>
             <div className="my-5 flex justify-center gap-6">

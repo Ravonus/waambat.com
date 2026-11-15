@@ -1,0 +1,198 @@
+{
+ "no-preference": [
+  {
+   "cls": "archive-tile",
+   "box": [
+    60,
+    -148,
+    754,
+    421
+   ],
+   "img": {
+    "src": "621202242076-CQ4E0S9AHY8U83ZFUPLD/image-asset.jpeg",
+    "ok": true
+   },
+   "video": null,
+   "caption": "Video unavailableOpen original source ↗V"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    814,
+    -148,
+    566,
+    421
+   ],
+   "img": {
+    "src": "9401a680a63e99d7c478-960-8437c73beccf5d921be5.avif",
+    "ok": true
+   },
+   "video": {
+    "paused": false,
+    "ready": 4
+   },
+   "caption": "YouTube Play 2010 feat. waambat"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    60,
+    283,
+    660,
+    491
+   ],
+   "img": {
+    "src": "1294a1c58186ac01af2a-960-286ba9931343baf2a69d.webp",
+    "ok": true
+   },
+   "video": {
+    "paused": false,
+    "ready": 4
+   },
+   "caption": "waambat visuals for Hans Zimmer (2017)"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    720,
+    283,
+    660,
+    491
+   ],
+   "img": {
+    "src": "ec197df574123dc29450-960-64880e15807c2b68b5ba.avif",
+    "ok": true
+   },
+   "video": {
+    "paused": false,
+    "ready": 4
+   },
+   "caption": "Dichotomy Bifurcation @ LA Art Show 2017"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    60,
+    792,
+    660,
+    491
+   ],
+   "img": {
+    "src": "621201609274-JGJKKBS37A8MPNFLG9YK/image-asset.jpeg",
+    "ok": true
+   },
+   "video": null,
+   "caption": "Video unavailableOpen original source ↗W"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    720,
+    792,
+    660,
+    491
+   ],
+   "img": {
+    "src": "624c3420983aa15f1523-576-2a35da8e0a0b1dcb8713.avif",
+    "ok": true
+   },
+   "video": {
+    "paused": false,
+    "ready": 4
+   },
+   "caption": "self p (2021)"
+  }
+ ],
+ "reduce": [
+  {
+   "cls": "archive-tile",
+   "box": [
+    60,
+    -148,
+    754,
+    421
+   ],
+   "img": {
+    "src": "621202242076-CQ4E0S9AHY8U83ZFUPLD/image-asset.jpeg",
+    "ok": true
+   },
+   "video": null,
+   "caption": "Video Art by Lindsay Scoggins"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    814,
+    -148,
+    566,
+    421
+   ],
+   "img": {
+    "src": "9401a680a63e99d7c478-960-8437c73beccf5d921be5.avif",
+    "ok": true
+   },
+   "video": null,
+   "caption": "YouTube Play 2010 feat. waambat"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    60,
+    283,
+    660,
+    491
+   ],
+   "img": {
+    "src": "1294a1c58186ac01af2a-960-286ba9931343baf2a69d.webp",
+    "ok": true
+   },
+   "video": null,
+   "caption": "waambat visuals for Hans Zimmer (2017)"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    720,
+    283,
+    660,
+    491
+   ],
+   "img": {
+    "src": "ec197df574123dc29450-960-64880e15807c2b68b5ba.avif",
+    "ok": true
+   },
+   "video": null,
+   "caption": "Dichotomy Bifurcation @ LA Art Show 2017"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    60,
+    784,
+    660,
+    491
+   ],
+   "img": {
+    "src": "621201609274-JGJKKBS37A8MPNFLG9YK/image-asset.jpeg",
+    "ok": true
+   },
+   "video": null,
+   "caption": "Wonderland Mafia (2008)"
+  },
+  {
+   "cls": "archive-tile",
+   "box": [
+    720,
+    784,
+    660,
+    491
+   ],
+   "img": {
+    "src": "624c3420983aa15f1523-576-2a35da8e0a0b1dcb8713.avif",
+    "ok": true
+   },
+   "video": null,
+   "caption": "self p (2021)"
+  }
+ ]
+}

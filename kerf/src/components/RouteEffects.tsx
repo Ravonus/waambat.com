@@ -1,8 +1,11 @@
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
 import { cursorShapes, cursorStateAt, type CursorState } from "~/lib/cursor";
+import { installMosh } from "~/lib/mosh";
 export default function RouteEffects() {
     const cursor = { current: null as HTMLDivElement | null | undefined };
+    // Press bursts work for touch too, so they don't depend on the custom cursor.
+    onMount(() => onCleanup(installMosh()));
     onMount(() => watch(() => [], () => {
         const pointer = cursor.current;
         const ink = pointer?.firstElementChild as HTMLElement | null;
@@ -128,6 +131,7 @@ export default function RouteEffects() {
         };
         const down = (event: PointerEvent) => {
             move(event);
+            pointer.dataset.pressed = "";
             const state = pointer.dataset.cursorState as CursorState;
             if (pointer.style.opacity === "1" &&
                 (state.includes("resize") || state === "text" || state === "grab")) {
@@ -137,6 +141,7 @@ export default function RouteEffects() {
         };
         const up = (event: PointerEvent) => {
             held = null;
+            delete pointer.dataset.pressed;
             move(event);
         };
         const leave = (event: PointerEvent) => {
@@ -146,6 +151,7 @@ export default function RouteEffects() {
             }
         };
         const suspend = () => {
+            delete pointer.dataset.pressed;
             position = null;
             held = null;
             dragging = false;

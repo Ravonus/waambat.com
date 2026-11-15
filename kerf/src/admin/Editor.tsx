@@ -312,13 +312,13 @@ export default function Editor({ initial }: {
         · Site build {serverState.value.deployedRevision.slice(0, 12)}
       </p>
       <div className="sticky top-0 z-20 my-6 flex flex-wrap items-center gap-4 border-y border-white/20 bg-black py-4">
-        <button disabled={busy.value || uploading.value || !dirty.value || !!uncertain.value} onClick={() => request("save")} className="bg-waambat-pink rounded px-4 py-2 text-black">
+        <button disabled={busy.value || uploading.value || !dirty.value || !!uncertain.value} onClick={() => request("save")} className="bg-waambat-link rounded px-4 py-2 text-black">
           Save draft
         </button>
         <a href="/admin/preview" target="_blank" rel="noopener" className="text-waambat-link">
           Preview saved draft ↗
         </a>
-        <button disabled={busy.value || uploading.value || dirty.value || !!uncertain.value} onClick={() => request("publish")} className="border-waambat-pink rounded border px-4 py-2">
+        <button disabled={busy.value || uploading.value || dirty.value || !!uncertain.value} onClick={() => request("publish")} className="border-waambat-link rounded border px-4 py-2">
           Publish saved draft
         </button>
         <button disabled={busy.value} onClick={reload}>
@@ -328,11 +328,11 @@ export default function Editor({ initial }: {
         {uncertain.value && (<button disabled={busy.value} onClick={() => void reconcile()}>
             Check remote revision
           </button>)}
-        {uploading.value && (<button onClick={() => upload.current?.abort()} className="text-waambat-pink">
+        {uploading.value && (<button onClick={() => upload.current?.abort()} className="text-waambat-link">
             Cancel upload
           </button>)}
       </div>
-      <p role="status" aria-live="polite" className="text-waambat-pink my-5 whitespace-pre-wrap">
+      <p role="status" aria-live="polite" className="text-waambat-link my-5 whitespace-pre-wrap">
         {status.value}
       </p>
       <fieldset disabled={busy.value || uploading.value} className="space-y-8">

@@ -1,6 +1,6 @@
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
-import { originalTheme, type Theme } from "~/lib/theme";
+import { originalTheme, themeColors, type Theme } from "~/lib/theme";
 const colors = [
     "background",
     "body",
@@ -47,7 +47,10 @@ export default function ThemeEditor({ theme, onChange, }: {
       <div className="grid gap-4 md:grid-cols-3">
         {colors.map((key) => (<label key={key} className="capitalize">
             {label(key)}
-            <input aria-label={`Theme ${label(key)}`} type="color" value={theme[key]} onChange={(e) => onChange({ ...theme, [key]: e.currentTarget.value })} className="block h-10 w-full"/>
+            <input aria-label={`Theme ${label(key)}`} type="color" value={theme[key] ?? themeColors(theme)[key as keyof ReturnType<typeof themeColors>]} onChange={(e) => onChange({ ...theme, [key]: e.currentTarget.value })} className="block h-10 w-full"/>
+            {(key === "linkHover" || key === "navigationHover") && (theme[key] ? (<button type="button" className="text-waambat-link mt-1 text-xs normal-case underline" onClick={() => onChange({ ...theme, [key]: undefined })}>
+                Use automatic ({key === "linkHover" ? "from link" : "from logo"})
+              </button>) : (<span className="mt-1 block text-xs normal-case opacity-70">Automatic ({key === "linkHover" ? "from link" : "from logo"})</span>))}
           </label>))}
         {(["font", "brandFont"] as const).map((key) => (<label key={key} className="capitalize">
             {label(key)}

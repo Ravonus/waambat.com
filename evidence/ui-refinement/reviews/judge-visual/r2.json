@@ -1,0 +1,1100 @@
+{
+ "mech": [
+  {
+   "w": 390,
+   "motion": "full",
+   "g1": [
+    350,
+    350
+   ],
+   "column": 350,
+   "video": {
+    "paused": false,
+    "ready": 0
+   }
+  },
+  {
+   "w": 390,
+   "motion": "calm",
+   "g1": [
+    350,
+    350
+   ],
+   "column": 350,
+   "video": {
+    "paused": false,
+    "ready": 0
+   }
+  },
+  {
+   "w": 390,
+   "motion": "reduced",
+   "g1": [
+    350,
+    350
+   ],
+   "column": 350,
+   "video": null
+  },
+  {
+   "w": 768,
+   "motion": "full",
+   "g1": [
+    629,
+    629
+   ],
+   "column": 629,
+   "video": {
+    "paused": false,
+    "ready": 0
+   }
+  },
+  {
+   "w": 768,
+   "motion": "calm",
+   "g1": [
+    629,
+    629
+   ],
+   "column": 629,
+   "video": {
+    "paused": false,
+    "ready": 0
+   }
+  },
+  {
+   "w": 768,
+   "motion": "reduced",
+   "g1": [
+    629,
+    629
+   ],
+   "column": 629,
+   "video": null
+  },
+  {
+   "w": 1440,
+   "motion": "full",
+   "g1": [
+    629,
+    629
+   ],
+   "column": 629,
+   "video": {
+    "paused": false,
+    "ready": 0
+   }
+  },
+  {
+   "w": 1440,
+   "motion": "calm",
+   "g1": [
+    629,
+    629
+   ],
+   "column": 629,
+   "video": {
+    "paused": false,
+    "ready": 0
+   }
+  },
+  {
+   "w": 1440,
+   "motion": "reduced",
+   "g1": [
+    629,
+    629
+   ],
+   "column": 629,
+   "video": null
+  }
+ ],
+ "dead": [
+  {
+   "w": 390,
+   "motion": "full",
+   "before": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  },
+  {
+   "w": 390,
+   "motion": "calm",
+   "before": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  },
+  {
+   "w": 390,
+   "motion": "reduced",
+   "before": {
+    "text": "",
+    "buttons": [
+     "Play quantum mechanics"
+    ],
+    "links": []
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  },
+  {
+   "w": 768,
+   "motion": "full",
+   "before": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  },
+  {
+   "w": 768,
+   "motion": "calm",
+   "before": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  },
+  {
+   "w": 768,
+   "motion": "reduced",
+   "before": {
+    "text": "",
+    "buttons": [
+     "Play quantum mechanics"
+    ],
+    "links": []
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  },
+  {
+   "w": 1440,
+   "motion": "full",
+   "before": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  },
+  {
+   "w": 1440,
+   "motion": "calm",
+   "before": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  },
+  {
+   "w": 1440,
+   "motion": "reduced",
+   "before": {
+    "text": "",
+    "buttons": [
+     "Play quantum mechanics"
+    ],
+    "links": []
+   },
+   "after": {
+    "text": "Video could not load. Open original video ↗",
+    "buttons": [
+     "Retry playback of quantum mechanics"
+    ],
+    "links": [
+     {
+      "t": "Open original video ↗",
+      "c": "rgb(225, 188, 194)"
+     }
+    ]
+   }
+  }
+ ],
+ "save": {
+  "full": {
+   "backdrop": "none",
+   "texts": [
+    {
+     "t": "×",
+     "c": "rgb(225, 188, 194)"
+    },
+    {
+     "t": "TAKE A LITTLE WAAMBAT WITH YOU",
+     "c": "rgb(255, 148, 178)"
+    },
+    {
+     "t": "File unavailable.",
+     "c": "rgb(255, 148, 178)"
+    },
+    {
+     "t": "The original quality, in a for",
+     "c": "color(srgb 0.898039 0.81098 0.825098)"
+    },
+    {
+     "t": "This source has not provided a",
+     "c": "rgb(235, 235, 235)"
+    },
+    {
+     "t": "Back to the artwork",
+     "c": "rgb(225, 188, 194)"
+    }
+   ],
+   "buttons": [
+    {
+     "t": "Close download",
+     "c": "rgb(225, 188, 194)",
+     "border": "rgb(225, 188, 194)"
+    },
+    {
+     "t": "Back to the artwork",
+     "c": "rgb(225, 188, 194)",
+     "border": "rgb(225, 188, 194)"
+    }
+   ],
+   "backHover": "rgb(241, 209, 214)",
+   "closedByBack": true
+  },
+  "reduced": {
+   "backdrop": "none",
+   "texts": [
+    {
+     "t": "×",
+     "c": "rgb(225, 188, 194)"
+    },
+    {
+     "t": "TAKE A LITTLE WAAMBAT WITH YOU",
+     "c": "rgb(255, 148, 178)"
+    },
+    {
+     "t": "Ready when you are.",
+     "c": "rgb(255, 148, 178)"
+    },
+    {
+     "t": "The original quality, in a for",
+     "c": "color(srgb 0.898039 0.81098 0.825098)"
+    },
+    {
+     "t": "MP4 · 1.4 MB",
+     "c": "rgb(195, 156, 162)"
+    },
+    {
+     "t": "↓",
+     "c": "rgb(34, 16, 20)"
+    },
+    {
+     "t": "Back to the artwork",
+     "c": "rgb(225, 188, 194)"
+    }
+   ],
+   "buttons": [
+    {
+     "t": "Close download",
+     "c": "rgb(225, 188, 194)",
+     "border": "rgb(225, 188, 194)"
+    },
+    {
+     "t": "Back to the artwork",
+     "c": "rgb(225, 188, 194)",
+     "border": "rgb(225, 188, 194)"
+    }
+   ],
+   "backHover": "rgb(241, 209, 214)",
+   "closedByBack": true
+  }
+ },
+ "arrive": {
+  "title": {
+   "names": [
+    "title-arrive",
+    "object-in-calm"
+   ],
+   "frames": [
+    {
+     "t": 0,
+     "shadow": "oklab(0.686938 0.145269 0.00705314) -1.56px 0px 0px, oklab(0.888871 0.0361269 0.004574) 1.56px 0px 0px"
+    },
+    {
+     "t": 110,
+     "shadow": "oklab(0.686938 0.145269 0.00705314 / 0.89) -1.34333px 0px 0px, oklab(0.888871 0.0361269 0.004574 / 0.89) 1.34333px 0px 0px"
+    },
+    {
+     "t": 220,
+     "shadow": "oklab(0.686938 0.145269 0.00705314 / 0.78) -1.12667px 0px 0px, oklab(0.888871 0.0361268 0.004574 / 0.78) 1.12667px 0px 0px"
+    },
+    {
+     "t": 330,
+     "shadow": "oklab(0.686938 0.145269 0.00705314 / 0.67) -0.91px 0px 0px, oklab(0.888871 0.0361268 0.004574 / 0.67) 0.91px 0px 0px"
+    }
+   ]
+  },
+  "hero": {
+   "anims": [
+    {
+     "n": "_hero-wordmark-in_l1enn_1",
+     "el": "_wordmark_l1enn_53 font-brand "
+    },
+    {
+     "n": "object-in",
+     "el": "artwork-media relative w-full "
+    },
+    {
+     "n": "object-in",
+     "el": "artwork-caption"
+    },
+    {
+     "n": "title-resolve",
+     "el": "text-waambat-pink mt-5 text-[2"
+    },
+    {
+     "n": "object-in",
+     "el": "artwork-media relative w-full "
+    },
+    {
+     "n": "object-in",
+     "el": "artwork-caption"
+    },
+    {
+     "n": "title-resolve",
+     "el": "text-waambat-pink mt-5 text-[2"
+    },
+    {
+     "n": "object-in",
+     "el": "artwork-media relative w-full "
+    }
+   ],
+   "frames": [
+    {
+     "t": 0,
+     "shadows": [
+      "oklab(0.686938 0.145269 0.00705314) -5.40286px 0px 0px, oklab(0.888871 0.0361269 0.004574) 5.40286px 0px 0px",
+      "oklab(0.686938 0.145269 0.00705314) -5.40286px 0px 0px, oklab(0.888871 0.0361269 0.004574) 5.40286px 0px 0px"
+     ],
+     "filters": []
+    },
+    {
+     "t": 150,
+     "shadows": [
+      "oklab(0.686938 0.145269 0.00705314) -5.40286px 0px 0px, oklab(0.888871 0.0361269 0.004574) 5.40286px 0px 0px",
+      "oklab(0.686938 0.145269 0.00705314) -5.40286px 0px 0px, oklab(0.888871 0.0361269 0.004574) 5.40286px 0px 0px"
+     ],
+     "filters": []
+    },
+    {
+     "t": 300,
+     "shadows": [
+      "oklab(0.686938 0.145269 0.00705314 / 0.858571) -4.43806px 0px 0px, oklab(0.888871 0.0361268 0.004574 / 0.858571) 4.43806px 0px 0px",
+      "oklab(0.686938 0.145269 0.00705314 / 0.858571) -4.43806px 0px 0px, oklab(0.888871 0.0361268 0.004574 / 0.858571) 4.43806px 0px 0px"
+     ],
+     "filters": []
+    }
+   ]
+  }
+ },
+ "openLinks": [
+  {
+   "t": "Open original source ↗",
+   "c": "rgb(225, 188, 194)",
+   "path": "/art-by-waambat"
+  },
+  {
+   "t": "Open original source ↗",
+   "c": "rgb(225, 188, 194)",
+   "path": "/art-by-waambat"
+  },
+  {
+   "t": "Open original source ↗",
+   "c": "rgb(225, 188, 194)",
+   "path": "/art-by-waambat"
+  },
+  {
+   "t": "Open original source ↗",
+   "c": "rgb(225, 188, 194)",
+   "path": "/art-by-waambat"
+  }
+ ],
+ "forced": {
+  "menu": [
+   {
+    "t": "01NFTs",
+    "cur": null,
+    "deco": "none",
+    "after": "0 rgb(0, 0, 0) 0px solid rgb(255, 255, 0)"
+   },
+   {
+    "t": "02ORDINALS",
+    "cur": null,
+    "deco": "none",
+    "after": "0 rgb(0, 0, 0) 0px solid rgb(255, 255, 0)"
+   },
+   {
+    "t": "03quantum mechanics",
+    "cur": null,
+    "deco": "none",
+    "after": "0 rgb(0, 0, 0) 0px solid rgb(255, 255, 0)"
+   },
+   {
+    "t": "04art archive",
+    "cur": null,
+    "deco": "none",
+    "after": "0 rgb(0, 0, 0) 0px solid rgb(255, 255, 0)"
+   },
+   {
+    "t": "05instagram",
+    "cur": null,
+    "deco": "none",
+    "after": "0 rgb(0, 0, 0) 0px solid rgb(255, 255, 0)"
+   },
+   {
+    "t": "06blog + press",
+    "cur": null,
+    "deco": "none",
+    "after": "0 rgb(0, 0, 0) 0px solid rgb(255, 255, 0)"
+   },
+   {
+    "t": "07bio",
+    "cur": "page",
+    "deco": "underline",
+    "after": "0.8 rgb(0, 0, 0) 0px solid rgb(255, 255, 0)"
+   },
+   {
+    "t": "08collect + contact",
+    "cur": null,
+    "deco": "none",
+    "after": "0 rgb(0, 0, 0) 0px solid rgb(255, 255, 0)"
+   }
+  ]
+ },
+ "root": {
+  "accentColor": "rgb(225, 188, 194)",
+  "scrollbarColor": "rgb(255, 148, 178) rgb(18, 15, 16)",
+  "uiAccent": "#e1bcc2",
+  "uiHover": "#f1d1d6",
+  "navHover": "#ff94b2",
+  "cursor": "#ff94b2",
+  "inlineStyleVars": 42,
+  "wrappers": 1
+ },
+ "headings": {
+  "mechanics@390": [
+   [
+    "H1",
+    "text-waambat-pink whites",
+    "Utility Mechanics of the",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Each Quantum is a full v",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "During a given burn wind",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "For each set burned, a Q",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "When a new series round ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Each Element is revealed",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Utility Mechanics of the",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Fusions are distinguisha",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Fusions are custom compo",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "There are additional typ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "mechanics@768": [
+   [
+    "H1",
+    "text-waambat-pink whites",
+    "Utility Mechanics of the",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Each Quantum is a full v",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "During a given burn wind",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "For each set burned, a Q",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "When a new series round ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Each Element is revealed",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Utility Mechanics of the",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Fusions are distinguisha",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Fusions are custom compo",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "There are additional typ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "mechanics@1440": [
+   [
+    "H1",
+    "text-waambat-pink whites",
+    "Utility Mechanics of the",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Each Quantum is a full v",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "During a given burn wind",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "For each set burned, a Q",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "When a new series round ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Each Element is revealed",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Utility Mechanics of the",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Fusions are distinguisha",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "Fusions are custom compo",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "There are additional typ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "/contact-waambat": [
+   [
+    "H1",
+    "text-waambat-pink whites",
+    "How to collect WAAMBAT:",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Her name is WAAMBAT everywhere",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "twitter @waambat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "IG @waambat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "IG backup @waam.bat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "discord waambat#7494",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H2",
+    "_title_1vk3u_12",
+    "Get in touch",
+    "rgb(255, 148, 178)",
+    "26px"
+   ]
+  ],
+  "/blog-press": [
+   [
+    "H1",
+    "text-waambat-pink whites",
+    "Artists Against Algorithms",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Gretchen Andrew and WAAMBAT te",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "25 Videos Chosen from 23,358 W",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Podcast - A Conversation with ",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "The Tokenized Building Process",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Artsy Hosts Female-Focused NFT",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Vellum LA and Artsy Present",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Artists Who Code:",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Abacus RAM becomes #34 in the ",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "SuperChief Gallery's Every Wom",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "The Every Woman Biennial Is La",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Dichotomy Bifurcation Featured",
+    "rgb(255, 148, 178)",
+    "26px"
+   ]
+  ],
+  "/bio-waambat": [
+   [
+    "H1",
+    "text-waambat-pink whites",
+    "WAAMBAT",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "[too edgy for algos]",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H2",
+    "text-waambat-pink whites",
+    "Below are WAAMBAT’s unedited r",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "1. How have our expectations o",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "2. Waambat your works collage ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "How is art which resists onlin",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "3. GQ defines a Thirst Trap as",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "4. How do you adapt your pract",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "5. In 1967, Charlotte Moorman ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "6. The Japanese filmmaker Yasu",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "text-waambat-pink whites",
+    "7. Finally, we’d love to hear ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "/ordinals": [
+   [
+    "H1",
+    "_title_1836j_9",
+    "ORDINALS",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "",
+    "LUX · OK ALGO",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "",
+    "Kismet Twist",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "",
+    "Edge Corporeal",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "",
+    "Ordinal A",
+    "rgb(255, 148, 178)",
+    "14px"
+   ],
+   [
+    "H3",
+    "",
+    "Ordinal B",
+    "rgb(255, 148, 178)",
+    "14px"
+   ],
+   [
+    "H3",
+    "",
+    "Ordinal C",
+    "rgb(255, 148, 178)",
+    "14px"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,111 @@
+{
+  "links": [
+    {
+      "text": "NFTs",
+      "href": "/",
+      "current": null,
+      "color": "rgb(156, 156, 156)"
+    },
+    {
+      "text": "ORDINALS",
+      "href": "/ordinals",
+      "current": null,
+      "color": "rgb(156, 156, 156)"
+    },
+    {
+      "text": "quantum mechanics",
+      "href": "/mechanics",
+      "current": null,
+      "color": "rgb(156, 156, 156)"
+    },
+    {
+      "text": "art archive",
+      "href": "/art-by-waambat",
+      "current": null,
+      "color": "rgb(156, 156, 156)"
+    },
+    {
+      "text": "instagram",
+      "href": "/instagram",
+      "current": null,
+      "color": "rgb(156, 156, 156)"
+    },
+    {
+      "text": "blog + press",
+      "href": "/blog-press",
+      "current": null,
+      "color": "rgb(156, 156, 156)"
+    },
+    {
+      "text": "bio",
+      "href": "/bio-waambat",
+      "current": null,
+      "color": "rgb(156, 156, 156)"
+    },
+    {
+      "text": "collect + contact",
+      "href": "/contact-waambat",
+      "current": "page",
+      "color": "rgb(255, 255, 255)"
+    }
+  ],
+  "hover": {
+    "color": "rgb(241, 209, 214)",
+    "outline": "rgb(241, 209, 214) none 3px",
+    "transform": "none",
+    "after": {
+      "opacity": "0.8",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bg": "rgb(241, 209, 214)",
+      "shadow": "color(srgb 0.764706 0.611765 0.635294 / 0.8) -1px 1px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.67) 1px -1px 0px 0px"
+    }
+  },
+  "hoverCurrent": {
+    "color": "rgb(241, 209, 214)",
+    "outline": "rgb(241, 209, 214) none 3px",
+    "transform": "none",
+    "after": {
+      "opacity": "0.8",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bg": "rgb(241, 209, 214)",
+      "shadow": "color(srgb 0.764706 0.611765 0.635294 / 0.8) -1px 1px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.67) 1px -1px 0px 0px"
+    }
+  },
+  "restCurrent": null,
+  "pressed": {
+    "color": "rgb(241, 209, 214)",
+    "outline": "rgb(241, 209, 214) none 3px",
+    "transform": "matrix(1, 0, 0, 1, 0, 1)",
+    "after": {
+      "opacity": "0.8",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bg": "rgb(241, 209, 214)",
+      "shadow": "color(srgb 0.764706 0.611765 0.635294 / 0.8) -1px 1px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.67) 1px -1px 0px 0px"
+    }
+  },
+  "focused": {
+    "tag": "A",
+    "text": "blog + press",
+    "outline": "rgb(225, 188, 194) solid 2px",
+    "outlineOffset": "6px",
+    "color": "rgb(156, 156, 156)"
+  },
+  "pending": {
+    "pending": true,
+    "color": "rgb(241, 209, 214)",
+    "spinner": "1",
+    "spinnerColor": "rgb(241, 209, 214)",
+    "url": "/bio-waambat",
+    "progress": true
+  },
+  "pendingHover": {
+    "color": "rgb(241, 209, 214)"
+  },
+  "arrived": {
+    "url": "/bio-waambat",
+    "active": "A#",
+    "title": "bio — waambat",
+    "scrollY": 0
+  },
+  "log": []
+}

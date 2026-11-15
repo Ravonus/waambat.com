@@ -53,7 +53,7 @@ export default function FormField({ question, prefix, error, }: {
         </label>
         {caption.value}
       </div>) : (<div className={className.value}>
-      <div className={`${styles.frame} ${["select", "textarea", "date"].includes(question.type) ? styles.fixedLabel : ""} ${question.label.length > (question.width === "half" ? 24 : 40) ? styles.extended : ""}`}>
+      <div data-mosh-field className={`${styles.frame} ${["select", "textarea", "date"].includes(question.type) ? styles.fixedLabel : ""} ${question.label.length > (question.width === "half" ? 24 : 40) ? styles.extended : ""}`}>
         <label htmlFor={id.value} className={styles.floatingLabel}>
           {label.value}
         </label>

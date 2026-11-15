@@ -1,0 +1,95 @@
+{
+  "menuButton": {
+    "color": "rgb(225, 188, 194)",
+    "box": {
+      "x": 326,
+      "y": -564,
+      "width": 44,
+      "height": 44,
+      "top": -564,
+      "right": 370,
+      "bottom": -520,
+      "left": 326
+    }
+  },
+  "open": {
+    "active": "Close menu",
+    "phase": "open",
+    "cursorVisible": "none",
+    "bodyFixed": "fixed",
+    "scrollY": "0px"
+  },
+  "closeColor": "rgb(255, 255, 255)",
+  "afterClose": {
+    "dialog": false,
+    "active": "Menu",
+    "scrollY": 0,
+    "bodyPos": ""
+  },
+  "afterEscape": {
+    "dialog": false,
+    "active": "Menu",
+    "scrollY": 0
+  },
+  "tabFocus": {
+    "text": "NFTs",
+    "outline": "rgb(225, 188, 194) solid 2px",
+    "color": "rgb(156, 156, 156)"
+  },
+  "touchPressed": {
+    "color": "rgb(156, 156, 156)",
+    "transform": "none"
+  },
+  "arrived": {
+    "url": "/bio-waambat",
+    "dialog": false,
+    "active": "main-content",
+    "scrollY": 0,
+    "bodyPos": "",
+    "inert": 0,
+    "current": "bio"
+  },
+  "reopen": [
+    [
+      "NFTs",
+      "rgb(156, 156, 156)",
+      null
+    ],
+    [
+      "ORDINALS",
+      "rgb(156, 156, 156)",
+      null
+    ],
+    [
+      "quantum mechanics",
+      "rgb(156, 156, 156)",
+      null
+    ],
+    [
+      "art archive",
+      "rgb(156, 156, 156)",
+      null
+    ],
+    [
+      "instagram",
+      "rgb(156, 156, 156)",
+      null
+    ],
+    [
+      "blog + press",
+      "rgb(156, 156, 156)",
+      null
+    ],
+    [
+      "bio",
+      "rgb(255, 255, 255)",
+      "page"
+    ],
+    [
+      "collect + contact",
+      "rgb(156, 156, 156)",
+      null
+    ]
+  ],
+  "log": []
+}

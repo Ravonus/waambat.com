@@ -1,0 +1,85 @@
+{
+ "/waambat": [
+  {
+   "t": "Skip to artwork",
+   "color": "rgb(235, 235, 235)",
+   "border": "rgb(235, 235, 235)"
+  },
+  {
+   "t": "studiowaambat@gmail.com",
+   "color": "rgb(255, 255, 255)",
+   "border": "rgb(255, 255, 255)"
+  },
+  {
+   "t": "▶",
+   "color": "rgb(255, 255, 255)",
+   "border": "rgb(255, 255, 255)"
+  },
+  {
+   "t": "◎",
+   "color": "rgb(255, 255, 255)",
+   "border": "rgb(255, 255, 255)"
+  },
+  {
+   "t": "FND",
+   "color": "rgb(255, 255, 255)",
+   "border": "rgb(255, 255, 255)"
+  }
+ ],
+ "/waambat hover": {
+  "color": "rgb(255, 255, 255)",
+  "bg": "rgb(0, 0, 0)",
+  "border": "rgb(255, 255, 255)"
+ },
+ "/lindsay-scoggins": [
+  {
+   "t": "Skip to artwork",
+   "color": "rgb(235, 235, 235)",
+   "border": "rgb(235, 235, 235)"
+  },
+  {
+   "t": "On Foundation",
+   "color": "rgb(231, 219, 255)",
+   "border": "rgb(231, 219, 255)"
+  },
+  {
+   "t": "▶",
+   "color": "rgb(0, 0, 0)",
+   "border": "rgb(0, 0, 0)"
+  },
+  {
+   "t": "◎",
+   "color": "rgb(0, 0, 0)",
+   "border": "rgb(0, 0, 0)"
+  },
+  {
+   "t": "FND",
+   "color": "rgb(0, 0, 0)",
+   "border": "rgb(0, 0, 0)"
+  }
+ ],
+ "/lindsay-scoggins hover": {
+  "color": "rgb(241, 209, 214)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "border": "rgb(231, 219, 255)"
+ },
+ "caption": {
+  "top": 2127.171875,
+  "h": 31
+ },
+ "captionAtRestEntering": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px",
+ "captionHoverEntering": {
+  "color": "rgb(241, 209, 214)",
+  "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+ },
+ "captionHoverResolved": {
+  "color": "rgb(241, 209, 214)",
+  "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px"
+ },
+ "note": "see v-cursor-light",
+ "lightSpot": {
+  "x": 804.5904296875,
+  "y": 184.1640625,
+  "best": 745
+ }
+}

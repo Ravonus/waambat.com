@@ -1,0 +1,126 @@
+{
+ "samples": [
+  {
+   "state": "playing",
+   "provider": "direct",
+   "top": 60,
+   "video": true,
+   "src": "96782188-882d-47de-965a-",
+   "delivery": "adaptive-hls",
+   "paused": false,
+   "readyState": 4,
+   "still": true
+  },
+  {
+   "state": "playing",
+   "provider": "direct",
+   "top": 60,
+   "video": true,
+   "src": "96782188-882d-47de-965a-",
+   "delivery": "adaptive-hls",
+   "paused": false,
+   "readyState": 4,
+   "still": true
+  },
+  {
+   "state": "playing",
+   "provider": "direct",
+   "top": 60,
+   "video": true,
+   "src": "96782188-882d-47de-965a-",
+   "delivery": "adaptive-hls",
+   "paused": false,
+   "readyState": 4,
+   "still": true
+  },
+  {
+   "state": "playing",
+   "provider": "direct",
+   "top": 60,
+   "video": true,
+   "src": "96782188-882d-47de-965a-",
+   "delivery": "adaptive-hls",
+   "paused": false,
+   "readyState": 4,
+   "still": true
+  },
+  {
+   "state": "playing",
+   "provider": "direct",
+   "top": 60,
+   "video": true,
+   "src": "96782188-882d-47de-965a-",
+   "delivery": "adaptive-hls",
+   "paused": false,
+   "readyState": 4,
+   "still": true
+  },
+  {
+   "state": "playing",
+   "provider": "direct",
+   "top": 60,
+   "video": true,
+   "src": "96782188-882d-47de-965a-",
+   "delivery": "adaptive-hls",
+   "paused": false,
+   "readyState": 4,
+   "still": true
+  },
+  {
+   "state": "playing",
+   "provider": "direct",
+   "top": 60,
+   "video": true,
+   "src": "96782188-882d-47de-965a-",
+   "delivery": "adaptive-hls",
+   "paused": false,
+   "readyState": 4,
+   "still": true
+  },
+  {
+   "state": "playing",
+   "provider": "direct",
+   "top": 60,
+   "video": true,
+   "src": "96782188-882d-47de-965a-",
+   "delivery": "adaptive-hls",
+   "paused": false,
+   "readyState": 4,
+   "still": true
+  }
+ ],
+ "console": [],
+ "before": {
+  "state": "paused",
+  "provider": "direct",
+  "top": 5432,
+  "video": false,
+  "src": null,
+  "delivery": null,
+  "paused": null,
+  "readyState": null,
+  "still": false
+ },
+ "away": {
+  "state": "paused",
+  "provider": "direct",
+  "top": 5432,
+  "video": true,
+  "src": "96782188-882d-47de-965a-",
+  "delivery": "adaptive-hls",
+  "paused": true,
+  "readyState": 4,
+  "still": true
+ },
+ "back": {
+  "state": "playing",
+  "provider": "direct",
+  "top": 60,
+  "video": true,
+  "src": "96782188-882d-47de-965a-",
+  "delivery": "adaptive-hls",
+  "paused": false,
+  "readyState": 4,
+  "still": true
+ }
+}

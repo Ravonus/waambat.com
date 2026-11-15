@@ -1,0 +1,276 @@
+{
+  "rest": {
+    "frame": {
+      "shadow": "color(srgb 0.921569 0.921569 0.921569 / 0.4) 0px 0px 0px 1px inset",
+      "bg": "color(srgb 0.0352941 0.0294902 0.0304314)"
+    },
+    "label": {
+      "text": "Your name *",
+      "color": "color(srgb 0.921569 0.921569 0.921569 / 0.72)",
+      "transform": "none"
+    }
+  },
+  "hover": {
+    "frame": {
+      "shadow": "color(srgb 0.882353 0.737255 0.760784 / 0.6) 0px 0px 0px 1px inset",
+      "bg": "color(srgb 0.0352941 0.0294902 0.0304314)"
+    }
+  },
+  "focus": {
+    "frame": {
+      "shadow": "rgb(225, 188, 194) 0px 0px 0px 1.5px inset, color(srgb 0.882353 0.737255 0.760784 / 0.1) 0px 0px 0px 4px",
+      "bg": "color(srgb 0.0617647 0.0516078 0.0532549)"
+    },
+    "label": {
+      "text": "Your name *",
+      "color": "rgb(225, 188, 194)",
+      "transform": "matrix(0.78, 0, 0, 0.78, 0, -11)"
+    },
+    "caret": "rgb(235, 235, 235)"
+  },
+  "filledBlur": {
+    "frame": {
+      "shadow": "color(srgb 0.921569 0.921569 0.921569 / 0.4) 0px 0px 0px 1px inset",
+      "bg": "color(srgb 0.0352941 0.0294902 0.0304314)"
+    },
+    "label": {
+      "text": "Your name *",
+      "color": "rgb(225, 188, 194)",
+      "transform": "matrix(0.78, 0, 0, 0.78, 0, -11)"
+    }
+  },
+  "selectHover": {
+    "shadow": "color(srgb 0.882353 0.737255 0.760784 / 0.6) 0px 0px 0px 1px inset",
+    "bg": "color(srgb 0.0352941 0.0294902 0.0304314)"
+  },
+  "selectOpen": {
+    "border": "rgb(113, 94, 97)",
+    "bg": "color(srgb 0.0705882 0.0589804 0.0608627)",
+    "focus": "contact-contact-interest",
+    "expanded": "true",
+    "ad": "contact-contact-interest-option-0",
+    "opts": [
+      {
+        "t": "Collecting artwork",
+        "active": true,
+        "bg": "rgb(32, 26, 27)",
+        "color": "rgb(225, 188, 194)"
+      },
+      {
+        "t": "A commission",
+        "active": false,
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(235, 235, 235)"
+      },
+      {
+        "t": "Collaboration or exhibition",
+        "active": false,
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(235, 235, 235)"
+      },
+      {
+        "t": "Press",
+        "active": false,
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(235, 235, 235)"
+      },
+      {
+        "t": "Something else",
+        "active": false,
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(235, 235, 235)"
+      }
+    ]
+  },
+  "optHover": [
+    {
+      "t": "Collecting artwork",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(235, 235, 235)"
+    },
+    {
+      "t": "A commission",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(235, 235, 235)"
+    },
+    {
+      "t": "Collaboration or exhibition",
+      "a": "",
+      "bg": "rgb(32, 26, 27)",
+      "color": "rgb(225, 188, 194)"
+    },
+    {
+      "t": "Press",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(235, 235, 235)"
+    },
+    {
+      "t": "Something else",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(235, 235, 235)"
+    }
+  ],
+  "afterMouseChoose": {
+    "focus": "contact-contact-interest",
+    "text": "Collaboration or exhibition",
+    "native": "Collaboration or exhibition",
+    "open": false
+  },
+  "kbOpen": {
+    "open": true,
+    "ad": "contact-contact-interest-option-3"
+  },
+  "kbArrows": {
+    "ad": "contact-contact-interest-option-4",
+    "opts": [
+      {
+        "t": "Collecting artwork",
+        "sel": "false",
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(235, 235, 235)"
+      },
+      {
+        "t": "A commission",
+        "sel": "false",
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(235, 235, 235)"
+      },
+      {
+        "t": "Collaboration or exhibition",
+        "sel": "true",
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(235, 235, 235)"
+      },
+      {
+        "t": "Press",
+        "sel": "false",
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(235, 235, 235)"
+      },
+      {
+        "t": "Something else",
+        "a": "",
+        "sel": "false",
+        "bg": "rgb(32, 26, 27)",
+        "color": "rgb(225, 188, 194)"
+      }
+    ]
+  },
+  "kbEscape": {
+    "open": false,
+    "focus": "contact-contact-interest",
+    "text": "Collaboration or exhibition"
+  },
+  "kbEnter": {
+    "open": false,
+    "focus": "contact-contact-interest",
+    "text": "Something else",
+    "native": "Something else"
+  },
+  "selectFocusFrame": {
+    "shadow": "rgb(225, 188, 194) 0px 0px 0px 1.5px inset, color(srgb 0.882353 0.737255 0.760784 / 0.1) 0px 0px 0px 4px",
+    "bg": "color(srgb 0.0617647 0.0516078 0.0532549)"
+  },
+  "submitRest": {
+    "bg": "rgb(225, 188, 194)",
+    "color": "rgb(34, 16, 20)",
+    "border": "rgb(225, 188, 194)"
+  },
+  "submitHover": {
+    "bg": "rgb(225, 188, 194)",
+    "color": "rgb(225, 188, 194)",
+    "before": "matrix(1, 0, 0, 1, 0, 0)"
+  },
+  "submitPressed": {
+    "bg": "rgb(225, 188, 194)",
+    "color": "rgb(225, 188, 194)",
+    "transform": "matrix(0.98, 0, 0, 0.98, 0, 0)"
+  },
+  "invalid": {
+    "focus": "contact-contact-name",
+    "posted": false,
+    "invalidEls": [
+      "ref: <Node>",
+      "contact-contact-name",
+      "contact-contact-email",
+      "contact-contact-message"
+    ],
+    "errorsText": [],
+    "bubble": "Please fill out this field."
+  },
+  "invalidFrame": {
+    "shadow": "rgb(225, 188, 194) 0px 0px 0px 1.5px inset, color(srgb 0.882353 0.737255 0.760784 / 0.1) 0px 0px 0px 4px",
+    "bg": "color(srgb 0.0617647 0.0516078 0.0532549)"
+  },
+  "postsAfterEmpty": 0,
+  "pending": {
+    "text": "Sending…",
+    "disabled": true,
+    "bg": "rgb(225, 188, 194)",
+    "color": "rgb(34, 16, 20)",
+    "opacity": "0.8",
+    "cursor": "none"
+  },
+  "pendingHover": {
+    "cursorState": "not-allowed"
+  },
+  "success": {
+    "text": "Checking the file…",
+    "color": "rgb(225, 188, 194)",
+    "focus": false,
+    "name": ""
+  },
+  "error": {
+    "text": "Checking the file…",
+    "color": "rgb(225, 188, 194)",
+    "focus": false
+  },
+  "fieldError": {
+    "text": "Checking the file…",
+    "fieldErr": [
+      [
+        "Enter a valid email address.",
+        "rgb(255, 112, 112)"
+      ]
+    ],
+    "invalid": [
+      "contact-contact-email"
+    ]
+  },
+  "networkFail": "Checking the file…",
+  "posts": [
+    {
+      "method": "POST",
+      "mode": "hold"
+    },
+    {
+      "method": "POST",
+      "mode": "error"
+    },
+    {
+      "method": "POST",
+      "mode": "fields"
+    },
+    {
+      "method": "POST",
+      "mode": "abort"
+    }
+  ],
+  "log": [
+    {
+      "tag": "form",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "tag": "form",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "tag": "form",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    }
+  ]
+}

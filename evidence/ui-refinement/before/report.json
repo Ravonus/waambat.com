@@ -1,0 +1,66 @@
+{
+  "label": "before",
+  "console": [
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "path": "/ordinals",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    }
+  ],
+  "overflow": []
+}

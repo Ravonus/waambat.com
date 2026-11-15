@@ -1,0 +1,15 @@
+import { chromium, base, shot } from './lib.mjs';
+const b = await chromium.launch();
+const page = await (await b.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
+const OLD = '.waambat-cursor span{background:repeating-linear-gradient(120deg,#fff0f6 0%,#ff94b2 20%,#c60064 40%,#ff70c5 60%,#fff0f6 80%)!important;background-size:240% 240%!important}';
+const FREEZE = '.waambat-cursor span{animation:none!important;background-position:30% 30%!important}';
+await page.goto(base + '/contact-waambat', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+await page.addStyleTag({ content: FREEZE });
+const h = page.locator('section[data-contact-form] h2'); await h.scrollIntoViewIfNeeded(); await page.waitForTimeout(300);
+const bb = await h.boundingBox(); const x = bb.x + 26, y = bb.y + bb.height / 2;
+await page.mouse.move(x - 3, y); await page.mouse.move(x, y, { steps: 2 }); await page.waitForTimeout(200);
+console.log(await page.evaluate(() => document.querySelector('.waambat-cursor').dataset.cursorState));
+await shot(page, 'cmp-heading-after', { clip: { x: x - 30, y: y - 25, width: 110, height: 50 } });
+await page.addStyleTag({ content: OLD + FREEZE }); await page.mouse.move(x + 1, y); await page.waitForTimeout(200);
+await shot(page, 'cmp-heading-baseline-sim', { clip: { x: x - 29, y: y - 25, width: 110, height: 50 } });
+await b.close();

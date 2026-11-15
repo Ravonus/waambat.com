@@ -25,31 +25,90 @@
 }
 .link:active {
   transform: translateY(1px);
+  color: var(--ui-accent-pressed);
 }
 .link:focus-visible,
 .logo:focus-visible,
 .menuButton:focus-visible,
 .closeButton:focus-visible {
-  outline: 2px solid var(--color-waambat-logo, #ff94b2);
+  outline: 2px solid var(--ui-accent-focus);
   outline-offset: 6px;
   border-radius: 2px;
 }
+.menuButton,
+.closeButton {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--ui-accent);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color 160ms ease,
+    transform 120ms ease;
+}
 .menuButton {
   position: absolute;
-  top: 36px;
+  top: var(--menu-top, 36px);
   right: var(--site-mobile-padding, 20px);
-  min-height: 44px;
-  min-width: 44px;
-  padding: 11px 9px;
-  color: var(--color-waambat-logo, #ff94b2);
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0.06em;
-  cursor: pointer;
 }
-.menuButton:hover,
-.closeButton:hover {
-  color: var(--color-waambat-logo, #ff94b2);
+/* The glyph: three strokes that shear apart on hover and fold into an X
+   inside the open menu. Each stroke moves about its own centre. */
+.glyph {
+  overflow: visible;
+  transition: filter 160ms ease;
+}
+.glyph path {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 160ms ease;
+}
+@media (hover: hover) {
+  .menuButton:hover,
+  .closeButton:hover {
+    color: var(--ui-cursor);
+  }
+  .menuButton:hover .glyph,
+  .closeButton:hover .glyph {
+    filter: drop-shadow(-1.5px 0 0 var(--ui-cursor-deep))
+      drop-shadow(1.5px 0 0 var(--ui-accent));
+  }
+  .menuButton:hover .barTop {
+    transform: translateX(-3px);
+  }
+  .menuButton:hover .barMid {
+    transform: scaleX(0.62) translateX(4px);
+  }
+  .menuButton:hover .barBottom {
+    transform: translateX(3px);
+  }
+}
+.menuButton:active,
+.closeButton:active {
+  color: var(--ui-cursor-deep);
+  transform: scale(0.9);
+}
+.closeButton .barTop {
+  transform: translateY(8px) rotate(45deg);
+}
+.closeButton .barMid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.closeButton .barBottom {
+  transform: translateY(-8px) rotate(-45deg);
+}
+@media (hover: hover) {
+  .closeButton:hover .barTop {
+    transform: translateY(8px) rotate(45deg) scaleX(1.12);
+  }
+  .closeButton:hover .barBottom {
+    transform: translateY(-8px) rotate(-45deg) scaleX(1.12);
+  }
 }
 .overlay {
   position: fixed;
@@ -65,16 +124,49 @@
     max(24px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom))
     max(24px, env(safe-area-inset-left));
   border: 0;
-  background: var(--site-background, #000);
+  /* Black with a faint scanline grain in the accent. */
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 3px,
+      color-mix(in srgb, var(--ui-accent) 3%, transparent) 3px 4px
+    ),
+    var(--site-background, #000);
   color: var(--site-body, #ebebeb);
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  animation: menu-enter 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  /* backwards, not both: holding the final translate/clip-path would make the
+     panel the containing block for the fixed close button, which would then
+     scroll away with the menu. */
+  animation: menu-mosh-in 420ms linear backwards;
+}
+/* A one-shot tear of pink bands across the panel as it arrives and leaves. */
+.overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0 14%,
+    color-mix(in srgb, var(--ui-cursor) 80%, transparent) 14% 14.8%,
+    transparent 14.8% 41%,
+    color-mix(in srgb, var(--ui-accent) 55%, transparent) 41% 42.6%,
+    transparent 42.6% 67%,
+    color-mix(in srgb, var(--ui-cursor-deep) 75%, transparent) 67% 67.6%,
+    transparent 67.6%
+  );
+  animation: menu-tear 420ms steps(1, end) both;
 }
 .overlay[data-phase="closing"] {
-  animation: menu-exit 220ms cubic-bezier(0.4, 0, 0.6, 1) both;
+  animation: menu-mosh-out 300ms linear both;
   pointer-events: none;
+}
+.overlay[data-phase="closing"]::before {
+  animation: menu-tear 300ms steps(1, end) both;
 }
 .overlay::backdrop {
   background: var(--site-background, #000);
@@ -83,64 +175,217 @@
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 1;
-  background: var(--site-background, #000);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 24px;
+  min-height: 52px;
 }
+/* The close control sits exactly where the menu button was. */
+.closeButton {
+  position: fixed;
+  z-index: 2;
+  top: var(--menu-top, 36px);
+  right: var(--site-mobile-padding, 20px);
+}
+.closeButton .glyph path {
+  animation: glyph-fold 360ms cubic-bezier(0.2, 0.8, 0.2, 1) 60ms both;
+}
+.closeButton .barMid {
+  animation-name: glyph-fold-mid;
+}
+.overlay[data-phase="closing"] .closeButton .glyph path {
+  animation: glyph-unfold 240ms cubic-bezier(0.4, 0, 0.6, 1) both;
+}
+.overlay[data-phase="closing"] .closeButton .barMid {
+  animation-name: glyph-unfold-mid;
+}
+/* The wordmark stays logo pink in every state. */
 .logo:hover,
 .logo:focus-visible {
   color: var(--color-waambat-logo, #ff94b2);
-}
-.closeButton {
-  min-width: 76px;
-  min-height: 44px;
-  color: var(--site-active-navigation, #fff);
-  font-size: 14px;
-  line-height: 24px;
-  cursor: pointer;
-}
-.closeButton span {
-  margin-right: 5px;
-  font-size: 24px;
-  vertical-align: -2px;
 }
 .mobileNav {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
-  padding: clamp(32px, 7dvh, 64px) 6px 24px;
+  gap: 4px;
+  padding: clamp(28px, 6dvh, 56px) 6px 24px;
 }
-.mobileLink {
+/* Scoped under .mobileNav so the global .site-nav-link size and colours yield. */
+.mobileNav .mobileLink {
   display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  font-size: 20px;
-  line-height: 1.4;
+  align-items: baseline;
+  gap: 14px;
+  min-height: 52px;
+  padding: 6px 0;
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: var(--ui-accent);
+}
+/* The arrival runs on the inner spans, never on the link, so hover and press
+   bursts on the link can't restart it (which made a title blink out). */
+.arrive {
+  display: inline-block;
+  animation: menu-link-in 480ms cubic-bezier(0.2, 0.8, 0.2, 1)
+    calc(140ms + var(--i, 0) * 45ms) both;
+}
+.mobileNav .mobileLink[aria-current="page"] {
+  color: var(--ui-cursor);
+}
+@media (hover: hover) {
+  .mobileNav .mobileLink:hover {
+    color: var(--ui-accent-hover);
+  }
+}
+.mobileNav .mobileLink:active {
+  color: var(--ui-cursor-deep);
 }
 .mobileLink::after {
-  bottom: 2px;
+  bottom: 4px;
+  left: 40px;
 }
-@keyframes menu-enter {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
+.overlay[data-phase="closing"] .mobileNav .mobileLink {
+  animation: menu-link-out 200ms ease-in both;
+}
+.index {
+  min-width: 26px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ui-accent-border);
+  transition: color 160ms ease;
+}
+.mobileLink[aria-current="page"] .index,
+.mobileLink:hover .index {
+  color: var(--ui-cursor);
+}
+/* Scan in from the top in slices that tear sideways, then settle. */
+@keyframes menu-mosh-in {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    translate: 0 0;
   }
+  14% {
+    clip-path: inset(0 0 78% 0);
+    translate: -8px 0;
+  }
+  26% {
+    clip-path: inset(0 0 52% 0);
+    translate: 6px 0;
+  }
+  38% {
+    clip-path: inset(0 0 30% 0);
+    translate: -3px 0;
+  }
+  52% {
+    clip-path: inset(0 0 8% 0);
+    translate: 2px 0;
+  }
+  64%,
+  100% {
+    clip-path: inset(0);
+    translate: 0 0;
+  }
+}
+@keyframes menu-mosh-out {
+  0% {
+    clip-path: inset(0);
+    translate: 0 0;
+    opacity: 1;
+  }
+  22% {
+    clip-path: inset(0);
+    translate: 7px 0;
+  }
+  40% {
+    clip-path: inset(24% 0 0 0);
+    translate: -5px 0;
+  }
+  62% {
+    clip-path: inset(58% 0 0 0);
+    translate: 3px 0;
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(100% 0 0 0);
+    translate: 0 0;
+    opacity: 0;
+  }
+}
+@keyframes menu-tear {
+  0% {
+    opacity: 0.9;
+    translate: -10px 0;
+  }
+  20% {
+    opacity: 0.7;
+    translate: 12px 6%;
+  }
+  40% {
+    opacity: 0.5;
+    translate: -6px 22%;
+  }
+  60% {
+    opacity: 0.25;
+    translate: 4px 41%;
+  }
+  80%,
+  100% {
+    opacity: 0;
+    translate: 0 0;
+  }
+}
+@keyframes menu-link-in {
+  0% {
+    opacity: 0;
+    translate: -16px 0;
+    text-shadow:
+      -6px 0 var(--ui-cursor-deep),
+      6px 0 var(--ui-accent-hover);
+  }
+  35% {
+    opacity: 1;
+    translate: 3px 0;
+    text-shadow:
+      3px 0 var(--ui-cursor-deep),
+      -3px 0 var(--ui-accent-hover);
+  }
+  60% {
+    translate: -1px 0;
+    text-shadow:
+      -1px 0 var(--ui-cursor-deep),
+      1px 0 var(--ui-accent-hover);
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+    text-shadow: none;
+  }
+}
+@keyframes menu-link-out {
+  to {
+    opacity: 0;
+    translate: 10px 0;
+  }
+}
+@keyframes glyph-fold {
+  from {
+    transform: none;
+  }
+}
+@keyframes glyph-fold-mid {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes glyph-unfold {
+  to {
+    transform: none;
+  }
+}
+@keyframes glyph-unfold-mid {
   to {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes menu-exit {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-12px);
+    transform: none;
   }
 }
 .linkProgress {
@@ -155,7 +400,7 @@
   opacity: 0;
 }
 .link[data-pending] {
-  color: var(--color-waambat-logo, #ff94b2);
+  color: var(--ui-cursor);
 }
 .link[data-pending] .linkProgress {
   opacity: 1;
@@ -186,6 +431,30 @@
 :global([data-motion="off"]) .overlay {
   animation-duration: 1ms;
 }
+:global([data-motion="off"]) .overlay::before,
+:global([data-motion="off"]) .arrive,
+:global([data-motion="off"]) .glyph path,
+:global([data-motion="calm"]) .overlay::before {
+  animation: none;
+}
+/* Calm keeps a plain fade and drops the slices. */
+:global([data-motion="calm"]) .overlay {
+  animation: menu-fade 240ms ease-out both;
+}
+:global([data-motion="calm"]) .overlay[data-phase="closing"] {
+  animation: menu-fade-out 200ms ease-in both;
+}
+@keyframes menu-fade {
+  from {
+    opacity: 0;
+  }
+}
+/* A distinct name, so closing starts a new animation and fires animationend. */
+@keyframes menu-fade-out {
+  to {
+    opacity: 0;
+  }
+}
 
 :global([data-menu-open="true"]) .logo {
   position: relative;
@@ -193,4 +462,12 @@
 }
 :global([data-menu-open="true"]) .menuButton {
   visibility: hidden;
+}
+/* Forced colours drop the pink, so the current page keeps a visible marker. */
+@media (forced-colors: active) {
+  .link[aria-current="page"],
+  .mobileNav .mobileLink[aria-current="page"] {
+    text-decoration: underline 2px;
+    text-underline-offset: 6px;
+  }
 }

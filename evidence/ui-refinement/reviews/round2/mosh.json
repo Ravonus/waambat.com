@@ -1,0 +1,655 @@
+{
+ "R": {
+  "motionSetting": "full",
+  "navHoverSample": [
+   [
+    0,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    4,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    21,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    37,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    54,
+    "2px",
+    "inset(16% -12px 36%)",
+    "rgb(226, 112, 146) 2px 0px 0px, rgb(225, 188, 194) -2px 0px ",
+    "none",
+    "none",
+    "4,0"
+   ],
+   [
+    71,
+    "2px",
+    "inset(16% -12px 36%)",
+    "rgb(226, 112, 146) 2px 0px 0px, rgb(225, 188, 194) -2px 0px ",
+    "none",
+    "none",
+    "4,0"
+   ],
+   [
+    88,
+    "-2px",
+    "inset(54% -12px -40%)",
+    "rgb(226, 112, 146) -1px 0px 0px, rgb(241, 209, 214) 4px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    106,
+    "none",
+    "none",
+    "none",
+    "none",
+    "none",
+    "2,0"
+   ],
+   [
+    122,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    137,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    154,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    171,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    188,
+    "2px",
+    "inset(16% -12px 36%)",
+    "rgb(226, 112, 146) 2px 0px 0px, rgb(225, 188, 194) -2px 0px ",
+    "none",
+    "none",
+    "4,0"
+   ],
+   [
+    204,
+    "2px",
+    "inset(16% -12px 36%)",
+    "rgb(226, 112, 146) 2px 0px 0px, rgb(225, 188, 194) -2px 0px ",
+    "none",
+    "none",
+    "4,0"
+   ],
+   [
+    222,
+    "-2px",
+    "inset(54% -12px -40%)",
+    "rgb(226, 112, 146) -1px 0px 0px, rgb(241, 209, 214) 4px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    243,
+    "none",
+    "none",
+    "none",
+    "none",
+    "none",
+    "2,0"
+   ],
+   [
+    258,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    271,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    288,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    305,
+    "-2px",
+    "inset(-20% -12px -40%)",
+    "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    322,
+    "2px",
+    "inset(16% -12px 36%)",
+    "rgb(226, 112, 146) 2px 0px 0px, rgb(225, 188, 194) -2px 0px ",
+    "none",
+    "none",
+    "4,0"
+   ],
+   [
+    338,
+    "2px",
+    "inset(16% -12px 36%)",
+    "rgb(226, 112, 146) 2px 0px 0px, rgb(225, 188, 194) -2px 0px ",
+    "none",
+    "none",
+    "4,0"
+   ],
+   [
+    355,
+    "-2px",
+    "inset(54% -12px -40%)",
+    "rgb(226, 112, 146) -1px 0px 0px, rgb(241, 209, 214) 4px 0px ",
+    "none",
+    "none",
+    "0,0"
+   ],
+   [
+    375,
+    "none",
+    "none",
+    "none",
+    "none",
+    "none",
+    "2,0"
+   ]
+  ],
+  "navHoverAfter": [
+   [
+    null,
+    "running",
+    0,
+    140,
+    1
+   ]
+  ],
+  "navHoverAfter2s": [
+   [
+    "waambat-mosh-text",
+    "running",
+    17,
+    280,
+    1
+   ]
+  ],
+  "navHoverStyle": {
+   "color": "rgb(255, 148, 178)",
+   "after": "color(srgb 0.764706 0.611765 0.635294 / 0.8) -1px 1px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.67) 1px -1px 0px 0px"
+  },
+  "navFrames": {
+   "box": [
+    651.78125,
+    102.1875,
+    69.109375,
+    19.5
+   ],
+   "files": [
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-nav-hover-000.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-nav-hover-040.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-nav-hover-060.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-nav-hover-100.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-nav-hover-150.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-nav-hover-200.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-nav-hover-240.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-nav-hover-300.png"
+   ]
+  },
+  "navSweepStarts": [
+   [
+    4621,
+    "waambat-mosh-text",
+    "NFTs"
+   ],
+   [
+    4689,
+    "waambat-mosh-text",
+    "ORDINALS"
+   ],
+   [
+    4773,
+    "waambat-mosh-text",
+    "quantum mechanics"
+   ],
+   [
+    4871,
+    "waambat-mosh-text",
+    "art archive"
+   ],
+   [
+    4940,
+    "waambat-mosh-text",
+    "instagram"
+   ],
+   [
+    5023,
+    "waambat-mosh-text",
+    "blog + press"
+   ],
+   [
+    5121,
+    "waambat-mosh-text",
+    "bio"
+   ],
+   [
+    5190,
+    "waambat-mosh-text",
+    "collect + contact"
+   ],
+   [
+    5322,
+    "waambat-mosh-text",
+    "collect + contact"
+   ],
+   [
+    5455,
+    "waambat-mosh-text",
+    "collect + contact"
+   ],
+   [
+    5588,
+    "waambat-mosh-text",
+    "collect + contact"
+   ]
+  ],
+  "navJiggleStarts": 10,
+  "keyboardFocus": [
+   [
+    "Skip to artwork",
+    ""
+   ],
+   [
+    "Page scroll",
+    ""
+   ],
+   [
+    "waambat",
+    ""
+   ],
+   [
+    "NFTs",
+    "waambat-mosh-text"
+   ],
+   [
+    "ORDINALS",
+    "waambat-mosh-text"
+   ],
+   [
+    "quantum mechanics",
+    "waambat-mosh-text"
+   ]
+  ],
+  "fieldAnims": [
+   [
+    null,
+    200
+   ],
+   [
+    null,
+    200
+   ],
+   [
+    "waambat-mosh-field",
+    300
+   ]
+  ],
+  "fieldFrames": {
+   "box": [
+    488.5,
+    420.796875,
+    224.5,
+    58
+   ],
+   "files": [
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-field-focus-000.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-field-focus-050.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-field-focus-100.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-field-focus-150.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-field-focus-200.png",
+    "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-field-focus-280.png"
+   ]
+  },
+  "fieldSettled": {
+   "boxShadow": "rgb(225, 188, 194) 0px 0px 0px 1.5px inset, color(srgb 0.882353 0.737255 0.760784 / 0.1) 0px 0px 0px 4px",
+   "anims": []
+  },
+  "fieldTabStarts": [
+   [
+    2334,
+    "waambat-mosh-field",
+    "Email address *"
+   ],
+   [
+    2418,
+    "waambat-mosh-field",
+    "What brings you here"
+   ],
+   [
+    2501,
+    "waambat-mosh-field",
+    "Your message *"
+   ]
+  ],
+  "optionPress": {
+   "burst": true,
+   "anims": [
+    "waambat-mosh-box"
+   ],
+   "filter": "drop-shadow(rgb(226, 112, 146) -2px 0px 0px) drop-shadow(rgb(241, 209, 214) 2px 0px 0px)",
+   "translate": "-2px"
+  },
+  "optionChosen": "A commission",
+  "submitPress": {
+   "burst": true,
+   "anims": [
+    null,
+    "waambat-mosh-box"
+   ],
+   "filter": "drop-shadow(rgb(226, 112, 146) -2px 0px 0px) drop-shadow(rgb(241, 209, 214) 2px 0px 0px)",
+   "translate": "-2px",
+   "transform": "matrix(0.987211, 0, 0, 0.987211, 0, 0)"
+  },
+  "checkboxCount": {
+   "/": 0,
+   "/instagram": 0,
+   "/ordinals": 0,
+   "/mechanics": 0
+  },
+  "title": {
+   "anims": [
+    [
+     null,
+     "running",
+     17,
+     150,
+     1
+    ],
+    [
+     "waambat-mosh-text",
+     "running",
+     17,
+     280,
+     1
+    ]
+   ],
+   "frames": {
+    "box": [
+     659.203125,
+     416.171875,
+     121.578125,
+     31
+    ],
+    "files": [
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-title-hover-000.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-title-hover-040.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-title-hover-060.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-title-hover-100.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-title-hover-150.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-title-hover-200.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-title-hover-240.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-title-hover-300.png"
+    ]
+   },
+   "after": []
+  },
+  "inline": {
+   "anims": [
+    [
+     null,
+     "running",
+     17,
+     140,
+     1
+    ],
+    [
+     null,
+     "running",
+     17,
+     140,
+     1
+    ],
+    [
+     "waambat-mosh-text",
+     "running",
+     17,
+     280,
+     1
+    ]
+   ],
+   "frames": {
+    "box": [
+     300.5,
+     398.4375,
+     178.71875,
+     17
+    ],
+    "files": [
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-inline-hover-000.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-inline-hover-040.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-inline-hover-060.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-inline-hover-100.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-inline-hover-150.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-inline-hover-200.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-inline-hover-240.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-inline-hover-300.png"
+    ]
+   },
+   "after": []
+  },
+  "media": {
+   "anims": [
+    [
+     null,
+     "running",
+     0,
+     150,
+     1
+    ],
+    [
+     null,
+     "running",
+     0,
+     150,
+     1
+    ],
+    [
+     null,
+     "running",
+     0,
+     150,
+     1
+    ],
+    [
+     "waambat-mosh-box",
+     "running",
+     0,
+     240,
+     1
+    ]
+   ],
+   "frames": {
+    "box": [
+     31.90625,
+     796.90625,
+     44,
+     44
+    ],
+    "files": [
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-media-hover-000.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-media-hover-040.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-media-hover-060.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-media-hover-100.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-media-hover-150.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-media-hover-200.png",
+     "/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/evidence/ui-refinement/reviews/round2/shots/mosh-media-hover-240.png"
+    ]
+   },
+   "after": []
+  },
+  "gate": "none found",
+  "headinglink": {
+   "anims": [],
+   "frames": {
+    "box": [
+     668.453125,
+     464.046875,
+     80.84375,
+     17
+    ],
+    "files": []
+   },
+   "after": []
+  },
+  "cls": 0.000062768454218107,
+  "menuKeyboardBlurReplay": [
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ],
+   [
+    "1",
+    "none",
+    ""
+   ]
+  ],
+  "menuKbTarget": "07bio",
+  "menuKbArrival": {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "open": false
+  }
+ },
+ "consoleLog": [
+  {
+   "tag": "mosh",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "mosh",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "mosh",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  }
+ ],
+ "blocked": []
+}

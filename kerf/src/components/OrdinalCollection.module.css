@@ -46,19 +46,23 @@
 }
 .links a,
 .gif h3 a {
-  color: var(--color-waambat-pink);
+  color: var(--ui-accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 5px;
 }
 .links a:hover,
 .gif h3 a:hover {
-  color: var(--color-waambat-logo);
+  color: var(--ui-accent-hover);
   text-decoration: underline;
+}
+.links a:active,
+.gif h3 a:active {
+  color: var(--ui-accent-pressed);
 }
 .links a:focus-visible,
 .gif h3 a:focus-visible,
 .gifImage:focus-visible {
-  outline: 2px solid var(--color-waambat-logo);
+  outline: 2px solid var(--ui-accent-focus);
   outline-offset: 6px;
 }
 .early {
@@ -92,7 +96,9 @@
   transition: filter 250ms ease;
 }
 .gifImage:hover .gifPicture {
-  filter: drop-shadow(0 0 22px #ff94b280);
+  filter: drop-shadow(
+    0 0 22px color-mix(in srgb, var(--ui-accent) 50%, transparent)
+  );
 }
 .gif h3 {
   margin: 14px 0 6px;

@@ -1,0 +1,1772 @@
+{
+ "desktop /": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x888"
+  },
+  {
+   "el": "a",
+   "label": "NFTs",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "33x20"
+  },
+  {
+   "el": "a",
+   "label": "ORDINALS",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "71x20"
+  },
+  {
+   "el": "a",
+   "label": "quantum mechanics",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "133x20"
+  },
+  {
+   "el": "a",
+   "label": "art archive",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "69x20"
+  },
+  {
+   "el": "a",
+   "label": "instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "64x20"
+  },
+  {
+   "el": "a",
+   "label": "blog + press",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "84x20"
+  },
+  {
+   "el": "a",
+   "label": "bio",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "20x20"
+  },
+  {
+   "el": "a",
+   "label": "collect + contact",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "112x20"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 10px",
+   "opacity": "1",
+   "inView": true,
+   "size": "441x90"
+  },
+  {
+   "el": "button",
+   "label": "Play WAAMBAT hero montage",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Open Feels 404 original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "960x960"
+  },
+  {
+   "el": "button",
+   "label": "Play Feels 404",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Feels 404",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "122x31"
+  },
+  {
+   "el": "a",
+   "label": "Open Animal Spirits original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "960x960"
+  },
+  {
+   "el": "button",
+   "label": "Play Animal Spirits",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Animal Spirits",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "180x31"
+  },
+  {
+   "el": "a",
+   "label": "Open Swap Exchange original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "960x960"
+  },
+  {
+   "el": "button",
+   "label": "Play Swap Exchange",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Swap Exchange",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "206x31"
+  },
+  {
+   "el": "a",
+   "label": "Open Autocorrection original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "960x960"
+  }
+ ],
+ "desktop /contact-waambat": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x888"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "a",
+   "label": "NFTs",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "33x20"
+  },
+  {
+   "el": "a",
+   "label": "ORDINALS",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "71x20"
+  },
+  {
+   "el": "a",
+   "label": "quantum mechanics",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "133x20"
+  },
+  {
+   "el": "a",
+   "label": "art archive",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "69x20"
+  },
+  {
+   "el": "a",
+   "label": "instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "64x20"
+  },
+  {
+   "el": "a",
+   "label": "blog + press",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "84x20"
+  },
+  {
+   "el": "a",
+   "label": "bio",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "20x20"
+  },
+  {
+   "el": "a",
+   "label": "collect + contact",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "112x20"
+  },
+  {
+   "el": "a",
+   "label": "Join the WAAMBAT Chat discord",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "234x17"
+  },
+  {
+   "el": "a",
+   "label": "Read about the utility mechanics - explo",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "403x34"
+  },
+  {
+   "el": "a",
+   "label": "Open collect + contact original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "463x463"
+  },
+  {
+   "el": "button",
+   "label": "Play collect + contact",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "twitter @waambat",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "129x17"
+  },
+  {
+   "el": "a",
+   "label": "IG @waambat",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "98x17"
+  },
+  {
+   "el": "a",
+   "label": "IG backup @waam.bat",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "159x17"
+  },
+  {
+   "el": "input",
+   "label": "contact-contact-name",
+   "ring": "frame inset 1.5px ring",
+   "opacity": "1",
+   "inView": true,
+   "size": "225x58"
+  },
+  {
+   "el": "input",
+   "label": "contact-contact-email",
+   "ring": "frame inset 1.5px ring",
+   "opacity": "1",
+   "inView": true,
+   "size": "225x58"
+  },
+  {
+   "el": "button[combobox]",
+   "label": "Choose an option",
+   "ring": "frame inset 1.5px ring",
+   "opacity": "1",
+   "inView": true,
+   "size": "463x58"
+  },
+  {
+   "el": "textarea",
+   "label": "contact-contact-message",
+   "ring": "frame inset 1.5px ring",
+   "opacity": "1",
+   "inView": true,
+   "size": "463x124"
+  }
+ ],
+ "desktop /art-by-waambat": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x888"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "a",
+   "label": "NFTs",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "33x20"
+  },
+  {
+   "el": "a",
+   "label": "ORDINALS",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "71x20"
+  },
+  {
+   "el": "a",
+   "label": "quantum mechanics",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "133x20"
+  },
+  {
+   "el": "a",
+   "label": "art archive",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "69x20"
+  },
+  {
+   "el": "a",
+   "label": "instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "64x20"
+  },
+  {
+   "el": "a",
+   "label": "blog + press",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "84x20"
+  },
+  {
+   "el": "a",
+   "label": "bio",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "20x20"
+  },
+  {
+   "el": "a",
+   "label": "collect + contact",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "112x20"
+  },
+  {
+   "el": "button",
+   "label": "Play Axiom GL0w Up (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View Axiom GL0w Up (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play Sus Singularity (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View Sus Singularity (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play Video Art by Lindsay Scoggins",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View Video Art by Lindsay Scoggins",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play YouTube Play 2010 feat. waambat",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View YouTube Play 2010 feat. waambat",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play waambat visuals for Hans Zimmer (2017)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View waambat visuals for Hans Zimmer (2017)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play Dichotomy Bifurcation @ LA Art Show 2017",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  }
+ ],
+ "desktop /ordinals": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x888"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "a",
+   "label": "NFTs",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "33x20"
+  },
+  {
+   "el": "a",
+   "label": "ORDINALS",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "71x20"
+  },
+  {
+   "el": "a",
+   "label": "quantum mechanics",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "133x20"
+  },
+  {
+   "el": "a",
+   "label": "art archive",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "69x20"
+  },
+  {
+   "el": "a",
+   "label": "instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "64x20"
+  },
+  {
+   "el": "a",
+   "label": "blog + press",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "84x20"
+  },
+  {
+   "el": "a",
+   "label": "bio",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "20x20"
+  },
+  {
+   "el": "a",
+   "label": "collect + contact",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "112x20"
+  },
+  {
+   "el": "button",
+   "label": "Play LUX · OK ALGO preview",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Interact live with LUX · OK ALGO",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "105x44"
+  },
+  {
+   "el": "a",
+   "label": "View on Satflow ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "120x25"
+  },
+  {
+   "el": "a",
+   "label": "LUX Pink Paper ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "117x25"
+  },
+  {
+   "el": "button",
+   "label": "Play Kismet Twist preview",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "View on Satflow ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "120x25"
+  },
+  {
+   "el": "a",
+   "label": "Original inscription ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "136x25"
+  },
+  {
+   "el": "button",
+   "label": "Play Edge Corporeal preview",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "View on Gamma ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "123x25"
+  },
+  {
+   "el": "a",
+   "label": "Original inscription ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "136x25"
+  },
+  {
+   "el": "a",
+   "label": "Open Ordinal A original inscription page",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "300x300"
+  }
+ ],
+ "desktop /instagram": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x888"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "a",
+   "label": "NFTs",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "33x20"
+  },
+  {
+   "el": "a",
+   "label": "ORDINALS",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "71x20"
+  },
+  {
+   "el": "a",
+   "label": "quantum mechanics",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "133x20"
+  },
+  {
+   "el": "a",
+   "label": "art archive",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "69x20"
+  },
+  {
+   "el": "a",
+   "label": "instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "64x20"
+  },
+  {
+   "el": "a",
+   "label": "blog + press",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "84x20"
+  },
+  {
+   "el": "a",
+   "label": "bio",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "20x20"
+  },
+  {
+   "el": "a",
+   "label": "collect + contact",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "112x20"
+  },
+  {
+   "el": "a",
+   "label": "interview in Right Click Save",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "179x17"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on Instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "47x14"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on YouTube",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "41x14"
+  }
+ ],
+ "phone /": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x832"
+  },
+  {
+   "el": "button",
+   "label": "Menu",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 5px",
+   "opacity": "1",
+   "inView": true,
+   "size": "239x49"
+  },
+  {
+   "el": "button",
+   "label": "Play WAAMBAT hero montage",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Open Feels 404 original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x350"
+  },
+  {
+   "el": "button",
+   "label": "Play Feels 404",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Feels 404",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "122x31"
+  },
+  {
+   "el": "a",
+   "label": "Open Animal Spirits original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x350"
+  },
+  {
+   "el": "button",
+   "label": "Play Animal Spirits",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Animal Spirits",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "180x31"
+  },
+  {
+   "el": "a",
+   "label": "Open Swap Exchange original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x350"
+  },
+  {
+   "el": "button",
+   "label": "Play Swap Exchange",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Swap Exchange",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "206x31"
+  },
+  {
+   "el": "a",
+   "label": "Open Autocorrection original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x350"
+  },
+  {
+   "el": "button",
+   "label": "Play Autocorrection",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Autocorrection",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "194x31"
+  },
+  {
+   "el": "a",
+   "label": "Open Enter Boi AMA original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x350"
+  },
+  {
+   "el": "button",
+   "label": "Play Enter Boi AMA",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Enter Boi AMA",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "188x31"
+  },
+  {
+   "el": "a",
+   "label": "Open Fap Disco original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x350"
+  },
+  {
+   "el": "button",
+   "label": "Play Fap Disco",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  }
+ ],
+ "phone /contact-waambat": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x832"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "button",
+   "label": "Menu",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "Join the WAAMBAT Chat discord",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "234x17"
+  },
+  {
+   "el": "a",
+   "label": "Read about the utility mechanics - explo",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "305x34"
+  },
+  {
+   "el": "a",
+   "label": "Open collect + contact original token page",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x350"
+  },
+  {
+   "el": "button",
+   "label": "Play collect + contact",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "twitter @waambat",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "129x17"
+  },
+  {
+   "el": "a",
+   "label": "IG @waambat",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "98x17"
+  },
+  {
+   "el": "a",
+   "label": "IG backup @waam.bat",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "159x17"
+  },
+  {
+   "el": "input",
+   "label": "contact-contact-name",
+   "ring": "frame inset 1.5px ring",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x58"
+  },
+  {
+   "el": "input",
+   "label": "contact-contact-email",
+   "ring": "frame inset 1.5px ring",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x58"
+  },
+  {
+   "el": "button[combobox]",
+   "label": "Choose an option",
+   "ring": "frame inset 1.5px ring",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x58"
+  },
+  {
+   "el": "textarea",
+   "label": "contact-contact-message",
+   "ring": "frame inset 1.5px ring",
+   "opacity": "1",
+   "inView": true,
+   "size": "350x124"
+  },
+  {
+   "el": "button",
+   "label": "Send message",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "179x44"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on Instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "47x14"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on YouTube",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "41x14"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on Foundation",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "54x14"
+  },
+  {
+   "el": "BODY"
+  },
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x832"
+  }
+ ],
+ "phone /art-by-waambat": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x832"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "button",
+   "label": "Menu",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play Axiom GL0w Up (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View Axiom GL0w Up (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play Sus Singularity (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View Sus Singularity (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play Video Art by Lindsay Scoggins",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View Video Art by Lindsay Scoggins",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play YouTube Play 2010 feat. waambat",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View YouTube Play 2010 feat. waambat",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play waambat visuals for Hans Zimmer (2017)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View waambat visuals for Hans Zimmer (2017)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play Dichotomy Bifurcation @ LA Art Show 2017",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View Dichotomy Bifurcation @ LA Art Show 2017",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play Wonderland Mafia (2008)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View Wonderland Mafia (2008)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play self p (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View self p (2021)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play FTPA Sung by Miss P (2008)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "View FTPA Sung by Miss P (2008)",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  }
+ ],
+ "phone /ordinals": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x832"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "button",
+   "label": "Menu",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Play LUX · OK ALGO preview",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "button",
+   "label": "Interact live with LUX · OK ALGO",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "105x44"
+  },
+  {
+   "el": "a",
+   "label": "View on Satflow ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "120x25"
+  },
+  {
+   "el": "a",
+   "label": "LUX Pink Paper ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "117x25"
+  },
+  {
+   "el": "button",
+   "label": "Play Kismet Twist preview",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "View on Satflow ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "120x25"
+  },
+  {
+   "el": "a",
+   "label": "Original inscription ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "136x25"
+  },
+  {
+   "el": "button",
+   "label": "Play Edge Corporeal preview",
+   "ring": "outline 2px rgb(225, 188, 194) off 3px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "View on Gamma ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "123x25"
+  },
+  {
+   "el": "a",
+   "label": "Original inscription ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "136x25"
+  },
+  {
+   "el": "a",
+   "label": "Open Ordinal A original inscription page",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "300x300"
+  },
+  {
+   "el": "a",
+   "label": "Ordinal A",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "67x17"
+  },
+  {
+   "el": "a",
+   "label": "Open Ordinal B original inscription page",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "300x300"
+  },
+  {
+   "el": "a",
+   "label": "Ordinal B",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "67x17"
+  },
+  {
+   "el": "a",
+   "label": "Open Ordinal C original inscription page",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "300x300"
+  },
+  {
+   "el": "a",
+   "label": "Ordinal C",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "68x17"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on Instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "47x14"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on YouTube",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "41x14"
+  }
+ ],
+ "phone /instagram": [
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x832"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "button",
+   "label": "Menu",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "interview in Right Click Save",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "179x17"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "View on Instagram ↗",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": false,
+   "size": "134x25"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on Instagram",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "47x14"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on YouTube",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "41x14"
+  },
+  {
+   "el": "a",
+   "label": "WAAMBAT on Foundation",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "54x14"
+  },
+  {
+   "el": "BODY"
+  },
+  {
+   "el": "a",
+   "label": "Skip to artwork",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "95x25"
+  },
+  {
+   "el": "div[scrollbar]",
+   "label": "Page scroll",
+   "ring": "outline 1px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "14x832"
+  },
+  {
+   "el": "a",
+   "label": "waambat home",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "181x22"
+  },
+  {
+   "el": "button",
+   "label": "Menu",
+   "ring": "outline 2px rgb(225, 188, 194) off 6px",
+   "opacity": "1",
+   "inView": true,
+   "size": "44x44"
+  },
+  {
+   "el": "a",
+   "label": "interview in Right Click Save",
+   "ring": "outline 2px rgb(225, 188, 194) off 4px",
+   "opacity": "1",
+   "inView": true,
+   "size": "179x17"
+  }
+ ]
+}

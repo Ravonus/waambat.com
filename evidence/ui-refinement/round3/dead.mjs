@@ -1,0 +1,13 @@
+import {createRequire} from 'module';
+const require=createRequire(import.meta.url);
+const {chromium}=require('/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/kerf-media/node_modules/.pnpm/playwright-core@1.64.1_patch_hash=c37622bf578045472b8ad62ab7d049a9b7524c5208472cd532e5f24793f5701b/node_modules/playwright-core');
+const b=await chromium.launch();
+const ctx=await b.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'});const p=await ctx.newPage();
+await p.goto('http://localhost:3287/mechanics',{waitUntil:'load'});await p.waitForTimeout(1500);
+const card=()=>p.evaluate(()=>[...document.querySelectorAll('[data-save-url*="imgur"], article, figure')].filter(e=>/3hhNUKR/.test(e.outerHTML)).slice(-1).map(e=>({video:!!e.querySelector('video'),vsrc:e.querySelector('video')?.getAttribute('src'),err:e.querySelector('video')?.error?.code,msg:e.innerText.trim().slice(0,80),buttons:[...e.querySelectorAll('button')].map(b=>b.getAttribute('aria-label')),h:Math.round(e.getBoundingClientRect().height)}))[0]);
+console.log('before',JSON.stringify(await card()));
+const g1=await p.evaluate(()=>{const v=[...document.querySelectorAll('figure,article,div')].find(e=>/8oZCxzC/.test(e.getAttribute('data-save-url')||''));const r=v?.getBoundingClientRect();return r&&[Math.round(r.width),Math.round(r.height)]});console.log('g1 box',g1);
+const btn=p.locator('button[aria-label*="Play"]').first();console.log('btn',await btn.getAttribute('aria-label'));
+await btn.click();await p.waitForTimeout(3000);
+console.log('after',JSON.stringify(await card()));
+await b.close();

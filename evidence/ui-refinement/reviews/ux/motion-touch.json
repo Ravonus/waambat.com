@@ -1,0 +1,50 @@
+{
+  "rmCursor": "none",
+  "rmLink": {
+    "transition": "0s",
+    "spinner": "none"
+  },
+  "rmInline": "none-on-page",
+  "rmForm": {
+    "label": "0s",
+    "submitBefore": "0s"
+  },
+  "rmPending": {
+    "pending": true,
+    "spin": "none",
+    "opacity": "1",
+    "progress": "none,none,none,none,none"
+  },
+  "rmMenu": {
+    "anim": "none",
+    "dur": "0s"
+  },
+  "rmMenuClosed": true,
+  "touchCursor": {
+    "display": "none",
+    "root": null,
+    "bodyCursor": "auto"
+  },
+  "hybridMouse": {
+    "op": "0",
+    "root": null
+  },
+  "hybridAfterTouch": {
+    "op": "0",
+    "root": null
+  },
+  "overArt": {
+    "op": "0"
+  },
+  "duringDrag": {
+    "op": "0",
+    "root": null
+  },
+  "afterDrag": {
+    "op": "0"
+  },
+  "railDragCursor": {
+    "y": 8418
+  },
+  "log": []
+}

@@ -1,0 +1,269 @@
+{
+ "railBox": {
+  "x": 1425,
+  "y": 6,
+  "width": 14,
+  "height": 888
+ },
+ "attrs": {
+  "role": "scrollbar",
+  "label": "Page scroll",
+  "tabindex": "0",
+  "orientation": "vertical",
+  "now": "0",
+  "max": "31923"
+ },
+ "rest": {
+  "canvas": [
+   28,
+   1776
+  ],
+  "thumbTop": 0,
+  "thumbBottom": 95,
+  "columns": [
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23
+  ],
+  "topColor": [
+   255,
+   148,
+   178,
+   255
+  ],
+  "midColor": [
+   255,
+   148,
+   178,
+   255
+  ],
+  "bottomColor": [
+   255,
+   148,
+   178,
+   255
+  ],
+  "leftEdge": [
+   255,
+   148,
+   178,
+   255
+  ],
+  "rightEdge": [
+   255,
+   148,
+   178,
+   255
+  ]
+ },
+ "hover": {
+  "canvas": [
+   28,
+   1776
+  ],
+  "thumbTop": 0,
+  "thumbBottom": 95,
+  "columns": [
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23
+  ],
+  "topColor": [
+   255,
+   179,
+   199,
+   255
+  ],
+  "midColor": [
+   255,
+   150,
+   179,
+   255
+  ],
+  "bottomColor": [
+   255,
+   148,
+   178,
+   255
+  ],
+  "leftEdge": [
+   255,
+   150,
+   179,
+   255
+  ],
+  "rightEdge": [
+   255,
+   151,
+   180,
+   255
+  ]
+ },
+ "drag": {
+  "canvas": [
+   28,
+   1776
+  ],
+  "thumbTop": 338,
+  "thumbBottom": 438,
+  "columns": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27
+  ],
+  "topColor": [
+   255,
+   180,
+   199,
+   255
+  ],
+  "midColor": [
+   255,
+   150,
+   179,
+   255
+  ],
+  "bottomColor": [
+   226,
+   113,
+   147,
+   240
+  ],
+  "leftEdge": [
+   226,
+   112,
+   146,
+   152
+  ],
+  "rightEdge": [
+   225,
+   188,
+   193,
+   152
+  ]
+ },
+ "dragScrollY": 6461,
+ "afterDrag": {
+  "canvas": [
+   28,
+   1776
+  ],
+  "thumbTop": 340,
+  "thumbBottom": 435,
+  "columns": [
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23
+  ],
+  "topColor": [
+   255,
+   179,
+   199,
+   255
+  ],
+  "midColor": [
+   255,
+   150,
+   179,
+   255
+  ],
+  "bottomColor": [
+   255,
+   148,
+   178,
+   255
+  ],
+  "leftEdge": [
+   255,
+   150,
+   179,
+   255
+  ],
+  "rightEdge": [
+   255,
+   151,
+   180,
+   255
+  ]
+ },
+ "focus": {
+  "isRail": true,
+  "outline": "rgb(255, 148, 178) solid 1px",
+  "bg": "color(srgb 1 0.580392 0.698039 / 0.08)"
+ },
+ "keyboard": {
+  "ArrowDown": 40,
+  "PageDown": 850,
+  "End": 31923,
+  "Home": 0
+ },
+ "native": {
+  "scrollbarColor": "rgb(255, 148, 178) rgb(18, 15, 16)",
+  "scrollbarWidth": "thin"
+ },
+ "phoneRail": {
+  "visible": "visible",
+  "hidden": false,
+  "rect": [
+   375,
+   6,
+   14,
+   832
+  ]
+ },
+ "phoneRailMenuOpen": "hidden"
+}

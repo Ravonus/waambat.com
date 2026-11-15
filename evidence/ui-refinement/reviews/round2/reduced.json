@@ -1,0 +1,551 @@
+{
+ "reduce": {
+  "idleAnimations": [],
+  "navHover": {
+   "anims": [],
+   "clip": "none",
+   "shadow": "none",
+   "color": "rgb(255, 148, 178)"
+  },
+  "fieldFocus": [],
+  "submitPress": {
+   "burst": false,
+   "anims": [],
+   "filter": "none"
+  },
+  "cursorPressed": {
+   "pressed": true,
+   "anim": "none",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, 0) -1px 0px 0px) drop-shadow(rgb(0, 0, 0) 0px 1px 0px) drop-shadow(rgb(0, 0, 0) 0px -1px 0px)"
+  },
+  "railDrag": {
+   "w": 14,
+   "h": 888,
+   "dpr": 1,
+   "columnsPainted": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "sample": {
+    "4": [
+     255,
+     181,
+     200,
+     199
+    ],
+    "5": [
+     255,
+     181,
+     201,
+     76
+    ],
+    "6": [
+     255,
+     181,
+     199,
+     196
+    ],
+    "7": [
+     255,
+     181,
+     201,
+     239
+    ],
+    "8": [
+     255,
+     180,
+     200,
+     239
+    ],
+    "9": [
+     255,
+     181,
+     200,
+     196
+    ],
+    "10": [
+     255,
+     181,
+     201,
+     76
+    ],
+    "11": [
+     255,
+     181,
+     200,
+     199
+    ]
+   }
+  }
+ },
+ "control": {
+  "idleAnimations": [
+   "title-arrive",
+   "object-in-calm"
+  ],
+  "navHover": {
+   "anims": [
+    "transition:color",
+    "waambat-mosh-text"
+   ],
+   "clip": "inset(-20% -12px -40%)",
+   "shadow": "rgb(226, 112, 146) -3px 0px 0px, rgb(241, 209, 214) 3px 0px 0px",
+   "color": "rgb(217, 151, 170)"
+  },
+  "fieldFocus": [
+   "transition:box-shadow",
+   "transition:background-color",
+   "waambat-mosh-field"
+  ],
+  "submitPress": {
+   "burst": true,
+   "anims": [
+    "transition:transform",
+    "waambat-mosh-box"
+   ],
+   "filter": "drop-shadow(rgb(226, 112, 146) -2px 0px 0px) drop-shadow(rgb(241, 209, 214) 2px 0px 0px)"
+  },
+  "cursorPressed": {
+   "pressed": true,
+   "anim": "cursor-gradient, waambat-mosh-cursor",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, 0) -1px 0px 0px) drop-shadow(rgb(226, 112, 146) -3px 0px 0px) drop-shadow(rgb(241, 209, 214) 3px 0px 0px)"
+  },
+  "railDrag": {
+   "w": 14,
+   "h": 888,
+   "dpr": 1,
+   "columnsPainted": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "sample": {
+    "2": [
+     227,
+     112,
+     145,
+     139
+    ],
+    "3": [
+     226,
+     111,
+     144,
+     53
+    ],
+    "4": [
+     227,
+     112,
+     145,
+     137
+    ],
+    "5": [
+     239,
+     140,
+     166,
+     193
+    ],
+    "6": [
+     250,
+     169,
+     190,
+     235
+    ],
+    "7": [
+     254,
+     179,
+     199,
+     249
+    ],
+    "8": [
+     253,
+     180,
+     199,
+     249
+    ],
+    "9": [
+     250,
+     182,
+     199,
+     235
+    ],
+    "10": [
+     238,
+     185,
+     197,
+     193
+    ],
+    "11": [
+     225,
+     188,
+     194,
+     137
+    ],
+    "12": [
+     226,
+     188,
+     192,
+     53
+    ],
+    "13": [
+     226,
+     189,
+     194,
+     139
+    ]
+   }
+  }
+ },
+ "calm": {
+  "idleAnimations": [
+   "object-in-calm"
+  ],
+  "navHover": {
+   "anims": [
+    "transition:color"
+   ],
+   "clip": "none",
+   "shadow": "none",
+   "color": "rgb(194, 153, 164)"
+  },
+  "fieldFocus": [
+   "transition:background-color",
+   "transition:box-shadow"
+  ],
+  "submitPress": {
+   "burst": false,
+   "anims": [
+    "transition:transform"
+   ],
+   "filter": "none"
+  },
+  "cursorPressed": {
+   "pressed": true,
+   "anim": "cursor-gradient",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, 0) -1px 0px 0px) drop-shadow(rgb(0, 0, 0) 0px 1px 0px) drop-shadow(rgb(0, 0, 0) 0px -1px 0px)"
+  },
+  "railDrag": {
+   "w": 14,
+   "h": 888,
+   "dpr": 1,
+   "columnsPainted": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "sample": {
+    "2": [
+     227,
+     112,
+     145,
+     139
+    ],
+    "3": [
+     226,
+     111,
+     144,
+     53
+    ],
+    "4": [
+     227,
+     112,
+     145,
+     137
+    ],
+    "5": [
+     239,
+     140,
+     166,
+     193
+    ],
+    "6": [
+     250,
+     169,
+     190,
+     235
+    ],
+    "7": [
+     254,
+     179,
+     199,
+     249
+    ],
+    "8": [
+     253,
+     180,
+     199,
+     249
+    ],
+    "9": [
+     250,
+     182,
+     199,
+     235
+    ],
+    "10": [
+     238,
+     185,
+     197,
+     193
+    ],
+    "11": [
+     225,
+     188,
+     194,
+     137
+    ],
+    "12": [
+     226,
+     188,
+     192,
+     53
+    ],
+    "13": [
+     226,
+     189,
+     194,
+     139
+    ]
+   }
+  }
+ },
+ "off": {
+  "idleAnimations": [],
+  "navHover": {
+   "anims": [
+    "transition:color"
+   ],
+   "clip": "none",
+   "shadow": "none",
+   "color": "rgb(194, 153, 164)"
+  },
+  "fieldFocus": [
+   "transition:background-color",
+   "transition:box-shadow"
+  ],
+  "submitPress": {
+   "burst": false,
+   "anims": [
+    "transition:transform"
+   ],
+   "filter": "none"
+  },
+  "cursorPressed": {
+   "pressed": true,
+   "anim": "cursor-gradient",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, 0) -1px 0px 0px) drop-shadow(rgb(0, 0, 0) 0px 1px 0px) drop-shadow(rgb(0, 0, 0) 0px -1px 0px)"
+  },
+  "railDrag": {
+   "w": 14,
+   "h": 888,
+   "dpr": 1,
+   "columnsPainted": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "sample": {
+    "2": [
+     227,
+     112,
+     145,
+     139
+    ],
+    "3": [
+     226,
+     111,
+     144,
+     53
+    ],
+    "4": [
+     227,
+     112,
+     145,
+     137
+    ],
+    "5": [
+     239,
+     140,
+     166,
+     193
+    ],
+    "6": [
+     250,
+     169,
+     190,
+     235
+    ],
+    "7": [
+     254,
+     179,
+     199,
+     249
+    ],
+    "8": [
+     253,
+     180,
+     199,
+     249
+    ],
+    "9": [
+     250,
+     182,
+     199,
+     235
+    ],
+    "10": [
+     238,
+     185,
+     197,
+     193
+    ],
+    "11": [
+     225,
+     188,
+     194,
+     137
+    ],
+    "12": [
+     226,
+     188,
+     192,
+     53
+    ],
+    "13": [
+     226,
+     189,
+     194,
+     139
+    ]
+   }
+  }
+ },
+ "menu-reduce": {
+  "openAnimations": [],
+  "overlay": {
+   "anim": "none",
+   "dur": "0s",
+   "before": "none",
+   "link": "none",
+   "glyph": "none",
+   "opacity": "1"
+  },
+  "closeXms": 45,
+  "stateAfterXTap": null,
+  "afterX": {
+   "focus": "Menu",
+   "overflow": "visible"
+  },
+  "escapeMs": 12,
+  "destinationMs": 81,
+  "afterDest": {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "menu": "gone"
+  }
+ },
+ "menu-calm": {
+  "openAnimations": [
+   "_menu-fade_111h2_1",
+   "_glyph-fold_111h2_1",
+   "_glyph-fold_111h2_1",
+   "_glyph-fold_111h2_1",
+   "_menu-link-in_111h2_1",
+   "_menu-link-in_111h2_1",
+   "_menu-link-in_111h2_1",
+   "_menu-link-in_111h2_1",
+   "_menu-link-in_111h2_1",
+   "_menu-link-in_111h2_1",
+   "_menu-link-in_111h2_1",
+   "_menu-link-in_111h2_1",
+   "object-in-calm",
+   "object-in-calm",
+   "object-in-calm",
+   "object-in-calm",
+   "object-in-calm",
+   "object-in-calm"
+  ],
+  "overlay": {
+   "anim": "_menu-fade_111h2_1",
+   "dur": "0.24s",
+   "before": "none",
+   "link": "_menu-link-in_111h2_1",
+   "glyph": "_glyph-fold_111h2_1",
+   "opacity": "0.219642"
+  },
+  "closeXms": null,
+  "stateAfterXTap": {
+   "phase": "closing",
+   "opacity": "0",
+   "anim": "_menu-fade_111h2_1",
+   "pointer": "none",
+   "expanded": "true",
+   "menuVisible": "hidden"
+  },
+  "escapeWhileStuck": true,
+  "afterX": {
+   "focus": null,
+   "overflow": "visible"
+  },
+  "escapeMs": null,
+  "error": "TimeoutError: locator.tap: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('header button[aria-label=\"Menu\"]')\n    - locator resolved to <button aria-label=\"Menu\" aria-expanded=\"true\" aria"
+ },
+ "menu-off": {
+  "openAnimations": [
+   "_menu-mosh-in_111h2_1"
+  ],
+  "overlay": {
+   "anim": "_menu-mosh-in_111h2_1",
+   "dur": "0.001s",
+   "before": "none",
+   "link": "none",
+   "glyph": "none",
+   "opacity": "1"
+  },
+  "closeXms": 74,
+  "stateAfterXTap": null,
+  "afterX": {
+   "focus": "Menu",
+   "overflow": "visible"
+  },
+  "escapeMs": 32,
+  "destinationMs": 101,
+  "afterDest": {
+   "url": "/bio-waambat",
+   "focus": "MAIN#main-content",
+   "menu": "gone"
+  }
+ }
+}

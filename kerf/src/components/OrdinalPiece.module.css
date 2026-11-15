@@ -52,7 +52,7 @@
   border: 1px solid #ffffff60;
   border-radius: 22px;
   background: #000b;
-  color: var(--color-waambat-pink);
+  color: var(--ui-accent);
   font: inherit;
   font-size: 14px;
   line-height: 1;
@@ -64,15 +64,17 @@
     transform 90ms;
 }
 .action:hover {
-  border-color: var(--color-waambat-logo);
+  border-color: var(--ui-accent);
   background: #000e;
-  color: var(--color-waambat-logo);
+  color: var(--ui-accent-hover);
 }
 .action:active {
   transform: scale(0.96);
+  border-color: var(--ui-accent-pressed);
+  color: var(--ui-accent-pressed);
 }
 .action:focus-visible {
-  outline: 2px solid var(--color-waambat-logo);
+  outline: 2px solid var(--ui-accent-focus);
   outline-offset: 3px;
 }
 .status {
@@ -84,7 +86,7 @@
   padding: 6px 12px;
   border-radius: 14px;
   background: #000b;
-  color: var(--color-waambat-pink);
+  color: var(--ui-accent);
   font-size: 13px;
 }
 @media (prefers-reduced-motion: reduce) {

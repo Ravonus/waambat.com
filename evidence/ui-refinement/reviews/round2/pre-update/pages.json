@@ -1,0 +1,3254 @@
+{
+ "R": {
+  "1440/": {
+   "headings": [
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Feels 404\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Animal Spirits\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Swap Exchange\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Autocorrection\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Enter Boi AMA\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Fap Disco\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Haptic Feedback\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Swipe Swag\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Profits\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Net Melt\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Troll Crash\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"GOAT\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Cord Cutter\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Hard Launch\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Fucking Future\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Joys of Lore\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Meta Matters\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Cheers, Chad\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Catfish Glitch\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Axiom GL0w Up\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Deep Linking\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Sus Singularity\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Abacus RAM\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(235, 235, 235)": 23,
+    "rgb(255, 148, 178)": 23
+   },
+   "overflow": [
+    1440,
+    1440
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 24
+     }
+    ]
+   }
+  },
+  "1440/ordinals": {
+   "headings": [
+    {
+     "el": "h1._title_1836j_9 \"ORDINALS\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2 \"LUX · OK ALGO\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2 \"Kismet Twist\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2 \"Edge Corporeal\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3 \"Ordinal A\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3 \"Ordinal B\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3 \"Ordinal C\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [
+    "p._kicker_1836j_33 \"Artwork on Gamma\""
+   ],
+   "linkColors": {
+    "rgb(225, 188, 194)": 9,
+    "rgb(235, 235, 235)": 3
+   },
+   "overflow": [
+    1440,
+    1440
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "video-caption",
+      "n": 3
+     }
+    ]
+   }
+  },
+  "1440/mechanics": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"Utility Mechanics of the Quantum Series\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-small-heading \"Each Quantum is a full video painting bu\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"During a given burn window, collectors w\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"For each set burned, a Quantum edition i\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"When a new series round is announced, a \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"Each Element is revealed on drop day (up\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Utility Mechanics of the Fusion Series\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"Fusions are distinguishable from Quantum\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"Fusions are custom compositions created \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"There are additional types of mechanics \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(255, 148, 178)": 3,
+    "rgb(235, 235, 235)": 3
+   },
+   "overflow": [
+    1440,
+    1440
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "video-caption",
+      "n": 3
+     }
+    ]
+   }
+  },
+  "1440/art-by-waambat": {
+   "headings": [],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(225, 188, 194)": 15
+   },
+   "overflow": [
+    1440,
+    1440
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       "html"
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "n": 6
+     },
+     {
+      "id": "frame-tested",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 7
+     }
+    ]
+   }
+  },
+  "1440/instagram": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"WAAMBAT’s practice involves an ongoing b\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"What remains in her feed are artworks wh\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h1.text-waambat-pink.mt-10.mb-5 \"Instagram\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(225, 188, 194)": 9
+   },
+   "overflow": [
+    1440,
+    1440
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "frame-tested",
+      "n": 8
+     },
+     {
+      "id": "frame-title-unique",
+      "n": 8
+     }
+    ]
+   }
+  },
+  "1440/blog-press": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"Artists Against Algorithms\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Gretchen Andrew and WAAMBAT tell Cody Ed\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"25 Videos Chosen from 23,358 Worldwide S\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Podcast - A Conversation with thr33som3s\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"The Tokenized Building Process of Quantu\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Artsy Hosts Female-Focused NFT Exhibitio\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Vellum LA and Artsy Present\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Artists Who Code:\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Abacus RAM becomes #34 in the Ascent Col\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"SuperChief Gallery's Every Women Biennia\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"The Every Woman Biennial Is Launching an\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Dichotomy Bifurcation Featured at the En\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Art Wynwood Shows Off Plushies, Presiden\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Featuring Kennedy, WAAMBAT’s work from 2\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Lindsay Scoggins Rocks the Shots That Ri\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(235, 235, 235)": 5,
+    "rgb(255, 148, 178)": 12,
+    "rgb(225, 188, 194)": 2
+   },
+   "overflow": [
+    1440,
+    1440
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "video-caption",
+      "n": 5
+     }
+    ]
+   }
+  },
+  "1440/bio-waambat": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"WAAMBAT\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-small-heading \"[too edgy for algos]\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Below are WAAMBAT’s unedited responses t\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"1. How have our expectations of the Inte\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"2. Waambat your works collage the Intern\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"How is art which resists online censorsh\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"3. GQ defines a Thirst Trap as “The act \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"4. How do you adapt your practices to at\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"5. In 1967, Charlotte Moorman collaborat\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"6. The Japanese filmmaker Yasujiro Ozu f\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"7. Finally, we’d love to hear about any \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(235, 235, 235)": 1
+   },
+   "overflow": [
+    1440,
+    1440
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "video-caption",
+      "n": 1
+     }
+    ]
+   }
+  },
+  "1440/contact-waambat": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"How to collect WAAMBAT:\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Her name is WAAMBAT everywhere\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"twitter @waambat\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"IG @waambat\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"IG backup @waam.bat\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"discord waambat#7494\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2._title_1vk3u_12 \"Get in touch\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [
+    "a \"Join the WAAMBAT Chat discord\"",
+    "span.source-list-label \"Be the first to see the latest drop sche\"",
+    "a \"Read about the utility mechanics - explo\"",
+    "span.source-list-label \"Profit\"",
+    "span._required_1vk3u_47 \"*\"",
+    "label._floatingLabel_1vk3u_74 \"What brings you here?\"",
+    "label._floatingLabel_1vk3u_74 \"Your message *\""
+   ],
+   "linkColors": {
+    "rgb(255, 148, 178)": 5,
+    "rgb(235, 235, 235)": 1
+   },
+   "overflow": [
+    1440,
+    1440
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 1
+     },
+     {
+      "id": "color-contrast",
+      "n": 2
+     },
+     {
+      "id": "video-caption",
+      "n": 1
+     }
+    ]
+   }
+  },
+  "390/": {
+   "headings": [
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Feels 404\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Animal Spirits\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Swap Exchange\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Autocorrection\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Enter Boi AMA\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Fap Disco\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Haptic Feedback\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Swipe Swag\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Profits\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Net Melt\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Troll Crash\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"GOAT\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Cord Cutter\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Hard Launch\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Fucking Future\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Joys of Lore\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Meta Matters\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Cheers, Chad\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Catfish Glitch\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Axiom GL0w Up\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Deep Linking\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Sus Singularity\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.mt-5.text-[26px] \"Abacus RAM\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(235, 235, 235)": 23,
+    "rgb(255, 148, 178)": 23
+   },
+   "overflow": [
+    390,
+    390
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 1
+     },
+     {
+      "id": "color-contrast",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 24
+     }
+    ]
+   }
+  },
+  "390/ordinals": {
+   "headings": [
+    {
+     "el": "h1._title_1836j_9 \"ORDINALS\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2 \"LUX · OK ALGO\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2 \"Kismet Twist\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2 \"Edge Corporeal\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3 \"Ordinal A\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3 \"Ordinal B\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3 \"Ordinal C\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [
+    "p._kicker_1836j_33 \"Artwork on Gamma\""
+   ],
+   "linkColors": {
+    "rgb(225, 188, 194)": 9,
+    "rgb(235, 235, 235)": 3
+   },
+   "overflow": [
+    390,
+    390
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 3
+     }
+    ]
+   }
+  },
+  "390/mechanics": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"Utility Mechanics of the Quantum Series\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-small-heading \"Each Quantum is a full video painting bu\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"During a given burn window, collectors w\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"For each set burned, a Quantum edition i\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"When a new series round is announced, a \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"Each Element is revealed on drop day (up\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Utility Mechanics of the Fusion Series\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"Fusions are distinguishable from Quantum\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"Fusions are custom compositions created \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"There are additional types of mechanics \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(255, 148, 178)": 3,
+    "rgb(235, 235, 235)": 3
+   },
+   "overflow": [
+    390,
+    390
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 3
+     }
+    ]
+   }
+  },
+  "390/art-by-waambat": {
+   "headings": [],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(225, 188, 194)": 15
+   },
+   "overflow": [
+    390,
+    390
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       "html"
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 1
+     },
+     {
+      "id": "color-contrast",
+      "n": 4
+     },
+     {
+      "id": "frame-tested",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 7
+     }
+    ]
+   }
+  },
+  "390/instagram": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"WAAMBAT’s practice involves an ongoing b\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"What remains in her feed are artworks wh\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h1.text-waambat-pink.mt-10.mb-5 \"Instagram\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(225, 188, 194)": 9
+   },
+   "overflow": [
+    390,
+    390
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 1
+     },
+     {
+      "id": "frame-tested",
+      "n": 8
+     },
+     {
+      "id": "frame-title-unique",
+      "n": 8
+     }
+    ]
+   }
+  },
+  "390/blog-press": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"Artists Against Algorithms\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Gretchen Andrew and WAAMBAT tell Cody Ed\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"25 Videos Chosen from 23,358 Worldwide S\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Podcast - A Conversation with thr33som3s\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"The Tokenized Building Process of Quantu\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Artsy Hosts Female-Focused NFT Exhibitio\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Vellum LA and Artsy Present\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Artists Who Code:\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Abacus RAM becomes #34 in the Ascent Col\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"SuperChief Gallery's Every Women Biennia\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"The Every Woman Biennial Is Launching an\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Dichotomy Bifurcation Featured at the En\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Art Wynwood Shows Off Plushies, Presiden\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Featuring Kennedy, WAAMBAT’s work from 2\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Lindsay Scoggins Rocks the Shots That Ri\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(235, 235, 235)": 5,
+    "rgb(255, 148, 178)": 12,
+    "rgb(225, 188, 194)": 2
+   },
+   "overflow": [
+    390,
+    390
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 5
+     }
+    ]
+   }
+  },
+  "390/bio-waambat": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"WAAMBAT\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-small-heading \"[too edgy for algos]\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Below are WAAMBAT’s unedited responses t\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"1. How have our expectations of the Inte\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"2. Waambat your works collage the Intern\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"How is art which resists online censorsh\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"3. GQ defines a Thirst Trap as “The act \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"4. How do you adapt your practices to at\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"5. In 1967, Charlotte Moorman collaborat\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"6. The Japanese filmmaker Yasujiro Ozu f\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"7. Finally, we’d love to hear about any \"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [],
+   "linkColors": {
+    "rgb(235, 235, 235)": 1
+   },
+   "overflow": [
+    390,
+    390
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 1
+     }
+    ]
+   }
+  },
+  "390/contact-waambat": {
+   "headings": [
+    {
+     "el": "h1.text-waambat-pink.whitespace-pre-line.source-large-heading \"How to collect WAAMBAT:\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2.text-waambat-pink.whitespace-pre-line.source-large-heading \"Her name is WAAMBAT everywhere\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"twitter @waambat\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"IG @waambat\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"IG backup @waam.bat\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h3.text-waambat-pink.whitespace-pre-line.source-small-heading \"discord waambat#7494\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "14px",
+     "weight": "700",
+     "pink": true
+    },
+    {
+     "el": "h2._title_1vk3u_12 \"Get in touch\"",
+     "color": "rgb(255, 148, 178)",
+     "size": "26px",
+     "weight": "700",
+     "pink": true
+    }
+   ],
+   "pinkNonTitles": [
+    "a \"Join the WAAMBAT Chat discord\"",
+    "span.source-list-label \"Be the first to see the latest drop sche\"",
+    "a \"Read about the utility mechanics - explo\"",
+    "span.source-list-label \"Profit\"",
+    "span._required_1vk3u_47 \"*\"",
+    "label._floatingLabel_1vk3u_74 \"What brings you here?\"",
+    "label._floatingLabel_1vk3u_74 \"Your message *\""
+   ],
+   "linkColors": {
+    "rgb(255, 148, 178)": 5,
+    "rgb(235, 235, 235)": 1
+   },
+   "overflow": [
+    390,
+    390
+   ],
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "n": 1,
+      "targets": [
+       ".waambat-scroll-rail"
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-valid-attr-value",
+      "n": 2
+     },
+     {
+      "id": "color-contrast",
+      "n": 1
+     },
+     {
+      "id": "video-caption",
+      "n": 1
+     }
+    ]
+   }
+  }
+ },
+ "consoleLog": [
+  {
+   "tag": "1440/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "1440/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "1440/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "warning",
+   "text": "Allow attribute will take precedence over 'allowfullscreen'."
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a65a8268a76' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a65a8298a76' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a65a8288a76' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a725d408a76' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a72b843e749' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a732864e749' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a73787ae749' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a737879e749' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 401 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a73d899e749' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a74a8d6e749' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a753918e749' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6a753917e749' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "warning",
+   "text": "[Cloudflare Turnstile] Turnstile has already been rendered in this container. The render attempt was rejected."
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "warning",
+   "text": "No available adapters."
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "warning",
+   "text": "Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('http://localhost:3287') does not match the recipient window's origin ('https://player.vimeo.com')."
+  },
+  {
+   "tag": "1440/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "error",
+   "text": "ErrorUtils caught an error:\n\nGot unexpected null or undefined\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 137, clientTime: 1794705446, extra: Object, guardList: Array(2), hash: zb2a2o}"
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "1440/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "390/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "390/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "warning",
+   "text": "Allow attribute will take precedence over 'allowfullscreen'."
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b22fed6e671' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b22fedbe671' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b2f5e99e671' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b302bcc7b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b308bda7b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b308bdc7b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b30dbf07b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b30dbee7b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 401 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b314c037b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b319c117b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b319c137b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa6b320c327b16' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "warning",
+   "text": "[Cloudflare Turnstile] Turnstile has already been rendered in this container. The render attempt was rejected."
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "warning",
+   "text": "No available adapters."
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "warning",
+   "text": "Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('http://localhost:3287') does not match the recipient window's origin ('https://player.vimeo.com')."
+  },
+  {
+   "tag": "390/art-by-waambat",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "error",
+   "text": "ErrorUtils caught an error:\n\nGot unexpected null or undefined\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 137, clientTime: 1794705477, extra: Object, guardList: Array(2), hash: zb2a2o}"
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'attribution-reporting'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "warning",
+   "text": "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'."
+  },
+  {
+   "tag": "390/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  },
+  {
+   "tag": "390/instagram",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_FAILED"
+  }
+ ],
+ "blocked": [
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=g8ZYqxCbbcEMwAgR&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C363%2C-76670628%2C27058999%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C30447%2C18705%2C26008%2C9670%2C3346%2C15426%2C661%2C9404%2C23826%2C9500%2C31514%2C65163%2C20589%2C4199%2C39295%2C59015%2C1168%2C8130%2C1538%2C28668%2C4115%2C11462%2C12282%2C34006%2C13330%2C26539%2C3844%2C18498%2C6471%2C18044%2C4461%2C2513%2C1180%2C11204%2C22089%2C18134%2C2%2C5702%2C6957%2C2008%2C120%2C21711%2C4594%2C6340%2C2940%2C760%2C8204%2C2266%2C4783%2C8893%2C5412%2C1398%2C7809%2C9786%2C2263%2C6635%2C3421%2C1814%2C4270%2C451%2C3811%2C750%2C1627%2C441%2C4822%2C973%2C2529%2C3124%2C1646%2C10675%2C150%2C7312%2C93%2C4565%2C490%2C7778%2C3040%2C1573%2C582%2C205%2C1799%2C1385%2C434%2C136%2C12921%2C817%2C8435%2C229%2C43%2C24%2C3%2C203%2C825%2C571%2C1599%2C554%2C6232%2C4381%2C15040%2C6430&cl=1018714565&seq=1&event=streamingstats&docid=-aGTNS13SDU&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&vps=0.000:N,0.000:ER&cmt=0.000:0.000,0.000:0.000&error=0.000:auth::0.000:0;a6s.0;r.Sorry__this_content_is_age-restricted&vis=0.000:0&bh=0.000:0.000&qclc=ChBnOFpZcXhDYmJjRU13QWdSEAE",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=29kxeGH3YSrKUs6F&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C363%2C-76670628%2C494890%2C26564109%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C30446%2C18706%2C26008%2C13016%2C15426%2C661%2C9404%2C23826%2C9500%2C25958%2C29513%2C41207%2C20588%2C4199%2C39295%2C59015%2C1168%2C8131%2C1537%2C18088%2C10580%2C4115%2C11462%2C46288%2C13330%2C24251%2C2288%2C3844%2C17890%2C609%2C6469%2C22507%2C2512%2C1180%2C33292%2C18135%2C3%2C5701%2C6957%2C2008%2C121%2C21709%2C4595%2C9280%2C760%2C8204%2C2266%2C4783%2C8892%2C4712%2C2098%2C7810%2C9786%2C2263%2C42%2C6593%2C3421%2C1814%2C4270%2C451%2C3810%2C752%2C1626%2C441%2C4822%2C974%2C2528%2C2779%2C345%2C1646%2C6329%2C4346%2C148%2C7313%2C94%2C4565%2C490%2C7778%2C3040%2C2155%2C206%2C1797%2C1386%2C570%2C12921%2C817%2C8652%2C12%2C44%2C229%2C825%2C571%2C1599%2C554%2C250%2C5982%2C2803%2C16617%2C6431&cl=1018714565&seq=1&event=streamingstats&docid=mkIoJZdKIAE&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&vps=0.000:N,0.000:ER&cmt=0.000:0.000,0.000:0.000&error=0.000:auth::0.000:0;a6s.0;r.Sorry__this_content_is_age-restricted&vis=0.000:0&bh=0.000:0.000&qclc=ChAyOWt4ZUdIM1lTcktVczZGEAE",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=29kxeGH3YSrKUs6F&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C363%2C-76670628%2C494890%2C26564109%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C30446%2C18706%2C26008%2C13016%2C15426%2C661%2C9404%2C23826%2C9500%2C25958%2C29513%2C41207%2C20588%2C4199%2C39295%2C59015%2C1168%2C8131%2C1537%2C18088%2C10580%2C4115%2C11462%2C46288%2C13330%2C24251%2C2288%2C3844%2C17890%2C609%2C6469%2C22507%2C2512%2C1180%2C33292%2C18135%2C3%2C5701%2C6957%2C2008%2C121%2C21709%2C4595%2C9280%2C760%2C8204%2C2266%2C4783%2C8892%2C4712%2C2098%2C7810%2C9786%2C2263%2C42%2C6593%2C3421%2C1814%2C4270%2C451%2C3810%2C752%2C1626%2C441%2C4822%2C974%2C2528%2C2779%2C345%2C1646%2C6329%2C4346%2C148%2C7313%2C94%2C4565%2C490%2C7778%2C3040%2C2155%2C206%2C1797%2C1386%2C570%2C12921%2C817%2C8652%2C12%2C44%2C229%2C825%2C571%2C1599%2C554%2C250%2C5982%2C2803%2C16617%2C6431&cl=1018714565&seq=2&event=streamingstats&docid=mkIoJZdKIAE&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&ctmp=dttg:t.5;dtt.1;gl.0;tm.0;mtm.0;dtta.0&vps=0.057:ER&bat=0.057:1:1&cmt=0.057:0.000&bh=0.057:0.000&qclc=ChAyOWt4ZUdIM1lTcktVczZGEAI",
+  "blocked POST https://www.youtube-nocookie.com/youtubei/v1/log_event?alt=json",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=g8ZYqxCbbcEMwAgR&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C363%2C-76670628%2C27058999%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C30447%2C18705%2C26008%2C9670%2C3346%2C15426%2C661%2C9404%2C23826%2C9500%2C31514%2C65163%2C20589%2C4199%2C39295%2C59015%2C1168%2C8130%2C1538%2C28668%2C4115%2C11462%2C12282%2C34006%2C13330%2C26539%2C3844%2C18498%2C6471%2C18044%2C4461%2C2513%2C1180%2C11204%2C22089%2C18134%2C2%2C5702%2C6957%2C2008%2C120%2C21711%2C4594%2C6340%2C2940%2C760%2C8204%2C2266%2C4783%2C8893%2C5412%2C1398%2C7809%2C9786%2C2263%2C6635%2C3421%2C1814%2C4270%2C451%2C3811%2C750%2C1627%2C441%2C4822%2C973%2C2529%2C3124%2C1646%2C10675%2C150%2C7312%2C93%2C4565%2C490%2C7778%2C3040%2C1573%2C582%2C205%2C1799%2C1385%2C434%2C136%2C12921%2C817%2C8435%2C229%2C43%2C24%2C3%2C203%2C825%2C571%2C1599%2C554%2C6232%2C4381%2C15040%2C6430&cl=1018714565&seq=2&event=streamingstats&docid=-aGTNS13SDU&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&ctmp=dttg:t.6;dtt.1;gl.0;tm.0;mtm.0;dtta.0&vps=0.152:ER&bat=0.152:1:1&cmt=0.152:0.000&bh=0.152:0.000&qclc=ChBnOFpZcXhDYmJjRU13QWdSEAI",
+  "blocked POST https://www.youtube-nocookie.com/youtubei/v1/log_event?alt=json",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=pTuU6b6NKovhVITp&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C364%2C-76670629%2C494889%2C26564110%2C34656%2C124674%2C117689%2C9252%2C16509%2C6258%2C16948%2C100702%2C15105%2C25059%2C4174%2C30447%2C18705%2C26008%2C13016%2C1191%2C14235%2C661%2C9404%2C23826%2C9500%2C19954%2C35518%2C41205%2C20589%2C4199%2C39295%2C59015%2C1168%2C8130%2C1538%2C20449%2C8219%2C4115%2C11462%2C46288%2C13330%2C26539%2C3843%2C18500%2C28976%2C2512%2C1180%2C33292%2C18134%2C3%2C5702%2C6957%2C2008%2C120%2C21710%2C4595%2C9280%2C760%2C8204%2C2266%2C4783%2C8892%2C14620%2C1369%2C8417%2C2264%2C6634%2C2786%2C635%2C1814%2C4270%2C451%2C3810%2C752%2C1626%2C441%2C4822%2C973%2C185%2C2344%2C3124%2C1646%2C6330%2C4345%2C148%2C7407%2C4565%2C490%2C7778%2C3040%2C2155%2C205%2C3184%2C570%2C10842%2C2079%2C279%2C538%2C8664%2C43%2C24%2C3%2C202%2C826%2C571%2C1599%2C554%2C247%2C5985%2C25850&cl=1018714565&seq=1&event=streamingstats&docid=sp8J4WBW8TY&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&vps=0.000:N,0.000:ER&cmt=0.000:0.000,0.000:0.000&error=0.000:auth::0.000:0;a6s.0;r.Sorry__this_content_is_age-restricted&vis=0.000:0&bh=0.000:0.000&qclc=ChBwVHVVNmI2TktvdmhWSVRwEAE",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=pTuU6b6NKovhVITp&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C364%2C-76670629%2C494889%2C26564110%2C34656%2C124674%2C117689%2C9252%2C16509%2C6258%2C16948%2C100702%2C15105%2C25059%2C4174%2C30447%2C18705%2C26008%2C13016%2C1191%2C14235%2C661%2C9404%2C23826%2C9500%2C19954%2C35518%2C41205%2C20589%2C4199%2C39295%2C59015%2C1168%2C8130%2C1538%2C20449%2C8219%2C4115%2C11462%2C46288%2C13330%2C26539%2C3843%2C18500%2C28976%2C2512%2C1180%2C33292%2C18134%2C3%2C5702%2C6957%2C2008%2C120%2C21710%2C4595%2C9280%2C760%2C8204%2C2266%2C4783%2C8892%2C14620%2C1369%2C8417%2C2264%2C6634%2C2786%2C635%2C1814%2C4270%2C451%2C3810%2C752%2C1626%2C441%2C4822%2C973%2C185%2C2344%2C3124%2C1646%2C6330%2C4345%2C148%2C7407%2C4565%2C490%2C7778%2C3040%2C2155%2C205%2C3184%2C570%2C10842%2C2079%2C279%2C538%2C8664%2C43%2C24%2C3%2C202%2C826%2C571%2C1599%2C554%2C247%2C5985%2C25850&cl=1018714565&seq=2&event=streamingstats&docid=sp8J4WBW8TY&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&ctmp=dttg:t.5;dtt.1;gl.0;tm.0;mtm.0;dtta.0&vps=0.074:ER&bat=0.074:1:1&cmt=0.074:0.000&bh=0.074:0.000&qclc=ChBwVHVVNmI2TktvdmhWSVRwEAI",
+  "blocked POST https://www.youtube-nocookie.com/youtubei/v1/log_event?alt=json",
+  "blocked POST https://player.vimeo.com/cdn-cgi/challenge-platform/h/b/precursor/f8df4d4a0cd6/0.758438299012159:1794701418:sOZ6oyoxwSOaqx_1qE7qYFXYl4d0oYasZR-ieJTiWxY/a5aa6a7458b9e749",
+  "blocked POST https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/4032286737:1794701413:AfVjZoMHUW3DJz3dOVmfm7cZzxBaCWRCg5E0Ee_m1K8/a5aa6a769d9479a0/Cv5NFnLID_X9p9flZqruPC5ByT5fLnvdf6RF-Z7yUTnWMlvDFDQRWjCRZq2F2RmZU10ovea04HzNycWqcvHj8K8djot7TCyHYY4qjsXxLU-4anrMUyxkE6riHj_VV8wlZQ",
+  "blocked POST https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/4032286737:1794701413:AfVjZoMHUW3DJz3dOVmfm7cZzxBaCWRCg5E0Ee_m1K8/a5aa6a769d9479a0/Cv5NFnLID_X9p9flZqruPC5ByT5fLnvdf6RF-Z7yUTnWMlvDFDQRWjCRZq2F2RmZU10ovea04HzNycWqcvHj8K8djot7TCyHYY4qjsXxLU-4anrMUyxkE6riHj_VV8wlZQ",
+  "blocked POST https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/4032286737:1794701413:AfVjZoMHUW3DJz3dOVmfm7cZzxBaCWRCg5E0Ee_m1K8/a5aa6a769d9479a0/Cv5NFnLID_X9p9flZqruPC5ByT5fLnvdf6RF-Z7yUTnWMlvDFDQRWjCRZq2F2RmZU10ovea04HzNycWqcvHj8K8djot7TCyHYY4qjsXxLU-4anrMUyxkE6riHj_VV8wlZQ",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=-Nq1uJ7hILbtePAN&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C363%2C-76670628%2C27058999%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C35403%2C34393%2C30906%2C15105%2C25059%2C4174%2C30447%2C18705%2C26008%2C13016%2C15426%2C661%2C9404%2C6629%2C17197%2C9500%2C25958%2C70720%2C20588%2C4200%2C39294%2C59015%2C1168%2C8130%2C1539%2C28666%2C4116%2C11462%2C12283%2C34005%2C10304%2C3026%2C26539%2C3844%2C17890%2C609%2C17721%2C11254%2C2513%2C1180%2C11205%2C22088%2C18133%2C3%2C5702%2C6957%2C2008%2C120%2C21711%2C4594%2C6341%2C2939%2C760%2C8204%2C2266%2C4783%2C8893%2C6810%2C3924%2C3885%2C9786%2C2264%2C6634%2C3421%2C1805%2C9%2C4270%2C451%2C3810%2C751%2C430%2C1196%2C442%2C4822%2C973%2C2529%2C3124%2C1646%2C10675%2C150%2C7405%2C4565%2C490%2C7778%2C5195%2C205%2C1798%2C1386%2C571%2C12921%2C816%2C259%2C8394%2C12%2C43%2C23%2C3%2C1028%2C571%2C1599%2C554%2C249%2C5984%2C7764%2C11656%2C4496%2C1933%2C4599&cl=1018714565&seq=1&event=streamingstats&docid=-aGTNS13SDU&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&vps=0.000:N,0.000:ER&cmt=0.000:0.000,0.000:0.000&error=0.000:auth::0.000:0;a6s.0;r.Sorry__this_content_is_age-restricted&vis=0.000:0&bh=0.000:0.000&qclc=ChAtTnExdUo3aElMYnRlUEFOEAE",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=1b0pDAzbp8pLoT9z&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C364%2C-76670629%2C494888%2C26564111%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C30447%2C18705%2C26008%2C13016%2C15426%2C661%2C9404%2C23826%2C9500%2C25958%2C29514%2C41205%2C20589%2C4200%2C39294%2C59015%2C1168%2C8131%2C1537%2C32783%2C11462%2C46288%2C10303%2C3027%2C24251%2C2288%2C3844%2C18498%2C6471%2C11252%2C6791%2C4462%2C2513%2C1180%2C3879%2C7325%2C22089%2C18134%2C2%2C5702%2C6957%2C2008%2C120%2C21710%2C4595%2C9280%2C760%2C967%2C7237%2C2266%2C4783%2C8893%2C14619%2C9786%2C2264%2C6634%2C2786%2C635%2C1814%2C4270%2C451%2C3810%2C751%2C430%2C1196%2C442%2C4822%2C974%2C1312%2C1216%2C3123%2C1647%2C10675%2C7555%2C4565%2C490%2C7778%2C3040%2C1573%2C582%2C206%2C1797%2C1386%2C340%2C230%2C380%2C12542%2C816%2C8664%2C273%2C825%2C571%2C1599%2C125%2C678%2C5983%2C2803%2C23047&cl=1018714565&seq=1&event=streamingstats&docid=mkIoJZdKIAE&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&vps=0.000:N,0.000:ER&cmt=0.000:0.000,0.000:0.000&error=0.000:auth::0.000:0;a6s.0;r.Sorry__this_content_is_age-restricted&vis=0.000:0&bh=0.000:0.000&qclc=ChAxYjBwREF6YnA4cExvVDl6EAE",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=-Nq1uJ7hILbtePAN&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C363%2C-76670628%2C27058999%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C35403%2C34393%2C30906%2C15105%2C25059%2C4174%2C30447%2C18705%2C26008%2C13016%2C15426%2C661%2C9404%2C6629%2C17197%2C9500%2C25958%2C70720%2C20588%2C4200%2C39294%2C59015%2C1168%2C8130%2C1539%2C28666%2C4116%2C11462%2C12283%2C34005%2C10304%2C3026%2C26539%2C3844%2C17890%2C609%2C17721%2C11254%2C2513%2C1180%2C11205%2C22088%2C18133%2C3%2C5702%2C6957%2C2008%2C120%2C21711%2C4594%2C6341%2C2939%2C760%2C8204%2C2266%2C4783%2C8893%2C6810%2C3924%2C3885%2C9786%2C2264%2C6634%2C3421%2C1805%2C9%2C4270%2C451%2C3810%2C751%2C430%2C1196%2C442%2C4822%2C973%2C2529%2C3124%2C1646%2C10675%2C150%2C7405%2C4565%2C490%2C7778%2C5195%2C205%2C1798%2C1386%2C571%2C12921%2C816%2C259%2C8394%2C12%2C43%2C23%2C3%2C1028%2C571%2C1599%2C554%2C249%2C5984%2C7764%2C11656%2C4496%2C1933%2C4599&cl=1018714565&seq=2&event=streamingstats&docid=-aGTNS13SDU&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&ctmp=dttg:t.6;dtt.1;gl.0;tm.0;mtm.0;dtta.0&vps=0.048:ER&bat=0.048:1:1&cmt=0.048:0.000&bh=0.048:0.000&qclc=ChAtTnExdUo3aElMYnRlUEFOEAI",
+  "blocked POST https://www.youtube-nocookie.com/youtubei/v1/log_event?alt=json",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=1b0pDAzbp8pLoT9z&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C364%2C-76670629%2C494888%2C26564111%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C30447%2C18705%2C26008%2C13016%2C15426%2C661%2C9404%2C23826%2C9500%2C25958%2C29514%2C41205%2C20589%2C4200%2C39294%2C59015%2C1168%2C8131%2C1537%2C32783%2C11462%2C46288%2C10303%2C3027%2C24251%2C2288%2C3844%2C18498%2C6471%2C11252%2C6791%2C4462%2C2513%2C1180%2C3879%2C7325%2C22089%2C18134%2C2%2C5702%2C6957%2C2008%2C120%2C21710%2C4595%2C9280%2C760%2C967%2C7237%2C2266%2C4783%2C8893%2C14619%2C9786%2C2264%2C6634%2C2786%2C635%2C1814%2C4270%2C451%2C3810%2C751%2C430%2C1196%2C442%2C4822%2C974%2C1312%2C1216%2C3123%2C1647%2C10675%2C7555%2C4565%2C490%2C7778%2C3040%2C1573%2C582%2C206%2C1797%2C1386%2C340%2C230%2C380%2C12542%2C816%2C8664%2C273%2C825%2C571%2C1599%2C125%2C678%2C5983%2C2803%2C23047&cl=1018714565&seq=2&event=streamingstats&docid=mkIoJZdKIAE&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&ctmp=dttg:t.6;dtt.1;gl.0;tm.0;mtm.0;dtta.0&vps=0.042:ER&bat=0.042:1:1&cmt=0.042:0.000&bh=0.042:0.000&qclc=ChAxYjBwREF6YnA4cExvVDl6EAI",
+  "blocked POST https://www.youtube-nocookie.com/youtubei/v1/log_event?alt=json",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=3mKfRi-QrqgcE1pl&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C363%2C-76670628%2C27058999%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C30446%2C18706%2C26008%2C28442%2C661%2C9404%2C23826%2C9500%2C117266%2C4199%2C39295%2C59015%2C1168%2C8131%2C1538%2C32782%2C11462%2C46288%2C10304%2C3026%2C26539%2C53831%2C1180%2C51427%2C3%2C5701%2C6957%2C2008%2C121%2C26304%2C9280%2C760%2C8204%2C2266%2C4783%2C8892%2C6811%2C7809%2C9786%2C2263%2C6635%2C2787%2C634%2C1814%2C4270%2C451%2C6188%2C441%2C4822%2C973%2C2529%2C2780%2C1990%2C5103%2C5572%2C7555%2C4565%2C490%2C7778%2C3041%2C2154%2C205%2C3184%2C571%2C11041%2C587%2C1292%2C817%2C259%2C6966%2C1340%2C87%2C80%2C205%2C825%2C571%2C1599%2C554%2C6233%2C19419%2C6431&cl=1018714565&seq=1&event=streamingstats&docid=sp8J4WBW8TY&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&vps=0.000:N,0.000:ER&cmt=0.000:0.000,0.000:0.000&error=0.000:auth::0.000:0;a6s.0;r.Sorry__this_content_is_age-restricted&vis=0.000:0&bh=0.000:0.000&qclc=ChAzbUtmUmktUXJxZ2NFMXBsEAE",
+  "blocked POST https://www.youtube-nocookie.com/api/stats/qoe?cpn=3mKfRi-QrqgcE1pl&el=embedded&ns=yt&fexp=v1%2C100673025%2C1884%2C363%2C-76670628%2C27058999%2C34656%2C124674%2C117689%2C9252%2C16509%2C23206%2C100702%2C15105%2C25059%2C4174%2C30446%2C18706%2C26008%2C28442%2C661%2C9404%2C23826%2C9500%2C117266%2C4199%2C39295%2C59015%2C1168%2C8131%2C1538%2C32782%2C11462%2C46288%2C10304%2C3026%2C26539%2C53831%2C1180%2C51427%2C3%2C5701%2C6957%2C2008%2C121%2C26304%2C9280%2C760%2C8204%2C2266%2C4783%2C8892%2C6811%2C7809%2C9786%2C2263%2C6635%2C2787%2C634%2C1814%2C4270%2C451%2C6188%2C441%2C4822%2C973%2C2529%2C2780%2C1990%2C5103%2C5572%2C7555%2C4565%2C490%2C7778%2C3041%2C2154%2C205%2C3184%2C571%2C11041%2C587%2C1292%2C817%2C259%2C6966%2C1340%2C87%2C80%2C205%2C825%2C571%2C1599%2C554%2C6233%2C19419%2C6431&cl=1018714565&seq=2&event=streamingstats&docid=sp8J4WBW8TY&cbrand=apple&cbr=HeadlessChrome&cbrver=156.0.8078.4&c=WEB_EMBEDDED_PLAYER&cver=2.20261113.01.00&cplayer=UNIPLAYER&cos=Macintosh&cosver=10_15_7&cplatform=DESKTOP&ctmp=dttg:t.5;dtt.1;gl.0;tm.0;mtm.0;dtta.0&vps=0.021:ER&bat=0.021:1:1&cmt=0.021:0.000&bh=0.021:0.000&qclc=ChAzbUtmUmktUXJxZ2NFMXBsEAI",
+  "blocked POST https://www.youtube-nocookie.com/youtubei/v1/log_event?alt=json",
+  "blocked POST https://player.vimeo.com/cdn-cgi/challenge-platform/h/b/precursor/f8df4d4a0cd6/0.758438299012159:1794701418:sOZ6oyoxwSOaqx_1qE7qYFXYl4d0oYasZR-ieJTiWxY/a5aa6b314c027b16",
+  "blocked POST https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/4032286737:1794701413:AfVjZoMHUW3DJz3dOVmfm7cZzxBaCWRCg5E0Ee_m1K8/a5aa6b33bf7f1e9b/CiJ4hMr0fWslChe5CakVawSge82AyI6y3QMKR_lYmRrbFR4QA7oMHo7lEOnq6VXzwOGZT1PM_b_7vwcaRm1MslLmFYTv7z7grGOPnLQuWGI_xuWPQ3xsTMilxn-DRWAQpg",
+  "blocked POST https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/4032286737:1794701413:AfVjZoMHUW3DJz3dOVmfm7cZzxBaCWRCg5E0Ee_m1K8/a5aa6b33bf7f1e9b/CiJ4hMr0fWslChe5CakVawSge82AyI6y3QMKR_lYmRrbFR4QA7oMHo7lEOnq6VXzwOGZT1PM_b_7vwcaRm1MslLmFYTv7z7grGOPnLQuWGI_xuWPQ3xsTMilxn-DRWAQpg",
+  "blocked POST https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/4032286737:1794701413:AfVjZoMHUW3DJz3dOVmfm7cZzxBaCWRCg5E0Ee_m1K8/a5aa6b33bf7f1e9b/CiJ4hMr0fWslChe5CakVawSge82AyI6y3QMKR_lYmRrbFR4QA7oMHo7lEOnq6VXzwOGZT1PM_b_7vwcaRm1MslLmFYTv7z7grGOPnLQuWGI_xuWPQ3xsTMilxn-DRWAQpg",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events",
+  "blocked POST https://graph.instagram.com/logging_client_events"
+ ]
+}

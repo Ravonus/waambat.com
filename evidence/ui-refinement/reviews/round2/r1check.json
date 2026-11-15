@@ -1,0 +1,73 @@
+{
+ "intercepted": [
+  "http://localhost:3287/_kerf/x/waambat/contact"
+ ],
+ "select-none": {
+  "active": {
+   "color": "rgb(255, 148, 178)",
+   "bg": "color(srgb 0.882353 0.737255 0.760784 / 0.2)",
+   "shadow": "rgb(255, 148, 178) 3px 0px 0px 0px inset",
+   "outline": "rgb(255, 148, 178) none 3px"
+  },
+  "other": {
+   "color": "rgb(235, 235, 235)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "outline": "rgb(235, 235, 235) none 3px"
+  },
+  "listBg": "color(srgb 0.0705882 0.0589804 0.0608627)",
+  "text": "Collaboration or exhibition"
+ },
+ "fieldFocus-none": {
+  "outline": "rgb(235, 235, 235) none 3px",
+  "shadow": "rgb(225, 188, 194) 0px 0px 0px 1.5px inset, color(srgb 0.882353 0.737255 0.76078"
+ },
+ "select-active": {
+  "active": {
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0.2)",
+   "shadow": "none",
+   "outline": "rgba(26, 235, 255, 0.8) solid 2px"
+  },
+  "other": {
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "outline": "rgb(255, 255, 255) none 3px"
+  },
+  "listBg": "rgb(0, 0, 0)",
+  "text": "Collaboration or exhibition"
+ },
+ "fieldFocus-active": {
+  "outline": "rgba(26, 235, 255, 0.8) solid 2px",
+  "shadow": "none"
+ },
+ "clientValidation": [
+  {
+   "name": "name",
+   "ariaInvalid": "false",
+   "userInvalid": true
+  },
+  {
+   "name": "email",
+   "ariaInvalid": "false",
+   "userInvalid": true
+  },
+  {
+   "name": "message",
+   "ariaInvalid": "false",
+   "userInvalid": true
+  }
+ ],
+ "serverError": {
+  "text": "Your message could not be saved. Please try again.",
+  "color": "rgb(255, 112, 112)",
+  "tone": "error",
+  "focused": false
+ },
+ "retry": "×\n\nTAKE A LITTLE WAAMBAT WITH YOU\n\nReady when you are.\n\nThe original quality, in a format you can keep.\n\nWEBP · 0.2 MB\n\nSave original\n↓\nBack to the artwork",
+ "navPressed": "rgb(255, 148, 178)",
+ "archiveCloseHover": "rgb(241, 209, 214)",
+ "adminWordmarkHover": "rgb(255, 148, 178)",
+ "adminButtons": []
+}

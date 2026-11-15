@@ -1,0 +1,72 @@
+
+[nitro] ◐ Building [Client]
+
+ WARN  advancedChunks option is deprecated, please use codeSplitting instead.
+
+[plugin kerf] W017 `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+  help: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+[plugin kerf] W017 `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+  help: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+[plugin kerf] W017 `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+  help: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+[plugin kerf] W017 `errors.value[question.id]` reads one entry of the whole `errors.value` in every row, so any change to `errors.value` re-runs every row, not just the row whose entry changed.
+  help: Pass the entry with `error={errors.get(question.id)}`, or pass the box (`errors={errors}`, typed `State<…>`) and read `errors.get(…)` in `<FormField>`: a row then re-runs only when its own entry changes.
+
+[nitro] ◐ Building [SSR]
+[plugin kerf] W017 `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+  help: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+[plugin kerf] W017 `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+  help: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+[plugin kerf] W017 `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+  help: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+[plugin kerf] W017 `errors.value[question.id]` reads one entry of the whole `errors.value` in every row, so any change to `errors.value` re-runs every row, not just the row whose entry changed.
+  help: Pass the entry with `error={errors.get(question.id)}`, or pass the box (`errors={errors}`, typed `State<…>`) and read `errors.get(…)` in `<FormField>`: a row then re-runs only when its own entry changes.
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0mnode_modules/@kerf-js/core/src/media.tsx is dynamically imported by src/components/MediaDownload.tsx but also statically imported by src/components/OptimizedVideo.tsx, src/components/SourceImage.tsx, dynamic import will not move module into another chunk.
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/api.server.ts is dynamically imported by .kerf/slots/server.extension.ts but also statically imported by \0virtual:kerf/fns, dynamic import will not move module into another chunk.
+
+
+[nitro] ◐ Building [Nitro] (preset: node-server, compatibility: 2026-11-09)
+[nitro] ✔ Generated public .output/public
+[nitro] ℹ Initializing prerenderer
+MISSING_CODE_SPLITTING_GROUP_DEBUG_NAME
+`output.codeSplitting.groups[0].name` is a function. Set `output.codeSplitting.groups[0].debugName` so the bundler timing report can identify this group.
+ℹ Generated .output/nitro.json
+[nitro] ℹ Prerendering 1 routes
+[nitro]   ├─ /_kerf/og-routes (377ms)
+[nitro] ℹ Prerendered 1 routes in 3.33 seconds
+`output.codeSplitting.groups[0].name` is a function. Set `output.codeSplitting.groups[0].debugName` so the bundler timing report can identify this group.
+ℹ Tracing dependencies:
+- nodemailer (8.0.5)
+- sharp (0.35.5)
+- css-tree (3.2.1, 2.2.1)
+- csso (5.0.5)
+- @takumi-rs/core (2.18.2)
+- @takumi-rs/helpers (2.18.2)
+- @img/colour (1.1.0)
+- @img/sharp-darwin-arm64 (0.35.5)
+- @takumi-rs/core-darwin-arm64 (2.18.2)
+- semver (7.8.6)
+- detect-libc (2.1.2)
+- mdn-data (2.27.1, 2.0.28)
+- source-map-js (1.2.2)
+- @img/sharp-libvips-darwin-arm64 (1.3.4)
+✔ Traced 14 dependencies (408 files) in 521ms.
+ℹ Ensure your production environment matches the builder OS and architecture (darwin-arm64) to avoid native module issues.
+[33m[PLUGIN_TIMINGS] [0mJavaScript callbacks ran for 3.5s of this 3.6s build (98%).
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - plugin nitro:virtual load (81%, 2.9s, 11 calls)
+Additional callback time came from the callbacks below and from callbacks under 1s.
+2 callbacks are listed without a time. Their calls overlapped, so the time inside one call includes work from other calls. To find their cost, profile the build with `node --cpu-prof`:
+  - plugin nitro:virtual-deps resolveId (31 calls)
+  - plugin nitro:externals resolveId (16 calls)
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
+
+ℹ Generated .output/nitro.json
+
+[nitro] ✔ You can preview this build using npx vite preview
+kerf.config.ts:1:1  L000 warning  No built pages to audit: run `kerf build` first, or pass `--url`.
+    fix: Install Chrome, or set `KERF_CHROME`; `kerf audit --url <deploy>` audits a running site
+kerf build: node → /Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/kerf/.output/, 0 functions in the contract, 0 pages audited (22283 ms)
+ffmpeg is not installed by kerf. Builds with x264/x265 are GPL; distributing one can bind what you ship with it.
+H.264, HEVC and AAC encoders fall under patent pools (Via LA, Access Advance). AV1, VP9 and Opus are royalty-free.

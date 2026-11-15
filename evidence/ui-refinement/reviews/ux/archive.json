@@ -1,0 +1,133 @@
+{
+  "expandOnHover": {
+    "opacity": "1",
+    "color": "rgb(255, 255, 255)"
+  },
+  "expandHover": {
+    "color": "rgb(241, 209, 214)",
+    "border": "rgb(225, 188, 194)"
+  },
+  "viewerOpen": {
+    "open": true,
+    "focus": "Close archive viewer",
+    "closeColor": "rgb(235, 235, 235)",
+    "hasIframe": true,
+    "hasVideoControls": false,
+    "buttons": [
+      [
+        "×",
+        "rgb(235, 235, 235)"
+      ],
+      [
+        "info",
+        "rgb(235, 235, 235)"
+      ],
+      [
+        "prev",
+        "rgb(235, 235, 235)"
+      ],
+      [
+        "next",
+        "rgb(235, 235, 235)"
+      ]
+    ]
+  },
+  "closeHover": "rgb(235, 235, 235)",
+  "closeCursor": {
+    "state": "pointer",
+    "opacity": "1",
+    "root": "active"
+  },
+  "nextHover": "rgb(235, 235, 235)",
+  "afterEscape": {
+    "open": false,
+    "focus": "View Sus Singularity (2021)",
+    "overflow": ""
+  },
+  "inlineVideoControls": [
+    [
+      "View Axiom GL0w Up (2021)",
+      "1"
+    ]
+  ],
+  "videoViewer": {
+    "tag": "IFRAME",
+    "src": "https://player.vimeo.com/video/538169390?autoplay=1"
+  },
+  "cursorOverPlayer": {
+    "state": "default",
+    "opacity": "0",
+    "root": null
+  },
+  "afterCloseClick": {
+    "open": false,
+    "focus": "View Axiom GL0w Up (2021)"
+  },
+  "log": [
+    {
+      "tag": "archive",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa37afbd431dfd' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa37afbd461dfd' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa37afbd3e1dfd' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa37c35f5a1dfd' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa37cd1aa2e775' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "archive",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa37d9a97ae775' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    }
+  ]
+}

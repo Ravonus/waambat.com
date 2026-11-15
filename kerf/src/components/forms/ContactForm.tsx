@@ -12,6 +12,7 @@ export default function ContactForm({ form, preview = false, }: {
     const busy = state(false);
     const message = state("");
     const errors = state<Record<string, string>>({});
+    const failed = state(false);
     const focusStatus = (node: HTMLDivElement | null) => {
         if (node && (errors.value._form || message.value))
             node.focus();
@@ -41,6 +42,7 @@ export default function ContactForm({ form, preview = false, }: {
         writeBox(busy, true);
         writeBox(errors, {});
         writeBox(message, "");
+        writeBox(failed, false);
         try {
             const response = await fetch("/_kerf/x/waambat/contact", {
                 method: "POST",
@@ -69,6 +71,7 @@ export default function ContactForm({ form, preview = false, }: {
             writeBox(message, form.successMessage);
         }
         catch (error) {
+            writeBox(failed, true);
             writeBox(message, error instanceof Error && error.name !== "TimeoutError"
                 ? error.message
                 : "The request timed out. Your answers are still here; submitting again safely checks the same response.");
@@ -109,7 +112,7 @@ export default function ContactForm({ form, preview = false, }: {
             <span className={styles.help}>* Required</span>
           </div>
         </fieldset>
-        <div ref={focusStatus} role="status" aria-live="polite" tabIndex={-1} className={styles.status}>
+        <div ref={focusStatus} role="status" aria-live="polite" tabIndex={-1} data-tone={failed.value ? "error" : undefined} className={styles.status}>
           {errors.value._form || message.value}
         </div>
       </form>

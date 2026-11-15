@@ -1,0 +1,10 @@
+motion full
+hover header nav a.site-nav-link >> nth=1 bursts in 2s: 1
+hover header nav a.site-nav-link >> nth=3 bursts in 2s: 1
+hover header a.site-logo bursts in 2s: 1
+desktop press activations 9 /9
+touch menu activations 9 /9
+calm x {"dialog":false,"mainInert":false,"menuBtnVis":"visible","path":"/contact"}
+calm escape {"dialog":false,"mainInert":false,"menuBtnVis":"visible","path":"/contact"}
+calm link {"dialog":false,"mainInert":false,"menuBtnVis":"visible","path":"/mechanics"}
+zoom x {"before":29,"after":29,"scrolled":337}

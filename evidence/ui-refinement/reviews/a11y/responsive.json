@@ -1,0 +1,627 @@
+{
+ "overflow": [],
+ "clipped": [
+  {
+   "v": "w320",
+   "menu": {
+    "vw": 320,
+    "vh": 640,
+    "scrollH": 640,
+    "clientH": 640,
+    "overflowX": false,
+    "clippedRight": [],
+    "lowest": 567
+   }
+  },
+  {
+   "v": "w320",
+   "menuClosedUnderReduce": true,
+   "focus": "Menu"
+  },
+  {
+   "v": "w320",
+   "select": {
+    "left": 20,
+    "right": 300,
+    "top": 357,
+    "bottom": 607,
+    "vw": 320,
+    "vh": 640,
+    "docW": 320
+   }
+  },
+  {
+   "v": "w320",
+   "submit": {
+    "submitRight": 199,
+    "helpRight": 300,
+    "vw": 320
+   }
+  },
+  {
+   "v": "w320",
+   "saveDialog": {
+    "left": 16,
+    "right": 304,
+    "top": 131,
+    "bottom": 509,
+    "scrollable": false,
+    "vw": 320,
+    "vh": 640
+   }
+  },
+  {
+   "v": "w360",
+   "menu": {
+    "vw": 360,
+    "vh": 780,
+    "scrollH": 780,
+    "clientH": 780,
+    "overflowX": false,
+    "clippedRight": [],
+    "lowest": 577
+   }
+  },
+  {
+   "v": "w360",
+   "menuClosedUnderReduce": true,
+   "focus": "Menu"
+  },
+  {
+   "v": "w360",
+   "select": {
+    "left": 20,
+    "right": 340,
+    "top": 427,
+    "bottom": 677,
+    "vw": 360,
+    "vh": 780,
+    "docW": 360
+   }
+  },
+  {
+   "v": "w360",
+   "submit": {
+    "submitRight": 199,
+    "helpRight": 340,
+    "vw": 360
+   }
+  },
+  {
+   "v": "w360",
+   "saveDialog": {
+    "left": 16,
+    "right": 344,
+    "top": 201,
+    "bottom": 579,
+    "scrollable": false,
+    "vw": 360,
+    "vh": 780
+   }
+  },
+  {
+   "v": "w390",
+   "menu": {
+    "vw": 390,
+    "vh": 844,
+    "scrollH": 844,
+    "clientH": 844,
+    "overflowX": false,
+    "clippedRight": [],
+    "lowest": 581
+   }
+  },
+  {
+   "v": "w390",
+   "menuClosedUnderReduce": true,
+   "focus": null
+  },
+  {
+   "v": "w390",
+   "select": {
+    "left": 20,
+    "right": 370,
+    "top": 459,
+    "bottom": 709,
+    "vw": 390,
+    "vh": 844,
+    "docW": 390
+   }
+  },
+  {
+   "v": "w390",
+   "submit": {
+    "submitRight": 199,
+    "helpRight": 370,
+    "vw": 390
+   }
+  },
+  {
+   "v": "w390",
+   "saveDialog": {
+    "left": 0,
+    "right": 0,
+    "top": 0,
+    "bottom": 0,
+    "scrollable": false,
+    "vw": 776,
+    "vh": 1680
+   }
+  },
+  {
+   "v": "zoom200",
+   "menu": {
+    "vw": 720,
+    "vh": 450,
+    "scrollH": 606,
+    "clientH": 450,
+    "overflowX": false,
+    "clippedRight": [],
+    "lowest": 554
+   }
+  },
+  {
+   "v": "zoom200",
+   "menuClosedUnderReduce": true,
+   "focus": "Menu"
+  },
+  {
+   "v": "zoom200",
+   "select": {
+    "left": 20,
+    "right": 700,
+    "top": 262,
+    "bottom": 511,
+    "vw": 720,
+    "vh": 450,
+    "docW": 720
+   }
+  },
+  {
+   "v": "zoom200",
+   "submit": {
+    "submitRight": 199,
+    "helpRight": 700,
+    "vw": 720
+   }
+  },
+  {
+   "v": "zoom200",
+   "saveDialog": {
+    "left": 140,
+    "right": 580,
+    "top": 64,
+    "bottom": 386,
+    "scrollable": false,
+    "vw": 720,
+    "vh": 450
+   }
+  }
+ ],
+ "targets": {
+  "/": [
+   {
+    "label": "Skip to artwork",
+    "w": 1,
+    "h": 1,
+    "inline": false
+   },
+   {
+    "label": "Page scroll",
+    "w": 14,
+    "h": 832,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Instagram",
+    "w": 47,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on YouTube",
+    "w": 41,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Foundation",
+    "w": 54,
+    "h": 14,
+    "inline": false
+   }
+  ],
+  "/ordinals": [
+   {
+    "label": "Skip to artwork",
+    "w": 1,
+    "h": 1,
+    "inline": false
+   },
+   {
+    "label": "Page scroll",
+    "w": 14,
+    "h": 832,
+    "inline": false
+   },
+   {
+    "label": "waambat home",
+    "w": 181,
+    "h": 22,
+    "inline": false
+   },
+   {
+    "label": "Ordinal A",
+    "w": 67,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "Ordinal B",
+    "w": 67,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "Ordinal C",
+    "w": 68,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Instagram",
+    "w": 47,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on YouTube",
+    "w": 41,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Foundation",
+    "w": 54,
+    "h": 14,
+    "inline": false
+   }
+  ],
+  "/mechanics": [
+   {
+    "label": "Skip to artwork",
+    "w": 1,
+    "h": 1,
+    "inline": false
+   },
+   {
+    "label": "Page scroll",
+    "w": 14,
+    "h": 832,
+    "inline": false
+   },
+   {
+    "label": "waambat home",
+    "w": 181,
+    "h": 22,
+    "inline": false
+   },
+   {
+    "label": "(in discord)",
+    "w": 81,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "Canvas token",
+    "w": 98,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "Canvas",
+    "w": 53,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Instagram",
+    "w": 47,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on YouTube",
+    "w": 41,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Foundation",
+    "w": 54,
+    "h": 14,
+    "inline": false
+   }
+  ],
+  "/art-by-waambat": [
+   {
+    "label": "Skip to artwork",
+    "w": 1,
+    "h": 1,
+    "inline": false
+   },
+   {
+    "label": "Page scroll",
+    "w": 14,
+    "h": 832,
+    "inline": false
+   },
+   {
+    "label": "waambat home",
+    "w": 181,
+    "h": 22,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Instagram",
+    "w": 47,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on YouTube",
+    "w": 41,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Foundation",
+    "w": 54,
+    "h": 14,
+    "inline": false
+   }
+  ],
+  "/instagram": [
+   {
+    "label": "Skip to artwork",
+    "w": 1,
+    "h": 1,
+    "inline": false
+   },
+   {
+    "label": "Page scroll",
+    "w": 14,
+    "h": 832,
+    "inline": false
+   },
+   {
+    "label": "waambat home",
+    "w": 181,
+    "h": 22,
+    "inline": false
+   },
+   {
+    "label": "interview in Right Click Save",
+    "w": 179,
+    "h": 17,
+    "inline": true
+   },
+   {
+    "label": "Close Instagram preview",
+    "w": 120,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "Close Instagram preview",
+    "w": 120,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "Close Instagram preview",
+    "w": 120,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "Close Instagram preview",
+    "w": 120,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "Close Instagram preview",
+    "w": 120,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "Close Instagram preview",
+    "w": 120,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "Close Instagram preview",
+    "w": 120,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "Close Instagram preview",
+    "w": 120,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Instagram",
+    "w": 47,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on YouTube",
+    "w": 41,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Foundation",
+    "w": 54,
+    "h": 14,
+    "inline": false
+   }
+  ],
+  "/blog-press": [
+   {
+    "label": "Skip to artwork",
+    "w": 1,
+    "h": 1,
+    "inline": false
+   },
+   {
+    "label": "Page scroll",
+    "w": 14,
+    "h": 832,
+    "inline": false
+   },
+   {
+    "label": "waambat home",
+    "w": 181,
+    "h": 22,
+    "inline": false
+   },
+   {
+    "label": "Open original source ↗",
+    "w": 133,
+    "h": 15,
+    "inline": false
+   },
+   {
+    "label": "Open original source ↗",
+    "w": 133,
+    "h": 15,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Instagram",
+    "w": 47,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on YouTube",
+    "w": 41,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Foundation",
+    "w": 54,
+    "h": 14,
+    "inline": false
+   }
+  ],
+  "/bio-waambat": [
+   {
+    "label": "Skip to artwork",
+    "w": 1,
+    "h": 1,
+    "inline": false
+   },
+   {
+    "label": "Page scroll",
+    "w": 14,
+    "h": 832,
+    "inline": false
+   },
+   {
+    "label": "waambat home",
+    "w": 181,
+    "h": 22,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Instagram",
+    "w": 47,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on YouTube",
+    "w": 41,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Foundation",
+    "w": 54,
+    "h": 14,
+    "inline": false
+   }
+  ],
+  "/contact-waambat": [
+   {
+    "label": "Skip to artwork",
+    "w": 1,
+    "h": 1,
+    "inline": false
+   },
+   {
+    "label": "Page scroll",
+    "w": 14,
+    "h": 832,
+    "inline": false
+   },
+   {
+    "label": "waambat home",
+    "w": 181,
+    "h": 22,
+    "inline": false
+   },
+   {
+    "label": "Join the WAAMBAT Chat discord",
+    "w": 234,
+    "h": 17,
+    "inline": true
+   },
+   {
+    "label": "twitter @waambat",
+    "w": 129,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "IG @waambat",
+    "w": 98,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "IG backup @waam.bat",
+    "w": 159,
+    "h": 17,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Instagram",
+    "w": 47,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on YouTube",
+    "w": 41,
+    "h": 14,
+    "inline": false
+   },
+   {
+    "label": "WAAMBAT on Foundation",
+    "w": 54,
+    "h": 14,
+    "inline": false
+   }
+  ]
+ }
+}

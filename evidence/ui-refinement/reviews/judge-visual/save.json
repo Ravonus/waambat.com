@@ -1,0 +1,34 @@
+{
+ "save": {
+  "buttons": {
+   "dialogBg": "rgb(18, 15, 16)",
+   "border": "rgb(113, 94, 97)",
+   "backdropFilter": "none",
+   "text": "×TAKE A LITTLE WAAMBAT WITH YOUFile unavailable.The original quality, in a format you can keep.This source has not provided a downloadable original.Back to the ",
+   "buttons": [
+    {
+     "t": "×",
+     "c": "rgb(225, 188, 194)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "rgb(225, 188, 194)"
+    },
+    {
+     "t": "Back to the artwork",
+     "c": "rgb(192, 170, 183)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "rgb(192, 170, 183)"
+    }
+   ]
+  },
+  "backdrop": "none | rgba(0, 0, 0, 0.667)",
+  "closedAfterCancel": false,
+  "blocked": 0
+ },
+ "arrive": {
+  "names": [
+   "title-arrive",
+   "object-in-calm"
+  ],
+  "shadow": "rgba(148, 87, 255, 0.89) -1.34333px 0px 0px, rgba(255, 112, 112, 0.89) 1.34333px 0px 0px"
+ }
+}

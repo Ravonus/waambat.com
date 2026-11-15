@@ -172,20 +172,21 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
     onMount(() => watch(() => [direct.value, lifecycle.requested.value, lifecycle.wanted.value], () => {
         if (!direct.value || !lifecycle.requested.value)
             return;
-        const element = native.current;
+        // The <video> mounts in the same update that runs this watch, so its ref may
+        // not be attached yet: read it at call time, never capture it here.
         controls.current = {
             play: () => {
-                void element?.play().catch(() => writeBox(playing, false));
+                void native.current?.play().catch(() => writeBox(playing, false));
             },
-            pause: () => element?.pause(),
-            currentTime: () => element?.currentTime ?? 0,
+            pause: () => native.current?.pause(),
+            currentTime: () => native.current?.currentTime ?? 0,
         };
         if (lifecycle.wanted.value)
             controls.current.play();
         else
             controls.current.pause();
         return () => {
-            element?.pause();
+            native.current?.pause();
             controls.current = null;
         };
     }));

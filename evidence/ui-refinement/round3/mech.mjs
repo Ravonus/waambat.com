@@ -1,0 +1,15 @@
+import {createRequire} from 'module';
+const require=createRequire(import.meta.url);
+const {chromium}=require('/Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/kerf-media/node_modules/.pnpm/playwright-core@1.64.1_patch_hash=c37622bf578045472b8ad62ab7d049a9b7524c5208472cd532e5f24793f5701b/node_modules/playwright-core');
+const b=await chromium.launch();
+const p=await b.newPage({viewport:{width:1512,height:900}});
+const errs=[];p.on('console',m=>{if(m.type()==='error')errs.push(m.text().slice(0,160))});
+p.on('requestfailed',r=>errs.push('FAILED '+r.url().slice(0,120)+' '+r.failure()?.errorText));
+await p.goto('http://localhost:3287/mechanics',{waitUntil:'networkidle'});
+await p.evaluate(async()=>{for(let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,250));}scrollTo(0,0)});
+await p.waitForTimeout(1500);
+const items=await p.evaluate(()=>[...document.querySelectorAll('main h1,main h2,main h3,main p,main img,main video,main iframe,main a')].map(e=>{const r=e.getBoundingClientRect();const cs=getComputedStyle(e);return {t:e.tagName,cls:(e.className?.baseVal??e.className??'').toString().slice(0,60),txt:(e.innerText||'').trim().slice(0,50),src:(e.getAttribute('src')||e.href||'').slice(0,90),cur:(e.currentSrc||'').slice(0,90),nat:e.naturalWidth??e.videoWidth,complete:e.complete,x:Math.round(r.left),y:Math.round(r.top+scrollY),w:Math.round(r.width),h:Math.round(r.height),c:cs.color,fs:cs.fontSize,fw:cs.fontWeight}}));
+console.log(JSON.stringify(items,null,0).replace(/},{/g,'},\n{'));
+console.log('ERR',JSON.stringify(errs,null,1));
+await p.screenshot({path:'mech-local.png',fullPage:true});
+await b.close();

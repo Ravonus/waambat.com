@@ -212,6 +212,8 @@ export const pageBlockSchema = z
     column: z.enum(["main", "side"]).optional(),
     aspect: z.enum(["square", "portrait"]).optional(),
     ratio: z.number().min(0.25).max(4).optional(),
+    // Image display width in CSS px (as authored on the original page); may exceed the text column.
+    width: z.number().int().min(40).max(1600).optional(),
     blankLines: z.number().int().min(0).max(4).optional(),
     marks: z
       .array(

@@ -1,17 +1,40 @@
 /* Important cursor rules precede other layers and unlayered author rules. */
 @layer waambat-cursor;
 @import "tailwindcss";
+/* Defaults for UI outside a themed page (admin, overlays before hydration).
+   themeStyle() in src/lib/theme.ts emits the same names from the saved theme;
+   test/fidelity-theme.test.ts keeps these literals equal to its output. */
 @theme {
-  --color-waambat-pink: #e1bcc2;
+  --color-waambat-pink: #ff94b2;
   --color-waambat-logo: #ff94b2;
-  --color-waambat-link: #9457ff;
-  --color-waambat-hover: #fa75d0;
-  --color-waambat-link-hover: #ff7070;
+  --color-waambat-link: #e1bcc2;
   --font-sans: "Europa", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-brand:
     "amboy-inline", "Europa", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+:root {
+  /* One interactive accent family, derived from the pale pastel #e1bcc2. */
+  --ui-accent: #e1bcc2;
+  --ui-accent-hover: #f1d1d6;
+  --ui-accent-nav-hover: #ff94b2;
+  --ui-accent-pressed: #c39ca2;
+  --ui-accent-focus: #e1bcc2;
+  --ui-accent-border: #715e61;
+  --ui-accent-surface: #120f10;
+  --ui-accent-surface-strong: #201a1b;
+  --ui-accent-disabled: #5a4b4e;
+  --ui-on-accent: #221014;
+  --ui-on-accent-hover: #221014;
+  --ui-danger: #ff7070;
+  /* The cursor is the wordmark pink, stepped the same way. */
+  --ui-cursor: #ff94b2;
+  --ui-cursor-light: #ffb5c8;
+  --ui-cursor-deep: #e27092;
+}
 html {
+  /* The site is always dark: native controls must not follow a light OS. */
+  color-scheme: dark;
+  accent-color: var(--ui-accent);
   background: #000;
   color: #ebebeb;
   font-family: var(--font-sans);
@@ -32,13 +55,14 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ff7070;
+  color: var(--ui-accent-hover);
 }
 /* The wordmark is her pink everywhere, including under the pointer or keyboard focus; the
    generic link hover above is more specific than the utility that colours it. */
 a.site-logo:hover,
-a.site-logo:focus-visible {
-  color: var(--color-waambat-logo, #ff94b2);
+a.site-logo:focus-visible,
+a.text-waambat-logo:hover {
+  color: var(--color-waambat-logo);
 }
 button {
   cursor: pointer;
@@ -47,13 +71,24 @@ button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
+/* Admin text actions share the link hover and pressed shades. */
+button.text-waambat-link:not(:disabled):hover {
+  color: var(--ui-accent-hover);
+}
+button.text-waambat-link:not(:disabled):active {
+  color: var(--ui-accent-pressed);
+}
+/* Admin and other plain text controls share the accent focus border. */
+:where(input, select, textarea):focus-visible {
+  border-color: var(--ui-accent);
+}
 :focus-visible {
-  outline: 2px solid #fa75d0;
+  outline: 2px solid var(--ui-accent-focus);
   outline-offset: 4px;
 }
 ::selection {
-  background: #9457ff;
-  color: white;
+  background: var(--ui-accent);
+  color: var(--ui-on-accent);
 }
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -114,13 +149,14 @@ button:disabled {
   mask-size: contain;
   mask-position: center;
   mask-repeat: no-repeat;
+  /* The same moving sheen, in the wordmark pink's own shades. */
   background: repeating-linear-gradient(
     120deg,
-    #fff0f6 0%,
-    #ff94b2 20%,
-    #c60064 40%,
-    #ff70c5 60%,
-    #fff0f6 80%
+    var(--ui-cursor-light) 0%,
+    var(--ui-cursor) 20%,
+    var(--ui-cursor-deep) 40%,
+    var(--ui-cursor) 60%,
+    var(--ui-cursor-light) 80%
   );
   background-size: 240% 240%;
   animation: cursor-gradient 1.4s linear infinite;
@@ -148,12 +184,33 @@ button:disabled {
 .source-heading-link {
   color: inherit;
 }
+/* A link inside a longer heading needs more than colour to stand apart. */
+.source-heading-part {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+/* Inline links share the heading pink, so a hairline underline (not colour
+   alone) separates them from the surrounding text. */
 .source-inline-link {
-  color: var(--color-waambat-link);
+  color: var(--ui-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--ui-accent-border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition:
+    color 140ms ease,
+    text-decoration-color 140ms ease;
 }
 .source-inline-link:hover,
 .source-heading-link:hover {
-  color: var(--color-waambat-link-hover);
+  color: var(--ui-accent-hover);
+  text-decoration-color: currentColor;
+}
+.source-inline-link:active,
+.source-heading-link:active {
+  color: var(--ui-accent-pressed);
 }
 .bio-columns {
   margin: 0 -17px;
@@ -246,6 +303,19 @@ button:disabled {
 .site-header {
   padding: 40px var(--site-mobile-padding) var(--site-header-bottom);
   line-height: 0;
+  /* The phone menu button (and the close X in the same spot) centres on the
+     wordmark: 40px padding + half the logo's 0.6 line box, less half the 44px
+     button. */
+  --menu-top: calc(40px + 0.3 * var(--site-logo-size, 37px) - 22px);
+}
+/* On a portrait phone the hero wordmark sits at 3.2vw with a 12.5vw line box. */
+@media (max-width: 767px) and (orientation: portrait) {
+  .site-header[data-with-hero] {
+    --menu-top: max(
+      8px,
+      calc(3.2vw + 6.25vw * var(--site-hero-wordmark-scale, 1) - 22px)
+    );
+  }
 }
 .site-logo {
   font-size: var(--site-logo-size);
@@ -273,7 +343,10 @@ button:disabled {
   color: var(--site-active-navigation);
 }
 .site-nav-link:hover {
-  color: var(--color-waambat-hover);
+  color: var(--ui-accent-nav-hover);
+}
+.site-nav-link:active {
+  color: var(--ui-cursor-deep);
 }
 .site-nav-link [role="status"] {
   position: absolute;
@@ -294,8 +367,18 @@ button:disabled {
   font-size: var(--site-small-heading-size);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--color-waambat-pink);
+  /* Small headings carry body copy on the original pages (mechanics, contact),
+     in its pale heading pink; only page titles take the wordmark pink. */
+  color: var(--ui-accent);
   margin: 14px 0 7px;
+}
+/* An image with an authored width keeps that width, centred on the column, and
+   may run wider than the text (never wider than the screen less its gutters). */
+.source-content figure[data-width] {
+  --figure-width: min(var(--block-width), calc(100vw - 2 * var(--site-mobile-padding, 20px)));
+  width: var(--figure-width);
+  margin-left: calc((100% - var(--figure-width)) / 2);
+  margin-right: calc((100% - var(--figure-width)) / 2);
 }
 .source-content .source-large-heading {
   font-size: var(--site-heading-size);
@@ -444,7 +527,7 @@ button:disabled {
 }
 .media-control:hover {
   background: #000e;
-  color: var(--color-waambat-logo);
+  color: var(--ui-accent-hover);
 }
 .media-control:focus-visible {
   outline-offset: 3px;
@@ -482,8 +565,9 @@ button:disabled {
 .inline-video-unavailable p {
   margin: 0;
 }
-.inline-video-unavailable a {
-  color: var(--color-waambat-logo);
+.inline-video-unavailable a,
+.site-theme main [role="status"] > a[target="_blank"] {
+  color: var(--ui-accent);
 }
 @media (hover: none), (pointer: coarse) {
   .archive-expand,
@@ -513,8 +597,12 @@ button:disabled {
   flex-direction: column;
   align-items: center;
 }
+/* The frame takes each item's own ratio and fits inside both the width and the
+   height limit, so next/prev reshape it and nothing is cropped on phones. */
 .archive-viewer-media {
-  height: min(600px, calc(100dvh - 60px));
+  --viewer-max-h: min(600px, calc(100dvh - 150px));
+  width: min(100%, calc(var(--viewer-max-h) * var(--viewer-ratio, 1)));
+  height: auto;
   max-width: 100%;
 }
 .archive-viewer-media > figure {
@@ -523,6 +611,18 @@ button:disabled {
 }
 .archive-viewer-media > figure > div {
   height: 100%;
+}
+.archive-close,
+.archive-viewer-content button {
+  transition: color 140ms ease;
+}
+.archive-close:hover,
+.archive-viewer-content button:hover {
+  color: var(--ui-accent-hover);
+}
+.archive-close:active,
+.archive-viewer-content button:active {
+  color: var(--ui-cursor-deep);
 }
 .archive-close {
   position: absolute;
@@ -730,23 +830,23 @@ button:disabled {
 }
 .original-artwork .artwork-caption h2 a:hover,
 .original-artwork .artwork-caption h2 a:focus-visible {
-  color: var(--color-waambat-hover);
+  color: var(--ui-accent-hover);
 }
 .original-artwork .artwork-caption p {
   color: color-mix(in srgb, var(--site-body) 78%, transparent);
 }
 
-/* Navigation: the underline carries her violet/coral split, like the wordmark
-   arrival, instead of a flat line. */
+/* Navigation: the underline keeps its offset split, now in two shades of the
+   accent family instead of violet and coral. */
 .site-nav-link:hover::after,
 .site-nav-link:focus-visible::after,
 .site-nav-link[aria-current="page"]::after {
   box-shadow:
-    -1px 1px 0 #9457ffcc,
-    1px -1px 0 #ff7070aa;
+    -1px 1px 0 color-mix(in srgb, var(--ui-accent-pressed) 80%, transparent),
+    1px -1px 0 color-mix(in srgb, var(--ui-accent-hover) 67%, transparent);
 }
 
-/* Controls: a pressed state and a ring in the logo pink. */
+/* Controls: a pressed state and a ring in the accent family. */
 .media-control {
   transition:
     background-color 150ms,
@@ -756,14 +856,16 @@ button:disabled {
     transform 90ms;
 }
 .media-control:hover {
-  border-color: var(--color-waambat-logo);
+  border-color: var(--ui-accent);
 }
 .media-control:active {
   transform: scale(0.94);
+  color: var(--ui-accent-pressed);
+  border-color: var(--ui-accent-pressed);
 }
 
 /* Objects arrive as the reader reaches them: opacity and a short rise, the
-   caption title resolving out of the violet/coral fringe. Scroll-driven, so it
+   caption title resolving out of a split in the two pinks. Scroll-driven, so it
    needs no script, does not touch the video lifecycle, and simply does not
    run where unsupported, with reduced motion, or when the studio sets
    motion to "off". "calm" keeps the fade and drops the rise. */
@@ -814,20 +916,20 @@ button:disabled {
   0% {
     opacity: 0;
     text-shadow:
-      -0.06em 0 #9457ff,
-      0.06em 0 #ff7070;
+      -0.06em 0 var(--ui-cursor-deep),
+      0.06em 0 var(--ui-accent-hover);
   }
   45% {
     opacity: 1;
     text-shadow:
-      -0.035em 0 #9457ffaa,
-      0.035em 0 #ff7070aa;
+      -0.035em 0 color-mix(in srgb, var(--ui-cursor-deep) 67%, transparent),
+      0.035em 0 color-mix(in srgb, var(--ui-accent-hover) 67%, transparent);
   }
   100% {
     opacity: 1;
     text-shadow:
-      0 0 #9457ff00,
-      0 0 #ff707000;
+      0 0 transparent,
+      0 0 transparent;
   }
 }
 @keyframes object-in {
@@ -851,13 +953,13 @@ button:disabled {
 @keyframes title-resolve {
   from {
     text-shadow:
-      -0.07em 0 #9457ff,
-      0.07em 0 #ff7070;
+      -0.07em 0 var(--ui-cursor-deep),
+      0.07em 0 var(--ui-accent-hover);
   }
   to {
     text-shadow:
-      0 0 #9457ff00,
-      0 0 #ff707000;
+      0 0 transparent,
+      0 0 transparent;
   }
 }
 
@@ -873,16 +975,17 @@ button:disabled {
 }
 .ordinal-gate:hover,
 .ordinal-gate:focus-visible {
-  border-color: var(--color-waambat-logo);
-  color: var(--color-waambat-logo);
+  border-color: var(--ui-accent);
+  color: var(--ui-accent-hover);
   box-shadow:
-    -2px 0 0 #9457ff88,
-    2px 0 0 #ff707088;
+    -2px 0 0 color-mix(in srgb, var(--ui-accent-pressed) 53%, transparent),
+    2px 0 0 color-mix(in srgb, var(--ui-accent-hover) 53%, transparent);
 }
 .ordinal-gate:active {
   transform: scale(0.97);
+  color: var(--ui-accent-pressed);
 }
 .ordinal-gate[aria-pressed="true"] {
-  border-color: var(--color-waambat-logo);
-  background: #ff94b218;
+  border-color: var(--ui-accent);
+  background: var(--ui-accent-surface-strong);
 }

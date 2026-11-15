@@ -1,0 +1,4 @@
+mechanics-image-9 width=612
+mechanics-image-10 width=560
+mechanics-original-video-2 ratio=1
+mechanics-image-12 width=960

@@ -1,0 +1,4262 @@
+{
+ "tab": {
+  "home": [
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "10px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause WAAMBAT hero montage",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Feels 404 original token ",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Feels 404",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Feels 404",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Animal Spirits original t",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Animal Spirits",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Animal Spirits",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Swap Exchange original to",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Swap Exchange",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Swap Exchange",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Autocorrection original t",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Autocorrection",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Autocorrection",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Enter Boi AMA original to",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Enter Boi AMA",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Enter Boi AMA",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Fap Disco original token ",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Fap Disco",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Fap Disco",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Haptic Feedback original ",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Haptic Feedback",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Haptic Feedback",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Swipe Swag original token",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Swipe Swag",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Swipe Swag",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Profits original token pa",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Profits",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Profits",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Net Melt original token p",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Net Melt",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Net Melt",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Troll Crash original toke",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Troll Crash",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Troll Crash",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(247, 183, 199)",
+    "fv": true,
+    "visible": true
+   }
+  ],
+  "ordinals": [
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause LUX · OK ALGO preview",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Interact live with LUX · OK AL",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Satflow ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "LUX Pink Paper ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Kismet Twist preview",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Satflow ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Original inscription ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Edge Corporeal preview",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Gamma ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Original inscription ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Ordinal A original inscri",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Ordinal A",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Ordinal B original inscri",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Ordinal B",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open Ordinal C original inscri",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Ordinal C",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on YouTube",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Foundation",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause LUX · OK ALGO preview",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Interact live with LUX · OK AL",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Satflow ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   }
+  ],
+  "mechanics": [
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open quantum mechanics origina",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Retry playback of quantum mech",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original video ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "(in discord)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open quantum mechanics origina",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Canvas token",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Canvas",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open quantum mechanics origina",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on YouTube",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Foundation",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open quantum mechanics origina",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Retry playback of quantum mech",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original video ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "(in discord)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open quantum mechanics origina",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Canvas token",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Canvas",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open quantum mechanics origina",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   }
+  ],
+  "art-by-waambat": [
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View Axiom GL0w Up (2021)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View Sus Singularity (2021)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View Video Art by Lindsay Scog",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause YouTube Play 2010 feat. ",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View YouTube Play 2010 feat. w",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause waambat visuals for Hans",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View waambat visuals for Hans ",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Dichotomy Bifurcation @ ",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View Dichotomy Bifurcation @ L",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Play Wonderland Mafia (2008)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View Wonderland Mafia (2008)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause self p (2021)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View self p (2021)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View FTPA Sung by Miss P (2008",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View isle evo (2015)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Play Jeepest Range (2012)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View Jeepest Range (2012)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause Minter & waambat @ Gugge",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View Minter & waambat @ Guggen",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "View PSA (2012)",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   }
+  ],
+  "instagram": [
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "interview in Right Click Save",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Instagram ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Instagram ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Instagram ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Instagram ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Instagram ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Instagram ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Instagram ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "View on Instagram ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on YouTube",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Foundation",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "interview in Right Click Save",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "IFRAME",
+    "label": "",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "0px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": false,
+    "visible": true,
+    "NO_RING": true
+   }
+  ],
+  "blog-press": [
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open blog + press original tok",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Artists Against Algorithms",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "25 Videos Chosen from 23,358 W",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Podcast - A Conversation with ",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open blog + press original tok",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "The Tokenized Building Process",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Artsy Hosts Female-Focused NFT",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Vellum LA and Artsy Present",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open blog + press original tok",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Abacus RAM becomes #34 in the ",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "SuperChief Gallery's Every Wom",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "The Every Woman Biennial Is La",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Play blog + press video",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Play blog + press video",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open original source ↗",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open blog + press original tok",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Dichotomy Bifurcation Featured",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open blog + press original tok",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Art Wynwood Shows Off Plushies",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Lindsay Scoggins Rocks the Sho",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on YouTube",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Foundation",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   }
+  ],
+  "bio-waambat": [
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open bio original token page",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on YouTube",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Foundation",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open bio original token page",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on YouTube",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Foundation",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   }
+  ],
+  "contact-waambat": [
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Join the WAAMBAT Chat discord",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Read about the utility mechani",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open collect + contact origina",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "twitter @waambat",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "IG @waambat",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "IG backup @waam.bat",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "INPUT",
+    "label": "name",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "INPUT",
+    "label": "email",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Choose an option",
+    "outline": "none 3px color(srgb 0.921569 0.921569 0.921569 / 0.55)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "color(srgb 0.921569 0.921569 0.921569 / 0.55)",
+    "fv": true,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "TEXTAREA",
+    "label": "message",
+    "outline": "none 3px rgb(235, 235, 235)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true,
+    "NO_RING": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Send message",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(123, 96, 101)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on YouTube",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "WAAMBAT on Foundation",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "oklch(0.707 0.022 261.325)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Skip to artwork",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "DIV",
+    "label": "Page scroll",
+    "outline": "solid 1px rgb(255, 148, 178)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "waambat home",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 148, 178)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "NFTs",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "ORDINALS",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "quantum mechanics",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "art archive",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "instagram",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "blog + press",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "bio",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(156, 156, 156)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "6px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Join the WAAMBAT Chat discord",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Read about the utility mechani",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "Open collect + contact origina",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(235, 235, 235)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Pause collect + contact",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "3px",
+    "shadow": "none",
+    "color": "rgb(255, 255, 255)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "twitter @waambat",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "IG @waambat",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   },
+   {
+    "tag": "A",
+    "label": "IG backup @waam.bat",
+    "outline": "solid 2px rgb(225, 188, 194)",
+    "offset": "4px",
+    "shadow": "none",
+    "color": "rgb(225, 188, 194)",
+    "fv": true,
+    "visible": true
+   }
+  ]
+ },
+ "hover": {
+  "home": [],
+  "ordinals": [
+   {
+    "c": "rgb(255, 148, 178)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "waambat home",
+    "cls": "site-logo text-waambat-logo font-brand i",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "NFTs",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "ORDINALS",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "quantum mechanics",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "art archive",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "instagram",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "blog + press",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "bio",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "collect + contact",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Pause LUX · OK ALGO prev",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Interact live with LUX ·",
+    "cls": "ordinal-open _action_zx42f_49",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "View on Satflow ↗",
+    "cls": "",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "LUX Pink Paper ↗",
+    "cls": "",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Pause Kismet Twist previ",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "View on Satflow ↗",
+    "cls": "",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Original inscription ↗",
+    "cls": "",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Pause Edge Corporeal pre",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "View on Gamma ↗",
+    "cls": "",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Original inscription ↗",
+    "cls": "",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   }
+  ],
+  "mechanics": [
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Play quantum mechanics",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Canvas token",
+    "cls": "source-heading-link source-heading-part",
+    "hc": "rgb(225, 188, 194)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Canvas",
+    "cls": "source-heading-link source-heading-part",
+    "hc": "rgb(225, 188, 194)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Open quantum mechanics o",
+    "cls": "relative block h-full w-full",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Pause quantum mechanics",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   }
+  ],
+  "art-by-waambat": [
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Open original source ↗",
+    "cls": "",
+    "hc": "rgb(225, 188, 194)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "View haploid nebula (201",
+    "cls": "media-control archive-expand",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Pause Lucy's Closet (201",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "View Lucy's Closet (2013",
+    "cls": "media-control archive-expand",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   }
+  ],
+  "instagram": [],
+  "blog-press": [
+   {
+    "c": "rgb(255, 148, 178)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "waambat home",
+    "cls": "site-logo text-waambat-logo font-brand i",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "NFTs",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "ORDINALS",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "quantum mechanics",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "art archive",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "instagram",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "blog + press",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "bio",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "collect + contact",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Open blog + press origin",
+    "cls": "relative block h-full w-full",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Pause blog + press",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(255, 148, 178)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Artists Against Algorith",
+    "cls": "source-heading-link",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   }
+  ],
+  "bio-waambat": [
+   {
+    "c": "rgb(255, 148, 178)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "waambat home",
+    "cls": "site-logo text-waambat-logo font-brand i",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "NFTs",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "ORDINALS",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "quantum mechanics",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "art archive",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "instagram",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "blog + press",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "bio",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(156, 156, 156)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "collect + contact",
+    "cls": "site-nav-link _link_1nleq_1  leading-[19",
+    "hc": "rgb(255, 148, 178)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Open bio original token ",
+    "cls": "relative block h-full w-full",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Pause bio",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   }
+  ],
+  "contact-waambat": [
+   {
+    "c": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "t": "Pause collect + contact",
+    "cls": "media-control",
+    "hc": "rgb(241, 209, 214)",
+    "hbg": "rgba(0, 0, 0, 0.933)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "twitter @waambat",
+    "cls": "source-heading-link",
+    "hc": "rgb(225, 188, 194)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "IG @waambat",
+    "cls": "source-heading-link",
+    "hc": "rgb(225, 188, 194)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "IG backup @waam.bat",
+    "cls": "source-heading-link",
+    "hc": "rgb(225, 188, 194)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "c": "color(srgb 0.921569 0.921569 0.921569 / 0.55)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "t": "Choose an option",
+    "cls": "_control_1vk3u_89 _selectButton_1vk3u_15",
+    "hc": "color(srgb 0.921569 0.921569 0.921569 / 0.55)",
+    "hbg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "form": {
+  "controls": [
+   {
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "Pause collect + contact",
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "border": "rgba(255, 255, 255, 0.376)",
+    "accent": "rgb(225, 188, 194)",
+    "scheme": "dark",
+    "disabled": false
+   },
+   {
+    "tag": "INPUT",
+    "type": "text",
+    "name": "name",
+    "color": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "rgb(235, 235, 235)",
+    "accent": "rgb(225, 188, 194)",
+    "scheme": "dark",
+    "disabled": false
+   },
+   {
+    "tag": "INPUT",
+    "type": "email",
+    "name": "email",
+    "color": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "rgb(235, 235, 235)",
+    "accent": "rgb(225, 188, 194)",
+    "scheme": "dark",
+    "disabled": false
+   },
+   {
+    "tag": "SELECT",
+    "type": "select-one",
+    "name": "interest",
+    "color": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "rgb(235, 235, 235)",
+    "accent": "rgb(225, 188, 194)",
+    "scheme": "dark",
+    "disabled": false
+   },
+   {
+    "tag": "BUTTON",
+    "type": "button",
+    "name": "Choose an option",
+    "color": "color(srgb 0.921569 0.921569 0.921569 / 0.55)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "color(srgb 0.921569 0.921569 0.921569 / 0.55)",
+    "accent": "rgb(225, 188, 194)",
+    "scheme": "dark",
+    "disabled": false
+   },
+   {
+    "tag": "TEXTAREA",
+    "type": "textarea",
+    "name": "message",
+    "color": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "rgb(235, 235, 235)",
+    "accent": "rgb(225, 188, 194)",
+    "scheme": "dark",
+    "disabled": false
+   },
+   {
+    "tag": "INPUT",
+    "type": "text",
+    "name": "_waambat_website",
+    "color": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "rgb(235, 235, 235)",
+    "accent": "rgb(225, 188, 194)",
+    "scheme": "dark",
+    "disabled": false
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Send message",
+    "color": "rgb(34, 16, 20)",
+    "bg": "rgb(225, 188, 194)",
+    "border": "rgb(225, 188, 194)",
+    "accent": "rgb(225, 188, 194)",
+    "scheme": "dark",
+    "disabled": false
+   }
+  ],
+  "focusedField": {
+   "border": "rgb(235, 235, 235)",
+   "outline": "rgb(235, 235, 235) none",
+   "shadow": "none",
+   "wshadow": "rgb(225, 188, 194) 0px 0px 0px 1.5px inset, color(srgb 0.882353 0.737255 0.760784 / 0.1) 0px 0px 0px 4px",
+   "wborder": "rgb(235, 235, 235)",
+   "caret": "rgb(235, 235, 235)"
+  },
+  "submitDefault": {
+   "c": "rgb(34, 16, 20)",
+   "bg": "rgb(225, 188, 194)",
+   "border": "rgb(225, 188, 194)"
+  },
+  "submitHover": {
+   "c": "rgb(225, 188, 194)",
+   "bg": "rgb(225, 188, 194)",
+   "border": "rgb(225, 188, 194)"
+  },
+  "options": [
+   {
+    "t": "Collecting artwork",
+    "sel": "false",
+    "c": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   {
+    "t": "A commission",
+    "sel": "false",
+    "c": "rgb(255, 148, 178)",
+    "bg": "color(srgb 0.882353 0.737255 0.760784 / 0.2)",
+    "shadow": "rgb(255, 148, 178) 3px 0px 0px 0px inset"
+   },
+   {
+    "t": "Collaboration or exh",
+    "sel": "false",
+    "c": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   {
+    "t": "Press",
+    "sel": "false",
+    "c": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   {
+    "t": "Something else",
+    "sel": "false",
+    "c": "rgb(235, 235, 235)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   }
+  ]
+ },
+ "colors": {
+  "#e1bcc2": {
+   "n": 337,
+   "h": 350,
+   "s": 0.38,
+   "l": 0.81,
+   "where": [
+    "focus@home",
+    "focus@ordinals",
+    "link@ordinals",
+    "focus@mechanics",
+    "link@mechanics",
+    "hover@mechanics",
+    "focus@art-by-waambat",
+    "link@art-by-waambat"
+   ]
+  },
+  "#ff94b2": {
+   "n": 47,
+   "h": 343,
+   "s": 1,
+   "l": 0.79,
+   "where": [
+    "focus@home",
+    "focus@ordinals",
+    "link@ordinals",
+    "hover@ordinals",
+    "focus@mechanics",
+    "focus@art-by-waambat",
+    "focus@instagram",
+    "focus@blog-press"
+   ]
+  },
+  "#9c9c9c": {
+   "n": 21,
+   "h": null,
+   "s": 0,
+   "where": [
+    "link@ordinals",
+    "link@blog-press",
+    "link@bio-waambat"
+   ]
+  },
+  "#ffffff": {
+   "n": 14,
+   "h": null,
+   "s": 0,
+   "where": [
+    "link@ordinals",
+    "link@mechanics",
+    "link@art-by-waambat",
+    "link@blog-press",
+    "link@bio-waambat",
+    "link@contact-waambat"
+   ]
+  },
+  "#f1d1d6": {
+   "n": 21,
+   "h": 351,
+   "s": 0.53,
+   "l": 0.88,
+   "where": [
+    "hover@ordinals",
+    "hover@mechanics",
+    "hover@art-by-waambat",
+    "hover@blog-press",
+    "hover@bio-waambat",
+    "hover@contact-waambat"
+   ]
+  },
+  "#000000": {
+   "n": 12,
+   "h": null,
+   "s": 0,
+   "where": [
+    "hoverbg@ordinals",
+    "hoverbg@mechanics",
+    "hoverbg@art-by-waambat",
+    "hoverbg@blog-press",
+    "hoverbg@bio-waambat",
+    "hoverbg@contact-waambat"
+   ]
+  },
+  "#ebebeb": {
+   "n": 3,
+   "h": null,
+   "s": 0,
+   "where": [
+    "link@mechanics",
+    "link@blog-press",
+    "link@bio-waambat"
+   ]
+  },
+  "#010101": {
+   "n": 2,
+   "h": null,
+   "s": 0,
+   "where": [
+    "link@contact-waambat",
+    "hover@contact-waambat"
+   ]
+  }
+ }
+}

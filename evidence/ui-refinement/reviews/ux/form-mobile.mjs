@@ -1,0 +1,18 @@
+import { chromium, base, shot, watchConsole, log } from './lib.mjs';
+const b = await chromium.launch();
+const c = await b.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, deviceScaleFactor: 2 });
+const page = await c.newPage(); watchConsole(page, 'form-mobile');
+await page.goto(base + '/contact-waambat', { waitUntil: 'load' }); await page.waitForTimeout(1200);
+await page.locator('#contact-contact-name').tap(); await page.waitForTimeout(300);
+await page.keyboard.type('Touch');
+await page.locator('#contact-contact-interest').tap(); await page.waitForTimeout(400);
+const open = await page.evaluate(() => !!document.querySelector('[role=listbox]'));
+await shot(page, 'mobile-select-open');
+await page.locator('[role=option]').nth(1).tap(); await page.waitForTimeout(300);
+const chosen = await page.evaluate(() => ({ text: document.querySelector('#contact-contact-interest').textContent, open: !!document.querySelector('[role=listbox]'), focus: document.activeElement.id, overflow: document.documentElement.scrollWidth - innerWidth }));
+await page.locator('#contact-contact-interest').tap(); await page.waitForTimeout(300);
+await page.touchscreen.tap(20, 200); await page.waitForTimeout(300);
+const outside = await page.evaluate(() => !!document.querySelector('[role=listbox]'));
+await shot(page, 'mobile-form-after');
+console.log(JSON.stringify({ open, chosen, closedOnOutsideTap: !outside, log }, null, 1));
+await b.close();

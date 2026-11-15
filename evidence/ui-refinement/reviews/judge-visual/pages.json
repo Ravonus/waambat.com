@@ -1,0 +1,603 @@
+{
+ "overflow": [],
+ "broken": [
+  {
+   "view": "phone360",
+   "p": "/ordinals",
+   "broken": [
+    "https://ordinals.com/content/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+    "https://ordinals.com/content/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0",
+    "https://ordinals.com/content/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3i0"
+   ]
+  },
+  {
+   "view": "phone390",
+   "p": "/ordinals",
+   "broken": [
+    "https://ordinals.com/content/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+    "https://ordinals.com/content/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0",
+    "https://ordinals.com/content/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3i0"
+   ]
+  },
+  {
+   "view": "tablet",
+   "p": "/ordinals",
+   "broken": [
+    "https://ordinals.com/content/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+    "https://ordinals.com/content/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0"
+   ]
+  },
+  {
+   "view": "desktop",
+   "p": "/ordinals",
+   "broken": [
+    "https://ordinals.com/content/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0",
+    "https://ordinals.com/content/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0",
+    "https://ordinals.com/content/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3i0"
+   ]
+  }
+ ],
+ "console": [
+  {
+   "tag": "phone360/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "phone360/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "phone360/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "phone390/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "phone390/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "phone390/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "tablet/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "tablet/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "tablet/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "desktop/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "desktop/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  },
+  {
+   "tag": "desktop/ordinals",
+   "type": "error",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  }
+ ],
+ "titles": {
+  "phone390/": [
+   [
+    "H2",
+    "Feels 404",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Animal Spirits",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Swap Exchange",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Autocorrection",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Enter Boi AMA",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Fap Disco",
+    "rgb(255, 148, 178)",
+    "26px"
+   ]
+  ],
+  "phone390/ordinals": [
+   [
+    "H1",
+    "ORDINALS",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "LUX · OK ALGO",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Kismet Twist",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Edge Corporeal",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "Ordinal A",
+    "rgb(255, 148, 178)",
+    "14px"
+   ],
+   [
+    "H3",
+    "Ordinal B",
+    "rgb(255, 148, 178)",
+    "14px"
+   ]
+  ],
+  "phone390/mechanics": [
+   [
+    "H1",
+    "Utility Mechanics of the Quant",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Each Quantum is a full video p",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "During a given burn window, co",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "For each set burned, a Quantum",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "When a new series round is ann",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "Each Element is revealed on dr",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "phone390/art-by-waambat": [],
+  "phone390/instagram": [
+   [
+    "H1",
+    "WAAMBAT’s practice involves an",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "What remains in her feed are a",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H1",
+    "Instagram",
+    "rgb(255, 148, 178)",
+    "26px"
+   ]
+  ],
+  "phone390/blog-press": [
+   [
+    "H1",
+    "Artists Against Algorithms",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Gretchen Andrew and WAAMBAT te",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "25 Videos Chosen from 23,358 W",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Podcast - A Conversation with ",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "The Tokenized Building Process",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Artsy Hosts Female-Focused NFT",
+    "rgb(255, 148, 178)",
+    "26px"
+   ]
+  ],
+  "phone390/bio-waambat": [
+   [
+    "H1",
+    "WAAMBAT",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "[too edgy for algos]",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H2",
+    "Below are WAAMBAT’s unedited r",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "1. How have our expectations o",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "2. Waambat your works collage ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "How is art which resists onlin",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "phone390/contact-waambat": [
+   [
+    "H1",
+    "How to collect WAAMBAT:",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Her name is WAAMBAT everywhere",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "twitter @waambat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "IG @waambat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "IG backup @waam.bat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "discord waambat#7494",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "desktop/": [
+   [
+    "H2",
+    "Feels 404",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Animal Spirits",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Swap Exchange",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Autocorrection",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Enter Boi AMA",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Fap Disco",
+    "rgb(255, 148, 178)",
+    "26px"
+   ]
+  ],
+  "desktop/ordinals": [
+   [
+    "H1",
+    "ORDINALS",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "LUX · OK ALGO",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Kismet Twist",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Edge Corporeal",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "Ordinal A",
+    "rgb(255, 148, 178)",
+    "14px"
+   ],
+   [
+    "H3",
+    "Ordinal B",
+    "rgb(255, 148, 178)",
+    "14px"
+   ]
+  ],
+  "desktop/mechanics": [
+   [
+    "H1",
+    "Utility Mechanics of the Quant",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Each Quantum is a full video p",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "During a given burn window, co",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "For each set burned, a Quantum",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "When a new series round is ann",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "Each Element is revealed on dr",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "desktop/art-by-waambat": [],
+  "desktop/instagram": [
+   [
+    "H1",
+    "WAAMBAT’s practice involves an",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "What remains in her feed are a",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H1",
+    "Instagram",
+    "rgb(255, 148, 178)",
+    "26px"
+   ]
+  ],
+  "desktop/blog-press": [
+   [
+    "H1",
+    "Artists Against Algorithms",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Gretchen Andrew and WAAMBAT te",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "25 Videos Chosen from 23,358 W",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Podcast - A Conversation with ",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "The Tokenized Building Process",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Artsy Hosts Female-Focused NFT",
+    "rgb(255, 148, 178)",
+    "26px"
+   ]
+  ],
+  "desktop/bio-waambat": [
+   [
+    "H1",
+    "WAAMBAT",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "[too edgy for algos]",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H2",
+    "Below are WAAMBAT’s unedited r",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "1. How have our expectations o",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "2. Waambat your works collage ",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "How is art which resists onlin",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ],
+  "desktop/contact-waambat": [
+   [
+    "H1",
+    "How to collect WAAMBAT:",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H2",
+    "Her name is WAAMBAT everywhere",
+    "rgb(255, 148, 178)",
+    "26px"
+   ],
+   [
+    "H3",
+    "twitter @waambat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "IG @waambat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "IG backup @waam.bat",
+    "rgb(225, 188, 194)",
+    "14px"
+   ],
+   [
+    "H3",
+    "discord waambat#7494",
+    "rgb(225, 188, 194)",
+    "14px"
+   ]
+  ]
+ },
+ "blocked": []
+}

@@ -49,7 +49,7 @@ function linkedText(block: PageBlock): unknown {
             break;
         }
         parts.push(emphasized(remaining.slice(0, match.index)), <SourceLink key={offset + match.index} className={block.type === "heading"
-                ? "source-heading-link"
+                ? "source-heading-link source-heading-part"
                 : "source-inline-link"} href={match.link.href} {...newTabProps(match.link.href)}>
         {emphasized(match.link.text)}
       </SourceLink>);
@@ -93,7 +93,7 @@ export default function ContentPage({ page, forms = [], preview = false, }: {
                         : linked}
           </p>);
             case "image":
-                return (<figure key={block.id} className={page.layout === "image-grid"
+                return (<figure key={block.id} data-width={block.width ? "" : undefined} style={block.width ? { "--block-width": `${block.width}px` } : undefined} className={page.layout === "image-grid"
                         ? "col-span-2 my-0 md:col-span-1"
                         : "my-8"}>
             {block.href ? (<SourceLink href={block.href} {...newTabProps(block.href)}>

@@ -78,7 +78,7 @@
   color: var(--color-waambat-logo, #ff94b2);
 }
 .hero .wordmark .wordmarkLink:focus-visible {
-  outline: 2px solid var(--color-waambat-logo, #ff94b2);
+  outline: 2px solid var(--ui-accent-focus);
   outline-offset: 0.12em;
   border-radius: 2px;
 }
@@ -125,26 +125,26 @@
     opacity: 1;
   }
 }
-/* Stepped, slightly chromatic arrival: the pink wordmark resolves out of her own
-   violet and coral fringe instead of fading like a template. */
+/* Stepped, slightly chromatic arrival: the pink wordmark resolves out of a split
+   in the two pinks instead of fading like a template. */
 @keyframes hero-wordmark-in {
   0% {
     opacity: 0;
     text-shadow:
-      -0.06em 0 #9457ff,
-      0.06em 0 #ff7070;
+      -0.06em 0 var(--ui-cursor-deep),
+      0.06em 0 var(--ui-accent-hover);
   }
   45% {
     opacity: 1;
     text-shadow:
-      -0.035em 0 #9457ffaa,
-      0.035em 0 #ff7070aa;
+      -0.035em 0 color-mix(in srgb, var(--ui-cursor-deep) 67%, transparent),
+      0.035em 0 color-mix(in srgb, var(--ui-accent-hover) 67%, transparent);
   }
   100% {
     opacity: 1;
     text-shadow:
-      0 0 #9457ff00,
-      0 0 #ff707000;
+      0 0 transparent,
+      0 0 transparent;
   }
 }
 @media (max-width: 767px) and (orientation: portrait) {

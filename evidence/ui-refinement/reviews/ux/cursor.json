@@ -1,0 +1,94 @@
+{
+  "blank": {
+    "state": "default",
+    "opacity": "1",
+    "open": true,
+    "root": "active",
+    "el": "MAIN.site-main mx-auto w-full flex-grow "
+  },
+  "navLink": {
+    "state": "pointer",
+    "opacity": "1",
+    "open": true,
+    "root": "active",
+    "el": "A.site-nav-link _link_10xho_1  leading-[19"
+  },
+  "input": {
+    "state": "text",
+    "opacity": "1",
+    "open": true,
+    "root": "active",
+    "el": "INPUT._control_ksnyn_89"
+  },
+  "paragraph": {
+    "state": "text",
+    "opacity": "1",
+    "open": true,
+    "root": "active",
+    "el": "P._description_ksnyn_17"
+  },
+  "selectButton": {
+    "state": "pointer",
+    "opacity": "1",
+    "open": true,
+    "root": "active",
+    "el": "BUTTON._control_ksnyn_89 _selectButton_ksnyn_15"
+  },
+  "submit": {
+    "state": "pointer",
+    "opacity": "1",
+    "open": true,
+    "root": "active",
+    "el": "SPAN."
+  },
+  "textDragHeld": {
+    "state": "text",
+    "opacity": "1",
+    "open": true,
+    "root": "active"
+  },
+  "saveHoverCursor": {
+    "state": "pointer",
+    "opacity": "1",
+    "open": true,
+    "root": "active",
+    "el": "A.waambat-download-save"
+  },
+  "log": [
+    {
+      "tag": "cursor",
+      "type": "warning",
+      "text": "Allow attribute will take precedence over 'allowfullscreen'."
+    },
+    {
+      "tag": "cursor",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "cursor",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa3677787fb3ad' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    },
+    {
+      "tag": "cursor",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "cursor",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa36777883b3ad' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    },
+    {
+      "tag": "cursor",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 ()"
+    },
+    {
+      "tag": "cursor",
+      "type": "error",
+      "text": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aa36777881b3ad' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. T"
+    }
+  ]
+}

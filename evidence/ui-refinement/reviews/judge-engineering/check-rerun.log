@@ -1,0 +1,11 @@
+src/admin/ThemeEditor.tsx:50:75  W017 warning  `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+    fix: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+src/admin/ThemeEditor.tsx:54:63  W017 warning  `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+    fix: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+src/admin/ThemeEditor.tsx:79:142  W017 warning  `theme[key]` reads one entry of the whole `theme` in every row, so any change to `theme` re-runs every row, not just the row whose entry changed.
+    fix: Pass the box instead of its value (`theme={theme}`, typed `State<…>`) and read `theme.get(key)`: a row then re-runs only when its own entry changes.
+src/components/ContentPage.tsx:191:174  D035 warning  The outline jumps from h1 to h3: screen-reader users navigate by headings (WCAG 1.3.1).
+    fix: Use the next level; `<Heading level role>` keeps the look apart from the outline
+src/components/forms/ContactForm.tsx:96:111  W017 warning  `errors.value[question.id]` reads one entry of the whole `errors.value` in every row, so any change to `errors.value` re-runs every row, not just the row whose entry changed.
+    fix: Pass the entry with `error={errors.get(question.id)}`, or pass the box (`errors={errors}`, typed `State<…>`) and read `errors.get(…)` in `<FormField>`: a row then re-runs only when its own entry changes. (autofix)
+kerf check: 44 files, 0 errors, 5 warnings (2691 ms)

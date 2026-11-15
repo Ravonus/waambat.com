@@ -259,6 +259,19 @@ export default function PageEditor({ pages, onChange, onCreate, }: {
                         </option>
                       </select>
                     </label>)}
+                  {block.type === "image" && (<label className="block">
+                      Display width in px (optional; may run wider than the text)
+                      <input className={input} type="number" min={40} max={1600} step={1} value={block.width ?? ""} onChange={(e) => edit(pi, (p) => {
+                        // Keep what is typed while typing; clamping per keystroke would turn "560" into 40.
+                        const value = Math.round(Number(e.currentTarget.value));
+                        p.blocks[bi]!.width = e.currentTarget.value && Number.isFinite(value) ? value : undefined;
+                    })} onBlur={() => edit(pi, (p) => {
+                        // Clamp to the schema's 40-1600 on leaving the field, so a stray value never fails the save.
+                        const width = p.blocks[bi]!.width;
+                        if (width !== undefined)
+                            p.blocks[bi]!.width = Math.min(1600, Math.max(40, width));
+                    })}/>
+                    </label>)}
                   {block.type === "embed" && block.loop && (<label className="block">
                       Exact video width / height ratio (optional)
                       <input className={input} type="number" min={0.25} max={4} step={0.001} value={block.ratio ?? ""} onChange={(e) => edit(pi, (p) => {

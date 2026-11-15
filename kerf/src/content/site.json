@@ -680,6 +680,13 @@
           "links": []
         },
         {
+          "id": "mechanics-original-video-1",
+          "type": "embed",
+          "text": "",
+          "src": "https://i.imgur.com/3hhNUKR.mp4",
+          "loop": true
+        },
+        {
           "id": "mechanics-text-26",
           "type": "heading",
           "text": "During a given burn window, collectors will send their full Element letter series to the burn wallet — waambatburn.tez.",
@@ -713,30 +720,26 @@
           "links": []
         },
         {
-          "id": "mechanics-original-video-1",
-          "type": "embed",
-          "text": "",
-          "src": "https://i.imgur.com/3hhNUKR.mp4",
-          "loop": true
-        },
-        {
           "id": "mechanics-image-9",
           "type": "image",
           "text": "quantum mechanics artwork",
-          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/153558c0-d955-4f3c-ad18-5e491d9fd70a/MECHANICS_v002.png"
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/153558c0-d955-4f3c-ad18-5e491d9fd70a/MECHANICS_v002.png",
+          "width": 612
+        },
+        {
+          "id": "mechanics-image-10",
+          "type": "image",
+          "text": "quantum mechanics artwork",
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/9d602d6d-58da-47ab-9d60-89fbcfc9d3a8/WL_v003.png",
+          "width": 560
         },
         {
           "id": "mechanics-original-video-2",
           "type": "embed",
           "text": "",
           "src": "https://i.imgur.com/8oZCxzC.mp4",
-          "loop": true
-        },
-        {
-          "id": "mechanics-image-10",
-          "type": "image",
-          "text": "quantum mechanics artwork",
-          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/9d602d6d-58da-47ab-9d60-89fbcfc9d3a8/WL_v003.png"
+          "loop": true,
+          "ratio": 1
         },
         {
           "id": "mechanics-text-37",
@@ -769,13 +772,6 @@
           ]
         },
         {
-          "id": "mechanics-text-41",
-          "type": "heading",
-          "text": "There are additional types of mechanics in WAAMBAT’s project (such as Rogue Elements and the special 8urn token). Above summarizes the fundamentals — meanwhile the Quantum universe is consistently expanding.",
-          "level": 3,
-          "links": []
-        },
-        {
           "id": "mechanics-original-video-3",
           "type": "embed",
           "text": "",
@@ -783,10 +779,18 @@
           "loop": true
         },
         {
+          "id": "mechanics-text-41",
+          "type": "heading",
+          "text": "There are additional types of mechanics in WAAMBAT’s project (such as Rogue Elements and the special 8urn token). Above summarizes the fundamentals — meanwhile the Quantum universe is consistently expanding.",
+          "level": 3,
+          "links": []
+        },
+        {
           "id": "mechanics-image-12",
           "type": "image",
           "text": "quantum mechanics artwork",
-          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/5c124246-96fb-42c6-bfd4-6ffb1a9ef355/QuantumCollection_v002.png"
+          "src": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/5c124246-96fb-42c6-bfd4-6ffb1a9ef355/QuantumCollection_v002.png",
+          "width": 960
         }
       ]
     },

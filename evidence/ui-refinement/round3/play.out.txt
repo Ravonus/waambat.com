@@ -1,0 +1,5 @@
+tile {"video":{"src":"92b15ad8-5703-4ca5-be06-3c75270580b5","paused":false,"t":2.4295,"rs":4},"unavailable":false,"state":"playing"}
+viewer {"video":{"src":"26b929fe-2fe0-4d90-b56b-7456fab36468","paused":false,"t":3,"w":1280,"h":720},"unavailable":false,"box":[1067,600]}
+/ steps 73 videos 24 bad [] lazyAfter [{"complete":true,"nat":960},{"complete":true,"nat":960},{"complete":true,"nat":960},{"complete":true,"nat":960},{"complete":true,"nat":960}]
+/mechanics steps 15 videos 1 bad [] lazyAfter [{"complete":true,"nat":960}]
+lazy-offscreen [{"complete":true,"nat":960,"loading":"lazy"},{"complete":false,"nat":0,"loading":"lazy"},{"complete":false,"nat":0,"loading":"lazy"},{"complete":false,"nat":0,"loading":"lazy"}]

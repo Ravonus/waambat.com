@@ -1,0 +1,10 @@
+19:26  up 2 days, 21:31, 9 users, load averages: 16.71 13.24 10.46
+=== npm run -s typecheck
+exit=0 secs=1
+=== npm run -s test
+exit=0 secs=10
+=== npm run -s check
+exit=0 secs=4
+=== npm run -s build
+exit=0 secs=44
+fp after: ad0864a6bcf2
