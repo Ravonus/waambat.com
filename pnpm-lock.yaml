@@ -11,12 +11,15 @@ importers:
 
   .:
     dependencies:
+      '@kerf-js/core':
+        specifier: file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz
+        version: file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz
       '@kerf-js/media':
-        specifier: file:kerf/vendor/kerf-media-media-3615ab055a59.tgz
-        version: file:kerf/vendor/kerf-media-media-3615ab055a59.tgz(@types/node@24.19.2)
+        specifier: file:kerf/vendor/kerf-media-media-3016b87298eb.tgz
+        version: file:kerf/vendor/kerf-media-media-3016b87298eb.tgz(@kerf-js/core@file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz)(@types/node@24.19.2)
       '@kerf-js/veneer-core':
         specifier: file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz
-        version: file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz
+        version: file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz(@kerf-js/core@file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz)
       '@netlify/blobs':
         specifier: ^11.1.4
         version: 11.1.4(supports-color@7.2.0)
@@ -908,8 +911,63 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@kerf-js/media@file:kerf/vendor/kerf-media-media-3615ab055a59.tgz':
-    resolution: {integrity: sha512-k4l9If7NOoeLk4bTuXHqHRABmcyG/elW7Pj4Tx9LpFLjRfJKRD00fnsBZgQrF+k+upWeDv2Pwuyu3W7efD5JFg==, tarball: file:kerf/vendor/kerf-media-media-3615ab055a59.tgz}
+  '@kerf-js/compiler-darwin-arm64@0.1.0':
+    resolution: {integrity: sha512-tRkU0piHKPM15iOKEXkeH0dtsq4Y1o0w90emzw10/7ri+4PRft0GOYLk0SSByN+ygW5xoEiMtLewuqJLI/v4mg==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@kerf-js/compiler-darwin-x64@0.1.0':
+    resolution: {integrity: sha512-bXUfTcTdGfcH/55ZNi2gqV+Q/KDtNjj6sUX88PBPB/DE1iZ1LuS4Kv3gvBTSgZSiu1f5eXCc//GrSOo6dCW3Pg==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@kerf-js/compiler-linux-arm64-gnu@0.1.0':
+    resolution: {integrity: sha512-gRi8/XpcjaEnMHdT3QmlKY8OOcEsFYWxnDrPiRxmPjU4GADornTPwcjs1ToleK+8KyTOF5yhTFPSQKcr9ANVQw==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@kerf-js/compiler-linux-arm64-musl@0.1.0':
+    resolution: {integrity: sha512-zUGS+w+bi2K5saOCCYTf5pJ7hQDvnPZnKbrACRq0isH4yw7tDYbWIphYP/2xRb6p0w8tuPQ8h7NVon5Er+65CQ==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@kerf-js/compiler-linux-x64-gnu@0.1.0':
+    resolution: {integrity: sha512-qIcuATXBupsT1Bp8JQvq9lruwHjjFvBxVk+ElAPHIDmmVXDxf5bSDUBB+pLlOVLqrEQUh2ZMh20C8FCgGQ0NJw==}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@kerf-js/compiler-linux-x64-musl@0.1.0':
+    resolution: {integrity: sha512-nTzdiOE7hnyTzxZH7nKtiDqw23H+QSLdugp4Dhlb15rurfCFG+tQ86qgJnVr5+Jkq7F5nlx36yP1u9m3uJP0hw==}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@kerf-js/compiler-win32-x64@0.1.0':
+    resolution: {integrity: sha512-nRaDSgpQVXXHP69VUvl9ofOj8qcqN1JPlsFBkcJnV1ki2UQxcGDfJuVV5buYH4O6iFXRf9LXsr2JVbalLnwXeQ==}
+    cpu: [x64]
+    os: [win32]
+
+  '@kerf-js/core@file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz':
+    resolution: {integrity: sha512-zvlGW6vDxploMBkRROrPwwaARhXUvBT/mgP3FIdW1UgAwwB5Sa7urHUUPsP4okU3gKskiYfWOiJmg9KlS9dZEg==, tarball: file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz}
+    version: 0.1.0
+    engines: {node: '>=24'}
+    peerDependencies:
+      '@testing-library/dom': '>=10'
+      '@testing-library/user-event': '>=14'
+      vitest: '>=4'
+    peerDependenciesMeta:
+      '@testing-library/dom':
+        optional: true
+      '@testing-library/user-event':
+        optional: true
+      vitest:
+        optional: true
+
+  '@kerf-js/media@file:kerf/vendor/kerf-media-media-3016b87298eb.tgz':
+    resolution: {integrity: sha512-1UYvLJMxE9vXgx22jqO7UUV9Ov89jq7feq5bBWbmU4cMsh51Anrhpx6VQJRHVjUDwmQu2wjh90oTh2UpOEt5og==, tarball: file:kerf/vendor/kerf-media-media-3016b87298eb.tgz}
     version: 0.1.0
     engines: {node: '>=24'}
     peerDependencies:
@@ -1671,6 +1729,9 @@ packages:
   doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
     engines: {node: '>=0.10.0'}
+
+  dom-accessibility-api@0.7.1:
+    resolution: {integrity: sha512-vdnCeZD+3wZ+8h8xXL/ZtBlvvoobOFyPzSiIfO6sGOZDqjFx4aLMAjZhl4rawj5xYz3UwP6Tgvyh0iH4IOCVnQ==}
 
   dom-serializer@2.0.0:
     resolution: {integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==}
@@ -3761,14 +3822,51 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@kerf-js/media@file:kerf/vendor/kerf-media-media-3615ab055a59.tgz(@types/node@24.19.2)':
+  '@kerf-js/compiler-darwin-arm64@0.1.0':
+    optional: true
+
+  '@kerf-js/compiler-darwin-x64@0.1.0':
+    optional: true
+
+  '@kerf-js/compiler-linux-arm64-gnu@0.1.0':
+    optional: true
+
+  '@kerf-js/compiler-linux-arm64-musl@0.1.0':
+    optional: true
+
+  '@kerf-js/compiler-linux-x64-gnu@0.1.0':
+    optional: true
+
+  '@kerf-js/compiler-linux-x64-musl@0.1.0':
+    optional: true
+
+  '@kerf-js/compiler-win32-x64@0.1.0':
+    optional: true
+
+  '@kerf-js/core@file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz':
+    dependencies:
+      dom-accessibility-api: 0.7.1
+    optionalDependencies:
+      '@kerf-js/compiler-darwin-arm64': 0.1.0
+      '@kerf-js/compiler-darwin-x64': 0.1.0
+      '@kerf-js/compiler-linux-arm64-gnu': 0.1.0
+      '@kerf-js/compiler-linux-arm64-musl': 0.1.0
+      '@kerf-js/compiler-linux-x64-gnu': 0.1.0
+      '@kerf-js/compiler-linux-x64-musl': 0.1.0
+      '@kerf-js/compiler-win32-x64': 0.1.0
+
+  '@kerf-js/media@file:kerf/vendor/kerf-media-media-3016b87298eb.tgz(@kerf-js/core@file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz)(@types/node@24.19.2)':
     dependencies:
       sharp: 0.35.5(@types/node@24.19.2)
       svgo: 4.1.0
+    optionalDependencies:
+      '@kerf-js/core': file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz
     transitivePeerDependencies:
       - '@types/node'
 
-  '@kerf-js/veneer-core@file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz': {}
+  '@kerf-js/veneer-core@file:kerf/vendor/kerf-veneer-core-media-231254cc148e.tgz(@kerf-js/core@file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz)':
+    optionalDependencies:
+      '@kerf-js/core': file:kerf/vendor/kerf-core-media-eb9cd2109b0c.tgz
 
   '@keyv/bigmap@1.3.1(keyv@5.6.0)':
     dependencies:
@@ -4515,6 +4613,8 @@ snapshots:
   doctrine@2.1.0:
     dependencies:
       esutils: 2.0.3
+
+  dom-accessibility-api@0.7.1: {}
 
   dom-serializer@2.0.0:
     dependencies:

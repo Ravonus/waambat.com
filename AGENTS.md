@@ -64,6 +64,13 @@ URL and do not introduce uppercase/lowercase redirect loops to change the addres
 
 ## Predictive playback and page scrolling
 
+For new standard media placements, use Kerf's `media()` + `mediaFfmpeg()` pipeline
+and `Media` renderer. Exact frame-zero previews, display-quality selection and bounded
+background caching are framework defaults; do not replace them with a blur placeholder
+or a site-owned warm timer. Keep the installed Core and Media packages together.
+After an upgrade, rebuild imported assets and re-ingest persisted legacy video records.
+`kerf agents-md` regenerates the installed plugin contract for agents.
+
 Use `observeMediaViewport` from `@kerf-js/media/browser` for document galleries.
 The viewport lifecycle keeps manual pause, reduced motion, Save Data, menu state
 and hidden tabs authoritative. Preparation may attach the next source and load
