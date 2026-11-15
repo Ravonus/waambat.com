@@ -447,6 +447,7 @@ export const saveSchema = z
   .strict();
 export function mediaReferences(content: Content) {
   return new Set([
+    content.seo.socialImage, content.seo.artistImage, content.seo.logo,
     ...content.sections
       .filter(
         (s) =>
@@ -470,6 +471,7 @@ export function mediaReferences(content: Content) {
     ...content.pages
       .filter((p) => !p.archived)
       .flatMap((p) => [
+        p.seo.image,
         ...p.blocks.filter((b) => !b.archived).map((b) => b.src),
         ...p.archive.filter((a) => !a.archived).map((a) => a.image),
       ]),

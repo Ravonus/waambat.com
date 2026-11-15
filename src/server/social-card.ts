@@ -1,4 +1,5 @@
 import sharp from 'sharp';
+import {readMedia} from './media-store';
 import {readFile,stat} from 'node:fs/promises';
 import {resolve,sep} from 'node:path';
 import {createHash} from 'node:crypto';
@@ -9,7 +10,7 @@ const escape=(value:string)=>value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;
 const lines=(value:string,width:number,max:number)=>{const result:string[]=[];let line='';for(const word of value.split(/\s+/)){if((line+' '+word).trim().length>width&&line){result.push(line);line='';}line+=(line?' ':'')+word;}if(line)result.push(line);return result.slice(0,max);};
 async function localImage(url:string,fallback:string,width:number,height:number){
  const root=resolve(process.cwd(),'public');
- async function load(source:string){if(!source.startsWith('/')||source.startsWith('//'))throw Error('Use a local uploaded image');const file=resolve(root,'.'+source.split(/[?#]/)[0]);if(!file.startsWith(root+sep)||(await stat(file)).size>20*1024*1024)throw Error('Invalid card image');return readFile(file);}
+ async function load(source:string){const media=source.match(/^\/api\/media\/([a-f0-9]{64})$/)?.[1];if(media){const entry=await readMedia(media);if(!entry||!entry.metadata.type.startsWith('image/')||entry.data.length>20*1024*1024)throw Error('Use an uploaded image');return entry.data;}if(!source.startsWith('/')||source.startsWith('//'))throw Error('Use a local uploaded image');const file=resolve(root,'.'+source.split(/[?#]/)[0]);if(!file.startsWith(root+sep)||(await stat(file)).size>20*1024*1024)throw Error('Invalid card image');return readFile(file);}
  let bytes:Buffer;try{bytes=await load(url);}catch{bytes=await load(fallback);}
  return `data:image/png;base64,${(await sharp(bytes).resize(width,height,{fit:'cover'}).png().toBuffer()).toString('base64')}`;
 }
