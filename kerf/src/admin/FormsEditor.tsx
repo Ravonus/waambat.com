@@ -227,7 +227,7 @@ export default function FormsEditor({ forms, pages, theme, onChange, }: {
               Add question
             </button>
           </div>
-          <details>
+          <details className="studio-preview">
             <summary className="text-waambat-link">Preview this form</summary>
             <ContactForm key={JSON.stringify(form)} form={publicForm(form)} preview/>
           </details>
