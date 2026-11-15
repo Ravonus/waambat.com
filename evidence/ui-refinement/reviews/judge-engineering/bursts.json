@@ -1,0 +1,163 @@
+{
+ "hover": [
+  {
+   "link": "NFTs",
+   "at": 0.3,
+   "starts": 1
+  },
+  {
+   "link": "NFTs",
+   "at": 0.5,
+   "starts": 1
+  },
+  {
+   "link": "NFTs",
+   "at": 0.7,
+   "starts": 1
+  },
+  {
+   "link": "ORDINALS",
+   "at": 0.3,
+   "starts": 1
+  },
+  {
+   "link": "ORDINALS",
+   "at": 0.5,
+   "starts": 1
+  },
+  {
+   "link": "ORDINALS",
+   "at": 0.7,
+   "starts": 1
+  },
+  {
+   "link": "quantum mechanics",
+   "at": 0.3,
+   "starts": 1
+  },
+  {
+   "link": "quantum mechanics",
+   "at": 0.5,
+   "starts": 1
+  },
+  {
+   "link": "quantum mechanics",
+   "at": 0.7,
+   "starts": 1
+  },
+  {
+   "link": "art archive",
+   "at": 0.3,
+   "starts": 1
+  },
+  {
+   "link": "art archive",
+   "at": 0.5,
+   "starts": 1
+  },
+  {
+   "link": "art archive",
+   "at": 0.7,
+   "starts": 1
+  }
+ ],
+ "mousePress": [
+  {
+   "hold": 60,
+   "at": 0.3,
+   "landed": true
+  },
+  {
+   "hold": 60,
+   "at": 0.5,
+   "landed": true
+  },
+  {
+   "hold": 60,
+   "at": 0.75,
+   "landed": true
+  },
+  {
+   "hold": 100,
+   "at": 0.3,
+   "landed": true
+  },
+  {
+   "hold": 100,
+   "at": 0.5,
+   "landed": true
+  },
+  {
+   "hold": 100,
+   "at": 0.75,
+   "landed": true
+  },
+  {
+   "hold": 130,
+   "at": 0.3,
+   "landed": true
+  },
+  {
+   "hold": 130,
+   "at": 0.5,
+   "landed": true
+  },
+  {
+   "hold": 130,
+   "at": 0.75,
+   "landed": true
+  }
+ ],
+ "touchTap": [
+  {
+   "hold": 60,
+   "at": 0.3,
+   "landed": true
+  },
+  {
+   "hold": 60,
+   "at": 0.5,
+   "landed": true
+  },
+  {
+   "hold": 60,
+   "at": 0.75,
+   "landed": true
+  },
+  {
+   "hold": 100,
+   "at": 0.3,
+   "landed": true
+  },
+  {
+   "hold": 100,
+   "at": 0.5,
+   "landed": true
+  },
+  {
+   "hold": 100,
+   "at": 0.75,
+   "landed": true
+  },
+  {
+   "hold": 130,
+   "at": 0.3,
+   "landed": true
+  },
+  {
+   "hold": 130,
+   "at": 0.5,
+   "landed": true
+  },
+  {
+   "hold": 130,
+   "at": 0.75,
+   "landed": true
+  }
+ ],
+ "summary": {
+  "maxHoverStarts": 1,
+  "mouseLanded": "9/9",
+  "touchLanded": "9/9"
+ }
+}

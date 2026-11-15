@@ -1,0 +1,3913 @@
+{
+ "R": {
+  "p360": {
+   "docOverflowClosed": [
+    360,
+    360
+   ],
+   "hamburgerVisible": true,
+   "closedGlyph": {
+    "button": {
+     "x": 296,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 318,
+     "cy": 58
+    },
+    "svg": {
+     "x": 305,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 318,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 307,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 318,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 307,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 318,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 307,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 318,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "pressGlyph": {
+    "button": {
+     "x": 294,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 316,
+     "cy": 58
+    },
+    "svg": {
+     "x": 303,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 316,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 305,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 316,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 305,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 316,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 305,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 316,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "visible",
+    "burst": true,
+    "anim": [
+     "waambat-mosh-box"
+    ]
+   },
+   "openAnimations": [
+    "waambat-mosh-box@_menuButton_q25uk_",
+    "_menu-mosh-in_q25uk_1@_overlay_q25uk_113",
+    "_menu-tear_q25uk_1@_overlay_q25uk_113",
+    "_glyph-fold_q25uk_1@[object SVGAnimate",
+    "_glyph-fold_q25uk_1@[object SVGAnimate",
+    "_glyph-fold_q25uk_1@[object SVGAnimate",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "title-arrive@text-waambat-pink ",
+    "object-in-calm@mb-10 text-center",
+    "object-in-calm@my-8",
+    "object-in-calm@mb-10 text-center",
+    "object-in-calm@my-8",
+    "object-in-calm@mb-10 text-center",
+    "object-in-calm@my-8"
+   ],
+   "open": {
+    "open": true,
+    "phase": "open",
+    "url": "/mechanics",
+    "scrollY": 0,
+    "expanded": "true",
+    "focus": "Close menu <button>",
+    "htmlOverflow": "hidden",
+    "bodyOverflow": "hidden",
+    "inert": [
+     "main#main-content.site-main mx-auto w-",
+     "footer.border-t border-gray"
+    ],
+    "overlay": {
+     "opacity": "1",
+     "clip": "inset(0px)",
+     "translate": "0px"
+    },
+    "menuRect": [
+     296,
+     36,
+     44,
+     44
+    ]
+   },
+   "closeGlyph": {
+    "button": {
+     "x": 296,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 318,
+     "cy": 58
+    },
+    "svg": {
+     "x": 305,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 318,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 310.2,
+      "y": 50.2,
+      "w": 15.6,
+      "h": 15.6,
+      "cx": 318,
+      "cy": 58,
+      "transform": "matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 8)",
+      "opacity": "1"
+     },
+     {
+      "x": 318,
+      "y": 58,
+      "w": 0,
+      "h": 0,
+      "cx": 318,
+      "cy": 58,
+      "transform": "matrix(0, 0, 0, 1, 0, 0)",
+      "opacity": "0"
+     },
+     {
+      "x": 310.2,
+      "y": 50.2,
+      "w": 15.6,
+      "h": 15.6,
+      "cx": 318,
+      "cy": 58,
+      "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, -8)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "menuGlyphWhileOpen": {
+    "button": {
+     "x": 296,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 318,
+     "cy": 58
+    },
+    "svg": {
+     "x": 305,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 318,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 307,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 318,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 307,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 318,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 307,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 318,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "hidden",
+    "burst": false,
+    "anim": []
+   },
+   "links": [
+    {
+     "text": "01 NFTs",
+     "name": "01NFTs",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      126.8,
+      100.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "02 ORDINALS",
+     "name": "02ORDINALS",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      182.8,
+      173.5,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "03 quantum mechanics",
+     "name": "03quantum mechanics",
+     "current": "page",
+     "color": "rgb(255, 148, 178)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      238.8,
+      287.1,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(255, 148, 178)",
+     "indexSize": "11px",
+     "afterOpacity": "0.8",
+     "afterShadow": "color(srgb 0.764706 0.611765 0.635294 / 0.8) -1px 1px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.67) 1px -1px 0px 0px",
+     "contrast": 10.13,
+     "indexContrast": 10.13
+    },
+    {
+     "text": "04 art archive",
+     "name": "04art archive",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      294.8,
+      165.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "05 instagram",
+     "name": "05instagram",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      350.8,
+      157.5,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "06 blog + press",
+     "name": "06blog + press",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      406.8,
+      193.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "07 bio",
+     "name": "07bio",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      462.8,
+      77,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "08 collect + contact",
+     "name": "08collect + contact",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      518.8,
+      244.3,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    }
+   ],
+   "overlayScroll": {
+    "scrollHeight": 780,
+    "clientHeight": 780,
+    "scrollWidth": 360,
+    "clientWidth": 360
+   },
+   "logo": {
+    "visibleWordmarks": 1,
+    "rect": [
+     89.34375,
+     40,
+     181.3125,
+     22.1875
+    ],
+    "hitIsLogo": true,
+    "hit": "A.site-logo text-waambat-logo fo",
+    "color": "rgb(255, 148, 178)"
+   },
+   "scrollAfterWheel": 0,
+   "tabOrder": [
+    "01NFTs",
+    "02ORDINALS",
+    "03quantum mechanics",
+    "04art archive",
+    "05instagram",
+    "06blog + press",
+    "07bio",
+    "08collect + contact",
+    "waambat home [OUTSIDE] [header]",
+    "Close menu",
+    "01NFTs",
+    "02ORDINALS",
+    "S:01NFTs",
+    "S:Close menu",
+    "S:waambat home [OUTSIDE]"
+   ],
+   "linkPress": {
+    "text": "02ORDINALS",
+    "color": "rgb(225, 188, 194)",
+    "burst": true,
+    "anim": [
+     "waambat-mosh-text:50"
+    ],
+    "textShadow": "rgb(226, 112, 146) 2px 0px 0px, rgb(225, 188, 194) -2px 0px 0px",
+    "translate": "2px"
+   },
+   "afterCancel": [
+    [
+     4233,
+     "1",
+     "1px",
+     "waambat-mosh-text"
+    ],
+    [
+     4280,
+     "1",
+     "0px",
+     "waambat-mosh-text"
+    ],
+    [
+     4328,
+     "1",
+     "0px",
+     "waambat-mosh-text"
+    ],
+    [
+     4376,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4423,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4470,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4517,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4564,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4611,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4658,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4705,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4756,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4804,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4852,
+     "1",
+     "none",
+     ""
+    ]
+   ],
+   "urlAfterCancel": "/mechanics",
+   "closeX": {
+    "trace": [
+     [
+      34,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      64,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      96,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      202,
+      "closing",
+      "inset(39.4654% 0px 0px)",
+      "1"
+     ],
+     [
+      234,
+      "closing",
+      "inset(56.6199% 0px 0px)",
+      "1"
+     ],
+     [
+      266,
+      "closing",
+      "inset(69.3183% 0px 0px)",
+      "0.730518"
+     ],
+     [
+      298,
+      "closing",
+      "inset(81.5867% 0px 0px)",
+      "0.438412"
+     ],
+     [
+      329,
+      "closing",
+      "inset(93.8551% 0px 0px)",
+      "0.146307"
+     ],
+     [
+      360,
+      "gone"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/mechanics",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "Menu <button>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      296,
+      36,
+      44,
+      44
+     ]
+    },
+    "glyph": {
+     "button": {
+      "x": 296,
+      "y": 36,
+      "w": 44,
+      "h": 44,
+      "cx": 318,
+      "cy": 58
+     },
+     "svg": {
+      "x": 305,
+      "y": 47,
+      "w": 26,
+      "h": 22,
+      "cx": 318,
+      "cy": 58
+     },
+     "paths": [
+      {
+       "x": 307,
+       "y": 50,
+       "w": 22,
+       "h": 0,
+       "cx": 318,
+       "cy": 50,
+       "transform": "none",
+       "opacity": "1"
+      },
+      {
+       "x": 307,
+       "y": 58,
+       "w": 22,
+       "h": 0,
+       "cx": 318,
+       "cy": 58,
+       "transform": "none",
+       "opacity": "1"
+      },
+      {
+       "x": 307,
+       "y": 66,
+       "w": 22,
+       "h": 0,
+       "cx": 318,
+       "cy": 66,
+       "transform": "none",
+       "opacity": "1"
+      }
+     ],
+     "color": "rgb(225, 188, 194)",
+     "scale": "none",
+     "filter": "none",
+     "visibility": "visible",
+     "burst": false,
+     "anim": []
+    }
+   },
+   "escape": {
+    "trace": [
+     [
+      3,
+      "closing"
+     ],
+     [
+      35,
+      "closing"
+     ],
+     [
+      65,
+      "closing"
+     ],
+     [
+      97,
+      "closing"
+     ],
+     [
+      130,
+      "closing"
+     ],
+     [
+      161,
+      "closing"
+     ],
+     [
+      194,
+      "closing"
+     ],
+     [
+      226,
+      "closing"
+     ],
+     [
+      258,
+      "closing"
+     ],
+     [
+      290,
+      "closing"
+     ],
+     [
+      321,
+      "closing"
+     ],
+     [
+      352,
+      "gone"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/mechanics",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "Menu <button>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      296,
+      36,
+      44,
+      44
+     ]
+    }
+   },
+   "destination": {
+    "trace": [
+     [
+      52,
+      "/bio-waambat",
+      "open",
+      "inset(0px)",
+      null
+     ],
+     [
+      94,
+      "/bio-waambat",
+      "closing",
+      "inset(0px)",
+      "WAAMBAT"
+     ],
+     [
+      196,
+      "/bio-waambat",
+      "closing",
+      "inset(15.0911% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      230,
+      "/bio-waambat",
+      "closing",
+      "inset(30.8623% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      341,
+      "/bio-waambat",
+      "closing",
+      "inset(75.4466% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      372,
+      "/bio-waambat",
+      "closing",
+      "inset(87.715% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      404,
+      "/bio-waambat",
+      "gone",
+      "",
+      "WAAMBAT"
+     ],
+     [
+      480,
+      "/bio-waambat",
+      "gone",
+      "",
+      "WAAMBAT"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/bio-waambat",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "WAAMBAT[too edgy for algos]WAA <main#main-content>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      296,
+      36,
+      44,
+      44
+     ]
+    }
+   },
+   "reopenLinks": [
+    [
+     "01NFTs",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "02ORDINALS",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "03quantum mechanics",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "04art archive",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "05instagram",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "06blog + press",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "07bio",
+     "page",
+     "rgb(255, 148, 178)"
+    ],
+    [
+     "08collect + contact",
+     null,
+     "rgb(225, 188, 194)"
+    ]
+   ],
+   "docOverflowOpen": [
+    360,
+    360
+   ]
+  },
+  "p390": {
+   "docOverflowClosed": [
+    390,
+    390
+   ],
+   "hamburgerVisible": true,
+   "closedGlyph": {
+    "button": {
+     "x": 326,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 348,
+     "cy": 58
+    },
+    "svg": {
+     "x": 335,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 348,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 337,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 337,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 337,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "pressGlyph": {
+    "button": {
+     "x": 324,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 346,
+     "cy": 58
+    },
+    "svg": {
+     "x": 333,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 346,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 335,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 346,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 335,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 346,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 335,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 346,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "visible",
+    "burst": true,
+    "anim": [
+     "waambat-mosh-box"
+    ]
+   },
+   "openAnimations": [
+    "waambat-mosh-box@_menuButton_q25uk_",
+    "_menu-mosh-in_q25uk_1@_overlay_q25uk_113",
+    "_menu-tear_q25uk_1@_overlay_q25uk_113",
+    "_glyph-fold_q25uk_1@[object SVGAnimate",
+    "_glyph-fold_q25uk_1@[object SVGAnimate",
+    "_glyph-fold_q25uk_1@[object SVGAnimate",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "_menu-link-in_q25uk_1@_index_q25uk_245 _",
+    "_menu-link-in_q25uk_1@_arrive_q25uk_222",
+    "title-arrive@text-waambat-pink ",
+    "object-in-calm@mb-10 text-center",
+    "object-in-calm@my-8",
+    "object-in-calm@mb-10 text-center",
+    "object-in-calm@my-8",
+    "object-in-calm@mb-10 text-center",
+    "object-in-calm@my-8"
+   ],
+   "open": {
+    "open": true,
+    "phase": "open",
+    "url": "/mechanics",
+    "scrollY": 0,
+    "expanded": "true",
+    "focus": "Close menu <button>",
+    "htmlOverflow": "hidden",
+    "bodyOverflow": "hidden",
+    "inert": [
+     "main#main-content.site-main mx-auto w-",
+     "footer.border-t border-gray"
+    ],
+    "overlay": {
+     "opacity": "1",
+     "clip": "inset(0px)",
+     "translate": "0px"
+    },
+    "menuRect": [
+     326,
+     36,
+     44,
+     44
+    ]
+   },
+   "closeGlyph": {
+    "button": {
+     "x": 326,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 348,
+     "cy": 58
+    },
+    "svg": {
+     "x": 335,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 348,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 340.2,
+      "y": 50.2,
+      "w": 15.6,
+      "h": 15.6,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 8)",
+      "opacity": "1"
+     },
+     {
+      "x": 348,
+      "y": 58,
+      "w": 0,
+      "h": 0,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0, 0, 0, 1, 0, 0)",
+      "opacity": "0"
+     },
+     {
+      "x": 340.2,
+      "y": 50.2,
+      "w": 15.6,
+      "h": 15.6,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, -8)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "menuGlyphWhileOpen": {
+    "button": {
+     "x": 326,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 348,
+     "cy": 58
+    },
+    "svg": {
+     "x": 335,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 348,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 337,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 337,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 337,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "hidden",
+    "burst": false,
+    "anim": []
+   },
+   "links": [
+    {
+     "text": "01 NFTs",
+     "name": "01NFTs",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      130.6,
+      100.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "02 ORDINALS",
+     "name": "02ORDINALS",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      186.6,
+      173.5,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "03 quantum mechanics",
+     "name": "03quantum mechanics",
+     "current": "page",
+     "color": "rgb(255, 148, 178)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      242.6,
+      287.1,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(255, 148, 178)",
+     "indexSize": "11px",
+     "afterOpacity": "0.8",
+     "afterShadow": "color(srgb 0.764706 0.611765 0.635294 / 0.8) -1px 1px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.67) 1px -1px 0px 0px",
+     "contrast": 10.13,
+     "indexContrast": 10.13
+    },
+    {
+     "text": "04 art archive",
+     "name": "04art archive",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      298.6,
+      165.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "05 instagram",
+     "name": "05instagram",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      354.6,
+      157.5,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "06 blog + press",
+     "name": "06blog + press",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      410.6,
+      193.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "07 bio",
+     "name": "07bio",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      466.6,
+      77,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "08 collect + contact",
+     "name": "08collect + contact",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      522.6,
+      244.3,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    }
+   ],
+   "overlayScroll": {
+    "scrollHeight": 844,
+    "clientHeight": 844,
+    "scrollWidth": 390,
+    "clientWidth": 390
+   },
+   "logo": {
+    "visibleWordmarks": 1,
+    "rect": [
+     104.34375,
+     40,
+     181.3125,
+     22.1875
+    ],
+    "hitIsLogo": true,
+    "hit": "A.site-logo text-waambat-logo fo",
+    "color": "rgb(255, 148, 178)"
+   },
+   "scrollAfterWheel": 0,
+   "tabOrder": [
+    "01NFTs",
+    "02ORDINALS",
+    "03quantum mechanics",
+    "04art archive",
+    "05instagram",
+    "06blog + press",
+    "07bio",
+    "08collect + contact",
+    "waambat home [OUTSIDE] [header]",
+    "Close menu",
+    "01NFTs",
+    "02ORDINALS",
+    "S:01NFTs",
+    "S:Close menu",
+    "S:waambat home [OUTSIDE]"
+   ],
+   "linkFocus": {
+    "text": "02ORDINALS",
+    "outline": "rgb(225, 188, 194) solid 2px",
+    "offset": "6px",
+    "anim": []
+   },
+   "linkPress": {
+    "text": "02ORDINALS",
+    "color": "rgb(225, 188, 194)",
+    "burst": true,
+    "anim": [],
+    "textShadow": "none",
+    "translate": "none"
+   },
+   "afterCancel": [
+    [
+     4384,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4431,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4478,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4525,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4574,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4622,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4671,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4719,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4766,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4814,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4862,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4910,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4956,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     5004,
+     "1",
+     "none",
+     ""
+    ]
+   ],
+   "urlAfterCancel": "/mechanics",
+   "closeX": {
+    "trace": [
+     [
+      39,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      69,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      100,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      211,
+      "closing",
+      "inset(39.4834% 0px 0px)",
+      "1"
+     ],
+     [
+      242,
+      "closing",
+      "inset(56.6379% 0px 0px)",
+      "1"
+     ],
+     [
+      274,
+      "closing",
+      "inset(69.2943% 0px 0px)",
+      "0.731088"
+     ],
+     [
+      306,
+      "closing",
+      "inset(81.5627% 0px 0px)",
+      "0.438982"
+     ],
+     [
+      337,
+      "closing",
+      "inset(93.868% 0px 0px)",
+      "0.146"
+     ],
+     [
+      369,
+      "gone"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/mechanics",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "Menu <button>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      326,
+      36,
+      44,
+      44
+     ]
+    },
+    "glyph": {
+     "button": {
+      "x": 326,
+      "y": 36,
+      "w": 44,
+      "h": 44,
+      "cx": 348,
+      "cy": 58
+     },
+     "svg": {
+      "x": 335,
+      "y": 47,
+      "w": 26,
+      "h": 22,
+      "cx": 348,
+      "cy": 58
+     },
+     "paths": [
+      {
+       "x": 337,
+       "y": 50,
+       "w": 22,
+       "h": 0,
+       "cx": 348,
+       "cy": 50,
+       "transform": "none",
+       "opacity": "1"
+      },
+      {
+       "x": 337,
+       "y": 58,
+       "w": 22,
+       "h": 0,
+       "cx": 348,
+       "cy": 58,
+       "transform": "none",
+       "opacity": "1"
+      },
+      {
+       "x": 337,
+       "y": 66,
+       "w": 22,
+       "h": 0,
+       "cx": 348,
+       "cy": 66,
+       "transform": "none",
+       "opacity": "1"
+      }
+     ],
+     "color": "rgb(225, 188, 194)",
+     "scale": "none",
+     "filter": "none",
+     "visibility": "visible",
+     "burst": false,
+     "anim": []
+    }
+   },
+   "escape": {
+    "trace": [
+     [
+      2,
+      "closing"
+     ],
+     [
+      34,
+      "closing"
+     ],
+     [
+      64,
+      "closing"
+     ],
+     [
+      96,
+      "closing"
+     ],
+     [
+      128,
+      "closing"
+     ],
+     [
+      160,
+      "closing"
+     ],
+     [
+      193,
+      "closing"
+     ],
+     [
+      225,
+      "closing"
+     ],
+     [
+      256,
+      "closing"
+     ],
+     [
+      288,
+      "closing"
+     ],
+     [
+      320,
+      "gone"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/mechanics",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "Menu <button>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      326,
+      36,
+      44,
+      44
+     ]
+    }
+   },
+   "destination": {
+    "trace": [
+     [
+      55,
+      "/bio-waambat",
+      "open",
+      "inset(0px)",
+      null
+     ],
+     [
+      96,
+      "/bio-waambat",
+      "closing",
+      "inset(0px)",
+      "WAAMBAT"
+     ],
+     [
+      197,
+      "/bio-waambat",
+      "closing",
+      "inset(7.71378% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      230,
+      "/bio-waambat",
+      "closing",
+      "inset(22.5138% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      342,
+      "/bio-waambat",
+      "closing",
+      "inset(69.2943% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      375,
+      "/bio-waambat",
+      "closing",
+      "inset(81.5996% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      407,
+      "/bio-waambat",
+      "closing",
+      "inset(93.868% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      481,
+      "/bio-waambat",
+      "gone",
+      "",
+      "WAAMBAT"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/bio-waambat",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "WAAMBAT[too edgy for algos]WAA <main#main-content>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      326,
+      36,
+      44,
+      44
+     ]
+    }
+   },
+   "reopenLinks": [
+    [
+     "01NFTs",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "02ORDINALS",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "03quantum mechanics",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "04art archive",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "05instagram",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "06blog + press",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "07bio",
+     "page",
+     "rgb(255, 148, 178)"
+    ],
+    [
+     "08collect + contact",
+     null,
+     "rgb(225, 188, 194)"
+    ]
+   ],
+   "docOverflowOpen": [
+    390,
+    390
+   ]
+  },
+  "land": {
+   "docOverflowClosed": [
+    844,
+    844
+   ],
+   "hamburgerVisible": false,
+   "desktopNav": [
+    "NFTs",
+    "ORDINALS",
+    "quantum mechanics",
+    "art archive",
+    "instagram",
+    "blog + press",
+    "bio",
+    "collect + contact"
+   ]
+  },
+  "z200": {
+   "docOverflowClosed": [
+    720,
+    720
+   ],
+   "hamburgerVisible": true,
+   "closedGlyph": {
+    "button": {
+     "x": 656,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 678,
+     "cy": 58
+    },
+    "svg": {
+     "x": 665,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 678,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 667,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 678,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 667,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 678,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 667,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 678,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "hoverGlyph": {
+    "button": {
+     "x": 656,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 678,
+     "cy": 58
+    },
+    "svg": {
+     "x": 665,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 678,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 664,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 675,
+      "cy": 50,
+      "transform": "matrix(1, 0, 0, 1, -3, 0)",
+      "opacity": "1"
+     },
+     {
+      "x": 673.7,
+      "y": 58,
+      "w": 13.6,
+      "h": 0,
+      "cx": 680.5,
+      "cy": 58,
+      "transform": "matrix(0.62, 0, 0, 1, 2.48, 0)",
+      "opacity": "1"
+     },
+     {
+      "x": 670,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 681,
+      "cy": 66,
+      "transform": "matrix(1, 0, 0, 1, 3, 0)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(255, 148, 178)",
+    "scale": "none",
+    "filter": "drop-shadow(rgb(226, 112, 146) -1.5px 0px 0px) drop-shadow(rgb(225, 188, 194) 1.5px 0px 0px)",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "pressGlyph": {
+    "button": {
+     "x": 655.6,
+     "y": 37.6,
+     "w": 40.9,
+     "h": 40.9,
+     "cx": 676,
+     "cy": 58
+    },
+    "svg": {
+     "x": 663.9,
+     "y": 47.8,
+     "w": 24.2,
+     "h": 20.4,
+     "cx": 676,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 663,
+      "y": 50.6,
+      "w": 20.4,
+      "h": 0,
+      "cx": 673.2,
+      "cy": 50.6,
+      "transform": "matrix(1, 0, 0, 1, -3, 0)",
+      "opacity": "1"
+     },
+     {
+      "x": 672,
+      "y": 58,
+      "w": 12.7,
+      "h": 0,
+      "cx": 678.3,
+      "cy": 58,
+      "transform": "matrix(0.62, 0, 0, 1, 2.48, 0)",
+      "opacity": "1"
+     },
+     {
+      "x": 668.6,
+      "y": 65.4,
+      "w": 20.4,
+      "h": 0,
+      "cx": 678.8,
+      "cy": 65.4,
+      "transform": "matrix(1, 0, 0, 1, 3, 0)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(239, 129, 161)",
+    "scale": "matrix(0.929496, 0, 0, 0.929496, 0, 0)",
+    "filter": "drop-shadow(rgb(226, 112, 146) -1.5px 0px 0px) drop-shadow(rgb(225, 188, 194) 1.5px 0px 0px)",
+    "visibility": "visible",
+    "burst": true,
+    "anim": [
+     null,
+     null,
+     "waambat-mosh-box"
+    ]
+   },
+   "open": {
+    "open": true,
+    "phase": "open",
+    "url": "/mechanics",
+    "scrollY": 0,
+    "expanded": "true",
+    "focus": "Close menu <button>",
+    "htmlOverflow": "hidden",
+    "bodyOverflow": "hidden",
+    "inert": [
+     "main#main-content.site-main mx-auto w-",
+     "footer.border-t border-gray"
+    ],
+    "overlay": {
+     "opacity": "1",
+     "clip": "inset(0px)",
+     "translate": "0px"
+    },
+    "menuRect": [
+     656,
+     36,
+     44,
+     44
+    ]
+   },
+   "closeGlyph": {
+    "button": {
+     "x": 656,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 678,
+     "cy": 58
+    },
+    "svg": {
+     "x": 665,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 678,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 669.3,
+      "y": 49.3,
+      "w": 17.4,
+      "h": 17.4,
+      "cx": 678,
+      "cy": 58,
+      "transform": "matrix(0.79196, 0.79196, -0.707107, 0.707107, 0, 8)",
+      "opacity": "1"
+     },
+     {
+      "x": 678,
+      "y": 58,
+      "w": 0,
+      "h": 0,
+      "cx": 678,
+      "cy": 58,
+      "transform": "matrix(0, 0, 0, 1, 0, 0)",
+      "opacity": "0"
+     },
+     {
+      "x": 669.3,
+      "y": 49.3,
+      "w": 17.4,
+      "h": 17.4,
+      "cx": 678,
+      "cy": 58,
+      "transform": "matrix(0.79196, -0.79196, 0.707107, 0.707107, 0, -8)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(255, 148, 178)",
+    "scale": "none",
+    "filter": "drop-shadow(rgb(226, 112, 146) -1.5px 0px 0px) drop-shadow(rgb(225, 188, 194) 1.5px 0px 0px)",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "menuGlyphWhileOpen": {
+    "button": {
+     "x": 656,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 678,
+     "cy": 58
+    },
+    "svg": {
+     "x": 665,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 678,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 667,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 678,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 667,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 678,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 667,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 678,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "hidden",
+    "burst": false,
+    "anim": []
+   },
+   "links": [
+    {
+     "text": "01 NFTs",
+     "name": "01NFTs",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      108,
+      100.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "02 ORDINALS",
+     "name": "02ORDINALS",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      164,
+      173.5,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "03 quantum mechanics",
+     "name": "03quantum mechanics",
+     "current": "page",
+     "color": "rgb(255, 148, 178)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      220,
+      287.1,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(255, 148, 178)",
+     "indexSize": "11px",
+     "afterOpacity": "0.8",
+     "afterShadow": "color(srgb 0.764706 0.611765 0.635294 / 0.8) -1px 1px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.67) 1px -1px 0px 0px",
+     "contrast": 10.13,
+     "indexContrast": 10.13
+    },
+    {
+     "text": "04 art archive",
+     "name": "04art archive",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      276,
+      165.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "05 instagram",
+     "name": "05instagram",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      332,
+      157.5,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "06 blog + press",
+     "name": "06blog + press",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      388,
+      193.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "07 bio",
+     "name": "07bio",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      444,
+      77,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "08 collect + contact",
+     "name": "08collect + contact",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      500,
+      244.3,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    }
+   ],
+   "overlayScroll": {
+    "scrollHeight": 604,
+    "clientHeight": 450,
+    "scrollWidth": 720,
+    "clientWidth": 720
+   },
+   "logo": {
+    "visibleWordmarks": 1,
+    "rect": [
+     269.34375,
+     40,
+     181.3125,
+     22.1875
+    ],
+    "hitIsLogo": true,
+    "hit": "A.site-logo text-waambat-logo fo",
+    "color": "rgb(255, 148, 178)"
+   },
+   "scrollAfterWheel": 0,
+   "scrolledPanel": {
+    "scrollTop": 154,
+    "lastLinkBottom": 398,
+    "innerHeight": 450,
+    "closeRect": [
+     656,
+     -118,
+     44,
+     44
+    ],
+    "linksUnderClose": [],
+    "linksUnderLogo": []
+   },
+   "tabOrder": [
+    "01NFTs",
+    "02ORDINALS",
+    "03quantum mechanics",
+    "04art archive",
+    "05instagram",
+    "06blog + press",
+    "07bio",
+    "08collect + contact",
+    "waambat home [OUTSIDE] [header]",
+    "01NFTs02ORDINALS03quantu",
+    "Close menu",
+    "01NFTs",
+    "S:Close menu",
+    "S:01NFTs02ORDINALS03quantu",
+    "S:waambat home [OUTSIDE]"
+   ],
+   "linkHover": {
+    "color": "rgb(242, 206, 212)",
+    "anim": [
+     null,
+     "waambat-mosh-text"
+    ],
+    "index": "rgb(255, 148, 178)"
+   },
+   "afterUnhover": [
+    [
+     3949,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     3996,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4043,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4137,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4184,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4231,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4279,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4325,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4373,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4421,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4468,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4515,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4563,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4611,
+     "1",
+     "none",
+     ""
+    ]
+   ],
+   "closeHover": {
+    "button": {
+     "x": 656,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 678,
+     "cy": 58
+    },
+    "svg": {
+     "x": 665,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 678,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 669.3,
+      "y": 49.3,
+      "w": 17.4,
+      "h": 17.4,
+      "cx": 678,
+      "cy": 58,
+      "transform": "matrix(0.79196, 0.79196, -0.707107, 0.707107, 0, 8)",
+      "opacity": "1"
+     },
+     {
+      "x": 678,
+      "y": 58,
+      "w": 0,
+      "h": 0,
+      "cx": 678,
+      "cy": 58,
+      "transform": "matrix(0, 0, 0, 1, 0, 0)",
+      "opacity": "0"
+     },
+     {
+      "x": 669.3,
+      "y": 49.3,
+      "w": 17.4,
+      "h": 17.4,
+      "cx": 678,
+      "cy": 58,
+      "transform": "matrix(0.79196, -0.79196, 0.707107, 0.707107, 0, -8)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(255, 148, 178)",
+    "scale": "none",
+    "filter": "drop-shadow(rgb(226, 112, 146) -1.5px 0px 0px) drop-shadow(rgb(225, 188, 194) 1.5px 0px 0px)",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "closeX": {
+    "trace": [
+     [
+      40,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      72,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      103,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      206,
+      "closing",
+      "inset(39.4561% 0px 0px)",
+      "1"
+     ],
+     [
+      238,
+      "closing",
+      "inset(56.6271% 0px 0px)",
+      "1"
+     ],
+     [
+      269,
+      "closing",
+      "inset(69.3116% 0px 0px)",
+      "0.730675"
+     ],
+     [
+      301,
+      "closing",
+      "inset(81.5918% 0px 0px)",
+      "0.438289"
+     ],
+     [
+      333,
+      "closing",
+      "inset(93.8485% 0px 0px)",
+      "0.146465"
+     ],
+     [
+      366,
+      "gone"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/mechanics",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "Menu <button>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      656,
+      36,
+      44,
+      44
+     ]
+    },
+    "glyph": {
+     "button": {
+      "x": 656,
+      "y": 36,
+      "w": 44,
+      "h": 44,
+      "cx": 678,
+      "cy": 58
+     },
+     "svg": {
+      "x": 665,
+      "y": 47,
+      "w": 26,
+      "h": 22,
+      "cx": 678,
+      "cy": 58
+     },
+     "paths": [
+      {
+       "x": 667,
+       "y": 50,
+       "w": 22,
+       "h": 0,
+       "cx": 678,
+       "cy": 50,
+       "transform": "matrix(1, 0, 0, 1, 0, 0)",
+       "opacity": "1"
+      },
+      {
+       "x": 667,
+       "y": 58,
+       "w": 22,
+       "h": 0,
+       "cx": 678,
+       "cy": 58,
+       "transform": "matrix(1, 0, 0, 1, 0, 0)",
+       "opacity": "1"
+      },
+      {
+       "x": 667,
+       "y": 66,
+       "w": 22,
+       "h": 0,
+       "cx": 678,
+       "cy": 66,
+       "transform": "matrix(1, 0, 0, 1, 0, 0)",
+       "opacity": "1"
+      }
+     ],
+     "color": "rgb(225, 188, 194)",
+     "scale": "none",
+     "filter": "drop-shadow(rgba(0, 0, 0, 0) 0px 0px 0px) drop-shadow(rgba(0, 0, 0, 0) 0px 0px 0px)",
+     "visibility": "visible",
+     "burst": false,
+     "anim": [
+      null
+     ]
+    }
+   },
+   "escape": {
+    "trace": [
+     [
+      5,
+      "closing"
+     ],
+     [
+      37,
+      "closing"
+     ],
+     [
+      69,
+      "closing"
+     ],
+     [
+      101,
+      "closing"
+     ],
+     [
+      132,
+      "closing"
+     ],
+     [
+      165,
+      "closing"
+     ],
+     [
+      196,
+      "closing"
+     ],
+     [
+      228,
+      "closing"
+     ],
+     [
+      259,
+      "closing"
+     ],
+     [
+      291,
+      "closing"
+     ],
+     [
+      322,
+      "closing"
+     ],
+     [
+      354,
+      "gone"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/mechanics",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "Menu <button>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      656,
+      36,
+      44,
+      44
+     ]
+    }
+   },
+   "destination": {
+    "trace": [
+     [
+      44,
+      "/bio-waambat",
+      "open",
+      "inset(0px)",
+      null
+     ],
+     [
+      79,
+      "/bio-waambat",
+      "open",
+      "inset(0px)",
+      null
+     ],
+     [
+      217,
+      "/bio-waambat",
+      "closing",
+      "inset(15.1258% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      250,
+      "/bio-waambat",
+      "closing",
+      "inset(30.8871% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      353,
+      "/bio-waambat",
+      "closing",
+      "inset(75.4635% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      385,
+      "/bio-waambat",
+      "closing",
+      "inset(87.7437% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      417,
+      "/bio-waambat",
+      "gone",
+      "",
+      "WAAMBAT"
+     ],
+     [
+      491,
+      "/bio-waambat",
+      "gone",
+      "",
+      "WAAMBAT"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/bio-waambat",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "WAAMBAT[too edgy for algos]WAA <main#main-content>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      656,
+      36,
+      44,
+      44
+     ]
+    }
+   },
+   "reopenLinks": [
+    [
+     "01NFTs",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "02ORDINALS",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "03quantum mechanics",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "04art archive",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "05instagram",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "06blog + press",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "07bio",
+     "page",
+     "rgb(255, 148, 178)"
+    ],
+    [
+     "08collect + contact",
+     null,
+     "rgb(225, 188, 194)"
+    ]
+   ],
+   "docOverflowOpen": [
+    720,
+    720
+   ]
+  },
+  "fine390": {
+   "docOverflowClosed": [
+    390,
+    390
+   ],
+   "hamburgerVisible": true,
+   "closedGlyph": {
+    "button": {
+     "x": 326,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 348,
+     "cy": 58
+    },
+    "svg": {
+     "x": 335,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 348,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 337,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 337,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 337,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "hoverGlyph": {
+    "button": {
+     "x": 326,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 348,
+     "cy": 58
+    },
+    "svg": {
+     "x": 335,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 348,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 334,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 345,
+      "cy": 50,
+      "transform": "matrix(1, 0, 0, 1, -3, 0)",
+      "opacity": "1"
+     },
+     {
+      "x": 343.7,
+      "y": 58,
+      "w": 13.6,
+      "h": 0,
+      "cx": 350.5,
+      "cy": 58,
+      "transform": "matrix(0.62, 0, 0, 1, 2.48, 0)",
+      "opacity": "1"
+     },
+     {
+      "x": 340,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 351,
+      "cy": 66,
+      "transform": "matrix(1, 0, 0, 1, 3, 0)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(255, 148, 178)",
+    "scale": "none",
+    "filter": "drop-shadow(rgb(226, 112, 146) -1.5px 0px 0px) drop-shadow(rgb(225, 188, 194) 1.5px 0px 0px)",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "pressGlyph": {
+    "button": {
+     "x": 325.6,
+     "y": 37.6,
+     "w": 40.9,
+     "h": 40.9,
+     "cx": 346,
+     "cy": 58
+    },
+    "svg": {
+     "x": 333.9,
+     "y": 47.8,
+     "w": 24.2,
+     "h": 20.4,
+     "cx": 346,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 333,
+      "y": 50.6,
+      "w": 20.4,
+      "h": 0,
+      "cx": 343.2,
+      "cy": 50.6,
+      "transform": "matrix(1, 0, 0, 1, -3, 0)",
+      "opacity": "1"
+     },
+     {
+      "x": 342,
+      "y": 58,
+      "w": 12.7,
+      "h": 0,
+      "cx": 348.3,
+      "cy": 58,
+      "transform": "matrix(0.62, 0, 0, 1, 2.48, 0)",
+      "opacity": "1"
+     },
+     {
+      "x": 338.6,
+      "y": 65.4,
+      "w": 20.4,
+      "h": 0,
+      "cx": 348.8,
+      "cy": 65.4,
+      "transform": "matrix(1, 0, 0, 1, 3, 0)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(239, 129, 161)",
+    "scale": "matrix(0.92945, 0, 0, 0.92945, 0, 0)",
+    "filter": "drop-shadow(rgb(226, 112, 146) -1.5px 0px 0px) drop-shadow(rgb(225, 188, 194) 1.5px 0px 0px)",
+    "visibility": "visible",
+    "burst": true,
+    "anim": [
+     null,
+     null,
+     "waambat-mosh-box"
+    ]
+   },
+   "open": {
+    "open": true,
+    "phase": "open",
+    "url": "/mechanics",
+    "scrollY": 0,
+    "expanded": "true",
+    "focus": "Close menu <button>",
+    "htmlOverflow": "hidden",
+    "bodyOverflow": "hidden",
+    "inert": [
+     "main#main-content.site-main mx-auto w-",
+     "footer.border-t border-gray"
+    ],
+    "overlay": {
+     "opacity": "1",
+     "clip": "inset(0px)",
+     "translate": "0px"
+    },
+    "menuRect": [
+     326,
+     36,
+     44,
+     44
+    ]
+   },
+   "closeGlyph": {
+    "button": {
+     "x": 326,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 348,
+     "cy": 58
+    },
+    "svg": {
+     "x": 335,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 348,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 339.3,
+      "y": 49.3,
+      "w": 17.4,
+      "h": 17.4,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0.79196, 0.79196, -0.707107, 0.707107, 0, 8)",
+      "opacity": "1"
+     },
+     {
+      "x": 348,
+      "y": 58,
+      "w": 0,
+      "h": 0,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0, 0, 0, 1, 0, 0)",
+      "opacity": "0"
+     },
+     {
+      "x": 339.3,
+      "y": 49.3,
+      "w": 17.4,
+      "h": 17.4,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0.79196, -0.79196, 0.707107, 0.707107, 0, -8)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(255, 148, 178)",
+    "scale": "none",
+    "filter": "drop-shadow(rgb(226, 112, 146) -1.5px 0px 0px) drop-shadow(rgb(225, 188, 194) 1.5px 0px 0px)",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "menuGlyphWhileOpen": {
+    "button": {
+     "x": 326,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 348,
+     "cy": 58
+    },
+    "svg": {
+     "x": 335,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 348,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 337,
+      "y": 50,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 50,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 337,
+      "y": 58,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 58,
+      "transform": "none",
+      "opacity": "1"
+     },
+     {
+      "x": 337,
+      "y": 66,
+      "w": 22,
+      "h": 0,
+      "cx": 348,
+      "cy": 66,
+      "transform": "none",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(225, 188, 194)",
+    "scale": "none",
+    "filter": "none",
+    "visibility": "hidden",
+    "burst": false,
+    "anim": []
+   },
+   "links": [
+    {
+     "text": "01 NFTs",
+     "name": "01NFTs",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      130.6,
+      100.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "02 ORDINALS",
+     "name": "02ORDINALS",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      186.6,
+      173.5,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "03 quantum mechanics",
+     "name": "03quantum mechanics",
+     "current": "page",
+     "color": "rgb(255, 148, 178)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      242.6,
+      287.1,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(255, 148, 178)",
+     "indexSize": "11px",
+     "afterOpacity": "0.8",
+     "afterShadow": "color(srgb 0.764706 0.611765 0.635294 / 0.8) -1px 1px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.67) 1px -1px 0px 0px",
+     "contrast": 10.13,
+     "indexContrast": 10.13
+    },
+    {
+     "text": "04 art archive",
+     "name": "04art archive",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      298.6,
+      165.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "05 instagram",
+     "name": "05instagram",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      354.6,
+      157.5,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "06 blog + press",
+     "name": "06blog + press",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      410.6,
+      193.9,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "07 bio",
+     "name": "07bio",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      466.6,
+      77,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    },
+    {
+     "text": "08 collect + contact",
+     "name": "08collect + contact",
+     "current": null,
+     "color": "rgb(225, 188, 194)",
+     "size": "28px",
+     "weight": "300",
+     "rect": [
+      30,
+      522.6,
+      244.3,
+      52
+     ],
+     "clippedRight": false,
+     "opacity": "1",
+     "indexColor": "rgb(113, 94, 97)",
+     "indexSize": "11px",
+     "afterOpacity": "0",
+     "afterShadow": "none",
+     "contrast": 12.17,
+     "indexContrast": 3.48
+    }
+   ],
+   "overlayScroll": {
+    "scrollHeight": 844,
+    "clientHeight": 844,
+    "scrollWidth": 390,
+    "clientWidth": 390
+   },
+   "logo": {
+    "visibleWordmarks": 1,
+    "rect": [
+     104.34375,
+     40,
+     181.3125,
+     22.1875
+    ],
+    "hitIsLogo": true,
+    "hit": "A.site-logo text-waambat-logo fo",
+    "color": "rgb(255, 148, 178)"
+   },
+   "scrollAfterWheel": 0,
+   "tabOrder": [
+    "01NFTs",
+    "02ORDINALS",
+    "03quantum mechanics",
+    "04art archive",
+    "05instagram",
+    "06blog + press",
+    "07bio",
+    "08collect + contact",
+    "waambat home [OUTSIDE] [header]",
+    "Close menu",
+    "01NFTs",
+    "02ORDINALS",
+    "S:01NFTs",
+    "S:Close menu",
+    "S:waambat home [OUTSIDE]"
+   ],
+   "linkHover": {
+    "color": "rgb(242, 206, 212)",
+    "anim": [
+     null,
+     "waambat-mosh-text"
+    ],
+    "index": "rgb(255, 148, 178)"
+   },
+   "afterUnhover": [
+    [
+     3680,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     3727,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     3775,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     3867,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     3914,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     3962,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4010,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4058,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4104,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4151,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4199,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4247,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4294,
+     "1",
+     "none",
+     ""
+    ],
+    [
+     4342,
+     "1",
+     "none",
+     ""
+    ]
+   ],
+   "closeHover": {
+    "button": {
+     "x": 326,
+     "y": 36,
+     "w": 44,
+     "h": 44,
+     "cx": 348,
+     "cy": 58
+    },
+    "svg": {
+     "x": 335,
+     "y": 47,
+     "w": 26,
+     "h": 22,
+     "cx": 348,
+     "cy": 58
+    },
+    "paths": [
+     {
+      "x": 339.3,
+      "y": 49.3,
+      "w": 17.4,
+      "h": 17.4,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0.79196, 0.79196, -0.707107, 0.707107, 0, 8)",
+      "opacity": "1"
+     },
+     {
+      "x": 348,
+      "y": 58,
+      "w": 0,
+      "h": 0,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0, 0, 0, 1, 0, 0)",
+      "opacity": "0"
+     },
+     {
+      "x": 339.3,
+      "y": 49.3,
+      "w": 17.4,
+      "h": 17.4,
+      "cx": 348,
+      "cy": 58,
+      "transform": "matrix(0.79196, -0.79196, 0.707107, 0.707107, 0, -8)",
+      "opacity": "1"
+     }
+    ],
+    "color": "rgb(255, 148, 178)",
+    "scale": "none",
+    "filter": "drop-shadow(rgb(226, 112, 146) -1.5px 0px 0px) drop-shadow(rgb(225, 188, 194) 1.5px 0px 0px)",
+    "visibility": "visible",
+    "burst": false,
+    "anim": []
+   },
+   "closeX": {
+    "trace": [
+     [
+      40,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      71,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      103,
+      "closing",
+      "inset(0px)",
+      "1"
+     ],
+     [
+      204,
+      "closing",
+      "inset(39.4855% 0px 0px)",
+      "1"
+     ],
+     [
+      236,
+      "closing",
+      "inset(56.6565% 0px 0px)",
+      "1"
+     ],
+     [
+      268,
+      "closing",
+      "inset(69.3194% 0px 0px)",
+      "0.730491"
+     ],
+     [
+      300,
+      "closing",
+      "inset(81.6033% 0px 0px)",
+      "0.438018"
+     ],
+     [
+      331,
+      "closing",
+      "inset(93.8474% 0px 0px)",
+      "0.146491"
+     ],
+     [
+      364,
+      "gone"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/mechanics",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "Menu <button>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      326,
+      36,
+      44,
+      44
+     ]
+    },
+    "glyph": {
+     "button": {
+      "x": 326,
+      "y": 36,
+      "w": 44,
+      "h": 44,
+      "cx": 348,
+      "cy": 58
+     },
+     "svg": {
+      "x": 335,
+      "y": 47,
+      "w": 26,
+      "h": 22,
+      "cx": 348,
+      "cy": 58
+     },
+     "paths": [
+      {
+       "x": 337,
+       "y": 50,
+       "w": 22,
+       "h": 0,
+       "cx": 348,
+       "cy": 50,
+       "transform": "matrix(1, 0, 0, 1, 0, 0)",
+       "opacity": "1"
+      },
+      {
+       "x": 337,
+       "y": 58,
+       "w": 22,
+       "h": 0,
+       "cx": 348,
+       "cy": 58,
+       "transform": "matrix(1, 0, 0, 1, 0, 0)",
+       "opacity": "1"
+      },
+      {
+       "x": 337,
+       "y": 66,
+       "w": 22,
+       "h": 0,
+       "cx": 348,
+       "cy": 66,
+       "transform": "matrix(1, 0, 0, 1, 0, 0)",
+       "opacity": "1"
+      }
+     ],
+     "color": "rgb(225, 188, 194)",
+     "scale": "none",
+     "filter": "drop-shadow(rgba(0, 0, 0, 0) 0px 0px 0px) drop-shadow(rgba(0, 0, 0, 0) 0px 0px 0px)",
+     "visibility": "visible",
+     "burst": false,
+     "anim": [
+      null
+     ]
+    }
+   },
+   "escape": {
+    "trace": [
+     [
+      2,
+      "closing"
+     ],
+     [
+      34,
+      "closing"
+     ],
+     [
+      66,
+      "closing"
+     ],
+     [
+      98,
+      "closing"
+     ],
+     [
+      129,
+      "closing"
+     ],
+     [
+      161,
+      "closing"
+     ],
+     [
+      193,
+      "closing"
+     ],
+     [
+      225,
+      "closing"
+     ],
+     [
+      257,
+      "closing"
+     ],
+     [
+      289,
+      "closing"
+     ],
+     [
+      320,
+      "closing"
+     ],
+     [
+      352,
+      "gone"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/mechanics",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "Menu <button>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      326,
+      36,
+      44,
+      44
+     ]
+    }
+   },
+   "destination": {
+    "trace": [
+     [
+      41,
+      "/bio-waambat",
+      "open",
+      "inset(0px)",
+      null
+     ],
+     [
+      83,
+      "/bio-waambat",
+      "closing",
+      "inset(0px)",
+      "WAAMBAT"
+     ],
+     [
+      184,
+      "/bio-waambat",
+      "closing",
+      "inset(7.73244% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      215,
+      "/bio-waambat",
+      "closing",
+      "inset(22.5467% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      323,
+      "/bio-waambat",
+      "closing",
+      "inset(69.3223% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      354,
+      "/bio-waambat",
+      "closing",
+      "inset(81.6025% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      386,
+      "/bio-waambat",
+      "closing",
+      "inset(93.8827% 0px 0px)",
+      "WAAMBAT"
+     ],
+     [
+      463,
+      "/bio-waambat",
+      "gone",
+      "",
+      "WAAMBAT"
+     ]
+    ],
+    "after": {
+     "open": false,
+     "phase": null,
+     "url": "/bio-waambat",
+     "scrollY": 0,
+     "expanded": "false",
+     "focus": "WAAMBAT[too edgy for algos]WAA <main#main-content>",
+     "htmlOverflow": "visible",
+     "bodyOverflow": "visible",
+     "inert": [],
+     "overlay": null,
+     "menuRect": [
+      326,
+      36,
+      44,
+      44
+     ]
+    }
+   },
+   "reopenLinks": [
+    [
+     "01NFTs",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "02ORDINALS",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "03quantum mechanics",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "04art archive",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "05instagram",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "06blog + press",
+     null,
+     "rgb(225, 188, 194)"
+    ],
+    [
+     "07bio",
+     "page",
+     "rgb(255, 148, 178)"
+    ],
+    [
+     "08collect + contact",
+     null,
+     "rgb(225, 188, 194)"
+    ]
+   ],
+   "docOverflowOpen": [
+    390,
+    390
+   ]
+  },
+  "t768": {
+   "docOverflowClosed": [
+    768,
+    768
+   ],
+   "hamburgerVisible": false,
+   "desktopNav": [
+    "NFTs",
+    "ORDINALS",
+    "quantum mechanics",
+    "art archive",
+    "instagram",
+    "blog + press",
+    "bio",
+    "collect + contact"
+   ]
+  }
+ },
+ "consoleLog": [],
+ "blocked": []
+}

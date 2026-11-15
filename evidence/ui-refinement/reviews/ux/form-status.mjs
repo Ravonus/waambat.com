@@ -1,0 +1,28 @@
+import { chromium, base, shot } from './lib.mjs';
+import { writeFileSync } from 'node:fs';
+const b = await chromium.launch();
+const page = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+let mode = 'ok';
+await page.route('**/_kerf/x/waambat/contact', async (r) => {
+  if (mode === 'ok') return r.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' });
+  if (mode === 'error') return r.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ ok: false, error: 'Your message could not be saved. Please try again.' }) });
+  return r.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ ok: false, error: 'Please check the highlighted fields.', fields: { email: 'Enter a valid email address.' } }) });
+});
+await page.goto(base + '/contact-waambat', { waitUntil: 'load' }); await page.waitForTimeout(1200);
+const fill = async () => { await page.fill('#contact-contact-name', 'UX critic (intercepted)'); await page.fill('#contact-contact-email', 'critic@example.test'); await page.fill('#contact-contact-message', 'Intercepted; never sent.'); };
+const status = () => page.evaluate(() => { const s = document.querySelector('section[data-contact-form] [role=status]'); return { text: s.textContent, color: getComputedStyle(s).color, focused: document.activeElement === s, outline: getComputedStyle(s).outline, nameValue: document.querySelector('#contact-contact-name').value, invalid: [...document.querySelectorAll('[aria-invalid=true]')].map(e => e.id) }; });
+const res = {};
+const submit = page.locator('section[data-contact-form] button[type=submit]');
+await fill(); await submit.click(); await page.waitForTimeout(600); res.success = await status(); await page.mouse.move(5,5); await shot(page, 'form-success');
+mode = 'error'; await fill(); await submit.click(); await page.waitForTimeout(600); res.error = await status(); await shot(page, 'form-error');
+mode = 'fields'; await submit.click(); await page.waitForTimeout(600); res.fields = await status();
+res.emailFrame = await page.$eval('#contact-contact-email', e => getComputedStyle(e.closest('[class*=frame]')).boxShadow);
+res.emailError = await page.evaluate(() => [...document.querySelectorAll('section[data-contact-form] [class*=error]')].map(e => [e.id, e.textContent, getComputedStyle(e).color]));
+res.emailDescribedBy = await page.$eval('#contact-contact-email', e => e.getAttribute('aria-describedby'));
+await shot(page, 'form-field-error');
+await page.click('#contact-contact-email'); await page.waitForTimeout(250);
+res.emailInvalidFocused = await page.$eval('#contact-contact-email', e => getComputedStyle(e.closest('[class*=frame]')).boxShadow);
+await shot(page, 'form-field-error-focused');
+writeFileSync(new URL('./form-status.json', import.meta.url), JSON.stringify(res, null, 2));
+console.log(JSON.stringify(res, null, 2));
+await b.close();

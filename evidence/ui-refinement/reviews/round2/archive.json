@@ -1,0 +1,488 @@
+{
+ "390": [
+  {
+   "rect": [
+    26,
+    40,
+    338,
+    600
+   ],
+   "ratioStyle": "0.5625 / 1",
+   "measuredRatio": 0.563,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    338,
+    600
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    26,
+    40,
+    338,
+    600
+   ],
+   "ratioStyle": "0.5625 / 1",
+   "measuredRatio": 0.563,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    338,
+    190
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    20,
+    40,
+    350,
+    197
+   ],
+   "ratioStyle": "1.77712 / 1",
+   "measuredRatio": 1.777,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    350,
+    197
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    20,
+    40,
+    350,
+    262
+   ],
+   "ratioStyle": "1.33396 / 1",
+   "measuredRatio": 1.334,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    350,
+    262
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    20,
+    40,
+    350,
+    263
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    350,
+    263
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    20,
+    40,
+    350,
+    263
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    350,
+    263
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    20,
+    40,
+    350,
+    263
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IFRAME",
+   "mediaRect": [
+    350,
+    263
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    20,
+    40,
+    350,
+    263
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    350,
+    263
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  }
+ ],
+ "1440": [
+  {
+   "rect": [
+    551,
+    40,
+    338,
+    600
+   ],
+   "ratioStyle": "0.5625 / 1",
+   "measuredRatio": 0.563,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    338,
+    600
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    551,
+    40,
+    338,
+    600
+   ],
+   "ratioStyle": "0.5625 / 1",
+   "measuredRatio": 0.563,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    338,
+    190
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    187,
+    40,
+    1066,
+    600
+   ],
+   "ratioStyle": "1.77712 / 1",
+   "measuredRatio": 1.777,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    1066,
+    600
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    320,
+    40,
+    800,
+    600
+   ],
+   "ratioStyle": "1.33396 / 1",
+   "measuredRatio": 1.334,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    800,
+    600
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    320,
+    40,
+    800,
+    600
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    800,
+    600
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    320,
+    40,
+    800,
+    600
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    800,
+    600
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    320,
+    40,
+    800,
+    600
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IFRAME",
+   "mediaRect": [
+    800,
+    600
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    320,
+    40,
+    800,
+    600
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    800,
+    600
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  }
+ ],
+ "844land": [
+  {
+   "rect": [
+    355,
+    40,
+    135,
+    240
+   ],
+   "ratioStyle": "0.5625 / 1",
+   "measuredRatio": 0.563,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    135,
+    240
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    355,
+    40,
+    135,
+    240
+   ],
+   "ratioStyle": "0.5625 / 1",
+   "measuredRatio": 0.563,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    135,
+    76
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    209,
+    40,
+    427,
+    240
+   ],
+   "ratioStyle": "1.77712 / 1",
+   "measuredRatio": 1.777,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IMG",
+   "mediaRect": [
+    426,
+    240
+   ],
+   "unavailable": true,
+   "text": "Video unavailableOpen original source ↗",
+   "title": "Video unavailable Open original source ↗ info prev / next"
+  },
+  {
+   "rect": [
+    262,
+    40,
+    320,
+    240
+   ],
+   "ratioStyle": "1.33396 / 1",
+   "measuredRatio": 1.334,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    320,
+    240
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    262,
+    40,
+    320,
+    240
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    320,
+    240
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    262,
+    40,
+    320,
+    240
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    320,
+    240
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    262,
+    40,
+    320,
+    240
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "IFRAME",
+   "mediaRect": [
+    320,
+    240
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  },
+  {
+   "rect": [
+    262,
+    40,
+    320,
+    240
+   ],
+   "ratioStyle": "1.33333 / 1",
+   "measuredRatio": 1.333,
+   "fitsW": true,
+   "fitsH": true,
+   "kind": "VIDEO",
+   "mediaRect": [
+    320,
+    240
+   ],
+   "unavailable": false,
+   "text": "",
+   "title": "info prev / next"
+  }
+ ]
+}

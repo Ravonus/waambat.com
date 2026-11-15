@@ -1,0 +1,2 @@
+after menu nav to home: visible videos per step ["▶","▶","▶","▶","▶▶","▶","▶","▶","▶▶","▶","▶","▶"]
+x close finished in 389 ms

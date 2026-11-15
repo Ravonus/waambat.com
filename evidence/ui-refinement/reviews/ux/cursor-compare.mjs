@@ -1,0 +1,30 @@
+import { chromium, base, shot } from './lib.mjs';
+const b = await chromium.launch();
+const page = await (await b.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
+const OLD = '.waambat-cursor span{background:repeating-linear-gradient(120deg,#fff0f6 0%,#ff94b2 20%,#c60064 40%,#ff70c5 60%,#fff0f6 80%)!important;background-size:240% 240%!important}';
+const FREEZE = '.waambat-cursor span{animation:none!important;background-position:30% 30%!important}';
+await page.goto(base + '/', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+await page.addStyleTag({ content: FREEZE });
+const h = page.locator('main h2, main h3').nth(3); await h.scrollIntoViewIfNeeded(); await page.waitForTimeout(400);
+const bb = await h.boundingBox();
+const pts = [[bb.x + 30, bb.y + bb.height / 2]];
+const shots = async (tag) => { let i = 0; for (const [x, y] of pts) { await page.mouse.move(x - 3, y - 3); await page.mouse.move(x, y, { steps: 2 }); await page.waitForTimeout(150); await shot(page, `cmp-heading-${tag}`, { clip: { x: x - 50, y: y - 35, width: 130, height: 80 } }); } };
+await shots('after');
+// a link inside heading? also link pointer over heading link
+await page.addStyleTag({ content: OLD + FREEZE });
+await shots('baseline-sim');
+// Save button
+await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500);
+await page.addStyleTag({ content: FREEZE });
+await page.route(/media-originals/, r => r.request().method() === 'HEAD' ? r.continue() : r.abort());
+const m = page.locator('main img').first(); await m.scrollIntoViewIfNeeded(); const mb = await m.boundingBox();
+await page.mouse.click(mb.x + mb.width / 2, mb.y + mb.height / 2, { button: 'right' });
+await page.waitForSelector('.waambat-download-save', { timeout: 15000 });
+const sb = await page.locator('.waambat-download-save').boundingBox();
+const sx = sb.x + sb.width / 2 - 25, sy = sb.y + sb.height / 2 - 4;
+await page.mouse.move(sx - 3, sy); await page.mouse.move(sx, sy, { steps: 2 }); await page.waitForTimeout(300);
+await shot(page, 'cmp-save-after', { clip: { x: sx - 60, y: sy - 30, width: 140, height: 75 } });
+await page.addStyleTag({ content: OLD + FREEZE + '.waambat-download-save:hover{background:#ffb2d1!important;color:#180c14!important}.waambat-download-save{background:#ff94b2!important}' });
+await page.mouse.move(sx + 1, sy); await page.waitForTimeout(300);
+await shot(page, 'cmp-save-baseline-sim', { clip: { x: sx - 59, y: sy - 30, width: 140, height: 75 } });
+await b.close();

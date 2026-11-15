@@ -1,0 +1,256 @@
+{
+ "axe": {
+  "390/": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "390/ordinals": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "390/mechanics": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "390/art-by-waambat": [
+   {
+    "id": "page-has-heading-one",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     "html"
+    ]
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "390/instagram": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "390/blog-press": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "390/bio-waambat": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "390/contact-waambat": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "1440/": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "1440/ordinals": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "1440/mechanics": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "1440/art-by-waambat": [
+   {
+    "id": "page-has-heading-one",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     "html"
+    ]
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "1440/instagram": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "1440/blog-press": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "1440/bio-waambat": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ],
+  "1440/contact-waambat": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "n": 1,
+    "sample": [
+     ".waambat-scroll-rail"
+    ]
+   }
+  ]
+ },
+ "zoom": [
+  {
+   "p": "/",
+   "overflow": 0,
+   "menuButton": true
+  },
+  {
+   "p": "/ordinals",
+   "overflow": 0,
+   "menuButton": true
+  },
+  {
+   "p": "/mechanics",
+   "overflow": 0,
+   "menuButton": true
+  },
+  {
+   "p": "/art-by-waambat",
+   "overflow": 0,
+   "menuButton": true
+  },
+  {
+   "p": "/instagram",
+   "overflow": 0,
+   "menuButton": true
+  },
+  {
+   "p": "/blog-press",
+   "overflow": 0,
+   "menuButton": true
+  },
+  {
+   "p": "/bio-waambat",
+   "overflow": 0,
+   "menuButton": true
+  },
+  {
+   "p": "/contact-waambat",
+   "overflow": 0,
+   "menuButton": true
+  }
+ ],
+ "forced": {
+  "field": {
+   "outline": "rgba(26, 235, 255, 0.8) none 3px",
+   "wOutline": "rgba(26, 235, 255, 0.8) solid 2px"
+  },
+  "nav": {
+   "el": "Choose an option",
+   "outline": "rgba(26, 235, 255, 0.8) none 3px"
+  }
+ },
+ "reduced": {
+  "idle": [],
+  "hover": [],
+  "press": []
+ },
+ "cls": {
+  "/mechanics@1512": {
+   "total": 0.0001,
+   "big": []
+  },
+  "/@1440": {
+   "total": 0,
+   "big": []
+  },
+  "/mechanics@390": {
+   "total": 0.0004,
+   "big": []
+  }
+ },
+ "zoomMenu": {
+  "closeY": 29.09375,
+  "closeInView": true,
+  "lastLinkBottom": 398
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "/mechanics": [
+  {
+   "alt": "quantum mechanics",
+   "src": "http://localhost:3287/mechanics",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  },
+  {
+   "alt": "quantum mechanics",
+   "src": "http://localhost:3287/mechanics",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  },
+  {
+   "alt": "quantum mechanics",
+   "src": "http://localhost:3287/mechanics",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  }
+ ],
+ "/blog-press": [
+  {
+   "alt": "blog + press",
+   "src": "http://localhost:3287/blog-press",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  },
+  {
+   "alt": "blog + press",
+   "src": "http://localhost:3287/blog-press",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  },
+  {
+   "alt": "blog + press",
+   "src": "http://localhost:3287/blog-press",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  },
+  {
+   "alt": "blog + press",
+   "src": "http://localhost:3287/blog-press",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  }
+ ],
+ "fails": []
+}

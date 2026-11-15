@@ -1,0 +1,178 @@
+/* WAAMBAT motion language: short datamosh bursts in the two pinks.
+   - Text glitches split into the wordmark's deep shade and the pale pastel,
+     slice for a few frames, then resolve. Nothing loops; each burst is under
+     300ms and answers a hover, focus, press or arrival.
+   - Only the "full" motion setting gets them. The global reduced-motion rule
+     in globals.css removes every animation, these included. */
+
+/* Every burst is paint-only (shadows and filters). Nothing moves or clips the
+   element's own box, so hit-testing never changes under the pointer: a hover
+   burst plays once and stops, and a press always lands on its target. */
+@keyframes waambat-mosh-text {
+  0% {
+    text-shadow:
+      -3px 0 var(--ui-cursor-deep),
+      3px 0 var(--ui-accent-hover);
+  }
+  18% {
+    text-shadow:
+      2px -1px var(--ui-cursor-deep),
+      -2px 1px var(--ui-accent);
+  }
+  34% {
+    text-shadow:
+      -1px 1px var(--ui-cursor-deep),
+      4px -1px var(--ui-accent-hover);
+  }
+  52% {
+    text-shadow:
+      -2px 0 var(--ui-cursor-deep),
+      1px 0 var(--ui-accent-hover);
+  }
+  72% {
+    text-shadow:
+      1px 0 var(--ui-cursor-deep),
+      -1px 0 var(--ui-accent-hover);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+@keyframes waambat-mosh-box {
+  0% {
+    filter: drop-shadow(-2px 0 0 var(--ui-cursor-deep))
+      drop-shadow(2px 0 0 var(--ui-accent-hover));
+  }
+  25% {
+    filter: drop-shadow(3px 0 0 var(--ui-cursor-deep))
+      drop-shadow(-2px 0 0 var(--ui-accent));
+  }
+  50% {
+    filter: drop-shadow(-1px 0 0 var(--ui-cursor-deep))
+      drop-shadow(1px 0 0 var(--ui-accent-hover));
+  }
+  100% {
+    filter: none;
+  }
+}
+@keyframes waambat-mosh-field {
+  0% {
+    box-shadow:
+      inset 0 0 0 1.5px var(--ui-accent),
+      -3px 0 0 var(--ui-cursor-deep),
+      3px 0 0 var(--ui-accent-hover);
+  }
+  30% {
+    box-shadow:
+      inset 0 0 0 1.5px var(--ui-accent),
+      2px 0 0 var(--ui-cursor-deep),
+      -2px 0 0 var(--ui-accent-hover);
+  }
+  60% {
+    box-shadow:
+      inset 0 0 0 1.5px var(--ui-accent),
+      -1px 0 0 var(--ui-cursor-deep),
+      1px 0 0 var(--ui-accent-hover);
+  }
+}
+
+/* Hover and keyboard focus: one burst as the state begins. */
+@media (hover: hover) {
+  .site-theme[data-motion="full"] .site-nav-link:hover,
+  .site-theme[data-motion="full"] .source-inline-link:hover,
+  .site-theme[data-motion="full"] .artwork-caption h2 a:hover,
+  .site-theme[data-motion="full"] .ordinal-gate:hover {
+    animation: waambat-mosh-text 280ms steps(1, end);
+  }
+  .site-theme[data-motion="full"] .media-control:hover {
+    animation: waambat-mosh-box 240ms steps(1, end);
+  }
+}
+.site-theme[data-motion="full"] .site-nav-link:focus-visible {
+  animation: waambat-mosh-text 280ms steps(1, end);
+}
+/* Fields tear briefly as they take focus, then settle on the focus ring. */
+.site-theme[data-motion="full"] [data-mosh-field]:focus-within {
+  animation: waambat-mosh-field 300ms steps(1, end);
+}
+
+/* Press: src/lib/mosh.ts marks the pressed control for one burst. The :not(#_)
+   lends id weight so a component's own arrival animation can't mask it. */
+a[data-mosh-burst]:not(#_) {
+  animation: waambat-mosh-text 260ms steps(1, end);
+}
+:is(button, [role="option"], [role="button"], input)[data-mosh-burst]:not(#_) {
+  animation: waambat-mosh-box 240ms steps(1, end);
+}
+
+/* Cursor: a dark keyline keeps the pink readable over pink titles and filled
+   buttons; a press splits it for a moment. Both sit on the container, because
+   the arrow's own mask would clip any filter placed on the span itself. */
+.waambat-cursor {
+  filter: drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000)
+    drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000);
+}
+.waambat-cursor span {
+  filter: none;
+}
+html:has(.site-theme[data-motion="full"]) .waambat-cursor[data-pressed] {
+  animation: waambat-mosh-cursor 260ms steps(1, end);
+}
+@keyframes waambat-mosh-cursor {
+  0% {
+    filter: drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000)
+      drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000)
+      drop-shadow(-3px 0 0 var(--ui-cursor-deep))
+      drop-shadow(3px 0 0 var(--ui-accent-hover));
+  }
+  40% {
+    filter: drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000)
+      drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000)
+      drop-shadow(2px 0 0 var(--ui-cursor-deep))
+      drop-shadow(-2px 0 0 var(--ui-accent));
+  }
+}
+
+/* The WAAMBAT wordmark (header and hero): its pink never changes; hover holds a
+   chromatic split and glow, and full motion adds one datamosh burst on entry. */
+a.site-logo,
+[data-hero-wordmark] a {
+  transition: filter 180ms ease;
+}
+@media (hover: hover) {
+  a.site-logo:hover,
+  [data-hero-wordmark] a:hover {
+    filter: drop-shadow(-2px 0 0 var(--ui-cursor-deep))
+      drop-shadow(2px 0 0 var(--ui-accent))
+      drop-shadow(0 0 14px color-mix(in srgb, var(--ui-cursor) 45%, transparent));
+  }
+  .site-theme[data-motion="full"] a.site-logo:hover,
+  .site-theme[data-motion="full"] [data-hero-wordmark] a:hover {
+    animation: waambat-mosh-mark 340ms steps(1, end);
+  }
+}
+a.site-logo:focus-visible,
+[data-hero-wordmark] a:focus-visible {
+  filter: drop-shadow(-2px 0 0 var(--ui-cursor-deep))
+    drop-shadow(2px 0 0 var(--ui-accent));
+}
+/* The wordmark burst is paint-only as well: the split jumps for a few frames,
+   then settles on the held hover split. */
+@keyframes waambat-mosh-mark {
+  0% {
+    filter: drop-shadow(-4px 0 0 var(--ui-cursor-deep))
+      drop-shadow(4px 0 0 var(--ui-accent));
+  }
+  20% {
+    filter: drop-shadow(3px -1px 0 var(--ui-cursor-deep))
+      drop-shadow(-3px 1px 0 var(--ui-accent-hover));
+  }
+  38% {
+    filter: drop-shadow(-2px 1px 0 var(--ui-cursor-deep))
+      drop-shadow(5px 0 0 var(--ui-accent));
+  }
+  56% {
+    filter: drop-shadow(1px 0 0 var(--ui-cursor-deep))
+      drop-shadow(-2px 0 0 var(--ui-accent-hover));
+  }
+}

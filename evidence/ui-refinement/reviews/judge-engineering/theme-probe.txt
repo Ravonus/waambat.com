@@ -1,0 +1,40 @@
+{
+ "chooseHeadingPastel": "#ff94b2",
+ "chooseLinkViolet": "#e1bcc2",
+ "chooseNavHoverLegacy": "#ff94b2",
+ "customLink": {
+  "base": "#00aa88",
+  "hover": "#f1d1d6",
+  "pressed": "#09876c",
+  "derivedHover": "#4fba9c",
+  "onAccentHover": "#061a14"
+ },
+ "lightBg": {
+  "accent": "#e1bcc2",
+  "border": "#f0dee1",
+  "surface": "#fdfafa",
+  "accentOnBg": "1.73",
+  "borderOnBg": "1.29"
+ },
+ "idempotent": true,
+ "darkLogoCursor": {
+  "base": "#202020",
+  "hover": "#2f2f2f",
+  "pressed": "#0a0a0a",
+  "focus": "#202020",
+  "border": "#101010",
+  "surface": "#030303",
+  "surfaceStrong": "#040404",
+  "disabled": "#0d0d0d",
+  "onAccent": "#ffffff"
+ }
+}
+✔ probe (1.326917ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.50025

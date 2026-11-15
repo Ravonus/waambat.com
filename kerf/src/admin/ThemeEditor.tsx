@@ -1,0 +1,95 @@
+import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
+import { update as writeBox } from "#/lib/reactive";
+import { originalTheme, themeColors, type Theme } from "~/lib/theme";
+const colors = [
+    "background",
+    "body",
+    "heading",
+    "logo",
+    "link",
+    "linkHover",
+    "navigation",
+    "activeNavigation",
+    "navigationHover",
+] as const;
+const numbers = [
+    "bodySize",
+    "bodyWeight",
+    "lineHeight",
+    "tracking",
+    "headingSize",
+    "smallHeadingSize",
+    "logoSize",
+    "navigationSize",
+    "contentWidth",
+    "desktopPadding",
+    "mobilePadding",
+    "headerTop",
+    "headerBottom",
+    "pageGap",
+    "blockPadding",
+    "paragraphGap",
+    "archiveGap",
+    "heroWordmarkScale",
+] as const;
+const label = (value: string) => value.replace(/[A-Z]/g, (m) => ` ${m.toLowerCase()}`);
+export default function ThemeEditor({ theme, onChange, }: {
+    theme: Theme;
+    onChange: (theme: Theme) => void;
+}) {
+    return (<section aria-label="Site theme" className="my-10 border border-white/25 p-5">
+      <h2 className="text-waambat-pink text-2xl">Site theme</h2>
+      <p className="my-3">
+        These settings use the same draft, preview and publish workflow as page
+        content. The original font option still requires the existing Adobe
+        domain license; preview hosts use fallback fonts.
+      </p>
+      <div className="grid gap-4 md:grid-cols-3">
+        {colors.map((key) => (<label key={key} className="capitalize">
+            {label(key)}
+            <input aria-label={`Theme ${label(key)}`} type="color" value={theme[key] ?? themeColors(theme)[key as keyof ReturnType<typeof themeColors>]} onChange={(e) => onChange({ ...theme, [key]: e.currentTarget.value })} className="block h-10 w-full"/>
+            {(key === "linkHover" || key === "navigationHover") && (theme[key] ? (<button type="button" className="text-waambat-link mt-1 text-xs normal-case underline" onClick={() => onChange({ ...theme, [key]: undefined })}>
+                Use automatic ({key === "linkHover" ? "from link" : "from logo"})
+              </button>) : (<span className="mt-1 block text-xs normal-case opacity-70">Automatic ({key === "linkHover" ? "from link" : "from logo"})</span>))}
+          </label>))}
+        {(["font", "brandFont"] as const).map((key) => (<label key={key} className="capitalize">
+            {label(key)}
+            <select aria-label={`Theme ${label(key)}`} value={theme[key]} onChange={(e) => onChange({
+                ...theme,
+                [key]: e.currentTarget.value as Theme[typeof key],
+            })} className="block w-full border bg-black p-2">
+              {["original", "system", "serif", "monospace"].map((font) => (<option key={font}>{font}</option>))}
+            </select>
+          </label>))}
+        <label>
+          Motion energy
+          <select aria-label="Theme motion energy" value={theme.motion} onChange={(e) => onChange({ ...theme, motion: e.currentTarget.value as Theme["motion"] })} className="block w-full border bg-black p-2">
+            <option value="full">
+              Full: reveals, hero entrance, route pulse
+            </option>
+            <option value="calm">Calm: shorter, softer reveals</option>
+            <option value="off">Off: no decorative motion</option>
+          </select>
+          <span className="mt-1 block text-sm text-white/70">
+            Visitors who ask their device for reduced motion never see
+            decorative motion, whatever this is set to.
+          </span>
+        </label>
+        {numbers.map((key) => (<label key={key} className="capitalize">
+            {key === "heroWordmarkScale"
+                ? "Hero wordmark size (%)"
+                : label(key)}
+            <input aria-label={`Theme ${label(key)}`} type="number" step={key === "tracking" ? 0.01 : key === "lineHeight" ? 0.1 : 1} value={theme[key]} onChange={(e) => {
+                if (e.currentTarget.value)
+                    onChange({ ...theme, [key]: Number(e.currentTarget.value) });
+            }} className="block w-full border bg-black p-2"/>
+          </label>))}
+      </div>
+      <button type="button" className="mt-5 underline" onClick={() => {
+            if (confirm("Reset theme settings to the original source preset? Save the draft to keep this change."))
+                onChange(structuredClone(originalTheme));
+        }}>
+        Reset theme to original preset
+      </button>
+    </section>);
+}

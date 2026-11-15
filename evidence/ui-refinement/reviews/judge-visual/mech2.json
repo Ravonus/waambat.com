@@ -1,0 +1,428 @@
+{
+ "no-preference300": [
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    63,
+    629,
+    150
+   ],
+   "src": "https://i.imgur.com/3hhNUKR.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    63,
+    629,
+    150
+   ],
+   "src": ""
+  },
+  {
+   "tag": "A",
+   "cls": "inline-flex min-h-11 items-center underline",
+   "text": "Open original video ↗",
+   "box": [
+    693,
+    125,
+    125,
+    39
+   ],
+   "src": "https://i.imgur.com/3hhNUKR.mp4"
+  },
+  {
+   "tag": "FIGURE",
+   "cls": "my-8",
+   "text": "",
+   "box": [
+    450,
+    442,
+    612,
+    558
+   ],
+   "src": ""
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "",
+   "text": "",
+   "box": [
+    450,
+    442,
+    612,
+    558
+   ],
+   "src": ""
+  }
+ ],
+ "no-preference1900": [
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    22,
+    629,
+    629
+   ],
+   "src": "https://i.imgur.com/8oZCxzC.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    22,
+    629,
+    629
+   ],
+   "src": ""
+  },
+  {
+   "tag": "VIDEO",
+   "cls": "absolute inset-0 h-full w-full object-contain",
+   "text": "",
+   "box": [
+    442,
+    22,
+    629,
+    629
+   ],
+   "src": "/media-optimized/af02a3f35aaa0ac62eb06c2c-save.mp4",
+   "paused": false,
+   "vw": 960,
+   "vh": 960,
+   "attrs": [
+    "960",
+    "960",
+    "contain",
+    "auto 960 / 960"
+   ]
+  },
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    876,
+    629,
+    150
+   ],
+   "src": "https://i.imgur.com/TBObuJ0.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    876,
+    629,
+    150
+   ],
+   "src": ""
+  },
+  {
+   "tag": "A",
+   "cls": "inline-flex min-h-11 items-center underline",
+   "text": "Open original video ↗",
+   "box": [
+    693,
+    939,
+    125,
+    39
+   ],
+   "src": "https://i.imgur.com/TBObuJ0.mp4"
+  }
+ ],
+ "no-preference2250": [
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    -328,
+    629,
+    629
+   ],
+   "src": "https://i.imgur.com/8oZCxzC.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    -328,
+    629,
+    629
+   ],
+   "src": ""
+  },
+  {
+   "tag": "VIDEO",
+   "cls": "absolute inset-0 h-full w-full object-contain",
+   "text": "",
+   "box": [
+    442,
+    -328,
+    629,
+    629
+   ],
+   "src": "/media-optimized/af02a3f35aaa0ac62eb06c2c-save.mp4",
+   "paused": true,
+   "vw": 960,
+   "vh": 960,
+   "attrs": [
+    "960",
+    "960",
+    "contain",
+    "auto 960 / 960"
+   ]
+  },
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    526,
+    629,
+    150
+   ],
+   "src": "https://i.imgur.com/TBObuJ0.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    526,
+    629,
+    150
+   ],
+   "src": ""
+  },
+  {
+   "tag": "A",
+   "cls": "inline-flex min-h-11 items-center underline",
+   "text": "Open original video ↗",
+   "box": [
+    693,
+    589,
+    125,
+    39
+   ],
+   "src": "https://i.imgur.com/TBObuJ0.mp4"
+  },
+  {
+   "tag": "FIGURE",
+   "cls": "my-8",
+   "text": "",
+   "box": [
+    276,
+    796,
+    960,
+    3300
+   ],
+   "src": ""
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "",
+   "text": "",
+   "box": [
+    276,
+    796,
+    960,
+    3300
+   ],
+   "src": ""
+  }
+ ],
+ "reduce300": [
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    63,
+    629,
+    150
+   ],
+   "src": "https://i.imgur.com/3hhNUKR.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    63,
+    629,
+    150
+   ],
+   "src": ""
+  },
+  {
+   "tag": "FIGURE",
+   "cls": "my-8",
+   "text": "",
+   "box": [
+    450,
+    442,
+    612,
+    558
+   ],
+   "src": ""
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "",
+   "text": "",
+   "box": [
+    450,
+    442,
+    612,
+    558
+   ],
+   "src": ""
+  }
+ ],
+ "reduce1900": [
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    22,
+    629,
+    150
+   ],
+   "src": "https://i.imgur.com/8oZCxzC.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    22,
+    629,
+    150
+   ],
+   "src": ""
+  },
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    398,
+    629,
+    150
+   ],
+   "src": "https://i.imgur.com/TBObuJ0.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    398,
+    629,
+    150
+   ],
+   "src": ""
+  },
+  {
+   "tag": "FIGURE",
+   "cls": "my-8",
+   "text": "",
+   "box": [
+    276,
+    668,
+    960,
+    3300
+   ],
+   "src": ""
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "",
+   "text": "",
+   "box": [
+    276,
+    668,
+    960,
+    3300
+   ],
+   "src": ""
+  }
+ ],
+ "reduce2250": [
+  {
+   "tag": "A",
+   "cls": "relative block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    48,
+    629,
+    150
+   ],
+   "src": "https://i.imgur.com/TBObuJ0.mp4"
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "block h-full w-full",
+   "text": "",
+   "box": [
+    442,
+    48,
+    629,
+    150
+   ],
+   "src": ""
+  },
+  {
+   "tag": "FIGURE",
+   "cls": "my-8",
+   "text": "",
+   "box": [
+    276,
+    318,
+    960,
+    3300
+   ],
+   "src": ""
+  },
+  {
+   "tag": "PICTURE",
+   "cls": "",
+   "text": "",
+   "box": [
+    276,
+    318,
+    960,
+    3300
+   ],
+   "src": ""
+  }
+ ]
+}

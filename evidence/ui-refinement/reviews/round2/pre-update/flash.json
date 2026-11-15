@@ -1,0 +1,103 @@
+{
+ "nav-hover-rest": {
+  "frames": 133,
+  "spanMs": 2200,
+  "fps": 60.5,
+  "frameSize": [
+   1440,
+   300
+  ],
+  "pixelsChanging": 1366,
+  "maxFlashesPerPixelIn1s": 16,
+  "pixelsOver3FlashesPerSec": 676,
+  "tenDegreeField": [
+   438,
+   329
+  ],
+  "worstFieldPixelsOver3": 676,
+  "worstFieldShare": 0.0047,
+  "thresholdShare": 0.25,
+  "region": {
+   "left": 0,
+   "top": 0,
+   "width": 1440,
+   "height": 300
+  }
+ },
+ "caption-hover-rest": {
+  "frames": 134,
+  "spanMs": 2217,
+  "fps": 60.5,
+  "frameSize": [
+   1440,
+   900
+  ],
+  "pixelsChanging": 2554,
+  "maxFlashesPerPixelIn1s": 16,
+  "pixelsOver3FlashesPerSec": 1669,
+  "tenDegreeField": [
+   438,
+   329
+  ],
+  "worstFieldPixelsOver3": 1669,
+  "worstFieldShare": 0.0116,
+  "thresholdShare": 0.25
+ },
+ "zoom200-menu-link-rest": {
+  "frames": 133,
+  "spanMs": 2200,
+  "fps": 60.5,
+  "frameSize": [
+   720,
+   450
+  ],
+  "pixelsChanging": 2970,
+  "maxFlashesPerPixelIn1s": 16,
+  "pixelsOver3FlashesPerSec": 2279,
+  "tenDegreeField": [
+   438,
+   329
+  ],
+  "worstFieldPixelsOver3": 2279,
+  "worstFieldShare": 0.0158,
+  "thresholdShare": 0.25
+ },
+ "menu-open-390": {
+  "frames": 59,
+  "spanMs": 1055,
+  "fps": 55.9,
+  "frameSize": [
+   390,
+   844
+  ],
+  "pixelsChanging": 53255,
+  "maxFlashesPerPixelIn1s": 5,
+  "pixelsOver3FlashesPerSec": 266,
+  "tenDegreeField": [
+   221,
+   166
+  ],
+  "worstFieldPixelsOver3": 134,
+  "worstFieldShare": 0.0037,
+  "thresholdShare": 0.25
+ },
+ "menu-close-390": {
+  "frames": 21,
+  "spanMs": 385,
+  "fps": 54.5,
+  "frameSize": [
+   390,
+   844
+  ],
+  "pixelsChanging": 46738,
+  "maxFlashesPerPixelIn1s": 4,
+  "pixelsOver3FlashesPerSec": 89,
+  "tenDegreeField": [
+   221,
+   166
+  ],
+  "worstFieldPixelsOver3": 56,
+  "worstFieldShare": 0.0015,
+  "thresholdShare": 0.25
+ }
+}

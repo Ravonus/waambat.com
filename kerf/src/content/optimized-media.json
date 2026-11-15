@@ -1,0 +1,681 @@
+{
+  "version": 1,
+  "paintings": [
+    {
+      "id": "artwork-1",
+      "original": "https://i.imgur.com/bNlZWHY.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/bNlZWHY.mp4",
+      "originalBytes": 37561142,
+      "available": true,
+      "originalSha256": "1bc3dc3bbec3b3086e59b9e3ffd41d11add04cca74c0b161642025e58f6e4e3c",
+      "desktop": "/paintings/242e707d71a9da697d7ea9f7.mp4",
+      "mobile": "/paintings/00c6569bdf71a9b3eb7adc3d.mp4",
+      "desktopBytes": 21506099,
+      "mobileBytes": 10902361,
+      "originalPoster": "/posters/1-960.webp",
+      "poster": "/paintings/9d3fe263d9ce5e65dad406bb-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 38834,
+          "avif": 28323
+        },
+        "640": {
+          "webp": 81804,
+          "avif": 59238
+        },
+        "960": {
+          "webp": 155148,
+          "avif": 107749
+        }
+      }
+    },
+    {
+      "id": "artwork-2",
+      "original": "https://i.imgur.com/f6s856X.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/f6s856X.mp4",
+      "originalBytes": 30463829,
+      "available": true,
+      "originalSha256": "0864c6e22822bbb9013fb3e03a34b0e64db66d547cf04fab0f160fd48fd55d3c",
+      "desktop": "/paintings/96f858981469709b9bcd93e9.mp4",
+      "mobile": "/paintings/de93c9c79a6865eb63972098.mp4",
+      "desktopBytes": 17085642,
+      "mobileBytes": 8411185,
+      "originalPoster": "/posters/2-960.webp",
+      "poster": "/paintings/e7380aa57c10a0047898a47a-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 34700,
+          "avif": 25588
+        },
+        "640": {
+          "webp": 69978,
+          "avif": 52140
+        },
+        "960": {
+          "webp": 131468,
+          "avif": 95538
+        }
+      }
+    },
+    {
+      "id": "artwork-3",
+      "original": "https://i.imgur.com/a38BLir.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/a38BLir.mp4",
+      "originalBytes": 24335971,
+      "available": true,
+      "originalSha256": "cd462c82ed13105d89384c00d2e9b39a2ba528602e47867609cfea3946cb1c09",
+      "desktop": "/paintings/4c81a6fab72b5112977dd32b.mp4",
+      "mobile": "/paintings/ebc5729b4974921f99d768ca.mp4",
+      "desktopBytes": 14308662,
+      "mobileBytes": 7452236,
+      "originalPoster": "/posters/3-960.webp",
+      "poster": "/paintings/c17938758ffaa34372c20a08-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 30142,
+          "avif": 23291
+        },
+        "640": {
+          "webp": 61712,
+          "avif": 47174
+        },
+        "960": {
+          "webp": 113262,
+          "avif": 83545
+        }
+      }
+    },
+    {
+      "id": "artwork-4",
+      "original": "https://i.imgur.com/5oHMMfH.mp4",
+      "frames": 901,
+      "source": "https://assets.objkt.media/file/assets-003/Qmf3UfKRRpBcoKH7DfJsix772m4ovRb6gaxrMPfPeSYoFZ/artifact",
+      "sourceToken": "https://objkt.com/tokens/hicetnunc/725958",
+      "originalBytes": 98433140,
+      "available": true,
+      "originalSha256": "10670e93475f219d82bb9ea8f1f0893cb4b43ae52b1806248df0695fb57a0376",
+      "desktop": "/paintings/05f8224b63fe65b23f18ac5a.mp4",
+      "mobile": "/paintings/1c82cce199e250ffd5784d45.mp4",
+      "desktopBytes": 18446217,
+      "mobileBytes": 9346290,
+      "originalPoster": "/posters/4-960.webp",
+      "poster": "/paintings/ece3307949f61d00d087bce9-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 29930,
+          "avif": 23226
+        },
+        "640": {
+          "webp": 60906,
+          "avif": 45688
+        },
+        "960": {
+          "webp": 112302,
+          "avif": 80700
+        }
+      }
+    },
+    {
+      "id": "artwork-5",
+      "original": "https://i.imgur.com/zclilHq.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/zclilHq.mp4",
+      "originalBytes": 24405081,
+      "available": true,
+      "originalSha256": "411c76dc5224e3573cc6dfb35436ffac8118c12610621f157b623a3154844bf0",
+      "desktop": "/paintings/425c57b6b7202128dac4bce7.mp4",
+      "mobile": "/paintings/edcf84da2e44f0bc7fc80181.mp4",
+      "desktopBytes": 13386105,
+      "mobileBytes": 6856258,
+      "originalPoster": "/posters/5-960.webp",
+      "poster": "/paintings/6b73b18d2e44418173baf0c3-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 27438,
+          "avif": 21822
+        },
+        "640": {
+          "webp": 56572,
+          "avif": 44213
+        },
+        "960": {
+          "webp": 105704,
+          "avif": 80825
+        }
+      }
+    },
+    {
+      "id": "artwork-6",
+      "original": "https://i.imgur.com/lpyf8NE.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/lpyf8NE.mp4",
+      "originalBytes": 28402157,
+      "available": true,
+      "originalSha256": "fbc847971fea6c1c91092a350637fb3caf60f0932b2113284807fb5cb838bc08",
+      "desktop": "/paintings/060c5ff01004da03fdb16202.mp4",
+      "mobile": "/paintings/3a6f2e90f8cf3e442c473006.mp4",
+      "desktopBytes": 19606955,
+      "mobileBytes": 10421131,
+      "originalPoster": "/posters/6-960.webp",
+      "poster": "/paintings/bd33761c704cef8947eedd3f-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 23022,
+          "avif": 16781
+        },
+        "640": {
+          "webp": 45030,
+          "avif": 32805
+        },
+        "960": {
+          "webp": 82416,
+          "avif": 57669
+        }
+      }
+    },
+    {
+      "id": "artwork-7",
+      "original": "https://i.imgur.com/kraOC6E.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/kraOC6E.mp4",
+      "originalBytes": 13387376,
+      "available": true,
+      "originalSha256": "645518c76e31deec27db4d6eb091dc6e954b94083f8db115f86e93d639bb8a39",
+      "desktop": "/paintings/68bfab09c75a8e0ea71b2ea1.mp4",
+      "mobile": "/paintings/62472203fd6e8fa84e6d7439.mp4",
+      "desktopBytes": 8048265,
+      "mobileBytes": 4331363,
+      "originalPoster": "/posters/7-960.webp",
+      "poster": "/paintings/2f4fd5915196f170d12b761f-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 17380,
+          "avif": 13022
+        },
+        "640": {
+          "webp": 34636,
+          "avif": 27515
+        },
+        "960": {
+          "webp": 63774,
+          "avif": 50181
+        }
+      }
+    },
+    {
+      "id": "artwork-8",
+      "original": "https://i.imgur.com/q02r3Ja.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/q02r3Ja.mp4",
+      "originalBytes": 9261117,
+      "available": true,
+      "originalSha256": "43b08cce50c00b71f9915036315c45561de6737de70c7be79a7098d61557457f",
+      "desktop": "/paintings/9f0c12e63bc6bde25b6a6594.mp4",
+      "mobile": "/paintings/3f8dcb544b53181d205671e6.mp4",
+      "desktopBytes": 5201279,
+      "mobileBytes": 2887313,
+      "originalPoster": "/posters/8-960.webp",
+      "poster": "/paintings/fa95e5e2dc20ba843721d778-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 15014,
+          "avif": 11413
+        },
+        "640": {
+          "webp": 28800,
+          "avif": 21807
+        },
+        "960": {
+          "webp": 51232,
+          "avif": 38976
+        }
+      }
+    },
+    {
+      "id": "artwork-9",
+      "original": "https://i.imgur.com/0oqBS1z.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/0oqBS1z.mp4",
+      "originalBytes": 13502650,
+      "available": true,
+      "originalSha256": "4aa6eb529fbcba3d124ea956392e38f8b43d371e92ec1e40401d2127783a46db",
+      "desktop": "/paintings/afab4ff6820a79dc0cd40f8e.mp4",
+      "mobile": "/paintings/6c9293665d64b1deaee5fdfb.mp4",
+      "desktopBytes": 8165776,
+      "mobileBytes": 4079307,
+      "originalPoster": "/posters/9-960.webp",
+      "poster": "/paintings/bcd92fcee56844a55a25079e-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 16672,
+          "avif": 12612
+        },
+        "640": {
+          "webp": 31698,
+          "avif": 24317
+        },
+        "960": {
+          "webp": 54966,
+          "avif": 41471
+        }
+      }
+    },
+    {
+      "id": "artwork-10",
+      "original": "https://i.imgur.com/rt1I53R.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/rt1I53R.mp4",
+      "originalBytes": 23882689,
+      "available": true,
+      "originalSha256": "eb7ea682df56de2eb3fa2dbd696de2634acac3baaa18ade371195f8253b37ea7",
+      "desktop": "/paintings/b712b30456b9f0f766e64adf.mp4",
+      "mobile": "/paintings/d61693669899450f925a3449.mp4",
+      "desktopBytes": 14797094,
+      "mobileBytes": 7775754,
+      "originalPoster": "/posters/10-960.webp",
+      "poster": "/paintings/ee6e9fb67c2e35e0fafabbb0-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 25160,
+          "avif": 19345
+        },
+        "640": {
+          "webp": 52212,
+          "avif": 37751
+        },
+        "960": {
+          "webp": 97470,
+          "avif": 68600
+        }
+      }
+    },
+    {
+      "id": "artwork-11",
+      "original": "https://i.imgur.com/yNizVps.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/yNizVps.mp4",
+      "originalBytes": 12604422,
+      "available": true,
+      "originalSha256": "bad687e9c68101e10d5e14071b7517aebcbf5052a118560fd6a50153f5194be9",
+      "desktop": "/paintings/14a34d8f6cc749b95cdbdecd.mp4",
+      "mobile": "/paintings/d8607f5ec2e60a2565380b14.mp4",
+      "desktopBytes": 7655359,
+      "mobileBytes": 3884313,
+      "originalPoster": "/posters/11-960.webp",
+      "poster": "/paintings/2e286ed67daa25e9f4da2d46-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 15638,
+          "avif": 12402
+        },
+        "640": {
+          "webp": 30698,
+          "avif": 24334
+        },
+        "960": {
+          "webp": 54532,
+          "avif": 42333
+        }
+      }
+    },
+    {
+      "id": "artwork-12",
+      "original": "https://i.imgur.com/KMyQNc2.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/KMyQNc2.mp4",
+      "originalBytes": 23015151,
+      "available": true,
+      "originalSha256": "bafb1d22fa4ba76a63f0ae666887777098d7dcb39095c8cceec5f2ae579ddcc7",
+      "desktop": "/paintings/347fce83cf592937f5b44395.mp4",
+      "mobile": "/paintings/d31fd0e8c9d650521a0895f1.mp4",
+      "desktopBytes": 14440996,
+      "mobileBytes": 7271354,
+      "originalPoster": "/posters/12-960.webp",
+      "poster": "/paintings/c062a8400628b412690be869-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 22064,
+          "avif": 18171
+        },
+        "640": {
+          "webp": 44942,
+          "avif": 35929
+        },
+        "960": {
+          "webp": 80242,
+          "avif": 63848
+        }
+      }
+    },
+    {
+      "id": "artwork-13",
+      "original": "https://i.imgur.com/F9gCVez.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/F9gCVez.mp4",
+      "originalBytes": 23816662,
+      "available": true,
+      "originalSha256": "e6265be00301323edc6ee8a66d3ca94a7f89697a65940d7e4b7e9c43d08fac78",
+      "desktop": "/paintings/f16c29bc6f70c6a53d12eb8d.mp4",
+      "mobile": "/paintings/6463569ac7f3634039ac1fdf.mp4",
+      "desktopBytes": 15978518,
+      "mobileBytes": 8478439,
+      "originalPoster": "/posters/13-960.webp",
+      "poster": "/paintings/39314f949e3e00e787fa10e7-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 21944,
+          "avif": 17790
+        },
+        "640": {
+          "webp": 43216,
+          "avif": 34146
+        },
+        "960": {
+          "webp": 78310,
+          "avif": 60653
+        }
+      }
+    },
+    {
+      "id": "artwork-14",
+      "original": "https://i.imgur.com/HO67SIX.mp4",
+      "frames": 601,
+      "source": "https://i.imgur.com/HO67SIX.mp4",
+      "originalBytes": 6803941,
+      "available": true,
+      "originalSha256": "e22f84f64b2f13e0e784b36f2ace94b50ce62f0a451e80f93a2bb2653f7ace85",
+      "desktop": "/paintings/1244ccbe2cca6c35bfb43f96.mp4",
+      "mobile": "/paintings/48906d03e5fd1640b7fe27de.mp4",
+      "desktopBytes": 4100440,
+      "mobileBytes": 2038012,
+      "originalPoster": "/posters/14-960.webp",
+      "poster": "/paintings/b3d70ee08d4404ee60185f77-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 14534,
+          "avif": 11619
+        },
+        "640": {
+          "webp": 27306,
+          "avif": 21812
+        },
+        "960": {
+          "webp": 49416,
+          "avif": 39142
+        }
+      }
+    },
+    {
+      "id": "artwork-15",
+      "original": "https://i.imgur.com/UojHuj5.mp4",
+      "frames": 601,
+      "source": "https://i.imgur.com/UojHuj5.mp4",
+      "originalBytes": 5784180,
+      "available": true,
+      "originalSha256": "1b69a302ce41e2e892564f8d90ed163401851b2c2622783908208a7eb4d807a3",
+      "desktop": "/paintings/93c66e78a7edae19721f81f8.mp4",
+      "mobile": "/paintings/546c6e1ea91a1b586fdbd83b.mp4",
+      "desktopBytes": 3456798,
+      "mobileBytes": 1920724,
+      "originalPoster": "/posters/15-960.webp",
+      "poster": "/paintings/2a295de27a37d5f96f23574f-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 16332,
+          "avif": 12922
+        },
+        "640": {
+          "webp": 31786,
+          "avif": 25259
+        },
+        "960": {
+          "webp": 56624,
+          "avif": 43184
+        }
+      }
+    },
+    {
+      "id": "artwork-16",
+      "original": "https://i.imgur.com/gCwY2MQ.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/gCwY2MQ.mp4",
+      "originalBytes": 10951990,
+      "available": true,
+      "originalSha256": "de23e484eeebe33efb8fa80b434620eb4e0f82dd858c8abd98abe409e7cef09f",
+      "desktop": "/paintings/a43d37da292652553ea15974.mp4",
+      "mobile": "/paintings/f16cc9ec1bd7eb095b32e2a7.mp4",
+      "desktopBytes": 6137295,
+      "mobileBytes": 3827719,
+      "originalPoster": "/posters/16-960.webp",
+      "poster": "/paintings/cb15f197c2e45f7e9434f2c9-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 25222,
+          "avif": 18606
+        },
+        "640": {
+          "webp": 48840,
+          "avif": 35629
+        },
+        "960": {
+          "webp": 86428,
+          "avif": 60227
+        }
+      }
+    },
+    {
+      "id": "artwork-17",
+      "original": "https://i.imgur.com/YPUR7Lt.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/YPUR7Lt.mp4",
+      "originalBytes": 15858394,
+      "available": true,
+      "originalSha256": "2b0bdccec07bb5f59cbac824400c1cc15daa87028300ac63274895b13f0035dd",
+      "desktop": "/paintings/743d0cc1cd5db672db6c2688.mp4",
+      "mobile": "/paintings/39b9dbd275ccaeaefb4da7d4.mp4",
+      "desktopBytes": 8740384,
+      "mobileBytes": 5408859,
+      "originalPoster": "/posters/17-960.webp",
+      "poster": "/paintings/64c47bd14d987f71418a67ec-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 30910,
+          "avif": 22764
+        },
+        "640": {
+          "webp": 62270,
+          "avif": 43209
+        },
+        "960": {
+          "webp": 112766,
+          "avif": 75173
+        }
+      }
+    },
+    {
+      "id": "artwork-18",
+      "original": "https://i.imgur.com/JKc1k3C.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/JKc1k3C.mp4",
+      "originalBytes": 12294650,
+      "available": true,
+      "originalSha256": "3f71b207067864cdd438d7dc2eacc8c80381545a047ec1b11567371f91ecf89a",
+      "desktop": "/paintings/4238172dff3208db9aa339e4.mp4",
+      "mobile": "/paintings/d59d4abec86239d2726b3cf9.mp4",
+      "desktopBytes": 6400929,
+      "mobileBytes": 3620385,
+      "originalPoster": "/posters/18-960.webp",
+      "poster": "/paintings/fda95a85d2ab2cb9728ae16e-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 25758,
+          "avif": 19213
+        },
+        "640": {
+          "webp": 50056,
+          "avif": 36409
+        },
+        "960": {
+          "webp": 88960,
+          "avif": 63457
+        }
+      }
+    },
+    {
+      "id": "artwork-19",
+      "original": "https://i.imgur.com/OSNGtQs.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/OSNGtQs.mp4",
+      "originalBytes": 23338981,
+      "available": true,
+      "originalSha256": "9481ea16a1a82d28cad429f09b4e835c98145d47bbf0b05658876711e1a974e3",
+      "desktop": "/paintings/2be3240c3973442c4174c46c.mp4",
+      "mobile": "/paintings/38f453c88330d9537d70a331.mp4",
+      "desktopBytes": 12939457,
+      "mobileBytes": 7005006,
+      "originalPoster": "/posters/19-960.webp",
+      "poster": "/paintings/7f985b13cdd93a0669ed7f87-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 38514,
+          "avif": 26904
+        },
+        "640": {
+          "webp": 75418,
+          "avif": 53602
+        },
+        "960": {
+          "webp": 138812,
+          "avif": 95542
+        }
+      }
+    },
+    {
+      "id": "artwork-20",
+      "original": "https://i.imgur.com/7ouIHyN.mp4",
+      "frames": 1801,
+      "source": "https://i.imgur.com/7ouIHyN.mp4",
+      "originalBytes": 87230285,
+      "available": true,
+      "originalSha256": "9aea772ff884378a2cfa4d7aa67f4d291e1aa5f37cfadfcf5f64ec3c15d49d27",
+      "desktop": "/paintings/c0c490ff8e3a6ebcb83c4a7a.mp4",
+      "mobile": "/paintings/dbe356889fbda3659a434b69.mp4",
+      "desktopBytes": 57021565,
+      "mobileBytes": 33255453,
+      "originalPoster": "/posters/20-960.webp",
+      "poster": "/paintings/55a5220e2a81af1550d9ec95-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 77348,
+          "avif": 54740
+        },
+        "640": {
+          "webp": 158376,
+          "avif": 112065
+        },
+        "960": {
+          "webp": 292568,
+          "avif": 202232
+        }
+      }
+    },
+    {
+      "id": "artwork-21",
+      "original": "https://i.imgur.com/QY2Y73n.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/QY2Y73n.mp4",
+      "originalBytes": 24480949,
+      "available": true,
+      "originalSha256": "4d832c0b8533668293d59cf4444917698ecd2d030b011808eae0db5956df9b93",
+      "desktop": "/paintings/3847f813b92a1bf8f93f10f3.mp4",
+      "mobile": "/paintings/d268ac6383777ff368c29c88.mp4",
+      "desktopBytes": 14988504,
+      "mobileBytes": 9200759,
+      "originalPoster": "/posters/21-960.webp",
+      "poster": "/paintings/9d51036859f3f6458c95e946-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 47336,
+          "avif": 33370
+        },
+        "640": {
+          "webp": 95096,
+          "avif": 67649
+        },
+        "960": {
+          "webp": 180412,
+          "avif": 121806
+        }
+      }
+    },
+    {
+      "id": "artwork-22",
+      "original": "https://i.imgur.com/b8XNIJY.mp4",
+      "frames": 901,
+      "source": "https://i.imgur.com/b8XNIJY.mp4",
+      "originalBytes": 57684377,
+      "available": true,
+      "originalSha256": "0bd5f03f72c1b0b18ceffef96f89a4837ffd6fdd140dc2e341b63e8887c7d651",
+      "desktop": "/paintings/b0bc60603fbfa1f935cd2701.mp4",
+      "mobile": "/paintings/9ca88c0a0404b4e602916d68.mp4",
+      "desktopBytes": 37114769,
+      "mobileBytes": 21050059,
+      "originalPoster": "/posters/22-960.webp",
+      "poster": "/paintings/fe43bc764c3ee4bfc31cbab9-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 76358,
+          "avif": 50527
+        },
+        "640": {
+          "webp": 155994,
+          "avif": 106787
+        },
+        "960": {
+          "webp": 290960,
+          "avif": 196708
+        }
+      }
+    },
+    {
+      "id": "artwork-23",
+      "original": "https://i.imgur.com/mh4T2To.mp4",
+      "frames": 222,
+      "source": "https://i.imgur.com/mh4T2To.mp4",
+      "originalBytes": 4430776,
+      "available": true,
+      "originalSha256": "bb6347b6a4c854f513abd4f09f5f6f191659e74cebf6e1c09f07798e97da31c0",
+      "desktop": "/paintings/8b8aa9e0dc518dfaf1b94515.mp4",
+      "mobile": "/paintings/f94a1756b5b60cb31b3cd544.mp4",
+      "desktopBytes": 2559499,
+      "mobileBytes": 1312604,
+      "originalPoster": "/posters/23-960.webp",
+      "poster": "/paintings/74a33a02060c8a050762673f-960.webp",
+      "posterBytes": {
+        "384": {
+          "webp": 14082,
+          "avif": 10585
+        },
+        "640": {
+          "webp": 28626,
+          "avif": 20517
+        },
+        "960": {
+          "webp": 52872,
+          "avif": 35905
+        }
+      }
+    }
+  ],
+  "hero": {
+    "/hero/waambat-hero-desktop.mp4": "/paintings/b922d986f17556b920105ea3.mp4",
+    "/hero/waambat-hero-mobile.mp4": "/paintings/2d0ea5d72405dc94a36c0e94.mp4",
+    "/hero/waambat-hero-desktop-loop.mp4": "/paintings/c23d905e6921efbfb26b8487.mp4",
+    "/hero/waambat-hero-mobile-loop.mp4": "/paintings/71ca69d9e796b02a22d565ed.mp4",
+    "/hero/waambat-hero-poster.webp": "/paintings/756f0d4aefad1393b5c2efc0.webp",
+    "/hero/waambat-hero-poster-mobile.webp": "/paintings/ef99e7781a07047d02911b86.webp"
+  }
+}

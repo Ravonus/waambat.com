@@ -1,0 +1,14 @@
+import { chromium, base } from './lib.mjs';
+const b = await chromium.launch();
+const page = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+await page.route('**/_kerf/x/waambat/contact', async (r) => { await new Promise(x => setTimeout(x, 800)); r.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' }); });
+await page.goto(base + '/contact-waambat', { waitUntil: 'load' }); await page.waitForTimeout(1200);
+await page.fill('#contact-contact-name', 'x'); await page.fill('#contact-contact-email', 'a@example.test'); await page.fill('#contact-contact-message', 'y');
+await page.focus('section[data-contact-form] button[type=submit]'); await page.keyboard.press('Enter');
+await page.waitForTimeout(300);
+const a = () => page.evaluate(() => { const e = document.activeElement; return e.tagName + ' ' + (e.className || '').toString().slice(0, 30) + ' ' + (e.textContent || '').slice(0, 30); });
+console.log('pending:', await a());
+await page.waitForTimeout(1200);
+console.log('after:', await a());
+await page.keyboard.press('Tab'); console.log('next tab:', await a());
+await b.close();

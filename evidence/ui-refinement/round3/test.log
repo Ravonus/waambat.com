@@ -1,0 +1,139 @@
+(node:85638) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ every complete painting and hero has content-addressed adaptive renditions (940.664833ms)
+✔ adaptive loader starts small with a bounded buffer and preserves custom media (0.206917ms)
+(node:85639) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ admin request deadline aborts transport and treats an unconfirmed write as uncertain (14.381958ms)
+✔ explicit validation rejection is definitive while server failure remains uncertain (10.087375ms)
+(node:85640) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ Adobe embed accepts only an owner-supplied hosted project stylesheet (0.358042ms)
+(node:85641) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ existing Auth.js secure and local session cookies still authorize an approved GitHub ID (24.431708ms)
+✔ existing Google sessions keep their verified-email requirement (8.069333ms)
+✔ a validly signed but unapproved ID and an expired session remain unauthorized (4.175458ms)
+(node:85642) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ Netlify SDK contract: persistent reload, private drafts, publish and competing-write rejection (129.419667ms)
+WAAMBAT content storage read failed { reason: 'deadline', status: undefined, category: undefined }
+✔ Netlify SDK read deadline aborts a stalled response without substituting seed content (2503.776542ms)
+✔ Next memoization cannot hang SDK cancellation for absent content or media errors (3.465625ms)
+(node:85643) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ supported provider URLs keep originals and build fixed safe players (0.58525ms)
+✔ new mixed pages require unique routes and valid references; archival retains content (16.952125ms)
+✔ Ordinals additions retain exact supplied destinations and verified sample provenance (0.141584ms)
+✔ recovered players keep source URLs, preserve two image-only archive entries and reject injected embed queries (0.211625ms)
+✔ recovered source content preserves 23 media URLs, eight Instagram posts and legacy content without invented artwork titles (0.305083ms)
+(node:85644) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ contact origins accept exact deployed aliases behind Netlify's canonical proxy and isolate previews (1.393542ms)
+✔ questions validate required answers, types, choices and archived fields on the server (1.497959ms)
+✔ forms share draft/archive protection and never expose notification addresses to public clients (4.39575ms)
+✔ real Blobs SDK: durable inbox, concurrent deduplication, notification switches, failure recovery and rate limiting (62.7705ms)
+(node:85645) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ seed preserves 23 paintings and original Ordinals alongside LUX and Kismet (0.358167ms)
+✔ rejects unsafe links, HTML, unknown fields and duplicate IDs (14.013375ms)
+✔ archived content is excluded from public media access (0.655584ms)
+✔ migrated pages retain archive entries and reject unsafe embeds and duplicate routes (18.101041ms)
+✔ page media authorization follows deployed and non-archived references (0.516667ms)
+✔ validates upload signatures and HTTP byte ranges (0.241542ms)
+✔ historical public links are narrowly preserved without permitting insecure media or mail injection (0.063875ms)
+(node:85646) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ filled form actions use readable text after changing theme colors (1.05875ms)
+✔ one pastel accent family derives every interactive state from the heading pink (0.392833ms)
+✔ CSS defaults equal the theme's derived tokens (0.280833ms)
+✔ stored legacy accent defaults read as the pastel family; chosen colours and other settings stay (0.122042ms)
+✔ no legacy violet/coral hue remains anywhere in the UI (2.7075ms)
+✔ theme rejects arbitrary styles, external fonts and unsafe or unbounded values (0.405958ms)
+✔ archive preserves all 25 source tiles and measured desktop row starts (1.876708ms)
+✔ requested test account never activates on the original domain or arbitrary hosts (0.144417ms)
+✔ a version-2 theme is never migrated, so a deliberate legacy colour survives a save round trip (0.4245ms)
+✔ an unset hover follows a custom link colour; navigation hover follows the logo (0.232583ms)
+✔ every hard-coded colour fallback for a theme token equals the theme default (5.600042ms)
+✔ an unexpected accent version never fails the content store (0.270042ms)
+(node:85647) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ formatted UTF-8 content boundary roundtrips and oversized commits leave Git unchanged (1666.582375ms)
+✔ real Git draft/publish commits preserve originals and reject competing writes (3888.839458ms)
+✔ GitHub adapter limits writes to content JSON and rejects force pushes (15.889084ms)
+(node:85648) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ the shipped content carries the home hero banner (10.459333ms)
+✔ hero media exists, loads as a direct source and fits the studio's upload limit (6.918167ms)
+✔ seeded hero matches the default added to older stores (3.811792ms)
+✔ older stored content gains the hero on read, without being written back or mutated (8.622375ms)
+✔ an archived or artist-edited hero is respected, never replaced or restored (6.881417ms)
+✔ a stored banner that is still the shipped one gains the ending loop on read; an edited one is left alone (7.626875ms)
+✔ an ending loop must be a direct video file (7.73775ms)
+✔ a hero the artist moved to another page, or whose video they archived, no longer shows on home (3.694709ms)
+✔ a hero with neither video nor poster is hidden; a poster alone still shows (2.694625ms)
+✔ the hero never renders as an ordinary gallery section (1.103959ms)
+✔ hero media references are tracked so uploads are kept and checked (4.495042ms)
+✔ hero video paths are same-origin render files only (0.158291ms)
+✔ theme motion and wordmark size are bounded, defaulted and exposed as tokens (0.705334ms)
+✔ a store saved before the hero fields existed still parses with safe defaults (4.084166ms)
+(node:85649) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ standalone inscription image recovery concatenates data pushes without interpreting image bytes as opcodes (0.680209ms)
+✔ encoded or delegated envelopes are refused instead of claiming their body is the original image (0.217459ms)
+✔ truncated pushes from an upstream transaction are refused (0.068667ms)
+(node:85650) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ artist email authorization requires a verified exact allowed Google identity (0.427792ms)
+✔ Instagram URLs allow only supported exact destinations and highlights have no embed (0.564041ms)
+✔ email capture never uses delivery transport; verified sender and configuration are mandatory (7.484917ms)
+(node:85652) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ a one-asset rebuild preserves original Save links for older movies without asset records (0.637875ms)
+✔ absolute preview URLs resolve to retained originals and movie posters save the whole movie (0.196875ms)
+✔ an unindexed local image remains saveable and a blob player is never offered as its original (0.08975ms)
+(node:85653) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ all painting display files and responsive posters exist and have versioned cache identities (42.103833ms)
+✔ media migration preserves original token links and artist-edited display sources (10.297375ms)
+(node:85654) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ each live piece has a cached loop and a still, both named by a hash of their bytes (11.818084ms)
+✔ the shipped Ordinals content points at those loops and stills (10.476ms)
+✔ the loops and stills are kept forever by the CDN and native Kerf server (1.465916ms)
+✔ preview loops are same-origin files; lookalikes and traversal are refused (0.416208ms)
+✔ a preview loop must be a direct video file, on any kind of item (7.502541ms)
+✔ live pieces are recognised by their inscription or loop; the early GIFs and ordinary sections are not (6.979959ms)
+✔ marketplace links are named for people, other hosts by their hostname (0.1935ms)
+✔ the stored size budget for the whole Ordinals page media stays small (3.283959ms)
+✔ only LUX is interactive; Kismet Twist and Edge Corporeal are videos shown as their loops (0.340333ms)
+✔ the videos link to their own inscription page, only for exact inscription URLs (0.380625ms)
+(node:85655) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ verified live players upgrade only legacy defaults without mutating persisted input (15.318542ms)
+✔ artist-selected media and captions are never replaced by source compatibility (11.384167ms)
+✔ after migration the artist can deliberately restore a static or alternate sample (7.9305ms)
+✔ exact confirmed HTML content routes are players; injected queries and lookalike hosts are rejected (0.300709ms)
+✔ a legacy store gains the cached loops and the Gamma piece, matching the shipped seed exactly (6.161542ms)
+✔ Gamma becomes a live piece only from its exact legacy link (8.217042ms)
+✔ a store already corrected to version 1 gets the loops without losing artist choices (4.405792ms)
+(node:85656) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ public pages have canonical metadata and an absolute social image (0.50725ms)
+✔ preview and private builds stay out of search indexes (0.092833ms)
+✔ sitemap excludes archived, hidden and legacy landing pages and honors editable descriptions (3.127209ms)
+(node:85657) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ static sharing cards are compact, versioned and retain visible brand labels (107.432583ms)
+(node:85658) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+✔ animated image containers retain exact source URLs without rendition flattening (0.636042ms)
+✔ JPEG renditions keep one width parameter and preserve other source parameters (0.170292ms)
+ℹ tests 90
+ℹ suites 0
+ℹ pass 90
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6121.825584

@@ -1,0 +1,18 @@
+{
+ "/mechanics": [
+  {
+   "alt": "quantum mechanics",
+   "src": "http://localhost:3287/mechanics",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  },
+  {
+   "alt": "quantum mechanics",
+   "src": "http://localhost:3287/mechanics",
+   "srcset": "",
+   "parent": "PICTURE.block h-full w-full"
+  }
+ ],
+ "/blog-press": [],
+ "fails": []
+}

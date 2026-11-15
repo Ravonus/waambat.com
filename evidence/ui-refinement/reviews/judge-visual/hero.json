@@ -1,0 +1,74 @@
+{
+ "reduce": [
+  {
+   "tag": "CANVAS",
+   "cls": "",
+   "src": "",
+   "box": [
+    1425,
+    6,
+    14,
+    888
+   ],
+   "op": "1",
+   "vis": "visible"
+  },
+  {
+   "tag": "IMG",
+   "cls": "_poster_1j40u_27",
+   "src": "ia-optimized/first-b922d986f17556b92010-1280-c5bf241981c3588e26fe.avif",
+   "box": [
+    5,
+    66,
+    1429,
+    804
+   ],
+   "op": "1",
+   "vis": "visible"
+  }
+ ],
+ "no-preference": [
+  {
+   "tag": "CANVAS",
+   "cls": "",
+   "src": "",
+   "box": [
+    1425,
+    6,
+    14,
+    888
+   ],
+   "op": "1",
+   "vis": "visible"
+  },
+  {
+   "tag": "IMG",
+   "cls": "_poster_1j40u_27",
+   "src": "ia-optimized/first-b922d986f17556b92010-1280-c5bf241981c3588e26fe.avif",
+   "box": [
+    5,
+    66,
+    1429,
+    804
+   ],
+   "op": "1",
+   "vis": "visible"
+  },
+  {
+   "tag": "VIDEO",
+   "cls": "_video_1j40u_28",
+   "src": "blob:http://localhost:3287/cbaa61cc-674c-47ea-bd09-6ea17b089188",
+   "box": [
+    5,
+    66,
+    1429,
+    804
+   ],
+   "paused": false,
+   "t": 0.8406,
+   "ready": 4,
+   "op": "1",
+   "vis": "visible"
+  }
+ ]
+}

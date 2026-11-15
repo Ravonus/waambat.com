@@ -1,0 +1,131 @@
+{
+ "cursor": {
+  "over-pink-title": {
+   "state": "text",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, ",
+   "display": "block",
+   "pressed": false,
+   "darkPx": 5284,
+   "pinkPx": 1325
+  },
+  "over-black": {
+   "state": "default",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, ",
+   "display": "block",
+   "pressed": false,
+   "darkPx": 5983,
+   "pinkPx": 981
+  },
+  "press-on-black": {
+   "state": "default",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, ",
+   "display": "block",
+   "pressed": true,
+   "darkPx": 5138,
+   "pinkPx": 1367
+  },
+  "over-nav": {
+   "state": "pointer",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, ",
+   "display": "block",
+   "pressed": false,
+   "darkPx": 4686,
+   "pinkPx": 1882
+  },
+  "over-submit-hover": {
+   "state": "pointer",
+   "filter": "drop-shadow(rgb(0, 0, 0) 1px 0px 0px) drop-shadow(rgb(0, 0, ",
+   "display": "block",
+   "pressed": false,
+   "darkPx": 4101,
+   "pinkPx": 2365
+  }
+ },
+ "rail": {
+  "box": [
+   1425,
+   6,
+   14,
+   888
+  ],
+  "rest": [
+   [
+    "#f090b0",
+    1146
+   ],
+   [
+    "#e080a0",
+    4
+   ],
+   [
+    "#402030",
+    3
+   ],
+   [
+    "#d07090",
+    3
+   ],
+   [
+    "#c07080",
+    2
+   ],
+   [
+    "#804050",
+    2
+   ]
+  ],
+  "hover": [
+   [
+    "#f090b0",
+    1177
+   ],
+   [
+    "#e07090",
+    478
+   ],
+   [
+    "#f0a0b0",
+    285
+   ],
+   [
+    "#f0a0c0",
+    228
+   ],
+   [
+    "#f0b0c0",
+    126
+   ],
+   [
+    "#804050",
+    12
+   ]
+  ],
+  "drag": [
+   [
+    "#e07090",
+    338
+   ],
+   [
+    "#a05060",
+    290
+   ],
+   [
+    "#f090b0",
+    284
+   ],
+   [
+    "#f080a0",
+    266
+   ],
+   [
+    "#f0a0b0",
+    264
+   ],
+   [
+    "#100010",
+    263
+   ]
+  ],
+  "scrolledByDrag": 1979
+ }
+}

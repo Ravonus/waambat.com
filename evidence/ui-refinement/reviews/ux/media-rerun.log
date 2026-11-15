@@ -1,0 +1,121 @@
+{
+  "homeControls": 24,
+  "ctlRest": {
+    "label": "Pause WAAMBAT hero montage",
+    "color": "rgb(255, 255, 255)",
+    "border": "rgba(255, 255, 255, 0.376)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "opacity": "0.55"
+  },
+  "ctlHover": {
+    "color": "rgb(241, 209, 214)",
+    "border": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0.933)",
+    "opacity": "1",
+    "cursor": "pointer"
+  },
+  "ctlPressed": {
+    "color": "rgb(195, 156, 162)",
+    "border": "rgb(195, 156, 162)",
+    "transform": "matrix(0.94, 0, 0, 0.94, 0, 0)"
+  },
+  "ctlAfterClick": {
+    "label": "Play WAAMBAT hero montage",
+    "focus": true,
+    "outline": "rgb(241, 209, 214) none 3px"
+  },
+  "ctlToggleBack": "Pause WAAMBAT hero montage",
+  "ctlFocus": {
+    "cls": "media-control",
+    "outline": "rgb(225, 188, 194) solid 2px",
+    "offset": "3px"
+  },
+  "savePreparing": {
+    "open": true,
+    "h2": "Preparing your file.",
+    "status": "Checking the file…",
+    "focus": "waambat-download-close",
+    "cursorShown": "1",
+    "border": "rgb(113, 94, 97)",
+    "bg": "rgb(18, 15, 16)"
+  },
+  "cancelHover": "rgb(241, 209, 214)",
+  "closeHover": "rgb(241, 209, 214)",
+  "afterCancel": {
+    "open": false,
+    "focus": "A",
+    "overflow": ""
+  },
+  "saveError": {
+    "h2": "File unavailable.",
+    "alert": "Failed to fetchTry again",
+    "retry": {
+      "text": "Try again",
+      "color": "rgb(243, 232, 238)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "solid rgb(243, 232, 238)",
+      "decoration": "none",
+      "padding": "0px"
+    },
+    "alertColor": "rgb(243, 232, 238)"
+  },
+  "retryHover": "rgb(243, 232, 238)",
+  "retryPreparing": "Ready when you are.",
+  "afterRetry": {
+    "h2": "Ready when you are.",
+    "save": {
+      "href": "/media-originals/33f321b5cd1e458e4efb312fa2f8228f320a21e15f0",
+      "dl": "bNlZWHY.mp4",
+      "color": "rgb(34, 16, 20)",
+      "bg": "rgb(241, 209, 214)"
+    },
+    "info": "MP4 · 35.8 MB"
+  },
+  "saveHover": {
+    "color": "rgb(34, 16, 20)",
+    "bg": "rgb(241, 209, 214)"
+  },
+  "savePressed": {
+    "color": "rgb(34, 16, 20)",
+    "bg": "rgb(197, 158, 164)"
+  },
+  "afterEscape": {
+    "open": false
+  },
+  "reqs": [
+    {
+      "seen": ":3287/media-originals/33f321b5cd1e458e4efb312fa2f8228f320a21e15f097e85c63bfa1248603090.mp4",
+      "m": "HEAD"
+    },
+    {
+      "url": ":3287/media-originals/33f321b5cd1e458e4efb312fa2f8228f320a21e15f097e85c63bfa1248603090.mp4",
+      "method": "HEAD",
+      "mode": "hold"
+    },
+    {
+      "seen": ":3287/media-originals/33f321b5cd1e458e4efb312fa2f8228f320a21e15f097e85c63bfa1248603090.mp4",
+      "m": "HEAD"
+    },
+    {
+      "url": ":3287/media-originals/33f321b5cd1e458e4efb312fa2f8228f320a21e15f097e85c63bfa1248603090.mp4",
+      "method": "HEAD",
+      "mode": "fail"
+    },
+    {
+      "seen": ":3287/media-originals/33f321b5cd1e458e4efb312fa2f8228f320a21e15f097e85c63bfa1248603090.mp4",
+      "m": "HEAD"
+    },
+    {
+      "url": ":3287/media-originals/33f321b5cd1e458e4efb312fa2f8228f320a21e15f097e85c63bfa1248603090.mp4",
+      "method": "HEAD",
+      "mode": "retry"
+    }
+  ],
+  "log": [
+    {
+      "tag": "media",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    }
+  ]
+}

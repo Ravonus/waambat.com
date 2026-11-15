@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "plugins": {
+    "@kerf-js/media": {
+      "version": "0.1.0",
+      "integrity": "sha512-0MvBZk14pQLtt9CO+3xoO8nnW3wYKH1kSKBydnU1lZa8SMKJpIqt4yp7cAYp93W2WotK7qhdKfdBCpPx5t+3Gg==",
+      "permissions": [
+        "env:KERF_MEDIA_DIR",
+        "fs.read:**/*.{png,jpg,jpeg,gif,webp,avif,svg,mp4,m4v,mov,webm,mkv,ogv,mp3,wav,flac,ogg,oga,opus,m4a,aac}",
+        "native",
+        "spawn:ssimulacra2"
+      ],
+      "provides": [
+        "media.build",
+        "media.server"
+      ],
+      "undeclared": []
+    },
+    "@kerf-js/media-ffmpeg": {
+      "version": "0.1.0",
+      "integrity": "sha512-vSckUI2GuFEle29S35BrdWXhqD5S8KH5psbRPng5FIg4R+t4dqIztZOBYifWE+KQ/qYsm/dhq3H8xH3/8SNFxA==",
+      "permissions": [
+        "fs.read:**/*.{gif,mp4,m4v,mov,webm,mkv,ogv,mp3,wav,flac,ogg,oga,opus,m4a,aac}",
+        "fs.write:$TMPDIR/kerf-ffmpeg-*",
+        "spawn:ffmpeg",
+        "spawn:ffprobe"
+      ],
+      "provides": [
+        "media.encode[audio/aac]",
+        "media.encode[audio/opus]",
+        "media.encode[video/av1]",
+        "media.encode[video/h264]",
+        "media.encode[video/hevc]",
+        "media.encode[video/vp9]"
+      ],
+      "undeclared": []
+    },
+    "@waambat/api": {
+      "version": "1.0.0",
+      "integrity": null,
+      "permissions": [],
+      "provides": [
+        "server.extension[waambat]"
+      ],
+      "undeclared": []
+    },
+    "@waambat/lossless": {
+      "version": "1.0.0",
+      "integrity": null,
+      "permissions": [
+        "fs.read:**/*.{png,jpg,jpeg,webp,avif,svg,gif,mp4,webm}",
+        "fs.write:.kerf/media-cache/**",
+        "native"
+      ],
+      "provides": [
+        "media.build"
+      ],
+      "undeclared": []
+    }
+  }
+}

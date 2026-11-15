@@ -1,0 +1,6 @@
+page mechanics: meta same; blocks 16 -> 16
+  same block multiset ignoring id/width: true
+  widths: MECHANICS_v002.png=612, WL_v003.png=560, QuantumCollection_v002.png=960
+  order before: h:Utility Mech | h:Each Quantum | h:During a giv | h:For each set | h:When a new s | h:Each Element | e:3hhNUKR.mp4 | i:MECHANICS_v002.png | e:8oZCxzC.mp4 | i:WL_v003.png | h:Utility Mech | h:Fusions are  | h:Fusions are  | h:There are ad | e:TBObuJ0.mp4 | i:QuantumCollection_v002.png
+  order after:  h:Utility Mech | h:Each Quantum | e:3hhNUKR.mp4 | h:During a giv | h:For each set | h:When a new s | h:Each Element | i:MECHANICS_v002.png | i:WL_v003.png | e:8oZCxzC.mp4 | h:Utility Mech | h:Fusions are  | h:Fusions are  | e:TBObuJ0.mp4 | h:There are ad | i:QuantumCollection_v002.png
+ids keep content: true

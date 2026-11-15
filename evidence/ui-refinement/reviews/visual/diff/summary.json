@@ -1,0 +1,1854 @@
+[
+ {
+  "f": "desktop-art-by-waambat-scrolled.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 516,
+  "pct": 0.04,
+  "sameCoverage": 516,
+  "coverageFlip": 0,
+  "bbox": [
+   1432,
+   111,
+   1436,
+   214
+  ],
+  "bands": [
+   [
+    111,
+    214
+   ]
+  ]
+ },
+ {
+  "f": "desktop-art-by-waambat-top.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 657,
+  "pct": 0.051,
+  "sameCoverage": 657,
+  "coverageFlip": 0,
+  "bbox": [
+   653,
+   6,
+   1436,
+   127
+  ],
+  "bands": [
+   [
+    6,
+    110
+   ],
+   [
+    125,
+    125
+   ],
+   [
+    127,
+    127
+   ]
+  ]
+ },
+ {
+  "f": "desktop-bio-waambat-scrolled.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 290,
+  "pct": 0.022,
+  "sameCoverage": 290,
+  "coverageFlip": 0,
+  "bbox": [
+   1432,
+   65,
+   1436,
+   123
+  ],
+  "bands": [
+   [
+    65,
+    123
+   ]
+  ]
+ },
+ {
+  "f": "desktop-bio-waambat-top.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 333,
+  "pct": 0.026,
+  "sameCoverage": 333,
+  "coverageFlip": 0,
+  "bbox": [
+   932,
+   6,
+   1436,
+   127
+  ],
+  "bands": [
+   [
+    6,
+    64
+   ],
+   [
+    125,
+    125
+   ],
+   [
+    127,
+    127
+   ]
+  ]
+ },
+ {
+  "f": "desktop-blog-press-scrolled.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 339,
+  "pct": 0.026,
+  "sameCoverage": 339,
+  "coverageFlip": 0,
+  "bbox": [
+   1432,
+   75,
+   1436,
+   143
+  ],
+  "bands": [
+   [
+    75,
+    143
+   ]
+  ]
+ },
+ {
+  "f": "desktop-blog-press-top.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 507,
+  "pct": 0.039,
+  "sameCoverage": 507,
+  "coverageFlip": 0,
+  "bbox": [
+   828,
+   6,
+   1436,
+   127
+  ],
+  "bands": [
+   [
+    6,
+    74
+   ],
+   [
+    125,
+    125
+   ],
+   [
+    127,
+    127
+   ]
+  ]
+ },
+ {
+  "f": "desktop-contact-waambat-scrolled.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 9894,
+  "pct": 0.763,
+  "sameCoverage": 9890,
+  "coverageFlip": 4,
+  "bbox": [
+   489,
+   415,
+   1436,
+   893
+  ],
+  "bands": [
+   [
+    415,
+    417
+   ],
+   [
+    436,
+    893
+   ]
+  ]
+ },
+ {
+  "f": "desktop-contact-waambat-top.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 2508,
+  "pct": 0.194,
+  "sameCoverage": 2508,
+  "coverageFlip": 0,
+  "bbox": [
+   974,
+   6,
+   1436,
+   463
+  ],
+  "bands": [
+   [
+    6,
+    463
+   ]
+  ]
+ },
+ {
+  "f": "desktop-home-scrolled.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 234,
+  "pct": 0.018,
+  "sameCoverage": 234,
+  "coverageFlip": 0,
+  "bbox": [
+   1432,
+   30,
+   1436,
+   77
+  ],
+  "bands": [
+   [
+    30,
+    77
+   ]
+  ]
+ },
+ {
+  "f": "desktop-home-top.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 300,
+  "pct": 0.023,
+  "sameCoverage": 300,
+  "coverageFlip": 0,
+  "bbox": [
+   353,
+   6,
+   1436,
+   53
+  ],
+  "bands": [
+   [
+    6,
+    53
+   ]
+  ]
+ },
+ {
+  "f": "desktop-instagram-scrolled.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 456,
+  "pct": 0.035,
+  "sameCoverage": 456,
+  "coverageFlip": 0,
+  "bbox": [
+   1432,
+   99,
+   1436,
+   190
+  ],
+  "bands": [
+   [
+    99,
+    190
+   ]
+  ]
+ },
+ {
+  "f": "desktop-instagram-top.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 1423,
+  "pct": 0.11,
+  "sameCoverage": 1071,
+  "coverageFlip": 352,
+  "bbox": [
+   300,
+   6,
+   1436,
+   415
+  ],
+  "bands": [
+   [
+    6,
+    97
+   ],
+   [
+    125,
+    125
+   ],
+   [
+    127,
+    127
+   ],
+   [
+    401,
+    415
+   ]
+  ]
+ },
+ {
+  "f": "desktop-mechanics-scrolled.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 801,
+  "pct": 0.062,
+  "sameCoverage": 801,
+  "coverageFlip": 0,
+  "bbox": [
+   1432,
+   168,
+   1436,
+   328
+  ],
+  "bands": [
+   [
+    168,
+    328
+   ]
+  ]
+ },
+ {
+  "f": "desktop-mechanics-top.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 1070,
+  "pct": 0.083,
+  "sameCoverage": 1070,
+  "coverageFlip": 0,
+  "bbox": [
+   499,
+   6,
+   1436,
+   167
+  ],
+  "bands": [
+   [
+    6,
+    167
+   ]
+  ]
+ },
+ {
+  "f": "desktop-ordinals-scrolled.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 1936,
+  "pct": 0.149,
+  "sameCoverage": 1936,
+  "coverageFlip": 0,
+  "bbox": [
+   1432,
+   394,
+   1436,
+   781
+  ],
+  "bands": [
+   [
+    394,
+    781
+   ]
+  ]
+ },
+ {
+  "f": "desktop-ordinals-top.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 2080,
+  "pct": 0.16,
+  "sameCoverage": 2080,
+  "coverageFlip": 0,
+  "bbox": [
+   406,
+   6,
+   1436,
+   393
+  ],
+  "bands": [
+   [
+    6,
+    393
+   ]
+  ]
+ },
+ {
+  "f": "phone360-art-by-waambat-scrolled.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 502,
+  "pct": 0.174,
+  "sameCoverage": 502,
+  "coverageFlip": 0,
+  "bbox": [
+   352,
+   120,
+   356,
+   220
+  ],
+  "bands": [
+   [
+    120,
+    220
+   ]
+  ]
+ },
+ {
+  "f": "phone360-art-by-waambat-top.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 646,
+  "pct": 0.224,
+  "sameCoverage": 646,
+  "coverageFlip": 0,
+  "bbox": [
+   306,
+   6,
+   356,
+   106
+  ],
+  "bands": [
+   [
+    6,
+    106
+   ]
+  ]
+ },
+ {
+  "f": "phone360-bio-waambat-scrolled.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 236,
+  "pct": 0.082,
+  "sameCoverage": 236,
+  "coverageFlip": 0,
+  "bbox": [
+   352,
+   51,
+   356,
+   98
+  ],
+  "bands": [
+   [
+    51,
+    98
+   ]
+  ]
+ },
+ {
+  "f": "phone360-bio-waambat-top.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 380,
+  "pct": 0.132,
+  "sameCoverage": 380,
+  "coverageFlip": 0,
+  "bbox": [
+   306,
+   6,
+   356,
+   66
+  ],
+  "bands": [
+   [
+    6,
+    53
+   ],
+   [
+    57,
+    58
+   ],
+   [
+    65,
+    66
+   ]
+  ]
+ },
+ {
+  "f": "phone360-blog-press-scrolled.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 401,
+  "pct": 0.139,
+  "sameCoverage": 401,
+  "coverageFlip": 0,
+  "bbox": [
+   352,
+   97,
+   356,
+   177
+  ],
+  "bands": [
+   [
+    97,
+    177
+   ]
+  ]
+ },
+ {
+  "f": "phone360-blog-press-top.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 545,
+  "pct": 0.189,
+  "sameCoverage": 545,
+  "coverageFlip": 0,
+  "bbox": [
+   306,
+   6,
+   356,
+   86
+  ],
+  "bands": [
+   [
+    6,
+    86
+   ]
+  ]
+ },
+ {
+  "f": "phone360-contact-waambat-scrolled.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 9431,
+  "pct": 3.275,
+  "sameCoverage": 9421,
+  "coverageFlip": 10,
+  "bbox": [
+   20,
+   253,
+   356,
+   775
+  ],
+  "bands": [
+   [
+    253,
+    255
+   ],
+   [
+    325,
+    327
+   ],
+   [
+    385,
+    392
+   ],
+   [
+    394,
+    394
+   ],
+   [
+    409,
+    775
+   ]
+  ]
+ },
+ {
+  "f": "phone360-contact-waambat-top.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 1951,
+  "pct": 0.677,
+  "sameCoverage": 1951,
+  "coverageFlip": 0,
+  "bbox": [
+   306,
+   6,
+   356,
+   367
+  ],
+  "bands": [
+   [
+    6,
+    367
+   ]
+  ]
+ },
+ {
+  "f": "phone360-home-scrolled.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 234,
+  "pct": 0.081,
+  "sameCoverage": 234,
+  "coverageFlip": 0,
+  "bbox": [
+   352,
+   53,
+   356,
+   100
+  ],
+  "bands": [
+   [
+    53,
+    100
+   ]
+  ]
+ },
+ {
+  "f": "phone360-home-top.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 380,
+  "pct": 0.132,
+  "sameCoverage": 380,
+  "coverageFlip": 0,
+  "bbox": [
+   306,
+   6,
+   356,
+   66
+  ],
+  "bands": [
+   [
+    6,
+    53
+   ],
+   [
+    57,
+    58
+   ],
+   [
+    65,
+    66
+   ]
+  ]
+ },
+ {
+  "f": "phone360-instagram-scrolled.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 301,
+  "pct": 0.105,
+  "sameCoverage": 301,
+  "coverageFlip": 0,
+  "bbox": [
+   352,
+   75,
+   356,
+   135
+  ],
+  "bands": [
+   [
+    75,
+    135
+   ]
+  ]
+ },
+ {
+  "f": "phone360-instagram-top.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 1283,
+  "pct": 0.445,
+  "sameCoverage": 931,
+  "coverageFlip": 352,
+  "bbox": [
+   80,
+   6,
+   356,
+   543
+  ],
+  "bands": [
+   [
+    6,
+    66
+   ],
+   [
+    529,
+    543
+   ]
+  ]
+ },
+ {
+  "f": "phone360-mechanics-scrolled.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 857,
+  "pct": 0.298,
+  "sameCoverage": 857,
+  "coverageFlip": 0,
+  "bbox": [
+   352,
+   200,
+   356,
+   371
+  ],
+  "bands": [
+   [
+    200,
+    371
+   ]
+  ]
+ },
+ {
+  "f": "phone360-mechanics-top.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 1001,
+  "pct": 0.348,
+  "sameCoverage": 1001,
+  "coverageFlip": 0,
+  "bbox": [
+   306,
+   6,
+   356,
+   177
+  ],
+  "bands": [
+   [
+    6,
+    177
+   ]
+  ]
+ },
+ {
+  "f": "phone360-ordinals-scrolled.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 862,
+  "pct": 0.299,
+  "sameCoverage": 862,
+  "coverageFlip": 0,
+  "bbox": [
+   352,
+   201,
+   356,
+   374
+  ],
+  "bands": [
+   [
+    201,
+    374
+   ]
+  ]
+ },
+ {
+  "f": "phone360-ordinals-top.png",
+  "before": "360x800",
+  "after": "360x800",
+  "changed": 1006,
+  "pct": 0.349,
+  "sameCoverage": 1006,
+  "coverageFlip": 0,
+  "bbox": [
+   306,
+   6,
+   356,
+   178
+  ],
+  "bands": [
+   [
+    6,
+    178
+   ]
+  ]
+ },
+ {
+  "f": "phone390-art-by-waambat-scrolled.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 516,
+  "pct": 0.157,
+  "sameCoverage": 516,
+  "coverageFlip": 0,
+  "bbox": [
+   382,
+   117,
+   386,
+   220
+  ],
+  "bands": [
+   [
+    117,
+    220
+   ]
+  ]
+ },
+ {
+  "f": "phone390-art-by-waambat-top.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 660,
+  "pct": 0.201,
+  "sameCoverage": 660,
+  "coverageFlip": 0,
+  "bbox": [
+   336,
+   6,
+   386,
+   109
+  ],
+  "bands": [
+   [
+    6,
+    109
+   ]
+  ]
+ },
+ {
+  "f": "phone390-bio-waambat-scrolled.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 232,
+  "pct": 0.07,
+  "sameCoverage": 232,
+  "coverageFlip": 0,
+  "bbox": [
+   382,
+   56,
+   386,
+   102
+  ],
+  "bands": [
+   [
+    56,
+    102
+   ]
+  ]
+ },
+ {
+  "f": "phone390-bio-waambat-top.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 380,
+  "pct": 0.115,
+  "sameCoverage": 380,
+  "coverageFlip": 0,
+  "bbox": [
+   336,
+   6,
+   386,
+   66
+  ],
+  "bands": [
+   [
+    6,
+    53
+   ],
+   [
+    57,
+    58
+   ],
+   [
+    65,
+    66
+   ]
+  ]
+ },
+ {
+  "f": "phone390-blog-press-scrolled.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 436,
+  "pct": 0.132,
+  "sameCoverage": 436,
+  "coverageFlip": 0,
+  "bbox": [
+   382,
+   100,
+   386,
+   187
+  ],
+  "bands": [
+   [
+    100,
+    187
+   ]
+  ]
+ },
+ {
+  "f": "phone390-blog-press-top.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 580,
+  "pct": 0.176,
+  "sameCoverage": 580,
+  "coverageFlip": 0,
+  "bbox": [
+   336,
+   6,
+   386,
+   93
+  ],
+  "bands": [
+   [
+    6,
+    93
+   ]
+  ]
+ },
+ {
+  "f": "phone390-contact-waambat-scrolled.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 9681,
+  "pct": 2.941,
+  "sameCoverage": 9671,
+  "coverageFlip": 10,
+  "bbox": [
+   20,
+   258,
+   386,
+   837
+  ],
+  "bands": [
+   [
+    258,
+    260
+   ],
+   [
+    330,
+    332
+   ],
+   [
+    390,
+    397
+   ],
+   [
+    399,
+    399
+   ],
+   [
+    414,
+    418
+   ],
+   [
+    426,
+    837
+   ]
+  ]
+ },
+ {
+  "f": "phone390-contact-waambat-top.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 2200,
+  "pct": 0.668,
+  "sameCoverage": 2200,
+  "coverageFlip": 0,
+  "bbox": [
+   336,
+   6,
+   386,
+   417
+  ],
+  "bands": [
+   [
+    6,
+    417
+   ]
+  ]
+ },
+ {
+  "f": "phone390-home-scrolled.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 234,
+  "pct": 0.071,
+  "sameCoverage": 234,
+  "coverageFlip": 0,
+  "bbox": [
+   382,
+   53,
+   386,
+   100
+  ],
+  "bands": [
+   [
+    53,
+    100
+   ]
+  ]
+ },
+ {
+  "f": "phone390-home-top.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 380,
+  "pct": 0.115,
+  "sameCoverage": 380,
+  "coverageFlip": 0,
+  "bbox": [
+   336,
+   6,
+   386,
+   66
+  ],
+  "bands": [
+   [
+    6,
+    53
+   ],
+   [
+    57,
+    58
+   ],
+   [
+    65,
+    66
+   ]
+  ]
+ },
+ {
+  "f": "phone390-instagram-scrolled.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 327,
+  "pct": 0.099,
+  "sameCoverage": 327,
+  "coverageFlip": 0,
+  "bbox": [
+   382,
+   78,
+   386,
+   143
+  ],
+  "bands": [
+   [
+    78,
+    143
+   ]
+  ]
+ },
+ {
+  "f": "phone390-instagram-top.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 1313,
+  "pct": 0.399,
+  "sameCoverage": 961,
+  "coverageFlip": 352,
+  "bbox": [
+   80,
+   6,
+   386,
+   512
+  ],
+  "bands": [
+   [
+    6,
+    72
+   ],
+   [
+    498,
+    512
+   ]
+  ]
+ },
+ {
+  "f": "phone390-mechanics-scrolled.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 926,
+  "pct": 0.281,
+  "sameCoverage": 926,
+  "coverageFlip": 0,
+  "bbox": [
+   382,
+   205,
+   386,
+   390
+  ],
+  "bands": [
+   [
+    205,
+    390
+   ]
+  ]
+ },
+ {
+  "f": "phone390-mechanics-top.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 1071,
+  "pct": 0.325,
+  "sameCoverage": 1071,
+  "coverageFlip": 0,
+  "bbox": [
+   336,
+   6,
+   386,
+   191
+  ],
+  "bands": [
+   [
+    6,
+    191
+   ]
+  ]
+ },
+ {
+  "f": "phone390-ordinals-scrolled.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 937,
+  "pct": 0.285,
+  "sameCoverage": 937,
+  "coverageFlip": 0,
+  "bbox": [
+   382,
+   207,
+   386,
+   395
+  ],
+  "bands": [
+   [
+    207,
+    395
+   ]
+  ]
+ },
+ {
+  "f": "phone390-ordinals-top.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 1083,
+  "pct": 0.329,
+  "sameCoverage": 1083,
+  "coverageFlip": 0,
+  "bbox": [
+   336,
+   6,
+   386,
+   194
+  ],
+  "bands": [
+   [
+    6,
+    194
+   ]
+  ]
+ },
+ {
+  "f": "scheme-dark-admin.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 0,
+  "pct": 0,
+  "sameCoverage": 0,
+  "coverageFlip": 0,
+  "bbox": null,
+  "bands": []
+ },
+ {
+  "f": "scheme-dark-contact.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 2508,
+  "pct": 0.194,
+  "sameCoverage": 2508,
+  "coverageFlip": 0,
+  "bbox": [
+   974,
+   6,
+   1436,
+   463
+  ],
+  "bands": [
+   [
+    6,
+    463
+   ]
+  ]
+ },
+ {
+  "f": "scheme-light-admin.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 0,
+  "pct": 0,
+  "sameCoverage": 0,
+  "coverageFlip": 0,
+  "bbox": null,
+  "bands": []
+ },
+ {
+  "f": "scheme-light-contact.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 2508,
+  "pct": 0.194,
+  "sameCoverage": 2508,
+  "coverageFlip": 0,
+  "bbox": [
+   974,
+   6,
+   1436,
+   463
+  ],
+  "bands": [
+   [
+    6,
+    463
+   ]
+  ]
+ },
+ {
+  "f": "state-cursor-default.png",
+  "before": "160x160",
+  "after": "160x160",
+  "changed": 2178,
+  "pct": 8.508,
+  "sameCoverage": 1940,
+  "coverageFlip": 238,
+  "bbox": [
+   42,
+   13,
+   159,
+   159
+  ],
+  "bands": [
+   [
+    13,
+    133
+   ],
+   [
+    146,
+    146
+   ],
+   [
+    151,
+    159
+   ]
+  ]
+ },
+ {
+  "f": "state-cursor-pointer-nav.png",
+  "before": "220x120",
+  "after": "220x120",
+  "changed": 858,
+  "pct": 3.25,
+  "sameCoverage": 817,
+  "coverageFlip": 41,
+  "bbox": [
+   6,
+   30,
+   132,
+   64
+  ],
+  "bands": [
+   [
+    30,
+    64
+   ]
+  ]
+ },
+ {
+  "f": "state-field-focus.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 11313,
+  "pct": 0.873,
+  "sameCoverage": 11111,
+  "coverageFlip": 202,
+  "bbox": [
+   489,
+   0,
+   1436,
+   893
+  ],
+  "bands": [
+   [
+    0,
+    13
+   ],
+   [
+    392,
+    893
+   ]
+  ]
+ },
+ {
+  "f": "state-focus-visible-nav.png",
+  "before": "1440x260",
+  "after": "1440x260",
+  "changed": 3649,
+  "pct": 0.975,
+  "sameCoverage": 3551,
+  "coverageFlip": 98,
+  "bbox": [
+   499,
+   6,
+   1436,
+   259
+  ],
+  "bands": [
+   [
+    6,
+    259
+   ]
+  ]
+ },
+ {
+  "f": "state-invalid.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 5057,
+  "pct": 0.39,
+  "sameCoverage": 4856,
+  "coverageFlip": 201,
+  "bbox": [
+   489,
+   0,
+   1436,
+   893
+  ],
+  "bands": [
+   [
+    0,
+    13
+   ],
+   [
+    392,
+    893
+   ]
+  ]
+ },
+ {
+  "f": "state-media-control-hover.png",
+  "before": "200x120",
+  "after": "200x120",
+  "changed": 554,
+  "pct": 2.308,
+  "sameCoverage": 551,
+  "coverageFlip": 3,
+  "bbox": [
+   34,
+   40,
+   77,
+   91
+  ],
+  "bands": [
+   [
+    40,
+    49
+   ],
+   [
+    51,
+    91
+   ]
+  ]
+ },
+ {
+  "f": "state-mobile-menu-open.png",
+  "before": "390x844",
+  "after": "390x844",
+  "changed": 459,
+  "pct": 0.139,
+  "sameCoverage": 456,
+  "coverageFlip": 3,
+  "bbox": [
+   29,
+   45,
+   357,
+   289
+  ],
+  "bands": [
+   [
+    45,
+    56
+   ],
+   [
+    287,
+    287
+   ],
+   [
+    289,
+    289
+   ]
+  ]
+ },
+ {
+  "f": "state-nav-hover.png",
+  "before": "1440x260",
+  "after": "1440x260",
+  "changed": 2788,
+  "pct": 0.745,
+  "sameCoverage": 2689,
+  "coverageFlip": 99,
+  "bbox": [
+   499,
+   6,
+   1436,
+   259
+  ],
+  "bands": [
+   [
+    6,
+    259
+   ]
+  ]
+ },
+ {
+  "f": "state-ordinals-controls.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 19990,
+  "pct": 1.542,
+  "sameCoverage": 10759,
+  "coverageFlip": 9231,
+  "bbox": [
+   264,
+   0,
+   1436,
+   608
+  ],
+  "bands": [
+   [
+    0,
+    113
+   ],
+   [
+    222,
+    608
+   ]
+  ]
+ },
+ {
+  "f": "state-select-open.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 6340,
+  "pct": 0.489,
+  "sameCoverage": 6129,
+  "coverageFlip": 211,
+  "bbox": [
+   489,
+   0,
+   1436,
+   893
+  ],
+  "bands": [
+   [
+    0,
+    13
+   ],
+   [
+    415,
+    417
+   ],
+   [
+    436,
+    893
+   ]
+  ]
+ },
+ {
+  "f": "state-selection.png",
+  "before": "1440x400",
+  "after": "1440x400",
+  "changed": 2603,
+  "pct": 0.452,
+  "sameCoverage": 2599,
+  "coverageFlip": 4,
+  "bbox": [
+   489,
+   215,
+   1436,
+   399
+  ],
+  "bands": [
+   [
+    215,
+    217
+   ],
+   [
+    236,
+    399
+   ]
+  ]
+ },
+ {
+  "f": "state-submit-hover.png",
+  "before": "1440x900",
+  "after": "1440x900",
+  "changed": 5225,
+  "pct": 0.403,
+  "sameCoverage": 5016,
+  "coverageFlip": 209,
+  "bbox": [
+   489,
+   0,
+   1436,
+   893
+  ],
+  "bands": [
+   [
+    0,
+    13
+   ],
+   [
+    392,
+    893
+   ]
+  ]
+ },
+ {
+  "f": "tablet-art-by-waambat-scrolled.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 422,
+  "pct": 0.054,
+  "sameCoverage": 422,
+  "coverageFlip": 0,
+  "bbox": [
+   760,
+   81,
+   764,
+   165
+  ],
+  "bands": [
+   [
+    81,
+    165
+   ]
+  ]
+ },
+ {
+  "f": "tablet-art-by-waambat-top.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 560,
+  "pct": 0.071,
+  "sameCoverage": 560,
+  "coverageFlip": 0,
+  "bbox": [
+   383,
+   6,
+   764,
+   127
+  ],
+  "bands": [
+   [
+    6,
+    90
+   ],
+   [
+    125,
+    125
+   ],
+   [
+    127,
+    127
+   ]
+  ]
+ },
+ {
+  "f": "tablet-bio-waambat-scrolled.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 341,
+  "pct": 0.043,
+  "sameCoverage": 341,
+  "coverageFlip": 0,
+  "bbox": [
+   760,
+   67,
+   764,
+   135
+  ],
+  "bands": [
+   [
+    67,
+    135
+   ]
+  ]
+ },
+ {
+  "f": "tablet-bio-waambat-top.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 381,
+  "pct": 0.048,
+  "sameCoverage": 381,
+  "coverageFlip": 0,
+  "bbox": [
+   663,
+   6,
+   764,
+   127
+  ],
+  "bands": [
+   [
+    6,
+    74
+   ],
+   [
+    125,
+    125
+   ],
+   [
+    127,
+    127
+   ]
+  ]
+ },
+ {
+  "f": "tablet-blog-press-scrolled.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 441,
+  "pct": 0.056,
+  "sameCoverage": 441,
+  "coverageFlip": 0,
+  "bbox": [
+   760,
+   85,
+   764,
+   173
+  ],
+  "bands": [
+   [
+    85,
+    173
+   ]
+  ]
+ },
+ {
+  "f": "tablet-blog-press-top.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 609,
+  "pct": 0.077,
+  "sameCoverage": 609,
+  "coverageFlip": 0,
+  "bbox": [
+   558,
+   6,
+   764,
+   127
+  ],
+  "bands": [
+   [
+    6,
+    94
+   ],
+   [
+    125,
+    125
+   ],
+   [
+    127,
+    127
+   ]
+  ]
+ },
+ {
+  "f": "tablet-contact-waambat-scrolled.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 10503,
+  "pct": 1.336,
+  "sameCoverage": 10499,
+  "coverageFlip": 4,
+  "bbox": [
+   153,
+   438,
+   764,
+   1017
+  ],
+  "bands": [
+   [
+    438,
+    1017
+   ]
+  ]
+ },
+ {
+  "f": "tablet-contact-waambat-top.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 3120,
+  "pct": 0.397,
+  "sameCoverage": 3120,
+  "coverageFlip": 0,
+  "bbox": [
+   327,
+   6,
+   764,
+   585
+  ],
+  "bands": [
+   [
+    6,
+    585
+   ]
+  ]
+ },
+ {
+  "f": "tablet-home-scrolled.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 234,
+  "pct": 0.03,
+  "sameCoverage": 234,
+  "coverageFlip": 0,
+  "bbox": [
+   760,
+   42,
+   764,
+   89
+  ],
+  "bands": [
+   [
+    42,
+    89
+   ]
+  ]
+ },
+ {
+  "f": "tablet-home-top.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 302,
+  "pct": 0.038,
+  "sameCoverage": 302,
+  "coverageFlip": 0,
+  "bbox": [
+   83,
+   6,
+   764,
+   53
+  ],
+  "bands": [
+   [
+    6,
+    53
+   ]
+  ]
+ },
+ {
+  "f": "tablet-instagram-scrolled.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 651,
+  "pct": 0.083,
+  "sameCoverage": 651,
+  "coverageFlip": 0,
+  "bbox": [
+   760,
+   121,
+   764,
+   251
+  ],
+  "bands": [
+   [
+    121,
+    251
+   ]
+  ]
+ },
+ {
+  "f": "tablet-instagram-top.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 1617,
+  "pct": 0.206,
+  "sameCoverage": 1265,
+  "coverageFlip": 352,
+  "bbox": [
+   120,
+   6,
+   764,
+   473
+  ],
+  "bands": [
+   [
+    6,
+    136
+   ],
+   [
+    459,
+    473
+   ]
+  ]
+ },
+ {
+  "f": "tablet-mechanics-scrolled.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 1032,
+  "pct": 0.131,
+  "sameCoverage": 1032,
+  "coverageFlip": 0,
+  "bbox": [
+   760,
+   189,
+   764,
+   395
+  ],
+  "bands": [
+   [
+    189,
+    395
+   ]
+  ]
+ },
+ {
+  "f": "tablet-mechanics-top.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 1302,
+  "pct": 0.166,
+  "sameCoverage": 1302,
+  "coverageFlip": 0,
+  "bbox": [
+   229,
+   6,
+   764,
+   213
+  ],
+  "bands": [
+   [
+    6,
+    213
+   ]
+  ]
+ },
+ {
+  "f": "tablet-ordinals-scrolled.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 1141,
+  "pct": 0.145,
+  "sameCoverage": 1141,
+  "coverageFlip": 0,
+  "bbox": [
+   760,
+   208,
+   764,
+   436
+  ],
+  "bands": [
+   [
+    208,
+    436
+   ]
+  ]
+ },
+ {
+  "f": "tablet-ordinals-top.png",
+  "before": "768x1024",
+  "after": "768x1024",
+  "changed": 1284,
+  "pct": 0.163,
+  "sameCoverage": 1284,
+  "coverageFlip": 0,
+  "bbox": [
+   137,
+   6,
+   764,
+   234
+  ],
+  "bands": [
+   [
+    6,
+    234
+   ]
+  ]
+ }
+]

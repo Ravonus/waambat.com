@@ -1,0 +1,419 @@
+{
+ "contactInputs": [
+  "input[type=text] name ",
+  "input[type=email] email ",
+  "select[type=select-one] interest ",
+  "button[type=button]  listbox",
+  "textarea[type=textarea] message ",
+  "input[type=text] _waambat_website ",
+  "button[type=submit]  "
+ ],
+ "label": {
+  "color": "color(srgb 0.921569 0.921569 0.921569 / 0.72)",
+  "background-color": "rgba(0, 0, 0, 0)",
+  "background-image": "none",
+  "border-top-color": "color(srgb 0.921569 0.921569 0.921569 / 0.72)",
+  "box-shadow": "none",
+  "outline": "color(srgb 0.921569 0.921569 0.921569 / 0.72) none 3px",
+  "opacity": "1",
+  "text-decoration-line": "none",
+  "text-decoration-color": "color(srgb 0.921569 0.921569 0.921569 / 0.72)"
+ },
+ "required": {
+  "color": "rgb(225, 188, 194)"
+ },
+ "frameRest": {
+  "box-shadow": "color(srgb 0.921569 0.921569 0.921569 / 0.4) 0px 0px 0px 1px inset",
+  "background-color": "color(srgb 0.0352941 0.0294902 0.0304314)"
+ },
+ "frameHover": {
+  "box-shadow": "color(srgb 0.882353 0.737255 0.760784 / 0.6) 0px 0px 0px 1px inset",
+  "background-color": "color(srgb 0.0352941 0.0294902 0.0304314)"
+ },
+ "submitRest": {
+  "color": "rgb(34, 16, 20)",
+  "background-color": "rgb(225, 188, 194)",
+  "background-image": "none",
+  "border-top-color": "rgb(225, 188, 194)",
+  "box-shadow": "none",
+  "outline": "rgb(34, 16, 20) none 3px",
+  "opacity": "1",
+  "text-decoration-line": "none",
+  "text-decoration-color": "rgb(34, 16, 20)"
+ },
+ "submitHover": {
+  "color": "rgb(225, 188, 194)",
+  "background-color": "rgb(225, 188, 194)",
+  "background-image": "none",
+  "border-top-color": "rgb(225, 188, 194)",
+  "box-shadow": "none",
+  "outline": "rgb(225, 188, 194) none 3px",
+  "opacity": "1",
+  "text-decoration-line": "none",
+  "text-decoration-color": "rgb(225, 188, 194)"
+ },
+ "submitHoverBefore": {
+  "background-color": "rgb(0, 0, 0)",
+  "transform": "matrix(1, 0, 0, 1, 0, 0)"
+ },
+ "submitActive": {
+  "color": "rgb(225, 188, 194)",
+  "background-color": "rgb(225, 188, 194)",
+  "background-image": "none",
+  "border-top-color": "rgb(225, 188, 194)",
+  "box-shadow": "none",
+  "outline": "rgb(225, 188, 194) none 3px",
+  "opacity": "1",
+  "text-decoration-line": "none",
+  "text-decoration-color": "rgb(225, 188, 194)"
+ },
+ "submitFocus": {
+  "color": "rgb(225, 188, 194)",
+  "background-color": "rgb(225, 188, 194)",
+  "background-image": "none",
+  "border-top-color": "rgb(225, 188, 194)",
+  "box-shadow": "none",
+  "outline": "rgb(225, 188, 194) solid 2px",
+  "opacity": "1",
+  "text-decoration-line": "none",
+  "text-decoration-color": "rgb(225, 188, 194)"
+ },
+ "optionActive": {
+  "active": {
+   "color": "rgb(225, 188, 194)",
+   "bg": "rgb(32, 26, 27)"
+  },
+  "rest": {
+   "color": "rgb(235, 235, 235)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "list": {
+   "bg": "color(srgb 0.0705882 0.0589804 0.0608627)",
+   "border": "rgb(113, 94, 97)"
+  }
+ },
+ "optionSelected": {
+  "color": "rgb(235, 235, 235)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "svg": "rgb(225, 188, 194)"
+ },
+ "selectChosen": {
+  "color": "rgb(235, 235, 235)"
+ },
+ "checks": [],
+ "heldRequests": [
+  "POST http://localhost:3287/_kerf/x/waambat/contact"
+ ],
+ "submitPending": {
+  "color": "rgb(34, 16, 20)",
+  "background-color": "rgb(225, 188, 194)",
+  "background-image": "none",
+  "border-top-color": "rgb(225, 188, 194)",
+  "box-shadow": "none",
+  "outline": "rgb(34, 16, 20) none 3px",
+  "opacity": "0.8",
+  "text-decoration-line": "none",
+  "text-decoration-color": "rgb(34, 16, 20)"
+ },
+ "pendingFieldset": {
+  "disabled": true,
+  "input": "rgb(235, 235, 235)",
+  "frame": "color(srgb 0.921569 0.921569 0.921569 / 0.4) 0px 0px 0px 1px inset"
+ },
+ "afterAbortStatus": {
+  "status": {
+   "text": "Failed to fetch",
+   "color": "rgb(225, 188, 194)"
+  },
+  "alert": null,
+  "invalid": 0
+ },
+ "invalid": {
+  "count": 0,
+  "frame": null,
+  "error": null
+ },
+ "selection": {
+  "bg": "rgb(225, 188, 194)",
+  "color": "rgb(34, 16, 20)"
+ },
+ "cursor": {
+  "bg": "repeating-linear-gradient(120deg, rgb(241, 209, 214) 0%, rgb(225, 188, 194) 20%, rgb(195, 156, 162) 40%, rgb(225, 188, 194) 60%, rgb(241, 209, 214) 80%)",
+  "filter": "drop-shadow(rgb(0, 0, 0) 1px 1px 0px)",
+  "open": true,
+  "state": "active",
+  "cursorAttr": {
+   "pinkCursor": "",
+   "cursorReady": "true",
+   "cursorState": "pointer"
+  }
+ },
+ "bioImgs": 0,
+ "railRest": [
+  [
+   "#e1bcc2",
+   794
+  ],
+  [
+   "#e1bbc1",
+   2
+  ],
+  [
+   "#e0bcc2",
+   1
+  ]
+ ],
+ "railBox": {
+  "x": 1425,
+  "y": 6,
+  "width": 14,
+  "height": 888
+ },
+ "railHover": [
+  [
+   "#f1d1d6",
+   1266
+  ],
+  [
+   "#f0d0d6",
+   6
+  ],
+  [
+   "#f0d0d5",
+   2
+  ]
+ ],
+ "railActive": [
+  [
+   "#c39ca2",
+   1270
+  ],
+  [
+   "#c29ca1",
+   2
+  ],
+  [
+   "#c29ba1",
+   2
+  ]
+ ],
+ "railFocus": {
+  "outline": "rgb(225, 188, 194) solid 1px",
+  "background-color": "color(srgb 0.882353 0.737255 0.760784 / 0.07)"
+ },
+ "progress": [
+  {
+   "cls": "_progress_1d1us_1",
+   "pending": false,
+   "color": "rgb(235, 235, 235)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "img": "none",
+   "after": null,
+   "before": null
+  },
+  {
+   "cls": "waambat-download-progress",
+   "pending": false,
+   "color": "rgb(225, 188, 194)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "img": "none",
+   "after": null,
+   "before": null
+  },
+  {
+   "cls": "site-nav-link _link_10xho_1  leading-[19.503px] tracking-[.0",
+   "pending": true,
+   "color": "rgb(241, 209, 214)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "img": "none",
+   "after": "none rgb(241, 209, 214)",
+   "before": null
+  },
+  {
+   "cls": "waambat-skeleton",
+   "pending": false,
+   "color": "rgb(235, 235, 235)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "img": "none",
+   "after": null,
+   "before": null
+  },
+  {
+   "cls": "waambat-skeleton-line",
+   "pending": false,
+   "color": "rgb(235, 235, 235)",
+   "bg": "rgb(32, 26, 27)",
+   "img": "none",
+   "after": null,
+   "before": null
+  },
+  {
+   "cls": "waambat-skeleton-line",
+   "pending": false,
+   "color": "rgb(235, 235, 235)",
+   "bg": "rgb(32, 26, 27)",
+   "img": "none",
+   "after": null,
+   "before": null
+  },
+  {
+   "cls": "waambat-skeleton-art",
+   "pending": false,
+   "color": "rgb(235, 235, 235)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "img": "linear-gradient(100deg, rgb(18, 15, 16) 20%, rgb(32, 26, 27) 48%, rgb(18, 15, 16) 76%)",
+   "after": null,
+   "before": null
+  }
+ ],
+ "ordinalActionHover": {
+  "color": "rgb(241, 209, 214)",
+  "border": "rgb(225, 188, 194)",
+  "bg": "rgba(0, 0, 0, 0.933)"
+ },
+ "ordinalLinks": [
+  {
+   "t": "View on Satflow ↗",
+   "color": "rgb(225, 188, 194)",
+   "deco": "none"
+  },
+  {
+   "t": "LUX Pink Paper ↗",
+   "color": "rgb(225, 188, 194)",
+   "deco": "none"
+  },
+  {
+   "t": "View on Satflow ↗",
+   "color": "rgb(225, 188, 194)",
+   "deco": "none"
+  },
+  {
+   "t": "Original inscription ↗",
+   "color": "rgb(225, 188, 194)",
+   "deco": "none"
+  }
+ ],
+ "saveFrom": "/art-by-waambat",
+ "saveDialog": {
+  "open": true,
+  "dialog": {
+   "bg": "rgb(18, 15, 16)",
+   "border": "rgb(113, 94, 97)"
+  },
+  "kicker": {
+   "color": "rgb(225, 188, 194)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "border": "rgb(225, 188, 194)",
+   "shadow": "none"
+  },
+  "h2": {
+   "color": "rgb(225, 188, 194)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "border": "rgb(225, 188, 194)",
+   "shadow": "none"
+  },
+  "close": {
+   "color": "rgb(225, 188, 194)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "border": "rgb(225, 188, 194)",
+   "shadow": "none"
+  },
+  "save": {
+   "color": "rgb(34, 16, 20)",
+   "bg": "rgb(225, 188, 194)",
+   "border": "rgb(34, 16, 20)",
+   "shadow": "none"
+  },
+  "cancel": {
+   "color": "rgb(192, 170, 183)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "border": "rgb(192, 170, 183)",
+   "shadow": "none"
+  },
+  "alert": null,
+  "alertBtn": null,
+  "progress": null,
+  "text": "×\n\nTAKE A LITTLE WAAMBAT WITH YOU\n\nReady when you are.\n\nThe original quality, in a format you can keep.\n\nWEBP · 0.0 MB\n\nSave original\n↓\nBack to the artwork"
+ },
+ "saveHover": {
+  "color": "rgb(34, 16, 20)",
+  "background-color": "rgb(241, 209, 214)",
+  "box-shadow": "color(srgb 0.882353 0.737255 0.760784 / 0.12) 0px 0px 24px 0px"
+ },
+ "cancelHover": {
+  "color": "rgb(241, 209, 214)"
+ },
+ "closeHover": {
+  "color": "rgb(241, 209, 214)"
+ },
+ "dialogFocus": {
+  "el": "waambat-download-save",
+  "outline": "rgb(225, 188, 194) solid 2px"
+ },
+ "dialogClosed": true,
+ "menuButton": {
+  "color": "rgb(225, 188, 194)"
+ },
+ "mobileMenu": [
+  {
+   "t": "waambat",
+   "color": "rgb(255, 148, 178)"
+  },
+  {
+   "t": "Menu",
+   "color": "rgb(225, 188, 194)"
+  },
+  {
+   "t": "× Close",
+   "color": "rgb(241, 209, 214)"
+  },
+  {
+   "t": "NFTs",
+   "color": "rgb(156, 156, 156)"
+  },
+  {
+   "t": "ORDINALS",
+   "color": "rgb(156, 156, 156)"
+  },
+  {
+   "t": "quantum mechanics",
+   "color": "rgb(255, 255, 255)"
+  },
+  {
+   "t": "art archive",
+   "color": "rgb(156, 156, 156)"
+  },
+  {
+   "t": "instagram",
+   "color": "rgb(156, 156, 156)"
+  },
+  {
+   "t": "blog + press",
+   "color": "rgb(156, 156, 156)"
+  },
+  {
+   "t": "bio",
+   "color": "rgb(156, 156, 156)"
+  },
+  {
+   "t": "collect + contact",
+   "color": "rgb(156, 156, 156)"
+  }
+ ],
+ "admin_light": {
+  "focused": "BODY.",
+  "outline": "rgb(235, 235, 235) none 3px",
+  "border": "rgb(235, 235, 235)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scheme": "dark",
+  "button": null
+ },
+ "admin_dark": {
+  "focused": "BODY.",
+  "outline": "rgb(235, 235, 235) none 3px",
+  "border": "rgb(235, 235, 235)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scheme": "dark",
+  "button": null
+ }
+}

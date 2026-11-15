@@ -1,0 +1,53 @@
+{
+ "adminPicksPastelHeading": "#e1bcc2",
+ "adminPicksViolet": "#9457ff",
+ "legacyStoredNoVersion": {
+  "background": "#000000",
+  "body": "#ebebeb",
+  "heading": "#ff94b2",
+  "logo": "#ff94b2",
+  "link": "#e1bcc2",
+  "navigation": "#9c9c9c",
+  "activeNavigation": "#ffffff",
+  "font": "original",
+  "brandFont": "original",
+  "bodySize": 14,
+  "bodyWeight": 300,
+  "lineHeight": 1.8,
+  "tracking": 0.04,
+  "headingSize": 26,
+  "smallHeadingSize": 14,
+  "logoSize": 37,
+  "navigationSize": 14,
+  "contentWidth": 960,
+  "desktopPadding": 60,
+  "mobilePadding": 20,
+  "headerTop": 60,
+  "headerBottom": 60,
+  "pageGap": 45,
+  "blockPadding": 17,
+  "paragraphGap": 14,
+  "archiveGap": 10,
+  "motion": "full",
+  "heroWordmarkScale": 100,
+  "accentVersion": 2
+ },
+ "version1": "REJECTED: accentVersion Invalid literal value, expected 2",
+ "version3": "REJECTED: accentVersion Invalid literal value, expected 2",
+ "versionNull": "REJECTED: accentVersion Invalid literal value, expected 2",
+ "customLink": {
+  "hover": "#4fba9c",
+  "derived": "#4fba9c",
+  "pressed": "#09876c",
+  "navHover": "#ff94b2"
+ },
+ "customLogo": {
+  "linkHover": "#f1d1d6",
+  "navigationHover": "#33ccff"
+ },
+ "defaultsUnchanged": {
+  "hover": "#f1d1d6",
+  "nav": "#ff94b2"
+ },
+ "jsonRoundTripKeepsUnset": true
+}

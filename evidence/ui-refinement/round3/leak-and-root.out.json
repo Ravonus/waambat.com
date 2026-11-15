@@ -1,0 +1,15 @@
+{
+ "vimeoViewerMessageListeners": [
+  7,
+  10,
+  10,
+  10,
+  10
+ ],
+ "rootTheme": {
+  "accent": "#e1bcc2",
+  "cursor": "#ff94b2",
+  "accentColor": "rgb(225, 188, 194)"
+ },
+ "reducedMotionRafAfterOneScrollBurst": 1
+}

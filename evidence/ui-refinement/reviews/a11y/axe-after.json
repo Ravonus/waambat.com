@@ -1,0 +1,598 @@
+{
+ "desktop /": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._wordmarkLink_1oo0b_70",
+      "msg": "Element's background color could not be determined because element contains an image node"
+     }
+    ]
+   }
+  ]
+ },
+ "desktop /ordinals": {
+  "errors": [
+   "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin",
+   "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin",
+   "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  ],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "video-caption",
+    "count": 3,
+    "sample": [
+     {
+      "target": "video[src$=\"lux-9b87c251ff.mp4\"]",
+      "msg": ""
+     },
+     {
+      "target": "video[aria-label=\"Kismet Twist\"]",
+      "msg": ""
+     },
+     {
+      "target": "video[src$=\"gamma-02b3d18c54.mp4\"]",
+      "msg": ""
+     }
+    ]
+   }
+  ]
+ },
+ "desktop /mechanics": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": []
+ },
+ "desktop /art-by-waambat": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "page-has-heading-one",
+    "impact": "moderate",
+    "help": "Page should contain a level-one heading",
+    "nodes": [
+     {
+      "target": "html",
+      "summary": "Fix all of the following:\n  Page must have a level-one heading",
+      "html": "<html lang=\"en-US\" data-canvas-scroll=\"\">"
+     }
+    ]
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": []
+ },
+ "desktop /instagram": {
+  "errors": [
+   "ErrorUtils caught an error:\n\nGot unexpected null or undefined\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 137, clientTime: 1794703076, extra: Object, guardLis"
+  ],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "frame-tested",
+    "count": 8,
+    "sample": [
+     {
+      "target": "article[data-instagram=\"instagram-1\"] > iframe",
+      "msg": ""
+     },
+     {
+      "target": "article[data-instagram=\"instagram-2\"] > iframe",
+      "msg": ""
+     },
+     {
+      "target": "article[data-instagram=\"instagram-3\"] > iframe",
+      "msg": ""
+     }
+    ]
+   },
+   {
+    "id": "frame-title-unique",
+    "count": 8,
+    "sample": [
+     {
+      "target": "article[data-instagram=\"instagram-1\"] > iframe",
+      "msg": ""
+     },
+     {
+      "target": "article[data-instagram=\"instagram-2\"] > iframe",
+      "msg": ""
+     },
+     {
+      "target": "article[data-instagram=\"instagram-3\"] > iframe",
+      "msg": ""
+     }
+    ]
+   }
+  ]
+ },
+ "desktop /blog-press": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": []
+ },
+ "desktop /bio-waambat": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": []
+ },
+ "desktop /contact-waambat": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 1,
+    "sample": [
+     {
+      "target": "#contact-contact-interest",
+      "msg": ""
+     }
+    ]
+   },
+   {
+    "id": "color-contrast",
+    "count": 2,
+    "sample": [
+     {
+      "target": "#contact-contact-email",
+      "msg": "Element has no value; test color contrast with a value entered"
+     },
+     {
+      "target": "._submit_ksnyn_297 > span:nth-child(1)",
+      "msg": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ "desktop /admin": {
+  "errors": [],
+  "violations": [],
+  "incomplete": []
+ },
+ "phone /": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._menuButton_10xho_32",
+      "msg": ""
+     }
+    ]
+   },
+   {
+    "id": "color-contrast",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._wordmarkLink_1oo0b_70",
+      "msg": "Element's background color could not be determined because element contains an image node"
+     }
+    ]
+   }
+  ]
+ },
+ "phone /ordinals": {
+  "errors": [
+   "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin",
+   "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin",
+   "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+  ],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._menuButton_10xho_32",
+      "msg": ""
+     }
+    ]
+   },
+   {
+    "id": "video-caption",
+    "count": 3,
+    "sample": [
+     {
+      "target": "video[src$=\"lux-9b87c251ff.mp4\"]",
+      "msg": ""
+     },
+     {
+      "target": "video[aria-label=\"Kismet Twist\"]",
+      "msg": ""
+     },
+     {
+      "target": "video[src$=\"gamma-02b3d18c54.mp4\"]",
+      "msg": ""
+     }
+    ]
+   }
+  ]
+ },
+ "phone /mechanics": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._menuButton_10xho_32",
+      "msg": ""
+     }
+    ]
+   }
+  ]
+ },
+ "phone /art-by-waambat": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "page-has-heading-one",
+    "impact": "moderate",
+    "help": "Page should contain a level-one heading",
+    "nodes": [
+     {
+      "target": "html",
+      "summary": "Fix all of the following:\n  Page must have a level-one heading",
+      "html": "<html lang=\"en-US\" data-canvas-scroll=\"\">"
+     }
+    ]
+   },
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._menuButton_10xho_32",
+      "msg": ""
+     }
+    ]
+   }
+  ]
+ },
+ "phone /instagram": {
+  "errors": [
+   "ErrorUtils caught an error:\n\nGot unexpected null or undefined\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 137, clientTime: 1794703118, extra: Object, guardLis",
+   "The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy.",
+   "The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy.",
+   "The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy.",
+   "The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy."
+  ],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._menuButton_10xho_32",
+      "msg": ""
+     }
+    ]
+   },
+   {
+    "id": "frame-tested",
+    "count": 8,
+    "sample": [
+     {
+      "target": "article[data-instagram=\"instagram-1\"] > iframe",
+      "msg": ""
+     },
+     {
+      "target": "article[data-instagram=\"instagram-2\"] > iframe",
+      "msg": ""
+     },
+     {
+      "target": "article[data-instagram=\"instagram-3\"] > iframe",
+      "msg": ""
+     }
+    ]
+   },
+   {
+    "id": "frame-title-unique",
+    "count": 8,
+    "sample": [
+     {
+      "target": "article[data-instagram=\"instagram-1\"] > iframe",
+      "msg": ""
+     },
+     {
+      "target": "article[data-instagram=\"instagram-2\"] > iframe",
+      "msg": ""
+     },
+     {
+      "target": "article[data-instagram=\"instagram-3\"] > iframe",
+      "msg": ""
+     }
+    ]
+   }
+  ]
+ },
+ "phone /blog-press": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._menuButton_10xho_32",
+      "msg": ""
+     }
+    ]
+   }
+  ]
+ },
+ "phone /bio-waambat": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._menuButton_10xho_32",
+      "msg": ""
+     }
+    ]
+   }
+  ]
+ },
+ "phone /contact-waambat": {
+  "errors": [],
+  "violations": [
+   {
+    "id": "region",
+    "impact": "moderate",
+    "help": "All page content should be contained by landmarks",
+    "nodes": [
+     {
+      "target": ".waambat-scroll-rail",
+      "summary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+      "html": "<div class=\"waambat-scroll-rail\" role=\"scrollbar\" aria-label=\"Page scroll\" aria-orientation=\"vertical\" aria-controls=\"main-content\" aria-valuemin=\"0\" aria-value"
+     }
+    ]
+   }
+  ],
+  "incomplete": [
+   {
+    "id": "aria-valid-attr-value",
+    "count": 2,
+    "sample": [
+     {
+      "target": "._menuButton_10xho_32",
+      "msg": ""
+     },
+     {
+      "target": "#contact-contact-interest",
+      "msg": ""
+     }
+    ]
+   },
+   {
+    "id": "color-contrast",
+    "count": 1,
+    "sample": [
+     {
+      "target": "._submit_ksnyn_297 > span:nth-child(1)",
+      "msg": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ "phone /admin": {
+  "errors": [],
+  "violations": [],
+  "incomplete": []
+ }
+}

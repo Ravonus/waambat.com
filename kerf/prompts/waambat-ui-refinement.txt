@@ -1,0 +1,70 @@
+WAAMBAT: PRINCIPAL DESIGNER / ENGINEER, INDEPENDENT CRITICS AND JUDGES
+
+You are refining the existing WAAMBAT website on its native Kerf implementation. Deliver a coherent, carefully finished version of the SAME site. The owner wants the lighter pastel pink to govern the cursor, hover states and interactive UI, with related shades of that same color family. This is a consistency and craft pass, not permission to redesign the product.
+
+WORKSPACE AND PREVIEW
+- App: /Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/waambat/kerf
+- Preview: http://localhost:3287/ ; contact form: http://localhost:3287/contact-waambat
+- Framework source for API inspection: /Users/ravonus/Documents/Codex/2026-10-17/i-x20/work/kerf-media
+- Read the applicable AGENTS.md instructions, app README and pinned vendor/framework-media.json first. Use Node 26. Preserve other tasks' changes and media originals.
+- FIRST make the local preview visibly available to the owner and verify the page actually loads. Keep the preview running for review. A queued open-tab response or a listening process alone is not visual verification.
+
+NON-NEGOTIABLE DESIGN LOCK
+Keep every existing page, route, content section, artwork, heading, copy, navigation label and destination. Preserve composition, hierarchy, typography, placement, spacing, content widths, artwork framing, control locations and current control sizes. Keep the black, artwork-led presentation and existing brand character. No new sections, cards, panels, page templates, detached controls, navigation model or replacement logo. Do not rearrange anything to make the cleanup easier. Do not replace artist media, recolor artwork, alter video crops or change the original-file Save contract.
+
+The authorized changes are visual consistency within existing UI: shared accent tokens, matching control details, related state colors, focus treatment, border/opacity consistency and restrained existing interaction polish. Fix an interaction bug only while preserving its approved model and placement. Preserve hover feedback; the owner disliked a previous hover treatment, not hover itself. Do not introduce a new bounce, scale, spin or glitch effect. Respect reduced motion.
+
+COLOR DIRECTION
+Use the existing pale heading pink, #e1bcc2, as the initial canonical accent. Verify it against the rendered heading color and use this light, muted pastel direction throughout the interactive UI. Do not substitute the brighter logo pink as the new base.
+
+Current sources of drift include:
+- src/lib/theme.ts: heading #e1bcc2, logo #ff94b2, navigationHover #fa75d0, linkHover #ff7070 and link #9457ff.
+- src/styles/globals.css: duplicate defaults, hardcoded link/focus colors and the multicolor cursor gradient.
+- src/styles/scrollbar.css and src/components/CanvasScrollbar.tsx.
+- src/components/forms/forms.module.css and the existing FormField/FormSelect/ContactForm components.
+- src/styles/media-download.css, shared media controls, navigation styles and admin theme controls.
+- Active content/theme values and inline themeStyle() overrides can override CSS defaults; inspect those too.
+
+Create one semantic accent family: base, subtle surface, border, hover, pressed, focus and disabled. Derive their exact values from the canonical pastel using a documented, consistent method. Hover and active can use lighter/darker shades of that family; they must not jump into unrelated coral, hot magenta or purple. Use contrast-appropriate foreground text on filled controls. Keep necessary semantic error/success differentiation and never use color alone to explain a state.
+
+Apply the family to the custom cursor and its states, links and hovers, navigation, buttons, input focus/borders, selects/options, checkboxes/radios, progress/skeleton accents, scrollbar, Save dialog and corresponding admin components wherever those UI elements already exist. Preserve cursor shape, movement and fine-pointer behavior; preserve native-pointer fallback. Retain the official Kerf canvas scrollbar and its browser/keyboard fallback. Preserve the existing single logo visible through the menu.
+
+Consolidate defaults, shared tokens, seeded active accent values and inline overrides. Keep admin editability and saved-schema compatibility. Do not reset unrelated stored settings. Avoid one-off hex fixes that leave another component or state on the old palette. Artwork, embedded content and intentionally multicolored artist assets are outside the UI palette migration.
+
+USE KERF CONSISTENTLY
+Inspect the installed Kerf APIs and the actual Veneer component/behavior catalog before choosing replacements. Reuse canonical framework behavior and theming where it fits: fields, buttons, selects, menus, dialogs, focus management and accessibility. Prefer theming the existing shared component or using its headless behavior over importing a default kit appearance that changes WAAMBAT's design. Keep an existing custom component when that best preserves the approved appearance; explain its framework integration rather than replacing it for a checklist.
+
+Use native Kerf state/derived/watch/lifecycle and cleanup contracts. Do not introduce React compatibility, new global stores, parallel component systems or speculative dependencies. Do not alter media encoding, playback selection, source files, lazy loading, original saving, auth, content publication or backend contracts during this cosmetic pass. A framework gap needs a concrete reproduction and a separate proposed fix; do not quietly fork a local framework implementation.
+
+TEAM AND INDEPENDENCE
+1. Principal designer / engineer: own the palette, component inventory, implementation and integration. Capture the baseline first. Write a short scope and token decision, then implement the authorized cleanup without blocking on routine approvals.
+2. Visual/design-system critic: independently inspect color consistency, hierarchy, states, typography and component fidelity. Call out every remaining legacy hue and every unauthorized layout change. Compare actual before/after views, not just source.
+3. UX/interaction critic: independently exercise navigation arrival, menu open/close, forms, custom select, keyboard/touch, hover/press feedback, loading/error/success states, media controls and right-click Save/cancel. Look for regressions, distracting motion and inconsistent affordances.
+4. Accessibility/responsive critic: independently inspect contrast, focus visibility/order, labels, validation announcements, keyboard escape/return-focus, reduced motion, overflow, zoom and touch usability. Use actual browser behavior and suitable automated checks.
+5. Independent visual judge: assess whether this still looks like the same WAAMBAT site and whether the pale-pink system is coherent. Reject any redesign disguised as polish.
+6. Independent engineering judge: assess maintainability, framework alignment, token ownership, cleanup, performance and regression evidence. Reject unsupported claims and implementation duplication.
+
+Use separate agents for the independent roles when available. The implementer cannot approve their own work or write a critic/judge verdict in another role's name. Critics report independently before reconciliation; judges review the same final source revision and evidence. If independent agents are unavailable, state that limitation and label a self-review honestly. Never fabricate approvals.
+
+REVIEW COVERAGE
+Visit the existing home, Ordinals, mechanics, art archive, Instagram, blog/press, biography, and contact pages. Inspect admin and preview surfaces when authorized access is available; otherwise report those protected states as unverified rather than bypassing auth.
+
+Capture matching before/after viewport and scroll positions. Check phone widths around 360/390 px, tablet and desktop, 200% zoom, keyboard and touch interaction. Explicitly check light, dark and system color-scheme environments: preserve the current dark presentation and ensure browser-native controls do not drift with the OS setting. Do not add a theme switcher, a new light design or new pages. If existing theme modes are supported, test them without changing their layout or default.
+
+Exercise default, hover, pressed, focus-visible, disabled, pending, invalid and success states wherever supported. Verify the contact form and themed select, mobile menu through destination arrival and closing animation, existing route skeletons, media play/pause and native controls, right-click original preparation, cancel/retry and Save. Do not send real messages or change live admin settings just to produce a screenshot.
+
+QUALITY BAR
+- The same pages, geometry, placement, controls, artwork and content remain recognizable and unchanged.
+- Interactive accents come from one pastel family; no accidental legacy coral/magenta/bright-pink overrides remain.
+- Color, focus, borders and motion look like one deliberate system across public and admin UI.
+- No new horizontal scrolling, layout shift, duplicate logo, clipped menu, lost focus, inaccessible state or browser-console failure.
+- No eager gallery downloads, encoding, new animation library or unnecessary runtime dependency is introduced.
+- Use relevant type checks, contracts, production build and phone/desktop audits. Do not claim a new PageSpeed score without a fresh measurement. Existing unrelated framework release failures remain accurately reported.
+- Judges must independently score design fidelity, palette consistency, interaction quality, accessibility/responsiveness and framework/engineering quality. Each category must reach at least 8/10, with no unresolved major defect or scope violation. A number alone is not approval: include concrete evidence and reasons.
+
+DELIVERY
+Provide a concise mismatch inventory, the final token/state map with actual colors, the Kerf/shared-component decisions, the changed files, matching before/after screenshots, verification results and independent critic/judge verdicts tied to the final revision. Fix blocking findings and recheck affected flows. Keep remaining limitations explicit.
+
+Leave the local preview open and running for the owner. Keep this pass local; do not deploy production, publish framework packages or bypass release gates. Finish with the preview URL and a short account of exactly what was refined, plus confirmation that pages/layout/artwork were preserved.
+
+LATEST OWNER STEERING: remove UI blur effects, including the Save dialog backdrop. Media loading must use a sharp optimized AVIF/WebP first frame, then show live playback once ready. Preserve artwork-authored visual effects; do not invent a blur-up or crossfade loading treatment. The separate media worker owns source/preview metadata and original-file integrity; preserve that work while refining color and component styling.

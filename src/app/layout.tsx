@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: { default: "waambat", template: "%s — waambat" },
   authors: [{ name: "Lindsay Scoggins", url: `${siteOrigin}/bio-waambat` }],
   creator: "WAAMBAT",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: { icon: [{ url: "/favicon.svg?v=9e9e47ec", type: "image/svg+xml" }, { url: "/favicon.ico?v=9e9e47ec", sizes: "16x16 32x32 48x48 64x64" }], apple: "/apple-touch-icon.png?v=9e9e47ec" },
 };
 export default function RootLayout({
   children,

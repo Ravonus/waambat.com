@@ -1,0 +1,306 @@
+{
+ "hover": {
+  "desk-nav": {
+   "starts": {
+    "y0.15": 1,
+    "y0.5": 1,
+    "y0.85": 1
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  },
+  "desk-nav-current": {
+   "starts": {
+    "y0.15": 1,
+    "y0.5": 1,
+    "y0.85": 1
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  },
+  "wordmark": {
+   "starts": {
+    "y0.15": 1,
+    "y0.5": 1,
+    "y0.85": 1
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  },
+  "caption-title": {
+   "starts": {
+    "y0.15": 1,
+    "y0.5": 1,
+    "y0.85": 1
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  },
+  "inline-link": {
+   "starts": {
+    "y0.15": 1,
+    "y0.5": 0,
+    "y0.85": 1
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  },
+  "media-control": {
+   "starts": {
+    "y0.15": 1,
+    "y0.5": 1,
+    "y0.85": 1
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  },
+  "menu-link-fine390": {
+   "starts": {
+    "y0.15": 1,
+    "y0.5": 1,
+    "y0.85": 1
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  },
+  "menu-link-zoom200": {
+   "starts": {
+    "y0.15": 1,
+    "y0.5": 1,
+    "y0.85": 1
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  },
+  "desk-nav-reduced": {
+   "starts": {
+    "y0.15": 0,
+    "y0.5": 0,
+    "y0.85": 0
+   },
+   "runningAfter2500": {
+    "y0.15": [],
+    "y0.5": [],
+    "y0.85": []
+   }
+  }
+ },
+ "taps": [
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 60,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 60,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 60,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 60,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 60,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 60,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 60,
+   "fy": 0.75,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 60,
+   "fy": 0.75,
+   "ok": true
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 60,
+   "fy": 0.75,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 100,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 100,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 100,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 100,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 100,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 100,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 100,
+   "fy": 0.75,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 100,
+   "fy": 0.75,
+   "ok": false
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 100,
+   "fy": 0.75,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 130,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 130,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 130,
+   "fy": 0.3,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 130,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 130,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 130,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "no-preference",
+   "hold": 130,
+   "fy": 0.75,
+   "ok": true
+  },
+  {
+   "kind": "mouse-nav",
+   "hold": 130,
+   "fy": 0.75,
+   "ok": true
+  },
+  {
+   "kind": "touch-nav768",
+   "hold": 130,
+   "fy": 0.75,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "reduce",
+   "hold": 80,
+   "fy": 0.5,
+   "ok": true
+  },
+  {
+   "kind": "touch-menu",
+   "motion": "reduce",
+   "hold": 120,
+   "fy": 0.5,
+   "ok": true
+  }
+ ],
+ "keys": [
+  {
+   "firstFocus": "Close menu",
+   "url": "/bio-waambat",
+   "focusAfter": "main-content"
+  }
+ ]
+}

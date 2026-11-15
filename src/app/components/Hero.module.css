@@ -198,3 +198,9 @@
 :global([data-menu-open="true"]) .frame > :not(.wordmark) {
   visibility: hidden;
 }
+
+/* Give the inscription an intrinsic-sized box inside the absolute logo slot. */
+.hero .wordmark img[src="/brand/waambat-sigil-original.svg"] {
+  width: 0.96798em;
+  height: 1em;
+}

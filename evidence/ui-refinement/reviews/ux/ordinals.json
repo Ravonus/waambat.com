@@ -1,0 +1,160 @@
+{
+  "buttons": [
+    {
+      "cls": "media-control",
+      "text": "",
+      "label": "Pause LUX · OK ALGO preview",
+      "pressed": null,
+      "color": "rgb(255, 255, 255)",
+      "border": "rgba(255, 255, 255, 0.376)",
+      "bg": "rgba(0, 0, 0, 0.733)"
+    },
+    {
+      "cls": "ordinal-open _action_zgr25_49",
+      "text": "Interact live",
+      "label": "Interact live with LUX · OK ALGO",
+      "pressed": null,
+      "color": "rgb(225, 188, 194)",
+      "border": "rgba(255, 255, 255, 0.376)",
+      "bg": "rgba(0, 0, 0, 0.733)"
+    },
+    {
+      "cls": "media-control",
+      "text": "",
+      "label": "Pause Kismet Twist preview",
+      "pressed": null,
+      "color": "rgb(255, 255, 255)",
+      "border": "rgba(255, 255, 255, 0.376)",
+      "bg": "rgba(0, 0, 0, 0.733)"
+    },
+    {
+      "cls": "media-control",
+      "text": "",
+      "label": "Pause Edge Corporeal preview",
+      "pressed": null,
+      "color": "rgb(255, 255, 255)",
+      "border": "rgba(255, 255, 255, 0.376)",
+      "bg": "rgba(0, 0, 0, 0.733)"
+    }
+  ],
+  "openHover": {
+    "text": "Interact live",
+    "pressed": null,
+    "color": "rgb(241, 209, 214)",
+    "border": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0.933)",
+    "shadow": "none",
+    "transform": "none"
+  },
+  "openPressed": {
+    "text": "Interact live",
+    "pressed": null,
+    "color": "rgb(195, 156, 162)",
+    "border": "rgb(195, 156, 162)",
+    "bg": "rgba(0, 0, 0, 0.933)",
+    "shadow": "none",
+    "transform": "matrix(0.96, 0, 0, 0.96, 0, 0)"
+  },
+  "afterOpen": [
+    {
+      "cls": "ordinal-gate _action_zgr25_49",
+      "text": "Exit interaction",
+      "pressed": "true",
+      "color": "rgb(241, 209, 214)",
+      "border": "rgb(225, 188, 194)",
+      "bg": "rgba(0, 0, 0, 0.933)"
+    },
+    {
+      "cls": "ordinal-close _action_zgr25_49",
+      "text": "Back to preview",
+      "pressed": null,
+      "color": "rgb(225, 188, 194)",
+      "border": "rgba(255, 255, 255, 0.376)",
+      "bg": "rgba(0, 0, 0, 0.733)"
+    },
+    {
+      "cls": "media-control",
+      "text": "",
+      "pressed": null,
+      "color": "rgb(255, 255, 255)",
+      "border": "rgba(255, 255, 255, 0.376)",
+      "bg": "rgba(0, 0, 0, 0.733)"
+    },
+    {
+      "cls": "media-control",
+      "text": "",
+      "pressed": null,
+      "color": "rgb(255, 255, 255)",
+      "border": "rgba(255, 255, 255, 0.376)",
+      "bg": "rgba(0, 0, 0, 0.733)"
+    }
+  ],
+  "gateHover": {
+    "text": "Exit interaction",
+    "pressed": "true",
+    "color": "rgb(241, 209, 214)",
+    "border": "rgb(225, 188, 194)",
+    "bg": "rgba(0, 0, 0, 0.933)",
+    "shadow": "color(srgb 0.764706 0.611765 0.635294 / 0.53) -2px 0px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.53) 2px 0px 0px 0px",
+    "transform": "none"
+  },
+  "gatePressed": {
+    "text": "Exit interaction",
+    "pressed": "true",
+    "color": "rgb(196, 158, 164)",
+    "border": "rgb(196, 157, 163)",
+    "bg": "rgba(0, 0, 0, 0.933)",
+    "shadow": "color(srgb 0.764706 0.611765 0.635294 / 0.53) -2px 0px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.53) 2px 0px 0px 0px",
+    "transform": "matrix(0.96, 0, 0, 0.96, 0, 0)"
+  },
+  "gateOnHover": {
+    "text": "Interact",
+    "pressed": "false",
+    "color": "rgb(225, 188, 194)",
+    "border": "rgba(255, 255, 255, 0.376)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "shadow": "none",
+    "transform": "none"
+  },
+  "gateOn": {
+    "text": "Interact",
+    "pressed": "false",
+    "color": "rgb(225, 188, 194)",
+    "border": "rgba(255, 255, 255, 0.376)",
+    "bg": "rgba(0, 0, 0, 0.733)",
+    "shadow": "none",
+    "transform": "none"
+  },
+  "gateKeyboardToggle": {
+    "text": "Exit interaction",
+    "pressed": "true",
+    "color": "rgb(241, 209, 214)",
+    "border": "rgb(225, 188, 194)",
+    "bg": "rgb(32, 26, 27)",
+    "shadow": "color(srgb 0.764706 0.611765 0.635294 / 0.53) -2px 0px 0px 0px, color(srgb 0.945098 0.819608 0.839216 / 0.53) 2px 0px 0px 0px",
+    "transform": "none"
+  },
+  "focusOutline": "rgb(225, 188, 194) solid 2px",
+  "log": [
+    {
+      "tag": "ordinals",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "tag": "ordinals",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "tag": "ordinals",
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOrigin"
+    },
+    {
+      "tag": "ordinals",
+      "type": "error",
+      "text": "Refused to display 'https://ordinals.com/' in a frame because it set 'X-Frame-Options' to 'sameorigin'."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "reference": "https://docs.ordinals.com/inscriptions.html",
+  "entries": {
+    "https://ordinals.com/content/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344i0": {
+      "provider": "inscription-recovery",
+      "sha256": "9b4e419c898804071240c7bf87178d716df15d5d8d0ecc3371f197dec8e45a83",
+      "type": "image/gif",
+      "original": {
+        "file": "media-originals/1d378852cf058d59adbc717bca8f92184d152b2c3d33ce48d3318b965458b127.gif",
+        "bytes": 334467
+      },
+      "provenance": {
+        "transaction": "4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344",
+        "index": 0,
+        "endpoint": "https://mempool.space/api/tx/4fa46e0a492e8a91f052db09ec4b541f857dd89c76d05f6df672f9c2662a9344",
+        "existingHashMatched": true
+      },
+      "complete": false
+    },
+    "https://ordinals.com/content/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243i0": {
+      "provider": "inscription-recovery",
+      "sha256": "7e9fc59763d65837c0853b386f852c9e1366bfb925a20f717c4d511a8c0e2018",
+      "type": "image/gif",
+      "original": {
+        "file": "media-originals/3ada6bd925ab373e6e77641a64905fb4504adba0dd0367e07f2764148ab8f1b6.gif",
+        "bytes": 386346
+      },
+      "provenance": {
+        "transaction": "625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243",
+        "index": 0,
+        "endpoint": "https://mempool.space/api/tx/625f3781648c5046a2e3fcf70f6ca4b89ce6e02c8882fa34c4b50c20c8162243"
+      },
+      "complete": false
+    },
+    "https://ordinals.com/content/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3i0": {
+      "provider": "inscription-recovery",
+      "sha256": "7e9cd234f3c7c0b14cb4a4e2fc98e29bb969309e21fbdd3e905716256f603bf5",
+      "type": "image/gif",
+      "original": {
+        "file": "media-originals/5c5cbea2bbb3420ddfad8a5adcfa547d4b98a3862d3b593d49017c1d5b0bc739.gif",
+        "bytes": 353714
+      },
+      "provenance": {
+        "transaction": "4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3",
+        "index": 0,
+        "endpoint": "https://mempool.space/api/tx/4535f670704d532ceaf003c01022a6ad07a88c287829d9e2065ceeb779132bc3"
+      },
+      "complete": false
+    }
+  },
+  "errors": []
+}

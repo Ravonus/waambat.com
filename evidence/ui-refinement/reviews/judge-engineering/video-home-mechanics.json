@@ -1,0 +1,42 @@
+{
+ "console": [],
+ "home-1440": {
+  "scrollSteps": 66,
+  "inlineTiles": 0,
+  "tilesSeen": 0,
+  "otherVideos": 24,
+  "visibleChecks": 35,
+  "stuckWhileVisible": 0,
+  "playingOffscreen": 0,
+  "details": [],
+  "unavailable": [],
+  "stills": {},
+  "broken": []
+ },
+ "mechanics-1440": {
+  "scrollSteps": 13,
+  "inlineTiles": 0,
+  "tilesSeen": 0,
+  "otherVideos": 1,
+  "visibleChecks": 2,
+  "stuckWhileVisible": 0,
+  "playingOffscreen": 0,
+  "details": [],
+  "unavailable": [],
+  "stills": {},
+  "broken": []
+ },
+ "home-390": {
+  "scrollSteps": 32,
+  "inlineTiles": 0,
+  "tilesSeen": 0,
+  "otherVideos": 24,
+  "visibleChecks": 39,
+  "stuckWhileVisible": 0,
+  "playingOffscreen": 0,
+  "details": [],
+  "unavailable": [],
+  "stills": {},
+  "broken": []
+ }
+}

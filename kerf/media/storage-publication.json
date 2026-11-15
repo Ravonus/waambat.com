@@ -1,0 +1,39 @@
+{
+  "repository": "Ravonus/waambat.com",
+  "tag": "waambat-media-cbf9186871defd34",
+  "url": "https://github.com/Ravonus/waambat.com/releases/tag/waambat-media-cbf9186871defd34",
+  "target": "da6bc9cc5495d1ad956d4f25f3ef091f73db3ba9",
+  "public": true,
+  "assets": [
+    {
+      "name": "media-1-fc546631a633f2bbd3ea.tar",
+      "bytes": 1186621952,
+      "sha256": "fc546631a633f2bbd3eab6fc8a4b4cc9e76a7e075184a035b853b9f664953396",
+      "url": "https://github.com/Ravonus/waambat.com/releases/download/waambat-media-cbf9186871defd34/media-1-fc546631a633f2bbd3ea.tar"
+    },
+    {
+      "name": "media-2-bc3a0a2b6a86881e91fc.tar",
+      "bytes": 1468805120,
+      "sha256": "bc3a0a2b6a86881e91fc1b261108ae8b243a65d2a42fdeba63388771148c2b07",
+      "url": "https://github.com/Ravonus/waambat.com/releases/download/waambat-media-cbf9186871defd34/media-2-bc3a0a2b6a86881e91fc.tar"
+    },
+    {
+      "name": "media-3-6d12ac7da3558075b21e.tar",
+      "bytes": 615069696,
+      "sha256": "6d12ac7da3558075b21ed6c2a70fa89281605f31119c06ad6d2cbe3d528e6081",
+      "url": "https://github.com/Ravonus/waambat.com/releases/download/waambat-media-cbf9186871defd34/media-3-6d12ac7da3558075b21e.tar"
+    },
+    {
+      "name": "storage-manifest.json",
+      "bytes": 445964,
+      "sha256": "82671b1be12c4d170b15dca3aa190cd53cfb801dffebb3fe1010d1a87329b76c",
+      "url": "https://github.com/Ravonus/waambat.com/releases/download/waambat-media-cbf9186871defd34/storage-manifest.json"
+    }
+  ],
+  "checkedAt": "2026-11-15T04:16:50.461Z",
+  "anonymousManifestReadback": {
+    "bytes": 445964,
+    "sha256": "82671b1be12c4d170b15dca3aa190cd53cfb801dffebb3fe1010d1a87329b76c",
+    "matchesLocal": true
+  }
+}

@@ -1,0 +1,108 @@
+{
+ "touchMenu": [
+  {
+   "hold": 60,
+   "fy": 0.3,
+   "navigated": true
+  },
+  {
+   "hold": 60,
+   "fy": 0.5,
+   "navigated": true
+  },
+  {
+   "hold": 60,
+   "fy": 0.75,
+   "navigated": false
+  },
+  {
+   "hold": 100,
+   "fy": 0.3,
+   "navigated": false
+  },
+  {
+   "hold": 100,
+   "fy": 0.5,
+   "navigated": false
+  },
+  {
+   "hold": 100,
+   "fy": 0.75,
+   "navigated": true
+  },
+  {
+   "hold": 130,
+   "fy": 0.3,
+   "navigated": false
+  },
+  {
+   "hold": 130,
+   "fy": 0.5,
+   "navigated": false
+  },
+  {
+   "hold": 130,
+   "fy": 0.75,
+   "navigated": true
+  }
+ ],
+ "mouseNav": [
+  {
+   "hold": 60,
+   "fy": 0.3,
+   "navigated": false
+  },
+  {
+   "hold": 60,
+   "fy": 0.5,
+   "navigated": false
+  },
+  {
+   "hold": 60,
+   "fy": 0.75,
+   "navigated": true
+  },
+  {
+   "hold": 100,
+   "fy": 0.3,
+   "navigated": true
+  },
+  {
+   "hold": 100,
+   "fy": 0.5,
+   "navigated": true
+  },
+  {
+   "hold": 100,
+   "fy": 0.75,
+   "navigated": false
+  },
+  {
+   "hold": 130,
+   "fy": 0.3,
+   "navigated": true
+  },
+  {
+   "hold": 130,
+   "fy": 0.5,
+   "navigated": true
+  },
+  {
+   "hold": 130,
+   "fy": 0.75,
+   "navigated": true
+  }
+ ],
+ "touchMenuReduced": [
+  {
+   "hold": 100,
+   "fy": 0.5,
+   "navigated": true
+  },
+  {
+   "hold": 130,
+   "fy": 0.5,
+   "navigated": true
+  }
+ ]
+}

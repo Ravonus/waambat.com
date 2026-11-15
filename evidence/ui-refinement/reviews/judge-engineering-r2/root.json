@@ -1,0 +1,30 @@
+{
+ "ssrHtmlTag": "<html lang=\"en-US\">",
+ "ssrHtmlHasUiAccent": false,
+ "hydrated": {
+  "inlineVars": 42,
+  "uiAccent": "#e1bcc2",
+  "accentColor": "rgb(225, 188, 194)",
+  "scrollbarColor": "rgb(255, 148, 178) rgb(18, 15, 16)",
+  "wrapperDisplayContents": 0
+ },
+ "afterNavigation": {
+  "inlineVars": 42,
+  "uiAccent": "#e1bcc2",
+  "accentColor": "rgb(225, 188, 194)",
+  "scrollbarColor": "rgb(255, 148, 178) rgb(18, 15, 16)",
+  "wrapperDisplayContents": 0
+ },
+ "railBefore": [
+  [
+   "255,148,178",
+   599
+  ]
+ ],
+ "railAfterTokenChange": [
+  [
+   "0,255,0",
+   600
+  ]
+ ]
+}

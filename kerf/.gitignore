@@ -1,0 +1,10 @@
+/node_modules/
+/.kerf/*
+!/.kerf/plugins.lock.json
+/dist/
+/.output/
+/.netlify/
+.env
+.env.*
+!.env.example
+*.tsbuildinfo

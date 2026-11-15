@@ -1,0 +1,457 @@
+{
+ "close": [
+  {
+   "motion": "full",
+   "how": "x",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 423,
+   "after": {
+    "path": "/mechanics",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "Menu"
+   },
+   "usable": true
+  },
+  {
+   "motion": "full",
+   "how": "esc",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 313,
+   "after": {
+    "path": "/mechanics",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "Menu"
+   },
+   "usable": true
+  },
+  {
+   "motion": "full",
+   "how": "link",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 413,
+   "after": {
+    "path": "/bio-waambat",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "main-content"
+   },
+   "usable": true
+  },
+  {
+   "motion": "calm",
+   "how": "x",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 305,
+   "after": {
+    "path": "/mechanics",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "Menu"
+   },
+   "usable": true
+  },
+  {
+   "motion": "calm",
+   "how": "esc",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 211,
+   "after": {
+    "path": "/mechanics",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "Menu"
+   },
+   "usable": true
+  },
+  {
+   "motion": "calm",
+   "how": "link",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 315,
+   "after": {
+    "path": "/bio-waambat",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "main-content"
+   },
+   "usable": true
+  },
+  {
+   "motion": "off",
+   "how": "x",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 78,
+   "after": {
+    "path": "/mechanics",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "Menu"
+   },
+   "usable": true
+  },
+  {
+   "motion": "off",
+   "how": "esc",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 60,
+   "after": {
+    "path": "/mechanics",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "Menu"
+   },
+   "usable": true
+  },
+  {
+   "motion": "off",
+   "how": "link",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 133,
+   "after": {
+    "path": "/bio-waambat",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "main-content"
+   },
+   "usable": true
+  },
+  {
+   "motion": "reduced",
+   "how": "x",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 79,
+   "after": {
+    "path": "/mechanics",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "Menu"
+   },
+   "usable": true
+  },
+  {
+   "motion": "reduced",
+   "how": "esc",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 56,
+   "after": {
+    "path": "/mechanics",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "Menu"
+   },
+   "usable": true
+  },
+  {
+   "motion": "reduced",
+   "how": "link",
+   "opened": {
+    "phase": "open",
+    "focus": "Close menu",
+    "inert": true
+   },
+   "closedAtMs": 83,
+   "after": {
+    "path": "/bio-waambat",
+    "expanded": "false",
+    "btnVis": "visible",
+    "inert": false,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "focus": "main-content"
+   },
+   "usable": true
+  }
+ ],
+ "centre": [
+  {
+   "w": 360,
+   "path": "/",
+   "button": [
+    296,
+    12,
+    44,
+    44
+   ],
+   "buttonCentre": 34,
+   "ink": {
+    "top": 17,
+    "bottom": 215,
+    "centre": 116
+   },
+   "delta": -82
+  },
+  {
+   "w": 390,
+   "path": "/",
+   "button": [
+    326,
+    14.8,
+    44,
+    44
+   ],
+   "buttonCentre": 36.8,
+   "ink": {
+    "top": 17,
+    "bottom": 218,
+    "centre": 117.5
+   },
+   "delta": -80.7
+  },
+  {
+   "w": 700,
+   "path": "/",
+   "button": [
+    636,
+    44.1,
+    44,
+    44
+   ],
+   "buttonCentre": 66.1,
+   "ink": {
+    "top": 31,
+    "bottom": 100,
+    "centre": 65.5
+   },
+   "delta": 0.6
+  },
+  {
+   "w": 390,
+   "path": "/bio-waambat",
+   "button": [
+    326,
+    29.1,
+    44,
+    44
+   ],
+   "buttonCentre": 51.1,
+   "ink": {
+    "top": 36,
+    "bottom": 191,
+    "centre": 113.5
+   },
+   "delta": -62.4
+  },
+  {
+   "w": 360,
+   "path": "/contact-waambat",
+   "button": [
+    296,
+    29.1,
+    44,
+    44
+   ],
+   "buttonCentre": 51.1,
+   "ink": {
+    "top": 36,
+    "bottom": 219,
+    "centre": 127.5
+   },
+   "delta": -76.4
+  },
+  {
+   "w": 700,
+   "path": "/mechanics",
+   "button": [
+    636,
+    29.1,
+    44,
+    44
+   ],
+   "buttonCentre": 51.1,
+   "ink": {
+    "top": 36,
+    "bottom": 195,
+    "centre": 115.5
+   },
+   "delta": -64.4
+  }
+ ],
+ "frames": {
+  "open": [
+   {
+    "t": 60,
+    "f": "menu-open-60ms.png"
+   },
+   {
+    "t": 140,
+    "f": "menu-open-140ms.png"
+   },
+   {
+    "t": 240,
+    "f": "menu-open-240ms.png"
+   },
+   {
+    "t": 360,
+    "f": "menu-open-360ms.png"
+   },
+   {
+    "t": 900,
+    "f": "menu-open-900ms.png"
+   }
+  ],
+  "close": [
+   {
+    "t": 50,
+    "f": "menu-close-50ms.png"
+   },
+   {
+    "t": 150,
+    "f": "menu-close-150ms.png"
+   },
+   {
+    "t": 260,
+    "f": "menu-close-260ms.png"
+   },
+   {
+    "t": 600,
+    "f": "menu-close-600ms.png"
+   }
+  ]
+ },
+ "menuColors": [
+  {
+   "t": "01NFTs",
+   "c": "rgb(225, 188, 194)",
+   "cur": null,
+   "idx": "rgb(113, 94, 97)",
+   "h": 52
+  },
+  {
+   "t": "02ORDINALS",
+   "c": "rgb(225, 188, 194)",
+   "cur": null,
+   "idx": "rgb(113, 94, 97)",
+   "h": 52
+  },
+  {
+   "t": "03quantum mechanics",
+   "c": "rgb(225, 188, 194)",
+   "cur": null,
+   "idx": "rgb(113, 94, 97)",
+   "h": 52
+  },
+  {
+   "t": "04art archive",
+   "c": "rgb(225, 188, 194)",
+   "cur": null,
+   "idx": "rgb(113, 94, 97)",
+   "h": 52
+  },
+  {
+   "t": "05instagram",
+   "c": "rgb(225, 188, 194)",
+   "cur": null,
+   "idx": "rgb(113, 94, 97)",
+   "h": 52
+  },
+  {
+   "t": "06blog + press",
+   "c": "rgb(225, 188, 194)",
+   "cur": null,
+   "idx": "rgb(113, 94, 97)",
+   "h": 52
+  },
+  {
+   "t": "07bio",
+   "c": "rgb(255, 148, 178)",
+   "cur": "page",
+   "idx": "rgb(255, 148, 178)",
+   "h": 52
+  },
+  {
+   "t": "08collect + contact",
+   "c": "rgb(225, 188, 194)",
+   "cur": null,
+   "idx": "rgb(113, 94, 97)",
+   "h": 52
+  }
+ ],
+ "closeBtn": {
+  "box": [
+   326,
+   29.09375,
+   44,
+   44
+  ],
+  "color": "rgb(225, 188, 194)"
+ }
+}

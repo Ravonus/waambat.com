@@ -1,0 +1,63 @@
+{
+ "console": [
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad96638eae673' violates the following Content Security ",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad96638e7e673' violates the following Content Security ",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad97bcd1ae673' violates the following Content Security ",
+  "Failed to load resource: net::ERR_FAILED",
+  "Failed to load resource: net::ERR_FAILED",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad997fa1aeda9' violates the following Content Security ",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad9a15f89eda9' violates the following Content Security ",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad9aacbbfeda9' violates the following Content Security ",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad9aacbbdeda9' violates the following Content Security ",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad9b42fa2eda9' violates the following Content Security ",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad9bd8c3eeda9' violates the following Content Security ",
+  "Failed to load resource: net::ERR_FAILED",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad9c6ed2deda9' violates the following Content Security ",
+  "Failed to load resource: net::ERR_FAILED",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad9d0594ceda9' violates the following Content Security ",
+  "Failed to load resource: the server responded with a status of 403 ()",
+  "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5aad9d9bda0eda9' violates the following Content Security "
+ ],
+ "archive-390": {
+  "scrollSteps": 14,
+  "inlineTiles": 23,
+  "tilesSeen": 23,
+  "otherVideos": 0,
+  "visibleChecks": 38,
+  "stuckWhileVisible": 0,
+  "playingOffscreen": 0,
+  "details": [],
+  "unavailable": [
+   "538169390?app_id=122963&wmode=opaque",
+   "543748855?app_id=122963&wmode=opaque",
+   "224251774?app_id=122963&wmode=opaque",
+   "mkIoJZdKIAE?feature=oembed",
+   "-aGTNS13SDU?feature=oembed",
+   "198626504?app_id=122963&wmode=opaque",
+   "198626531?app_id=122963&wmode=opaque",
+   "198626554?app_id=122963&wmode=opaque",
+   "198626259?app_id=122963&wmode=opaque",
+   "198626656?app_id=122963&wmode=opaque",
+   "198626597?app_id=122963&wmode=opaque",
+   "198626569?app_id=122963&wmode=opaque",
+   "sp8J4WBW8TY?feature=oembed",
+   "130840561?app_id=122963&wmode=opaque",
+   "198626629?app_id=122963&wmode=opaque"
+  ],
+  "stills": {
+   "loaded": 23
+  },
+  "broken": []
+ }
+}

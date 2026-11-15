@@ -1,0 +1,4 @@
+hdr-home-390.png [ 17, 55, 36 ]
+hdr-contact-390.png [ 36, 65, 50.5 ]
+hdr-home-700.png [ 31, 100, 65.5 ]
+hdr-contact-700.png [ 36, 65, 50.5 ]

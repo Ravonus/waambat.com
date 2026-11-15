@@ -97,7 +97,9 @@ export default function Header({
         className={`site-logo text-waambat-logo font-brand inline-block font-normal tracking-normal ${styles.logo}`}
         aria-label="waambat home"
       >
-        waambat
+        {/* The original inscription remains an SVG, without resampling. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/brand/waambat-sigil-original.svg" width={484} height={500} alt="" />
       </SiteLink>
       <button
         ref={button}

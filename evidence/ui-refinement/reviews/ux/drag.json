@@ -1,0 +1,47 @@
+{
+  "overArt": {
+    "op": "0",
+    "root": null
+  },
+  "pressedOverArt": {
+    "op": "0",
+    "root": null
+  },
+  "duringDrag": {
+    "state": "pointer",
+    "op": "1",
+    "root": "active"
+  },
+  "afterDrag": {
+    "state": "pointer",
+    "op": "1",
+    "root": "active"
+  },
+  "railBox": {
+    "x": 1265,
+    "y": 6,
+    "width": 14,
+    "height": 788
+  },
+  "railHover": {
+    "state": "default",
+    "op": "1",
+    "root": "active"
+  },
+  "railPressed": {
+    "state": "default",
+    "op": "1",
+    "root": "active"
+  },
+  "railDrag": {
+    "state": "default",
+    "op": "1",
+    "root": "active",
+    "y": 10244
+  },
+  "pressedButton": {
+    "state": "pointer",
+    "op": "1",
+    "root": "active"
+  }
+}
