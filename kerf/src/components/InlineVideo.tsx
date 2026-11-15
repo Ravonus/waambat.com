@@ -36,7 +36,7 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
     const provider = derived(() => target.value?.provider);
     const source = derived(() => target.value?.player);
     const direct = derived(() => target.value?.direct);
-    useAdaptiveVideo(native,()=>direct.value&&lifecycle.requested.value&&stillReadyFor.value===src&&!error.value?src:undefined,()=>lifecycle.wanted.value,()=>lifecycle.preparing.value);
+    const quality=useAdaptiveVideo(native,()=>direct.value&&lifecycle.requested.value&&stillReadyFor.value===src&&!error.value?src:undefined,()=>lifecycle.wanted.value,()=>lifecycle.preparing.value);
     // Read-only, on-demand browser QA. No timer, media polling or control API is
     // exposed. The sample comes from the provider SDK, rather than UI state.
     onMount(() => watch(() => [], () => {
@@ -213,7 +213,7 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
             !error.value && source.value && stillReadyFor.value===src &&
             (direct.value ? (<OptimizedVideo source={src} width={960} height={540} ref={node => {
                     native.current = node;
-                }} poster={loadedPoster.value} muted loop playsInline preload="none" className="absolute inset-0 h-full w-full object-contain" onLoadedData={() => {
+                }} poster={loadedPoster.value} muted loop playsInline preload="none" style={{opacity:quality.sharp.value?1:0}} className="absolute inset-0 h-full w-full object-contain" onLoadedData={() => {
                     if (lifecycle.desired.current)
                         controls.current?.play();
                 }} onPlay={() => {

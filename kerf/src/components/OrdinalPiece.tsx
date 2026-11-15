@@ -42,7 +42,7 @@ export default function OrdinalPiece({ artwork, priority = false, }: {
             void video.current.play().catch(() => writeBox(playing, false));
     });
     const { wanted } = lifecycle;
-    useAdaptiveVideo(video,()=>lifecycle.requested.value&&stillReadyFor.value===loop.value&&!error.value?loop.value:undefined,()=>wanted.value,()=>lifecycle.preparing.value);
+    const quality=useAdaptiveVideo(video,()=>lifecycle.requested.value&&stillReadyFor.value===loop.value&&!error.value?loop.value:undefined,()=>wanted.value,()=>lifecycle.preparing.value);
     onMount(() => watch(() => [wanted.value, error.value], () => {
         const element = video.current;
         if (wanted.value && !error.value)
@@ -96,10 +96,10 @@ export default function OrdinalPiece({ artwork, priority = false, }: {
     return (<div>
       <div ref={node => {
             container.current = node;
-        }} className={styles.stage} style={{ aspectRatio: artwork.aspectRatio ?? 1 }} data-ordinal-player={artwork.id} data-live={live.value ? (shown.value ? "shown" : "loading") : "off"} data-interacting={interacting.value}>
+        }} className={styles.stage} data-media-start={loop.value} style={{ aspectRatio: artwork.aspectRatio ?? 1 }} data-ordinal-player={artwork.id} data-live={live.value ? (shown.value ? "shown" : "loading") : "off"} data-interacting={interacting.value}>
         {loop.value ? (<><VideoStill source={loop.value} fallback={artwork.poster||""} alt={`${artwork.title}, preview`} priority={priority} sizes="(max-width: 767px) calc(100vw - 40px), 400px" className={styles.layer} onReady={(source,poster)=>{loadedPoster.value=poster;stillReadyFor.value=source;}}/>{lifecycle.requested.value&&stillReadyFor.value===loop.value&&!error.value&&<OptimizedVideo source={loop.value} width={960} height={540} ref={node => {
                 video.current = node;
-            }} poster={loadedPoster.value} muted loop playsInline preload="none" aria-label={canOpen.value ? `${artwork.title}, preview loop` : artwork.title} onPlay={() => {
+            }} poster={loadedPoster.value} muted loop playsInline preload="none" style={{opacity:quality.sharp.value?1:0}} aria-label={canOpen.value ? `${artwork.title}, preview loop` : artwork.title} onPlay={() => {
                 if (!lifecycle.desired.current)
                     video.current?.pause();
                 writeBox(playing, lifecycle.desired.current);
