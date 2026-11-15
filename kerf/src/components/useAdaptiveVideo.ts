@@ -17,6 +17,7 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
   if(!src||!video)return;
   sharp.value=false;
   if(!(video instanceof HTMLVideoElement)){sharp.value=true;return;}
+  if(wanted())video.dataset.mediaPreparing='true';
   const stream=adaptiveStream(src);
   let cancelled=false,fallbackUsed=false,nativeUsed=false,resize:ResizeObserver|undefined;
   let frameRequest:number|undefined;
@@ -80,7 +81,11 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
     player.attachMedia(video);player.loadSource(stream);
    }catch{void nativeFallback();}
   })();
-  return()=>{cancelled=true;if(frameRequest!==undefined)video.cancelVideoFrameCallback(frameRequest);for(const event of ['playing','resize','loadeddata','timeupdate'])video.removeEventListener(event,schedule);video.removeEventListener('error',onNativeError,true);destroy();video.pause();video.removeAttribute('src');video.load();};
+  return()=>{cancelled=true;delete video.dataset.mediaPreparing;if(frameRequest!==undefined)video.cancelVideoFrameCallback(frameRequest);for(const event of ['playing','resize','loadeddata','timeupdate'])video.removeEventListener(event,schedule);video.removeEventListener('error',onNativeError,true);destroy();video.pause();video.removeAttribute('src');video.load();};
+ }));
+ onMount(()=>watch(()=>[wanted(),sharp.value],()=>{
+  const video=ref.current;if(!(video instanceof HTMLVideoElement))return;
+  if(wanted()&&!sharp.value)video.dataset.mediaPreparing='true';else delete video.dataset.mediaPreparing;
  }));
  onMount(()=>watch(()=>[wanted(),typeof preload==='function'?preload():preload],()=>{
   if(!ready.current)return;

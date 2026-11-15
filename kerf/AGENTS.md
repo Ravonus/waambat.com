@@ -102,6 +102,7 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 | `kerf test` | The test gate on the diff (`--gate`) | fs:.kerf/gate |
 | `kerf browser` | Drive the running app in any open browser by role/label/text (`kerf browser help`) | network:dev-server, fs:.kerf/browser |
 | `kerf run` | Run a project task by name | task |
+| `kerf run media.previews` | Build sharp measured display previews with Kerf while preserving exact originals | fs:public/display-previews/**, fs:src/content/display-previews.json, fs:.kerf/display-preview-cache/** |
 | `kerf run media.starts` | Encode lossless visible previews for videos with black opening frames | fs:public/video-previews/**, fs:src/content/first-frames.json, fs:media/first-frame-manifest.json, fs:.kerf/media-preview-cache/** |
 | `kerf run site.verify` | Audit all public SSR routes at phone and desktop widths using one temporary production server | network:localhost, fs:.kerf/audit/** |
 | `kerf run build.prepare` | Restore verified media and generate the lightweight image delivery index | network, fs:public/**, fs:src/content/image-media.json, fs:.kerf/** |
@@ -116,13 +117,14 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 
 ### Media (@kerf-js/media)
 
-- Use ?media + mediaFfmpeg(); render Media from @kerf-js/core/media. Video imports/uploads get exact-pixel responsive frame-zero stills automatically; no blur posters.
-- Media pins display quality and warms starts automatically. Preserve source across pause, return and loop. warm={false} opts out; Save Data stops speculation. Cache caps apply; large whole files are skipped.
-- Custom/HLS players use @kerf-js/media/browser: pin before startLoad, reveal a presented full-size frame, warm playback URLs. Read kerf docs media.
+- Use ?media + mediaFfmpeg() and Core Media. Sharp responsive frame-zero stills are automatic; no blur.
+- video.firstFrameQuality:{target:90} opts into measured previews; defaults stay exact. Re-ingest old records.
+- Pin display quality before loading; reveal a presented full-size frame. Preserve source on pause, return and loop.
+- Media warms starts automatically. Save Data, hidden tabs, buffering and cache caps stop speculation; warm={false} opts out.
+- Custom/HLS: use @kerf-js/media/browser for viewport prediction and bounded warming of playback URLs.
 - Only LCP gets priority + sizes. Describe alt; decoration uses alt="" decorative.
-- delivery:auto compares native codecs/containers and frames; native wins ties. video.lossless:false needs measured quality.target.
-- Save retains exact originals. Galleries: encoder:compatible, swap:manual; prepareMediaSave on intent, show progress, release on close. Never flatten motion.
-- ctx.media.ingest -> z.media() -> Media. Re-ingest legacy video records after upgrading.
+- delivery:auto compares codecs, containers and frames; native wins ties. video.lossless:false needs quality.target.
+- Save stays exact: encoder:compatible, swap:manual; prepareMediaSave on intent, release on close. Never flatten motion.
 
 ### Video and audio (@kerf-js/media-ffmpeg)
 

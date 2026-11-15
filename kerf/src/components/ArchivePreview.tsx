@@ -3,7 +3,7 @@ import type { SitePage } from "#/lib/content";
 import SourceImage from "./SourceImage";
 
 /** A retained thumbnail with a small caption; never attaches the unavailable movie. */
-export default function ArchivePreview({ art }: { art: SitePage["archive"][number] }) {
+export default function ArchivePreview({ art, priority = false }: { art: SitePage["archive"][number]; priority?: boolean }) {
   const hovered = state(false),
     pinned = state(false);
   const open = derived(() => hovered.value || pinned.value);
@@ -43,6 +43,7 @@ export default function ArchivePreview({ art }: { art: SitePage["archive"][numbe
       <SourceImage
         src={art.image}
         alt=""
+        eager={priority}
         sizes="(max-width: 767px) calc(100vw - 40px), 1100px"
         className="h-full w-full object-contain"
       />

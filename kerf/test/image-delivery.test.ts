@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { gzipSync } from "node:zlib";
 import { imageIndex } from "../scripts/media/image-index.mjs";
 
 test("image delivery keeps motion and original save metadata while leaving movies and blur payloads out", () => {
@@ -28,6 +29,9 @@ test("image delivery keeps motion and original save metadata while leaving movie
 test("the committed browser image catalog matches the encoder inventory and is smaller", () => {
   const source = readFileSync("src/content/local-media.json", "utf8");
   const image = readFileSync("src/content/image-media.json", "utf8");
-  assert.deepEqual(JSON.parse(image), imageIndex(JSON.parse(source)));
+  const display = JSON.parse(readFileSync("src/content/display-previews.json", "utf8"));
+  assert.deepEqual(JSON.parse(image), imageIndex({...JSON.parse(source), ...display.images}));
   assert.ok(Buffer.byteLength(image) < Buffer.byteLength(source) * 0.7);
+  assert.ok(gzipSync(image).length < gzipSync(source).length * 0.7);
+  assert.equal(image.includes("displayVerification"), false);
 });

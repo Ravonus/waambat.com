@@ -12,11 +12,12 @@ type Controls = {
     pause: () => void;
     currentTime: () => number | Promise<number>;
 };
-export default function InlineVideo({ src, poster, title, suspended = false, }: {
+export default function InlineVideo({ src, poster, title, suspended = false, priority = false, }: {
     src: string;
     poster: string;
     title: string;
     suspended?: boolean;
+    priority?: boolean;
 }) {
     const container = { current: null as HTMLDivElement | null | undefined };
     const frame = { current: null as HTMLIFrameElement | null | undefined };
@@ -208,12 +209,12 @@ export default function InlineVideo({ src, poster, title, suspended = false, }: 
     return (<div ref={node => {
             container.current = node;
         }} className="inline-video" data-save-url={src} data-inline-provider={provider.value} data-playback-state={error.value ? "unavailable" : playing.value ? "playing" : "paused"}>
-      <VideoStill source={src} fallback={poster} alt="" className="absolute inset-0 h-full w-full object-contain" onReady={(source,poster)=>{loadedPoster.value=poster;stillReadyFor.value=source;}}/>
+      <VideoStill source={src} fallback={poster} alt="" priority={priority} concealed={!error.value&&(direct.value?quality.sharp.value:playing.value)} className="absolute inset-0 h-full w-full object-contain" onReady={(source,poster)=>{loadedPoster.value=poster;stillReadyFor.value=source;}}/>
       {lifecycle.requested.value &&
             !error.value && source.value && stillReadyFor.value===src &&
             (direct.value ? (<OptimizedVideo source={src} width={960} height={540} ref={node => {
                     native.current = node;
-                }} poster={loadedPoster.value} muted loop playsInline preload="none" style={{opacity:quality.sharp.value?1:0}} className="absolute inset-0 h-full w-full object-contain" onLoadedData={() => {
+                }} poster={loadedPoster.value} muted loop playsInline preload="none" style={{opacity:1}} className="absolute inset-0 h-full w-full object-contain" onLoadedData={() => {
                     if (lifecycle.desired.current)
                         controls.current?.play();
                 }} onPlay={() => {

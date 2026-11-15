@@ -37,7 +37,7 @@ export default function Archive({ items }: {
       <div className="archive-montage">
         {archiveGroups(visible.value).map((row) => (<div key={row[0]!.id} className="archive-row">
             {row.map((art) => (<div key={art.id} className="archive-tile" style={{ '--artwork-ratio': art.ratio }} data-archive-artwork={art.id}>
-                {art.previewOnly ? <ArchivePreview art={art}/> : art.embed ? (<InlineVideo key={art.embed} src={art.embed} poster={art.image} title={art.title || "Untitled artwork"} suspended={selected.value !== null}/>) : (<SourceImage src={art.image} alt="" sizes="(max-width: 767px) calc(100vw - 40px), 1100px" className="h-full w-full object-contain"/>)}
+                {art.previewOnly ? <ArchivePreview art={art} priority={art.id===visible.value[0]?.id}/> : art.embed ? (<InlineVideo key={art.embed} src={art.embed} poster={art.image} title={art.title || "Untitled artwork"} priority={art.id===visible.value[0]?.id} suspended={selected.value !== null}/>) : (<SourceImage src={art.image} alt="" eager={art.id===visible.value[0]?.id} sizes="(max-width: 767px) calc(100vw - 40px), 1100px" className="h-full w-full object-contain"/>)}
                 {!art.previewOnly && <button type="button" className="media-control archive-expand" onClick={() => select(viewable.value.indexOf(art))} aria-label={`View ${art.title || "untitled artwork"}`} title="Open fullscreen viewer">
                   <MediaIcon kind="expand"/>
                 </button>}

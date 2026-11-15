@@ -1,4 +1,5 @@
 import records from "#/content/first-frames.json";
+import delivery from "#/content/display-previews.json";
 import type { MediaAsset } from "@kerf-js/core/media";
 type FirstFrameAsset = MediaAsset & {
   startup?: { blank: true; revealAt: number; preview?: MediaAsset };
@@ -11,9 +12,12 @@ const catalog = records as {
 export function firstFrame(source: string | undefined) {
   return catalog.assets[catalog.sources[source ?? ""] ?? ""];
 }
-/** A black source opening keeps the artist's thumbnail until its first visible frame. */
+/** Kerf's measured display preview is separate from the retained exact frame and original Save. */
 export function firstFramePreview(source: string | undefined) {
   const asset = firstFrame(source);
+  const id = catalog.sources[source ?? ""];
+  const preview = (delivery.frames as Record<string, { asset: MediaAsset }>)[id ?? ""];
+  if (preview) return preview.asset;
   return asset?.startup?.blank ? asset.startup.preview : asset;
 }
 export function videoRevealTime(source: string | undefined) {

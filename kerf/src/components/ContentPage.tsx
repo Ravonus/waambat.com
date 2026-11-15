@@ -70,7 +70,6 @@ export default function ContentPage({ page, forms = [], preview = false, }: {
         levels.set(block.id, level);
         previousLevel = level;
     } return levels; });
-    const firstImageId = derived(() => page.blocks.find((block) => !block.archived && block.type === "image")?.id);
     const firstMediaId = derived(() => page.blocks.find((b) => !b.archived && (b.type === "image" || (b.type === "embed" && b.loop)))?.id);
     const renderBlock = (block: PageBlock) => {
         const linked = linkedText(block);
@@ -99,10 +98,10 @@ export default function ContentPage({ page, forms = [], preview = false, }: {
             {block.href ? (<SourceLink href={block.href} {...newTabProps(block.href)}>
                 <SourceImage src={block.src} sizes={page.layout === "image-grid"
                             ? "(max-width: 767px) calc((100vw - 40px) / 2), 240px"
-                            : undefined} alt={block.text} eager={block.id === firstImageId.value} className="w-full object-contain"/>
+                            : undefined} alt={block.text} eager={block.id === firstMediaId.value} className="w-full object-contain"/>
               </SourceLink>) : (<SourceImage src={block.src} sizes={page.layout === "image-grid"
                             ? "(max-width: 767px) calc((100vw - 40px) / 2), 240px"
-                            : undefined} alt={block.text} eager={block.id === firstImageId.value} className="w-full object-contain"/>)}
+                            : undefined} alt={block.text} eager={block.id === firstMediaId.value} className="w-full object-contain"/>)}
           </figure>);
             case "embed":
                 if (block.loop)

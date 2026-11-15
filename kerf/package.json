@@ -17,12 +17,13 @@
     "media:restore": "kerf run media.restore",
     "prebuild": "kerf run build.prepare",
     "verify:built": "kerf run site.verify",
-    "media:starts": "kerf run media.starts"
+    "media:starts": "kerf run media.starts",
+    "media:previews": "kerf run media.previews"
   },
   "dependencies": {
     "@auth/core": "0.41.3",
-    "@kerf-js/core": "file:vendor/kerf-core-media-eb9cd2109b0c.tgz",
-    "@kerf-js/media": "file:vendor/kerf-media-media-28440590b84e.tgz",
+    "@kerf-js/core": "file:vendor/kerf-core-media-3a318b7ef735.tgz",
+    "@kerf-js/media": "file:vendor/kerf-media-media-ff8a4ccbe054.tgz",
     "@kerf-js/media-ffmpeg": "file:vendor/kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
     "@kerf-js/scroll": "0.1.0",
     "@kerf-js/start": "file:vendor/kerf-start-media-35261fefb2be.tgz",

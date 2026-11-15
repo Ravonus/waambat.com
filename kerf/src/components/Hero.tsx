@@ -90,10 +90,10 @@ export default function Hero({ section, item, preview = false, }: {
       <div ref={node => {
             frame.current = node;
         }} className={styles.frame}>
-        <VideoStill source={item.videoSrc||""} mobileSource={item.mobileVideoSrc} media={PORTRAIT_PHONE} fallback={adaptivePoster(item.poster)} mobileFallback={item.mobilePoster?adaptivePoster(item.mobilePoster):undefined} alt={item.title} priority className={styles.poster} sizes="(max-width: 767px) 100vw, 1600px" onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
+        <VideoStill source={item.videoSrc||""} mobileSource={item.mobileVideoSrc} media={PORTRAIT_PHONE} fallback={adaptivePoster(item.poster)} mobileFallback={item.mobilePoster?adaptivePoster(item.mobilePoster):undefined} alt={item.title} priority concealed={(shown.value&&introQuality.sharp.value)||(loopShown.value&&loopQuality.sharp.value)} className={styles.poster} sizes="(max-width: 767px) 100vw, 1600px" onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
         {playable.value && requested.value && sourceReady.value && posterReadyFor.value===source.value && !error.value && (<OptimizedVideo source={source.value ?? ""} width={1920} height={1080} ref={node => {
                 video.current = node;
-            }} poster={loadedPoster.value} muted loop={!loopSource.value} playsInline preload="none" aria-label={item.title} data-shown={shown.value&&introQuality.sharp.value?'true':undefined} data-done={loopShown.value&&loopQuality.sharp.value?'true':undefined} className={styles.video} onLoadedData={() => {
+            }} poster={loadedPoster.value} muted loop={!loopSource.value} playsInline preload="none" aria-label={item.title} data-shown="true" data-done={loopShown.value&&loopQuality.sharp.value?'true':undefined} className={styles.video} onLoadedData={() => {
                 if (lifecycle.desired.current && phase.value === "intro")
                     void video.current?.play().catch(() => writeBox(playing, false));
             }} onPlaying={() => writeBox(shown, true)} onPlay={() => {

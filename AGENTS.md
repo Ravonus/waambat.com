@@ -81,8 +81,8 @@ Track clicks are smooth by default; `behavior="instant"` keeps a direct jump.
 Thumb dragging stays instant. Do not add a second per-video scroll listener.
 
 Retain frame zero from the acquired original using Kerf's exact-pixel first-frame
-provider (`target:100`, `scorer:'none'`, no blur placeholder). Display it when it
-contains visible content; the measured black-opening exception below uses a
+provider (`target:100`, `scorer:'none'`, no blur placeholder). Keep this provenance record; the display pipeline below uses a measured version
+of the same frame. When an opening is black, the measured black-opening exception below uses a
 separate lossless preview from that same original.
 Playback pins the display-sized HLS rendition before loading any segment. Network
 hints must not force a blurry starting rendition. Reveal video only after a presented
@@ -169,3 +169,26 @@ scroll return and forced segment failure separately. The installed `kerf test --
 currently requires Vitest while these contracts use `node:test`; record that limitation,
 never describe the mutation gate as passed. Regenerate `kerf/AGENTS.md` from config
 with `kerf agents-md` after changing tasks; keep site-specific instructions here.
+
+## Measured display previews and mobile performance
+
+Use `npm run media:previews` to build legacy display previews through Kerf's
+`createFirstFrameBuild` and `createMediaBuild`, with SSIMULACRA2 target 90,
+responsive widths 384/672/960/1600, and no blur placeholder. `first-frames.json`
+retains the exact source records. `display-previews.json` holds the separately
+measured display images and opening timestamps. Static-image renditions are
+independently scored at every delivered width; formats below the floor retain
+the exact fallback. Animated images and SVGs keep their existing specialized
+pipelines. Exact acquired originals and original-file Save metadata never change.
+
+Only the route's first visible media gets eager/high priority. Do not promote a
+below-the-fold image because it is the first image after a video. Keep the sharp
+picture above its native video until a presented full-size frame is ready; the
+video itself can show its cached poster from attachment. `useAdaptiveVideo` marks
+foreground preparation for Kerf's shared background queue, so speculation yields
+to the current artwork. Do not reset quality on pause or scroll return.
+
+`build.prepare` verifies all committed preview files and rebuilds the image view;
+deployments do not need the local scorer or FFmpeg. Re-run real cold mobile
+Lighthouse on all eight routes after publishing. Kerf's accessibility/SEO/layout
+audit is a different gate and must never be reported as a performance score.

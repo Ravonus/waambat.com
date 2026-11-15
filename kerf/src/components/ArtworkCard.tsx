@@ -13,16 +13,17 @@ import { useMediaPreference, useSaveData } from "./useMediaPreference";
 import { adaptivePoster, adaptivePreview } from "~/lib/adaptive-media";
 import { paintingPoster } from "~/lib/painting-source";
 export type { Artwork } from "~/lib/content";
-function Poster({ artwork, priority, videoSource, onReady }: {
+function Poster({ artwork, priority, videoSource, onReady, concealed }: {
     artwork: Artwork;
     priority: boolean;
+    concealed?: boolean;
     videoSource?: string;
     onReady?: (source:string,poster?:string)=>void;
 }) {
     const still = derived(() => artwork.poster || adaptivePreview(artwork.videoSrc)?.poster);
     const source = derived(() => adaptivePoster(still.value ?? ""));
     const poster = derived(() => paintingPoster(source.value));
-    return <>{artwork.kind==="video"?<VideoStill source={artwork.videoSrc||""} playbackSource={videoSource} fallback={source.value} alt={artwork.title} priority={priority} onReady={onReady}/>:!still.value ? null : (<picture className="block h-full w-full">
+    return <>{artwork.kind==="video"?<VideoStill source={artwork.videoSrc||""} playbackSource={videoSource} fallback={source.value} alt={artwork.title} priority={priority} concealed={concealed} onReady={onReady}/>:!still.value ? null : (<picture className="block h-full w-full">
       {poster.value.avif && (<source type="image/avif" srcSet={poster.value.avif} sizes="(max-width: 767px) calc(100vw - 40px), 960px"/>)}
       <img src={source.value} srcSet={poster.value.srcSet} sizes="(max-width: 767px) calc(100vw - 40px), 960px" alt={artwork.title} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} width={poster.value.local ? 960 : undefined} height={poster.value.local ? 960 : undefined} decoding="async" className="h-full w-full object-contain"/>
     </picture>)}</>;
@@ -109,7 +110,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
                     ? { height: 150 }
                     : undefined} className={`artwork-media relative w-full bg-black ${naturalAspect ? "" : aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"}`}>
           <a href={trailer ? undefined : artwork.tokenLink} {...newTabProps(trailer ? undefined : artwork.tokenLink)} aria-label={`Open ${artwork.title} original ${artwork.kind === "image" ? "inscription" : "token"} page`} className="relative block h-full w-full">
-            <Poster artwork={artwork} priority={priority||lifecycle.preparing.value||wanted.value} videoSource={selectedSource.value} onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
+            <Poster artwork={artwork} priority={priority} concealed={shownSource.value===selectedSource.value&&quality.sharp.value&&!error.value} videoSource={selectedSource.value} onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
             {artwork.kind === "video" && requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value && (<OptimizedVideo source={selectedSource.value ?? ""} width={960} height={960} poster={loadedPoster.value} key={selectedSource.value} ref={node => {
                     video.current = node;
                 }} muted={muted.value} loop={!trailer} controls={trailer} playsInline preload="none" onLoadedMetadata={(event) => {
@@ -134,7 +135,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
                     writeBox(error, true);
                     writeBox(playing, false);
                     writeBox(shownSource, "");
-                }} className="absolute inset-0 h-full w-full object-contain" style={{ opacity: shownSource.value === selectedSource.value && quality.sharp.value ? 1 : 0 }}/>)}
+                }} className="absolute inset-0 h-full w-full object-contain" style={{ opacity: 1 }}/>)}
           </a>
           {artwork.kind === "video" && !trailer && (<div className="painting-controls">
               <PlaybackButton playing={playing.value} title={artwork.title} onClick={toggle} error={error.value}/>

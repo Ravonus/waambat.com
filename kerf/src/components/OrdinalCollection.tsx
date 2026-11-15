@@ -42,7 +42,7 @@ export default function OrdinalCollection({ title, pieces, early, }: {
                     ? ""
                     : section.title;
                 return (<article key={item.id} data-artwork={item.id} className={styles.piece}>
-                <OrdinalPiece artwork={item} priority={index < 2}/>
+                <OrdinalPiece artwork={item} priority={index === 0}/>
                 <div className={styles.caption}>
                   {kicker && <p className={styles.kicker}>{kicker}</p>}
                   <h2>{item.title}</h2>
