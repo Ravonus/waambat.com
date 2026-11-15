@@ -11,10 +11,10 @@
       "sourceRevision": "021601bd43706a13905234a3034303294ac3b136"
     },
     "@kerf-js/media": {
-      "file": "kerf-media-media-3016b87298eb.tgz",
-      "sha256": "3016b87298eb0487fc8f59630aa45b0afbfbb100b2a22ed148a786f84cb914c7",
-      "size": 48606,
-      "sourceRevision": "021601bd43706a13905234a3034303294ac3b136"
+      "file": "kerf-media-media-28440590b84e.tgz",
+      "sha256": "28440590b84eba580362e76fd131874021984e79105cd0ee0ff0264e669707ad",
+      "size": 48971,
+      "sourceRevision": "afa7ca81ed9f3edffc9223bb94c8f560a4e3dd34"
     },
     "@kerf-js/media-ffmpeg": {
       "file": "kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
@@ -35,7 +35,7 @@
       "sourceRevision": "6434d7830053d50d302c38c37399916089ca95cf"
     }
   },
-  "sourceRevision": "6434d7830053d50d302c38c37399916089ca95cf",
+  "sourceRevision": "afa7ca81ed9f3edffc9223bb94c8f560a4e3dd34",
   "manifestAdjustments": {
     "@kerf-js/core": {
       "omittedOptionalDependencies": [

@@ -6,6 +6,7 @@ import type {RefObject} from './useViewportPlayback';
 import {localVideo} from '#/lib/local-media';
 import {adaptiveStream} from '#/lib/adaptive-media';
 import {adaptiveVideoConfig} from '#/lib/adaptive-video-config';
+import {videoRevealTime} from '#/lib/first-frame';
 
 /** Keep a sharp still until display-quality video is ready; pauses never reset its rendition. */
 export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|undefined,wanted:()=>boolean,preload:boolean|(()=>boolean)=false){
@@ -19,17 +20,17 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
   const stream=adaptiveStream(src);
   let cancelled=false,fallbackUsed=false,nativeUsed=false,resize:ResizeObserver|undefined;
   let frameRequest:number|undefined;
-  const inspect=()=>{
+  const inspect=(presentedTime=video.currentTime)=>{
    const width=Number(video.dataset.mediaWidth)||0,height=Number(video.dataset.mediaHeight)||0;
-   if(video.readyState>=2&&video.videoWidth>=width&&video.videoHeight>=height)sharp.value=true;
+   if(video.readyState>=2&&video.videoWidth>=width&&video.videoHeight>=height&&presentedTime>=videoRevealTime(src))sharp.value=true;
    else if(!video.paused&&typeof video.requestVideoFrameCallback==='function')schedule();
   };
   const schedule=()=>{
-   if(cancelled||frameRequest!==undefined)return;
-   if(typeof video.requestVideoFrameCallback==='function')frameRequest=video.requestVideoFrameCallback(()=>{frameRequest=undefined;inspect();});
+   if(cancelled||frameRequest!==undefined||sharp.value)return;
+   if(typeof video.requestVideoFrameCallback==='function')frameRequest=video.requestVideoFrameCallback((_now,metadata)=>{frameRequest=undefined;inspect(metadata.mediaTime);});
    else inspect();
   };
-  for(const event of ['playing','resize','loadeddata'])video.addEventListener(event,schedule);
+  for(const event of ['playing','resize','loadeddata','timeupdate'])video.addEventListener(event,schedule);
   const dimensions=()=>({width:video.clientWidth||video.width,height:video.clientHeight||video.height});
   const destroy=()=>{resize?.disconnect();controller.current?.destroy();controller.current=null;ready.current=false;};
   const play=()=>{if(wanted())void video.play().catch(()=>{});};
@@ -79,7 +80,7 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
     player.attachMedia(video);player.loadSource(stream);
    }catch{void nativeFallback();}
   })();
-  return()=>{cancelled=true;if(frameRequest!==undefined)video.cancelVideoFrameCallback(frameRequest);for(const event of ['playing','resize','loadeddata'])video.removeEventListener(event,schedule);video.removeEventListener('error',onNativeError,true);destroy();video.pause();video.removeAttribute('src');video.load();};
+  return()=>{cancelled=true;if(frameRequest!==undefined)video.cancelVideoFrameCallback(frameRequest);for(const event of ['playing','resize','loadeddata','timeupdate'])video.removeEventListener(event,schedule);video.removeEventListener('error',onNativeError,true);destroy();video.pause();video.removeAttribute('src');video.load();};
  }));
  onMount(()=>watch(()=>[wanted(),typeof preload==='function'?preload():preload],()=>{
   if(!ready.current)return;

@@ -817,7 +817,7 @@
           "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621215737824-0C9M7DEM6B1Z2DZWH862/image-asset.jpeg",
           "description": "",
           "embed": "https://i.imgur.com/b8XNIJY.mp4",
-          "ratio": 1.7762103893114327,
+          "ratio": 0.5625,
           "rowEnd": true,
           "videoRatio": 0.5625
         },
@@ -2699,5 +2699,5 @@
   ],
   "ordinalSourceVersion": 2,
   "heroVersion": 4,
-  "archiveSourceVersion": 2
+  "archiveSourceVersion": 3
 }

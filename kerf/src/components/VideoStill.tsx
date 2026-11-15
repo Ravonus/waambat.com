@@ -1,5 +1,5 @@
 import {derived,onMount,watch} from '@kerf-js/core';
-import {firstFrame} from '#/lib/first-frame';
+import {firstFramePreview} from '#/lib/first-frame';
 import {paintingPoster} from '#/lib/painting-source';
 import images from '#/content/image-media.json';
 import type {MediaAsset} from '@kerf-js/core/media';
@@ -8,7 +8,7 @@ type Props={source:string;playbackSource?:string;fallback:string;mobileSource?:s
 /** The movie starts behind a sharp first-frame picture, never a blown-up blur thumbnail. */
 export default function VideoStill(props:Props){
  let image:HTMLImageElement|undefined;
- const desktop=derived(()=>firstFrame(props.source)),mobile=derived(()=>firstFrame(props.mobileSource));
+ const desktop=derived(()=>firstFramePreview(props.source)),mobile=derived(()=>firstFramePreview(props.mobileSource));
  const fallback=derived(()=>paintingPoster(props.fallback));
  const fallbackAsset=derived(()=>imageAssets[props.fallback]);
  const mobileFallback=derived(()=>imageAssets[props.mobileFallback??props.fallback]);

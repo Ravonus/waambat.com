@@ -22,9 +22,10 @@ test("filled form actions use readable text after changing theme colors", () => 
     ["#ffffff", "#161616"],
     ["#0000ff", "#ffffff"],
   ]) {
-    const style = themeStyle(
-      themeSchema.parse({ link, linkHover: link }),
-    ) as Record<string, string>;
+    const style = themeStyle(themeSchema.parse({ link, linkHover: link })) as Record<
+      string,
+      string
+    >;
     assert.equal(style["--ui-accent"], link);
     assert.equal(style["--ui-on-accent"], foreground);
     assert.ok(contrast(style["--ui-on-accent"]!, link) >= 4.5, link);
@@ -112,8 +113,7 @@ test("no legacy violet/coral hue remains anywhere in the UI", () => {
   walk(new URL("../src", import.meta.url).pathname);
   for (const file of files) {
     // The semantic error colour is defined once, as a token.
-    const source = readFileSync(file, "utf8")
-      .replace("--ui-danger: #ff7070;", "");
+    const source = readFileSync(file, "utf8").replace("--ui-danger: #ff7070;", "");
     assert.doesNotMatch(source, legacy, file);
   }
 });
@@ -127,27 +127,29 @@ test("theme rejects arbitrary styles, external fonts and unsafe or unbounded val
   ])
     assert.equal(themeSchema.safeParse(value).success, false);
 });
-test("archive preserves all 25 source tiles and measured desktop row starts", () => {
-  const items = seedContent.pages.find(
-    (p) => p.slug === "art-by-waambat",
-  )!.archive;
+test("archive preserves all 25 authored rows and sizes the replacement portrait by its video ratio", () => {
+  const items = seedContent.pages.find((p) => p.slug === "art-by-waambat")!.archive;
   const expected = [
-    181.703125, 782.421875, 1236.640625, 1764.890625, 2293.140625, 2747.3515625,
-    3201.5703125, 3994.5703125, 4448.78125, 5241.78125, 5695.9921875,
-    6488.9921875, 6943.2109375, 7454.265625,
+    181.703125, 782.421875, 1236.640625, 1764.890625, 2293.140625, 2747.3515625, 3201.5703125,
+    3994.5703125, 4448.78125, 5241.78125, 5695.9921875, 6488.9921875, 6943.2109375, 7454.265625,
   ];
+  // Preserve the original row measurements; only Sus's recovered portrait replaces
+  // its legacy landscape thumbnail sizing. Later rows keep their own geometry.
+  const legacy = items.map((item) =>
+    item.id === "archive-original-2" ? { ...item, ratio: 1.7762103893114327 } : item,
+  );
+  const originalRows = archiveRows(legacy, 1392);
   let top = expected[0]!;
   const rows = archiveRows(items, 1392);
   assert.equal(rows.flatMap((r) => r.items).length, 25);
-  rows.forEach((row, i) => {
+  originalRows.forEach((row, i) => {
     assert.ok(Math.abs(top - expected[i]!) < 0.01);
     top += row.height + 10;
   });
-  assert.ok(
-    archiveRows(items, 350).every(
-      (row) => row.items.length === 1 && row.height > 0,
-    ),
-  );
+  assert.equal(rows.length, originalRows.length);
+  assert.equal(rows[0]!.items[1]!.ratio, rows[0]!.items[1]!.videoRatio);
+  for (let i = 1; i < rows.length; i++) assert.equal(rows[i]!.height, originalRows[i]!.height);
+  assert.ok(archiveRows(items, 350).every((row) => row.items.length === 1 && row.height > 0));
 });
 test("requested test account never activates on the original domain or arbitrary hosts", () => {
   const env = {

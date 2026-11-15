@@ -102,6 +102,7 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 | `kerf test` | The test gate on the diff (`--gate`) | fs:.kerf/gate |
 | `kerf browser` | Drive the running app in any open browser by role/label/text (`kerf browser help`) | network:dev-server, fs:.kerf/browser |
 | `kerf run` | Run a project task by name | task |
+| `kerf run media.starts` | Encode lossless visible previews for videos with black opening frames | fs:public/video-previews/**, fs:src/content/first-frames.json, fs:media/first-frame-manifest.json, fs:.kerf/media-preview-cache/** |
 | `kerf run site.verify` | Audit all public SSR routes at phone and desktop widths using one temporary production server | network:localhost, fs:.kerf/audit/** |
 | `kerf run build.prepare` | Restore verified media and generate the lightweight image delivery index | network, fs:public/**, fs:src/content/image-media.json, fs:.kerf/** |
 | `kerf run media.restore` | Restore the hash-verified public media release | network, fs:public/**, fs:.kerf/** |

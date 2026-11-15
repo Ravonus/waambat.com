@@ -80,8 +80,10 @@ predictor can prepare a landing area without loading every skipped artwork.
 Track clicks are smooth by default; `behavior="instant"` keeps a direct jump.
 Thumb dragging stays instant. Do not add a second per-video scroll listener.
 
-Video stills must come from the acquired original at frame zero and use Kerf's
-exact-pixel first-frame provider (`target:100`, `scorer:'none'`, no blur placeholder).
+Retain frame zero from the acquired original using Kerf's exact-pixel first-frame
+provider (`target:100`, `scorer:'none'`, no blur placeholder). Display it when it
+contains visible content; the measured black-opening exception below uses a
+separate lossless preview from that same original.
 Playback pins the display-sized HLS rendition before loading any segment. Network
 hints must not force a blurry starting rendition. Reveal video only after a presented
 frame reaches the chosen dimensions; `playing` alone is insufficient. Keep that
@@ -92,6 +94,18 @@ viewport first. Start the serial background queue immediately, pause it for fore
 buffering, and allow real clear fragment sizes (currently up to 7.3 MB). Verify first
 decoded dimensions, a complete loop, scroll return and an actual cache hit in a fresh
 browser; Lighthouse scores alone do not prove sharp playback.
+
+An exact frame zero may be an authored black opening. `npm run media:starts` scans
+the prepared legacy catalog at build time, retains those exact zero records, and
+uses Kerf's `createFirstFrameBuild({at})` to generate a separate lossless visible
+preview. The timestamp, pixel verification and responsive sources are stored in
+`first-frames.json` under `assets[id].startup`; committed preview files live in
+`public/video-previews/`.
+`prepare-first-frames.mjs` performs the same analysis for newly prepared movies.
+Keep the preview visible until a presented video frame reaches `startup.revealAt`.
+Never seek or trim the original, sample video pixels in the visitor's browser, or
+replace a full-resolution preview with an enlarged old thumbnail. Later black
+scenes remain part of the artwork. Respect native/no-frame-callback browsers too.
 
 The header wordmark sits above the desktop nav without moving the nav baseline. The home hero carries its own
 WAAMBAT wordmark below that same nav row; keep the nav at the same vertical

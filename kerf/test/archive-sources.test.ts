@@ -13,6 +13,7 @@ function legacyContent() {
     "https://player.vimeo.com/video/538169390?app_id=122963&wmode=opaque";
   archive.find((art) => art.id === "archive-original-2")!.embed =
     "https://player.vimeo.com/video/543748855?app_id=122963&wmode=opaque";
+  archive.find((art) => art.id === "archive-original-2")!.ratio = 1.7762103893114327;
   return content;
 }
 
@@ -35,6 +36,30 @@ test("retired Axiom and Sus archive embeds use the retained copies of those pain
   );
   assert.equal(recoverArchiveSources(repaired.content).changed, false);
   assert.equal(contentSchema.safeParse(repaired.content).success, true);
+});
+
+test("the portrait replacement repairs its legacy ratio without resetting version-two artist choices", () => {
+  const content = recoverArchiveSources(legacyContent()).content;
+  content.archiveSourceVersion = 2;
+  const entries = content.pages.find((page) => page.slug === "art-by-waambat")!.archive;
+  const sus = entries.find((art) => art.id === "archive-original-2")!;
+  sus.ratio = 1.7762103893114327;
+  const chosen = entries.find((art) => art.id === "archive-original-3")!;
+  chosen.previewOnly = false;
+  chosen.archived = true;
+  const repaired = recoverArchiveSources(content).content.pages.find(
+    (page) => page.slug === "art-by-waambat",
+  )!.archive;
+  assert.equal(repaired.find((art) => art.id === sus.id)!.ratio, 0.5625);
+  assert.equal(repaired.find((art) => art.id === chosen.id)!.previewOnly, false);
+  assert.equal(repaired.find((art) => art.id === chosen.id)!.archived, true);
+  sus.ratio = 0.8;
+  assert.equal(
+    recoverArchiveSources(content)
+      .content.pages.find((page) => page.slug === "art-by-waambat")!
+      .archive.find((art) => art.id === sus.id)!.ratio,
+    0.8,
+  );
 });
 
 test("archive source repairs preserve artist replacements and every other artwork", () => {
@@ -94,7 +119,7 @@ test("the version-one removal is restored once, preserving later artist choices"
     archive.find((art) => art.id === `archive-original-${id}`)!.archived = true;
   const restored = recoverArchiveSources(original).content;
   const entries = restored.pages.find((page) => page.slug === "art-by-waambat")!.archive;
-  assert.equal(restored.archiveSourceVersion, 2);
+  assert.equal(restored.archiveSourceVersion, 3);
   assert.equal(entries.filter((art) => art.previewOnly && !art.archived).length, 13);
   assert.equal(entries.length, 25);
   const chosen = entries.find((art) => art.id === "archive-original-3")!;

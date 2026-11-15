@@ -28,16 +28,21 @@ const retired = new Set([
 
 /** Recover movies where possible and retain unavailable works as preview-only entries. */
 export function recoverArchiveSources(content: Content) {
-  if (content.archiveSourceVersion >= 2) return { content, changed: false };
+  if (content.archiveSourceVersion >= 3) return { content, changed: false };
   const pages = content.pages.map((page) => {
     let updated = false;
     const blocks = page.blocks.map((block) => {
-      if (block.src !== "https://i.imgur.com/3hhNUKR.mp4" || block.archived) return block;
+      if (
+        content.archiveSourceVersion >= 1 ||
+        block.src !== "https://i.imgur.com/3hhNUKR.mp4" ||
+        block.archived
+      )
+        return block;
       updated = true;
       return { ...block, archived: true };
     });
     const archive = page.archive.map((art) => {
-      if (retired.has(art.embed)) {
+      if (content.archiveSourceVersion < 2 && retired.has(art.embed)) {
         updated = true;
         return {
           ...art,
@@ -47,11 +52,17 @@ export function recoverArchiveSources(content: Content) {
         };
       }
       const replacement = recovered[art.embed];
-      if (!replacement) return art;
+      const embed = replacement ?? art.embed;
+      // The retained Sus movie is portrait; its old Vimeo thumbnail was landscape.
+      const portrait =
+        art.id === "archive-original-2" &&
+        embed === "https://i.imgur.com/b8XNIJY.mp4" &&
+        art.ratio === 1.7762103893114327;
+      if (!replacement && !portrait) return art;
       updated = true;
-      return { ...art, embed: replacement };
+      return { ...art, embed, ...(portrait ? { ratio: art.videoRatio ?? 0.5625 } : {}) };
     });
     return updated ? { ...page, archive, blocks } : page;
   });
-  return { content: { ...content, pages, archiveSourceVersion: 2 }, changed: true };
+  return { content: { ...content, pages, archiveSourceVersion: 3 }, changed: true };
 }

@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createFirstFrameBuild} from '@kerf-js/media/build';
 import {createMediaEncode} from '@kerf-js/media-ffmpeg/build';
+import {prepareVideoStartup} from './media/video-start.mjs';
 const root=path.resolve('../public'),out=path.join(root,'media-optimized');
 const inventory=JSON.parse(await fs.readFile('media/source-manifest.json','utf8'));
 const records=await fs.readFile('media/first-frame-manifest.json','utf8').then(JSON.parse).catch(()=>({version:1,entries:{},errors:[]}));
@@ -25,6 +26,8 @@ for(const [url,entry]of movies){
   const file=path.join(root,entry.original.file),built=await builder.build({file},{cacheDir:path.resolve('.kerf/media-cache'),encode});
   for(const output of built.files)await fs.writeFile(path.join(out,output.name),output.bytes);
   const asset=publish(built.asset),id=built.verification.sourceSha256;
+  const startup=await prepareVideoStartup({file,asset,root,encode,known:assets.assets[id]?.startup});
+  if(startup)asset.startup=startup;
   assets.assets[id]=asset;
   for(const source of [url,'/'+entry.original.file,entry.asset?.src,entry.save?.src])if(source)assets.sources[source]=id;
   records.entries[url]={asset,verification:built.verification,files:built.files.map(file=>({name:file.name,bytes:file.bytes.length})),complete:true};

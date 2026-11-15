@@ -1,0 +1,315 @@
+{
+  "date": "2026-11-15",
+  "status": "local; not deployed",
+  "frameworkCommit": "afa7ca81ed9f3edffc9223bb94c8f560a4e3dd34",
+  "archiveItems": 25,
+  "thumbnailOnlyItems": 13,
+  "firstFrameZeroAssetsPreserved": 100,
+  "visiblePreviews": [
+    {
+      "sourceSha256": "1294a1c58186ac01af2a4d7f9dc267259ddbc08d7efc64537c5961e722c0f6dd",
+      "revealAt": 0.233333,
+      "preview": {
+        "kind": "graphic",
+        "src": "/video-previews/preview-1294a1c58186ac01af2a-0_233333-1600-984d50dc1a9ba543ae24.webp",
+        "type": "image/webp",
+        "width": 1600,
+        "height": 900,
+        "name": "youtube-HbP9ujYh_J4.mp4 first frame",
+        "quality": "original",
+        "sources": [
+          {
+            "type": "image/webp",
+            "srcset": "/video-previews/preview-1294a1c58186ac01af2a-0_233333-384-a06c65fa824266217b00.webp 384w, /video-previews/preview-1294a1c58186ac01af2a-0_233333-640-da33b1d4d5f21ff97f98.webp 640w, /video-previews/preview-1294a1c58186ac01af2a-0_233333-960-1cb223c46bf1a6d2e81b.webp 960w, /video-previews/preview-1294a1c58186ac01af2a-0_233333-1600-984d50dc1a9ba543ae24.webp 1600w"
+          }
+        ]
+      },
+      "verification": {
+        "frameTime": 0.233333,
+        "sourceSha256": "1294a1c58186ac01af2a4d7f9dc267259ddbc08d7efc64537c5961e722c0f6dd",
+        "target": 100,
+        "pixels": "exact",
+        "widths": [
+          384,
+          640,
+          960,
+          1600
+        ],
+        "scores": [
+          {
+            "width": 384,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 640,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 960,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 1600,
+            "webp": 100,
+            "avif": 100
+          }
+        ],
+        "placeholder": "none"
+      }
+    },
+    {
+      "sourceSha256": "f0d8393c9f6902893f8dfe0d5d19f56d96999b15fac4fc6b3e52a85ed1f4f3c1",
+      "revealAt": 0.5005,
+      "preview": {
+        "kind": "graphic",
+        "src": "/video-previews/preview-f0d8393c9f6902893f8d-0_5005-1600-3686cd01527ecd134316.webp",
+        "type": "image/webp",
+        "width": 1600,
+        "height": 900,
+        "name": "youtube-CgSaJBrjqXA.mp4 first frame",
+        "quality": "original",
+        "sources": [
+          {
+            "type": "image/webp",
+            "srcset": "/video-previews/preview-f0d8393c9f6902893f8d-0_5005-384-6acbf487660ccf326aca.webp 384w, /video-previews/preview-f0d8393c9f6902893f8d-0_5005-640-0083617508851fa4133c.webp 640w, /video-previews/preview-f0d8393c9f6902893f8d-0_5005-960-79bc8e54569a3b0f42e3.webp 960w, /video-previews/preview-f0d8393c9f6902893f8d-0_5005-1600-3686cd01527ecd134316.webp 1600w"
+          }
+        ]
+      },
+      "verification": {
+        "frameTime": 0.5005,
+        "sourceSha256": "f0d8393c9f6902893f8dfe0d5d19f56d96999b15fac4fc6b3e52a85ed1f4f3c1",
+        "target": 100,
+        "pixels": "exact",
+        "widths": [
+          384,
+          640,
+          960,
+          1600
+        ],
+        "scores": [
+          {
+            "width": 384,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 640,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 960,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 1600,
+            "webp": 100,
+            "avif": 100
+          }
+        ],
+        "placeholder": "none"
+      }
+    },
+    {
+      "sourceSha256": "a11c65473941de558426c76f1adb5bef7c7d5705cddf810f7d9e517416339882",
+      "revealAt": 0.2002,
+      "preview": {
+        "kind": "graphic",
+        "src": "/video-previews/preview-a11c65473941de558426-0_2002-640-29fde7e91862f82b8223.webp",
+        "type": "image/webp",
+        "width": 640,
+        "height": 480,
+        "name": "youtube-Z4RYyIslgJQ.mp4 first frame",
+        "quality": "original",
+        "sources": [
+          {
+            "type": "image/webp",
+            "srcset": "/video-previews/preview-a11c65473941de558426-0_2002-384-e26d81b117e5c97990eb.webp 384w, /video-previews/preview-a11c65473941de558426-0_2002-640-29fde7e91862f82b8223.webp 640w"
+          }
+        ]
+      },
+      "verification": {
+        "frameTime": 0.2002,
+        "sourceSha256": "a11c65473941de558426c76f1adb5bef7c7d5705cddf810f7d9e517416339882",
+        "target": 100,
+        "pixels": "exact",
+        "widths": [
+          384,
+          640
+        ],
+        "scores": [
+          {
+            "width": 384,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 640,
+            "webp": 100,
+            "avif": 100
+          }
+        ],
+        "placeholder": "none"
+      }
+    },
+    {
+      "sourceSha256": "516a302439efcca7e31ffbc9ece19833e2dea1e93f8bb97188c303e823f425e9",
+      "revealAt": 7.070233,
+      "preview": {
+        "kind": "graphic",
+        "src": "/video-previews/preview-516a302439efcca7e31f-7_070233-1280-d3239cdc5e511377051a.webp",
+        "type": "image/webp",
+        "width": 1280,
+        "height": 720,
+        "name": "42e9c8f571e381a6986c7eeb78545b6f78dfeedd98bb1cceefee1fbdbf5a2875.mp4 first frame",
+        "quality": "original",
+        "sources": [
+          {
+            "type": "image/webp",
+            "srcset": "/video-previews/preview-516a302439efcca7e31f-7_070233-384-ba36493cddbc45ec7bbd.webp 384w, /video-previews/preview-516a302439efcca7e31f-7_070233-640-da7df5bba2260a5001d5.webp 640w, /video-previews/preview-516a302439efcca7e31f-7_070233-960-061633574676726d59cd.webp 960w, /video-previews/preview-516a302439efcca7e31f-7_070233-1280-d3239cdc5e511377051a.webp 1280w"
+          }
+        ]
+      },
+      "verification": {
+        "frameTime": 7.070233,
+        "sourceSha256": "516a302439efcca7e31ffbc9ece19833e2dea1e93f8bb97188c303e823f425e9",
+        "target": 100,
+        "pixels": "exact",
+        "widths": [
+          384,
+          640,
+          960,
+          1280
+        ],
+        "scores": [
+          {
+            "width": 384,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 640,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 960,
+            "webp": 100,
+            "avif": 100
+          },
+          {
+            "width": 1280,
+            "webp": 100,
+            "avif": 100
+          }
+        ],
+        "placeholder": "none"
+      }
+    }
+  ],
+  "files": {
+    "/video-previews/preview-1294a1c58186ac01af2a-0_233333-384-a06c65fa824266217b00.webp": {
+      "bytes": 7080,
+      "sha256": "a06c65fa824266217b002a592e75581c3dc94650139547d45909be92f3b89946"
+    },
+    "/video-previews/preview-1294a1c58186ac01af2a-0_233333-640-da33b1d4d5f21ff97f98.webp": {
+      "bytes": 10090,
+      "sha256": "da33b1d4d5f21ff97f98dbde088ce987e1f346ac31a90b35b755cd2203461221"
+    },
+    "/video-previews/preview-1294a1c58186ac01af2a-0_233333-960-1cb223c46bf1a6d2e81b.webp": {
+      "bytes": 13634,
+      "sha256": "1cb223c46bf1a6d2e81b8511dd6a2aa97bdf37b92da1e2d00ab8b8041318773e"
+    },
+    "/video-previews/preview-1294a1c58186ac01af2a-0_233333-1600-984d50dc1a9ba543ae24.webp": {
+      "bytes": 20138,
+      "sha256": "984d50dc1a9ba543ae2410bec817c575a85d2bcd73756e92a06a79349a74b4ee"
+    },
+    "/video-previews/preview-f0d8393c9f6902893f8d-0_5005-384-6acbf487660ccf326aca.webp": {
+      "bytes": 4948,
+      "sha256": "6acbf487660ccf326acaa45847aa0cc0a30a7a23e66c8f44f4c3884c5c9753cf"
+    },
+    "/video-previews/preview-f0d8393c9f6902893f8d-0_5005-640-0083617508851fa4133c.webp": {
+      "bytes": 8314,
+      "sha256": "0083617508851fa4133c048584fb0ffe53873811b255159c41c3a75f8ee4cb0c"
+    },
+    "/video-previews/preview-f0d8393c9f6902893f8d-0_5005-960-79bc8e54569a3b0f42e3.webp": {
+      "bytes": 11052,
+      "sha256": "79bc8e54569a3b0f42e35e500038c6c053890af66575d65821c9543d59257e27"
+    },
+    "/video-previews/preview-f0d8393c9f6902893f8d-0_5005-1600-3686cd01527ecd134316.webp": {
+      "bytes": 16710,
+      "sha256": "3686cd01527ecd1343168576dbcf3e29b276286790241cf702fe1f9b9a1a8dd0"
+    },
+    "/video-previews/preview-a11c65473941de558426-0_2002-384-e26d81b117e5c97990eb.webp": {
+      "bytes": 38156,
+      "sha256": "e26d81b117e5c97990eb55e74ca90d8339d8995f840f01c59e1b11cafddc3de9"
+    },
+    "/video-previews/preview-a11c65473941de558426-0_2002-640-29fde7e91862f82b8223.webp": {
+      "bytes": 68056,
+      "sha256": "29fde7e91862f82b8223b321fbf7a829c7e5906c24139e3f3d6eeb6363515154"
+    },
+    "/video-previews/preview-516a302439efcca7e31f-7_070233-384-ba36493cddbc45ec7bbd.webp": {
+      "bytes": 8984,
+      "sha256": "ba36493cddbc45ec7bbd7d6f07ee4390d9e0712c370cfbbf3c3c81c3b5905119"
+    },
+    "/video-previews/preview-516a302439efcca7e31f-7_070233-640-da7df5bba2260a5001d5.webp": {
+      "bytes": 21680,
+      "sha256": "da7df5bba2260a5001d58ff3efae008b6dbbba6e871d379e064a09b4631d694a"
+    },
+    "/video-previews/preview-516a302439efcca7e31f-7_070233-960-061633574676726d59cd.webp": {
+      "bytes": 37904,
+      "sha256": "061633574676726d59cd5d05c5bd4d14540930d5456d44e846b909379755ef36"
+    },
+    "/video-previews/preview-516a302439efcca7e31f-7_070233-1280-d3239cdc5e511377051a.webp": {
+      "bytes": 42586,
+      "sha256": "d3239cdc5e511377051ac488a4bca804bc08c5026bc2bbe7635df7c71950c98a"
+    }
+  },
+  "totalNewPreviewBytes": 309332,
+  "contracts": {
+    "pass": 119,
+    "fail": 0
+  },
+  "kerfFocusedTests": {
+    "pass": 4,
+    "fail": 0
+  },
+  "typeErrors": 0,
+  "sourceErrors": 0,
+  "existingSourceWarnings": 5,
+  "productionAudit": {
+    "ok": true,
+    "pages": [
+      "/",
+      "/ordinals",
+      "/art-by-waambat",
+      "/mechanics",
+      "/instagram",
+      "/contact-waambat",
+      "/bio-waambat",
+      "/blog-press"
+    ],
+    "diagnostics": [],
+    "ms": 17905
+  },
+  "browser": {
+    "previewHeldAtSeconds": 7.0395,
+    "livePlaybackObservedSeconds": 29.1674,
+    "liveWidth": 1280,
+    "liveHeight": 720,
+    "firstRowPortraits": [
+      {
+        "width": 575,
+        "height": 1021
+      },
+      {
+        "width": 575,
+        "height": 1021
+      }
+    ]
+  }
+}
