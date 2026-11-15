@@ -1,3 +1,4 @@
+import {hero as heroAliases} from '../content/optimized-media.json';
 import type { Artwork, Content } from "./content";
 
 type Section = Content["sections"][number];
@@ -47,13 +48,14 @@ export function defaultHeroSection(): Section {
 
 // Upgrade only the shipped montage. Custom sources, custom endings and archived
 // entries remain the artist's choices; the stored document is never mutated.
+const shippedSource=(value:string,source:string)=>value===source||value===(heroAliases as Record<string,string>)[source];
 function shippedMontage(item: Artwork) {
-  return item.videoSrc === HERO_VIDEO && item.mobileVideoSrc === HERO_MOBILE_VIDEO &&
-    (!item.loopSrc || item.loopSrc === HERO_LOOP) &&
-    (!item.mobileLoopSrc || item.mobileLoopSrc === HERO_MOBILE_LOOP);
+  return shippedSource(item.videoSrc,HERO_VIDEO) && shippedSource(item.mobileVideoSrc,HERO_MOBILE_VIDEO) &&
+    (!item.loopSrc || shippedSource(item.loopSrc,HERO_LOOP)) &&
+    (!item.mobileLoopSrc || shippedSource(item.mobileLoopSrc,HERO_MOBILE_LOOP));
 }
 export function addDefaultHero(content: Content) {
-  if (content.heroVersion >= 3) return { content, changed: false };
+  if (content.heroVersion >= 4) return { content, changed: false };
   const exists = content.sections.some(section => section.id === HERO_SECTION_ID || section.presentation === "hero");
   let upgraded = false;
   const sections = content.sections.map(section => {
@@ -67,7 +69,7 @@ export function addDefaultHero(content: Content) {
         title: item.title === "WAAMBAT hero montage" ? "WAAMBAT hero loop" : item.title};
     })};
   });
-  return {content: {...content, heroVersion: 3 as const,
+  return {content: {...content, heroVersion: 4 as const,
     sections: exists ? sections : [...sections, defaultHeroSection()]}, changed: !exists || upgraded};
 }
 

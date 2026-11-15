@@ -90,10 +90,8 @@ test("the shipped Ordinals content points at those loops and stills", async () =
 
 test("the loops and stills are kept forever by the CDN and native Kerf server", async () => {
   const toml = await readFile("../netlify.toml", "utf8");
-  assert.match(
-    toml,
-    /for = "\/previews\/\*"\s+\[headers\.values\]\s+Cache-Control = "public, max-age=31536000, immutable"/,
-  );
+  assert.match(toml, /base = "kerf"/);
+  assert.match(toml, /--preset netlify/);
   const config = await readFile("kerf.config.ts", "utf8");
   assert.match(config, /'\/previews\/\*\*':immutable/);
   assert.match(config, /max-age=31536000, immutable/);

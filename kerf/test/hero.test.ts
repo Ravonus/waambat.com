@@ -32,7 +32,7 @@ const hero = (content: Content) =>
 
 test("the shipped content carries the home hero banner", async () => {
   const content = await stored();
-  assert.equal(content.heroVersion, 3);
+  assert.equal(content.heroVersion, 4);
   assert.ok(content.sections.some((s) => s.id === HERO_SECTION_ID));
   const live = activeHero(content, "nfts")!;
   assert.equal(live.section.presentation, "hero");
@@ -79,7 +79,7 @@ test("older stored content gains the hero on read, without being written back or
   const before = structuredClone(old);
   const result = addDefaultHero(old);
   assert.equal(result.changed, true);
-  assert.equal(result.content.heroVersion, 3);
+  assert.equal(result.content.heroVersion, 4);
   assert.equal(result.content.sections.at(-1)!.id, HERO_SECTION_ID);
   assert.equal(result.content.sections.length, old.sections.length + 1);
   assert.deepEqual(old, before);
@@ -94,7 +94,7 @@ test("an archived or artist-edited hero is respected, never replaced or restored
   archived.sections.push({ ...defaultHeroSection(), archived: true });
   const kept = addDefaultHero(archived);
   assert.equal(kept.changed, false);
-  assert.equal(kept.content.heroVersion, 3);
+  assert.equal(kept.content.heroVersion, 4);
   assert.equal(
     kept.content.sections.filter((s) => s.presentation === "hero").length,
     1,
@@ -122,7 +122,7 @@ test("shipped v1 and v2 montages become loop-only without mutating artist conten
     item.mobileLoopSrc = version === 2 ? "/hero/waambat-hero-mobile-loop.mp4" : "";
     const before = structuredClone(old), result = addDefaultHero(old);
     assert.equal(result.changed, true);
-    assert.equal(result.content.heroVersion, 3);
+    assert.equal(result.content.heroVersion, 4);
     const updated = hero(result.content).items[0]!;
     assert.equal(updated.videoSrc, "/hero/waambat-hero-desktop-loop.mp4");
     assert.equal(updated.mobileVideoSrc, "/hero/waambat-hero-mobile-loop.mp4");
@@ -249,4 +249,13 @@ test("a store saved before the hero fields existed still parses with safe defaul
   assert.equal(parsed.heroVersion, 0);
   assert.equal(parsed.sections[0]!.items[0]!.logoSrc, "");
   assert.equal(parsed.sections[0]!.items[0]!.mobilePoster, "");
+});
+
+// A real published CMS document contains optimized aliases, not the original hero paths.
+test('the published optimized montage migrates even after the prior version marker was saved',async()=>{
+ const doc=await stored();doc.heroVersion=3;doc.mediaOptimizationVersion=1;
+ const item=hero(doc).items[0]!;item.videoSrc='/paintings/b922d986f17556b920105ea3.mp4';item.mobileVideoSrc='/paintings/2d0ea5d72405dc94a36c0e94.mp4';item.loopSrc='/paintings/c23d905e6921efbfb26b8487.mp4';item.mobileLoopSrc='/paintings/71ca69d9e796b02a22d565ed.mp4';item.title='WAAMBAT hero montage';
+ const original=structuredClone(doc),result=addDefaultHero(doc),fixed=hero(result.content).items[0]!;
+ assert.equal(result.changed,true);assert.equal(result.content.heroVersion,4);assert.equal(fixed.videoSrc,'/hero/waambat-hero-desktop-loop.mp4');assert.equal(fixed.loopSrc,'');assert.equal(fixed.title,'WAAMBAT hero loop');assert.deepEqual(doc,original);
+ item.loopSrc='/hero/artist-custom-ending.mp4';assert.equal(addDefaultHero(doc).changed,false);
 });
