@@ -806,7 +806,7 @@
           "title": "Axiom GL0w Up (2021)",
           "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621215520280-DSS7NTZVWL6S6D0EXLJR/image-asset.jpeg",
           "description": "",
-          "embed": "https://player.vimeo.com/video/538169390?app_id=122963&wmode=opaque",
+          "embed": "https://i.imgur.com/7ouIHyN.mp4",
           "ratio": 0.5633124377530544,
           "rowEnd": false,
           "videoRatio": 0.5625
@@ -816,7 +816,7 @@
           "title": "Sus Singularity (2021)",
           "image": "https://images.squarespace-cdn.com/content/v1/5e17c59b7605d5016da6d51c/1621215737824-0C9M7DEM6B1Z2DZWH862/image-asset.jpeg",
           "description": "",
-          "embed": "https://player.vimeo.com/video/543748855?app_id=122963&wmode=opaque",
+          "embed": "https://i.imgur.com/b8XNIJY.mp4",
           "ratio": 1.7762103893114327,
           "rowEnd": true,
           "videoRatio": 0.5625
@@ -829,7 +829,8 @@
           "embed": "https://player.vimeo.com/video/224251774?app_id=122963&wmode=opaque",
           "ratio": 1.7771171928668021,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-4",
@@ -866,7 +867,8 @@
           "embed": "https://www.youtube.com/embed/mkIoJZdKIAE?feature=oembed",
           "ratio": 1.3333333333333333,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-8",
@@ -885,7 +887,8 @@
           "embed": "https://www.youtube.com/embed/-aGTNS13SDU?feature=oembed",
           "ratio": 1.3339861132554853,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-10",
@@ -895,7 +898,8 @@
           "embed": "https://player.vimeo.com/video/198626504?app_id=122963&wmode=opaque",
           "ratio": 1.7771484476759416,
           "rowEnd": true,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-11",
@@ -905,7 +909,8 @@
           "embed": "https://player.vimeo.com/video/198626531?app_id=122963&wmode=opaque",
           "ratio": 1.7771171928668021,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-12",
@@ -924,7 +929,8 @@
           "embed": "https://player.vimeo.com/video/198626554?app_id=122963&wmode=opaque",
           "ratio": 1.7777777777777777,
           "rowEnd": true,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-14",
@@ -934,7 +940,8 @@
           "embed": "https://player.vimeo.com/video/198626259?app_id=122963&wmode=opaque",
           "ratio": 1.7771484476759416,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-15",
@@ -953,7 +960,8 @@
           "embed": "https://player.vimeo.com/video/198626656?app_id=122963&wmode=opaque",
           "ratio": 1.7777777777777777,
           "rowEnd": true,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-17",
@@ -963,7 +971,8 @@
           "embed": "https://player.vimeo.com/video/198626597?app_id=122963&wmode=opaque",
           "ratio": 1.7771484476759416,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-18",
@@ -991,7 +1000,8 @@
           "embed": "https://player.vimeo.com/video/198626569?app_id=122963&wmode=opaque",
           "ratio": 1.7771171928668021,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-21",
@@ -1001,7 +1011,8 @@
           "embed": "https://www.youtube.com/embed/sp8J4WBW8TY?feature=oembed",
           "ratio": 1.333962652367106,
           "rowEnd": true,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-22",
@@ -1011,7 +1022,8 @@
           "embed": "https://player.vimeo.com/video/130840561?app_id=122963&wmode=opaque",
           "ratio": 1.7769632149646382,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-23",
@@ -1030,7 +1042,8 @@
           "embed": "https://player.vimeo.com/video/198626629?app_id=122963&wmode=opaque",
           "ratio": 1.7739972539748308,
           "rowEnd": false,
-          "archived": true
+          "archived": false,
+          "previewOnly": true
         },
         {
           "id": "archive-original-25",
@@ -2685,5 +2698,6 @@
     }
   ],
   "ordinalSourceVersion": 2,
-  "heroVersion": 4
+  "heroVersion": 4,
+  "archiveSourceVersion": 2
 }

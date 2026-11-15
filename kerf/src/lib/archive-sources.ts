@@ -9,8 +9,7 @@ const recovered: Record<string, string> = {
     "https://i.imgur.com/b8XNIJY.mp4",
 };
 
-// The owner chose to remove these unavailable films from the public archive.
-// Retain their records in admin, rather than deleting artwork history or assets.
+// Retain these works as thumbnail previews without contacting a dead player.
 const retired = new Set([
   "https://player.vimeo.com/video/224251774?app_id=122963&wmode=opaque",
   "https://player.vimeo.com/video/198626504?app_id=122963&wmode=opaque",
@@ -27,9 +26,9 @@ const retired = new Set([
   "https://www.youtube.com/embed/sp8J4WBW8TY?feature=oembed",
 ]);
 
-/** Recover available paintings and retire the unavailable archive sources the owner removed. */
+/** Recover movies where possible and retain unavailable works as preview-only entries. */
 export function recoverArchiveSources(content: Content) {
-  if (content.archiveSourceVersion >= 1) return { content, changed: false };
+  if (content.archiveSourceVersion >= 2) return { content, changed: false };
   const pages = content.pages.map((page) => {
     let updated = false;
     const blocks = page.blocks.map((block) => {
@@ -38,9 +37,14 @@ export function recoverArchiveSources(content: Content) {
       return { ...block, archived: true };
     });
     const archive = page.archive.map((art) => {
-      if (!art.archived && retired.has(art.embed)) {
+      if (retired.has(art.embed)) {
         updated = true;
-        return { ...art, archived: true };
+        return {
+          ...art,
+          // Undo the previous migration's removal, once. Later artist edits stay theirs.
+          archived: content.archiveSourceVersion === 1 ? false : art.archived,
+          previewOnly: true,
+        };
       }
       const replacement = recovered[art.embed];
       if (!replacement) return art;
@@ -49,5 +53,5 @@ export function recoverArchiveSources(content: Content) {
     });
     return updated ? { ...page, archive, blocks } : page;
   });
-  return { content: { ...content, pages, archiveSourceVersion: 1 }, changed: true };
+  return { content: { ...content, pages, archiveSourceVersion: 2 }, changed: true };
 }

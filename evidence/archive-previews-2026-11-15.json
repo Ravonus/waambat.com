@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-15",
+  "status": "local preview; not deployed",
+  "previousOptimizationCommit": "4bf02b3",
+  "archiveItems": 25,
+  "thumbnailOnlyItems": [
+    "archive-original-3",
+    "archive-original-7",
+    "archive-original-9",
+    "archive-original-10",
+    "archive-original-11",
+    "archive-original-13",
+    "archive-original-14",
+    "archive-original-16",
+    "archive-original-17",
+    "archive-original-20",
+    "archive-original-21",
+    "archive-original-22",
+    "archive-original-24"
+  ],
+  "workingVideos": 10,
+  "otherStills": 2,
+  "browserObserved": {
+    "thumbnailOnlyPlayers": 0,
+    "dialogOpenedByThumbnail": false,
+    "captionOpenedOnClick": true
+  },
+  "caption": {
+    "title": "artist-supplied artwork title",
+    "description": "artist-supplied description, clamped to two lines; neutral archive fallback when empty",
+    "transition": "220ms opacity, 280ms 6px slide; reduced-motion and studio motion-off respected"
+  },
+  "contracts": {
+    "pass": 116,
+    "fail": 0
+  },
+  "kerfCheck": {
+    "errors": 0,
+    "existingWarnings": 5
+  },
+  "typecheck": {
+    "errors": 0
+  },
+  "migration": "Version 2 restores entries hidden by version 1 once; subsequent artist replacements, preview toggles and archive choices are preserved."
+}

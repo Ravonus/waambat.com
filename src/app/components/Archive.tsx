@@ -6,8 +6,10 @@ import SourceImage from "./SourceImage";
 import VideoEmbed from "./VideoEmbed";
 import InlineVideo from "./InlineVideo";
 import { MediaIcon } from "./MediaControls";
+import ArchivePreview from "./ArchivePreview";
 export default function Archive({ items }: { items: SitePage["archive"] }) {
   const visible = items.filter((i) => !i.archived);
+  const viewable = visible.filter((i) => !i.previewOnly);
   const container = useRef<HTMLDivElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const [width, setWidth] = useState(1392);
@@ -39,11 +41,11 @@ export default function Archive({ items }: { items: SitePage["archive"] }) {
     };
   }, [selected]);
   const index =
-    selected === null ? null : Math.min(selected, visible.length - 1);
-  const item = index === null ? undefined : visible[index];
+    selected === null ? null : Math.min(selected, viewable.length - 1);
+  const item = index === null ? undefined : viewable[index];
   const select = (next: number) => {
     setInfo(false);
-    setSelected((next + visible.length) % visible.length);
+    setSelected((next + viewable.length) % viewable.length);
   };
   return (
     <section aria-label="Art archive" className="pb-16">
@@ -61,7 +63,7 @@ export default function Archive({ items }: { items: SitePage["archive"] }) {
                 style={{ flexGrow: art.ratio }}
                 data-archive-artwork={art.id}
               >
-                {art.embed ? (
+                {art.previewOnly ? <ArchivePreview art={art}/> : art.embed ? (
                   <InlineVideo
                     key={art.embed}
                     src={art.embed}
@@ -77,16 +79,16 @@ export default function Archive({ items }: { items: SitePage["archive"] }) {
                     className="h-full w-full object-contain"
                   />
                 )}
-                <button
+                {!art.previewOnly && <button
                   type="button"
                   className="media-control archive-expand"
-                  onClick={() => select(visible.indexOf(art))}
+                  onClick={() => select(viewable.indexOf(art))}
                   aria-label={`View ${art.title || "untitled artwork"}`}
                   title="Open fullscreen viewer"
                 >
                   <MediaIcon kind="expand" />
-                </button>
-                {art.title && (
+                </button>}
+                {!art.previewOnly && art.title && (
                   <div className="archive-caption">{art.title}</div>
                 )}
               </div>
@@ -124,7 +126,7 @@ export default function Archive({ items }: { items: SitePage["archive"] }) {
               className="archive-viewer-media"
               style={{ aspectRatio: item.videoRatio ?? item.ratio }}
             >
-              {item.embed ? (
+              {item.embed && !item.previewOnly ? (
                 <VideoEmbed
                   key={item.id}
                   src={item.embed}
@@ -176,7 +178,7 @@ export default function Archive({ items }: { items: SitePage["archive"] }) {
               {item.title}
               {item.description ? `\n${item.description}` : ""}
             </p>
-            {item.embed && info && (
+            {item.embed && !item.previewOnly && info && (
               <p className="text-center text-sm">
                 <a href={item.embed} target="_blank" rel="noopener noreferrer">
                   Open original source ↗

@@ -131,7 +131,14 @@ and `routeContent` for the destination gallery. Do not send the whole content do
 twice on every page. Preserve published metadata and hero data; notification recipients,
 email configuration and archived content stay out of public responses. Archive source
 repairs are a versioned, one-time migration. Artist replacements or subsequent restores
-must remain editable. Unavailable works are archived in admin, not deleted from history.
+must remain editable. Archive works whose movies are unavailable keep their retained
+thumbnail with `previewOnly: true`; they remain public. `ArchivePreview` reveals a
+compact title/description on hover, keyboard focus or tap, with a smooth opacity/slide
+transition and a reduced-motion override. Do not mount a player, add playback/expand
+controls, or send these entries through the fullscreen viewer. The admin thumbnail-only
+toggle and description remain editable. Hide a work with `archived` only when the owner
+explicitly wants the entire entry removed. Source migration version 2 restores the 13
+entries hidden by version 1; it never reapplies after later artist edits.
 
 Start legacy-gallery warming from `NavigationArrival` after the committed route mounts.
 An optimistic pathname change can still have the outgoing DOM; scanning it warms the

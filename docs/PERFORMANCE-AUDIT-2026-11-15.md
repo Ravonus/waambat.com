@@ -1,5 +1,12 @@
 # WAAMBAT delivery audit — 15 November 2026
 
+Follow-up: the owner chose to retain the 13 unavailable archive works as thumbnail-only
+entries with compact hover/tap captions. All 25 entries are now visible; ten play local
+videos, thirteen use `ArchivePreview`, and two remain stills. Preview entries never
+attach a player or open the fullscreen viewer. The measured tables and the original
+12-entry playback receipt below describe commit `4bf02b3`, before this follow-up;
+they are not new transfer measurements for the restored 25-entry archive.
+
 The approved artwork layout, navigation, fields, Send Message button and icon-only
 footer are preserved. These changes are local on `ui/art-first-navigation`; this
 audit does not establish that they are deployed on WAAMB.AT.

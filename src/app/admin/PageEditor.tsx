@@ -676,6 +676,12 @@ export default function PageEditor({
                     }
                   />
                   <label className="block">
+                    <input type="checkbox" checked={item.previewOnly} onChange={(e) => edit(pi, (p) => {
+                      p.archive[ii]!.previewOnly = e.target.checked;
+                    })}/>{" "}
+                    Thumbnail with hover/tap details only
+                  </label>
+                  <label className="block">
                     Poster width / height ratio
                     <input
                       className={input}
@@ -776,6 +782,7 @@ export default function PageEditor({
                       image: "https://waambat.com",
                       description: "",
                       embed: "",
+                      previewOnly: false,
                       archived: true,
                     });
                   })
