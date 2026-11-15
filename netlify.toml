@@ -1,17 +1,16 @@
 # The site is built from the native Kerf app in kerf/. Paths below are relative to that base.
-# `npm run build` restores the verified media bundles from the public GitHub release, then
-# runs `kerf build`; the Netlify preset writes dist/ and .netlify/functions-internal/.
+# Netlify's automatic install picks pnpm from the repository-root lockfile (the Next app), so the
+# Kerf app installs its own npm dependencies here. `npm run build` restores the verified media bundles from the public GitHub release, then
+# runs `kerf build`. The lockfile was produced with legacy peer resolution (@auth/core's optional
+# nodemailer peer), and install scripts stay off as in the kerf README; the Netlify preset writes dist/ and .netlify/functions-internal/.
 # Cache headers come from kerf.config.ts (site.headers), which Kerf writes to dist/_headers.
 [build]
   base = "kerf"
-  command = "npm run build -- --preset netlify"
+  command = "npm install --no-audit --no-fund --legacy-peer-deps --ignore-scripts && npm run build -- --preset netlify"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "26"
-  # The lockfile was produced with legacy peer resolution (@auth/core's optional nodemailer peer),
-  # and install scripts stay off as in the kerf README.
-  NPM_FLAGS = "--legacy-peer-deps --ignore-scripts"
   # The repository root is still the Next app; keep Netlify's Next.js runtime off this Kerf build.
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
