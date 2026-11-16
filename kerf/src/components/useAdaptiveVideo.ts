@@ -1,4 +1,4 @@
-import {initialMediaLevel, mediaConnection, mediaStartPlaylist} from '@kerf-js/media/browser';
+import {initialMediaLevel, mediaConnection, mediaStartPlaylist, supportsMediaStreaming} from '@kerf-js/media/browser';
 import {onMount, watch, state} from '@kerf-js/core';
 import type Hls from 'hls.js';
 import type {VideoHandle} from './OptimizedVideo';
@@ -56,9 +56,9 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
   video.addEventListener('error',onNativeError,true);
   void (async()=>{
    if(!stream){fallback();return;}
-   // Safari can play the pinned single-rendition playlist itself; no JS player
-   // or worker needs to download for that browser.
-   if(video.canPlayType('application/vnd.apple.mpegurl')){void nativeFallback();return;}
+   // Native HLS ignores the gallery's buffer limits. Prefer a controlled stream;
+   // native-only browsers retain the same sharp single-rendition fallback.
+   if(!supportsMediaStreaming()){void nativeFallback();return;}
    try{
     const {default:Player}=await import('hls.js/light');
     if(cancelled)return;

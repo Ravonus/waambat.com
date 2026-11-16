@@ -105,7 +105,7 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 | `kerf run media.previews` | Build sharp measured display previews with Kerf while preserving exact originals | fs:public/display-previews/**, fs:src/content/display-previews.json, fs:.kerf/display-preview-cache/** |
 | `kerf run media.starts` | Encode lossless visible previews for videos with black opening frames | fs:public/video-previews/**, fs:src/content/first-frames.json, fs:media/first-frame-manifest.json, fs:.kerf/media-preview-cache/** |
 | `kerf run site.verify` | Audit all public SSR routes at phone and desktop widths using one temporary production server | network:localhost, fs:.kerf/audit/** |
-| `kerf run build.prepare` | Restore verified media and generate the lightweight image delivery index | network, fs:public/**, fs:src/content/image-media.json, fs:.kerf/** |
+| `kerf run build.prepare` | Restore verified media and generate the lightweight image delivery index | network, fs:public/**, fs:src/content/image-media.json, fs:src/content/video-previews.json, fs:.kerf/** |
 | `kerf run media.restore` | Restore the hash-verified public media release | network, fs:public/**, fs:.kerf/** |
 | `kerf run contracts` | Exercise content, storage concurrency, security and media contracts | network:localhost, fs:/tmp/** |
 | `kerf run media.prepare` | Acquire public originals and verify lossless image and video variants | network, fs:public/media-*/**, fs:src/content/*.json, fs:media/**, fs:.kerf/media-cache/** |
@@ -121,7 +121,7 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 - video.firstFrameQuality:{target:90} opts into measured previews; defaults stay exact. Re-ingest old records.
 - Pin display quality before loading; reveal a presented full-size frame. Preserve source on pause, return and loop.
 - Media warms starts automatically. Save Data, hidden tabs, buffering and cache caps stop speculation; warm={false} opts out.
-- Custom/HLS: use @kerf-js/media/browser for viewport prediction and bounded warming of playback URLs.
+- HLS: use mediaHlsConfig + supportsMediaStreaming from @kerf-js/media/browser before native fallback.
 - Only LCP gets priority + sizes. Describe alt; decoration uses alt="" decorative.
 - delivery:auto compares codecs, containers and frames; native wins ties. video.lossless:false needs quality.target.
 - Save stays exact: encoder:compatible, swap:manual; prepareMediaSave on intent, release on close. Never flatten motion.

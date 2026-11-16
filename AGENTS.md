@@ -156,8 +156,10 @@ entries hidden by version 1; it never reapplies after later artist edits.
 
 Start legacy-gallery warming from `NavigationArrival` after the committed route mounts.
 An optimistic pathname change can still have the outgoing DOM; scanning it warms the
-wrong page. Keep using Kerf's shared bounded queue. Native HLS capability is checked
-before downloading the JS HLS player. Intermediate attachment failures must advance
+wrong page. Keep using Kerf's shared bounded queue and `mediaHlsConfig`.
+Use `supportsMediaStreaming` before importing the controlled HLS player; native HLS
+is a fallback because it ignores the gallery's short buffer limits. Native-only
+browsers skip that import. Intermediate attachment failures must advance
 through the pinned-playlist/native-file fallbacks before showing an unavailable message.
 
 Run `npm test`, `npm run typecheck`, `kerf check --json`, `npm run build`, then
