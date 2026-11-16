@@ -83,8 +83,8 @@ export default function CanvasScrollbar({behavior='smooth'}:{behavior?:'smooth'|
         const draw = () => {
             frame = 0;
             readColors();
-            // Finish all document reads before changing ARIA or visibility.
-            const m = metrics(), y = scrollY,
+            // Scroll events already captured the position; the glitch tail only paints.
+            const m = metrics(), y = lastY,
                 progress = m.total ? Math.min(1, Math.max(0, y / m.total)) : 0,
                 width = active || hover ? 8 : 5,
                 maximum = String(Math.round(m.total)), now = String(Math.round(y));
