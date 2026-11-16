@@ -14,9 +14,9 @@ const pkg=JSON.parse(readFileSync(join(app,'package.json'),'utf8'));
 for(const entry of Object.values(receipt.packages))entry.sourceRevision??=receipt.sourceRevision;
 receipt.sourceRevision=execFileSync('git',['rev-parse','HEAD'],{cwd:framework,encoding:'utf8'}).trim();
 receipt.branch=execFileSync('git',['branch','--show-current'],{cwd:framework,encoding:'utf8'}).trim();
-receipt.manifestAdjustments={'@kerf-js/core':{omittedOptionalDependencies:['@kerf-js/compiler-win32-arm64'],reason:'No 0.1.0 package exists on npm; Windows ARM uses the bundled matching WASM compiler, as in Kerf release staging.'}};
+receipt.manifestAdjustments={...receipt.manifestAdjustments,'@kerf-js/core':{omittedOptionalDependencies:['@kerf-js/compiler-win32-arm64'],reason:'No 0.1.0 package exists on npm; Windows ARM uses the bundled matching WASM compiler, as in Kerf release staging.'}};
 if(!selected||selected.includes('core'))execFileSync(process.execPath,['packages/core/scripts/copy-docs.mjs'],{cwd:framework,stdio:'inherit'});
-for(const name of ['core','media','media-ffmpeg','veneer-core','start','cli']){
+for(const name of ['core','media','media-ffmpeg','veneer-core','scroll','start','cli']){
  if(selected&&!selected.includes(name))continue;
  const packed=JSON.parse(execFileSync('npm',['pack','--ignore-scripts','--json','--pack-destination',vendor],{cwd:join(framework,'packages',name),encoding:'utf8'}))[0];
  let file=join(vendor,packed.filename);

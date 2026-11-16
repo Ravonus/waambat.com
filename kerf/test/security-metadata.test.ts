@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {contentSecurityPolicy,analyticsScriptURL} from '../src/lib/security';
-import {pageGraph,robotsMeta} from '../src/lib/site-settings';
+import {artistGraph,pageGraph,robotsMeta} from '../src/lib/site-settings';
 import {seedContent} from '../src/content/seed';
 import {trackPublicPage} from '../src/lib/analytics';
 
@@ -23,6 +23,14 @@ test('published page graphs use the real artist, current page and current sharin
  assert.ok(JSON.stringify(page).includes('https://waamb.at/artist-updated.jpg'));
  assert.ok(JSON.stringify(page).includes('https://waamb.at/#artist'));
  assert.equal(robotsMeta(false).content,'noindex, nofollow');
+});
+
+test('the artist brand uses the published sigil without inventing an organization',()=>{
+ const content=structuredClone(seedContent);content.seo.logo='/custom-sigil.svg';
+ const graph=artistGraph(content),brand=graph['@graph'].find(node=>node['@type']==='Brand');
+ assert.ok(JSON.stringify(brand).includes('https://waamb.at/custom-sigil.svg'));
+ assert.ok(JSON.stringify(graph).includes('https://waamb.at/#brand'));
+ assert.ok(!JSON.stringify(graph).includes('Organization'));
 });
 
 test('page views queue immediately, but the GA4 script waits for load and idle and respects disabling',()=>{

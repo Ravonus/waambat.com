@@ -9,6 +9,21 @@ export const HERO_MOBILE_VIDEO = "/hero/waambat-hero-mobile.mp4";
 export const HERO_LOOP = "/hero/waambat-hero-desktop-loop.mp4";
 export const HERO_MOBILE_LOOP = "/hero/waambat-hero-mobile-loop.mp4";
 
+/** Match the capped banner, including short windows and portrait art direction. */
+export function heroPosterSizes(item: Pick<Artwork, 'aspectRatio'>) {
+  const ratio = item.aspectRatio ?? 16 / 9;
+  const fit = (top: number) => `min(100vw, max(min(1600px, calc((100svh - ${top}px) * ${ratio})), min(100vw, 560px)))`;
+  return `(max-width: 767px) and (orientation: portrait) 100vw, (max-width: 767px) ${fit(0)}, ${fit(96)}, 100vw`;
+}
+
+/** The shipped montage description must not describe its replacement portrait loop. */
+export function heroDescription(item: Artwork) {
+  const old = "A moving montage of WAAMBAT's own artworks, including LUX and Kismet Twist.";
+  return item.description === old && shippedSource(item.videoSrc, HERO_LOOP)
+    ? "A seamless loop of WAAMBAT's dark self-portrait. A pale, grainy profile glows against black shadows."
+    : item.description || item.title;
+}
+
 // The default banner repeats the artist-selected self-portrait loop.
 // Everything here is ordinary section/artwork content, so the studio edits it
 // like any other item (placement, media, poster, titles, archiving).

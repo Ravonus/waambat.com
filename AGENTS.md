@@ -255,3 +255,12 @@ existing menus, logo motion, contact controls, media viewer and exact Save.
 Verify live headers and securitypolicyviolation events on every public route,
 plus deliberate blocked script/HTML probes in an isolated browser. Record
 fresh timings and distinguish those measurements from external audit scores.
+
+The hero's `sizes` must match its capped aspect-ratio box, including short windows,
+portrait art direction and high-DPI phones. Keep its measured responsive AVIF/WebP
+previews and exact originals. Its visible video directly references the current
+text alternative; never describe the old montage when the portrait loop is selected.
+The artist is a Person with a Brand and published sigil, not a fabricated Organization.
+Canvas scrollbar paints cache palette and geometry until actual theme/size changes.
+Use the pinned Scroll renderer's value-based palette cache; never resolve probe colours
+or read computed tokens on every animation frame.

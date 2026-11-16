@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/Ravonus/kerf",
   "baseRevision": "538f2dd5987a151ca0840a2b499d5b8d6db66015",
-  "branch": "fix/site-security-defaults",
+  "branch": "fix/canvas-scroll-style-cache",
   "status": "verified automatic sharp-media integration snapshot",
   "packages": {
     "@kerf-js/core": {
@@ -39,9 +39,15 @@
       "sha256": "92c26f5e3345524467f6ba06cc1dab9e6b162caf72d957388245963bda991fef",
       "size": 315448,
       "sourceRevision": "d25b4de332ead04ec3e3ac12059e83d8a0536681"
+    },
+    "@kerf-js/scroll": {
+      "file": "kerf-scroll-media-2f4ca502e788.tgz",
+      "sha256": "2f4ca502e788b80bdea0e685856f8f9c3e8f272d10b7ddb9e1abb6cae79f09f5",
+      "size": 40838,
+      "sourceRevision": "f7b41565a1ca1e66f815763d09ff6167129871e2"
     }
   },
-  "sourceRevision": "d25b4de332ead04ec3e3ac12059e83d8a0536681",
+  "sourceRevision": "f7b41565a1ca1e66f815763d09ff6167129871e2",
   "manifestAdjustments": {
     "@kerf-js/core": {
       "omittedOptionalDependencies": [

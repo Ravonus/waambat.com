@@ -10,10 +10,22 @@ import {
   activeHero,
   addDefaultHero,
   defaultHeroSection,
+  heroDescription,
   HERO_SECTION_ID,
 } from "../src/lib/hero";
 import { originalTheme, themeSchema, themeStyle } from "../src/lib/theme";
 import { videoSource } from "../src/lib/video-source";
+
+test('the portrait loop has its own text alternative while artist edits remain authoritative',()=>{
+ const item=defaultHeroSection().items[0]!;
+ item.description="A moving montage of WAAMBAT's own artworks, including LUX and Kismet Twist.";
+ assert.match(heroDescription(item),/pale, grainy profile/);
+ item.description='An artist-written description';
+ assert.equal(heroDescription(item),'An artist-written description');
+ item.description="A moving montage of WAAMBAT's own artworks, including LUX and Kismet Twist.";
+ item.videoSrc='/artist-replacement.mp4';
+ assert.equal(heroDescription(item),item.description);
+});
 
 async function stored() {
   return contentSchema.parse(
