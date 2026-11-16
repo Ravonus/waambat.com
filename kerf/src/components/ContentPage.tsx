@@ -5,6 +5,7 @@ import Archive from "./Archive";
 import SourceImage from "./SourceImage";
 import VideoEmbed from "./VideoEmbed";
 import ArtworkCard from "./ArtworkCard";
+import MediaViewer from "./MediaViewer";
 import { newTabProps } from "~/lib/new-tab";
 import type { PublicContactForm } from "~/lib/forms";
 import ContactForm from "./forms/ContactForm";
@@ -72,6 +73,13 @@ export default function ContentPage({ page, forms = [], preview = false, }: {
         previousLevel = level;
     } return levels; });
     const firstMediaId = derived(() => page.blocks.find((b) => !b.archived && (b.type === "image" || (b.type === "embed" && b.loop)))?.id);
+    const selectedMedia = state<number | null>(null);
+    const viewerItems = derived(() => page.blocks.filter(block =>
+        !block.archived && block.type === "embed" && block.loop).map(block => ({
+        id: block.id, title: block.text || page.title, video: block.src,
+        ratio: block.ratio, sourceHref: block.href || localVideo(block.src),
+    })));
+    onMount(() => watch(() => page.slug, () => { selectedMedia.value = null; }));
     const renderBlock = (block: PageBlock) => {
         const linked = linkedText(block);
         switch (block.type) {
@@ -106,7 +114,11 @@ export default function ContentPage({ page, forms = [], preview = false, }: {
           </figure>);
             case "embed":
                 if (block.loop)
-                    return (<ArtworkCard key={block.id} showCaption={false} priority={block.id === firstMediaId.value} aspect={block.aspect} ratio={block.ratio} naturalAspect={!block.ratio && !block.aspect} artwork={{
+                    return (<ArtworkCard key={block.id} suspended={selectedMedia.value !== null}
+                        onPreview={() => {
+                            const index = viewerItems.value.findIndex(item => item.id === block.id);
+                            if (index >= 0) selectedMedia.value = index;
+                        }} showCaption={false} priority={block.id === firstMediaId.value} aspect={block.aspect} ratio={block.ratio} naturalAspect={!block.ratio && !block.aspect} artwork={{
                             id: block.id,
                             title: block.text || page.title,
                             year: "",
@@ -185,7 +197,9 @@ export default function ContentPage({ page, forms = [], preview = false, }: {
           {visible.value.slice(firstImage.value).map(renderBlock)}
         </>) : (visible.value.map(renderBlock))}
       {renderedForms.value}
-    </article>)}</>;
+    </article>)}{page.layout !== "archive" && !!viewerItems.value.length &&
+        <MediaViewer items={viewerItems.value} selection={selectedMedia} id={`content-${page.slug}`}
+            label={`${page.title} video viewer`} closeLabel="Close video preview"/>}</>;
 }
 
 function ContentHeading({level,children,className}:{level:number;children:unknown;className:string}){return <>{level===1?<h1 className={className}>{children}</h1>:level===3?<h3 className={className}>{children}</h3>:<h2 className={className}>{children}</h2>}</>;}

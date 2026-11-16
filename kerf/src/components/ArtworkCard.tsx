@@ -28,7 +28,7 @@ function Poster({ artwork, priority, videoSource, onReady, concealed }: {
       <img src={source.value} srcSet={poster.value.srcSet} sizes="(max-width: 767px) calc(100vw - 40px), 960px" alt={artwork.title} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} width={poster.value.local ? 960 : undefined} height={poster.value.local ? 960 : undefined} decoding="async" className="h-full w-full object-contain"/>
     </picture>)}</>;
 }
-export default function ArtworkCard({ artwork, showCaption = true, aspect = "square", ratio, originalFlow = false, trailer = false, naturalAspect = false, priority = false, }: {
+export default function ArtworkCard({ artwork, showCaption = true, aspect = "square", ratio, originalFlow = false, trailer = false, naturalAspect = false, priority = false, onPreview, suspended = false, }: {
     artwork: Artwork;
     showCaption?: boolean;
     aspect?: "square" | "portrait";
@@ -37,11 +37,13 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     trailer?: boolean;
     naturalAspect?: boolean;
     priority?: boolean;
+    onPreview?: () => void;
+    suspended?: boolean;
 }) {
     const container = { current: null as HTMLDivElement | null | undefined };
     const video = { current: null as VideoHandle | null | undefined };
     const playing = state(false);
-    const lifecycle = useViewportPlayback(container, () => artwork.kind !== "video", (wanted) => {
+    const lifecycle = useViewportPlayback(container, () => artwork.kind !== "video" || suspended, (wanted) => {
         if (!wanted)
             video.current?.pause();
         else if (video.current?.readyState)
@@ -88,28 +90,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
             lifecycle.play();
         }
     };
-    return <>{artwork.kind === "embed" ? (<article data-save-url={artwork.videoSrc||artwork.poster} data-artwork={artwork.id} className="mb-10 text-center">
-        <h2 className="text-waambat-pink text-[22px]">{artwork.title}</h2>
-        <VideoEmbed src={artwork.videoSrc} title={artwork.title} poster={artwork.poster} ratio={ratio}/>
-        <p>{artwork.description}</p>
-        <a href={artwork.tokenLink} {...newTabProps(artwork.tokenLink)}>
-          View collection ↗
-        </a>
-      </article>) : artwork.kind === "instagram" ? <InstagramCard artwork={artwork}/> : (<article data-media-start={artwork.kind==="video"?selectedSource.value:undefined} data-save-url={artwork.videoSrc||artwork.poster} data-artwork={artwork.id} data-playback-state={error.value ? "unavailable"
-            : playing.value ? "playing"
-                : requested.value ? "paused"
-                    : "idle"} className={originalFlow ? "original-artwork text-center" : "mb-10 text-center"} style={originalFlow
-            ? ({
-                "--artwork-gap": `${artwork.precedingGap ?? 200}px`,
-            } as Record<string, string | number | undefined>)
-            : undefined}>
-      {artwork.kind !== "link" && (<div ref={node => {
-                container.current = node;
-            }} style={mediaRatio.value ? { aspectRatio: mediaRatio.value }
-                : naturalAspect
-                    ? { height: 150 }
-                    : undefined} className={`artwork-media relative w-full bg-black ${naturalAspect ? "" : aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"}`}>
-          <a href={trailer ? undefined : artwork.tokenLink} {...newTabProps(trailer ? undefined : artwork.tokenLink)} aria-label={`Open ${artwork.title} original ${artwork.kind === "image" ? "inscription" : "token"} page`} className="relative block h-full w-full">
+    const renderMedia = () => <>
             <Poster artwork={artwork} priority={priority} concealed={shownSource.value===selectedSource.value&&quality.sharp.value&&!error.value} videoSource={selectedSource.value} onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
             {artwork.kind === "video" && requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value && (<OptimizedVideo source={selectedSource.value ?? ""} width={960} height={960} poster={loadedPoster.value} key={selectedSource.value} ref={node => {
                     video.current = node;
@@ -136,7 +117,36 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
                     writeBox(playing, false);
                     writeBox(shownSource, "");
                 }} className="absolute inset-0 h-full w-full object-contain" style={{ opacity: 1 }}/>)}
-          </a>
+    </>;
+    return <>{artwork.kind === "embed" ? (<article data-save-url={artwork.videoSrc||artwork.poster} data-artwork={artwork.id} className="mb-10 text-center">
+        <h2 className="text-waambat-pink text-[22px]">{artwork.title}</h2>
+        <VideoEmbed src={artwork.videoSrc} title={artwork.title} poster={artwork.poster} ratio={ratio}/>
+        <p>{artwork.description}</p>
+        <a href={artwork.tokenLink} {...newTabProps(artwork.tokenLink)}>
+          View collection ↗
+        </a>
+      </article>) : artwork.kind === "instagram" ? <InstagramCard artwork={artwork}/> : (<article data-media-start={artwork.kind==="video"?selectedSource.value:undefined} data-save-url={artwork.videoSrc||artwork.poster} data-artwork={artwork.id} data-playback-state={error.value ? "unavailable"
+            : playing.value ? "playing"
+                : requested.value ? "paused"
+                    : "idle"} className={originalFlow ? "original-artwork text-center" : "mb-10 text-center"} style={originalFlow
+            ? ({
+                "--artwork-gap": `${artwork.precedingGap ?? 200}px`,
+            } as Record<string, string | number | undefined>)
+            : undefined}>
+      {artwork.kind !== "link" && (<div ref={node => {
+                container.current = node;
+            }} style={mediaRatio.value ? { aspectRatio: mediaRatio.value }
+                : naturalAspect
+                    ? { height: 150 }
+                    : undefined} className={`artwork-media relative w-full bg-black ${naturalAspect ? "" : aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"}`}>
+          {onPreview ? <button type="button" onClick={onPreview}
+            aria-label={`Preview ${artwork.title}`} aria-haspopup="dialog"
+            className="archive-preview relative">
+            {renderMedia()}
+            <span className="media-control archive-expand" aria-hidden="true"><MediaIcon kind="expand"/></span>
+          </button> : <a href={trailer ? undefined : artwork.tokenLink} {...newTabProps(trailer ? undefined : artwork.tokenLink)} aria-label={`Open ${artwork.title} original ${artwork.kind === "image" ? "inscription" : "token"} page`} className="relative block h-full w-full">
+            {renderMedia()}
+          </a>}
           {artwork.kind === "video" && !trailer && (<div className="painting-controls">
               <PlaybackButton playing={playing.value} title={artwork.title} onClick={toggle} error={error.value}/>
             </div>)}

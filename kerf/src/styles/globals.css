@@ -627,6 +627,8 @@ button.text-waambat-link:not(:disabled):active {
   transition: opacity 150ms;
 }
 .archive-tile:hover .archive-expand,
+.artwork-media:hover .archive-expand,
+.artwork-media:focus-within .archive-expand,
 .archive-tile:focus-within .archive-expand,
 .archive-tile:hover .inline-video-controls,
 .archive-tile:focus-within .inline-video-controls,
