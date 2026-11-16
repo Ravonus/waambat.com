@@ -162,6 +162,8 @@ test("forms share draft/archive protection and never expose notification address
   for (const href of [
     "https://objkt.com/artwork",
     "http://instagram.com/waambat",
+    "/media-originals/clip.mp4",
+    "/media-optimized/clip.webm?download=1#start",
   ])
     assert.deepEqual(newTabProps(href), {
       target: "_blank",
@@ -169,6 +171,7 @@ test("forms share draft/archive protection and never expose notification address
     });
   for (const href of [
     "/ordinals",
+    "/blog-press?watch=clip.mp4",
     "#main-content",
     "mailto:studiowaambat@gmail.com",
     undefined,

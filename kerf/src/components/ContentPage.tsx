@@ -9,6 +9,7 @@ import { newTabProps } from "~/lib/new-tab";
 import type { PublicContactForm } from "~/lib/forms";
 import ContactForm from "./forms/ContactForm";
 import SourceLink from "./SourceLink";
+import { localVideo } from "#/lib/local-media";
 function linkedText(block: PageBlock): unknown {
     function emphasized(value: string): unknown {
         const pieces: unknown[] = [];
@@ -110,7 +111,7 @@ export default function ContentPage({ page, forms = [], preview = false, }: {
                             title: block.text || page.title,
                             year: "",
                             description: "",
-                            tokenLink: block.href || block.src,
+                            tokenLink: block.href || localVideo(block.src),
                             videoSrc: block.src,
                             mobileVideoSrc: "",
                             loopSrc: "",

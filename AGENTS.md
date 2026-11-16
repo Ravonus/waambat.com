@@ -210,3 +210,8 @@ Retained archive thumbnails also use Kerf's `observeMediaViewport`. Native image
 lazy loading alone fetches several screens ahead and competes with the first
 painting. Keep their existing button, layout and caption; activate the image
 when Kerf prepares its viewport, and retain the no-script image fallback.
+
+Content video cards without an explicit destination open `localVideo(src)` in a
+new tab. Preserve authored artist/article/token links and retain source URLs as
+internal provenance for playback, preview and exact Save lookups. Local video
+files use new tabs; ordinary internal page links keep normal site navigation.
