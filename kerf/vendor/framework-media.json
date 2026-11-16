@@ -1,14 +1,14 @@
 {
   "repository": "https://github.com/Ravonus/kerf",
   "baseRevision": "538f2dd5987a151ca0840a2b499d5b8d6db66015",
-  "branch": "main",
+  "branch": "fix/site-security-defaults",
   "status": "verified automatic sharp-media integration snapshot",
   "packages": {
     "@kerf-js/core": {
-      "file": "kerf-core-media-47d2925cfaab.tgz",
-      "sha256": "47d2925cfaab724b3ade7940498421774ffba3b7a9d747f75f0390b1cf663655",
-      "size": 1116599,
-      "sourceRevision": "12b22a7329d41d8006a6dca9b11ff2bbdfd49e79"
+      "file": "kerf-core-media-bcd58e64858a.tgz",
+      "sha256": "bcd58e64858a772fcc99a9610f929710877a0750f3d6435e82fcf8d62677fadc",
+      "size": 1118091,
+      "sourceRevision": "e90b3dfd93a689e8346932dcbd36795aa25f3669"
     },
     "@kerf-js/media": {
       "file": "kerf-media-media-14d785103283.tgz",
@@ -29,19 +29,31 @@
       "sourceRevision": "888528a186b4424029115021ed606a222ed7df7c"
     },
     "@kerf-js/start": {
-      "file": "kerf-start-media-4a72f42e8103.tgz",
-      "sha256": "4a72f42e8103bc3f48e9064958a60efebada00186c3e86f467f0c9490fb86cf7",
-      "size": 344672,
-      "sourceRevision": "78ee72a37c1b6dbc712432e3582377c29e12c992"
+      "file": "kerf-start-media-9029611c97d4.tgz",
+      "sha256": "9029611c97d4822963916480400e9a7b04946b1537559a66549483f2fcd61d32",
+      "size": 345457,
+      "sourceRevision": "e90b3dfd93a689e8346932dcbd36795aa25f3669"
+    },
+    "@kerf-js/cli": {
+      "file": "kerf-cli-media-92c26f5e3345.tgz",
+      "sha256": "92c26f5e3345524467f6ba06cc1dab9e6b162caf72d957388245963bda991fef",
+      "size": 315448,
+      "sourceRevision": "d25b4de332ead04ec3e3ac12059e83d8a0536681"
     }
   },
-  "sourceRevision": "78ee72a37c1b6dbc712432e3582377c29e12c992",
+  "sourceRevision": "d25b4de332ead04ec3e3ac12059e83d8a0536681",
   "manifestAdjustments": {
     "@kerf-js/core": {
       "omittedOptionalDependencies": [
         "@kerf-js/compiler-win32-arm64"
       ],
       "reason": "No 0.1.0 package exists on npm; Windows ARM uses the bundled matching WASM compiler, as in Kerf release staging."
+    },
+    "@kerf-js/cli": {
+      "resolvedWorkspaceDependency": {
+        "create-kerf": "0.1.0"
+      },
+      "reason": "Use the same published scaffold package as the installed CLI, without workspace protocol in the vendored tarball."
     }
   }
 }

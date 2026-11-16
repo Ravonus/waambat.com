@@ -13,10 +13,14 @@ export function installMosh(): () => void {
   const burst = (target: EventTarget | null) => {
     const control = target instanceof Element ? target.closest<HTMLElement>(pressable) : null;
     if (!control || !motionAllowed()) return;
-    control.removeAttribute("data-mosh-burst");
-    // Restart the animation when the same control is pressed again quickly.
-    void control.offsetWidth;
+    const repeated = control.hasAttribute("data-mosh-burst");
     control.setAttribute("data-mosh-burst", "");
+    if (repeated) for (const animation of control.getAnimations()) {
+      if (animation instanceof CSSAnimation && animation.animationName.startsWith('waambat-mosh-')) {
+        animation.currentTime = 0;
+        animation.play();
+      }
+    }
     clearTimeout(timers.get(control));
     timers.set(
       control,

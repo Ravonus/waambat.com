@@ -218,3 +218,38 @@ Retain source URLs as internal provenance for playback, preview and exact Save
 lookups; the viewer's optional source link resolves to the local original.
 Preserve authored artist/article/token links outside these editorial previews.
 Ordinary internal page links keep normal site navigation.
+
+
+## Security, metadata and performance releases
+
+`kerf/src/lib/security.ts` owns the site's source-specific CSP and the validated
+GA4 script URL. Use Kerf Start's request-local `'nonce-{kerf}'` placeholder for
+scripts, with Trusted Types `kerf-html` plus the narrowly scoped analytics and
+Google policies. Never install a permissive default policy or add unsafe-eval.
+Do not nonce page content. Keep CSP at the response renderer and HSTS on both
+SSR responses and static files; a static response must not weaken the host's
+HSTS. The known apex/WWW endpoints redirect to verified HTTPS. The preload
+header is configured; submitting to a browser preload registry is a separate
+owner decision, not part of a routine deployment.
+
+GA4 queues committed public page views immediately and loads its one script
+after document load, at idle. Keep the admin property/off switch and privacy
+rules. There is no custom GTM container to remove. HLS is dynamically imported
+when an actual player prepares; the contact page also contains a video. Do not
+disable real artwork or remove sharp preparation just to improve coverage.
+
+Social tags and per-page JSON-LD use the published SEO values. Keep complete
+Twitter cards, the artist identity, page graphs, robots and the sitemap in
+server HTML; private/admin pages remain noindex. The current hero has no audio
+track. Its editable artwork description and pause control are the accessible
+alternative; never add an empty captions track to silence a score.
+
+Measure layout work before changing it. Preserve the cursor's immediate
+position, shape, native-control fallback and resize behavior. Its stable-target
+path moves only a compositor transform; state/class changes invalidate it.
+Restart press animations without forced offsetWidth and enable navigation
+motion across frames rather than forcing a synchronous layout. Test the
+existing menus, logo motion, contact controls, media viewer and exact Save.
+Verify live headers and securitypolicyviolation events on every public route,
+plus deliberate blocked script/HTML probes in an isolated browser. Record
+fresh timings and distinguish those measurements from external audit scores.

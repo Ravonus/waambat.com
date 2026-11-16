@@ -22,11 +22,11 @@
   },
   "dependencies": {
     "@auth/core": "0.41.3",
-    "@kerf-js/core": "file:vendor/kerf-core-media-47d2925cfaab.tgz",
+    "@kerf-js/core": "file:vendor/kerf-core-media-bcd58e64858a.tgz",
     "@kerf-js/media": "file:vendor/kerf-media-media-14d785103283.tgz",
     "@kerf-js/media-ffmpeg": "file:vendor/kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
     "@kerf-js/scroll": "0.1.0",
-    "@kerf-js/start": "file:vendor/kerf-start-media-4a72f42e8103.tgz",
+    "@kerf-js/start": "file:vendor/kerf-start-media-9029611c97d4.tgz",
     "@netlify/blobs": "11.1.4",
     "@netlify/database": "2.0.1",
     "@vimeo/player": "2.30.4",
@@ -40,7 +40,7 @@
     "@kerf-js/veneer-core": "file:vendor/kerf-veneer-core-media-231254cc148e.tgz"
   },
   "devDependencies": {
-    "@kerf-js/cli": "0.1.0",
+    "@kerf-js/cli": "file:vendor/kerf-cli-media-92c26f5e3345.tgz",
     "@tailwindcss/postcss": "4.3.3",
     "@tailwindcss/vite": "4.3.3",
     "@types/node": "26.6.6",

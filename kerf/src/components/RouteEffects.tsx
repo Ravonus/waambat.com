@@ -24,6 +24,7 @@ export default function RouteEffects() {
         let dragging = false;
         let held: CursorState | null = null;
         let active: HTMLElement | SVGElement | null = null;
+        let cachedTarget: Element | null = null, positionSensitive = false, cachedHeld: CursorState | null = null;
         let savedCursor = "", savedPriority = "";
         const overrideObserver = new MutationObserver(() => {
             // An observed application style write replaces our saved declaration.
@@ -32,6 +33,7 @@ export default function RouteEffects() {
             refresh();
         });
         const restore = () => {
+            cachedTarget = null;
             root.removeAttribute("data-waambat-cursor");
             if (overrideObserver.takeRecords().length)
                 active = null;
@@ -54,6 +56,14 @@ export default function RouteEffects() {
         const refresh = () => {
             // Read authored semantics without our suppression, then commit both the
             // shape and suppression synchronously. No rAF gap or per-route cursor.
+            // Moving inside the same non-resizable target changes only its compositor transform.
+            if (position && active && cachedTarget === active && !positionSensitive && held === cachedHeld &&
+                capability.matches && !dragging && !document.hidden && pointer.isConnected &&
+                pointer.style.opacity === "1" && pointer.matches(":popover-open") &&
+                active.style.cursor === "none" && document.elementFromPoint(position.x, position.y) === active) {
+                pointer.style.transform = `translate3d(${position.x}px,${position.y}px,0)`;
+                return;
+            }
             restore();
             try {
                 if (!position ||
@@ -76,6 +86,7 @@ export default function RouteEffects() {
                     hide();
                     return;
                 }
+                positionSensitive = getComputedStyle(target).resize !== "none";
                 const shape = cursorShapes[state];
                 ink.style.maskImage = shape.mask;
                 ink.style.width = `${shape.width}px`;
@@ -110,8 +121,8 @@ export default function RouteEffects() {
                     target.style.setProperty("cursor", "none", "important");
                     overrideObserver.takeRecords();
                 }
-                if (getComputedStyle(target).cursor !== "none")
-                    hide();
+                if (getComputedStyle(target).cursor !== "none") hide();
+                else { cachedTarget = target; cachedHeld = held; }
             }
             catch {
                 hide();
@@ -130,6 +141,7 @@ export default function RouteEffects() {
             refresh();
         };
         const down = (event: PointerEvent) => {
+            cachedTarget = null;
             move(event);
             pointer.dataset.pressed = "";
             const state = pointer.dataset.cursorState as CursorState;
@@ -140,6 +152,7 @@ export default function RouteEffects() {
             }
         };
         const up = (event: PointerEvent) => {
+            cachedTarget = null;
             held = null;
             delete pointer.dataset.pressed;
             move(event);
@@ -174,6 +187,7 @@ export default function RouteEffects() {
             refresh();
         };
         const observer = new MutationObserver((records) => {
+            cachedTarget = null;
             if (records.some((r) => r.type === "attributes" && r.attributeName === "open"))
                 layer();
             else
@@ -183,7 +197,7 @@ export default function RouteEffects() {
             subtree: true,
             childList: true,
             attributes: true,
-            attributeFilter: ["open", "hidden", "disabled", "aria-disabled", "inert"],
+            attributeFilter: ["open", "hidden", "disabled", "aria-disabled", "inert", "class", "contenteditable"],
         });
         // Capture also covers stopped propagation, SVG children and disabled controls.
         document.addEventListener("pointermove", move, {

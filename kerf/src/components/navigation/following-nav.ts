@@ -29,8 +29,7 @@ export function mountFollowingNav(header: HTMLElement, chrome: HTMLElement, dock
     flag("data-nav-ready", desktop.matches);
     motionFrame = requestAnimationFrame(() => {
       // Settle the initial fixed padding before enabling compact/expanded motion.
-      chrome.getBoundingClientRect();
-      flag('data-nav-animate', true);
+      motionFrame = requestAnimationFrame(() => flag('data-nav-animate', true));
     });
   };
   const update = () => {

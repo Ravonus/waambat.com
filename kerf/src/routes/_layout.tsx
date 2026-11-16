@@ -1,3 +1,4 @@
+import {artistMeta} from '#/lib/site-settings';
 import Analytics from '#/components/Analytics';
 import type {LoadArgs,RouteProps,Meta} from '@kerf-js/start';
 import {indexableSite} from '#/lib/seo';
@@ -19,7 +20,7 @@ import '#/styles/globals.css';
 import '#/styles/navigation.css';
 import '#/styles/effects.css';
 export const load=async({request}:LoadArgs)=>{if(!new URL(request.url).pathname.startsWith('/admin'))await requirePreviewAccess(request);return {content:shellContent(await getPublicContent(request)),analyticsAllowed:indexableSite()};};
-export const meta:Meta<typeof load>=({data})=>({extra:[...(!indexableSite()?[{name:'robots',content:'noindex, nofollow'}]:[]),...(data.content.integrations.googleSiteVerification?[{name:'google-site-verification',content:data.content.integrations.googleSiteVerification}]:[])]});
+export const meta:Meta<typeof load>=({data})=>({extra:[...artistMeta,...(!indexableSite()?[{name:'robots',content:'noindex, nofollow'}]:[]),...(data.content.integrations.googleSiteVerification?[{name:'google-site-verification',content:data.content.integrations.googleSiteVerification}]:[])]});
 export default function Root(props:RouteProps<typeof load>){
  const hero=derived(()=>activeHero(props.data.content,'nfts'));
  const theme=derived(()=>themeStyle(props.data.content.theme));

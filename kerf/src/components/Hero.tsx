@@ -80,13 +80,14 @@ export default function Hero({ section, item, preview = false, }: {
             lifecycle.play();
         }
     };
-    return (<section aria-label={section.title} className={styles.hero} data-hero data-media-start={source.value} data-save-url={item.videoSrc||item.poster} data-playback-state={error.value ? "unavailable"
+    return (<section aria-label={section.title} aria-describedby={`hero-description-${item.id}`} className={styles.hero} data-hero data-media-start={source.value} data-save-url={item.videoSrc||item.poster} data-playback-state={error.value ? "unavailable"
             : playing.value ? "playing"
                 : requested.value ? "paused"
                     : "idle"} style={{
             "--hero-ratio": ratio.value,
             "--hero-ratio-mobile": mobileRatio.value,
         } as Record<string, string | number | undefined>}>
+      <p id={`hero-description-${item.id}`} className="sr-only">{item.description || item.title} Silent video artwork; use the playback control to pause the motion.</p>
       <div ref={node => {
             frame.current = node;
         }} className={styles.frame}>

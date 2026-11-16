@@ -52,6 +52,7 @@ export function Cart({ items, taxRate }: {
     Loading and errors: `<Boundary pending={…} error={(e, retry) => …}>`.
 
 **Leave props untyped**: `kerf docs props`.
+Media: install media + media-ffmpeg; render ?media records with Core Media for automatic sharp previews and bounded caching. See `kerf docs media`.
 
 ## API in kerf@0.1.0
 
@@ -72,6 +73,10 @@ Before a change is done, see it work (`kerf browser snapshot|act|assert`, or `__
 
 Before publishing, set `build.audit.indexing` (`public` or `private`) and audit the deployed URL: `kerf audit --url <url> --indexing public`. Never drop a private noindex for a score.
 
+Before release, configure a source-specific `site.security` CSP with `script-src 'nonce-{kerf}' 'strict-dynamic'`. Trusted Types uses `kerf-html` plus narrowly validated app policies. Never nonce arbitrary page HTML, add unsafe-eval or a permissive default policy. Test live headers, navigation, streaming, forms, media and Save under enforcement. HSTS subdomains/preload need owner-approved HTTPS scope. Read `kerf docs config`.
+
+Trace layout before changing it: batch reads before writes, defer decoders until preparation/playback and third parties until after paint. Verify complete social cards, published page JSON-LD, robots and sitemap. Describe silent artwork; captions must match actual audio. Never add empty tracks or remove content for a score.
+
 ## Full stack
 
 `@kerf-js/start` app: file routes in `src/routes` (`_layout.tsx`, `[id].tsx`, `load`, `meta`), server functions in `src/server/**` or `*.server.ts`. Import your own code as `#/server/todos` (`src/server/todos`); generated files are `kerf:slot/<id>` and `kerf:tokens/<name>`.
@@ -83,6 +88,7 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 - **Auth:** `ctx.user` is the user or `null`; `auth: 'user'` refuses anyone else (A002), `{ role: 'admin' }` or `{ can: (ctx) => … }` the wrong user (A006). With auth on, mutations need a signed-in user unless `auth: 'public'` (sign-in, sign-up, sign-out). Guard pages with `redirect('/login')` in a layout's `load`; `run` still checks who owns a row. Sessions live in the database; pages cache them 5 minutes in a signed cookie (`session.cookieCache`). JWTs are API-only (`api: { functions }`).
 - **Never** copy query results into `state`, import `db` from a component (Q012), `fetch` `/_kerf/*`, or poll (`todos.live()`; rooms: `channel`).
 - **Navigation:** chrome shared by sections (sidebar, tabs) goes in the one layout above them, following `currentPath()`: a per-section `_layout.tsx` is replaced on each move. Route changes show a skeleton from the page's markup; `export const skeleton = Named` (plain markup, class and data-* only) overrides it.
+- **Shared marks:** match `data-kerf-shared` keys; add `data-kerf-shared-fit="text"` for text. Start captures before the optimistic path swap. Respect reduced motion; never add a delayed logo clone around `navigate`.
 - **Every page sets `meta` as you build it**, from `data` and `params`: `kerf docs meta`.
 
 ## Styling
@@ -102,14 +108,6 @@ Before publishing, set `build.audit.indexing` (`public` or `private`) and audit 
 | `kerf test` | The test gate on the diff (`--gate`) | fs:.kerf/gate |
 | `kerf browser` | Drive the running app in any open browser by role/label/text (`kerf browser help`) | network:dev-server, fs:.kerf/browser |
 | `kerf run` | Run a project task by name | task |
-| `kerf run media.previews` | Build sharp measured display previews with Kerf while preserving exact originals | fs:public/display-previews/**, fs:src/content/display-previews.json, fs:.kerf/display-preview-cache/** |
-| `kerf run media.starts` | Encode lossless visible previews for videos with black opening frames | fs:public/video-previews/**, fs:src/content/first-frames.json, fs:media/first-frame-manifest.json, fs:.kerf/media-preview-cache/** |
-| `kerf run site.verify` | Audit all public SSR routes at phone and desktop widths using one temporary production server | network:localhost, fs:.kerf/audit/** |
-| `kerf run build.prepare` | Restore verified media and generate the lightweight image delivery index | network, fs:public/**, fs:src/content/image-media.json, fs:src/content/video-previews.json, fs:.kerf/** |
-| `kerf run media.restore` | Restore the hash-verified public media release | network, fs:public/**, fs:.kerf/** |
-| `kerf run contracts` | Exercise content, storage concurrency, security and media contracts | network:localhost, fs:/tmp/** |
-| `kerf run media.prepare` | Acquire public originals and verify lossless image and video variants | network, fs:public/media-*/**, fs:src/content/*.json, fs:media/**, fs:.kerf/media-cache/** |
-| `kerf run build.stamp` | Record deploy revision and isolate preview content stores | fs:src/content/build-stamp.json |
 
 `kerf tasks --json` lists the rest.
 
