@@ -26,7 +26,7 @@
     "@kerf-js/media": "file:vendor/kerf-media-media-14d785103283.tgz",
     "@kerf-js/media-ffmpeg": "file:vendor/kerf-media-ffmpeg-media-39c7fe6451c9.tgz",
     "@kerf-js/scroll": "0.1.0",
-    "@kerf-js/start": "file:vendor/kerf-start-media-1babbabd7f5f.tgz",
+    "@kerf-js/start": "file:vendor/kerf-start-media-4a72f42e8103.tgz",
     "@netlify/blobs": "11.1.4",
     "@netlify/database": "2.0.1",
     "@vimeo/player": "2.30.4",

@@ -200,3 +200,8 @@ image delivery index. Exact source frames, encoding receipts and static-image
 records stay in build/server modules. Do not import the full `display-previews.json`
 or `first-frames.json` into a browser component; they substantially increase the
 critical module graph. Source-frame provenance is in `source-frame.server.ts`.
+
+Kerf Start owns priority-artwork startup: code is prefetched while the sharp SSR
+image loads, then hydration follows its first paint. Captured interaction wakes
+startup immediately and a failed-resource deadline prevents a blocked app. Keep
+this shared behavior; do not add an app-owned hydration delay.
