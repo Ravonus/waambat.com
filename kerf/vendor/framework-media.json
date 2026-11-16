@@ -29,13 +29,13 @@
       "sourceRevision": "888528a186b4424029115021ed606a222ed7df7c"
     },
     "@kerf-js/start": {
-      "file": "kerf-start-media-35261fefb2be.tgz",
-      "sha256": "35261fefb2be9214e3d2adba76ffcd04551cf563fdc10a8141cdda2fef6c94ff",
-      "size": 342755,
-      "sourceRevision": "6434d7830053d50d302c38c37399916089ca95cf"
+      "file": "kerf-start-media-a7f7fac9f835.tgz",
+      "sha256": "a7f7fac9f835dfca5d819443535011a06723890070bf7e41103dc42411223d64",
+      "size": 344105,
+      "sourceRevision": "72fa4469b08a45a40e952e19de2dff5976c43e10"
     }
   },
-  "sourceRevision": "6bfa3ea018a79d16f50540b6a5fa763dbe00ee57",
+  "sourceRevision": "72fa4469b08a45a40e952e19de2dff5976c43e10",
   "manifestAdjustments": {
     "@kerf-js/core": {
       "omittedOptionalDependencies": [
