@@ -105,18 +105,11 @@ button.text-waambat-link:not(:disabled):active {
    CSS itself restores native behavior if the cursor is removed or closed. */
 @layer waambat-cursor {
   @media (hover: hover) and (pointer: fine) {
-    html[data-waambat-cursor="active"]:has(.waambat-cursor:popover-open),
-    html[data-waambat-cursor="active"]:has(.waambat-cursor:popover-open) *,
-    html[data-waambat-cursor="active"]:has(.waambat-cursor:popover-open)
-      *::before,
-    html[data-waambat-cursor="active"]:has(.waambat-cursor:popover-open)
-      *::after,
-    html[data-waambat-cursor="active"]:has(.waambat-cursor:popover-open)
-      dialog::backdrop {
-      cursor: none !important;
-    }
-    html[data-waambat-cursor="active"]:has(.waambat-cursor:popover-open)
-      *::-webkit-resizer {
+    html:has(.waambat-cursor:popover-open) [data-waambat-cursor-target],
+    html:has(.waambat-cursor:popover-open) [data-waambat-cursor-target]::before,
+    html:has(.waambat-cursor:popover-open) [data-waambat-cursor-target]::after,
+    html:has(.waambat-cursor:popover-open) [data-waambat-cursor-target]::backdrop,
+    html:has(.waambat-cursor:popover-open) [data-waambat-cursor-target]::-webkit-resizer {
       cursor: none !important;
     }
   }

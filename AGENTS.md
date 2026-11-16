@@ -247,6 +247,8 @@ alternative; never add an empty captions track to silence a score.
 Measure layout work before changing it. Preserve the cursor's immediate
 position, shape, native-control fallback and resize behavior. Its stable-target
 path moves only a compositor transform; state/class changes invalidate it.
+Scope native cursor suppression to the hovered element; a universal root
+selector forces style recalculation across the entire gallery.
 Restart press animations without forced offsetWidth and enable navigation
 motion across frames rather than forcing a synchronous layout. Test the
 existing menus, logo motion, contact controls, media viewer and exact Save.
