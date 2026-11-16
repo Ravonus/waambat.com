@@ -1,12 +1,12 @@
 import {derived,onMount,state} from '@kerf-js/core';
 import type {MediaAsset} from '@kerf-js/core/media';
-import {firstFrame} from '#/lib/first-frame';
+import {firstFramePreview} from '#/lib/first-frame';
 import {useViewportPlayback} from './useViewportPlayback';
 type Props={src:string;asset:MediaAsset;alt:string;eager:boolean;className:string;sizes:string};
 /** Native animated-image delivery starts after its sharp still and stops when it leaves view. */
 export default function MotionImage(props:Props){
  const image={current:null as HTMLImageElement|null|undefined},readyFor=state('');
- const lifecycle=useViewportPlayback(image),preview=derived(()=>firstFrame(props.src));
+ const lifecycle=useViewportPlayback(image),preview=derived(()=>firstFramePreview(props.src));
  const active=derived(()=>lifecycle.wanted.value&&readyFor.value===props.src);
  const shown=derived(()=>active.value?props.asset:preview.value??props.asset);
  const loaded=()=>{

@@ -1,4 +1,4 @@
-import {firstFrame} from '#/lib/first-frame';
+import {firstFramePreview} from '#/lib/first-frame';
 import VideoStill from './VideoStill';
 import OptimizedVideo,{type VideoHandle} from './OptimizedVideo';
 import {useAdaptiveVideo} from './useAdaptiveVideo';
@@ -17,7 +17,7 @@ export default function VideoEmbed({ src, title, poster = "", activated = false,
     const loadedSource = state.linked<string | null>(() => activated ? src : null);
     const loaded = derived(() => loadedSource.value === src);
     const target = derived(() => videoSource(src));
-    const hasFirstFrame=derived(()=>!!firstFrame(src));
+    const hasFirstFrame=derived(()=>!!firstFramePreview(src));
     // Provider-restricted Vimeo sources reject the player; show the poster and the original
     // link (as the inline tiles do) instead of Vimeo's own error page.
     const frame = state<HTMLIFrameElement | null>(null);

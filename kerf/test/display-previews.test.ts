@@ -1,8 +1,9 @@
+import { firstFrame } from "../src/lib/source-frame.server";
 import test from "node:test";
 import assert from "node:assert/strict";
 import frames from "../src/content/first-frames.json";
 import display from "../src/content/display-previews.json";
-import { firstFrame, firstFramePreview, videoRevealTime } from "../src/lib/first-frame";
+import { firstFramePreview, videoRevealTime } from "../src/lib/first-frame";
 import downloads from "../src/content/media-downloads.json";
 import { resolveMediaDownload } from "../src/lib/media-download";
 test("every retained movie has a sharp measured delivery preview at its original opening timestamp", () => {

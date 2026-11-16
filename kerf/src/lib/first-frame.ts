@@ -1,27 +1,15 @@
-import records from "#/content/first-frames.json";
-import delivery from "#/content/display-previews.json";
+import records from "#/content/video-previews.json";
 import type { MediaAsset } from "@kerf-js/core/media";
-type FirstFrameAsset = MediaAsset & {
-  startup?: { blank: true; revealAt: number; preview?: MediaAsset };
+type Preview = Pick<MediaAsset, "src" | "type" | "width" | "height" | "sources"> & {
+  revealAt?: number;
 };
-const catalog = records as {
-  sources: Record<string, string>;
-  assets: Record<string, FirstFrameAsset>;
-};
-/** A sharp, measured first frame; the original movie remains a separate save asset. */
-export function firstFrame(source: string | undefined) {
+const catalog = records as { sources: Record<string, string>; assets: Record<string, Preview> };
+/** Only the selected responsive display picture is part of the browser's playback contract. */
+export function firstFramePreview(source: string | undefined) {
   return catalog.assets[catalog.sources[source ?? ""] ?? ""];
 }
-/** Kerf's measured display preview is separate from the retained exact frame and original Save. */
-export function firstFramePreview(source: string | undefined) {
-  const asset = firstFrame(source);
-  const id = catalog.sources[source ?? ""];
-  const preview = (delivery.frames as Record<string, { asset: MediaAsset }>)[id ?? ""];
-  if (preview) return preview.asset;
-  return asset?.startup?.blank ? asset.startup.preview : asset;
-}
 export function videoRevealTime(source: string | undefined) {
-  return firstFrame(source)?.startup?.revealAt ?? 0;
+  return firstFramePreview(source)?.revealAt ?? 0;
 }
 export function firstFramePoster(source: string | undefined, fallback: string) {
   const asset = firstFramePreview(source);

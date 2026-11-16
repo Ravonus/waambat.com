@@ -192,3 +192,9 @@ to the current artwork. Do not reset quality on pause or scroll return.
 deployments do not need the local scorer or FFmpeg. Re-run real cold mobile
 Lighthouse on all eight routes after publishing. Kerf's accessibility/SEO/layout
 audit is a different gate and must never be reported as a performance score.
+
+Browser video helpers import only `video-previews.json`, generated alongside the
+image delivery index. Exact source frames, encoding receipts and static-image
+records stay in build/server modules. Do not import the full `display-previews.json`
+or `first-frames.json` into a browser component; they substantially increase the
+critical module graph. Source-frame provenance is in `source-frame.server.ts`.

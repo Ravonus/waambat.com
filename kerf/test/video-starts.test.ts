@@ -1,13 +1,9 @@
+import { firstFrame } from "../src/lib/source-frame.server";
 import test from "node:test";
 import assert from "node:assert/strict";
 import sharp from "sharp";
 import frames from "../src/content/first-frames.json";
-import {
-  firstFrame,
-  firstFramePreview,
-  firstFramePoster,
-  videoRevealTime,
-} from "../src/lib/first-frame";
+import { firstFramePreview, firstFramePoster, videoRevealTime } from "../src/lib/first-frame";
 import { leadingBlackEnd } from "../scripts/media/video-start.mjs";
 
 test("only the leading black interval can delay the initial reveal", () => {
