@@ -205,3 +205,8 @@ Kerf Start owns priority-artwork startup: code is prefetched while the sharp SSR
 image loads, then hydration follows its first paint. Captured interaction wakes
 startup immediately and a failed-resource deadline prevents a blocked app. Keep
 this shared behavior; do not add an app-owned hydration delay.
+
+Retained archive thumbnails also use Kerf's `observeMediaViewport`. Native image
+lazy loading alone fetches several screens ahead and competes with the first
+painting. Keep their existing button, layout and caption; activate the image
+when Kerf prepares its viewport, and retain the no-script image fallback.
