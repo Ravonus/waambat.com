@@ -60,10 +60,10 @@ export default function MediaViewer({ items, selection, id, label, closeLabel }:
       {!!item.value && <div className="archive-viewer-content">
         <div className="archive-viewer-media"
           style={{ aspectRatio: ratio.value, "--viewer-ratio": ratio.value }}>
-          {item.value.video
-            ? <VideoEmbed key={item.value.id} src={item.value.video} title={item.value.title}
-                poster={item.value.image ?? ""} activated ratio={ratio.value} compact />
-            : <SourceImage src={item.value.image ?? ""} alt={item.value.title} eager
+          {item.value?.video
+            ? <VideoEmbed key={item.value?.id} src={item.value?.video ?? ""} title={item.value?.title ?? ""}
+                poster={item.value?.image ?? ""} activated ratio={ratio.value} compact />
+            : <SourceImage src={item.value?.image ?? ""} alt={item.value?.title ?? ""} eager
                 className="h-full w-full object-contain" />}
         </div>
         <div className="my-5 flex justify-center gap-6">
@@ -74,10 +74,10 @@ export default function MediaViewer({ items, selection, id, label, closeLabel }:
           <button type="button" onClick={() => select(index.value! + 1)} aria-label="Next artwork">next</button>
         </div>
         <p id={`${id}-info`} hidden={!info.value} className="text-center whitespace-pre-line">
-          {item.value.title}{item.value.description ? `\n${item.value.description}` : ""}
+          {item.value?.title}{item.value?.description ? `\n${item.value.description}` : ""}
         </p>
-        {item.value.sourceHref && info.value && <p className="text-center text-sm">
-          <a href={item.value.sourceHref} target="_blank" rel="noopener noreferrer">Open original source ↗</a>
+        {item.value?.sourceHref && info.value && <p className="text-center text-sm">
+          <a href={item.value?.sourceHref} target="_blank" rel="noopener noreferrer">Open original source ↗</a>
         </p>}
       </div>}
     </dialog>
