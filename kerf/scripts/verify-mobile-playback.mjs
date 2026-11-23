@@ -7,7 +7,7 @@ const origin = process.argv[2] || 'http://localhost:3287';
 const results = [];
 const browser = await webkit.launch({headless: true});
 try {
-  for (const mode of ['managed-cold-start', 'pending-posters', 'blocked-autoplay']) {
+  for (const mode of ['managed-cold-start', 'pending-posters', 'blocked-autoplay', 'restored-scroll']) {
     const context = await browser.newContext({
       viewport: {width: 390, height: 844}, deviceScaleFactor: 3,
       isMobile: true, hasTouch: true, reducedMotion: 'no-preference',
@@ -27,7 +27,6 @@ try {
       pendingPosters.push(route);
     });
     await page.addInitScript(mode => {
-      Object.defineProperty(window, 'MediaSource', {value: undefined, configurable: true});
       window.__mobilePlayback = {managed: 0, blocked: 0};
       if (mode === 'managed-cold-start') {
         const Original = window.ManagedMediaSource;
@@ -91,11 +90,34 @@ try {
     const hero = await check('[data-hero] video', '[data-hero]');
     await page.locator('article.original-artwork').first().scrollIntoViewIfNeeded();
     const gallery = await check('article.original-artwork video', 'article.original-artwork');
+    let restored;
+    if (mode === 'restored-scroll') {
+      const card = page.locator('article.original-artwork[data-media-start]').nth(5);
+      const id = await card.getAttribute('data-artwork');
+      await card.locator('.artwork-media').evaluate(element => {
+        const box = element.getBoundingClientRect();
+        scrollTo({top: scrollY + box.top - innerHeight + box.height * .35, behavior: 'instant'});
+      });
+      await page.waitForFunction(id => {
+        const video = document.querySelector(`[data-artwork="${id}"] video`);
+        return video && !video.paused && video.currentTime > .15;
+      }, id);
+      const position = await page.evaluate(() => scrollY);
+      await page.reload({waitUntil: 'domcontentloaded'});
+      // No scrolling or clicks after reload: browser restoration must be enough.
+      await page.waitForFunction(({id, position}) => {
+        const video = document.querySelector(`[data-artwork="${id}"] video`);
+        return Math.abs(scrollY - position) < 32 && video && !video.paused && video.currentTime > .15;
+      }, {id, position});
+      restored = await read(`[data-artwork="${id}"] video`);
+      assert.equal(restored.delivery, 'native-hls');
+      assert.ok(restored.autoplay && restored.muted && restored.inline);
+    }
     const counters = await page.evaluate(() => window.__mobilePlayback);
     assert.equal(counters.managed, 0, 'Managed-only iPhones must bypass the stalled JS transport');
     assert.deepEqual(errors, []);
     if (mode === 'pending-posters') assert.ok(pendingPosters.length > 0);
-    results.push({mode, hero, gallery, counters, pendingPosters: pendingPosters.length});
+    results.push({mode, hero, gallery, restored, counters, pendingPosters: pendingPosters.length});
     await Promise.allSettled(pendingPosters.map(route => route.abort()));
     await context.unrouteAll({behavior: 'ignoreErrors'});
     await context.close();

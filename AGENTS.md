@@ -157,17 +157,19 @@ entries hidden by version 1; it never reapplies after later artist edits.
 Start legacy-gallery warming from `NavigationArrival` after the committed route mounts.
 An optimistic pathname change can still have the outgoing DOM; scanning it warms the
 wrong page. Keep using Kerf's shared bounded queue and `mediaHlsConfig`.
-Use `preferNativeHls` before importing the controlled HLS player. Managed-only
-iPhones use the pinned native playlist: hls.js 1.6.15 can stall on their cold start
-without a fatal error. Classic MediaSource browsers retain controlled buffering;
-native-only browsers also skip that import. Do not equate supported managed streaming
-with the preferred transport. Intermediate attachment failures must advance
+Use `preferNativeHls` before importing the controlled HLS player. Apple browsers
+with ManagedMediaSource use the pinned native playlist, including those also
+exposing classic MediaSource. Capability overlap must not force the
+HLS JavaScript decoder into their startup. Other classic MediaSource browsers
+retain controlled buffering; native-only browsers also skip that import. Do not
+equate supported managed streaming with the preferred transport. Intermediate attachment failures must advance
 through the pinned-playlist/native-file fallbacks before showing an unavailable message.
 An explicit Play must retry a blocked autoplay synchronously in the user gesture,
 even when desired playback was already true and `readyState` is still zero. Preserve
 visibility, manual pause, reduced motion, Save Data, menu and foreground gates. Verify
-fresh-load hero and gallery playback, blocked-autoplay recovery, and return navigation;
-desktop WebKit checks are not evidence of playback on a physical iPhone.
+fresh-load hero and gallery playback, blocked-autoplay recovery, restored scroll
+positions and return navigation; desktop WebKit checks are not evidence of
+playback on a physical iPhone.
 Conditional `OptimizedVideo` placements use `videoRef()` from `useAdaptiveVideo`.
 The attachment watcher tracks both the source and the reactive player reference:
 a ready source can precede its DOM node, and a player can be replaced without a
@@ -287,3 +289,8 @@ The artist is a Person with a Brand and published sigil, not a fabricated Organi
 Canvas scrollbar paints cache palette and geometry until actual theme/size changes.
 Use the pinned Scroll renderer's value-based palette cache; never resolve probe colours
 or read computed tokens on every animation frame.
+
+Gallery playback uses the same 10% visibility threshold as the hero. A partially
+visible artwork on a restored page must not wait for a scroll-away/return cycle.
+The mobile playback check reloads midway through a gallery with a painting only
+35% visible and requires playback without another scroll or click.

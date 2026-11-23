@@ -62,8 +62,8 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
   video.addEventListener('error',onNativeError,true);
   void (async()=>{
    if(!stream){fallback();return;}
-   // Keep controlled buffering with classic MSE. Managed-only iPhones use the
-   // pinned native playlist, avoiding a player cold-start stall with no fatal error.
+   // Apple browsers may offer both classic and managed streaming. Use their
+   // pinned native playlist immediately; other MSE browsers keep bounded buffering.
    if(preferNativeHls(video)||!supportsMediaStreaming()){void nativeFallback();return;}
    try{
     const {default:Player}=await import('hls.js/light');
