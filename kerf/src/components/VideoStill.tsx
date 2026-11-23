@@ -1,6 +1,7 @@
 import { derived, onMount, watch, state } from "@kerf-js/core";
 import { observeMediaViewport } from "@kerf-js/media/browser";
 import { firstFramePreview } from "#/lib/first-frame";
+import {inlineHeroCover} from "#/lib/hero-cover";
 import { paintingPoster } from "#/lib/painting-source";
 import images from "#/content/image-media.json";
 import type { MediaAsset } from "@kerf-js/core/media";
@@ -39,8 +40,12 @@ export default function VideoStill(props: Props) {
       image?.naturalWidth ? image.currentSrc : undefined,
     );
   };
+  const inlineDesktop=derived(()=>props.priority?inlineHeroCover(desktop.value):undefined);
+  const inlineMobile=derived(()=>props.priority?inlineHeroCover(mobile.value):undefined);
+  const coverSet=(asset: typeof desktop.value | typeof fallbackAsset.value)=>
+    asset?.sources.find(item=>item.type==='image/webp')?.srcset ?? asset?.sources.at(-1)?.srcset;
   const still = derived(
-    () => desktop.value?.src || fallbackAsset.value?.src || props.fallback || "",
+    () => inlineDesktop.value || desktop.value?.src || fallbackAsset.value?.src || props.fallback || "",
   );
   // Report a settled still so an attached native player can reuse its cached URL.
   // Player mounting and source attachment run independently of image completion.
@@ -92,7 +97,7 @@ export default function VideoStill(props: Props) {
       image?.removeEventListener("kerf:prepare-poster", prepare);
     };
   });
-  const render = (enabled: () => boolean, live = true) => (
+  const render = () => (
     <picture
       class="block h-full w-full"
       style={{
@@ -102,80 +107,33 @@ export default function VideoStill(props: Props) {
         opacity: props.concealed ? 0 : 1,
       }}
     >
-      {props.mobileSource &&
-        props.media &&
-        ((mobile.value ?? mobileFallback.value)?.sources.length ? (
-          (mobile.value ?? mobileFallback.value)!.sources.map((item) => (
-            <source
-              key={item.type}
-              type={item.type}
-              srcSet={enabled() ? item.srcset : undefined}
-              media={props.media}
-              sizes={props.sizes ?? "100vw"}
-            />
-          ))
-        ) : (
-          <source
-            srcSet={
-              enabled()
-                ? (mobileFallback.value?.src ?? props.mobileFallback ?? props.fallback)
-                : undefined
-            }
-            media={props.media}
-          />
-        ))}
-      {(desktop.value ?? fallbackAsset.value)?.sources.length
-        ? (desktop.value ?? fallbackAsset.value)!.sources
-            .slice(0, -1)
-            .map((item) => (
-              <source
-                key={item.type}
-                type={item.type}
-                srcSet={enabled() ? item.srcset : undefined}
-                sizes={props.sizes ?? "(max-width: 767px) calc(100vw - 40px), 960px"}
-              />
-            ))
-        : fallback.value.avif && (
-            <source
-              type="image/avif"
-              srcSet={enabled() ? fallback.value.avif : undefined}
-              sizes={props.sizes ?? "(max-width: 767px) calc(100vw - 40px), 960px"}
-            />
-          )}
+      {props.mobileSource && props.media && <source
+        type={inlineMobile.value || (mobile.value ?? mobileFallback.value)?.sources.some(item=>item.type==='image/webp') ? 'image/webp' : undefined}
+        srcSet={inlineMobile.value || coverSet(mobile.value ?? mobileFallback.value) || mobile.value?.src || mobileFallback.value?.src || props.mobileFallback || props.fallback}
+        media={props.media} sizes={props.sizes ?? '100vw'}/>}
       {still.value && (
         <img
           ref={(node) => {
-            if (live) image = node;
+            image = node;
           }}
           data-save-source={props.source}
           data-video-first-frame
-          src={enabled() ? still.value : undefined}
-          srcSet={
-            enabled()
-              ? ((desktop.value ?? fallbackAsset.value)?.sources.at(-1)?.srcset ??
-                fallback.value.srcSet)
-              : undefined
-          }
+          src={still.value}
+          srcSet={inlineDesktop.value ? undefined : coverSet(desktop.value ?? fallbackAsset.value) ?? fallback.value.srcSet}
           sizes={props.sizes ?? "(max-width: 767px) calc(100vw - 40px), 960px"}
           width={desktop.value?.width ?? fallbackAsset.value?.width ?? 960}
           height={desktop.value?.height ?? fallbackAsset.value?.height ?? 960}
           alt={props.alt}
           className={props.className ?? "h-full w-full object-contain"}
-          loading={props.priority ? "eager" : "lazy"}
-          fetchPriority={props.priority ? "high" : "low"}
+          loading={props.priority || active.value ? "eager" : "lazy"}
+          fetchPriority={props.priority ? "high" : "auto"}
           decoding={props.priority ? "sync" : "async"}
-          onLoad={live ? notify : undefined}
-          onError={live ? notify : undefined}
+          onLoad={notify}
+          onError={notify}
         />
       )}
     </picture>
   );
-  return (
-    <>
-      {render(() => active.value)}
-      {typeof window === "undefined" && !props.priority && (
-        <noscript>{render(() => true, false)}</noscript>
-      )}
-    </>
-  );
+  // Native lazy loading discovers the current cover before JavaScript initializes.
+  return render();
 }

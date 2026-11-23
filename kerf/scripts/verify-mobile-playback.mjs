@@ -7,7 +7,7 @@ const origin = process.argv[2] || 'http://localhost:3287';
 const results = [];
 const browser = await webkit.launch({headless: true});
 try {
-  for (const mode of ['managed-cold-start', 'pending-posters', 'blocked-autoplay', 'restored-scroll', 'deferred-frame-callback', 'native-prestart-pause', 'pending-master', 'classic-cold-start']) {
+  for (const mode of ['managed-cold-start', 'pending-posters', 'blocked-autoplay', 'initial-scroll', 'deferred-frame-callback', 'native-prestart-pause', 'pending-master', 'classic-cold-start']) {
     const context = await browser.newContext({
       viewport: {width: 390, height: 844}, deviceScaleFactor: 3,
       isMobile: true, hasTouch: true, reducedMotion: 'no-preference',
@@ -25,7 +25,7 @@ try {
       await route.fulfill({response, headers});
     });
     if (mode === 'pending-master') await page.route('**/streams/**/master.m3u8', route => { pendingPosters.push(route); });
-    if (mode === 'pending-posters') await page.route('**/display-previews/**', route => {
+    if (mode === 'pending-posters') await page.route(/\/(?:display-previews|video-previews|media-optimized)\/(?:first|preview)-/, route => {
       pendingPosters.push(route);
     });
     await page.addInitScript(mode => {
@@ -106,7 +106,8 @@ try {
     await page.locator('article.original-artwork').first().scrollIntoViewIfNeeded();
     const gallery = await check('article.original-artwork video', 'article.original-artwork');
     let restored;
-    if (mode === 'restored-scroll') {
+    if (mode === 'initial-scroll') {
+      await page.waitForLoadState('load');
       const card = page.locator('article.original-artwork[data-media-start]').nth(5);
       const id = await card.getAttribute('data-artwork');
       await card.locator('.artwork-media').evaluate(element => {
@@ -118,8 +119,14 @@ try {
         return video && !video.paused && video.currentTime > .15;
       }, id);
       const position = await page.evaluate(() => scrollY);
+      // Seed the saved offset before first paint. Automation WebKit can reset
+      // native history offsets on reload; this case tests player startup at the
+      // existing viewport, without any post-load pointer or scroll interaction.
+      await page.addInitScript(top => addEventListener('DOMContentLoaded', () => {
+        scrollTo({top, behavior:'instant'});
+      }, {once:true}), position);
       await page.reload({waitUntil: 'domcontentloaded'});
-      // No scrolling or clicks after reload: browser restoration must be enough.
+      // No scrolling or clicks after reload: the initial viewport must be enough.
       await page.waitForFunction(({id, position}) => {
         const video = document.querySelector(`[data-artwork="${id}"] video`);
         return Math.abs(scrollY - position) < 32 && video && !video.paused && video.currentTime > .15;

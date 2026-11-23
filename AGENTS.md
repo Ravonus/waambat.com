@@ -313,3 +313,14 @@ settings to compare actual rendered hero/gallery pixels a second apart. It saves
 a report and bounded screenshots in `.kerf/audit/`; a moving playback clock alone
 does not prove the artwork is visible. Keep the priority SSR picture eager/high
 and decode it synchronously so client startup does not postpone its first paint.
+
+Video covers use WebP first and keep their `src`/`srcset` in server HTML. Native
+lazy loading discovers the current image before the client runtime; Kerf's
+predictor may promote the next cover to eager, but must not remove the source or
+make a visible cover wait for JavaScript. Do not reinstate AVIF-first negotiation
+for these covers. The shipped hero embeds its verified 8.8/9.7 KB WebP frames via
+Vite `?inline` imports. Match them by immutable preview URL so an artist replacement
+keeps its own image. Do not cover the still with an opaque, unready native video.
+Run `node scripts/verify-cover-first.mjs <origin>`: it disables JavaScript and
+requires the phone/desktop hero and a gallery cover to decode independently of
+the player. Keep measured AVIF/frame encoding and original-file Save unchanged.

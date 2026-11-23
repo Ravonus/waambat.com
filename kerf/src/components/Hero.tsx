@@ -94,7 +94,7 @@ export default function Hero({ section, item, preview = false, }: {
         <VideoStill source={item.videoSrc||""} mobileSource={item.mobileVideoSrc} media={PORTRAIT_PHONE} fallback={adaptivePoster(item.poster)} mobileFallback={item.mobilePoster?adaptivePoster(item.mobilePoster):undefined} alt={item.title} priority concealed={(shown.value&&introQuality.sharp.value)||(loopShown.value&&loopQuality.sharp.value)} className={styles.poster} sizes={heroPosterSizes(item)} onReady={(_,poster)=>{loadedPoster.value=poster;}}/>
         {playable.value && requested.value && sourceReady.value && !error.value && (<OptimizedVideo source={source.value ?? ""} width={1920} height={1080} ref={node => {
                 video.current = node;
-            }} poster={loadedPoster.value} muted loop={!loopSource.value} playsInline preload="none" aria-label={item.title} aria-describedby={`hero-description-${item.id}`} data-shown="true" data-done={loopShown.value&&loopQuality.sharp.value?'true':undefined} className={styles.video} onLoadedData={() => {
+            }} poster={loadedPoster.value} muted loop={!loopSource.value} playsInline preload="none" aria-label={item.title} aria-describedby={`hero-description-${item.id}`} data-shown={shown.value&&introQuality.sharp.value?'true':undefined} data-done={loopShown.value&&loopQuality.sharp.value?'true':undefined} className={styles.video} onLoadedData={() => {
                 if (lifecycle.desired.current && phase.value === "intro")
                     void video.current?.play().catch(() => writeBox(playing, false));
             }} onPlaying={() => writeBox(shown, true)} onPlay={() => {
