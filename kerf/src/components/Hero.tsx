@@ -2,14 +2,14 @@ import Sigil from './Sigil';
 import {heroPosterSizes,heroDescription} from '#/lib/hero';
 import VideoStill from './VideoStill';
 import {firstFramePoster} from '#/lib/first-frame';
-import OptimizedVideo, {type VideoHandle} from './OptimizedVideo';
+import OptimizedVideo from './OptimizedVideo';
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
 import SiteLink from "./navigation/SiteLink";
 import type { Artwork, Content } from "~/lib/content";
 import { PlaybackButton } from "./MediaControls";
 import { useViewportPlayback } from "./useViewportPlayback";
-import { useAdaptiveVideo } from "./useAdaptiveVideo";
+import { useAdaptiveVideo, videoRef } from "./useAdaptiveVideo";
 import { useMediaPreference } from "./useMediaPreference";
 import { adaptivePoster } from "~/lib/adaptive-media";
 import styles from "./Hero.module.css";
@@ -33,8 +33,8 @@ export default function Hero({ section, item, preview = false, }: {
         if (document.documentElement.hasAttribute('data-kerf-shared-active'))
             frame.current?.closest('[data-hero]')?.setAttribute('data-brand-arrival', 'shared');
     });
-    const video = { current: null as VideoHandle | null | undefined };
-    const endless = { current: null as VideoHandle | null | undefined };
+    const video = videoRef();
+    const endless = videoRef();
     const mobile = useMediaPreference(PORTRAIT_PHONE);
     const sourceReady = derived(() => mobile.value !== undefined);
     const playing = state(false);

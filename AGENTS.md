@@ -168,6 +168,12 @@ even when desired playback was already true and `readyState` is still zero. Pres
 visibility, manual pause, reduced motion, Save Data, menu and foreground gates. Verify
 fresh-load hero and gallery playback, blocked-autoplay recovery, and return navigation;
 desktop WebKit checks are not evidence of playback on a physical iPhone.
+Conditional `OptimizedVideo` placements use `videoRef()` from `useAdaptiveVideo`.
+The attachment watcher tracks both the source and the reactive player reference:
+a ready source can precede its DOM node, and a player can be replaced without a
+URL change. A plain `{current: null}` reference plus a source-only watcher misses
+both cases and can leave the video unattached. Keep the delayed-mount/replacement
+regression in `test/mobile-playback.test.ts` alongside the transport checks.
 Run `node scripts/verify-mobile-playback.mjs <origin>` from `kerf/` with Playwright
 and its WebKit browser installed (`PLAYWRIGHT_MODULE` may name an external module).
 It checks a stalled managed-source startup and separately blocks autoplay on each

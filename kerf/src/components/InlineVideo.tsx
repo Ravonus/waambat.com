@@ -1,11 +1,11 @@
 import VideoStill from './VideoStill';
-import OptimizedVideo, {type VideoHandle} from './OptimizedVideo';
+import OptimizedVideo from './OptimizedVideo';
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
 import {playbackSource as videoSource} from "~/lib/playback-source";
 import { youtubeAPI } from "~/lib/youtube-api";
 import { useViewportPlayback } from "./useViewportPlayback";
-import {useAdaptiveVideo} from "./useAdaptiveVideo";
+import {useAdaptiveVideo,videoRef} from "./useAdaptiveVideo";
 import { PlaybackButton } from "./MediaControls";
 type Controls = {
     play: () => void;
@@ -21,7 +21,7 @@ export default function InlineVideo({ src, poster, title, suspended = false, pri
 }) {
     const container = { current: null as HTMLDivElement | null | undefined };
     const frame = { current: null as HTMLIFrameElement | null | undefined };
-    const native = { current: null as VideoHandle | null | undefined };
+    const native = videoRef();
     const controls = { current: null as (Controls | null) | null | undefined };
     const playing = state(false);
     const stillReadyFor = state("");

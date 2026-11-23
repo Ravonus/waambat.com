@@ -1,6 +1,6 @@
 import VideoStill from './VideoStill';
-import OptimizedVideo,{type VideoHandle} from './OptimizedVideo';
-import {useAdaptiveVideo} from './useAdaptiveVideo';
+import OptimizedVideo from './OptimizedVideo';
+import {useAdaptiveVideo,videoRef} from './useAdaptiveVideo';
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
 import type { Artwork } from "~/lib/content";
@@ -21,7 +21,7 @@ export default function OrdinalPiece({ artwork, priority = false, }: {
     priority?: boolean;
 }) {
     const container = { current: null as HTMLDivElement | null | undefined };
-    const video = { current: null as VideoHandle | null | undefined };
+    const video = videoRef();
     const interact = { current: null as HTMLButtonElement | null | undefined };
     const live = state(false);
     const shown = state(false);

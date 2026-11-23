@@ -8,12 +8,17 @@ import {adaptiveStream} from '#/lib/adaptive-media';
 import {adaptiveVideoConfig, preferNativeHls} from '#/lib/adaptive-video-config';
 import {videoRevealTime} from '#/lib/first-frame';
 
+/** A conditional player can mount or be replaced after its source is ready. */
+export function videoRef():RefObject<VideoHandle>{
+ const element=state<VideoHandle|null|undefined>(null);
+ return {get current(){return element.value;},set current(value){element.value=value;}};
+}
+
 /** Keep a sharp still until display-quality video is ready; pauses never reset its rendition. */
 export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|undefined,wanted:()=>boolean,preload:boolean|(()=>boolean)=false){
  const controller={current:null as Hls|null},ready={current:false},sharp=state(false);
  const shouldLoad=()=>wanted()||(typeof preload==='function'?preload():preload);
- onMount(()=>watch(source,src=>{
-  const video=ref.current;
+ onMount(()=>watch(()=>[source(),ref.current] as const,([src,video])=>{
   if(!src||!video)return;
   sharp.value=false;
   if(!(video instanceof HTMLVideoElement)){sharp.value=true;return;}

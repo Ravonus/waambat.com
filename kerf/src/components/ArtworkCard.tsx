@@ -1,5 +1,5 @@
 import VideoStill from './VideoStill';
-import OptimizedVideo, {type VideoHandle} from './OptimizedVideo';
+import OptimizedVideo from './OptimizedVideo';
 import { state, derived, onMount, watch, onCleanup } from "@kerf-js/core";
 import { update as writeBox } from "#/lib/reactive";
 import type { Artwork } from "~/lib/content";
@@ -8,7 +8,7 @@ import VideoEmbed from "./VideoEmbed";
 import { useViewportPlayback } from "./useViewportPlayback";
 import { PlaybackButton, MediaIcon } from "./MediaControls";
 import { newTabProps } from "~/lib/new-tab";
-import { useAdaptiveVideo } from "./useAdaptiveVideo";
+import { useAdaptiveVideo, videoRef } from "./useAdaptiveVideo";
 import { useMediaPreference, useSaveData } from "./useMediaPreference";
 import { adaptivePoster, adaptivePreview } from "~/lib/adaptive-media";
 import { paintingPoster } from "~/lib/painting-source";
@@ -41,7 +41,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     suspended?: boolean;
 }) {
     const container = { current: null as HTMLDivElement | null | undefined };
-    const video = { current: null as VideoHandle | null | undefined };
+    const video = videoRef();
     const playing = state(false);
     const lifecycle = useViewportPlayback(container, () => artwork.kind !== "video" || suspended, (wanted) => {
         if (!wanted)
