@@ -4,7 +4,7 @@ import type Hls from 'hls.js';
 import type {VideoHandle} from './OptimizedVideo';
 import type {RefObject} from './useViewportPlayback';
 import {localVideo} from '#/lib/local-media';
-import {adaptiveStream} from '#/lib/adaptive-media';
+import {adaptiveStream,adaptiveRendition} from '#/lib/adaptive-media';
 import {adaptiveVideoConfig, preferNativeHls} from '#/lib/adaptive-video-config';
 import {videoRevealTime} from '#/lib/first-frame';
 
@@ -30,11 +30,14 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
   const inspect=(presentedTime=video.currentTime)=>{
    const width=Number(video.dataset.mediaWidth)||0,height=Number(video.dataset.mediaHeight)||0;
    if(video.readyState>=2&&video.videoWidth>=width&&video.videoHeight>=height&&presentedTime>=videoRevealTime(src))sharp.value=true;
-   else if(!video.paused&&typeof video.requestVideoFrameCallback==='function')schedule();
   };
   const schedule=()=>{
-   if(cancelled||frameRequest!==undefined||sharp.value)return;
-   if(typeof video.requestVideoFrameCallback==='function')frameRequest=video.requestVideoFrameCallback((_now,metadata)=>{frameRequest=undefined;inspect(metadata.mediaTime);});
+   if(cancelled||sharp.value)return;
+   // HAVE_CURRENT_DATA plus decoded dimensions is a clear frame even when an
+   // occluded iOS layer postpones its compositor callback behind the still.
+   if(video.readyState>=2&&video.videoWidth>0&&video.videoHeight>0&&video.currentTime>=1/30)inspect();
+   if(frameRequest!==undefined||sharp.value)return;
+   if(typeof video.requestVideoFrameCallback==='function')frameRequest=video.requestVideoFrameCallback((_now,metadata)=>{frameRequest=undefined;inspect(metadata.mediaTime);if(!sharp.value&&!video.paused)schedule();});
    else inspect();
   };
   for(const event of ['playing','resize','loadeddata','timeupdate'])video.addEventListener(event,schedule);
@@ -47,8 +50,10 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
    if(!nativeUsed&&stream&&video.canPlayType('application/vnd.apple.mpegurl')){
     nativeUsed=true;destroy();delete video.dataset.mediaWidth;delete video.dataset.mediaHeight;
     try{
-     const box=dimensions(),playlist=await mediaStartPlaylist(stream,box.width,box.height,devicePixelRatio);
+     const box=dimensions(),selected=adaptiveRendition(src,box.width,box.height,devicePixelRatio);
+     const playlist=selected?.url??await mediaStartPlaylist(stream,box.width,box.height,devicePixelRatio);
      if(cancelled)return;
+     if(selected){video.dataset.mediaWidth=String(selected.width);video.dataset.mediaHeight=String(selected.height);}
      video.src=playlist;video.dataset.delivery='native-hls';play();
     }catch{fallback();}
    }else fallback();
@@ -62,8 +67,8 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
   video.addEventListener('error',onNativeError,true);
   void (async()=>{
    if(!stream){fallback();return;}
-   // Apple browsers may offer both classic and managed streaming. Use their
-   // pinned native playlist immediately; other MSE browsers keep bounded buffering.
+   // Preserve the controlled path when classic streaming is available. Managed-only
+   // phones attach their build-selected native playlist without a master lookup.
    if(preferNativeHls(video)||!supportsMediaStreaming()){void nativeFallback();return;}
    try{
     const {default:Player}=await import('hls.js/light');

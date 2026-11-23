@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {preferNativeHls} from '../src/lib/adaptive-video-config';
+import {preferNativeHls,adaptiveVideoConfig} from '../src/lib/adaptive-video-config';
 import {createRoot,flush,state} from '@kerf-js/core';
 import {useAdaptiveVideo,videoRef} from '../src/components/useAdaptiveVideo';
 import type {VideoHandle} from '../src/components/OptimizedVideo';
@@ -9,14 +9,15 @@ const native = {canPlayType: () => 'maybe' as CanPlayTypeResult};
 const unsupported = {canPlayType: () => '' as CanPlayTypeResult};
 class StreamingSource {}
 
-test('native HLS stays first on Apple browsers with either or both streaming APIs', () => {
+test('native HLS stays first on managed-only iPhones and native-only browsers', () => {
   assert.equal(preferNativeHls(native, {ManagedMediaSource: StreamingSource}), true);
-  assert.equal(preferNativeHls(native, {MediaSource: StreamingSource, ManagedMediaSource: StreamingSource}), true);
   assert.equal(preferNativeHls(native, {}), true);
 });
 
 test('classic MSE retains bounded controlled playback; managed streaming remains available without native HLS', () => {
+  assert.equal(adaptiveVideoConfig.preferManagedMediaSource,false,'The controlled path must not silently reselect the managed transport');
   assert.equal(preferNativeHls(native, {MediaSource: StreamingSource}), false);
+  assert.equal(preferNativeHls(native, {MediaSource: StreamingSource, ManagedMediaSource: StreamingSource}), false);
   assert.equal(preferNativeHls(unsupported, {ManagedMediaSource: StreamingSource}), false);
 });
 
@@ -52,4 +53,32 @@ test('a ready source attaches when its conditional player arrives, and reattache
     if(descriptor)Object.defineProperty(globalThis,'HTMLVideoElement',descriptor);
     else Reflect.deleteProperty(globalThis,'HTMLVideoElement');
   }
+});
+
+test('a decoded clear frame reveals playback when compositor callbacks are deferred',()=>{
+ class NativeVideo extends EventTarget{
+  dataset:Record<string,string>={mediaWidth:'960',mediaHeight:'960'};
+  src='';paused=false;readyState=2;currentTime=.2;autoplay=false;
+  width=960;height=960;clientWidth=350;clientHeight=350;videoWidth=640;videoHeight=640;
+  pause(){this.paused=true;}play(){this.paused=false;return Promise.resolve();}load(){}
+  removeAttribute(name:string){if(name==='src')this.src='';}
+  requestVideoFrameCallback(){return 1;}cancelVideoFrameCallback(){}
+ }
+ const descriptor=Object.getOwnPropertyDescriptor(globalThis,'HTMLVideoElement');
+ Object.defineProperty(globalThis,'HTMLVideoElement',{configurable:true,value:NativeVideo});
+ const ref=videoRef();let dispose=()=>{},quality:ReturnType<typeof useAdaptiveVideo>|undefined;
+ try{
+  createRoot(cleanup=>{dispose=cleanup;quality=useAdaptiveVideo(ref,()=>'/__qa/clear.mp4',()=>true)});flush();
+  const video=new NativeVideo();ref.current=video as unknown as VideoHandle;flush();
+  // Native file fallback has no HLS dimensions; impose the chosen display rung.
+  video.dataset.mediaWidth='960';video.dataset.mediaHeight='960';
+  video.dispatchEvent(new Event('loadeddata'));flush();
+  assert.equal(quality!.sharp.value,false,'An undersized decode must keep the sharp still');
+  video.videoWidth=video.videoHeight=960;
+  video.currentTime=0;video.dispatchEvent(new Event('loadeddata'));flush();
+  assert.equal(quality!.sharp.value,false,'Keep the still during the initial native layer handoff');
+  video.currentTime=.2;
+  video.dispatchEvent(new Event('timeupdate'));flush();
+  assert.equal(quality!.sharp.value,true,'A deferred compositor callback must not hold the still over clear moving video');
+ }finally{dispose();flush();if(descriptor)Object.defineProperty(globalThis,'HTMLVideoElement',descriptor);else Reflect.deleteProperty(globalThis,'HTMLVideoElement')}
 });

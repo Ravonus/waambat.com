@@ -85,7 +85,7 @@ provider (`target:100`, `scorer:'none'`, no blur placeholder). Keep this provena
 of the same frame. When an opening is black, the measured black-opening exception below uses a
 separate lossless preview from that same original.
 Playback pins the display-sized HLS rendition before loading any segment. Network
-hints must not force a blurry starting rendition. Reveal video only after a presented
+hints must not force a blurry starting rendition. Reveal video only after a decoded or presented
 frame reaches the chosen dimensions; `playing` alone is insufficient. Keep that
 rendition and source through pause, scroll return and loop restart. Native HLS uses
 the selected single-rendition playlist. Warm the actual responsive playback source
@@ -157,12 +157,15 @@ entries hidden by version 1; it never reapplies after later artist edits.
 Start legacy-gallery warming from `NavigationArrival` after the committed route mounts.
 An optimistic pathname change can still have the outgoing DOM; scanning it warms the
 wrong page. Keep using Kerf's shared bounded queue and `mediaHlsConfig`.
-Use `preferNativeHls` before importing the controlled HLS player. Apple browsers
-with ManagedMediaSource use the pinned native playlist, including those also
-exposing classic MediaSource. Capability overlap must not force the
-HLS JavaScript decoder into their startup. Other classic MediaSource browsers
-retain controlled buffering; native-only browsers also skip that import. Do not
-equate supported managed streaming with the preferred transport. Intermediate attachment failures must advance
+Use `preferNativeHls` before importing the controlled HLS player. Managed-only
+phones use pinned native HLS; classic MSE keeps controlled playback even if the
+browser also exposes ManagedMediaSource. Set `preferManagedMediaSource:false`
+on that controlled player: hls.js otherwise silently prefers the managed API. Do not switch every Apple browser to a
+new delivery path as a speed fix. Build preparation generates
+`stream-renditions.json` from verified local playlists. `adaptiveRendition` uses
+Kerf's display-quality selection to attach the native playlist synchronously;
+foreground startup must not depend on a low-priority warm fetch and its timeout.
+Intermediate attachment failures must advance
 through the pinned-playlist/native-file fallbacks before showing an unavailable message.
 An explicit Play must retry a blocked autoplay synchronously in the user gesture,
 even when desired playback was already true and `readyState` is still zero. Preserve
@@ -206,7 +209,7 @@ pipelines. Exact acquired originals and original-file Save metadata never change
 
 Only the route's first visible media gets eager/high priority. Do not promote a
 below-the-fold image because it is the first image after a video. Keep the sharp
-picture above its native video until a presented full-size frame is ready; the
+picture above its native video until a decoded full-size frame is ready; the
 video itself can show its cached poster from attachment. `useAdaptiveVideo` marks
 foreground preparation for Kerf's shared background queue, so speculation yields
 to the current artwork. Do not reset quality on pause or scroll return.
@@ -294,3 +297,19 @@ Gallery playback uses the same 10% visibility threshold as the hero. A partially
 visible artwork on a restored page must not wait for a scroll-away/return cycle.
 The mobile playback check reloads midway through a gallery with a painting only
 35% visible and requires playback without another scroll or click.
+
+A predicted start may be paused by the native browser before the element enters
+view. Actual visibility must retry playback even if prediction already set
+`wanted=true`. A pageshow/foreground return also retries an eligible player;
+manual Pause, reduced motion, Save Data, menu and foreground gates still win.
+Do not hold an opaque poster over a clear video while waiting indefinitely for
+requestVideoFrameCallback. HAVE_CURRENT_DATA, decoded dimensions and the authored
+opening timestamp provide a fallback when compositor callbacks are deferred.
+The mobile check covers a paused prestart, page restoration, deferred callbacks,
+a pending master lookup, and visible poster removal as well as clock progress.
+
+Run `node scripts/verify-visible-motion.mjs <origin>` with the same Playwright
+settings to compare actual rendered hero/gallery pixels a second apart. It saves
+a report and bounded screenshots in `.kerf/audit/`; a moving playback clock alone
+does not prove the artwork is visible. Keep the priority SSR picture eager/high
+and decode it synchronously so client startup does not postpone its first paint.

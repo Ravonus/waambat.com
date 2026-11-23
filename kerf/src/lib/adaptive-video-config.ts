@@ -1,9 +1,11 @@
 // Keep custom legacy streams on Kerf's shared bounded playback policy.
-export { mediaHlsConfig as adaptiveVideoConfig } from '@kerf-js/media/browser';
+import {mediaHlsConfig} from '@kerf-js/media/browser';
+// Managed-only native playback is selected before loading hls.js. The controlled
+// path must not silently switch back to ManagedMediaSource when both APIs exist.
+export const adaptiveVideoConfig={...mediaHlsConfig,preferManagedMediaSource:false};
 
 type StreamingBrowser = {MediaSource?: unknown; ManagedMediaSource?: unknown};
-/** Apple browsers can expose both streaming APIs; their native HLS avoids a decoder bootstrap. */
+/** Managed-only iPhones use native HLS; classic MSE retains controlled buffering. */
 export function preferNativeHls(video: Pick<HTMLMediaElement, 'canPlayType'>, browser: StreamingBrowser = globalThis) {
-  return !!video.canPlayType('application/vnd.apple.mpegurl') &&
-    (typeof browser.MediaSource !== 'function' || typeof browser.ManagedMediaSource === 'function');
+  return typeof browser.MediaSource !== 'function' && !!video.canPlayType('application/vnd.apple.mpegurl');
 }

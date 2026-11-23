@@ -7,28 +7,39 @@ const origin = process.argv[2] || 'http://localhost:3287';
 const results = [];
 const browser = await webkit.launch({headless: true});
 try {
-  for (const mode of ['managed-cold-start', 'pending-posters', 'blocked-autoplay', 'restored-scroll']) {
+  for (const mode of ['managed-cold-start', 'pending-posters', 'blocked-autoplay', 'restored-scroll', 'deferred-frame-callback', 'native-prestart-pause', 'pending-master', 'classic-cold-start']) {
     const context = await browser.newContext({
       viewport: {width: 390, height: 844}, deviceScaleFactor: 3,
       isMobile: true, hasTouch: true, reducedMotion: 'no-preference',
+      ignoreHTTPSErrors: new URL(origin).hostname === 'localhost' && new URL(origin).protocol === 'https:',
     });
     const page = await context.newPage(), errors = [], pendingPosters = [];
     page.on('pageerror', error => errors.push(error.message));
     // Production headers stay intact. Local HTTP has no TLS endpoint for WebKit's
     // upgrade-insecure-requests; remove just that directive on local documents.
-    if (new URL(origin).hostname === 'localhost') await page.route('**/*', async route => {
+    if (new URL(origin).hostname === 'localhost' && new URL(origin).protocol === 'http:') await page.route('**/*', async route => {
       if (route.request().resourceType() !== 'document') return route.continue();
       const response = await route.fetch(), headers = response.headers();
       if (headers['content-security-policy']) headers['content-security-policy'] =
         headers['content-security-policy'].replace(/;?\s*upgrade-insecure-requests/g, '');
       await route.fulfill({response, headers});
     });
+    if (mode === 'pending-master') await page.route('**/streams/**/master.m3u8', route => { pendingPosters.push(route); });
     if (mode === 'pending-posters') await page.route('**/display-previews/**', route => {
       pendingPosters.push(route);
     });
     await page.addInitScript(mode => {
+      if (mode !== 'classic-cold-start') Object.defineProperty(window, 'MediaSource', {value: undefined, configurable: true});
+      if (mode === 'deferred-frame-callback') {
+        let id = 0; HTMLVideoElement.prototype.requestVideoFrameCallback = function () {return ++id;};
+        HTMLVideoElement.prototype.cancelVideoFrameCallback = function () {};
+      }
+      if (mode === 'native-prestart-pause') {
+        const hint = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'autoplay');
+        Object.defineProperty(HTMLMediaElement.prototype, 'autoplay', {...hint, set() {hint.set.call(this, false);}});
+      }
       window.__mobilePlayback = {managed: 0, blocked: 0};
-      if (mode === 'managed-cold-start') {
+      if (mode === 'managed-cold-start' || mode === 'classic-cold-start') {
         const Original = window.ManagedMediaSource;
         if (!Original) throw new Error('This check requires WebKit ManagedMediaSource');
         class ColdSource extends Original {
@@ -79,12 +90,16 @@ try {
         return v && v.currentTime > .15 && !v.paused && v.readyState >= 2;
       }, selector);
       const state = await read(selector);
-      assert.equal(state.delivery, 'native-hls');
-      assert.ok(state.source.endsWith('.m3u8'));
+      assert.equal(state.delivery, mode === 'classic-cold-start' ? 'adaptive-hls' : 'native-hls');
+      assert.ok(mode === 'classic-cold-start' ? state.source.startsWith('blob:') : state.source.endsWith('.m3u8'));
       assert.ok(state.width >= 640 && state.height >= 640, 'Keep the sharp rendition');
       assert.ok(state.muted && state.inline);
       assert.ok(state.defaultMuted);
-      if (mode !== 'blocked-autoplay') assert.ok(state.autoplay);
+      if (mode !== 'blocked-autoplay' && mode !== 'native-prestart-pause') assert.ok(state.autoplay);
+      await page.waitForFunction(container => {
+        const el = document.querySelector(container), picture = el?.querySelector('picture');
+        return picture && getComputedStyle(picture).opacity === '0';
+      }, container);
       return state;
     };
     const hero = await check('[data-hero] video', '[data-hero]');
@@ -112,6 +127,24 @@ try {
       restored = await read(`[data-artwork="${id}"] video`);
       assert.equal(restored.delivery, 'native-hls');
       assert.ok(restored.autoplay && restored.muted && restored.inline);
+    }
+    if (mode === 'native-prestart-pause') {
+      const card = page.locator('article.original-artwork[data-media-start]').nth(5);
+      await card.locator('.artwork-media').evaluate(el => {const b = el.getBoundingClientRect(); scrollTo({top: scrollY + b.top - innerHeight - 24, behavior: 'instant'});});
+      // Native WebKit may already have paused the predicted offscreen start.
+      await page.waitForFunction(el => {const v=el.querySelector('video');return v && v.readyState >= 2;}, await card.elementHandle());
+      await card.locator('video').evaluate(v => v.pause());
+      await card.scrollIntoViewIfNeeded();
+      await page.waitForFunction(el => {const v=el.querySelector('video');return !v.paused && v.currentTime > .15;}, await card.elementHandle());
+      // A browser-level pause on a restored page also needs a retry without changing visibility.
+      await card.locator('video').evaluate(v => v.pause());
+      await page.evaluate(() => dispatchEvent(new PageTransitionEvent('pageshow', {persisted: true})));
+      await page.waitForFunction(el => !el.querySelector('video').paused, await card.elementHandle());
+      await card.getByRole('button', {name: /^Pause /}).click();
+      await page.waitForFunction(el => el.querySelector('video').paused, await card.elementHandle());
+      await page.evaluate(() => dispatchEvent(new PageTransitionEvent('pageshow', {persisted: true})));
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(resolve)));
+      assert.equal(await card.locator('video').evaluate(v => v.paused), true, 'An explicit Pause stays authoritative after page restoration');
     }
     const counters = await page.evaluate(() => window.__mobilePlayback);
     assert.equal(counters.managed, 0, 'Managed-only iPhones must bypass the stalled JS transport');

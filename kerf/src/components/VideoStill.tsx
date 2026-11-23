@@ -163,7 +163,7 @@ export default function VideoStill(props: Props) {
           className={props.className ?? "h-full w-full object-contain"}
           loading={props.priority ? "eager" : "lazy"}
           fetchPriority={props.priority ? "high" : "low"}
-          decoding="async"
+          decoding={props.priority ? "sync" : "async"}
           onLoad={live ? notify : undefined}
           onError={live ? notify : undefined}
         />
