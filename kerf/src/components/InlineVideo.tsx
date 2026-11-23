@@ -20,11 +20,11 @@ export default function InlineVideo({ src, poster, title, suspended = false, pri
     priority?: boolean;
 }) {
     const container = { current: null as HTMLDivElement | null | undefined };
-    const frame = { current: null as HTMLIFrameElement | null | undefined };
+    const iframe = state<HTMLIFrameElement|null>(null);
+    const frame = {get current(){return iframe.value;},set current(node:HTMLIFrameElement|null){iframe.value=node;}};
     const native = videoRef();
     const controls = { current: null as (Controls | null) | null | undefined };
     const playing = state(false);
-    const stillReadyFor = state("");
     const loadedPoster = state<string|undefined>(undefined);
     const error = state(false);
     const lifecycle = useViewportPlayback(container, () => suspended, (wanted) => {
@@ -37,7 +37,7 @@ export default function InlineVideo({ src, poster, title, suspended = false, pri
     const provider = derived(() => target.value?.provider);
     const source = derived(() => target.value?.player);
     const direct = derived(() => target.value?.direct);
-    const quality=useAdaptiveVideo(native,()=>direct.value&&lifecycle.requested.value&&stillReadyFor.value===src&&!error.value?src:undefined,()=>lifecycle.wanted.value,()=>lifecycle.preparing.value);
+    const quality=useAdaptiveVideo(native,()=>direct.value&&lifecycle.requested.value&&!error.value?src:undefined,()=>lifecycle.wanted.value,()=>lifecycle.preparing.value);
     // Read-only, on-demand browser QA. No timer, media polling or control API is
     // exposed. The sample comes from the provider SDK, rather than UI state.
     onMount(() => watch(() => [], () => {
@@ -55,8 +55,8 @@ export default function InlineVideo({ src, poster, title, suspended = false, pri
         element?.addEventListener("waambat:inspect-playback", inspect);
         return () => element?.removeEventListener("waambat:inspect-playback", inspect);
     }));
-    onMount(() => watch(() => [lifecycle.requested.value, lifecycle.desired, source.value, provider.value, direct.value, stillReadyFor.value], () => {
-        if (!lifecycle.requested.value || stillReadyFor.value!==src || !source.value || direct.value)
+    onMount(() => watch(() => [lifecycle.requested.value, lifecycle.desired, source.value, provider.value, direct.value, frame.current], () => {
+        if (!lifecycle.requested.value || !source.value || direct.value)
             return;
         const element = frame.current;
         if (!element)
@@ -174,8 +174,8 @@ export default function InlineVideo({ src, poster, title, suspended = false, pri
             destroy?.();
         };
     }));
-    onMount(() => watch(() => [direct.value, lifecycle.requested.value, lifecycle.wanted.value, stillReadyFor.value], () => {
-        if (!direct.value || !lifecycle.requested.value || stillReadyFor.value!==src)
+    onMount(() => watch(() => [direct.value, lifecycle.requested.value, lifecycle.wanted.value, native.current], () => {
+        if (!direct.value || !lifecycle.requested.value)
             return;
         // The <video> mounts in the same update that runs this watch, so its ref may
         // not be attached yet: read it at call time, never capture it here.
@@ -209,9 +209,9 @@ export default function InlineVideo({ src, poster, title, suspended = false, pri
     return (<div ref={node => {
             container.current = node;
         }} className="inline-video" data-save-url={src} data-inline-provider={provider.value} data-playback-state={error.value ? "unavailable" : playing.value ? "playing" : "paused"}>
-      <VideoStill source={src} fallback={poster} alt="" priority={priority} concealed={!error.value&&(direct.value?quality.sharp.value:playing.value)} className="absolute inset-0 h-full w-full object-contain" onReady={(source,poster)=>{loadedPoster.value=poster;stillReadyFor.value=source;}}/>
+      <VideoStill source={src} fallback={poster} alt="" priority={priority} concealed={!error.value&&(direct.value?quality.sharp.value:playing.value)} className="absolute inset-0 h-full w-full object-contain" onReady={(_,poster)=>{loadedPoster.value=poster;}}/>
       {lifecycle.requested.value &&
-            !error.value && source.value && stillReadyFor.value===src &&
+            !error.value && source.value &&
             (direct.value ? (<OptimizedVideo source={src} width={960} height={540} ref={node => {
                     native.current = node;
                 }} poster={loadedPoster.value} muted loop playsInline preload="none" style={{opacity:1}} className="absolute inset-0 h-full w-full object-contain" onLoadedData={() => {

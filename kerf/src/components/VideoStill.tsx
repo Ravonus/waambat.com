@@ -42,9 +42,8 @@ export default function VideoStill(props: Props) {
   const still = derived(
     () => desktop.value?.src || fallbackAsset.value?.src || props.fallback || "",
   );
-  // Ready means the still settled, either way: a load or error that finished before
-  // hydration attached onLoad/onError must still release the movie. With no still
-  // at all there is nothing to wait for.
+  // Report a settled still so an attached native player can reuse its cached URL.
+  // Player mounting and source attachment run independently of image completion.
   onMount(() =>
     watch(
       () => [

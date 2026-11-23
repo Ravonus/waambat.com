@@ -95,7 +95,7 @@ export default function VideoEmbed({ src, title, poster = "", activated = false,
 
 function DirectPlayer({source,poster,onError}:{source:string;poster:string;onError:()=>void}){
  const player=videoRef();
- const ready=state(false),loadedPoster=state<string|undefined>(undefined);
- const quality=useAdaptiveVideo(player,()=>ready.value?source:undefined,()=>true);
- return <div className="relative h-full w-full"><VideoStill source={source} fallback={poster} alt="" priority concealed={quality.sharp.value} className="absolute inset-0 h-full w-full object-contain" onReady={(_,url)=>{loadedPoster.value=url;ready.value=true;}}/>{ready.value&&<OptimizedVideo source={source} width={960} height={540} ref={node=>player.current=node} poster={loadedPoster.value} controls autoPlay playsInline preload="none" style={{opacity:1}} className="absolute inset-0 h-full w-full object-contain" onError={onError}/>}</div>;
+ const loadedPoster=state<string|undefined>(undefined);
+ const quality=useAdaptiveVideo(player,()=>source,()=>true);
+ return <div className="relative h-full w-full"><VideoStill source={source} fallback={poster} alt="" priority concealed={quality.sharp.value} className="absolute inset-0 h-full w-full object-contain" onReady={(_,url)=>{loadedPoster.value=url;}}/>{<OptimizedVideo source={source} width={960} height={540} ref={node=>player.current=node} poster={loadedPoster.value} controls autoPlay playsInline preload="none" style={{opacity:1}} className="absolute inset-0 h-full w-full object-contain" onError={onError}/>}</div>;
 }

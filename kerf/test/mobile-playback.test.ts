@@ -21,21 +21,25 @@ test('classic MSE retains bounded controlled playback; managed streaming remains
 
 test('a ready source attaches when its conditional player arrives, and reattaches to a replacement',()=>{
   class NativeVideo extends EventTarget {
-    dataset:Record<string,string>={};src='';paused=true;readyState=0;currentTime=0;
+    dataset:Record<string,string>={};src='';paused=true;readyState=0;currentTime=0;autoplay=false;
     width=640;height=640;clientWidth=640;clientHeight=640;
     pause(){this.paused=true;}
+    play(){this.paused=false;return Promise.resolve();}
     load(){}
     removeAttribute(name:string){if(name==='src')this.src='';}
   }
   const descriptor=Object.getOwnPropertyDescriptor(globalThis,'HTMLVideoElement');
   Object.defineProperty(globalThis,'HTMLVideoElement',{configurable:true,value:NativeVideo});
-  const ref=videoRef(),source=state('/__qa/first.mp4');
+  const ref=videoRef(),source=state('/__qa/first.mp4'),wanted=state(true);
   let dispose=()=>{};
   try{
-    createRoot(cleanup=>{dispose=cleanup;useAdaptiveVideo(ref,()=>source.value,()=>false);});
+    createRoot(cleanup=>{dispose=cleanup;useAdaptiveVideo(ref,()=>source.value,()=>wanted.value);});
     flush();
     const first=new NativeVideo();ref.current=first as unknown as VideoHandle;flush();
     assert.equal(first.src,'/__qa/first.mp4','A source becoming ready before the element must not leave an empty player');
+    assert.equal(first.autoplay,true,'Native autoplay must be set before source attachment');
+    wanted.value=false;flush();assert.equal(first.autoplay,false,'Native autoplay must obey the viewport/manual policy');
+    wanted.value=true;flush();assert.equal(first.autoplay,true);
     source.value='/__qa/second.mp4';flush();
     assert.equal(first.src,'/__qa/second.mp4');
     const replacement=new NativeVideo();ref.current=replacement as unknown as VideoHandle;flush();

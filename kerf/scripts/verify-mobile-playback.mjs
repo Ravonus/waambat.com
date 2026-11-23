@@ -7,12 +7,12 @@ const origin = process.argv[2] || 'http://localhost:3287';
 const results = [];
 const browser = await webkit.launch({headless: true});
 try {
-  for (const mode of ['managed-cold-start', 'blocked-autoplay']) {
+  for (const mode of ['managed-cold-start', 'pending-posters', 'blocked-autoplay']) {
     const context = await browser.newContext({
       viewport: {width: 390, height: 844}, deviceScaleFactor: 3,
       isMobile: true, hasTouch: true, reducedMotion: 'no-preference',
     });
-    const page = await context.newPage(), errors = [];
+    const page = await context.newPage(), errors = [], pendingPosters = [];
     page.on('pageerror', error => errors.push(error.message));
     // Production headers stay intact. Local HTTP has no TLS endpoint for WebKit's
     // upgrade-insecure-requests; remove just that directive on local documents.
@@ -22,6 +22,9 @@ try {
       if (headers['content-security-policy']) headers['content-security-policy'] =
         headers['content-security-policy'].replace(/;?\s*upgrade-insecure-requests/g, '');
       await route.fulfill({response, headers});
+    });
+    if (mode === 'pending-posters') await page.route('**/display-previews/**', route => {
+      pendingPosters.push(route);
     });
     await page.addInitScript(mode => {
       Object.defineProperty(window, 'MediaSource', {value: undefined, configurable: true});
@@ -37,9 +40,15 @@ try {
           }
         }
         Object.defineProperty(window, 'ManagedMediaSource', {value: ColdSource, configurable: true});
-      } else {
+      } else if (mode === 'blocked-autoplay') {
         const allowed = new WeakSet(), play = HTMLMediaElement.prototype.play;
+        const autoplay = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'autoplay');
         const scope = node => node?.closest('[data-hero], article.original-artwork');
+        // Block the native autoplay hint too, so the test models a browser policy
+        // restriction rather than merely replacing the app's scripted play calls.
+        Object.defineProperty(HTMLMediaElement.prototype, 'autoplay', {...autoplay, set(value) {
+          autoplay.set.call(this, value && allowed.has(scope(this)));
+        }});
         addEventListener('pointerdown', event => {
           const target = scope(event.target); if (target) allowed.add(target);
         }, true);
@@ -56,7 +65,8 @@ try {
     const read = selector => page.locator(selector).first().evaluate(video => ({
       source: video.currentSrc, delivery: video.dataset.delivery,
       time: video.currentTime, paused: video.paused, ready: video.readyState,
-      width: video.videoWidth, height: video.videoHeight, muted: video.muted, inline: video.playsInline,
+      width: video.videoWidth, height: video.videoHeight, muted: video.muted,
+      defaultMuted: video.defaultMuted, inline: video.playsInline, autoplay: video.autoplay,
     }));
     const check = async (selector, container) => {
       await page.locator(selector).first().waitFor();
@@ -74,6 +84,8 @@ try {
       assert.ok(state.source.endsWith('.m3u8'));
       assert.ok(state.width >= 640 && state.height >= 640, 'Keep the sharp rendition');
       assert.ok(state.muted && state.inline);
+      assert.ok(state.defaultMuted);
+      if (mode !== 'blocked-autoplay') assert.ok(state.autoplay);
       return state;
     };
     const hero = await check('[data-hero] video', '[data-hero]');
@@ -82,7 +94,9 @@ try {
     const counters = await page.evaluate(() => window.__mobilePlayback);
     assert.equal(counters.managed, 0, 'Managed-only iPhones must bypass the stalled JS transport');
     assert.deepEqual(errors, []);
-    results.push({mode, hero, gallery, counters});
+    if (mode === 'pending-posters') assert.ok(pendingPosters.length > 0);
+    results.push({mode, hero, gallery, counters, pendingPosters: pendingPosters.length});
+    await Promise.allSettled(pendingPosters.map(route => route.abort()));
     await context.unrouteAll({behavior: 'ignoreErrors'});
     await context.close();
   }

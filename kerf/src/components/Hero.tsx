@@ -38,7 +38,6 @@ export default function Hero({ section, item, preview = false, }: {
     const mobile = useMediaPreference(PORTRAIT_PHONE);
     const sourceReady = derived(() => mobile.value !== undefined);
     const playing = state(false);
-    const posterReadyFor = state("");
     const loadedPoster = state<string|undefined>(undefined);
     const shown = state(false);
     const error = state(false);
@@ -67,7 +66,7 @@ export default function Hero({ section, item, preview = false, }: {
     const source = derived(() => portrait.value ? item.mobileVideoSrc : item.videoSrc);
     // The ending loop follows the video it was rendered with (portrait with portrait).
     const loopSource = derived(() => portrait.value ? item.mobileLoopSrc : item.loopSrc);
-    const introQuality = useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===source.value && !error.value ? source.value : undefined, () => wanted.value && phase.value === "intro");
+    const introQuality = useAdaptiveVideo(video, () => requested.value && sourceReady.value && !error.value ? source.value : undefined, () => wanted.value && phase.value === "intro");
     const loopQuality = useAdaptiveVideo(endless, () => requested.value && sourceReady.value && !error.value && loopWanted.value ? loopSource.value : undefined, () => wanted.value && phase.value === "loop", () => wanted.value && loopWanted.value);
     // A poster-only banner is a legitimate choice; it just has nothing to play.
     const playable = derived(() => !!source.value);
@@ -92,8 +91,8 @@ export default function Hero({ section, item, preview = false, }: {
       <div ref={node => {
             frame.current = node;
         }} className={styles.frame}>
-        <VideoStill source={item.videoSrc||""} mobileSource={item.mobileVideoSrc} media={PORTRAIT_PHONE} fallback={adaptivePoster(item.poster)} mobileFallback={item.mobilePoster?adaptivePoster(item.mobilePoster):undefined} alt={item.title} priority concealed={(shown.value&&introQuality.sharp.value)||(loopShown.value&&loopQuality.sharp.value)} className={styles.poster} sizes={heroPosterSizes(item)} onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
-        {playable.value && requested.value && sourceReady.value && posterReadyFor.value===source.value && !error.value && (<OptimizedVideo source={source.value ?? ""} width={1920} height={1080} ref={node => {
+        <VideoStill source={item.videoSrc||""} mobileSource={item.mobileVideoSrc} media={PORTRAIT_PHONE} fallback={adaptivePoster(item.poster)} mobileFallback={item.mobilePoster?adaptivePoster(item.mobilePoster):undefined} alt={item.title} priority concealed={(shown.value&&introQuality.sharp.value)||(loopShown.value&&loopQuality.sharp.value)} className={styles.poster} sizes={heroPosterSizes(item)} onReady={(_,poster)=>{loadedPoster.value=poster;}}/>
+        {playable.value && requested.value && sourceReady.value && !error.value && (<OptimizedVideo source={source.value ?? ""} width={1920} height={1080} ref={node => {
                 video.current = node;
             }} poster={loadedPoster.value} muted loop={!loopSource.value} playsInline preload="none" aria-label={item.title} aria-describedby={`hero-description-${item.id}`} data-shown="true" data-done={loopShown.value&&loopQuality.sharp.value?'true':undefined} className={styles.video} onLoadedData={() => {
                 if (lifecycle.desired.current && phase.value === "intro")

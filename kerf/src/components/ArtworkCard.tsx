@@ -55,7 +55,6 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     const mobile = derived(() => smallScreen.value || savingData.value);
     const sourceReady = derived(() => smallScreen.value !== undefined);
     const shownSource = state("");
-    const posterReadyFor = state("");
     const loadedPoster = state<string|undefined>(undefined);
     const error = state(false);
     const intrinsic = state<{
@@ -66,7 +65,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     const selectedSource = derived(() => mobile.value && artwork.mobileVideoSrc
         ? artwork.mobileVideoSrc
         : artwork.previewSrc || artwork.videoSrc);
-    const quality = useAdaptiveVideo(video, () => requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value ? selectedSource.value : undefined, () => wanted.value,()=>lifecycle.preparing.value);
+    const quality = useAdaptiveVideo(video, () => requested.value && sourceReady.value && !error.value ? selectedSource.value : undefined, () => wanted.value,()=>lifecycle.preparing.value);
     const mediaRatio = derived(() => ratio ??
         (naturalAspect ? adaptivePreview(artwork.videoSrc)?.ratio : undefined) ??
         (naturalAspect && intrinsic.value?.src === selectedSource.value
@@ -91,8 +90,8 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
         }
     };
     const renderMedia = () => <>
-            <Poster artwork={artwork} priority={priority} concealed={shownSource.value===selectedSource.value&&quality.sharp.value&&!error.value} videoSource={selectedSource.value} onReady={(source,poster)=>{loadedPoster.value=poster;posterReadyFor.value=source;}}/>
-            {artwork.kind === "video" && requested.value && sourceReady.value && posterReadyFor.value===selectedSource.value && !error.value && (<OptimizedVideo source={selectedSource.value ?? ""} width={960} height={960} poster={loadedPoster.value} key={selectedSource.value} ref={node => {
+            <Poster artwork={artwork} priority={priority} concealed={shownSource.value===selectedSource.value&&quality.sharp.value&&!error.value} videoSource={selectedSource.value} onReady={(_,poster)=>{loadedPoster.value=poster;}}/>
+            {artwork.kind === "video" && requested.value && sourceReady.value && !error.value && (<OptimizedVideo source={selectedSource.value ?? ""} width={960} height={960} poster={loadedPoster.value} key={selectedSource.value} ref={node => {
                     video.current = node;
                 }} muted={muted.value} loop={!trailer} controls={trailer} playsInline preload="none" onLoadedMetadata={(event) => {
                     const element = event.currentTarget;

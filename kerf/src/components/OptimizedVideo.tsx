@@ -15,7 +15,12 @@ export default function OptimizedVideo(props:Props){
  return <>{asset.value?.frames&&!props.controls ? <FrameVideo key={props.source} {...props}/> : <NativeVideo {...props}/>}</>;
 }
 function NativeVideo({source,ref,...props}:Props){
- return <video {...props} width={props.width} height={props.height} poster={props.poster} ref={node=>ref?.(node)}/>;
+ return <video {...props} width={props.width} height={props.height} poster={props.poster} ref={node=>{
+  // iOS checks the native playback attributes when the source is attached.
+  node.defaultMuted=node.muted=!!props.muted;
+  node.playsInline=!!props.playsInline;
+  ref?.(node);
+ }}/>;
 }
 function FrameVideo(props:Props){
  const asset=untrack(()=>playbackAsset(props.source)!);

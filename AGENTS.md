@@ -220,10 +220,14 @@ records stay in build/server modules. Do not import the full `display-previews.j
 or `first-frames.json` into a browser component; they substantially increase the
 critical module graph. Source-frame provenance is in `source-frame.server.ts`.
 
-Kerf Start owns priority-artwork startup: code is prefetched while the sharp SSR
-image loads, then hydration follows its first paint. Captured interaction wakes
-startup immediately and a failed-resource deadline prevents a blocked app. Keep
-this shared behavior; do not add an app-owned hydration delay.
+Kerf Start loads its native module entry independently of the sharp SSR picture.
+Never gate hydration, player mounting or source attachment on poster load/decode,
+paint, a timer or visitor interaction. Set native muted/inline attributes before
+attachment and keep native autoplay tied to the viewport/manual-pause policy.
+Keep the sharp still visible until the selected video frame is presented. The
+mobile playback regression holds poster responses pending and requires no-click
+hero and gallery playback; blocked autoplay is checked separately with Play.
+Do not reintroduce image-dependent startup or an app-owned hydration delay.
 
 Retained archive thumbnails also use Kerf's `observeMediaViewport`. Native image
 lazy loading alone fetches several screens ahead and competes with the first
