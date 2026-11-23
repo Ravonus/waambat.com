@@ -157,10 +157,23 @@ entries hidden by version 1; it never reapplies after later artist edits.
 Start legacy-gallery warming from `NavigationArrival` after the committed route mounts.
 An optimistic pathname change can still have the outgoing DOM; scanning it warms the
 wrong page. Keep using Kerf's shared bounded queue and `mediaHlsConfig`.
-Use `supportsMediaStreaming` before importing the controlled HLS player; native HLS
-is a fallback because it ignores the gallery's short buffer limits. Native-only
-browsers skip that import. Intermediate attachment failures must advance
+Use `preferNativeHls` before importing the controlled HLS player. Managed-only
+iPhones use the pinned native playlist: hls.js 1.6.15 can stall on their cold start
+without a fatal error. Classic MediaSource browsers retain controlled buffering;
+native-only browsers also skip that import. Do not equate supported managed streaming
+with the preferred transport. Intermediate attachment failures must advance
 through the pinned-playlist/native-file fallbacks before showing an unavailable message.
+An explicit Play must retry a blocked autoplay synchronously in the user gesture,
+even when desired playback was already true and `readyState` is still zero. Preserve
+visibility, manual pause, reduced motion, Save Data, menu and foreground gates. Verify
+fresh-load hero and gallery playback, blocked-autoplay recovery, and return navigation;
+desktop WebKit checks are not evidence of playback on a physical iPhone.
+Run `node scripts/verify-mobile-playback.mjs <origin>` from `kerf/` with Playwright
+and its WebKit browser installed (`PLAYWRIGHT_MODULE` may name an external module).
+It checks a stalled managed-source startup and separately blocks autoplay on each
+artwork until its own Play gesture. Keep its decoded-frame assertions; the report
+is `.kerf/audit/mobile-playback.json`. Repeat against the deployed origin with its
+real security headers before asking for a physical iPhone check.
 
 Run `npm test`, `npm run typecheck`, `kerf check --json`, `npm run build`, then
 `npm run verify:built` in `kerf/`. The current SSR build's automatic static audit finds

@@ -46,7 +46,7 @@ export default function ArtworkCard({ artwork, showCaption = true, aspect = "squ
     const lifecycle = useViewportPlayback(container, () => artwork.kind !== "video" || suspended, (wanted) => {
         if (!wanted)
             video.current?.pause();
-        else if (video.current?.readyState)
+        else if (video.current)
             void video.current.play().catch(() => writeBox(playing, false));
     }, 0.5);
     const { requested, wanted } = lifecycle;

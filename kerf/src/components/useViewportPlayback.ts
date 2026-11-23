@@ -23,5 +23,10 @@ export function useViewportPlayback(container:RefObject<HTMLElement>,disabled:bo
   document.addEventListener('visibilitychange',visibility);motion.addEventListener('change',preferences);connection?.addEventListener('change',preferences);
   onCleanup(()=>{desired.current=false;onChange?.(false);stop();document.removeEventListener('visibilitychange',visibility);motion.removeEventListener('change',preferences);connection?.removeEventListener('change',preferences);});
  });
- return {requested,wanted,preparing,desired,play(){manual.value=true;paused.value=false;},pause(){paused.value=true;manual.value=false;}};
+ return {requested,wanted,preparing,desired,play(){
+  // A rejected autoplay leaves wanted=true. Retry synchronously in the visitor's
+  // gesture even when the desired state did not change; keep all visibility gates.
+  const retry=desired.current;manual.value=true;paused.value=false;
+  if(sync()&&retry)onChange?.(true);
+ },pause(){paused.value=true;manual.value=false;}};
 }

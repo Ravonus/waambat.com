@@ -38,7 +38,7 @@ export default function OrdinalPiece({ artwork, priority = false, }: {
     const lifecycle = useViewportPlayback(container, () => !loop.value || shown.value, (wanted) => {
         if (!wanted)
             video.current?.pause();
-        else if (video.current?.readyState)
+        else if (video.current)
             void video.current.play().catch(() => writeBox(playing, false));
     });
     const { wanted } = lifecycle;

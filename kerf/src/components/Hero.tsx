@@ -51,7 +51,7 @@ export default function Hero({ section, item, preview = false, }: {
         const element = activeVideo();
         if (!wanted)
             element?.pause();
-        else if (element?.readyState)
+        else if (element)
             void element.play().catch(() => writeBox(playing, false));
     });
     const { requested, wanted } = lifecycle;

@@ -5,7 +5,7 @@ import type {VideoHandle} from './OptimizedVideo';
 import type {RefObject} from './useViewportPlayback';
 import {localVideo} from '#/lib/local-media';
 import {adaptiveStream} from '#/lib/adaptive-media';
-import {adaptiveVideoConfig} from '#/lib/adaptive-video-config';
+import {adaptiveVideoConfig, preferNativeHls} from '#/lib/adaptive-video-config';
 import {videoRevealTime} from '#/lib/first-frame';
 
 /** Keep a sharp still until display-quality video is ready; pauses never reset its rendition. */
@@ -56,9 +56,9 @@ export function useAdaptiveVideo(ref:RefObject<VideoHandle>,source:()=>string|un
   video.addEventListener('error',onNativeError,true);
   void (async()=>{
    if(!stream){fallback();return;}
-   // Native HLS ignores the gallery's buffer limits. Prefer a controlled stream;
-   // native-only browsers retain the same sharp single-rendition fallback.
-   if(!supportsMediaStreaming()){void nativeFallback();return;}
+   // Keep controlled buffering with classic MSE. Managed-only iPhones use the
+   // pinned native playlist, avoiding a player cold-start stall with no fatal error.
+   if(preferNativeHls(video)||!supportsMediaStreaming()){void nativeFallback();return;}
    try{
     const {default:Player}=await import('hls.js/light');
     if(cancelled)return;
